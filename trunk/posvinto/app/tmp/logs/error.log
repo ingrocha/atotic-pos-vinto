@@ -1,0 +1,1117 @@
+2012-05-22 13:28:17 Error: [MissingControllerException] Controller class ClientesController could not be found.
+#0 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-22 13:30:38 Error: [MissingActionException] Action ClientesController::index() could not be found.
+#0 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-05-22 13:38:54 Error: [MissingActionException] Action ClientesController::index() could not be found.
+#0 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-05-22 13:40:15 Error: [MissingViewException] View file "D:\xampp\htdocs\sivinto\app\View\Clientes\index.ctp" is missing.
+#0 D:\xampp\htdocs\sivinto\lib\Cake\View\View.php(460): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sivinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 15:59:38 Error: [MissingActionException] Action ClientesController::nuevo() could not be found.
+#0 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-05-22 16:00:18 Error: [MissingViewException] View file "D:\xampp\htdocs\sivinto\app\View\Clientes\nuevo.ctp" is missing.
+#0 D:\xampp\htdocs\sivinto\lib\Cake\View\View.php(460): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sivinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 16:25:17 Error: [MissingActionException] Action ClientesController::modificar() could not be found.
+#0 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-05-22 16:26:03 Error: [MissingViewException] View file "D:\xampp\htdocs\sivinto\app\View\Clientes\modificar.ctp" is missing.
+#0 D:\xampp\htdocs\sivinto\lib\Cake\View\View.php(460): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sivinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 16:32:39 Error: [MissingActionException] Action ClientesController::eliminar() could not be found.
+#0 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-05-22 16:34:49 Error: [MissingViewException] View file "D:\xampp\htdocs\sivinto\app\View\Clientes\eliminar.ctp" is missing.
+#0 D:\xampp\htdocs\sivinto\lib\Cake\View\View.php(460): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sivinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sivinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sivinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 17:02:42 Error: [MissingControllerException] Controller class ClienteController could not be found.
+#0 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-22 17:02:58 Error: [MissingConnectionException] Database connection "SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)" is missing, or could not be created.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Datasource/DboSource.php(245): Mysql->connect()
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3382): ConnectionManager::getDataSource('default')
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(1083): Model->setDataSource('default')
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('clientes')
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#6 /Applications/MAMP/htdocs/sisvinto/app/Controller/ClientesController.php(11): Model->find('all')
+#7 [internal function]: ClientesController->index()
+#8 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#9 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#11 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-05-22 17:04:33 Error: [MissingConnectionException] Database connection "SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)" is missing, or could not be created.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Datasource/DboSource.php(245): Mysql->connect()
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3382): ConnectionManager::getDataSource('default')
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(1083): Model->setDataSource('default')
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('clientes')
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#6 /Applications/MAMP/htdocs/sisvinto/app/Controller/ClientesController.php(11): Model->find('all')
+#7 [internal function]: ClientesController->index()
+#8 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#9 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#11 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-05-22 17:05:26 Error: [MissingConnectionException] Database connection "SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)" is missing, or could not be created.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Datasource/DboSource.php(245): Mysql->connect()
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3382): ConnectionManager::getDataSource('default')
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(1083): Model->setDataSource('default')
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('clientes')
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#6 /Applications/MAMP/htdocs/sisvinto/app/Controller/ClientesController.php(11): Model->find('all')
+#7 [internal function]: ClientesController->index()
+#8 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#9 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#11 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-05-22 17:05:28 Error: [MissingConnectionException] Database connection "SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)" is missing, or could not be created.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Datasource/DboSource.php(245): Mysql->connect()
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3382): ConnectionManager::getDataSource('default')
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(1083): Model->setDataSource('default')
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('clientes')
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#6 /Applications/MAMP/htdocs/sisvinto/app/Controller/ClientesController.php(11): Model->find('all')
+#7 [internal function]: ClientesController->index()
+#8 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#9 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#11 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-05-22 17:06:00 Error: [MissingConnectionException] Database connection "SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)" is missing, or could not be created.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Datasource/DboSource.php(245): Mysql->connect()
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3382): ConnectionManager::getDataSource('default')
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(1083): Model->setDataSource('default')
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('clientes')
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#6 /Applications/MAMP/htdocs/sisvinto/app/Controller/ClientesController.php(11): Model->find('all')
+#7 [internal function]: ClientesController->index()
+#8 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#9 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#11 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-05-22 17:06:01 Error: [MissingConnectionException] Database connection "SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)" is missing, or could not be created.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Datasource/DboSource.php(245): Mysql->connect()
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3382): ConnectionManager::getDataSource('default')
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(1083): Model->setDataSource('default')
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('clientes')
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#6 /Applications/MAMP/htdocs/sisvinto/app/Controller/ClientesController.php(11): Model->find('all')
+#7 [internal function]: ClientesController->index()
+#8 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#9 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#11 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-05-22 17:06:32 Error: [MissingConnectionException] Database connection "SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)" is missing, or could not be created.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Datasource/DboSource.php(245): Mysql->connect()
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3382): ConnectionManager::getDataSource('default')
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(1083): Model->setDataSource('default')
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('clientes')
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#6 /Applications/MAMP/htdocs/sisvinto/app/Controller/ClientesController.php(11): Model->find('all')
+#7 [internal function]: ClientesController->index()
+#8 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#9 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#11 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-05-22 17:37:00 Error: [MissingControllerException] Controller class ProductosController could not be found.
+#0 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-22 17:39:58 Error: [MissingControllerException] Controller class ProductosController could not be found.
+#0 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-22 17:40:01 Error: [MissingControllerException] Controller class ProductosController could not be found.
+#0 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-22 17:43:10 Error: [MissingViewException] View file "/Applications/MAMP/htdocs/sisvinto/app/View/Productos/index.ctp" is missing.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest), Object(CakeResponse))
+#4 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 17:43:10 Error: [MissingViewException] View file "/Applications/MAMP/htdocs/sisvinto/app/View/Productos/index.ctp" is missing.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest), Object(CakeResponse))
+#4 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 17:43:10 Error: [MissingViewException] View file "/Applications/MAMP/htdocs/sisvinto/app/View/Productos/index.ctp" is missing.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest), Object(CakeResponse))
+#4 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 17:43:11 Error: [MissingViewException] View file "/Applications/MAMP/htdocs/sisvinto/app/View/Productos/index.ctp" is missing.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest), Object(CakeResponse))
+#4 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 17:43:17 Error: [MissingViewException] View file "/Applications/MAMP/htdocs/sisvinto/app/View/Productos/index.ctp" is missing.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest), Object(CakeResponse))
+#4 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 17:55:10 Error: [MissingViewException] View file "/Applications/MAMP/htdocs/sisvinto/app/View/Productos/index.ctp" is missing.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest), Object(CakeResponse))
+#4 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-22 19:13:09 Error: [MissingActionException] Action ClientesController::productos() could not be found.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-05-22 22:55:27 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-22 23:04:45 Error: [MissingControllerException] Controller class TiposproductoController could not be found.
+#0 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-22 23:04:51 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-22 23:05:37 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-22 23:08:46 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-22 23:21:23 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-22 23:21:29 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-22 23:22:57 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-22 23:22:59 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-22 23:23:49 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-22 23:24:49 Error: [MissingTableException] Table tiposroductos for model Tiposproducto was not found in datasource default.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(3408): Model->setSource('tiposroductos')
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Model/Model.php(2663): Model->getDataSource()
+#2 /Applications/MAMP/htdocs/sisvinto/app/Controller/TiposproductosController.php(11): Model->find('all')
+#3 [internal function]: TiposproductosController->index()
+#4 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(TiposproductosController), Array)
+#5 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#7 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-05-23 10:17:28 Error: [MissingViewException] View file "/Applications/MAMP/htdocs/sisvinto/app/View/Tiposproductos/nuevo.ctp" is missing.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#4 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-23 10:19:59 Error: [MissingViewException] View file "/Applications/MAMP/htdocs/sisvinto/app/View/Tiposproductos/nuevo.ctp" is missing.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(TiposproductosController), Object(CakeRequest), Object(CakeResponse))
+#4 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-23 11:19:31 Error: [MissingViewException] View file "/Applications/MAMP/htdocs/sisvinto/app/View/Usuarios/index.ctp" is missing.
+#0 /Applications/MAMP/htdocs/sisvinto/lib/Cake/View/View.php(460): View->_getViewFileName(NULL)
+#1 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /Applications/MAMP/htdocs/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#4 /Applications/MAMP/htdocs/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-05-23 18:44:31 Error: [MissingControllerException] Controller class ProductolsController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-23 18:54:17 Error: [MissingTableException] Table tipousuarios for model Tipousuario was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3408): Model->setSource('tipousuarios')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1044): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2663): DboSource->read(Object(Usuario), Array)
+#3 D:\xampp\htdocs\sisvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#4 [internal function]: UsuariosController->index()
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2012-05-23 18:54:56 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Tiposusuario.usuario_id' in 'on clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Usuario...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Usuario...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Usuario...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2663): DboSource->read(Object(Usuario), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#6 [internal function]: UsuariosController->index()
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-05-23 18:55:47 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Tiposusuario.usuario_id' in 'on clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Usuario...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Usuario...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Usuario...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2663): DboSource->read(Object(Usuario), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#6 [internal function]: UsuariosController->index()
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-05-23 18:56:26 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Tiposusuario.usuario_id' in 'on clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Usuario...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Usuario...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Usuario...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2663): DboSource->read(Object(Usuario), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#6 [internal function]: UsuariosController->index()
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-05-23 18:56:29 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Tiposusuario.usuario_id' in 'on clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Usuario...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Usuario...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Usuario...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2663): DboSource->read(Object(Usuario), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#6 [internal function]: UsuariosController->index()
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-05-23 19:01:03 Error: [MissingTableException] Table tipousuarios for model Tipousuario was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3408): Model->setSource('tipousuarios')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1044): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2663): DboSource->read(Object(Usuario), Array)
+#3 D:\xampp\htdocs\sisvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#4 [internal function]: UsuariosController->index()
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2012-05-23 19:02:19 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Usuario.tiposusuario_id' in 'on clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Usuario...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Usuario...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Usuario...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2663): DboSource->read(Object(Usuario), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#6 [internal function]: UsuariosController->index()
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-05-23 19:02:49 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Usuario.tiposusuario_id' in 'on clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Usuario...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Usuario...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Usuario...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2663): DboSource->read(Object(Usuario), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#6 [internal function]: UsuariosController->index()
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-05-29 17:53:19 Error: [MissingControllerException] Controller class PlatosController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-30 16:37:24 Error: [MissingControllerException] Controller class PlatosController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-02 12:59:14 Error: [MissingHelperException] Helper class JavascripHelper could not be found.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(852): HelperCollection->load('Javascrip', Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#5 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-06-02 13:51:12 Error: [MissingTableException] Table platos for model Platos was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3443): Model->setSource('platos')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(39): Model->find('all')
+#3 [internal function]: PedidosController->pedidomoso()
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#7 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-06-02 14:23:59 Error: [MissingTableException] Table platos for model Platos was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3443): Model->setSource('platos')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(39): Model->find('all')
+#3 [internal function]: PedidosController->pedidomoso()
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#7 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-06-02 14:24:02 Error: [MissingTableException] Table platos for model Platos was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3443): Model->setSource('platos')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(39): Model->find('all')
+#3 [internal function]: PedidosController->pedidomoso()
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#7 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-06-02 14:35:27 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-02 14:35:49 Error: [MissingActionException] Action PedidosController::ajax() could not be found.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-06-02 14:36:30 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\ajaxlistado.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-02 18:01:37 Error: [MissingControllerException] Controller class PedidosController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-02 18:45:37 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\restarproducto.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-02 18:45:58 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\restarproducto.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-02 18:46:00 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\restarproducto.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-03 19:37:23 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Usuarios\login.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-03 19:55:08 Error: [MissingControllerException] Controller class UsersController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-04 12:10:23 Error: [MissingControllerException] Controller class UsersController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-04 12:10:28 Error: [MissingControllerException] Controller class UsersController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-04 12:10:34 Error: [MissingControllerException] Controller class UsersController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-04 12:11:37 Error: [MissingControllerException] Controller class UsersController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-04 12:11:43 Error: [MissingTableException] Table platos for model Platos was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3443): Model->setSource('platos')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(1292): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\View\Helper\FormHelper.php(196): Model->schema()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\View\Helper\FormHelper.php(450): FormHelper->_introspectModel('Platos', 'fields')
+#4 D:\xampp\htdocs\sisvinto\app\View\Pedidos\verificamoso.ctp(2): FormHelper->create(NULL, Array)
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(910): include('D:\xampp\htdocs...')
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(874): View->_evaluate('D:\xampp\htdocs...', Array)
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(465): View->_render('D:\xampp\htdocs...')
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#10 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#11 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-06-04 12:19:29 Error: [MissingActionException] Action ProductosController::verificamoso() could not be found.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-06-04 12:25:14 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Usuario.-1' in 'field list'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Usuario...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Usuario...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Usuario...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Usuario), Array)
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(576): Model->find('first', Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(775): DboSource->query('findByNumero', Array, Object(Usuario))
+#7 [internal function]: Model->__call('findByNumero', Array)
+#8 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(139): Usuario->findByNumero('1111', Array)
+#9 [internal function]: PedidosController->verificamoso()
+#10 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#11 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#12 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#13 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2012-06-04 12:34:48 Error: [MissingActionException] Action PedidosController::pedidosmoso() could not be found.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-06-04 12:47:18 Error: [MissingActionException] Action PedidosController::pedidos() could not be found.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-06-04 12:47:41 Error: [MissingActionException] Action PedidosController::pedidos() could not be found.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-06-04 12:48:09 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'numero' in where clause is ambiguous
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Pedido`...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Pedido`...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Pedido`...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Pedido), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(196): Model->find('all', Array)
+#6 [internal function]: PedidosController->ajaxlistado('1', '1', 'sumar')
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-04 12:59:52 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'findLastId' at line 1
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('findLastId', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('findLastId', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('findLastId', Array, Array)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(775): DboSource->query('findLastId', Array, Object(Pedido))
+#5 [internal function]: Model->__call('findLastId', Array)
+#6 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(159): Pedido->findLastId()
+#7 [internal function]: PedidosController->ajaxlistado('1', '1', 'sumar')
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#11 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-06-04 12:59:54 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'findLastId' at line 1
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('findLastId', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('findLastId', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('findLastId', Array, Array)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(775): DboSource->query('findLastId', Array, Object(Pedido))
+#5 [internal function]: Model->__call('findLastId', Array)
+#6 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(159): Pedido->findLastId()
+#7 [internal function]: PedidosController->ajaxlistado('1', '2', 'sumar')
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#11 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-06-04 12:59:57 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'findLastId' at line 1
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('findLastId', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('findLastId', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('findLastId', Array, Array)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(775): DboSource->query('findLastId', Array, Object(Pedido))
+#5 [internal function]: Model->__call('findLastId', Array)
+#6 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(159): Pedido->findLastId()
+#7 [internal function]: PedidosController->ajaxlistado('1', '1', 'sumar')
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#11 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-06-04 12:59:59 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'findLastId' at line 1
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('findLastId', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('findLastId', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('findLastId', Array, Array)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(775): DboSource->query('findLastId', Array, Object(Pedido))
+#5 [internal function]: Model->__call('findLastId', Array)
+#6 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(159): Pedido->findLastId()
+#7 [internal function]: PedidosController->ajaxlistado('1', '1', 'sumar')
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#11 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-06-04 18:20:07 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-05 15:28:47 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pedido.producto_id' in 'field list'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Pedido`...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Pedido`...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1300): DboSource->fetchAll('SELECT `Pedido`...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1169): DboSource->fetchAssociated(Object(Producto), 'SELECT `Pedido`...', Array)
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1087): DboSource->queryAssociation(Object(Producto), Object(Pedido), 'hasMany', 'Pedido', Array, Array, true, Array, 0, Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Producto), Array)
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(576): Model->find('first', Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(775): DboSource->query('findById', Array, Object(Producto))
+#9 [internal function]: Model->__call('findById', Array)
+#10 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(186): Producto->findById('1')
+#11 [internal function]: PedidosController->ajaxlistado('1', '1', '3', 'sumar')
+#12 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#13 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#14 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#15 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2012-06-05 15:29:12 Error: [MissingControllerException] Controller class AjaxlistadoController could not be found.
+#0 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-06-05 15:29:23 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pedido.producto_id' in 'field list'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Pedido`...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Pedido`...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1300): DboSource->fetchAll('SELECT `Pedido`...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1169): DboSource->fetchAssociated(Object(Producto), 'SELECT `Pedido`...', Array)
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1087): DboSource->queryAssociation(Object(Producto), Object(Pedido), 'hasMany', 'Pedido', Array, Array, true, Array, 0, Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Producto), Array)
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(576): Model->find('first', Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(775): DboSource->query('findById', Array, Object(Producto))
+#9 [internal function]: Model->__call('findById', Array)
+#10 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(186): Producto->findById('1')
+#11 [internal function]: PedidosController->ajaxlistado('1', '1', '3', 'sumar')
+#12 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#13 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#14 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#15 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2012-06-05 15:32:12 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pedido.producto_id' in 'field list'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Pedido`...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Pedido`...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1300): DboSource->fetchAll('SELECT `Pedido`...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1169): DboSource->fetchAssociated(Object(Producto), 'SELECT `Pedido`...', Array)
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1087): DboSource->queryAssociation(Object(Producto), Object(Pedido), 'hasMany', 'Pedido', Array, Array, true, Array, 0, Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Producto), Array)
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(576): Model->find('first', Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(775): DboSource->query('findById', Array, Object(Producto))
+#9 [internal function]: Model->__call('findById', Array)
+#10 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(186): Producto->findById('1')
+#11 [internal function]: PedidosController->ajaxlistado('1', '1', '3', 'sumar')
+#12 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#13 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#14 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#15 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2012-06-05 15:43:02 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Item.usuario_id' in 'where clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Item`.`...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Item`.`...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Item`.`...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Item), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(201): Model->find('first', Array)
+#6 [internal function]: PedidosController->ajaxlistado('1', '1', '3', 'sumar')
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-05 15:43:38 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Item.usuario_id' in 'where clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Item`.`...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Item`.`...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Item`.`...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Item), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(200): Model->find('first', Array)
+#6 [internal function]: PedidosController->ajaxlistado('1', '1', '3', 'sumar')
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-08 14:11:59 Error: [MissingTableException] Table mesas for model Mesa was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3443): Model->setSource('mesas')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1044): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Pedido), Array)
+#3 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(136): Model->find('all')
+#4 [internal function]: PedidosController->mesa()
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2012-06-08 14:12:41 Error: [MissingTableException] Table mesas for model Mesa was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3443): Model->setSource('mesas')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1044): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Pedido), Array)
+#3 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(136): Model->find('all')
+#4 [internal function]: PedidosController->asignacionmesa()
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2012-06-08 14:14:08 Error: [MissingTableException] Table mesas for model Mesa was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3443): Model->setSource('mesas')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1044): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Pedido), Array)
+#3 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(136): Model->find('all')
+#4 [internal function]: PedidosController->asignacionmesa()
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2012-06-08 14:15:16 Error: [MissingTableException] Table mesas for model Mesa was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3443): Model->setSource('mesas')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1044): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Pedido), Array)
+#3 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(136): Model->find('all')
+#4 [internal function]: PedidosController->asignacionmesa()
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2012-06-08 14:15:17 Error: [MissingTableException] Table mesas for model Mesa was not found in datasource default.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(3443): Model->setSource('mesas')
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1044): Model->getDataSource()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Pedido), Array)
+#3 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(136): Model->find('all')
+#4 [internal function]: PedidosController->asignacionmesa()
+#5 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#6 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2012-06-08 14:16:03 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\asignacionmesa.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 14:16:52 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\asignacionmesa.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 14:48:39 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 14:49:39 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 14:50:21 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 15:27:17 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:00:15 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PedidosMesa' in 'where clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Pedidos...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Pedidos...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Pedidos...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(PedidosMesa), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(162): Model->find('all', Array)
+#6 [internal function]: PedidosController->asignacionmesa()
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-08 17:47:09 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:47:53 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:48:31 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:49:43 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:49:47 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:49:53 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:51:11 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:51:23 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:52:07 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 17:53:30 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\registrarpedido.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 18:00:55 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PedidosMesa.estado' in 'where clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Pedido`...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Pedido`...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Pedido`...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Pedido), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(181): Model->find('all', Array)
+#6 [internal function]: PedidosController->asignacionmesa()
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-08 18:18:49 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\entregarmesa.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-08 21:32:40 Error: [MissingConnectionException] Database connection "SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)" is missing, or could not be created.
+#0 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(245): Mysql->connect()
+#1 /var/www/sisvinto/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /var/www/sisvinto/lib/Cake/Model/Model.php(3417): ConnectionManager::getDataSource('default')
+#3 /var/www/sisvinto/lib/Cake/Model/Model.php(1083): Model->setDataSource('default')
+#4 /var/www/sisvinto/lib/Cake/Model/Model.php(3443): Model->setSource('pedidos')
+#5 /var/www/sisvinto/lib/Cake/Model/Model.php(2698): Model->getDataSource()
+#6 /var/www/sisvinto/app/Controller/PedidosController.php(226): Model->find('all', Array)
+#7 [internal function]: PedidosController->listadopedidos()
+#8 /var/www/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#9 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#11 /var/www/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-06-09 10:43:12 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Items.pedido_id' in 'where clause'
+#0 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(437): PDOStatement->execute(Array)
+#1 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(403): DboSource->_execute('SELECT `Item`.`...', Array)
+#2 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(647): DboSource->execute('SELECT `Item`.`...', Array, Array)
+#3 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(1058): DboSource->fetchAll('SELECT `Item`.`...', false)
+#4 /var/www/sisvinto/lib/Cake/Model/Model.php(2698): DboSource->read(Object(Item), Array)
+#5 /var/www/sisvinto/app/Controller/PedidosController.php(102): Model->find('all', Array)
+#6 [internal function]: PedidosController->verdetalle('7')
+#7 /var/www/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 /var/www/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-09 15:25:45 Error: [MissingViewException] View file "/var/www/sisvinto/app/View/Pedidos/listadocosina.ctp" is missing.
+#0 /var/www/sisvinto/lib/Cake/View/View.php(462): View->_getViewFileName(NULL)
+#1 /var/www/sisvinto/lib/Cake/Controller/Controller.php(959): View->render(NULL, NULL)
+#2 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(110): Controller->render()
+#3 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 /var/www/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-10 17:53:57 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC    LIMIT 1' at line 1
+#0 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(437): PDOStatement->execute(Array)
+#1 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(403): DboSource->_execute('SELECT `Pedido`...', Array)
+#2 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(647): DboSource->execute('SELECT `Pedido`...', Array, Array)
+#3 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(1058): DboSource->fetchAll('SELECT `Pedido`...', false)
+#4 /var/www/sisvinto/lib/Cake/Model/Model.php(2698): DboSource->read(Object(Pedido), Array)
+#5 /var/www/sisvinto/app/Controller/PedidosController.php(248): Model->find('first', Array)
+#6 [internal function]: PedidosController->verificamoso()
+#7 /var/www/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 /var/www/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-10 17:54:15 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC    LIMIT 1' at line 1
+#0 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(437): PDOStatement->execute(Array)
+#1 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(403): DboSource->_execute('SELECT `Pedido`...', Array)
+#2 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(647): DboSource->execute('SELECT `Pedido`...', Array, Array)
+#3 /var/www/sisvinto/lib/Cake/Model/Datasource/DboSource.php(1058): DboSource->fetchAll('SELECT `Pedido`...', false)
+#4 /var/www/sisvinto/lib/Cake/Model/Model.php(2698): DboSource->read(Object(Pedido), Array)
+#5 /var/www/sisvinto/app/Controller/PedidosController.php(248): Model->find('first', Array)
+#6 [internal function]: PedidosController->verificamoso()
+#7 /var/www/sisvinto/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 /var/www/sisvinto/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 /var/www/sisvinto/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-15 12:34:43 Error: [MissingActionException] Action FacturarController::index() could not be found.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(FacturarController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-06-15 12:34:53 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Facturar\genera.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(FacturarController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-15 12:54:34 Error: [InvalidArgumentException] Error! El valor no es correcto,  no es un numero.
+#0 D:\xampp\htdocs\sisvinto\app\Controller\FacturarController.php(17): VerhoeffComponent::calc(NULL)
+#1 [internal function]: FacturarController->genera()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(FacturarController), Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(FacturarController), Object(CakeRequest), Object(CakeResponse))
+#5 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-06-15 12:54:58 Error: [InvalidArgumentException] Error! El valor no es correcto,  no es un numero.
+#0 D:\xampp\htdocs\sisvinto\app\Controller\FacturarController.php(17): VerhoeffComponent::calc(NULL)
+#1 [internal function]: FacturarController->genera()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(FacturarController), Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(FacturarController), Object(CakeRequest), Object(CakeResponse))
+#5 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-06-15 12:55:00 Error: [InvalidArgumentException] Error! El valor no es correcto,  no es un numero.
+#0 D:\xampp\htdocs\sisvinto\app\Controller\FacturarController.php(17): VerhoeffComponent::calc(NULL)
+#1 [internal function]: FacturarController->genera()
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(FacturarController), Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(FacturarController), Object(CakeRequest), Object(CakeResponse))
+#5 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-06-18 15:38:47 Error: [MissingActionException] Action PedidosController::facturar() could not be found.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-06-20 17:11:36 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\mismesas.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-20 19:09:46 Error: [MissingViewException] View file "D:\xampp\htdocs\sisvinto\app\View\Pedidos\mismesas.ctp" is missing.
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-06-21 13:05:30 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Mmovimientosinsumo.id' in 'order clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Movimie...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Movimie...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Movimie...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Movimientosinsumo), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(360): Model->find('first', Array)
+#6 [internal function]: PedidosController->ajaxlistado('3', '1', '1', '1')
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-21 13:05:40 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Mmovimientosinsumo.id' in 'order clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Movimie...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Movimie...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Movimie...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Movimientosinsumo), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(360): Model->find('first', Array)
+#6 [internal function]: PedidosController->ajaxlistado('3', '1', '1', '1')
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-21 13:05:46 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Mmovimientosinsumo.id' in 'order clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Movimie...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Movimie...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Movimie...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Movimientosinsumo), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(360): Model->find('first', Array)
+#6 [internal function]: PedidosController->ajaxlistado('3', '1', '1', '1')
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2012-06-21 13:06:19 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Mmovimientosinsumo.id' in 'order clause'
+#0 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Movimie...', Array)
+#2 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT `Movimie...', Array, Array)
+#3 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT `Movimie...', false)
+#4 D:\xampp\htdocs\sisvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Movimientosinsumo), Array)
+#5 D:\xampp\htdocs\sisvinto\app\Controller\PedidosController.php(360): Model->find('first', Array)
+#6 [internal function]: PedidosController->ajaxlistado('3', '1', '1', '1')
+#7 D:\xampp\htdocs\sisvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#8 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 D:\xampp\htdocs\sisvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#10 D:\xampp\htdocs\sisvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
