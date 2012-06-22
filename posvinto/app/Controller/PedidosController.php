@@ -200,6 +200,7 @@ class PedidosController extends AppController {
           $this->Session->setFlash('Pedido No se Pudo registrar');
           } */
     }
+    }
 
     public function entregarmesa($id_ped = null) {
 
@@ -250,7 +251,7 @@ class PedidosController extends AppController {
     public function listadomesas($id_moso=Null){
         
         $mesas = $this->Pedido->find('all', array('conditions'=>array('Pedido.usuario_id'=>$id_moso)));
-        //debug($mesas);
+        debug($mesas);
         $this->set(compact('mesas'));
     }
     
