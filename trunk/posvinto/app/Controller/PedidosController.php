@@ -163,16 +163,54 @@ class PedidosController extends AppController {
         $this->request->data['Pedido']['mesa'] = $nueva_mesa;
         $this->request->data['Pedido']['total'] = $total;
         if ($this->Pedido->save($this->data)) {
-            /*******************************movimiento de insumos******************************************************/
-            $insumos = $this->Porcione->find('all', array('conditions'=>array('Porcione.producto_id'=>$id_prod), 'recursive'=>-1));
-                //debug($insumos);
-                foreach($insumos as $in){
-                    $movin = $this->Movimientosinsumo->find('first', array('conditions'=>array('Movimientosinsumo.insumo_id'=>$in['Porcione']['insumo_id']), 'order'=>'Movimientosinsumo.id DESC'));
-                    //debug($movin);
-                    $ingreso = $movin['Movimientosinsumo']['ingreso'];
-                    $this->Movimientosinsumo->create();
-                    
-            /*******************************fin movimiento de insumos******************************************************/
+            /******************************************registro y actualizacion del moviemiento de items*********/
+            //debug($pedido);exit;
+            $items = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$pedido), 'order'=>array('Item.producto_id ASC'),'recursive'=>-1));
+            //debug($items);exit;
+            $insumo = array();
+            $productos = array();
+            $i=0;
+            foreach($items as $produ){
+            $productosids[$i] = $produ['Item']['producto_id'];
+            $i++;
+            }
+            //debug($productosids);
+            $porciones = $this->Porcione->find('all', array('conditions'=>array('Porcione.producto_id'=>$productosids), 'order'=>array('Porcione.producto_id ASC')));
+            //debug($porciones);
+            $this->data = '';
+            foreach($items as $producto){
+                foreach($porciones as $porcionitem){
+                  
+                        $cantidad = $producto['Item']['cantidad'];
+                        $movimiento = $this->Movimientosinsumo->find('first', array( 'conditions'=>array('Movimientosinsumo.insumo_id'=>$porcionitem['Porcione']['insumo_id']), 'order'=>array('Movimientosinsumo.id DESC')));
+                        //debug($movimiento);exit;
+                        $fecha = date('Y-m-d');
+                        $cantidadproducto = $producto['Item']['cantidad'];
+                        $cantidad = $cantidadproducto * $porcionitem['Porcione']['cantidad'];
+                        
+                        if($movimiento['Movimientosinsumo']['fecharegistro'] == $fecha):
+                        $this->request->data['Movimientosinsumo']['insumo_id']= $porcionitem['Porcione']['insumo_id'];
+                        $this->request->data['Movimientosinsumo']['ingreso']=$movimiento['Movimientosinsumo']['ingreso'];
+                        $this->request->data['Movimientosinsumo']['salida']=$movimiento['Movimientosinsumo']['salida']+ $cantidad;
+                        $this->request->data['Movimientosinsumo']['total']=$movimiento['Movimientosinsumo']['total'] - $cantidad;
+                        
+                        $this->request->data['Movimientosinsumo']['fecharegistro']=$fecha;                        
+                        
+                        else:
+                        $this->request->data['Movimientosinsumo']['insumo_id']= $porcionitem['Porcione']['insumo_id'];
+                        $this->request->data['Movimientosinsumo']['ingreso']=0;
+                        $this->request->data['Movimientosinsumo']['salida']=$cantidad;
+                        $this->request->data['Movimientosinsumo']['total']=$movimiento['Movimientosinsumo']['total'] - $cantidad;
+                        
+                        $this->request->data['Movimientosinsumo']['fecharegistro']=$fecha;
+                        endif;
+                        //debug($this->data);exit;
+                        $this->Movimientosinsumo->create();
+                        $this->Movimientosinsumo->save($this->data);
+                }
+            }
+            
+            /*****************************************fin registro movieminto************************************/
             $this->Session->setFlash('Pedido Registrado');
             $this->redirect(array('action' => 'listadopedidos'));
         }
@@ -385,3 +423,4 @@ class PedidosController extends AppController {
     }
 
 }
+?>
