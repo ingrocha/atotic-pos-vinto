@@ -237,8 +237,7 @@ class PedidosController extends AppController {
           }else{
           $this->Session->setFlash('Pedido No se Pudo registrar');
           } */
-    }
-    }
+    }    
 
     public function entregarmesa($id_ped = null) {
 
