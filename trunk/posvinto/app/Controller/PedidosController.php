@@ -281,15 +281,22 @@ class PedidosController extends AppController {
             }
                         
         }else{
-            $this->Session->setFlash("No existen datos");    
+            //$this->Session->setFlash("No existen datos");    
         }    
     }
     
     public function listadomesas($id_moso=Null){
         
-        $mesas = $this->Pedido->find('all', array('conditions'=>array('Pedido.usuario_id'=>$id_moso)));
-        debug($mesas);
+        $hoy = date('Y-m-d');
+        App::uses('CakeTime', 'Utility');
+        $dia = CakeTime::dayAsSql($hoy, 'fecha');        
+        $mesas = $this->Pedido->find('all', array('conditions'=>array('Pedido.usuario_id'=>$id_moso, $dia)));
+        //debug($mesas);
         $this->set(compact('mesas'));
+    }
+    
+    public function detallemimesa(){
+        
     }
     
     public function ingreso(){
