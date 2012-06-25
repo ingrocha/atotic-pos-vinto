@@ -15,11 +15,13 @@ class PedidosController extends AppController {
         'Form',
         'Html'
     );
+    
     public $components = array('Session');
     public $uses = array('Usuario', 'Producto', 'Pedido', 'Categoria', 'Item', 'PedidosMesa', 'Porcione', 'Movimientosinsumo');
     public $layout = 'publico';
 
     public function index() {
+        
         $this->Pedido->recursive = 0;
         $this->set('pedidos', $this->paginate());
     }
@@ -30,7 +32,9 @@ class PedidosController extends AppController {
         //debug($categorias);   
         $productos = $this->Producto->find('all', array('recursive' => -1, 'order' => 'Producto.categoria_id ASC'));
         //debug($productos);
-        $this->set(compact('productos', 'id_moso', 'pedido', 'categorias', 'mesa'));
+        $items_pedido = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$pedido)));
+        //debug($items_pedido); 
+        $this->set(compact('productos', 'id_moso', 'pedido', 'categorias', 'mesa', 'items_pedido'));
     }
     //aqui un cambio
     //de muestra 
@@ -99,7 +103,7 @@ class PedidosController extends AppController {
         $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $id_ped)));
         $pedido = $this->Pedido->findById($id_ped);
         //$items = $this->Pedido->find('threaded');
-        debug($pedido);
+        //debug($pedido);
         $this->set(compact('items'));
     }
 
@@ -251,6 +255,12 @@ class PedidosController extends AppController {
         }
         //debug($this->data);                
     }
+    
+    public function detallemimesa($id_pedido=Null){
+    
+        $mesa = $this->Pedido->find('first');    
+        
+    }
 
     public function asignacionmesa() {
 
@@ -268,16 +278,16 @@ class PedidosController extends AppController {
     }
     
     public function mismesas(){
-        
-        //debug($this->data);
-        if(!empty($this->data)){
-            
+                
+        if(!empty($this->data)){            
             $num = $this->data['Pedidos']['numero'];
             $verif = $this->Usuario->find('first', array('conditions' => array('Usuario.codigo' => $num), 'recursive' => -1));
-            $id_moso = $verif['Usuario']['id'];
+            $id_moso = $verif['Usuario']['id'];            
             //debug($verif);
             if($verif){
-                $this->redirect(array('action'=>'listadomesas', $id_moso));    
+                
+                $this->redirect(array('action'=>'listadomesas', $id_moso));
+                    
             }
                         
         }else{
@@ -290,13 +300,9 @@ class PedidosController extends AppController {
         $hoy = date('Y-m-d');
         App::uses('CakeTime', 'Utility');
         $dia = CakeTime::dayAsSql($hoy, 'fecha');        
-        $mesas = $this->Pedido->find('all', array('conditions'=>array('Pedido.usuario_id'=>$id_moso, $dia)));
+        $mesas = $this->Pedido->find('all', array('conditions'=>array('Pedido.usuario_id'=>$id_moso, $dia), 'recursive'=>-1));
         //debug($mesas);
         $this->set(compact('mesas'));
-    }
-    
-    public function detallemimesa(){
-        
     }
     
     public function ingreso(){
@@ -382,6 +388,7 @@ class PedidosController extends AppController {
         $this->request->data['Item']['fecha'] = $fecha;
 
         $productos = $this->Producto->find('first', array(
+        
             'conditions' => array(
                 'Producto.id' => $id_prod
             ), 'recursive' => -1
@@ -394,7 +401,7 @@ class PedidosController extends AppController {
                 'Item.producto_id' => $id_prod
             ),
             'recursive' => -1
-                ));
+        ));
 
         if (!empty($plato_pedido)) {
             //$precio =
