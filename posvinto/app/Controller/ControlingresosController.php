@@ -2,8 +2,9 @@
 class ControlingresosController extends AppController{
     public $uses= array('Bodega', 'Movimientosinsumo', 'Insumo');
     public $layout = 'admin';
+    
     public function index(){
-        $data = $this->paginate('Movimientosinsumo', array('limit'=>20));    
+        $data = $this->paginate('Movimientosinsumo');    
         $this->set('datos', $data);
     }
     public function ingresar(){
