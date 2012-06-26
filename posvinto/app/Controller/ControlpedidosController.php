@@ -9,8 +9,27 @@ class ControlpedidosController extends AppController{
     public $uses = array('Pedido', 'Usuario');
     public $layout = 'admin';
     
-    public function index($idmesa=null, $fecha = null){
-        
+    public function index(){
+        //$this->Pedido->recursive = 0;
+        $fecha = date('Y-m-d')." %";
+    
+    $this->paginate  = array(
+        'conditions'=>array('Pedido.fecha LIKE'=>$fecha),
+        'limit' => 25,        
+        'order' => array(
+            'Pedido.id' => 'desc'
+        )
+    );
+
+    // similar to findAll(), but fetches paged results
+    $data = $this->paginate('Pedido');
+    $this->set(compact('data'));
+
+
+
+
+
+       
     }
     public function formbuscar(){
         if(!empty($this->data)){
