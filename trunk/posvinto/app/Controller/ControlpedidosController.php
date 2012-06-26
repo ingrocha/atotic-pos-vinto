@@ -6,7 +6,7 @@ class ControlpedidosController extends AppController{
         'Html'
     );
     public $components = array('Session');
-    public $uses = array('Pedido', 'Usuario');
+    public $uses = array('Pedido', 'Usuario', 'Item');
     public $layout = 'admin';
     
     public function index(){
@@ -25,11 +25,25 @@ class ControlpedidosController extends AppController{
     $data = $this->paginate('Pedido');
     $this->set(compact('data'));
 
-
-
-
-
-       
+    }
+    public function facturar1($idpedido=null){
+        //$pedido=$this->Pedido->findById($idpedido);
+        //debug($pedido);
+        //recorre y muestra el array interno del hasmany
+        /*$i=0;
+        foreach($pedido as $ped){
+            $i++;
+            if($i == 3){
+               debug($ped);
+               foreach($ped as $p)
+                  debug($p);    
+            }
+             
+        }*/
+       $this->set('pedido',$this->Item->find('all', array( 'conditions'=>array('Item.pedido_id'=>$idpedido))));
+    }
+    public function facturar2(){
+        debug($this->data);exit;
     }
     public function formbuscar(){
         if(!empty($this->data)){
