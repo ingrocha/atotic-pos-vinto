@@ -57,7 +57,7 @@
                                     $hora = split(' ', $data['Pedido']['fecha']);
                                     ?>
                                     <td><?php echo $hora[1];?></td>
-    								<td><a href="#" class="ico del">Eliminar</a><a href="#" class="ico edit">Detalle</a></td>
+    								<td><a href="#" class="ico del">Eliminar</a><a href="controlpedidos/facturar1/<?php echo $data['Pedido']['id'];?>" class="ico edit">Detalle</a></td>
     							</tr>
 							<?php endforeach;?>
 						</table>
