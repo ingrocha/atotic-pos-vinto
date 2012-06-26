@@ -38,21 +38,26 @@
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
 								<!--<th width="13"><input type="checkbox" class="checkbox" /></th>-->
-								<th>Nro</th>
-								<th>Insumo</th>
-								<th>Cantidad stock</th>
-                                <th>Fecha &uacute;ltimo registro</th>
-								
+                                <th><?php echo $this->Paginator->sort('id', 'ID');?></th>
+								<th><?php echo $this->Paginator->sort('mesa', 'MESA');?></th>
+                                <th>Mozo</th>
+                                <th>total</th>
+                                <th>Hora</th>								
 							</tr>
                             <?php $i=0;?>
-                            <?php foreach($datos as $data):?>
+                            
+                            <?php foreach($data as $data):?>
                                 <?php if((fmod($i, 2) == 1)?$clase="odd":$clase="");?>
     							<tr class="<?php echo $clase;?>">
-							   	 	<td><?php echo $i;?></td>
-                                    <td><h3><?php echo $data['Insumo']['nombre'];?></h3></td>
-    								<td><?php echo $data['Movimientosinsumo']['total'];?></td>
-    								<td><?php echo $data['Movimientosinsumo']['fechaingresos'];?></td></td>
-    								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+							   	 	<td><?php echo $data['Pedido']['id'];?></td>
+                                    <td><h3><?php echo $data['Pedido']['mesa'];?></h3></td>
+    								<td><?php echo $data['Usuario']['nombre'];?></td>
+    								<td><?php echo $data['Pedido']['total'];?></td>
+                                    <?php
+                                    $hora = split(' ', $data['Pedido']['fecha']);
+                                    ?>
+                                    <td><?php echo $hora[1];?></td>
+    								<td><a href="#" class="ico del">Eliminar</a><a href="#" class="ico edit">Detalle</a></td>
     							</tr>
 							<?php endforeach;?>
 						</table>
@@ -60,7 +65,12 @@
 						
 						<!-- Pagging -->
 						<div class="pagging">
-							<div class="left">Showing 1-12 of 44</div>
+							<div class="left"><?php 
+                        echo $this->Paginator->counter(
+                                    'Mostrando {:current} - {:end}  de {:pages}, total
+                                     {:count}'
+                                );
+                        ?></div>
 							<div class="right">
 								<a href="#">Previous</a>
 								<a href="#">1</a>
