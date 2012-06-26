@@ -1,5 +1,3 @@
-
-
 <!-- Container -->
 <div id="container">
 	<div class="shell">
@@ -34,12 +32,25 @@
 					<!-- End Box Head -->	
                     
 					<!-- Panel de control -->
-                    <form>
+                   <!-- <form>-->
 					<div class="buttons">
+                       <?php //echo $this->Html->link('control pedidos', array('url'=>array('controller'=>'controlpedidos', 'action'=>'formbuscar', 'class'=>'add-button')));?>
+                      <div style="float: left; margin: 5px;">
+                         <a href="controlpedidos/formbuscar" class="add-button"><span>control pedidos</span></a>
+                      </div>
+						
+                        <div style="float: left; margin: 5px;">
+                           <a href="controlingresos/ingresar" class="add-button"><span>control Insumos</span></a>
+                        </div>
+						
+                        <div style="float: left; margin: 5px;">
+                           <a href="crearfacturas/index" class="add-button"><span>facturaci&oacute;n</span></a>
+                        </div>
                        <input class="button" type="button" value="preview"/>
                        <input class="button" type="submit" value="submit"/>
                     </div>
-                    </form>
+                    <!--</form>-->
+                    
 					<!-- panel control fin -->
 					
 				</div>
