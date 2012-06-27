@@ -57,7 +57,10 @@
                                     $hora = split(' ', $data['Pedido']['fecha']);
                                     ?>
                                     <td><?php echo $hora[1];?></td>
-    								<td><a href="#" class="ico del">Eliminar</a><a href="controlpedidos/facturar1/<?php echo $data['Pedido']['id'];?>" class="ico edit">Detalle</a></td>
+    								<td>
+                                       <a href="#" class="ico del">Eliminar</a>
+                                       <?php echo $this->Html->link('Ver detalle',array('controller' => 'controlpedidos', 'action' => 'facturar1', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
+                                    </td>
     							</tr>
 							<?php endforeach;?>
 						</table>
