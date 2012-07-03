@@ -1,12 +1,12 @@
  <?php //debug($pedidos); ?>
-Mesa: <?php echo $mesa; ?>
-Cantidad: <?php echo $cant_platos['0']['0']['cantidad']; ?>
- <table>
+<span>Mesa: <br/><?php echo $mesa; ?></span>
+<span>Cantidad:<br/> <?php echo $cant_platos['0']['0']['cantidad']; ?></span>	
+ <table class="lista-pedidos">
     <tr>
-        <td>Plato</td>
-        <td>Cantidad</td>
-        <td>Precio</td>
-        <td>Acciones</td>
+        <th>Plato</th>
+        <th>Cantidad</th>
+       <!-- <td>Precio</td> -->
+        <th></th>
     </tr>
     <?php //echo $id_moso; ?>
     <?php 
@@ -24,15 +24,15 @@ Cantidad: <?php echo $cant_platos['0']['0']['cantidad']; ?>
                 $total_platos += $platos;  
             ?>
         </td>
-        <td>
+       <!-- <td>
             <?php echo $i['Item']['precio']?>
             <?php 
                 $precio = $i['Item']['precio'];
                 $total_pagar += $precio;  
             ?>
-        </td>
+        </td> -->
         <td>            
-            <div id="restar_<?php echo $id_item; ?>"> restar </div>
+            <div id="restar_<?php echo $id_item; ?>"> <?php echo $this->Html->image('rest.png')?> </div>
             <script type="text/javascript">                                           
                 //$(document).ready(function() {
                     $("#restar_<?php echo $id_item; ?>").click(function(){
@@ -46,5 +46,5 @@ Cantidad: <?php echo $cant_platos['0']['0']['cantidad']; ?>
  </table>
  Cantidad de Platos: <?php echo $total_platos; ?><br />
  <?php //echo $total_pagar; ?>
- <?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar)); ?><br />
- <?php echo $this->Html->link('Cancelar Pedido', array('controller'=>'Pedidos', 'action'=>'listadopedidos')); ?>
+ <?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar), array('class'=>'button-listado')); ?>
+ <?php echo $this->Html->link('Cancelar Pedido', array('controller'=>'Pedidos', 'action'=>'listadopedidos'),array('class'=>'button-listado')); ?>

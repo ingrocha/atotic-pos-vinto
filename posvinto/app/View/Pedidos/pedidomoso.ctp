@@ -23,7 +23,7 @@
         <li id="prod_<?php echo $id_prod; ?>">  
             <span>
                 <?php echo $p['Producto']['nombre']; ?>
-            </span><?php echo $this->Html->image('1.jpg'); ?>  
+            </span><?php echo $this->Html->image('plato.png'); ?>  
         </li>
         <script type="text/javascript">                
                 $(document).ready(function() {
@@ -43,12 +43,60 @@
 </div>
 <div>
     <div id="pedidos">
-        Pedidos del moso
-        <div id="listado">            
-        </div>   
+        <?php if(!empty($items_pedido)): ?>
+            <div id="listado">
+                 <table class="lista-pedidos">
+    <tr>
+        <th>Plato</th>
+        <th>Cantidad</th>
+       <!--  <td>Precio</td> -->
+        <th></th>
+    </tr>
+    <?php //echo $id_moso; ?>
+    <?php 
+        $total_platos = 0;
+        $total_pagar = 0; 
+    ?>
+    <?php foreach($items_pedido as $i): ?>
+    <?php $id_item = $i['Item']['id']; ?>
+    <tr>
+        <td><?php echo $i['Producto']['nombre']; ?></td>
+        <td>
+            <?php echo $i['Item']['cantidad']; ?>
+            <?php 
+                $platos = $i['Item']['cantidad'];
+                $total_platos += $platos;  
+            ?>
+        <!-- </td>
+        <td>
+            <?php //echo $i['Item']['precio']?>
+            <?php 
+                $precio = $i['Item']['precio'];
+                $total_pagar += $precio;  
+            ?>
+        </td> -->
+        <td>            
+            <div id="restar_<?php echo $id_item; ?>" class="rest"> <?php echo $this->Html->image('rest.png')?>  </div>
+            <script type="text/javascript">                                           
+                //$(document).ready(function() {
+                    $("#restar_<?php echo $id_item; ?>").click(function(){
+                        $("#listado").load("/sisvinto/pedidos/restarproducto/<?php echo $id_item; ?>");                                                                     
+                    });              
+                //});
+            </script>
+        </td>
+    </tr>
+    <?php endforeach; ?>                             
+ </table>            
+            </div> 
+        <?php else: ?>
+            <div id="listado"> 
+                Seleccione un plato           
+            </div> 
+        <?php endif; ?>              
     </div>
 </div>
-<?php ?>
+
 <script type="text/javascript">    
     //$c=1;
     var aplatos = function(nombre, precio, c){        
