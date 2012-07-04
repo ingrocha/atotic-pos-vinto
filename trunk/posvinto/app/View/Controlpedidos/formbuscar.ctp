@@ -1,5 +1,3 @@
-
-
 <!-- Container -->
 <div id="container">
 	<div class="shell">
@@ -59,7 +57,7 @@
 						
 						<!-- Form Buttons -->
 						<div class="buttons">
-							<input type="button" class="button" value="preview" />
+							<!--<input type="button" class="button" value="preview" />-->
 							<?php 
                             $options = array(
                             'label' => 'Enviar!',
