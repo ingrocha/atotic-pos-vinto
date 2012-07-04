@@ -40,7 +40,30 @@ class ControlpedidosController extends AppController{
             }
              
         }*/
-       $this->set('pedido',$this->Item->find('all', array( 'conditions'=>array('Item.pedido_id'=>$idpedido))));
+        $pedido = $this->Item->find('all', array( 'conditions'=>array('Item.pedido_id'=>$idpedido)));
+       $this->set(compact('pedido', 'idpedido'));
+    }
+    public function dividir($idped = null){
+     
+            $pedido = $this->Item->find('all', array( 'conditions'=>array('Item.pedido_id'=>$idped)));
+        //debug($pedido);
+        $detalle = array();
+        $i2=0;
+        foreach($pedido as $p){
+            for($i=0;$i<$p['Item']['cantidad'];$i++){
+                $detalle[$i2]['Detalle']['producto_id']= $p['Producto']['id'];
+                $detalle[$i2]['Detalle']['producto']= $p['Producto']['nombre'];
+                $detalle[$i2]['Detalle']['precio']= $p['Producto']['precio'];
+                $detalle[$i2]['Detalle']['fecha']= $p['Item']['fecha'];
+                
+                $i2++;
+            }
+            
+        }
+        //debug($detalle);exit;
+        $this->set(compact('detalle'));
+       
+        
     }
     public function facturar2(){
        debug($this->data);
