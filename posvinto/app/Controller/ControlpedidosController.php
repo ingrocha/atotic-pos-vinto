@@ -5,7 +5,7 @@ class ControlpedidosController extends AppController{
         'Form',
         'Html'
     );
-    public $components = array('Session');
+    public $components = array('Session', 'Codigocontrol');
     public $uses = array('Pedido', 'Usuario', 'Item');
     public $layout = 'admin';
     
@@ -43,11 +43,35 @@ class ControlpedidosController extends AppController{
        $this->set('pedido',$this->Item->find('all', array( 'conditions'=>array('Item.pedido_id'=>$idpedido))));
     }
     public function facturar2(){
-        debug($this->data);exit;
+       debug($this->data);
+       //autorizacion, factura, nit, fecha, monto, llave
+            $this->Codigocontrol->CodigoControl('79040011859',
+                                                '152',
+                                                '1026469026',
+                                                '20070728',
+                                                '135',
+                                                'A3Fs4s$)2cvD(eY667A5C4A2rsdf53kw9654E2B23s24df35F5');
+            $codigo=$this->Codigocontrol->generar();                                                
+            debug($codigo);
+       exit;
+       
+        $datos = $this->data;exit;
+        $data = array();
+        $i=0;
+        foreach($datos as $dato){
+           //debug($dato);
+             if($dato['Pedido']['chk'] != 0){
+              $data[$i] = $d;
+               $i++;
+             }            
+        }
+        //debug($data);
+        exit;
+       
     }
     public function formbuscar(){
         if(!empty($this->data)){
-            //debug($this->data);
+            //debug($this->data);exit;
             $a=0;
             
             if(empty($this->data['Pedido']['mesa'])){
@@ -96,6 +120,7 @@ class ControlpedidosController extends AppController{
             //debug($pedidos);
             $this->set(compact('pedidos'));
         }else{
+            
             $this->set('mozos',$this->Usuario->find('list',array('conditions'=>array('Usuario.perfile_id'=>1), 'fields'=>array('Usuario.nombre'))));
             }
         
