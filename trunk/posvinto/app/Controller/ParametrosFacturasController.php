@@ -30,10 +30,7 @@ class ParametrosFacturasController extends AppController
             }
             
         }
-        
-    //   $dperf = $this->Perfil->find('list', array('fields'=>'Perfil.nombre'));
-    //   $this->set(compact('dperf'));
-        
+
     }
 
     public function modificar($id = null)
