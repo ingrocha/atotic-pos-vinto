@@ -7,6 +7,7 @@
         <th>Password</th>
         <th>Codigo</th>
         <th>Perfile Id</th>
+        <th>Departamento Id</th>
     </tr>
 <?php foreach($usuarios as $c): ?>
     <tr>
@@ -14,6 +15,9 @@
             <?php $id=$c['Usuario']['id'];?>
             
             <?php echo $c['Usuario']['nombre']; ?>
+        </td>
+        <td>
+            <?php echo $c['Usuario']['direccion']; ?>
         </td>
         <td>
             <?php echo $c['Usuario']['usuario']; ?>
@@ -25,7 +29,10 @@
             <?php echo $c['Usuario']['codigo']; ?>
         </td>
         <td>
-            <?php echo $c['Usuario']['perfile_id']; ?>
+            <?php echo $c['Perfil']['nombre']; ?>
+        </td>
+        <td>
+            <?php echo $c['Departamento']['nombre']; ?>
         </td>
         <td>
             <?php echo $this->Html->link('Modificar', array('action'=>'modificar', $id));?>
