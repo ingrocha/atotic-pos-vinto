@@ -43,6 +43,11 @@ class ControlpedidosController extends AppController{
         $pedido = $this->Item->find('all', array( 'conditions'=>array('Item.pedido_id'=>$idpedido)));
        $this->set(compact('pedido', 'idpedido'));
     }
+    public function facturar3(){
+        if(!empty($this->data)){
+            debug($this->data);exit;
+        }
+    }
     public function dividir($idped = null){
      
             $pedido = $this->Item->find('all', array( 'conditions'=>array('Item.pedido_id'=>$idped)));
@@ -87,9 +92,9 @@ class ControlpedidosController extends AppController{
            }
        }
        //debug($newdata);exit;
-       //debug($total);exit;
+       
         $datosfactura = $this->Parametrosfactura->find('all');
-        
+        debug($datosfactura);exit;
         $nit =$datosfactura[0]['Parametrosfactura']['nit'];
         $autoriza=$datosfactura[0]['Parametrosfactura']['numero_autorizacion'];
        $fecha = date('Y-m-d');
