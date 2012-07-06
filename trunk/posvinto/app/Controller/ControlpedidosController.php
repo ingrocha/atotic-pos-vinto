@@ -67,12 +67,11 @@ class ControlpedidosController extends AppController{
         }
         //debug($detalle);exit;
         $this->set(compact('detalle'));
-       
         
     }
     public function facturar2(){
       //debug($this->data);
-       $this->layout = 'ajax';
+       $this->layout = 'imprimir';
        $cliente = $this->data[1]['Pedido']['nombre'];
        $nitcliente = $this->data[1]['Pedido']['nit'];
        
