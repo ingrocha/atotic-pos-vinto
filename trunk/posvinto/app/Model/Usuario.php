@@ -20,8 +20,8 @@ class Usuario extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Perfil' => array(
-			'className' => 'Perfil',
+		'Perfile' => array(
+			'className' => 'Perfile',
 			'foreignKey' => 'perfile_id',
 			'conditions' => '',
 			'fields' => '',
@@ -30,6 +30,13 @@ class Usuario extends AppModel {
 		'Sucursal' => array(
 			'className' => 'Sucursal',
 			'foreignKey' => 'sucursal_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		), 
+        'Estado' => array(
+			'className' => 'Estado',
+			'foreignKey' => 'estado_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
