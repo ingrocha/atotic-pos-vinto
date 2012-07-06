@@ -188,3 +188,4 @@ class Codigocontrolcomponent extends Component{
                 return $temp;
         }
 }
+?>
