@@ -5,8 +5,8 @@ class ControlpedidosController extends AppController{
         'Form',
         'Html'
     );
-    public $components = array('Session', 'Codigocontrol');
-    public $uses = array('Pedido', 'Usuario', 'Item', 'Parametrosfactura', 'Factura');
+    public $components = array('Session', 'Codigocontrol', 'Montoliteral');
+    public $uses = array('Pedido', 'Usuario', 'Item', 'Parametrosfactura', 'Factura', 'Sucursal');
     public $layout = 'admin';
     
     public function index(){
@@ -74,27 +74,39 @@ class ControlpedidosController extends AppController{
       //debug($this->data);
        $cliente = $this->data[1]['Pedido']['nombre'];
        $nitcliente = $this->data[1]['Pedido']['nit'];
-       $datos = $this->data;
-       $total = 0.0;
+       
+       $datas = $this->data;
+       
+      $total = 0.0;
        $i=0;
+       $j=0;
        $newdata = array();
-       foreach($datos as $d){
+       $datos = array();
+       foreach($datas as $d){
            //debug($d);exit;
            if($d['Pedido']['chk'] != 0 ){
+             $datos[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
+             $datos[$i]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
+             $datos[$i]['Pedido']['preciou'] = $d['Pedido']['preciou'];
            // echo "entro acas";exit;
            //debug($d['Pedido']['preciou']);
             $total = $total + $d['Pedido']['preciou'];
             //debug($total);exit;
+            $i++;
              }else{
-             $newdata[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
-             $newdata[$i]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
-             $newdata[$i]['Pedido']['preciou'] = $d['Pedido']['preciou'];
+             $newdata[$j]['Pedido']['producto'] = $d['Pedido']['producto'];
+             $newdata[$j]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
+             $newdata[$j]['Pedido']['preciou'] = $d['Pedido']['preciou'];
+             $j++;
            }
        }
-       //debug($newdata);exit;
-       
-        $datosfactura = $this->Parametrosfactura->find('all');
-        debug($datosfactura);exit;
+       $total = number_format($total,2, '.', ',');
+       $monto = split('\.', $total);
+       $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
+      
+         $datosfactura = $this->Parametrosfactura->find('all');
+        //debug($datosfactura);
+        
         $nit =$datosfactura[0]['Parametrosfactura']['nit'];
         $autoriza=$datosfactura[0]['Parametrosfactura']['numero_autorizacion'];
        $fecha = date('Y-m-d');
@@ -127,8 +139,18 @@ class ControlpedidosController extends AppController{
        $this->Factura->save($this->data);
       //$idusuario = $this->Session->read('usuario_id');
       $idusuario= 5;
-      $usuario = $this->Usuario->find('first', array('Usuario.id'=>$idusuario));                                              
-      $this->set(compact('codigo', 'nit', 'autoriza', 'idfactura', 'fecha', 'nombre', 'nitcliente', 'datos', 'newdata', 'usuario'));
+      $usuario = $this->Usuario->find('first', array('Usuario.id'=>$idusuario)); 
+      $idsucursal = $usuario['Sucursal']['id'];
+      $sucursal = $this->Sucursal->findById($idsucursal);
+      //debug($sucursal);exit;     
+      $fech = date("Y-m-d H:m:s");
+      
+      $fech2 = split(' ', $fech);
+      $fecha = $fech2[0];
+      $hora = $fech2[1]; 
+      debug($newdata);    
+      debug($datos);exit;                                  
+      $this->set(compact('codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral'));
         }else{
             $this->Session->setFlash('No se pudo generar la nueva factura');
             $this->redirect(array('action' => 'index'), null, true);
