@@ -1788,3 +1788,135 @@
 2012-07-04 17:23:22 Error: [MissingControllerException] Controller class ListarpedidosController could not be found.
 #0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-07-05 23:47:31 Error: [MissingTableException] Table usuarios for model Usuario was not found in datasource default.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(3443): Model->setSource('usuarios')
+#1 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#2 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#3 [internal function]: UsuariosController->index()
+#4 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#5 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-07-05 23:47:58 Error: [MissingTableException] Table usuarios for model Usuario was not found in datasource default.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(3443): Model->setSource('usuarios')
+#1 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#2 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\Controller\ControlpedidosController.php(147): Model->find('list', Array)
+#3 [internal function]: ControlpedidosController->formbuscar()
+#4 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(ControlpedidosController), Array)
+#5 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ControlpedidosController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-07-05 23:48:48 Error: [MissingTableException] Table perfils for model Perfil was not found in datasource default.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(3443): Model->setSource('perfils')
+#1 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Datasource\DboSource.php(1044): Model->getDataSource()
+#2 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Usuario), Array)
+#3 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\Controller\UsuariosController.php(10): Model->find('all')
+#4 [internal function]: UsuariosController->index()
+#5 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#6 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2012-07-05 23:50:31 Error: [MissingControllerException] Controller class PerfilController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-05 23:51:20 Error: [MissingControllerException] Controller class PerfilController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-05 23:53:03 Error: [MissingTableException] Table perfils for model Perfil was not found in datasource default.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(3443): Model->setSource('perfils')
+#1 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#2 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\Controller\UsuariosController.php(57): Model->find('list', Array)
+#3 [internal function]: UsuariosController->modificar('1')
+#4 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#5 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-07-05 23:59:18 Error: [MissingTableException] Table sucursals for model Sucursal was not found in datasource default.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(3443): Model->setSource('sucursals')
+#1 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Datasource\DboSource.php(1044): Model->getDataSource()
+#2 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Usuario), Array)
+#3 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Model\Model.php(1507): Model->find('first', Array)
+#4 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\Controller\UsuariosController.php(47): Model->read()
+#5 [internal function]: UsuariosController->modificar('1')
+#6 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#7 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2012-07-06 01:07:54 Error: [MissingControllerException] Controller class ListarpedidosController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 01:08:04 Error: [MissingActionException] Action PedidosController::listarpedidos() could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-06 01:09:58 Error: [MissingActionException] Action PedidosController::listarpedidos() could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-06 01:10:31 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 01:10:31 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 01:10:33 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 01:10:35 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 01:10:37 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:11:19 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:11:19 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:11:20 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:11:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:11:23 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:14:08 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:14:08 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:14:19 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:14:21 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:14:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 18:20:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 18:20:02 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 18:20:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 18:20:25 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 18:20:27 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
