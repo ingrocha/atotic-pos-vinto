@@ -6,7 +6,7 @@ class ControlpedidosController extends AppController{
         'Html'
     );
     public $components = array('Session', 'Codigocontrol');
-    public $uses = array('Pedido', 'Usuario', 'Item');
+    public $uses = array('Pedido', 'Usuario', 'Item', 'Parametrosfactura', 'Factura');
     public $layout = 'admin';
     
     public function index(){
@@ -66,19 +66,73 @@ class ControlpedidosController extends AppController{
         
     }
     public function facturar2(){
-       debug($this->data);
-       //autorizacion, factura, nit, fecha, monto, llave
-            $this->Codigocontrol->CodigoControl('79040011859',
-                                                '152',
-                                                '1026469026',
-                                                '20070728',
-                                                '135',
-                                                'A3Fs4s$)2cvD(eY667A5C4A2rsdf53kw9654E2B23s24df35F5');
-            $codigo=$this->Codigocontrol->generar();                                                
-            debug($codigo);
-       exit;
+      //debug($this->data);
+       $cliente = $this->data[1]['Pedido']['nombre'];
+       $nitcliente = $this->data[1]['Pedido']['nit'];
+       $datos = $this->data;
+       $total = 0.0;
+       $i=0;
+       $newdata = array();
+       foreach($datos as $d){
+           //debug($d);exit;
+           if($d['Pedido']['chk'] != 0 ){
+           // echo "entro acas";exit;
+           //debug($d['Pedido']['preciou']);
+            $total = $total + $d['Pedido']['preciou'];
+            //debug($total);exit;
+             }else{
+             $newdata[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
+             $newdata[$i]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
+             $newdata[$i]['Pedido']['preciou'] = $d['Pedido']['preciou'];
+           }
+       }
+       //debug($newdata);exit;
+       //debug($total);exit;
+        $datosfactura = $this->Parametrosfactura->find('all');
+        
+        $nit =$datosfactura[0]['Parametrosfactura']['nit'];
+        $autoriza=$datosfactura[0]['Parametrosfactura']['numero_autorizacion'];
+       $fecha = date('Y-m-d');
+        $this->Factura->create();
        
-        $datos = $this->data;exit;
+        $this->request->data['Factura']['nit']= $nitcliente;
+        $this->request->data['Factura']['cliente']= $cliente;
+        $this->request->data['Factura']['importetotal']= $total;
+        $this->request->data['Factura']['fecha']= $fecha;
+        
+        if($this->Factura->save($this->data)){
+        $factura = $this->Factura->find('first', array('order'=>array('Factura.id DESC')));
+        $idfactura = $factura['Factura']['id'];
+        $llave = $datosfactura[0]['Parametrosfactura']['llave'];
+       $nueva_fecha = ereg_replace("[-]", "", $fecha);
+       // debug($nueva_fecha);exit;
+       $this->Codigocontrol->CodigoControl($autoriza,
+                                            $idfactura,
+                                            $nit,
+                                            $nueva_fecha,
+                                            $total,
+                                            $llave);
+       
+       //autorizacion, factura, nit, fecha, monto, llave
+      //$codigo=$this->Codigocontrol->generar();
+      $codigo = "as-ewr-dsf";
+      $this->Factura->id= $idfactura;
+      $this->Factura->read();
+       $this->request->data['Factura']['codigo_control']= $codigo;
+       $this->Factura->save($this->data);
+      //$idusuario = $this->Session->read('usuario_id');
+      $idusuario= 5;
+      $usuario = $this->Usuario->find('first', array('Usuario.id'=>$idusuario));                                              
+      $this->set(compact('codigo', 'nit', 'autoriza', 'idfactura', 'fecha', 'nombre', 'nitcliente', 'datos', 'newdata', 'usuario'));
+        }else{
+            $this->Session->setFlash('No se pudo generar la nueva factura');
+            $this->redirect(array('action' => 'index'), null, true);
+        }
+                                                        
+      // debug($codigo);exit;
+      
+       
+        $this->data='';
         $data = array();
         $i=0;
         foreach($datos as $dato){
