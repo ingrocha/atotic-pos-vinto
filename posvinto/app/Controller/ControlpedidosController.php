@@ -72,6 +72,7 @@ class ControlpedidosController extends AppController{
     }
     public function facturar2(){
       //debug($this->data);
+       $this->layout = 'ajax';
        $cliente = $this->data[1]['Pedido']['nombre'];
        $nitcliente = $this->data[1]['Pedido']['nit'];
        
@@ -148,29 +149,14 @@ class ControlpedidosController extends AppController{
       $fech2 = split(' ', $fech);
       $fecha = $fech2[0];
       $hora = $fech2[1]; 
-      debug($newdata);    
-      debug($datos);exit;                                  
-      $this->set(compact('codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral'));
+     // debug($newdata);    
+     // debug($datos);exit; 
+     //debug($datosfactura);exit;                                 
+      $this->set(compact('datosfactura','idfactura','cliente', 'nitcliente','codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total'));
         }else{
             $this->Session->setFlash('No se pudo generar la nueva factura');
             $this->redirect(array('action' => 'index'), null, true);
         }
-                                                        
-      // debug($codigo);exit;
-      
-       
-        $this->data='';
-        $data = array();
-        $i=0;
-        foreach($datos as $dato){
-           //debug($dato);
-             if($dato['Pedido']['chk'] != 0){
-              $data[$i] = $d;
-               $i++;
-             }            
-        }
-        //debug($data);
-        exit;
        
     }
     public function formbuscar(){
