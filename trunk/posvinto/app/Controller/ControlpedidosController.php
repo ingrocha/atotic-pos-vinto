@@ -27,6 +27,8 @@ class ControlpedidosController extends AppController{
 
     }
     public function facturar1($idpedido=null){
+        
+        
         //$pedido=$this->Pedido->findById($idpedido);
         //debug($pedido);
         //recorre y muestra el array interno del hasmany
@@ -44,8 +46,18 @@ class ControlpedidosController extends AppController{
        $this->set(compact('pedido', 'idpedido'));
     }
     public function facturar3(){
+       // debug($this->data);
         if(!empty($this->data)){
-            debug($this->data);exit;
+            //debug($this->data);exit;
+            $count=0;
+            $detalle =$this->data;
+            $this->set(compact('detalle'));
+        }else{
+            
+            //$this->redirect($this->referer());
+            $this->redirect(array('action' => 'index'));
+            //http://localhost/posvinto/posvinto/controlpedidos
+            //$this->redirect('http://localhost/posvinto/posvinto/controlpedidos');
         }
     }
     public function dividir($idped = null){
@@ -62,15 +74,14 @@ class ControlpedidosController extends AppController{
                 $detalle[$i2]['Detalle']['fecha']= $p['Item']['fecha'];
                 
                 $i2++;
-            }
-            
+            }   
         }
         //debug($detalle);exit;
         $this->set(compact('detalle'));
         
     }
     public function facturar2(){
-      //debug($this->data);
+     // debug($this->data);
        $this->layout = 'imprimir';
        $cliente = $this->data[1]['Pedido']['nombre'];
        $nitcliente = $this->data[1]['Pedido']['nit'];
@@ -86,8 +97,9 @@ class ControlpedidosController extends AppController{
            //debug($d);exit;
            if($d['Pedido']['chk'] != 0 ){
              $datos[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
+             $datos[$i]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
              $datos[$i]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
-             $datos[$i]['Pedido']['preciou'] = $d['Pedido']['preciou'];
+             $datos[$i]['Pedido']['precio'] = $d['Pedido']['preciou'];
            // echo "entro acas";exit;
            //debug($d['Pedido']['preciou']);
             $total = $total + $d['Pedido']['preciou'];
@@ -95,8 +107,9 @@ class ControlpedidosController extends AppController{
             $i++;
              }else{
              $newdata[$j]['Pedido']['producto'] = $d['Pedido']['producto'];
+             $newdata[$j]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
              $newdata[$j]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
-             $newdata[$j]['Pedido']['preciou'] = $d['Pedido']['preciou'];
+             $newdata[$j]['Pedido']['precio'] = $d['Pedido']['preciou'];
              $j++;
            }
        }
@@ -105,7 +118,8 @@ class ControlpedidosController extends AppController{
        $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
       
          $datosfactura = $this->Parametrosfactura->find('all');
-        //debug($datosfactura);
+        //debug($datos);
+        //debug($newdata);exit;
         
         $nit =$datosfactura[0]['Parametrosfactura']['nit'];
         $autoriza=$datosfactura[0]['Parametrosfactura']['numero_autorizacion'];
