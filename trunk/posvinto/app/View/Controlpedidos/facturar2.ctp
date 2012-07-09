@@ -69,7 +69,7 @@
           1
        </td>
        <td>
-          <?php echo $d['Pedido']['preciou'];?>
+          <?php echo $d['Pedido']['precio'];?>
        </td>
     </tr>
     <?php endforeach;?>
@@ -98,7 +98,7 @@
 <div class="linea">
 .........................................................................................
 </div>
-<div style="width: 80px; font-size: 9px;">
+<div style="width: 300px; font-size: 9px;">
    "La reproducci&oacute;n total o parcial y/o el uso no
    autorizado de esta Nota Fiscal, constituye un delito a sersancionado
    conforme a Ley"
@@ -107,32 +107,55 @@
 </div>
 
 
-<table>
-   <tr>
+
       
 <?php  if(!empty($newdata)):?>
 
-<?php echo $this->Form->create('Factura', array('controller'=>'controlpedidos', 'action'=>'facturar3'));?>
+<?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' =>'facturar3')));?>
+<?php //echo $this->Form->create(null, array('controller'=>'controlpedidos', 'action'=>'facturar3'));?>
+
+<table>
+   
+   <?php $i=0;?>
    <?php foreach($newdata as $data):?>
-      <?php
-         echo $this->Form->hidden('producto', array('value'=>$data['Pedido']['producto']));
-         echo $this->Form->hidden('cantidad', array('value'=>$data['Pedido']['cantidad']));
-         echo $this->Form->hidden('preciou', array('value'=>$data['Pedido']['preciou']));
-      ?>
+   <?php //debug($data);?>
+      <tr>
+         <td>
+            <?php echo $this->Form->hidden("$i.Detalle.producto_id", array('value'=>$data['Pedido']['producto_id']));?>
+            <?php echo $this->Form->hidden("$i.Detalle.producto", array('value'=>$data['Pedido']['producto']));?>
+         </td>
+          <td>
+            <?php echo $this->Form->hidden("$i.Detalle.cantidad", array('value'=>1));?>
+          </td>
+          <td>
+            <?php echo $this->Form->hidden("$i.Detalle.preciou", array('value'=>$data['Pedido']['precio']));?>
+          </td>
+     </tr>
+     <?php $i++;?>
    <?php endforeach;?>
 <td>
-   <?php echo $this->Form->end("volver");?>
+   <?php $opt = array('Value'=>'imprimir','class'=>"boton", 'id'=>"imprimir");?>
+   <?php echo $this->Form->end($opt);?>
 </td>
+<?php else: ?>
+<?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' =>'index')));?>
+   <td>
+     <?php //echo $this->Form->button('Imprimir', array('id'=>"imprimir")); ?>
+       <?php $opt = array('Value'=>'volver','class'=>"boton", 'id'=>"imprimir");?>
+   <?php echo $this->Form->end($opt);?>  
+   </td>
 <?php endif;?>
 <?php //echo $this->Html->link('volver',array('action'=>'listamateriastomadas', $materias[0]['Materia']['semestre'], $gest1, $gest2), array('class'=>'aboton'));?></td>
-      <td><?php echo $this->Form->button('Imprimir', array('id'=>"imprimir")); ?></td>
+      
    </tr>
 </table>
  <script type="text/javascript">
    jQuery(document).ready(function() {
 
          jQuery("#imprimir").click(function() {
+            // windows.location("http://localhost/posvinto/posvinto/facturas/facturar3");
              printElem({ leaveOpen: true, printMode: 'popup' });
+             
             // printElem({ overrideElementCSS: ['http://localhost/unibol/app/webroot/css/printable.css'] });
          });
 
