@@ -221,7 +221,7 @@
                                     </td>
                                     
                                    	<td>
-                                       <?php echo $this->Form->hidden("$i.Pedido.producto", array('value'=>$data['Detalle']['producto_id']));?>
+                                       <?php echo $this->Form->hidden("$i.Pedido.producto_id", array('value'=>$data['Detalle']['producto_id']));?>
                                        <?php echo $this->Form->hidden("$i.Pedido.producto", array('value'=>$data['Detalle']['producto']));?>
                                        <?php echo $data['Detalle']['producto'];?>
                                     </td>
