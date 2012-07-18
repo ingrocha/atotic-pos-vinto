@@ -13,8 +13,6 @@ class AdminController extends AppController {
         $password = sha1($this->data['Usuario']['password']);
         $nombre_usuario = $this->Usuario->find('first', array('conditions' => array('Usuario.usuario' =>
             $usuario)));
-        
-
         if (empty($nombre_usuario)):
             $this->Session->setFlash('El nombre de usuario no existe intente de nuevo por favor.');
             $this->redirect('/');
