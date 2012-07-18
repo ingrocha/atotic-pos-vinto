@@ -141,7 +141,7 @@
 <?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' =>'index')));?>
    <td>
      <?php //echo $this->Form->button('Imprimir', array('id'=>"imprimir")); ?>
-       <?php $opt = array('Value'=>'volver','class'=>"boton", 'id'=>"imprimir");?>
+       <?php $opt = array('Value'=>'imprimir','class'=>"boton", 'id'=>"imprimir");?>
    <?php echo $this->Form->end($opt);?>  
    </td>
 <?php endif;?>
