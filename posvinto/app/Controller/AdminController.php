@@ -6,7 +6,7 @@ class AdminController extends AppController {
     );
     public $components = array('Session');
     public $uses = array('Usuario');
-    public $layout = 'admin';
+    public $layout = 'inicio';
 
     public function index(){
         //debug($this->params);exit;
