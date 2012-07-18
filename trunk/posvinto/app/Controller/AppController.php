@@ -73,7 +73,7 @@ class AppController extends Controller {
       if($this->Session->read('usuario_id')):
       else:
          $this->Session->SetFlash('Su Sesion ha terminado por favor vuelva a ingresar al sitio');
-         $this -> redirect('/');
+         $this->redirect(array('controller'=>'admin', 'action' => 'index'), null, true); 
       endif;         
         
    }
