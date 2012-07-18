@@ -5,7 +5,7 @@ class UsuariosController extends AppController
     public $helpers = array('Html', 'Form'); 
     public $components = array('Session');
     public $uses = array('Usuario', 'Perfile','Departamento', 'Sucursal', 'Estado'); 
-    public $layout = 'inicio';
+    public $layout = 'admin';
     
     public function beforefilter(){
         $this->checksession();

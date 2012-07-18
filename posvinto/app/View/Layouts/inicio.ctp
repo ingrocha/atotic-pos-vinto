@@ -10,8 +10,8 @@
     <?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('sisvinto', 'redmond/jquery-ui-1.8.20.custom', 'style', 'validationEngine.jquery'));
-        echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-1.6.min','jquery-ui-1.8.20.custom.min','jquery.calculation', 'jquery.validationEngine', 'languages/jquery.validationEngine-es'));
+		echo $this->Html->css(array('sisvinto', 'template', 'redmond/jquery-ui-1.8.20.custom', 'style', 'validationEngine.jquery'));
+        echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-1.6.min','jquery-ui-1.8.20.custom.min','jquery.validationEngine', 'languages/jquery.validationEngine-es'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -20,56 +20,18 @@
 
 </head>
 <body>
-<!-- Header -->
-<div id="header">
-	<div class="shell">
-		<!-- Logo + Top Nav -->
-		<div id="top">
-			<h1><a href="#">SpringTime</a></h1>
-			<div id="top-navigation">
-				Bienvenido <a href="#"><strong><?php echo $this->Session->read('nombre') ?></strong></a>
-				<span>|</span>
-				<a href="#">Help</a>
-				<span>|</span>
-				<a href="#">Profile Settings</a>
-				<span>|</span>
-				<?php echo $this->Html->link('Cerrar Sesion', array('controller' => 'usuarios', 'action' => 'logout'));?>
-			</div>
-		</div>
-		<!-- End Logo + Top Nav -->
-		
-		<!-- Main Nav -->
-		<div id="navigation">
-			<ul>
-			    <li><a href="#" class="active"><span>Dashboard</span></a></li>
-			    <li><a href="#"><span>New Articles</span></a></li>
-			    <li><a href="#"><span>User Management</span></a></li>
-			    <li><a href="#"><span>Photo Gallery</span></a></li>
-			    <li><a href="#"><span>Products</span></a></li>
-			    <li><a href="#"><span>Services Control</span></a></li>
-			</ul>
-		</div>
-		<!-- End Main Nav -->
-	</div>
-</div>
-<!-- End Header -->
-
+   <div id="border-top" class="h_blue">
+     <span class="title"><a href="#">Administraci&oacute;n</a></span>
+   </div>
 <!-- Container -->
                 <?php echo $this->Session->flash(); ?>
 				<?php echo $this->fetch('content'); ?>
 
 <!-- End Container -->
-
-<!-- Footer -->
-<div id="footer">
-	<div class="shell">
-		<span class="left">&copy; 2012 - Viva Vinto derechos reservados</span>
-		<span class="right">
-			Hecho por <a href="http://atotic.com" target="_blank" title="Hecho por ATOTIC">atotic.com</a>
-		</span>
+	<div id="footer">
+		<p class="copyright">
+			<a href="http://www.joomla.org">Joomla!&#174;</a> is free software released under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License</a>.		</p>
 	</div>
-</div>
-<!-- End Footer -->
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
