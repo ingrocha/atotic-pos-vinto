@@ -14,14 +14,18 @@
             <?php echo $c['Producto']['nombre']; ?>
         </td>
         <td>
-            <?php echo $c['Producto']['tipoproductos_id']; ?>
+            <?php echo $c['Categoria']['nombre']; ?>
+        </td>
+        <td>
+            <?php echo $c['Producto']['precio']; ?>
         </td>
         <td>
             <?php echo $c['Producto']['observaciones']; ?>
         </td>
         <td>
-            <?php echo $this->Html->link('Modificar', array('action'=>'modificar', $id));?>
-            <?php echo $this->Html->link('Eliminar', array('action'=>'eliminar', $id));?>           
+            <?php echo $this->Html->link('MODIFICAR', array('action'=>'modificar', $id));?>
+            <?php echo $siht->Html->link('ANADIR MODIFICAR PORCIONES', array('action'=>'modificarporciones', $id));?>
+            <?php echo $this->Html->link('ELIMINAR',array('action'=>'eliminar',$id),array('class' => 'inner_a'),('Desea eliminar realmente?')); ?>           
         </td>
     </tr>
 <?php endforeach; ?>
