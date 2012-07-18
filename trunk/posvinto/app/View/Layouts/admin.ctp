@@ -41,12 +41,16 @@
 		<!-- Main Nav -->
 		<div id="navigation">
 			<ul>
-			    <li><a href="#" class="active"><span>Dashboard</span></a></li>
-			    <li><a href="#"><span>New Articles</span></a></li>
-			    <li><a href="#"><span>User Management</span></a></li>
-			    <li><a href="#"><span>Photo Gallery</span></a></li>
-			    <li><a href="#"><span>Products</span></a></li>
-			    <li><a href="#"><span>Services Control</span></a></li>
+			    <li>
+                <?php $url = "http://localhost/sistemaVintoCV/posvinto/"?>
+                   <a href="<?php echo $url?>panelcontrol/" class="active"><span>Inicio</span></a>                 
+                </li>
+			    <li><a href="<?php echo $url?>usuarios/"><span>Usuarios</span></a></li>
+                <li><a href="<?php echo $url?>clientes/"><span>Clientes</span></a></li>
+			    <li><a href="<?php echo $url?>controlpedidos/"><span>Pedidos</span></a></li>
+			    <li><a href="<?php echo $url?>reportes/"><span>Reportes</span></a></li>
+			    <li><a href="<?php echo $url?>productos/"><span>Productos</span></a></li>
+			    <li><a href="<?php echo $url?>panelcontrol/config"><span>Configuraciones</span></a></li>
 			</ul>
 		</div>
 		<!-- End Main Nav -->

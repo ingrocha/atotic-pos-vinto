@@ -8,6 +8,7 @@ class ProductosController extends AppController
     {
 
         $productos = $this->Producto->find('all'); 
+        //debug($productos);exit;
         $this->set(compact('productos'));
         
     }
