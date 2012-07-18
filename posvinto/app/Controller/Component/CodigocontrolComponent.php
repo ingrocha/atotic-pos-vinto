@@ -179,10 +179,12 @@ class Codigocontrolcomponent extends Component{
         
                 return $this->table_inv[$c];
         }
+        
         private function verhoeff_add_recursive($number, $digits) {
-                $temp = $number;
+                $temp = intval($number);
                 while ($digits > 0) {
                         $temp .= $this->calcsum($temp);
+                        //$temp = $temp.$this->calcsum($temp);
                         $digits--;
                 }
                 return $temp;
