@@ -27,13 +27,13 @@
 		<div id="top">
 			<h1><a href="#">SpringTime</a></h1>
 			<div id="top-navigation">
-				Welcome <a href="#"><strong>Administrator</strong></a>
+				Bienvenido <a href="#"><strong><?php echo $this->Session->read('nombre') ?></strong></a>
 				<span>|</span>
 				<a href="#">Help</a>
 				<span>|</span>
 				<a href="#">Profile Settings</a>
 				<span>|</span>
-				<a href="#">Log out</a>
+				<?php echo $this->Html->link('Cerrar Sesion', array('controller' => 'usuarios', 'action' => 'logout'));?>
 			</div>
 		</div>
 		<!-- End Logo + Top Nav -->

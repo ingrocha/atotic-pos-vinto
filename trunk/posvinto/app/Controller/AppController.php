@@ -68,4 +68,14 @@ class AppController extends Controller {
 				$this->redirect($this->Auth->logout());
 		}*/
     //}
+    function checksession(){
+
+      if($this->Session->read('usuario_id')):
+      else:
+         $this->Session->SetFlash('Su Sesion ha terminado por favor vuelva a ingresar al sitio');
+         $this -> redirect('/');
+      endif;         
+        
+   }
 }
+?>

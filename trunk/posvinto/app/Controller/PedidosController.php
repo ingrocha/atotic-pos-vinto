@@ -339,6 +339,7 @@ class PedidosController extends AppController {
                 $this->data = "";
                 $id_moso = $verif['Usuario']['id'];
                 $pedido = $this->Pedido->find('first', array('order' => 'Pedido.id DESC'));
+                //debug($pedido);exit;                
                 //if(empty($pedido)){
                 //$mesa = 1;
                 //}else{
