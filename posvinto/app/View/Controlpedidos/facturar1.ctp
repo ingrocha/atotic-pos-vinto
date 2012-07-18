@@ -147,9 +147,10 @@
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<a href="#">Ingresos</a>
+			<!--<a href="controlingresos">Pedidos</a>-->
+            <?php echo $this->Html->link('Pedidos', array('controller'=>'controlpedidos', 'action'=>'index'))?>
 			<span>&gt;</span>
-			Listado &uacute;ltimos ingresos
+			Detalle del pedido
 		</div>
 		<!-- End Small Nav -->
 		
@@ -177,13 +178,26 @@
                            	<!-- Table -->
                     <?php //debug($pedido);?>
 					<div class="table">
-                   
+                   <table>
+                          <tr>
+                             <td>NOMBRE:</td>
+                             <td>
+                                <?php echo $this->Form->text("1.Pedido.nombre",array('size'=>20));?>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>NIT: </td>
+                             <td>
+                                <?php echo $this->Form->text("1.Pedido.nit", array('size'=>20));?>
+                             </td>
+                          </tr>
+                     </table>
                      
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        
+                       
 							<tr>
-								<!--<th width="13"><input type="checkbox" class="checkbox" /></th>-->
-                                <th width="13"><input type="checkbox" class="checkbox" /></th>
+								<th width="13"><input type="checkbox" class="checkbox" /></th>
+                                
                                 <th>Item</th>
 								<th>cantidad</th>
                                 <th>precio</th>
@@ -201,25 +215,25 @@
                                 <?php if((fmod($i, 2) == 1)?$clase="odd":$clase="");?>
                                 <?php $i++;?>
     							<tr class="<?php echo $clase;?>">
-                                    <td>
-                                       <?php echo $this->Form->checkbox("Pedido.$i.chk", array('class'=>'checkbox', 'id'=>"chk$i", 'value'=>$data['Item']['id']));?>
-                                       <!--<input type="checkbox" name="checkbox_<?php //echo $i;?>" id="chk<?php //echo $i;?>" value="<?php //echo $data['Item']['id'];?>" />-->
+                                   <td> 
+                                       <?php echo $this->Form->checkbox("$i.Pedido.chk", array('class'=>'checkbox', 'id'=>"chk$i", 'value'=>$data['Item']['id'], 'checked'=>'checked'));?>
+                                       <?php echo $this->Form->hidden("$i.Pedido.producto_id", array('value'=>$data['Producto']['id']));?>
                                     </td>
                                     
                                    	<td>
-                                       <?php echo $this->Form->hidden("Pedido.$i.producto", array('value'=>$data['Producto']['nombre']));?>
+                                       <?php echo $this->Form->hidden("$i.Pedido.producto", array('value'=>$data['Producto']['nombre']));?>
                                        <?php echo $data['Producto']['nombre'];?>
                                     </td>
                                     
                                     <td>
                                        <h3>
-                                          <?php echo $this->Form->hidden("Pedido.$i.cantidad", array('value'=>$data['Item']['cantidad'], "id"=>"qty_item_$i"));?>
+                                          <?php echo $this->Form->hidden("$i.Pedido.cantidad", array('value'=>$data['Item']['cantidad'], "id"=>"qty_item_$i"));?>
                                           <?php echo $data['Item']['cantidad'];?>
                                           <?php //echo $this->Form->text("Pedido.$i.cantidad", array('value'=>$data['Item']['cantidad'],'size'=>5, 'disabled'=>'disabled'));?>
                                        </h3>
                                     </td>
                                     <td>
-                                       <?php echo $this->Form->hidden("Pedido.$i.preciou", array('value'=>$precio,"id"=>"price_item_$i"));?>
+                                       <?php echo $this->Form->hidden("$i.Pedido.preciou", array('value'=>$precio,"id"=>"price_item_$i"));?>
                                        <?php echo "$ ".number_format($precio,2,'.',',');?>
                                     </td>
                                     <td align="left" id="total_item_<?php echo $i;?>">$ 0</td>
@@ -248,7 +262,7 @@
                             <?php 
                             $options = array(
                             'label' => 'facturar!',
-                            'name' => "data[Pedido][$i][enviar]",
+                            'name' => "data[$i][Pedido][enviar]",
                             'class' => 'button',
       
                             );
@@ -290,17 +304,7 @@
 					
 				</div>
 				<!-- End Box -->
-				
-				<!-- Box -->
-				<div class="box">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Add New Article</h2>
-					</div>
-					<!-- End Box Head -->
-					
-				</div>
-				<!-- End Box -->
+			
 
 			</div>
 			<!-- End Content -->
