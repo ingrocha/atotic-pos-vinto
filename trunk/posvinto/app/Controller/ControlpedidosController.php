@@ -27,22 +27,20 @@ class ControlpedidosController extends AppController{
 
     }
     public function facturar1($idpedido=null){
-        
-        
-        //$pedido=$this->Pedido->findById($idpedido);
-        //debug($pedido);
-        //recorre y muestra el array interno del hasmany
-        /*$i=0;
-        foreach($pedido as $ped){
-            $i++;
-            if($i == 3){
-               debug($ped);
-               foreach($ped as $p)
-                  debug($p);    
+        $pedido = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$idpedido)));
+        $this->set(compact('pedido', 'idpedido'));
+    }
+    public function recibo($idpedido=null){
+        if(!empty($this->data)){
+            if($this->Factura->save($this->data)){
+                $this->Session->setFlash('Recibo registrado con exito'); 
+                $this->redirect(array('action' => 'index'), null, true); 
+            }else{
+                $this->Session->setFlash('No se pudo registrar el recibo!!!'); 
+                $this->redirect(array('action' => 'index'), null, true); 
             }
-             
-        }*/
-        $pedido = $this->Item->find('all', array( 'conditions'=>array('Item.pedido_id'=>$idpedido)));
+        }
+        $pedido = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$idpedido)));
        $this->set(compact('pedido', 'idpedido'));
     }
     public function facturar3(){
@@ -80,8 +78,20 @@ class ControlpedidosController extends AppController{
         $this->set(compact('detalle'));
         
     }
+    public function facturartotal(){
+        $this->Factura->create();
+        if ($this->Factura->save($this->data)) { 
+
+                $this->Session->setFlash('Factura registrada con exito'); 
+                $this->redirect(array('action' => 'index'), null, true); 
+
+            } else { 
+
+                $this->Session->setFlash('No se pudo registrar los datos de la factura'); 
+            }
+    }
     public function facturar2(){
-     // debug($this->data);
+    // debug($this->data);exit;
        $this->layout = 'imprimir';
        $cliente = $this->data[1]['Pedido']['nombre'];
        $nitcliente = $this->data[1]['Pedido']['nit'];
