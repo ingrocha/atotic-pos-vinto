@@ -7,6 +7,9 @@ class AdminController extends AppController {
     public $components = array('Session');
     public $layout = 'admin';
     
+    function beforeFilter(){
+       $this->redirect('/usuarios/login/');
+    }
     public function index(){
         
     }
