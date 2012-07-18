@@ -6,3 +6,4 @@ echo $this->Form->inputs(array(
     'password'
 ));
 echo $this->Form->end('Entrar');
+?>
