@@ -1,14 +1,13 @@
-
-
 <!-- Container -->
 <div id="container">
 	<div class="shell">
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<a href="#">Ingresos</a>
+			<!--<a href="controlingresos">Pedidos</a>-->
+            <?php echo $this->Html->link('Pedidos', array('controller'=>'controlpedidos', 'action'=>'index'))?>
 			<span>&gt;</span>
-			Listado &uacute;ltimos ingresos
+			Detalle del pedido
 		</div>
 		<!-- End Small Nav -->
 		
@@ -59,7 +58,8 @@
                                     <td><?php echo $hora[1];?></td>
     								<td>
                                        <a href="#" class="ico del">Eliminar</a>
-                                       <?php echo $this->Html->link('Ver detalle',array('controller' => 'controlpedidos', 'action' => 'facturar1', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
+                                       <?php echo $this->Html->link('Facturar',array('controller' => 'controlpedidos', 'action' => 'facturar1', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
+                                       <?php echo $this->Html->link('Recibo',array('controller' => 'controlpedidos', 'action' => 'Recibo', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
                                     </td>
     							</tr>
 							<?php endforeach;?>
