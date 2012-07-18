@@ -30,81 +30,82 @@
 					<!-- Panel de control -->
                    <!-- <form>-->
 					<div class="buttons-control">
+                    <?php $url = "http://localhost/sistemaVintoCV/posvinto/"?>
                        <?php //echo $this->Html->link('control pedidos', array('url'=>array('controller'=>'controlpedidos', 'action'=>'formbuscar', 'class'=>'add-button')));?>
                        <div style="float: left; margin: 5px;">
-                         <a href="usuarios" class="add-button"><span>Usuarios</span></a>
+                         <a href="<?php echo $url?>usuarios" class="add-button"><span>Usuarios</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="asistencias/" class="add-button"><span>control asistencias</span></a>
+                         <a href="<?php echo $url?>asistencias/" class="add-button"><span>control asistencias</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="categorias" class="add-button"><span>categorias</span></a>
+                         <a href="<?php echo $url?>categorias" class="add-button"><span>categorias</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="clientes" class="add-button"><span>clientes</span></a>
+                         <a href="<?php echo $url?>clientes" class="add-button"><span>clientes</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="ConfMultas" class="add-button"><span>configuraci&oacute;n multas</span></a>
+                         <a href="<?php echo $url?>ConfMultas" class="add-button"><span>configuraci&oacute;n multas</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Contratos" class="add-button"><span>contratos</span></a>
+                         <a href="<?php echo $url?>contratos" class="add-button"><span>contratos</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
                          <a href="Controlingresos" class="add-button"><span>control ingresos</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="ParametrosFacturas" class="add-button"><span>configuraci&oacute;n par&aacute;metros facturas</span></a>
+                         <a href="<?php echo $url?>ParametrosFacturas" class="add-button"><span>configuraci&oacute;n par&aacute;metros facturas</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Departamentos" class="add-button"><span>Departamentos</span></a>
+                         <a href="<?php echo $url?>Departamentos" class="add-button"><span>Departamentos</span></a>
                       </div>
    
                       <div style="float: left; margin: 5px;">
-                         <a href="Inicioventas" class="add-button"><span>Ingresos diarios</span></a>
+                         <a href="<?php echo $url?>Inicioventas" class="add-button"><span>Ingresos diarios</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Insumos" class="add-button"><span>Control insumos</span></a>
+                         <a href="<?php echo $url?>Insumos" class="add-button"><span>Control insumos</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Inventario" class="add-button"><span>Control inventario</span></a>
+                         <a href="<?php echo $url?>Inventario" class="add-button"><span>Control inventario</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Items" class="add-button"><span>Control items</span></a>
+                         <a href="<?php echo $url?>Items" class="add-button"><span>Control items</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Movimientos" class="add-button"><span>Control movimientos</span></a>
+                         <a href="<?php echo $url?>Movimientos" class="add-button"><span>Control movimientos</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Multas" class="add-button"><span>Control multas</span></a>
+                         <a href="<?php echo $url?>Multas" class="add-button"><span>Control multas</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Porciones" class="add-button"><span>Control porciones</span></a>
+                         <a href="<?php echo $url?>Porciones" class="add-button"><span>Control porciones</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Productos" class="add-button"><span>Control productos</span></a>
+                         <a href="<?php echo $url?>Productos" class="add-button"><span>Control productos</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Sucursales" class="add-button"><span>Sucursales</span></a>
+                         <a href="<?php echo $url?>Sucursales" class="add-button"><span>Sucursales</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="TiposInsumos" class="add-button"><span>Tipos insumos</span></a>
+                         <a href="<?php echo $url?>TiposInsumos" class="add-button"><span>Tipos insumos</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Tiposproductos" class="add-button"><span>Tipos productos</span></a>
+                         <a href="<?php echo $url?>Tiposproductos" class="add-button"><span>Tipos productos</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="Tiposusuarios" class="add-button"><span>Tipos usuarios</span></a>
+                         <a href="<?php echo $url?>Tiposusuarios" class="add-button"><span>Tipos usuarios</span></a>
                       </div>
                       <div style="float: left; margin: 5px;">
-                         <a href="controlpedidos/formbuscar" class="add-button"><span>control pedidos</span></a>
+                         <a href="<?php echo $url?>controlpedidos/formbuscar" class="add-button"><span>control pedidos</span></a>
                       </div>
 						
                         <div style="float: left; margin: 5px;">
-                           <a href="controlingresos/ingresar" class="add-button"><span>control Insumos</span></a>
+                           <a href="<?php echo $url?>controlingresos/ingresar" class="add-button"><span>control Insumos</span></a>
                         </div>
 						
                         <div style="float: left; margin: 5px;">
-                           <a href="controlpedidos" class="add-button"><span>Facturar</span></a>
+                           <a href="<?php echo $url?>controlpedidos" class="add-button"><span>Facturar</span></a>
                         </div>
    
                     </div>
