@@ -1920,3 +1920,301 @@
 2012-07-06 18:20:27 Error: [MissingControllerException] Controller class ImgController could not be found.
 #0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-07-11 17:09:38 Error: [MissingControllerException] Controller class ListapedidosController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:10:25 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:10:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:10:28 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:10:30 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:10:31 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:10:33 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:10:38 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:10:39 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:11:03 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-11 17:11:20 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 15:26:47 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 15:27:09 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 15:27:10 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 15:27:11 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 15:27:14 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 15:27:20 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 15:27:24 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 15:27:30 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 15:27:48 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:38:28 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:47:03 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:47:22 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:48:53 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:49:39 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:51:52 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:51:53 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:55:17 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:55:41 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:56:51 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:57:59 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 21:58:56 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:00:01 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:01:52 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:02:09 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:02:24 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:04:17 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:04:18 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:16:50 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:18:11 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:18:28 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:18:47 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:20:00 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:20:00 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:20:45 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:21:20 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:23:18 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:24:22 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:25:24 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:25:24 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:29:30 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:35:14 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:35:14 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:35:17 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:35:25 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:37:02 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:37:43 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:37:43 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:38:06 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:38:06 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:38:44 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:39:04 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:41:33 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:41:36 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:43:15 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:43:23 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:43:25 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:43:27 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:44:04 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:44:08 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:45:29 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:47:13 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:47:31 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:48:10 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:50:09 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:50:35 Error: [MissingViewException] View file "C:\xampp\htdocs\sistemaVintoCV\posvinto\app\View\Controlpedidos\facturartotal.ctp" is missing.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\sistemaVintoCV\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ControlpedidosController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-17 22:50:39 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:51:08 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:56:20 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 22:58:43 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:05:21 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:06:00 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:11:43 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:13:21 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:18:38 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:20:29 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:20:33 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:21:25 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:21:37 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-17 23:22:07 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-18 16:07:36 Error: [MissingControllerException] Controller class ListapedidosController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-18 16:07:47 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-18 16:13:59 Error: [MissingControllerException] Controller class LoginController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-18 16:14:14 Error: [MissingControllerException] Controller class LoginController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-18 16:14:33 Error: [MissingControllerException] Controller class LoginController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-18 16:15:21 Error: [MissingControllerException] Controller class LoginController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-18 16:17:34 Error: [MissingControllerException] Controller class LoginController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-18 16:17:39 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\xampp\htdocs\sistemaVintoCV\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
