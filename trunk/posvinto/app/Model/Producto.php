@@ -46,19 +46,7 @@ class Producto extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Movimiento' => array(
-			'className' => 'Movimiento',
-			'foreignKey' => 'producto_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
+	
 		'Porcione' => array(
 			'className' => 'Porcione',
 			'foreignKey' => 'producto_id',
@@ -75,3 +63,4 @@ class Producto extends AppModel {
 	);
 
 }
+?>
