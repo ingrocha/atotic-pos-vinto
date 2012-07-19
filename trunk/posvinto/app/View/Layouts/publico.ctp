@@ -21,8 +21,16 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php //echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			<h1><a href="#"><?php echo $this->Html->image('logo.jpg')?></a></h1>
+		<div class="navigation">
+				
+				<ul>
+					<li><a href="#">PEDIDOS</a></li>
+					<li><a href="#">ASISTENCIA</a></li>
+				</ul>
+			</div>
 		</div>
+		
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
@@ -38,8 +46,6 @@
 			?>
 		</div>
 	</div>
-    <div id="sql">
-	   <?php echo $this->element('sql_dump'); ?>
-    </div>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>
