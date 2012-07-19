@@ -125,15 +125,15 @@
 			function ($this){
 				// sum the total of the $("[id^=total_item]") selector
 				var sum = $this.sum();
-                var adri = <?php echo $totalrecargas;?>;
+                                                                        var adri = <?php echo $totalrecargas;?>;
 				var totalg = sum + adri;
 				jQuery("#grandTotal").text(
 					// round the results to 2 digits
 					"$" + sum.toFixed(2)
 				);
-              jQuery("#totalpago").text(
-                 "$"+totalg.toFixed(2)
-              );
+                                                                        jQuery("#totalpago").text(
+                                                                            "$"+totalg.toFixed(2)
+                                                                        );
 			}
 		);
 	}
@@ -147,9 +147,10 @@
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<a href="#">Ingresos</a>
+			<!--<a href="controlingresos">Pedidos</a>-->
+            <?php echo $this->Html->link('Pedidos', array('controller'=>'controlpedidos', 'action'=>'index'))?>
 			<span>&gt;</span>
-			Listado &uacute;ltimos ingresos
+			Detalle del pedido
 		</div>
 		<!-- End Small Nav -->
 		
@@ -170,69 +171,59 @@
 					<!-- End Box Head -->
                     <!-- Form -->
                        <?php echo $this->Form->create(null, array(
-                            'url' => array('controller' => 'controlpedidos', 'action' => 'facturar2')
+                            'url' => array('controller' => 'controlpedidos', 'action' => 'recibo')
                             ));
                     ?>
                    <div class="form">
                            	<!-- Table -->
                     <?php //debug($pedido);?>
-                   
 					<div class="table">
-                     <table>
-                     <?php echo $this->Form->hidden("1.Pedido.idpedido", array('value'=>$data[1]['Detalle']['pedido_id']))?>
+                   <table>
                           <tr>
                              <td>NOMBRE:</td>
                              <td>
                                 <?php echo $this->Form->text("1.Pedido.nombre",array('size'=>20));?>
                              </td>
                           </tr>
-                          <tr>
-                             <td>NIT: </td>
-                             <td>
-                                <?php echo $this->Form->text("1.Pedido.nit", array('size'=>20));?>
-                             </td>
-                          </tr>
+                      
                      </table>
+                     
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        
+                       
 							<tr>
-								<!--<th width="13"><input type="checkbox" class="checkbox" /></th>-->
-                                <th width="13"><input type="checkbox" class="checkbox" /></th>
+								<th width="13"><input type="checkbox" class="checkbox" /></th>
+                                
                                 <th>Item</th>
 								<th>cantidad</th>
                                 <th>precio</th>
                                 <th align="center">subtotal</th>								
 							</tr>
-                           <?php $i=0;?>
+                           
+                            <?php $i=0; ?>
                              <?php $total =0;?>
-                             <?php $precio =0;?>
-                             
-                         
-                             
-                             <?php foreach($detalle as $data):?>
                             
-                           <?php $i++;?>
-                            <?php $total = $total + $data['Detalle']['preciou'];
-                            $precio = $data['Detalle']['preciou'];
+                            <?php foreach($pedido as $data):?>
+                            <?php $precio =0;?>
+                            <?php $total = $total + $data['Item']['precio'];
+                            $precio = $data['Item']['precio']/$data['Item']['cantidad'];
                             ?>
                                 <?php if((fmod($i, 2) == 1)?$clase="odd":$clase="");?>
-                                
+                                <?php $i++;?>
     							<tr class="<?php echo $clase;?>">
-                                                                       <td>
-                                       <?php echo $this->Form->checkbox("$i.Pedido.chk", array('class'=>'checkbox', 'id'=>"chk$i", 'value'=>$data['Detalle']['producto_id']));?>
-                                       <!--<input type="checkbox" name="checkbox_<?php //echo $i;?>" id="chk<?php //echo $i;?>" value="<?php //echo $data['Item']['id'];?>" />-->
+                                   <td> 
+                                       <?php echo $this->Form->checkbox("$i.Pedido.chk", array('class'=>'checkbox', 'id'=>"chk$i", 'value'=>$data['Item']['id'], 'checked'=>'checked'));?>
+                                       <?php echo $this->Form->hidden("$i.Pedido.producto_id", array('value'=>$data['Producto']['id']));?>
                                     </td>
                                     
                                    	<td>
-                                       <?php echo $this->Form->hidden("$i.Pedido.producto_id", array('value'=>$data['Detalle']['producto_id']));?>
-                                       <?php echo $this->Form->hidden("$i.Pedido.producto", array('value'=>$data['Detalle']['producto']));?>
-                                       <?php echo $data['Detalle']['producto'];?>
+                                       <?php echo $this->Form->hidden("$i.Pedido.producto", array('value'=>$data['Producto']['nombre']));?>
+                                       <?php echo $data['Producto']['nombre'];?>
                                     </td>
                                     
                                     <td>
                                        <h3>
-                                          <?php echo $this->Form->hidden("$i.Pedido.cantidad", array('value'=>1, "id"=>"qty_item_$i"));?>
-                                          <?php echo '1';?>
+                                          <?php echo $this->Form->hidden("$i.Pedido.cantidad", array('value'=>$data['Item']['cantidad'], "id"=>"qty_item_$i"));?>
+                                          <?php echo $data['Item']['cantidad'];?>
                                           <?php //echo $this->Form->text("Pedido.$i.cantidad", array('value'=>$data['Item']['cantidad'],'size'=>5, 'disabled'=>'disabled'));?>
                                        </h3>
                                     </td>
@@ -242,9 +233,7 @@
                                     </td>
                                     <td align="left" id="total_item_<?php echo $i;?>">$ 0</td>
                             </tr>
-                            
 							<?php endforeach;?>
-                         
                             <tr>
                                  <td colspan="4"><b style="margin-left: 27px;">Total</b></td>
                                  <td align="left">
@@ -256,9 +245,7 @@
                                	
                                </td>
                             </tr>-->
-                            
 						</table>
-                        
                         <!-- end table-->						
 						</div>
 						<!-- End Form -->
@@ -266,17 +253,17 @@
 						<!-- Form Buttons -->
 						<div class="buttons">
 							<!--<input type="button" class="button" value="preview" />-->
-                            
+                            <div style="float: left;">
                             <?php 
                             $options = array(
-                            'label' => 'facturar!',
+                            'label' => 'imprimir recibo!',
                             'name' => "data[$i][Pedido][enviar]",
                             'class' => 'button',
       
                             );
                             echo $this->Form->end($options);?>
-                            
-							
+                            </div>
+					
 						</div>
 						<!-- End Form Buttons -->
 					
@@ -310,17 +297,7 @@
 					
 				</div>
 				<!-- End Box -->
-				
-				<!-- Box -->
-				<div class="box">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Add New Article</h2>
-					</div>
-					<!-- End Box Head -->
-					
-				</div>
-				<!-- End Box -->
+			
 
 			</div>
 			<!-- End Content -->

@@ -178,7 +178,9 @@
                            	<!-- Table -->
                     <?php //debug($pedido);?>
 					<div class="table">
+                    
                    <table>
+                  <?php echo $this->Form->hidden("data[1][Pedido][idpedido]", array('value'=>$idpedido));?>
                           <tr>
                              <td>NOMBRE:</td>
                              <td>
@@ -260,6 +262,7 @@
 							<!--<input type="button" class="button" value="preview" />-->
                             <div style="float: left;">
                             <?php 
+                            
                             $options = array(
                             'label' => 'facturar!',
                             'name' => "data[$i][Pedido][enviar]",

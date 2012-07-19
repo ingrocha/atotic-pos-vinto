@@ -95,7 +95,7 @@ class ControlpedidosController extends AppController{
        $this->layout = 'imprimir';
        $cliente = $this->data[1]['Pedido']['nombre'];
        $nitcliente = $this->data[1]['Pedido']['nit'];
-       
+       $idpedido = $this->data[1]['Pedido']['idpedido'];
        $datas = $this->data;
        
       $total = 0.0;
@@ -116,6 +116,7 @@ class ControlpedidosController extends AppController{
             //debug($total);exit;
             $i++;
              }else{
+             $newdata[$j]['Pedido']['pedido_id']= $idpedido;
              $newdata[$j]['Pedido']['producto'] = $d['Pedido']['producto'];
              $newdata[$j]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
              $newdata[$j]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
@@ -135,7 +136,7 @@ class ControlpedidosController extends AppController{
         $autoriza=$datosfactura[0]['Parametrosfactura']['numero_autorizacion'];
        $fecha = date('Y-m-d');
         $this->Factura->create();
-       
+        $this->request->data['Factura']['pedido_id']= $idpedido;
         $this->request->data['Factura']['nit']= $nitcliente;
         $this->request->data['Factura']['cliente']= $cliente;
         $this->request->data['Factura']['importetotal']= $total;
@@ -155,8 +156,8 @@ class ControlpedidosController extends AppController{
                                             $llave);
        
        //autorizacion, factura, nit, fecha, monto, llave
-      //$codigo=$this->Codigocontrol->generar();
-      $codigo = "as-ewr-dsf";
+      $codigo=$this->Codigocontrol->generar();
+      //$codigo = "as-ewr-dsf";
       $this->Factura->id= $idfactura;
       $this->Factura->read();
        $this->request->data['Factura']['codigo_control']= $codigo;

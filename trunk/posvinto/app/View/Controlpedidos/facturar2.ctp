@@ -112,13 +112,14 @@
 <?php  if(!empty($newdata)):?>
 
 <?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' =>'facturar3')));?>
-<?php //echo $this->Form->create(null, array('controller'=>'controlpedidos', 'action'=>'facturar3'));?>
+
 
 <table>
    
    <?php $i=0;?>
    <?php foreach($newdata as $data):?>
    <?php //debug($data);?>
+   <?php echo $this->Form->hidden("$i.Detalle.pedido_id", array('value'=>$data['Pedido']['pedido_id']))?>
       <tr>
          <td>
             <?php echo $this->Form->hidden("$i.Detalle.producto_id", array('value'=>$data['Pedido']['producto_id']));?>
