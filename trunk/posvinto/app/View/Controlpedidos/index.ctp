@@ -94,17 +94,7 @@
 				</div>
 				<!-- End Box -->
 				
-				<!-- Box -->
-				<div class="box">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Add New Article</h2>
-					</div>
-					<!-- End Box Head -->
-					
-				</div>
-				<!-- End Box -->
-
+				
 			</div>
 			<!-- End Content -->
 			

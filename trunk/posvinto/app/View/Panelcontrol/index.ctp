@@ -16,7 +16,7 @@
 			<div class="cl">&nbsp;</div>
 			
 			<!-- Content -->
-			<div id="content">
+			<div id="content" style="width: 90%; margin-bottom:30px;">
 				
 				<!-- Box -->
 				<div class="box">
@@ -30,7 +30,7 @@
 					<!-- Panel de control -->
                    <!-- <form>-->
 					<div class="buttons-control">
-                    <?php $url = "http://localhost/sistemaVintoCV/posvinto/"?>
+                    <?php $url = "http://localhost/posvinto/posvinto/"?>
                        <?php //echo $this->Html->link('control pedidos', array('url'=>array('controller'=>'controlpedidos', 'action'=>'formbuscar', 'class'=>'add-button')));?>
                        <div style="float: left; margin: 5px;">
                          <a href="<?php echo $url?>usuarios" class="add-button"><span>Usuarios</span></a>
@@ -120,45 +120,7 @@
 			</div>
 			<!-- End Content -->
 			
-			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="box">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Management</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">
-						<a href="controlingresos/ingresar" class="add-button"><span>Ingresar nuevo item</span></a>
-						<div class="cl">&nbsp;</div>
-						
-						<p class="select-all"><input type="checkbox" class="checkbox" /><label>seleccionar todos</label></p>
-						<p><a href="#">Deseleccionar todos</a></p>
-						
-						<!-- Sort -->
-						<div class="sort">
-							<label>Ordenar por</label>
-							<select class="field">
-								<option value="">T&iacute;tulo</option>
-							</select>
-							<select class="field">
-								<option value="">Fecha</option>
-							</select>
-							<select class="field">
-								<option value="">Persona</option>
-							</select>
-						</div>
-						<!-- End Sort -->
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
+			
 			
 			<div class="cl">&nbsp;</div>			
 		</div>

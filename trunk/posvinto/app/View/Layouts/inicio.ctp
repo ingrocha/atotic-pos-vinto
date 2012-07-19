@@ -10,7 +10,7 @@
     <?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('sisvinto', 'template', 'redmond/jquery-ui-1.8.20.custom', 'style', 'validationEngine.jquery'));
+		echo $this->Html->css(array('template', 'redmond/jquery-ui-1.8.20.custom', 'style', 'validationEngine.jquery','login'));
         echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-1.6.min','jquery-ui-1.8.20.custom.min','jquery.validationEngine', 'languages/jquery.validationEngine-es'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -20,17 +20,15 @@
 
 </head>
 <body>
-   <div id="border-top" class="h_blue">
-     <span class="title"><a href="#">Administraci&oacute;n</a></span>
-   </div>
-<!-- Container -->
+   <!-- Container -->
                 <?php echo $this->Session->flash(); ?>
 				<?php echo $this->fetch('content'); ?>
 
 <!-- End Container -->
 	<div id="footer">
 		<p class="copyright">
-			<a href="http://www.joomla.org">Joomla!&#174;</a> is free software released under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License</a>.		</p>
+			Centro Ecoturistico VIVA VINTO Derechos Reservados 2012
+          <span style="float: right;"> Desarrollado por <a href="http://www.atotic.com">ATOTIC&#174;</a></span> 		</p>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>

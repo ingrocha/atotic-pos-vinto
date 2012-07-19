@@ -149,5 +149,16 @@
             //$cal_nfactura = $this->Verhoeff->calc($nfactura);
             //echo $tmp_nfactura;
                 
-        }    
+        } 
+        public function genera2(){
+            
+            $this->Codigocontrol->CodigoControl('79040011859',
+                                                '152',
+                                                '1026469026',
+                                                '20070728',
+                                                '135',
+                                                'A3Fs4s$)2cvD(eY667A5C4A2rsdf53kw9654E2B23s24df35F5');
+            $codigo=$this->Codigocontrol->generar();                                                
+            debug($codigo);
+        }   
     }

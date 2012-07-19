@@ -12,9 +12,18 @@ class UsuariosController extends AppController
     }
     public function index()
     {
+ $this->paginate  = array(
+        
+        'limit' => 2,        
+        'order' => array(
+            'Usuario.id' => 'desc'
+        )
+    );
 
-        $usuarios = $this->Usuario->find('all'); 
-        $this->set(compact('usuarios'));
+    // similar to findAll(), but fetches paged results
+    $usuarios = $this->paginate('Usuario');
+    $this->set(compact('usuarios'));
+
         
     }
     
