@@ -179,6 +179,7 @@
                    
 					<div class="table">
                      <table>
+                     <?php echo $this->Form->hidden("1.Pedido.idpedido", array('value'=>$idped));?>
                           <tr>
                              <td>NOMBRE:</td>
                              <td>
