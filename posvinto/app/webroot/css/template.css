@@ -700,3 +700,8 @@ a#gkStyle4 {
 #gkPopupRegister dd:last-child {
 	height: 120px;
 }
+.login{
+	width:500px; margin:0 auto; margin-top:90px; text-align:center
+	
+	}
+.login h1{ color:#000; margin:10px 0;}
