@@ -37,7 +37,8 @@ input { text-align:center; border:1px solid #666; padding:10px 30px; font-size: 
 
 /* SQL log */
 .cake-sql-log {
-	background: #fff;
+	background: #000;
+    float: left;
 }
 .cake-sql-log td {
 	padding: 4px 8px;
