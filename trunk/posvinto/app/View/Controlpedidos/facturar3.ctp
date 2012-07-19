@@ -179,7 +179,7 @@
                    
 					<div class="table">
                      <table>
-                     <?php echo $this->Form->hidden("1.Pedido.idpedido", array('value'=>$data[1]['Detalle']['pedido_id']))?>
+                     <?php echo $this->Form->hidden("1.Pedido.idpedido", array('value'=>$detalle[0]['Detalle']['pedido_id']))?>
                           <tr>
                              <td>NOMBRE:</td>
                              <td>
