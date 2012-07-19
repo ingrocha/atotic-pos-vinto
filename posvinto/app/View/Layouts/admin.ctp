@@ -10,7 +10,11 @@
     <?php
 		echo $this->Html->meta('icon');
 
+<<<<<<< .mine
+		echo $this->Html->css(array( 'redmond/jquery-ui-1.8.20.custom', 'style', 'validationEngine.jquery'));
+=======
 		echo $this->Html->css(array('redmond/jquery-ui-1.8.20.custom', 'style', 'validationEngine.jquery'));
+>>>>>>> .r145
         echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-1.6.min','jquery-ui-1.8.20.custom.min','jquery.calculation', 'jquery.validationEngine', 'languages/jquery.validationEngine-es'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -25,13 +29,9 @@
 	<div class="shell">
 		<!-- Logo + Top Nav -->
 		<div id="top">
-			<h1><a href="#">SpringTime</a></h1>
+			<h1><a href="#">CENTRO ECOTURISTICO VIVAVINTO</a></h1>
 			<div id="top-navigation">
 				Bienvenido <a href="#"><strong><?php echo $this->Session->read('nombre') ?></strong></a>
-				<span>|</span>
-				<a href="#">Help</a>
-				<span>|</span>
-				<a href="#">Profile Settings</a>
 				<span>|</span>
 				<?php echo $this->Html->link('Cerrar Sesion', array('controller' => 'usuarios', 'action' => 'logout'));?>
 			</div>
@@ -42,7 +42,7 @@
 		<div id="navigation">
 			<ul>
 			    <li>
-                <?php $url = "http://localhost/sistemaVintoCV/posvinto/"?>
+                <?php $url = "http://localhost/posvinto/posvinto/"?>
                    <a href="<?php echo $url?>panelcontrol/" class="active"><span>Inicio</span></a>                 
                 </li>
 			    <li><a href="<?php echo $url?>usuarios/"><span>Usuarios</span></a></li>
@@ -69,11 +69,12 @@
 	<div class="shell">
 		<span class="left">&copy; 2012 - Viva Vinto derechos reservados</span>
 		<span class="right">
-			Hecho por <a href="http://atotic.com" target="_blank" title="Hecho por ATOTIC">atotic.com</a>
+			
+            Desarrollado por <a href="http://www.atotic.com" target="_blank" title="Desarrollado por ATOTIC">ATOTIC</a>
 		</span>
 	</div>
 </div>
 <!-- End Footer -->
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

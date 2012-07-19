@@ -4,11 +4,22 @@ class ClientesController extends AppController
 
     public $helpers = array('Html', 'Form'); //definimos que ayudantes vamos a usar
     public $uses = array('Cliente'); //definimos las tablas que vamos a utilizar
+    public $layout = 'admin';
 
     public function index()
     {
+$this->paginate  = array(
+       
+        'limit' => 25,        
+        'order' => array(
+            'Cliente.id' => 'desc'
+        )
+    );
 
-        $clientes = $this->Cliente->find('all'); //buscamos el listado de todos los clientes
+    // similar to findAll(), but fetches paged results
+    
+
+        $clientes = $this->paginate('Cliente'); //buscamos el listado de todos los clientes
         $this->set(compact('clientes'));
         //debug($clientes);
     }

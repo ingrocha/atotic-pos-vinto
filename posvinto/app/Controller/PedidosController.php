@@ -326,15 +326,21 @@ class PedidosController extends AppController {
     }
 
     public function verificamoso() {
-
-        //debug($this->data);
+              
+        //debug($this->data);                
         if (!empty($this->data)) {
 
             $num = $this->data['Pedidos']['numero'];
             $verif = $this->Usuario->find('first', array('conditions' => array('Usuario.codigo' => $num), 'recursive' => -1));
 
             if (!empty($verif)) {
-
+                
+                $fecha_ayer = date("Y-m-d", strtotime("yesterday"));
+                $fecha_hoy = date("Y-m-d");
+                
+                echo "la fecha hoy es ".$fecha_hoy."<br />";
+                echo "la fecha es ".$fecha_ayer;                                
+                
                 $fecha = date('Y-m-d H:i:s');
                 $this->data = "";
                 $id_moso = $verif['Usuario']['id'];
