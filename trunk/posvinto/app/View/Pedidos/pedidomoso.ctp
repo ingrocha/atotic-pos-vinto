@@ -47,10 +47,10 @@
             <div id="listado">
                  <table class="lista-pedidos">
     <tr>
-        <th>Plato</th>
-        <th>Cantidad</th>
+        <td>Plato</td>
+        <td>Cantidad</td>
        <!--  <td>Precio</td> -->
-        <th></th>
+        <td>Acciones</td>
     </tr>
     <?php //echo $id_moso; ?>
     <?php 
@@ -76,7 +76,7 @@
             ?>
         </td> -->
         <td>            
-            <div id="restar_<?php echo $id_item; ?>" class="rest"> <?php echo $this->Html->image('rest.png')?>  </div>
+            <div id="restar_<?php echo $id_item; ?>"> restar </div>
             <script type="text/javascript">                                           
                 //$(document).ready(function() {
                     $("#restar_<?php echo $id_item; ?>").click(function(){
