@@ -1,3 +1,10 @@
+<script language="javascript" type="text/javascript">
+function popitup(url) {
+	newwindow=window.open(url,'name','height=300,width=400');
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+</script>
 <!-- Container -->
 <div id="container">
 	<div class="shell">
@@ -53,7 +60,8 @@
                                     <td><?php echo $data['Pedido']['fecha'];?></td></td>
                                     <td><?php echo $data['Pedido']['total'];?></td></td>
 							   	    <td>
-                                       <?php echo $this->Html->link('ver detalle', array('action'=>'detallepedido', $data['Pedido']['id'], $data['Usuario']['nombre']), array('class'=>"ico edit"))?>
+                                       <?php //echo $this->Html->link('ver detalle', array('action'=>'detallepedido', $data['Pedido']['id'], $data['Usuario']['nombre']), array('class'=>"ico edit"))?>
+                                       <a href="http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/<?php echo $data['Pedido']['id']?>/<?php echo $data['Usuario']['nombre']?>" class="ico edit" onclick="return popitup('http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/'+'<?php echo $data['Pedido']['id']?>'+'/'+'<?php echo $data['Usuario']['nombre']?>')">ver cuenta</a>
                                     </td>   
     							</tr>
 							<?php endforeach;?>
