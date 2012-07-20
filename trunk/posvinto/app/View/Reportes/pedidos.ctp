@@ -1,3 +1,10 @@
+<script language="javascript" type="text/javascript">
+function popitup(url) {
+	newwindow=window.open(url,'name','height=300,width=400');
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+</script>
 <!-- Container -->
 <div id="container">
 	<div class="shell">
@@ -25,13 +32,14 @@
 					<div class="box-head">
 						<h2 class="left">&Uacute;ltimos 20 ingresos</h2>
                 
-                       
-						<div class="right">
+                      
+				<!--<div class="right">
 							<label>filtrar</label>
-                            <?php  echo $this->Form->create('Reporte', array('action' => 'buscar'));?> 
-                            <input type="text" class="field small-field" name="dato"/>
-							<input type="submit" class="button" value="search" /> 
-						</div>
+                              <?php //echo $this->Form->create(null, array('url' => array('controller' => 'reportes', 'action' => 'buscar'))); ?>
+                            <!--<input type="text" class="field small-field" name="dato"/>
+							<!--<input type="submit" class="button" value="search" /> -->
+                            <?php //echo $this->Form->end('buscar');?>
+						<!--</div>-->
 					</div>
 					<!-- End Box Head -->	
 
@@ -60,9 +68,9 @@
                                     ?>
                                     <td><?php echo $hora[1];?></td>
     								<td>
-                                       <a href="#" class="ico del">Eliminar</a>
-                                       <?php echo $this->Html->link('Facturar',array('controller' => 'controlpedidos', 'action' => 'facturar1', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
-                                       <?php echo $this->Html->link('Recibo',array('controller' => 'controlpedidos', 'action' => 'Recibo', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
+                                       <a href="http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/<?php echo $data['Pedido']['id']?>/<?php echo $data['Usuario']['nombre']?>" class="ico edit" onclick="return popitup('http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/'+'<?php echo $data['Pedido']['id']?>'+'/'+'<?php echo $data['Usuario']['nombre']?>')">ver cuenta</a>
+                                       <?php //echo $this->Html->link('Facturar',array('controller' => 'controlpedidos', 'action' => 'facturar1', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
+                                       <?php //echo $this->Html->link('Recibo',array('controller' => 'controlpedidos', 'action' => 'Recibo', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
                                     </td>
     							</tr>
 							<?php endforeach;?>
@@ -122,18 +130,16 @@
                         
 						<div class="sort">
 							<label>Filtrar por</label>
-							<!--<select class="field">
-								<option value="">Fecha</option>
-							</select>-->
-                            <?php echo $this->Form->create('Reporte');?>
-                            <?php echo $this->Form->text('dato', array('class'=>'field', 'id'=>'fecha', 'placeholder'=>"dato"));?>
-                            <?php echo $this->Form->text('fecha', array('class'=>'field', 'id'=>'fecha', 'placeholder'=>"fecha"));?>
+                            <?php echo $this->Form->create(null, array('url' => array('controller' => 'reportes', 'action' => 'pedidos'))); ?>
+                            <?php echo $this->Form->text(null, array('class'=>'field', 'id'=>'dato', 'placeholder'=>"dato", 'name'=>'dato'));?>
+                            <?php echo $this->Form->text(null, array('class'=>'field', 'id'=>'fecha', 'placeholder'=>"fecha", 'name'=>'fecha'));?>
                             <label>Mozo</label>
-                            <?php echo $this->Form->select('mozo', $mozos,array('class'=>'field', 'id'=>"mozo"))?>
+                            <?php echo $this->Form->select(null, $mozos,array('class'=>'field','id'=>'mozo', 'name'=>'mozo'))?>
                             <label>Estado</label>
-                            <?php echo $this->Form->select(null, array('1'=>'Cancelado', '0'=>'Por cancelar'), array('name'=>'estado'));?>
-			                 <?php echo $this->Form->end('Buscar');?>
+                            <?php echo $this->Form->select(null, array('1'=>'Cancelado', '0'=>'Por cancelar'), array('name'=>'estado', 'class'=>'field'));?>
+			               <?php echo $this->Form->end('Buscar');?> 
 						</div>
+                         
 						<!-- End Sort -->
 				
 					</div>
