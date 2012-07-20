@@ -1,23 +1,5 @@
 <!-- Container -->
-<div id="container">
-	<div class="shell">
-		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<a href="#">Pedidos</a>
-			<span>&gt;</span>
-			Filtro para ver pedidos
-		</div>
-		<!-- End Small Nav -->
-		
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-            <!-- Box -->
+
             <div id="aImprimir">
 				<div class="box">
 					<!-- Box Head -->
@@ -62,63 +44,15 @@
 				<!-- End Box -->
 			<?php echo $this->Form->button('Imprimir', array('id'=>"imprimir")); ?>
 			</div><!-- End Content -->
-			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="box">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Sub menu reportes</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">
-						<?php $url= "http://localhost/sistemaVintoCV/posvinto/reportes/"?>
-                        <a href="<?php echo $url?>mozos" class="add-button"><span>Reporte mozos</span></a>
-						<div class="cl"></div>
-						<a href="<?php echo $url?>insumos" class="add-button"><span>Reporte insumos</span></a>
-                        <div class="cl">&nbsp;</div>
-                        <a href="<?php echo $url?>pedidos" class="add-button"><span>Reporte pedidos</span></a>
-                        <div class="cl">&nbsp;</div>
-						<p class="select-all"><input type="checkbox" class="checkbox" /><label>seleccionar todos</label></p>
-						<p><a href="#">Deseleccionar todos</a></p>
-						
-						<!-- Sort -->
-						<div class="sort">
-							<label>Ordenar por</label>
-							<select class="field">
-								<option value="">T&iacute;tulo</option>
-							</select>
-							<select class="field">
-								<option value="">Fecha</option>
-							</select>
-							<select class="field">
-								<option value="">Persona</option>
-							</select>
-						</div>
-						<!-- End Sort -->
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
-			
-			<div class="cl">&nbsp;</div>			
-		
-		<!-- Main -->
-	</div>
+
  <script type="text/javascript">
    jQuery(document).ready(function() {
 
          jQuery("#imprimir").click(function() {
-            alert("imprimir");
+            //alert("imprimir");
             // windows.location("http://localhost/posvinto/posvinto/facturas/facturar3");
-             printElem({ leaveOpen: true, printMode: 'popup' });
-             
-            // printElem({ overrideElementCSS: ['http://localhost/unibol/app/webroot/css/printable.css'] });
+            // printElem({ leaveOpen: true, printMode: 'popup' });
+            printElem({ overrideElementCSS: ['http://localhost/sistemaVintoCV/posvinto/app/webroot/css/imprimir.css'] });
          });
 
 

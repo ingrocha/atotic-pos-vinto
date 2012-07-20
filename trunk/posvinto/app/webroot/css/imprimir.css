@@ -6,3 +6,24 @@ table.tablafactura{
     margin-right: 70%;
     width: 22%;
 } 
+
+table.reportea{
+    margin: 10px 20px 50px 25px;
+    width: 600px;
+    border: 2px solid black;
+}
+table.reportea tr td{
+    border: 1px solid black;
+    text-align: center;
+    font: arial 12px;
+}
+table.reportea tr th{
+    border: 2px solid black;
+    text-align: center;
+    font: arial 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.oculto{
+    display:none;
+}
