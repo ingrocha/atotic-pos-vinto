@@ -81,131 +81,68 @@ class ReportesController extends AppController{
        $this->set(compact('data', 'mozos'));
 
     }
-    function buscar2(){
-           // debug($this->data);
-            $data= $this->data['dato'];
-            $data1 = $this->data['estado'];
-            $tipo = $this->data['tipo'];
-            
-                if($this->data['estado'] != null ){
-                    if($data != null){
-                     $options=array( 'Usuario.estado' =>$data1,
-                                        'OR'=>array(
-                                             
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.usuario LIKE' =>'%'.$data.'%',
-                                            'Usuario.ci LIKE' =>'%'.$data.'%',
-                                            'Usuario.correo LIKE' =>'%'.$data.'%'
-                                            )
-                                        );
-                             }else{
-                                  $options=array('Usuario.estado' =>$data1);
-                                           
-                             }
-            
-                     }elseif($tipo != null){
-                         if($data != null){
-                             $options=array( 'Tipousuario.id' =>$tipo,
-                                        'OR'=>array(
-                                            
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.usuario LIKE' =>'%'.$data.'%',
-                                            'Usuario.ci LIKE' =>'%'.$data.'%',
-                                            'Usuario.correo LIKE' =>'%'.$data.'%'
-                                            )
-                                        );
-                         }else{
-                             $options=array(
-                                       
-                                           'Tipousuario.id' =>$tipo);
-                                            
-                         }
-                          
-                     }
-                     else{
-                         $options=array(
-                                        'OR'=>array(
-                                             'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.usuario LIKE' =>'%'.$data.'%',
-                                            'Usuario.ci LIKE' =>'%'.$data.'%',
-                                            'Usuario.correo LIKE' =>'%'.$data.'%'
-                                            )
-                                        );
-                     }
     
-   
-   
-       $tipos = $this->Tipousuario->find('list',array('fields'=>array('Tipousuario.tipo')));
-      
-      
-    $result=$this->Usuario->find('all',array('conditions'=>array($options)));
- // debug($result);exit;
-     $this->set('tipos', $tipos);
-     $this->set('all',$result);
-    }
     public function pedidos(){
         if(!empty($this->data)){
-            debug($this->data);exit;
-            $dato = "";
-            $fecha = "";
-            $mozo = "";
+
+            $data = $this->data['dato'];
+            $fecha = $this->data['fecha'];
+            $mozo = $this->data['mozo'];
+            $estado = $this->data['estado'];
             
-             if($this->data['estado'] != null ){
-                    if($data != null){
-                     $options=array( 'Usuario.estado' =>$data1,
+            $options = array();
+            
+            
+            if($data != null && $fecha == null && $mozo == null && $estado == null){
+                $options=array( 
                                         'OR'=>array(
-                                             
+                                            'Pedido.mesa LIKE' =>'%'.$data.'%',
                                             'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.usuario LIKE' =>'%'.$data.'%',
-                                            'Usuario.ci LIKE' =>'%'.$data.'%',
-                                            'Usuario.correo LIKE' =>'%'.$data.'%'
+                                            'Pedido.fecha LIKE' =>'%'.$data.'%',
+                                            'Pedido.total LIKE' =>'%'.$data.'%'
                                             )
                                         );
-                             }else{
-                                  $options=array('Usuario.estado' =>$data1);
-                                           
-                             }
-            
-                     }elseif($tipo != null){
-                         if($data != null){
-                             $options=array( 'Tipousuario.id' =>$tipo,
-                                        'OR'=>array(
-                                            
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.usuario LIKE' =>'%'.$data.'%',
-                                            'Usuario.ci LIKE' =>'%'.$data.'%',
-                                            'Usuario.correo LIKE' =>'%'.$data.'%'
-                                            )
-                                        );
-                         }else{
-                             $options=array(
-                                       
-                                           'Tipousuario.id' =>$tipo);
-                                            
-                         }
-                          
-                     }
-                     else{
-                         $options=array(
-                                        'OR'=>array(
-                                             'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
-                                            'Usuario.usuario LIKE' =>'%'.$data.'%',
-                                            'Usuario.ci LIKE' =>'%'.$data.'%',
-                                            'Usuario.correo LIKE' =>'%'.$data.'%'
-                                            )
-                                        );
-                     }
-            
-            
-            
+            }else{
+                $cadena = array();
+                if($data != null){
+                    $cadena = array(
+                   'OR'=>array(
+                   'Pedido.mesa LIKE' =>'%'.$data.'%',
+                   'Usuario.nombre LIKE' =>'%'.$data.'%',
+                   'Pedido.total LIKE' =>'%'.$data.'%'
+                   )
+                );
+                }
+                
+                
+                if($fecha != null){
+                    //$options .= ('Pedido.fecha LIKE' =>'%'.$fecha.'%');
+                    $cadena2 = array('Pedido.fecha LIKE' => $fecha." %");
+                    $cadena = array_merge($cadena, $cadena2);
+                }
+                if($mozo != null){
+                    $cadena2 = array('Pedido.usuario_id' => $mozo);
+                    $cadena = array_merge($cadena, $cadena2);
+                }
+                if($estado != null){
+                    $cadena2 = array('Pedido.estado' => $estado);
+                    $cadena = array_merge($cadena, $cadena2);
+                }
+              
+                $data = "juan";
+                $options=array(
+        'OR'=>array(
+        'Pedido.mesa LIKE' =>'%'.$data.'%',
+        'Usuario.nombre LIKE' =>'%'.$data.'%',
+        'Pedido.fecha LIKE' =>'%'.$data.'%',
+        'Pedido.total LIKE' =>'%'.$data.'%'
+        )
+        ); 
+    
+            }
+          
             $this->paginate  = array(
-            'conditions'=>array($options),
+            'conditions'=>array($cadena),
             'limit' => 25,        
             'order' => array(
             'Pedido.id' => 'desc'
