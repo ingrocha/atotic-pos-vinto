@@ -27,7 +27,7 @@ class PedidosController extends AppController {
     }
 
     public function pedidomoso($id_moso = null, $pedido = null, $mesa = null) {
-
+        
         $categorias = $this->Categoria->find('all', array('recursive' => -1));
         //debug($categorias);   
         $productos = $this->Producto->find('all', array('recursive' => -1, 'order' => 'Producto.categoria_id ASC'));
@@ -284,10 +284,8 @@ class PedidosController extends AppController {
             $verif = $this->Usuario->find('first', array('conditions' => array('Usuario.codigo' => $num), 'recursive' => -1));
             $id_moso = $verif['Usuario']['id'];            
             //debug($verif);
-            if($verif){
-                
-                $this->redirect(array('action'=>'listadomesas', $id_moso));
-                    
+            if($verif){                
+                $this->redirect(array('action'=>'listadomesas', $id_moso));                    
             }
                         
         }else{
