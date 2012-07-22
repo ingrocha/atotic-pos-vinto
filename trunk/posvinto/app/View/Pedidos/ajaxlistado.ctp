@@ -1,7 +1,7 @@
 <?php //debug($pedidos); ?>
-<div class="pedidomesa">
-    Mesa: <h2><?php echo $mesa; ?></h2>
-    <h1>Cantidad: <?php echo $cant_platos['0']['0']['cantidad']; ?></h1>
+<div class="pedidomesa" style="font-size: x-large; font-weight: bolder;">
+    Mesa: <?php echo $mesa; ?>
+    Cantidad: <?php echo $cant_platos['0']['0']['cantidad']; ?>
 </div>
  <table class="lista-pedidos">
     <tr>
