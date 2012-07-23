@@ -1,5 +1,5 @@
 <?php echo $this->Html->css('keypad/jquery.keypad'); ?>
-<?php echo $this->Html->script('keypad/jquery.keypad.min'); ?>
+<?php echo $this->Html->script(array('keypad/jquery.keypad.min', 'keypad/jquery.keypad-es')); ?>
 <script type="text/javascript">
 jQuery(function () {
 	jQuery('#tecladonumerico').keypad();

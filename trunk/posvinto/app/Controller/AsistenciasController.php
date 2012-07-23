@@ -3,6 +3,8 @@ class AsistenciasController extends AppController
 { 
     public $helpers = array('Html', 'Form','Time'); 
     public $uses = array('Asistencia','Usuario','ConfMulta','Multa');
+    public $layout = 'publico';
+    
     public function index() 
     {
     }

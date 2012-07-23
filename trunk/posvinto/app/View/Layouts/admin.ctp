@@ -13,8 +13,7 @@
         echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-1.6.min','jquery-ui-1.8.20.custom.min','jquery.calculation', 'jquery.validationEngine', 'languages/jquery.validationEngine-es', 'print'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
-		echo $this->fetch('script');
-        
+		echo $this->fetch('script');        
 	?>
 <script type="text/javascript">
    jQuery.noConflict();
@@ -26,7 +25,7 @@
 	<div class="shell">
 		<!-- Logo + Top Nav -->
 		<div id="top">
-			<h1><a href="#">CENTRO ECOTURISTICO VIVAVINTO</a></h1>
+			<h1><a href="#">ADMINISTRACION VIVAVINTO</a></h1>
 			<div id="top-navigation">
 				Bienvenido <a href="#"><strong><?php echo $this->Session->read('nombre') ?></strong></a>
 				<span>|</span>
@@ -47,6 +46,7 @@
 			    <li><a href="<?php echo $url?>controlpedidos/"><span>Pedidos</span></a></li>
 			    <li><a href="<?php echo $url?>reportes/"><span>Reportes</span></a></li>
 			    <li><a href="<?php echo $url?>productos/"><span>Productos</span></a></li>
+                <li><a href="<?php echo $url?>Inicioventas/"><span>Inicio Ventas</span></a></li>
 			    <li><a href="<?php echo $url?>panelcontrol/config"><span>Configuraciones</span></a></li>
 			</ul>
 		</div>

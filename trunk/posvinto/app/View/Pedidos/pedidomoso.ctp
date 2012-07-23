@@ -76,7 +76,7 @@
             ?>
         </td> -->
         <td>            
-            <div id="restar_<?php echo $id_item; ?>"> restar </div>
+            <div id="restar_<?php echo $id_item; ?>"><?php echo $this->Html->image('menos.jpg'); ?></div>
             <script type="text/javascript">                                           
                 //$(document).ready(function() {
                     $("#restar_<?php echo $id_item; ?>").click(function(){
@@ -96,16 +96,3 @@
         <?php endif; ?>              
     </div>
 </div>
-
-<script type="text/javascript">    
-    //$c=1;
-    var aplatos = function(nombre, precio, c){        
-        $("#platospedidos").append("<tr><td>"+nombre+"</td><td>"+precio+"<td><td>2</td></tr>");  
-        console.log(nombre+precio+c);
-        c++;          
-    }    
-    $(document).ready(function() {        
-    // do stuff when DOM is ready
-        //console.log('Hola jquery');
-    });
-</script>

@@ -3,7 +3,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		Viva Vinto
+		Viva Vinto        
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
@@ -19,14 +19,20 @@
 	?>
 </head>
 <body>
+    <?php define("DIR_WEB", "http://localhost/posvinto/posvinto/"); ?>
 	<div id="container">
 		<div id="header">
 			<h1><a href="#"><?php echo $this->Html->image('logo.jpg')?></a></h1>
 		<div class="navigation">
 				
 				<ul>
-					<li><a href="#">PEDIDOS</a></li>
-					<li><a href="#">ASISTENCIA</a></li>
+					<li>
+                        <?php //echo DIR_WEB; ?>
+                        <?php echo $this->Html->link("PEDIDOS", array('controller'=>'Pedidos', 'action'=>'listadopedidos')); ?>                        
+                    </li>                    
+					<li>
+                        <?php echo $this->Html->link("ASISTENCIAS", array('controller'=>'Asistencias', 'action'=>'entradas')); ?>
+                    </li>
 				</ul>
 			</div>
 		</div>

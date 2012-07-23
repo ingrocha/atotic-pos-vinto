@@ -4,6 +4,8 @@ class InsumosController extends AppController
 
     public $helpers = array('Html', 'Form'); 
     public $uses = array('Insumo','TiposInsumo'); 
+    public $layout = 'admin';
+    
     public function index()
     {
 
