@@ -129,7 +129,9 @@ class PedidosController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 
-    public function restarproducto($id_item = null) {
+    public function restarproducto($id_item = null, $mesa=null) {
+        
+        $this->layout='ajax';
         $item = $this->Item->findById($id_item);
         //debug($item);
         $cantidad_anterior = $item['Item']['cantidad'];
@@ -148,23 +150,23 @@ class PedidosController extends AppController {
         $items = $this->Item->find('all', array('conditions' => array('pedido_id' => $pedido)));
         $cant_platos = $this->Item->find('all', array('conditions' => array('pedido_id' => $pedido), 'recursive' => -1, 'fields' => array('SUM(Item.cantidad) as cantidad')));
         //debug($items);
-        $this->set(compact('items', 'pedido', 'cant_platos'));
+        $this->set(compact('items', 'pedido', 'cant_platos', 'mesa'));
     }
 
     public function registrarpedido($pedido = null, $total = null) {
 
         //$mesas = $this->Pedido->find('first', array('conditions'=>array(), 'order'=>'Pedido.id DESC'));
-        $mesa = $this->Pedido->find('neighbors', array('field' => 'id', 'value' => $pedido, 'recursive' => -1));
+        //$mesa = $this->Pedido->find('neighbors', array('field' => 'id', 'value' => $pedido, 'recursive' => -1));
         //debug($mesa);
-        if (!empty($mesa)) {
+        /*if (!empty($mesa)) {
             $ultima_mesa = $mesa['prev']['Pedido']['mesa'];
             $nueva_mesa = ++$ultima_mesa;
         } else {
             $nueva_mesa = 1;
-        }
+        }*/
         //debug($ultima_mesa);
         $this->Pedido->id = $pedido;
-        $this->request->data['Pedido']['mesa'] = $nueva_mesa;
+        //$this->request->data['Pedido']['mesa'] = $nueva_mesa;
         $this->request->data['Pedido']['total'] = $total;
         if ($this->Pedido->save($this->data)) {
             /******************************************registro y actualizacion del moviemiento de items*********/
@@ -323,10 +325,10 @@ class PedidosController extends AppController {
         
     }
 
-    public function verificamoso() {
+    public function verificamoso(){
               
         //debug($this->data);                
-        if (!empty($this->data)) {
+        if (!empty($this->data)){
 
             $num = $this->data['Pedidos']['numero'];
             $verif = $this->Usuario->find('first', array('conditions' => array('Usuario.codigo' => $num), 'recursive' => -1));
@@ -340,15 +342,30 @@ class PedidosController extends AppController {
                 echo "la fecha es ".$fecha_ayer;                                
                 
                 $fecha = date('Y-m-d H:i:s');
+                //if($fecha_ayer == $fecha_hoy){
+                    
+                //}
                 $this->data = "";
                 $id_moso = $verif['Usuario']['id'];
                 $pedido = $this->Pedido->find('first', array('order' => 'Pedido.id DESC'));
-                //debug($pedido);exit;                
+                $pedido_fecha = $pedido['Pedido']['fecha'];
+                $caracteres = preg_split('/ /', $pedido_fecha);
+                $fecha_ul_ped = $caracteres['0'];
+                //echo 'la fecha del ultimo pedido es '.$fecha_ul_ped;
+                if($fecha_ul_ped == $fecha_hoy){
+                    //echo 'son iguales';
+                    $m = $pedido['Pedido']['mesa'];
+                    $mesa = ++$m;                    
+                }else{
+                    //echo 'no se parecen';
+                    $mesa = 1;
+                }
+                //debug($caracteres);
+                //debug($pedido);exit;
                 //if(empty($pedido)){
                 //$mesa = 1;
                 //}else{
-                $m = $pedido['Pedido']['mesa'];
-                $mesa = ++$m;
+                
                 //}  
                 //debug($ul_pedido);exit;
                 $this->request->data['Pedido']['usuario_id'] = $verif['Usuario']['id'];
