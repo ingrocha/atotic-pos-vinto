@@ -76,8 +76,7 @@
             <div id="dialog2_<?php echo $id; ?>" style="float: left;">
             <?php 
                 echo $this->Html->image("out.png", array(
-                    "title" => "Salida Almacen",
-                    'url' => array('action' => 'modificar', $id)
+                    "title" => "Salida Almacen"                    
                 ));
             ?>
             </div>
