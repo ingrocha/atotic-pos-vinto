@@ -9,8 +9,8 @@
 	</title>
     <?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css(array('redmond/jquery-ui-1.8.20.custom', 'style', 'validationEngine.jquery'));
-        echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-1.6.min','jquery-ui-1.8.20.custom.min','jquery.calculation', 'jquery.validationEngine', 'languages/jquery.validationEngine-es', 'print'));
+		echo $this->Html->css(array('ui-lightness/jquery-ui-1.8.21.custom', 'style', 'validationEngine.jquery'));
+        echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-ui-1.8.21.custom.min','jquery.calculation', 'jquery.validationEngine', 'languages/jquery.validationEngine-es', 'print'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');        
@@ -45,6 +45,9 @@
                 <li><a href="<?php echo $url?>clientes/"><span>Clientes</span></a></li>
 			    <li><a href="<?php echo $url?>controlpedidos/"><span>Pedidos</span></a></li>
 			    <li><a href="<?php echo $url?>reportes/"><span>Reportes</span></a></li>
+                <li>
+                    <?php echo $this->Html->link("<span>Insumos</span>", array('controller'=>'Insumos', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                </li>
 			    <li><a href="<?php echo $url?>productos/"><span>Productos</span></a></li>
                 <li><a href="<?php echo $url?>Inicioventas/"><span>Inicio Ventas</span></a></li>
 			    <li><a href="<?php echo $url?>panelcontrol/config"><span>Configuraciones</span></a></li>

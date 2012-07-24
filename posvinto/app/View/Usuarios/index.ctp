@@ -122,9 +122,8 @@
 					</div>
 					<!-- End Box Head-->
 					
-					<div class="box-content">
-                    <?php //echo $this->Html->link('Nuevo Usuario', 'nuevo'); ?> 
-						<a href="nuevo" class="add-button"><span>Nuevo Usuario</span></a>
+					<div class="box-content">                     
+						<?php echo $this->Html->link("<span>Nuevo Usuario</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>
 						<div class="cl">&nbsp;</div>
 						
 						<p class="select-all"><input type="checkbox" class="checkbox" /><label>seleccionar todos</label></p>

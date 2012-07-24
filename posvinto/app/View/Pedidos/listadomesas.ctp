@@ -10,7 +10,7 @@
     <?php $id_moso=$m['Pedido']['usuario_id']; ?>   
     <?php $mesa=$m['Pedido']['mesa']; ?>
     <li>
-    <a href="http://localhost/posvinto/posvinto/pedidos/pedidomoso/<?php echo $id_moso?>/<?php echo $id_pedido?>/<?php echo $mesa?>">	    
+    <a href="http://192.168.0.102/posvinto/posvinto/pedidos/pedidomoso/<?php echo $id_moso?>/<?php echo $id_pedido?>/<?php echo $mesa?>">	    
         <div id="pedido_<?php echo $id_pedido; ?>">
         <?php echo $this->Html->image('table-small.png');?>
         <span class="number">MESA:<?php echo $m['Pedido']['mesa']; ?></span>
