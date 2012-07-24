@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Insumo Model
  *
- * @property Movimientosinsumo $Movimientosinsumo
+ * @property Movimiento $Movimiento
  * @property Porcione $Porcione
  */
 class Insumo extends AppModel {
@@ -16,9 +16,8 @@ class Insumo extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-    
-		'Movimientosinsumo' => array(
-			'className' => 'Movimientosinsumo',
+		'Movimiento' => array(
+			'className' => 'Movimiento',
 			'foreignKey' => 'insumo_id',
 			'dependent' => false,
 			'conditions' => '',

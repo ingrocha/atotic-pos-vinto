@@ -23,7 +23,7 @@
         <li id="prod_<?php echo $id_prod; ?>">  
             <span>
                 <?php echo $p['Producto']['nombre']; ?>
-            </span><?php echo $this->Html->image('plato.png'); ?>  
+            </span><?php //echo $this->Html->image('plato.png'); ?>  
         </li>
         <script type="text/javascript">                
                 $(document).ready(function() {

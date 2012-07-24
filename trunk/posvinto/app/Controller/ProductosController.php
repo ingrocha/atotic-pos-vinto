@@ -4,6 +4,8 @@ class ProductosController extends AppController
 
     public $helpers = array('Html', 'Form'); 
     public $uses = array('Producto'); 
+    public $layout = "admin";
+    
     public function index()
     {
 

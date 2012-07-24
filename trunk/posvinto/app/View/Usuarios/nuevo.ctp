@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 <!-- Container -->
 <div id="container">
 	<div class="shell">
@@ -141,4 +134,3 @@
 		</div>
 		<!-- Main -->
 	</div>
-

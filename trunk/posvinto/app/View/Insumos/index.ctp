@@ -8,15 +8,14 @@
             <?php echo $this->Html->link('Usuarios', array('controller' =>
 'usuarios', 'action' => 'index')) ?>
 			<span>&gt;</span>
-			Lista de Usuarios
+			Lista de Insumos
 		</div>
 		<!-- End Small Nav -->
 		
 		<br />
 		<!-- Main -->
 		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
+			<div class="cl">&nbsp;</div>			
 			<!-- Content -->
 			<div id="content">
 				
@@ -38,54 +37,76 @@
 					<table>
     <tr>
         <th>Nombre</th>
-        <th>Direccion</th>
-        <th>Usuario</th>
-        
-        <th>Codigo</th>
-        <th>Perfile</th>
-        <th>Sucursal</th>
-        <th>Estado</th>
+        <th>Precio Compra</th>
+        <th>Precio Venta</th>   
+        <th>Observaciones</th>
+        <th>Acciones</th>     
     </tr>
-<?php foreach ($usuarios as $c): ?>
+<?php foreach ($insumos as $i): ?>
     <tr>
         <td>
-            <?php $id = $c['Usuario']['id']; ?>
-            
-            <?php echo $c['Usuario']['nombre']; ?>
+            <?php $id = $i['Insumo']['id']; ?>            
+            <?php echo $i['Insumo']['nombre']; ?>
+        </td>
+        <div id="cuadro_<?php echo $id; ?>" title="Ingreso de  insumos">
+        </div> 
+        <div id="cuadro2_<?php echo $id; ?>" title="Salida de insumos">
+        </div> 
+        <td>
+            <?php echo $i['Insumo']['preciocompra']; ?>
         </td>
         <td>
-            <?php echo $c['Usuario']['direccion']; ?>
-        </td>
+            <?php echo $i['Insumo']['precioventa']; ?>
+        </td>        
         <td>
-            <?php echo $c['Usuario']['usuario']; ?>
-        </td>
-       
+            <?php echo $i['Insumo']['observaciones']; ?>
+        </td>       
         <td>
-            <?php echo $c['Usuario']['codigo']; ?>
-        </td>
-        <td>
-            <?php echo $c['Perfile']['nombre']; ?>
-        </td>
-        <td>
-            <?php echo $c['Sucursal']['nombre']; ?>
-        </td>
-        <td>
-        <?php echo $c['Estado']['nombre']; ?>
-        </td>
-        <td>
-            <?php echo $this->Html->link('Modificar', array('action' =>
-'modificar', $id)); ?>
-            <?php echo $this->Html->link('Dara baja', array('action' => 'baja',
-$id)); ?>
+            <?php 
+                echo $this->Html->image("edit.png", array(
+                    "title" => "Editar",
+                    'url' => array('action' => 'modificar', $id)
+                ));
+            ?>
+            <div id="dialog_<?php echo $id; ?>" style="float: left;">
+            <?php 
+                echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
+            ?>
+            </div>
+            <div id="dialog2_<?php echo $id; ?>" style="float: left;">
+            <?php 
+                echo $this->Html->image("out.png", array(
+                    "title" => "Salida Almacen",
+                    'url' => array('action' => 'modificar', $id)
+                ));
+            ?>
+            </div>
+            <?php 
+                echo $this->Html->image("elim.png", array(
+                    "title" => "Salida Almacen",
+                    'url' => array('action' => 'modificar', $id)
+                ));
+            ?>
+            <?php //echo $this->Html->link('Modificar', array('action' => 'modificar', $id)); ?>
+            <?php //echo $this->Html->link('Dara baja', array('action' => 'baja', $id)); ?>
+            <?php //echo $this->Html->link('', array('action' => 'baja', $id)); ?>
             <?php //echo $this->Html->link('Eliminar', array('action'=>'eliminar', $id)); ?>    
-            <?php echo $this->Html->link('Eliminar', array('action' =>
-'eliminar', $id), null, ('Desea aliminar a este usuario?')); ?>       
+            <?php //echo $this->Html->link('Eliminar', array('action' => 'eliminar', $id), null, ('Desea aliminar a este insumo?')); ?>
+            <script type="text/javascript">
+            jQuery("#dialog_<?php echo $id; ?>").click(function(){
+                jQuery("#cuadro_<?php echo $id; ?>").dialog().load("insumos/ingresoalmacen/<?php echo $id; ?>");
+                //alert("click");
+            });   
+            
+            jQuery("#dialog2_<?php echo $id; ?>").click(function(){
+                jQuery("#cuadro2_<?php echo $id; ?>").dialog().load("insumos/salidalmacen/<?php echo $id; ?>");
+                //alert("click");
+            });  
+            </script>       
         </td>
     </tr>
 <?php endforeach; ?>
 </table>
-						
-						
 						<!-- Pagging -->
 						<div class="pagging">
 							<div class="left"><?php
@@ -122,32 +143,13 @@ array(), null, array('class' => 'disabled')); ?>
 					
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2>Management</h2>
+						<h2>Administracion</h2>
 					</div>
 					<!-- End Box Head-->
 					
 					<div class="box-content">
-                    <?php //echo $this->Html->link('Nuevo Usuario', 'nuevo'); ?> 
-						<a href="nuevo" class="add-button"><span>Nuevo Usuario</span></a>
-						<div class="cl">&nbsp;</div>
-						
-						<p class="select-all"><input type="checkbox" class="checkbox" /><label>seleccionar todos</label></p>
-						<p><a href="#">Deseleccionar todos</a></p>
-						
-						<!-- Sort -->
-						<div class="sort">
-							<label>Ordenar por</label>
-							<select class="field">
-								<option value="">T&iacute;tulo</option>
-							</select>
-							<select class="field">
-								<option value="">Fecha</option>
-							</select>
-							<select class="field">
-								<option value="">Persona</option>
-							</select>
-						</div>
-						<!-- End Sort -->
+                    <?php echo $this->Html->link("<span>Nuevo Insumo</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
+						<div class="cl">&nbsp;</div>																		
 						
 					</div>
 				</div>

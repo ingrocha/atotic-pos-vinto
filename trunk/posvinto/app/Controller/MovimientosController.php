@@ -3,19 +3,24 @@ class MovimientosController extends AppController
 { 
 
     public $helpers = array('Html', 'Form'); 
-    public $uses = array('Movimiento','Producto','Insumo'); 
+    public $uses = array('Movimiento','Producto','Insumo');
+    public $layout = 'admin';
+     
     public function index()
     {
 
-        $movimientos = $this->Movimiento->find('all'); 
+        $this->paginate = array('limit' => 6, 'order' => array('Movimiento.id' => 'desc'));
+        // similar to findAll(), but fetches paged results
+        $movimientos = $this->paginate('Movimiento');
         $this->set(compact('movimientos'));
         
     }
 
     public function nuevo()
-    {
-        
+    {        
         if (!empty($this->data)) { 
+            
+            debug($this->data);exit;
 
             $this->Movimiento->create(); 
 
@@ -33,8 +38,8 @@ class MovimientosController extends AppController
       $dproducto = $this->Producto->find('list', array('fields'=>'Producto.nombre'));
              $this->set(compact('dproducto'));
       
-     $dinsumo = $this->Insumo->find('list', array('fields'=>'Insumo.nombre'));
-             $this->set(compact('dinsumo'));       
+     $dci = $this->Insumo->find('list', array('fields'=>'Insumo.nombre'));
+             $this->set(compact('dci'));       
     }
 
     public function modificar($id = null)
