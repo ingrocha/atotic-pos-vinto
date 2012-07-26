@@ -38,7 +38,8 @@
     <tr>
         <th>Nombre</th>
         <th>Precio Compra</th>
-        <th>Precio Venta</th>   
+        <th>Precio Venta</th>  
+        <th>Cantidad Almacen</th> 
         <th>Observaciones</th>
         <th>Acciones</th>     
     </tr>
@@ -57,6 +58,9 @@
         </td>
         <td>
             <?php echo $i['Insumo']['precioventa']; ?>
+        </td>
+        <td>
+            <?php echo $i['Insumo']['total']; ?>
         </td>        
         <td>
             <?php echo $i['Insumo']['observaciones']; ?>
@@ -72,14 +76,14 @@
             <?php 
                 echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
             ?>
-            </div>
+            </div>            
             <div id="dialog2_<?php echo $id; ?>" style="float: left;">
             <?php 
                 echo $this->Html->image("out.png", array(
                     "title" => "Salida Almacen"                    
                 ));
             ?>
-            </div>
+            </div>            
             <?php 
                 echo $this->Html->image("elim.png", array(
                     "title" => "Salida Almacen",
@@ -148,6 +152,7 @@ array(), null, array('class' => 'disabled')); ?>
 					
 					<div class="box-content">
                     <?php echo $this->Html->link("<span>Nuevo Insumo</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
+                    <?php echo $this->Html->link("<span>Registrar Salida</span>", array('action'=>'salidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
 						<div class="cl">&nbsp;</div>																		
 						
 					</div>

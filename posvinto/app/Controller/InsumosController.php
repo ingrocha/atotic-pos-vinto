@@ -17,24 +17,42 @@ class InsumosController extends AppController
 
     }
     
+    public function salidas(){
+        
+    }
+    
     public function salidalmacen($id=null){        
                 
-        $this->layout='ajax';                
+        $this->layout='ajax';
+                        
         if (!empty($this->data)) {
             
-            $cant_entrada = $this->data['Movimiento']['entrada'];
+            $cant_salida = $this->data['Movimiento']['salida'];
             $id_insumo = $this->data['Movimiento']['id_insumo'];
             $pc = $this->data['Movimiento']['pc'];
             $existe_insumo=$this->Almacen->find('first', array('conditions'=>array('insumo_id'=>$id_insumo), 'order'=>'id DESC', 'recursive'=>-1));
             //debug($existe_insumo);exit;
             if($existe_insumo){
+                
                 $total_anterior = $existe_insumo['Almacen']['total'];
-                $cant_actual = $total_anterior + $cant_entrada;
+                $cant_actual = $total_anterior - $cant_salida;
+                
+                $this->data="";
+                $this->Insumo->id = $id_insumo;                
+                $this->request->data['Insumo']['total']=$cant_actual;
+                
+                $this->data="";
+                
+                                
+                if(!$this->Insumo->save($this->data)){
+                    echo "no guardo";
+                }
+                    
                 $this->data="";                
                 $fecha = date("Y-m-d");
                 $this->request->data['Almacen']['insumo_id']=$id_insumo;
                 $this->request->data['Almacen']['preciocompra']=$pc;
-                $this->request->data['Almacen']['ingreso']=$cant_entrada;
+                $this->request->data['Almacen']['salida']=$cant_salida;
                 $this->request->data['Almacen']['total']=$cant_actual;
                 $this->request->data['Almacen']['fecha']=$fecha;
                 //debug($this->data);exit;
@@ -44,6 +62,13 @@ class InsumosController extends AppController
                     $this->redirect(array('action'=>'index'));
                 }                       
             }else{
+                
+                $this->data="";
+                $this->Insumo->id = $id_insumo;                
+                $this->request->data['Insumo']['total']=$cant_salida;                
+                if(!$this->Insumo->save($this->data)){
+                    echo "no guardo";
+                }    
                 $this->data="";
                 $fecha = date("Y-m-d");
                 $this->request->data['Almacen']['insumo_id']=$id_insumo;
@@ -61,9 +86,10 @@ class InsumosController extends AppController
             //debug($this->data);        
         }else{
             //debug($this->data);
-            $insumo = $this->Insumo->find('first', array('conditions'=>array('id'=>$id), 'recursive'=>-1));            
+            $insumo = $this->Insumo->find('first', array('conditions'=>array('id'=>$id), 'recursive'=>-1));
+            $ce = $this->Almacen->find('first', array('conditions'=>array('insumo_id'=>$id), 'order'=>'id DESC', 'recursive'=>-1));            
             //debug($insumo);
-            $this->set(compact('insumo'));
+            $this->set(compact('insumo', 'ce'));
         }        
     }
     
@@ -78,8 +104,17 @@ class InsumosController extends AppController
             $existe_insumo=$this->Almacen->find('first', array('conditions'=>array('insumo_id'=>$id_insumo), 'order'=>'id DESC', 'recursive'=>-1));
             //debug($existe_insumo);exit;
             if($existe_insumo){
+                
                 $total_anterior = $existe_insumo['Almacen']['total'];
                 $cant_actual = $total_anterior + $cant_entrada;
+                
+                $this->data="";
+                $this->Insumo->id = $id_insumo;                
+                $this->request->data['Insumo']['total']=$cant_actual;                
+                if(!$this->Insumo->save($this->data)){
+                    echo "no guardo";    
+                }
+                
                 $this->data="";                
                 $fecha = date("Y-m-d");
                 $this->request->data['Almacen']['insumo_id']=$id_insumo;
@@ -94,6 +129,14 @@ class InsumosController extends AppController
                     $this->redirect(array('action'=>'index'));
                 }                       
             }else{
+                
+                $this->data="";
+                $this->Insumo->id = $id_insumo;                
+                $this->request->data['Insumo']['total']=$cant_entrada;                
+                if(!$this->Insumo->save($this->data)){
+                    echo "no guardo";    
+                }
+                
                 $this->data="";
                 $fecha = date("Y-m-d");
                 $this->request->data['Almacen']['insumo_id']=$id_insumo;
