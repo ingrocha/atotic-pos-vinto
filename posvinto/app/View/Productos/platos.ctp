@@ -62,7 +62,13 @@
                     "title" => "Receta",
                     'url' => array('action' => 'receta', $id)
                 ));
-            ?>       
+            ?>    
+            <?php 
+                echo $this->Html->image("elim.png", array(
+                    "title" => "Eliminar",
+                    'url' => array('action' => 'eliminarplato', $id)
+                ));
+            ?>   
         </td>
     </tr>
 <?php endforeach; ?>
