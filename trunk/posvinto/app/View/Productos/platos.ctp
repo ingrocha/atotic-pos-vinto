@@ -35,7 +35,8 @@
     <tr>
         <th>Nombre</th>
         <th>Categboria</th>
-        <th>Precio</th>        
+        <th>Precio</th>  
+        <th>Aciones</th>        
     </tr>
 <?php foreach($platos as $p): ?>
     <tr>
@@ -57,9 +58,9 @@
                 ));
             ?>             
             <?php 
-                echo $this->Html->image("elim.png", array(
-                    "title" => "Eliminar",
-                    'url' => array('action' => 'modificar', $id)
+                echo $this->Html->image("receta.png", array(
+                    "title" => "Receta",
+                    'url' => array('action' => 'receta', $id)
                 ));
             ?>       
         </td>
