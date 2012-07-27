@@ -3,7 +3,7 @@ class InsumosController extends AppController
 {
 
     public $helpers = array('Html', 'Form');
-    public $uses = array('Insumo', 'Almacen');
+    public $uses = array('Insumo', 'Almacen', 'Bodega');
     public $layout = 'admin';
 
     public function index()
@@ -107,6 +107,11 @@ class InsumosController extends AppController
         }
 
     }
+    
+    public function bodega(){
+        
+        
+    }
 
     public function salidalmacen($id = null)
     {
@@ -147,8 +152,23 @@ class InsumosController extends AppController
                 $this->Almacen->create();
                 if ($this->Almacen->save($this->data)) {
                     $this->Session->setFlash('Ingreso registrado con exito!');
-                    $this->redirect(array('action' => 'index'));
+                    //$this->redirect(array('action' => 'index'));
                 }
+                
+                $this->data = "";
+                $this->request->data['Bodega']['insumo_id'] = $id_insumo;
+                $this->request->data['Bodega']['preciocompra'] = $pc;
+                $this->request->data['Bodega']['ingreso'] = $cant_salida;
+                $this->request->data['Bodega']['total'] = $cant_salida;
+                $this->request->data['Bodega']['fecha'] = $fecha;
+                $this->Bodega->create();
+                if($this->Bodega->save($this->data)){
+                    $this->redirect(array('action' => 'index'));        
+                }else{
+                    echo "no guardo";
+                }
+                
+                                                
             } else {
 
                 //$this->data="";
