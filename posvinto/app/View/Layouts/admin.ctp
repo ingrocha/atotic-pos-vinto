@@ -46,10 +46,14 @@
 			    <li><a href="<?php echo $url?>controlpedidos/"><span>Pedidos</span></a></li>
 			    <li><a href="<?php echo $url?>reportes/"><span>Reportes</span></a></li>
                 <li>
-                    <?php echo $this->Html->link("<span>Insumos</span>", array('controller'=>'Insumos', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                    <?php echo $this->Html->link("<span>Almacen</span>", array('controller'=>'Insumos', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                 </li>
-			    <li><a href="<?php echo $url?>productos/"><span>Productos</span></a></li>
-                <li><a href="<?php echo $url?>Inicioventas/"><span>Inicio Ventas</span></a></li>
+			    <li>
+                    <?php echo $this->Html->link("<span>Platos</span>", array('controller'=>'Productos', 'action'=>'platos'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                </li>
+                <li>
+                    <?php echo $this->Html->link("<span>Bebidas</span>", array('controller'=>'Productos', 'action'=>'bebidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                </li>
 			    <li><a href="<?php echo $url?>panelcontrol/config"><span>Configuraciones</span></a></li>
 			</ul>
 		</div>
@@ -75,6 +79,6 @@
 	</div>
 </div>
 <!-- End Footer -->
-	<?php //echo $this->element('sql_dump'); ?>
+	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
