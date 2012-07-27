@@ -34,7 +34,7 @@
 					<table>
     <tr>
         <th>Nombre</th>
-        <th>Categboria</th>
+        <th>Categoria</th>
         <th>Precio</th>  
         <th>Aciones</th>        
     </tr>
