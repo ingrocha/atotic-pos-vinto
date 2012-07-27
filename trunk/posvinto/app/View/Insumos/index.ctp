@@ -40,7 +40,7 @@
         <th>Precio Compra</th>
         <th>Precio Venta</th>  
         <th>Cantidad Almacen</th> 
-        <th>Observaciones</th>
+        <!--<th>Observaciones</th>-->
         <th>Acciones</th>     
     </tr>
 <?php foreach ($insumos as $i): ?>
@@ -62,9 +62,9 @@
         <td>
             <?php echo $i['Insumo']['total']; ?>
         </td>        
-        <td>
-            <?php echo $i['Insumo']['observaciones']; ?>
-        </td>       
+        <!--<td>
+            <?php //echo $i['Insumo']['observaciones']; ?>
+        </td>-->       
         <td>
             <?php 
                 echo $this->Html->image("edit.png", array(

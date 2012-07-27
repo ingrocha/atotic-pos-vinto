@@ -9,8 +9,8 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('sisvinto', 'redmond/jquery-ui-1.8.20.custom'));
-        echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-ui-1.8.20.custom.min'));
+		echo $this->Html->css(array('sisvinto', 'ui-lightness/jquery-ui-1.8.21.custom'));
+        echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-ui-1.8.21.custom.min'));
         
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

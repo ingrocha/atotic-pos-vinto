@@ -4356,3 +4356,1263 @@
 #9 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
 #10 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #11 {main}
+2012-07-24 02:56:28 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-24 02:56:37 Error: [MissingTableException] Table movimientosinsumos for model Movimientosinsumo was not found in datasource default.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Model.php(3443): Model->setSource('movimientosinsu...')
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#2 D:\xampp\htdocs\posvinto\posvinto\app\Controller\PedidosController.php(191): Model->find('first', Array)
+#3 [internal function]: PedidosController->registrarpedido('7', '250')
+#4 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PedidosController), Array)
+#5 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PedidosController), Object(CakeRequest), Object(CakeResponse))
+#7 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-07-24 02:57:02 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-24 02:57:02 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-24 02:57:02 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-24 02:57:32 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-24 02:57:32 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-24 02:57:32 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-24 02:57:39 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-24 02:57:39 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-24 02:57:41 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 14:37:31 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 14:37:31 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+
+2012-07-25 14:37:31 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 14:37:31 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:48:10 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:48:10 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:48:10 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:51:11 Error: [MissingControllerException] Controller class ListadopedidosController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:51:27 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:51:28 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:51:36 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:51:37 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:51:49 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:51:49 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:51:54 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 16:51:55 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 22:21:01 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 22:21:01 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 22:21:01 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 22:21:01 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 22:21:01 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 22:21:01 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 23:03:29 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 23:03:29 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+
+2012-07-25 23:03:29 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-25 23:03:29 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 13:02:33 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 13:02:33 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+
+2012-07-26 13:02:33 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 13:02:33 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 13:29:52 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:29:52 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:29:54 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:29:56 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:29:57 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:29:58 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:35:56 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:35:56 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:36:19 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:36:19 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:37:54 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:37:55 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:38:17 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:38:18 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:39:34 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:39:35 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:39:37 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:39:38 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:39:40 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:39:40 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:40:05 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:40:06 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:43:41 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:43:41 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:46:05 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:46:06 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:47:04 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:47:04 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:48:45 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:49:55 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:49:55 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:02 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:02 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:19 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:23 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:25 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:50 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:50 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:53 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:54 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:52:59 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:53:01 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:53:02 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:53:28 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:53:29 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:53:31 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:53:42 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 13:53:43 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:36:06 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 14:36:06 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 14:36:06 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 14:36:06 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 14:36:07 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 14:36:18 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:36:18 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:36:25 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:36:28 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:36:29 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:36:30 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:38:01 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:38:01 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:42:06 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:42:06 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:43:27 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:43:27 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:46:41 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:46:41 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:46:55 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:46:56 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:14 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:16 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:22 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:24 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:25 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:26 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:43 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:47:43 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:49:50 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:49:50 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:50:54 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 14:50:54 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:01:12 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:12 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:12 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:14 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:14 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:14 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:20 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:20 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:24 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:24 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:01:24 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:03:11 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:03:11 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:03:11 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:03:19 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:03:19 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:03:19 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:03:27 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:03:27 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:03:27 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:11:14 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:11:14 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:11:14 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:11:14 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:11:14 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:11:14 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:14:16 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 15:27:40 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:27:41 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:29:15 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:29:16 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:29:23 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:29:24 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:29:25 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:41:30 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:41:30 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:42:18 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:42:18 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:45:49 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:45:49 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:46:51 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:46:51 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:47:12 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:47:12 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:47:33 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:47:34 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:47:48 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:47:48 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:47:53 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:47:54 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:50:35 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:50:35 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:50:59 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:50:59 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:52:28 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:52:28 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:53:30 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:53:30 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:54:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:54:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:54:44 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:54:45 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:54:46 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:54:48 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:54:58 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:54:58 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:55:31 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:55:31 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:56:18 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:56:18 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:57:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:57:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:57:25 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 15:57:25 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:07:21 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:07:21 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:07:50 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:07:50 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:08:16 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:08:17 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:12:37 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:12:38 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:13:15 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:13:15 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:13:32 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:13:33 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:16:39 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:16:39 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:17:17 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:17:17 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:18:54 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:18:54 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:21:02 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:21:02 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:22:14 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:22:15 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:22:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:22:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:22:23 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:22:24 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:22:42 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:22:42 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:36:40 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:36:40 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:36:43 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:36:44 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 16:36:45 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:31:11 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:31:11 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:31:43 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:31:43 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:31:46 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:32:03 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'preciocompra' cannot be null
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `si...', Array)
+#2 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `si...')
+#3 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Almacen), Array, Array)
+#4 D:\xampp\htdocs\posvinto\posvinto\app\Controller\InsumosController.php(65): Model->save(Array)
+#5 [internal function]: InsumosController->salidas()
+#6 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(InsumosController), Array)
+#7 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#8 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#9 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2012-07-26 17:38:38 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:38:39 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:38:57 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:38:57 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:39:04 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:39:11 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:39:18 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'total' cannot be null
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `si...', Array)
+#2 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `si...')
+#3 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Insumo), Array, Array)
+#4 D:\xampp\htdocs\posvinto\posvinto\app\Controller\InsumosController.php(75): Model->save(Array)
+#5 [internal function]: InsumosController->salidas()
+#6 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(InsumosController), Array)
+#7 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#8 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#9 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2012-07-26 17:39:50 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'total' cannot be null
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO `si...', Array)
+#2 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO `si...')
+#3 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Insumo), Array, Array)
+#4 D:\xampp\htdocs\posvinto\posvinto\app\Controller\InsumosController.php(75): Model->save(Array)
+#5 [internal function]: InsumosController->salidas()
+#6 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(InsumosController), Array)
+#7 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#8 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#9 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2012-07-26 17:41:02 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:41:02 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:41:03 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:41:03 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:41:13 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:41:13 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 17:41:23 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 21:07:41 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 21:07:41 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+
+2012-07-26 21:07:42 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 21:08:12 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 21:08:12 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 21:08:20 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 21:08:41 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 21:08:41 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 21:08:58 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 21:08:58 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 21:09:05 Error: [MissingActionException] Action InsumosController::images() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InsumosController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-26 21:40:59 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 21:40:59 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 21:40:59 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 21:40:59 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 21:40:59 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-26 21:41:00 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-27 00:21:07 Error: [MissingActionException] Action PanelcontrolController::config() could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PanelcontrolController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-27 00:21:40 Error: [MissingTableException] Table inicioventas for model Inicioventa was not found in datasource default.
+#0 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Model.php(3443): Model->setSource('inicioventas')
+#1 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Model\Model.php(2698): Model->getDataSource()
+#2 D:\xampp\htdocs\posvinto\posvinto\app\Controller\InicioventasController.php(10): Model->find('all')
+#3 [internal function]: InicioventasController->index()
+#4 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(InicioventasController), Array)
+#5 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 D:\xampp\htdocs\posvinto\posvinto\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InicioventasController), Object(CakeRequest), Object(CakeResponse))
+#7 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2012-07-27 02:13:42 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-27 02:13:42 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-27 02:13:42 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-27 02:13:42 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-27 02:13:42 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-27 13:33:36 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-27 13:33:36 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-27 13:33:36 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-27 13:33:36 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 D:\xampp\htdocs\posvinto\posvinto\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

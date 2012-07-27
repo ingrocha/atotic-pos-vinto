@@ -11,160 +11,257 @@ class InsumosController extends AppController
         $this->paginate = array('limit' => 6, 'order' => array('Insumo.id' => 'desc'));
         // similar to findAll(), but fetches paged results
         $insumos = $this->paginate('Insumo');
+        //debug($insumos);
         $this->set(compact('insumos'));
         //$insumos = $this->Insumo->find('all');
         //$this->set(compact('insumos'));
 
     }
-    
-    public function salidas(){
-        
-    }
-    
-    public function salidalmacen($id=null){        
-                
-        $this->layout='ajax';
-                        
+
+    public function salidas()
+    {
+
         if (!empty($this->data)) {
-            
+            $datos = array();
+            //debug($this->data);
+            $i = 0;
+            foreach ($this->data as $d) {
+                //debug($d);
+                //print_r($d);
+                for ($c = 0; $c < count($d); $c++) {
+                    
+                    //echo "el insumo for".$d[$c]['cantidad']."<br />";                    
+                    //guardamos
+                    $cant_salida = $d[$c]['cantidad'];
+                    $id_insumo = $d[$c]['insumo_id'];
+                    
+                    //$pc = $this->data['Movimiento']['pc'];
+                    $pc=0;
+                    $existe_insumo = $this->Almacen->find('first', array(
+                        'conditions' => array('insumo_id' => $id_insumo),
+                        'order' => 'id DESC',
+                        'recursive' => -1));
+                    //debug($existe_insumo);exit;
+                    if($existe_insumo) {
+
+                        $total_anterior = $existe_insumo['Almacen']['total'];
+                        $cant_actual = $total_anterior - $cant_salida;
+
+                        $this->data = "";
+                        $this->Insumo->id = $id_insumo;
+                        $this->request->data['Insumo']['total'] = $cant_actual;
+
+                        if (!$this->Insumo->save($this->data)) {
+                            echo "no guardo";
+                        }
+
+                        $this->data = "";
+                        $fecha = date("Y-m-d");
+                        $this->request->data['Almacen']['insumo_id'] = $id_insumo;
+                        $this->request->data['Almacen']['preciocompra'] = $pc;
+                        $this->request->data['Almacen']['salida'] = $cant_salida;
+                        $this->request->data['Almacen']['total'] = $cant_actual;
+                        $this->request->data['Almacen']['fecha'] = $fecha;
+                        //debug($this->data);exit;
+                        $this->Almacen->create();
+                        if ($this->Almacen->save($this->data)) {
+                            //$this->Session->setFlash('Ingreso registrado con exito!');
+                            //$this->redirect(array('action' => 'index'));
+                        }
+                    } else {
+
+                        //$this->data="";
+                        $this->Insumo->id = $id_insumo;
+                        $this->request->data['Insumo']['total'] = $cant_salida;
+                        if (!$this->Insumo->save($this->data)) {
+                            echo "no guardo";
+                        }
+                        $this->data = "";
+                        $fecha = date("Y-m-d");
+                        $this->request->data['Almacen']['insumo_id'] = $id_insumo;
+                        $this->request->data['Almacen']['preciocompra'] = $pc;
+                        $this->request->data['Almacen']['ingreso'] = $cant_entrada;
+                        $this->request->data['Almacen']['total'] = $cant_entrada;
+                        $this->request->data['Almacen']['fecha'] = $fecha;
+                        //debug($this->data);exit;
+                        $this->Almacen->create();
+                        if ($this->Almacen->save($this->data)) {
+                            //$this->Session->setFlash('Ingreso registrado con exito!');
+                            //$this->redirect(array('action' => 'index'));
+                        }
+                    }
+                    //debug($this->data);
+
+                    //fin guardamos
+                }
+                $this->redirect(array('action' => 'index'));
+                //echo "el insumo ".$d['0']['cantidad'];
+                //echo $i."<br />";
+                //$i++;
+            }
+
+        } else {
+            $dci = $this->Insumo->find('list', array('fields' => array('nombre')));
+            //debug($dci);
+            $this->set(compact('dci'));
+        }
+
+    }
+
+    public function salidalmacen($id = null)
+    {
+
+        $this->layout = 'ajax';
+
+        if (!empty($this->data)) {
+
             $cant_salida = $this->data['Movimiento']['salida'];
             $id_insumo = $this->data['Movimiento']['id_insumo'];
             $pc = $this->data['Movimiento']['pc'];
-            $existe_insumo=$this->Almacen->find('first', array('conditions'=>array('insumo_id'=>$id_insumo), 'order'=>'id DESC', 'recursive'=>-1));
+            $existe_insumo = $this->Almacen->find('first', array(
+                'conditions' => array('insumo_id' => $id_insumo),
+                'order' => 'id DESC',
+                'recursive' => -1));
             //debug($existe_insumo);exit;
-            if($existe_insumo){
-                
+            if ($existe_insumo) {
+
                 $total_anterior = $existe_insumo['Almacen']['total'];
                 $cant_actual = $total_anterior - $cant_salida;
-                
-                $this->data="";
-                $this->Insumo->id = $id_insumo;                
-                $this->request->data['Insumo']['total']=$cant_actual;
-                
-                $this->data="";
-                
-                                
-                if(!$this->Insumo->save($this->data)){
+
+                $this->data = "";
+                $this->Insumo->id = $id_insumo;
+                $this->request->data['Insumo']['total'] = $cant_actual;
+
+                if (!$this->Insumo->save($this->data)) {
                     echo "no guardo";
                 }
-                    
-                $this->data="";                
+
+                $this->data = "";
                 $fecha = date("Y-m-d");
-                $this->request->data['Almacen']['insumo_id']=$id_insumo;
-                $this->request->data['Almacen']['preciocompra']=$pc;
-                $this->request->data['Almacen']['salida']=$cant_salida;
-                $this->request->data['Almacen']['total']=$cant_actual;
-                $this->request->data['Almacen']['fecha']=$fecha;
+                $this->request->data['Almacen']['insumo_id'] = $id_insumo;
+                $this->request->data['Almacen']['preciocompra'] = $pc;
+                $this->request->data['Almacen']['salida'] = $cant_salida;
+                $this->request->data['Almacen']['total'] = $cant_actual;
+                $this->request->data['Almacen']['fecha'] = $fecha;
                 //debug($this->data);exit;
                 $this->Almacen->create();
-                if($this->Almacen->save($this->data)){
+                if ($this->Almacen->save($this->data)) {
                     $this->Session->setFlash('Ingreso registrado con exito!');
-                    $this->redirect(array('action'=>'index'));
-                }                       
-            }else{
-                
-                $this->data="";
-                $this->Insumo->id = $id_insumo;                
-                $this->request->data['Insumo']['total']=$cant_salida;                
-                if(!$this->Insumo->save($this->data)){
+                    $this->redirect(array('action' => 'index'));
+                }
+            } else {
+
+                //$this->data="";
+                $this->Insumo->id = $id_insumo;
+                $this->request->data['Insumo']['total'] = $cant_salida;
+                if (!$this->Insumo->save($this->data)) {
                     echo "no guardo";
-                }    
-                $this->data="";
+                }
+                $this->data = "";
                 $fecha = date("Y-m-d");
-                $this->request->data['Almacen']['insumo_id']=$id_insumo;
-                $this->request->data['Almacen']['preciocompra']=$pc;
-                $this->request->data['Almacen']['ingreso']=$cant_entrada;
-                $this->request->data['Almacen']['total']=$cant_entrada;
-                $this->request->data['Almacen']['fecha']=$fecha;
+                $this->request->data['Almacen']['insumo_id'] = $id_insumo;
+                $this->request->data['Almacen']['preciocompra'] = $pc;
+                $this->request->data['Almacen']['ingreso'] = $cant_entrada;
+                $this->request->data['Almacen']['total'] = $cant_entrada;
+                $this->request->data['Almacen']['fecha'] = $fecha;
                 //debug($this->data);exit;
                 $this->Almacen->create();
-                if($this->Almacen->save($this->data)){
+                if ($this->Almacen->save($this->data)) {
                     $this->Session->setFlash('Ingreso registrado con exito!');
-                    $this->redirect(array('action'=>'index'));
+                    $this->redirect(array('action' => 'index'));
                 }
             }
-            //debug($this->data);        
-        }else{
             //debug($this->data);
-            $insumo = $this->Insumo->find('first', array('conditions'=>array('id'=>$id), 'recursive'=>-1));
-            $ce = $this->Almacen->find('first', array('conditions'=>array('insumo_id'=>$id), 'order'=>'id DESC', 'recursive'=>-1));            
+        } else {
+            //debug($this->data);
+            $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id),
+                    'recursive' => -1));
+            $ce = $this->Almacen->find('first', array(
+                'conditions' => array('insumo_id' => $id),
+                'order' => 'id DESC',
+                'recursive' => -1));
             //debug($insumo);
             $this->set(compact('insumo', 'ce'));
-        }        
+        }
     }
-    
-    public function ingresoalmacen($id=null){        
-                
-        $this->layout='ajax';                
+
+    public function ingresoalmacen($id = null)
+    {
+
+        $this->layout = 'ajax';
         if (!empty($this->data)) {
-            
+
             $cant_entrada = $this->data['Movimiento']['entrada'];
             $id_insumo = $this->data['Movimiento']['id_insumo'];
             $pc = $this->data['Movimiento']['pc'];
-            $existe_insumo=$this->Almacen->find('first', array('conditions'=>array('insumo_id'=>$id_insumo), 'order'=>'id DESC', 'recursive'=>-1));
+            $existe_insumo = $this->Almacen->find('first', array(
+                'conditions' => array('insumo_id' => $id_insumo),
+                'order' => 'id DESC',
+                'recursive' => -1));
             //debug($existe_insumo);exit;
-            if($existe_insumo){
-                
+            if ($existe_insumo) {
+
                 $total_anterior = $existe_insumo['Almacen']['total'];
                 $cant_actual = $total_anterior + $cant_entrada;
-                
-                $this->data="";
-                $this->Insumo->id = $id_insumo;                
-                $this->request->data['Insumo']['total']=$cant_actual;                
-                if(!$this->Insumo->save($this->data)){
-                    echo "no guardo";    
+
+                $this->data = "";
+                $this->Insumo->id = $id_insumo;
+                $this->request->data['Insumo']['total'] = $cant_actual;
+                if (!$this->Insumo->save($this->data)) {
+                    echo "no guardo";
                 }
-                
-                $this->data="";                
+
+                $this->data = "";
                 $fecha = date("Y-m-d");
-                $this->request->data['Almacen']['insumo_id']=$id_insumo;
-                $this->request->data['Almacen']['preciocompra']=$pc;
-                $this->request->data['Almacen']['ingreso']=$cant_entrada;
-                $this->request->data['Almacen']['total']=$cant_actual;
-                $this->request->data['Almacen']['fecha']=$fecha;
+                $this->request->data['Almacen']['insumo_id'] = $id_insumo;
+                $this->request->data['Almacen']['preciocompra'] = $pc;
+                $this->request->data['Almacen']['ingreso'] = $cant_entrada;
+                $this->request->data['Almacen']['total'] = $cant_actual;
+                $this->request->data['Almacen']['fecha'] = $fecha;
                 //debug($this->data);exit;
                 $this->Almacen->create();
-                if($this->Almacen->save($this->data)){
+                if ($this->Almacen->save($this->data)) {
                     $this->Session->setFlash('Ingreso registrado con exito!');
-                    $this->redirect(array('action'=>'index'));
-                }                       
-            }else{
-                
-                $this->data="";
-                $this->Insumo->id = $id_insumo;                
-                $this->request->data['Insumo']['total']=$cant_entrada;                
-                if(!$this->Insumo->save($this->data)){
-                    echo "no guardo";    
+                    $this->redirect(array('action' => 'index'));
                 }
-                
-                $this->data="";
+            } else {
+
+                $this->data = "";
+                $this->Insumo->id = $id_insumo;
+                $this->request->data['Insumo']['total'] = $cant_entrada;
+                if (!$this->Insumo->save($this->data)) {
+                    echo "no guardo";
+                }
+
+                $this->data = "";
                 $fecha = date("Y-m-d");
-                $this->request->data['Almacen']['insumo_id']=$id_insumo;
-                $this->request->data['Almacen']['preciocompra']=$pc;
-                $this->request->data['Almacen']['ingreso']=$cant_entrada;
-                $this->request->data['Almacen']['total']=$cant_entrada;
-                $this->request->data['Almacen']['fecha']=$fecha;
+                $this->request->data['Almacen']['insumo_id'] = $id_insumo;
+                $this->request->data['Almacen']['preciocompra'] = $pc;
+                $this->request->data['Almacen']['ingreso'] = $cant_entrada;
+                $this->request->data['Almacen']['total'] = $cant_entrada;
+                $this->request->data['Almacen']['fecha'] = $fecha;
                 //debug($this->data);exit;
                 $this->Almacen->create();
-                if($this->Almacen->save($this->data)){
+                if ($this->Almacen->save($this->data)) {
                     $this->Session->setFlash('Ingreso registrado con exito!');
-                    $this->redirect(array('action'=>'index'));
+                    $this->redirect(array('action' => 'index'));
                 }
             }
-            //debug($this->data);        
-        }else{
             //debug($this->data);
-            $insumo = $this->Insumo->find('first', array('conditions'=>array('id'=>$id), 'recursive'=>-1));            
+        } else {
+            //debug($this->data);
+            $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id),
+                    'recursive' => -1));
             //debug($insumo);
             $this->set(compact('insumo'));
-        }        
+        }
     }
 
     public function nuevo()
     {
         $fecha = date("Y-m-d");
         if (!empty($this->data)) {
-            $this->request->data['Insumo']['fecha']=$fecha;
+            $this->request->data['Insumo']['fecha'] = $fecha;
             $this->Insumo->create();
             if ($this->Insumo->save($this->data)) {
                 $this->Session->setFlash('Insumo registrado con exito');
@@ -195,7 +292,7 @@ class InsumosController extends AppController
             } else {
                 $this->Session->setFlash('no se pudo modificar!!');
             }
-        }        
+        }
     }
 
     public function eliminar($id = null)

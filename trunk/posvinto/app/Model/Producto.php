@@ -5,7 +5,6 @@ App::uses('AppModel', 'Model');
  *
  * @property Categoria $Categoria
  * @property Item $Item
- * @property Movimiento $Movimiento
  * @property Porcione $Porcione
  */
 class Producto extends AppModel {
@@ -46,7 +45,6 @@ class Producto extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-	
 		'Porcione' => array(
 			'className' => 'Porcione',
 			'foreignKey' => 'producto_id',
@@ -63,4 +61,3 @@ class Producto extends AppModel {
 	);
 
 }
-?>
