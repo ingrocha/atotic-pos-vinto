@@ -36,8 +36,16 @@
 	<td><?php echo $this->Form->text('nombre'); ?></td>
 </tr>
 <tr>
-	<td>Precio</td>
+	<td>Cantidad</td>
+	<td><?php echo $this->Form->text('cantidad', array('size'=>4)); ?></td>
+</tr>
+<tr>
+	<td>Precio Compra</td>
 	<td><?php echo $this->Form->text('precio', array('size'=>4)); ?></td>
+</tr>
+<tr>
+	<td>Precio Venta</td>
+	<td><?php echo $this->Form->text('precioventa', array('size'=>4)); ?></td>
 </tr>
 <tr>
 	<td>Categoria</td>
