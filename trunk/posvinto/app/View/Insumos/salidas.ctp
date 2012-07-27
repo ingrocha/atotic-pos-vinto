@@ -10,7 +10,7 @@ jQuery(document).ready(function() {
         allowAdd: true,
         allowAddN: true,
         maxFormsCount: 20,
-        minFormsCount: 0,
+        minFormsCount: 1,
         iniFormsCount: 1
     });
  
