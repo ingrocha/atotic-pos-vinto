@@ -15,7 +15,6 @@ class InsumosController extends AppController
         $this->set(compact('insumos'));
         //$insumos = $this->Insumo->find('all');
         //$this->set(compact('insumos'));
-
     }
 
     public function salidas()
@@ -110,7 +109,13 @@ class InsumosController extends AppController
     
     public function bodega(){
         
-        
+        $this->paginate = array('limit' => 6, 'order' => array('id' => 'desc'));
+        // similar to findAll(), but fetches paged results
+        $bodega = $this->paginate('Bodega');
+        //debug($insumos);
+        $this->set(compact('bodega'));
+        //$insumos = $this->Insumo->find('all');
+        //$this->set(compact('insumos'));            
     }
 
     public function salidalmacen($id = null)
@@ -155,6 +160,11 @@ class InsumosController extends AppController
                     //$this->redirect(array('action' => 'index'));
                 }
                 
+                $existe_insumo_bodega = $this->Bodega->find('first', array(
+                'conditions' => array('insumo_id' => $id_insumo),
+                'order' => 'id DESC',
+                'recursive' => -1));
+                
                 $this->data = "";
                 $this->request->data['Bodega']['insumo_id'] = $id_insumo;
                 $this->request->data['Bodega']['preciocompra'] = $pc;
@@ -162,6 +172,7 @@ class InsumosController extends AppController
                 $this->request->data['Bodega']['total'] = $cant_salida;
                 $this->request->data['Bodega']['fecha'] = $fecha;
                 $this->Bodega->create();
+                                
                 if($this->Bodega->save($this->data)){
                     $this->redirect(array('action' => 'index'));        
                 }else{

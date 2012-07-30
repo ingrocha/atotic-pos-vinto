@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Bodega Model
  *
- * @property Producto $Producto
+ * @property Insumo $Insumo
  */
 class Bodega extends AppModel {
 
@@ -15,9 +15,9 @@ class Bodega extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Producto' => array(
-			'className' => 'Producto',
-			'foreignKey' => 'producto_id',
+		'Insumo' => array(
+			'className' => 'Insumo',
+			'foreignKey' => 'insumo_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
