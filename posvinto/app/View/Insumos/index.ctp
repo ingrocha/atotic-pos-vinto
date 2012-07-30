@@ -5,33 +5,29 @@
 		<!-- Small Nav -->
 		<div class="small-nav">
 			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller' =>
-'usuarios', 'action' => 'index')) ?>
+            <?php echo $this->Html->link('Usuarios', array('controller' =>'usuarios', 'action' => 'index')) ?>
 			<span>&gt;</span>
 			Lista de Insumos
 		</div>
-		<!-- End Small Nav -->
-		
+		<!-- End Small Nav -->		
 		<br />
 		<!-- Main -->
 		<div id="main">
 			<div class="cl">&nbsp;</div>			
 			<!-- Content -->
-			<div id="content">
-				
+			<div id="content">				
 				<!-- Box -->
 				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Listado de usuarios Registrados</h2>
+						<h2 class="left">LISTADO DE PRODUCTOS EN ALMACEN</h2>
 						<div class="right">
 							<label>filtrar</label>
 							<input type="text" class="field small-field" />
 							<input type="submit" class="button" value="buscar" />
-						</div>
+						</div>    
 					</div>
 					<!-- End Box Head -->	
-
 					<!-- Table -->
 					<div class="table">
 					<table>
@@ -136,14 +132,11 @@ array(), null, array('class' => 'disabled')); ?>
 				
 				
 			</div>
-			<!-- End Content -->
-			
+			<!-- End Content -->			
 			<!-- Sidebar -->
-			<div id="sidebar">
-				
+			<div id="sidebar">				
 				<!-- Box -->
-				<div class="box">
-					
+				<div class="box">					
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2>Administracion</h2>
