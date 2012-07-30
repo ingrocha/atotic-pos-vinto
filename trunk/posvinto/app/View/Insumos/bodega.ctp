@@ -34,7 +34,9 @@
         <th>Nombre</th>
         <th>Precio Compra</th>
         <th>Precio Venta</th>  
-        <th>En Bodega</th> 
+        <th>Bodega</th> 
+        <th>Almacen</th>
+        <th>Total</th>
         <!--<th>Observaciones</th>
         <th>Acciones</th>-->     
     </tr>
@@ -55,11 +57,21 @@
             <?php echo $i['Insumo']['precioventa']; ?>
         </td>
         <td>
+            <?php echo $i['Insumo']['bodega']; ?>
+        </td> 
+        <td>
             <?php echo $i['Insumo']['total']; ?>
-        </td>        
+        </td>
+        <td>
+            <?php 
+                $almacen = $i['Insumo']['total']; 
+                $bodega = $i['Insumo']['bodega'];
+                echo $almacen+$bodega;
+            ?>
+        </td>       
         <!--<td>
             <?php //echo $i['Insumo']['observaciones']; ?>
-        </td>-->       
+        </td>       
         <td>
             <?php 
                 /*echo $this->Html->image("edit.png", array(
@@ -96,7 +108,7 @@
                 //alert("click");
             });  
             </script>       
-        </td>
+        </td>-->
     </tr>
 <?php endforeach; ?>
 </table>
