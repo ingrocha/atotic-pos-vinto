@@ -30,18 +30,21 @@
 					<!-- End Box Head -->	
 					<!-- Table -->
 					<div class="table">
-					<table>
+	<table cellspacing="0" cellpadding="1" width="740"> 
     <tr>
-        <th>Nombre</th>
-        <th>Precio Compra</th>
-        <th>Precio Venta</th>  
-        <th>Cantidad Almacen</th> 
+        <th style="width: 250px;">Nombre</th>
+        <th style="width: 60px;">Precio Compra</th>
+        <th style="width: 60px;">Precio Venta</th>  
+        <th style="width: 60px;">Cantidad Almacen</th> 
         <!--<th>Observaciones</th>-->
         <th>Acciones</th>     
-    </tr>
+    </tr>    
+    </table>
+    <div style="width:740px; height:325px; overflow:auto;">
+    <table>
 <?php foreach ($insumos as $i): ?>
     <tr>
-        <td>
+        <td style="width: 250px;">
             <?php $id = $i['Insumo']['id']; ?>            
             <?php echo $i['Insumo']['nombre']; ?>
         </td>
@@ -49,13 +52,13 @@
         </div> 
         <div id="cuadro2_<?php echo $id; ?>" title="Salida de insumos">
         </div> 
-        <td>
+        <td style="width: 60px;">
             <?php echo $i['Insumo']['preciocompra']; ?>
         </td>
-        <td>
+        <td style="width: 60px;">
             <?php echo $i['Insumo']['precioventa']; ?>
         </td>
-        <td>
+        <td style="width: 60px;">
             <?php echo $i['Insumo']['total']; ?>
         </td>        
         <!--<td>
@@ -92,13 +95,16 @@
             <?php //echo $this->Html->link('Eliminar', array('action'=>'eliminar', $id)); ?>    
             <?php //echo $this->Html->link('Eliminar', array('action' => 'eliminar', $id), null, ('Desea aliminar a este insumo?')); ?>
             <script type="text/javascript">
+            var dialogOpts = {
+                modal: true
+            };
             jQuery("#dialog_<?php echo $id; ?>").click(function(){
-                jQuery("#cuadro_<?php echo $id; ?>").dialog().load("insumos/ingresoalmacen/<?php echo $id; ?>");
+                jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/ingresoalmacen/<?php echo $id; ?>");
                 //alert("click");
             });   
             
             jQuery("#dialog2_<?php echo $id; ?>").click(function(){
-                jQuery("#cuadro2_<?php echo $id; ?>").dialog().load("insumos/salidalmacen/<?php echo $id; ?>");
+                jQuery("#cuadro2_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/salidalmacen/<?php echo $id; ?>");
                 //alert("click");
             });  
             </script>       
@@ -106,23 +112,7 @@
     </tr>
 <?php endforeach; ?>
 </table>
-						<!-- Pagging -->
-						<div class="pagging">
-							<div class="left"><?php
-echo $this->Paginator->counter('Mostrando {:current} - {:end}  de {:pages}, total
-                                     {:count}');
-?></div>
-							<div class="right">
-                            
-                            <?php echo $this->Paginator->prev('<< Anterior',
-array(), null, array('class' => 'disabled')); ?>  
-                            <?php echo $this->Paginator->numbers(); ?>  
-                            <?php echo $this->Paginator->next('Siguiente >>',
-array(), null, array('class' => 'disabled')); ?>
-								
-							</div>
-						</div>
-						<!-- End Pagging -->
+</div>
 						
 					</div>
 					<!-- Table -->
