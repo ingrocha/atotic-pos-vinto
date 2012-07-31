@@ -1,7 +1,6 @@
 <!-- Container -->
 <div id="container">
-	<div class="shell">
-		
+	<div class="shell">		
 		<!-- Small Nav -->
 		<div class="small-nav">
 			<!--<a href="controlingresos">Pedidos</a>-->
@@ -30,17 +29,17 @@
 					<!-- End Box Head -->	
 					<!-- Table -->
 					<div class="table">
-	<table cellspacing="0" cellpadding="1" width="740"> 
-    <tr>
-        <th style="width: 250px;">Nombre</th>
-        <th style="width: 60px;">Precio Compra</th>
-        <th style="width: 60px;">Precio Venta</th>  
-        <th style="width: 60px;">Cantidad Almacen</th> 
-        <!--<th>Observaciones</th>-->
-        <th>Acciones</th>     
-    </tr>    
-    </table>
-    <div style="width:740px; height:325px; overflow:auto;">
+                	<table cellspacing="0" cellpadding="1" width="740"> 
+                    <tr>
+                        <th style="width: 250px;">Nombre</th>
+                        <th style="width: 60px;">Precio Compra</th>
+                        <th style="width: 60px;">Precio Venta</th>  
+                        <th style="width: 60px;">Cantidad Almacen</th> 
+                        <!--<th>Observaciones</th>-->
+                        <th>Acciones</th>     
+                    </tr>    
+                    </table>
+        <div style="width:740px; height:325px; overflow:auto;">
     <table>
 <?php foreach ($insumos as $i): ?>
     <tr>
@@ -75,25 +74,27 @@
             <?php 
                 echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
             ?>
-            </div>            
+            </div>
+                        
             <div id="dialog2_<?php echo $id; ?>" style="float: left;">
             <?php 
                 echo $this->Html->image("out.png", array(
                     "title" => "Salida Almacen"                    
                 ));
-            ?>
+            ?>            
             </div>            
             <?php 
                 echo $this->Html->image("elim.png", array(
                     "title" => "Salida Almacen",
                     'url' => array('action' => 'modificar', $id)
                 ));
-            ?>
+            ?>            
             <?php //echo $this->Html->link('Modificar', array('action' => 'modificar', $id)); ?>
             <?php //echo $this->Html->link('Dara baja', array('action' => 'baja', $id)); ?>
             <?php //echo $this->Html->link('', array('action' => 'baja', $id)); ?>
             <?php //echo $this->Html->link('Eliminar', array('action'=>'eliminar', $id)); ?>    
             <?php //echo $this->Html->link('Eliminar', array('action' => 'eliminar', $id), null, ('Desea aliminar a este insumo?')); ?>
+            
             <script type="text/javascript">
             var dialogOpts = {
                 modal: true
@@ -113,14 +114,13 @@
 <?php endforeach; ?>
 </table>
 </div>
+</div>
 						
 					</div>
 					<!-- Table -->
 					
 				</div>
-				<!-- End Box -->
-				
-				
+				<!-- End Box -->								
 			</div>
 			<!-- End Content -->			
 			<!-- Sidebar -->
@@ -147,4 +147,3 @@
 			<div class="cl">&nbsp;</div>			
 		</div>
 		<!-- Main -->
-	</div>
