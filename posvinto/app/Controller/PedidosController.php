@@ -17,7 +17,7 @@ class PedidosController extends AppController {
     );
     
     public $components = array('Session');
-    public $uses = array('Usuario', 'Producto', 'Pedido', 'Categoria', 'Item', 'PedidosMesa', 'Porcione', 'Movimientosinsumo');
+    public $uses = array('Usuario', 'Producto', 'Pedido', 'Categoria', 'Item', 'Insumo', 'PedidosMesa', 'Porcione', 'Movimientosinsumo');
     public $layout = 'publico';
 
     public function index() {
@@ -31,8 +31,38 @@ class PedidosController extends AppController {
         $categorias = $this->Categoria->find('all', array('recursive' => -1));
         //debug($categorias);   
         //$productos = $this->Producto->find('all', array('recursive' => -1, 'order' => 'Producto.categoria_id ASC'));
+        //$sql = "Select ";
         $productos = $this->Producto->find('all', array('recursive' => -1, 'order' => 'id DESC', 'conditions'=>array('estado'=>1)));
         //debug($productos);
+        $platos=array();    
+        $i=0;    
+        foreach ($productos as $p){
+            $id_producto = $p['Producto']['id'];
+            $nombre_producto = $p['Producto']['nombre'];
+            $porciones = $this->Porcione->find('all', array('recursive' => -1, 'conditions'=>array('producto_id'=>$id_producto)));
+            //debug($porciones);
+            foreach($porciones as $po){
+                
+                $id_insumo = $po['Porcione']['id'];
+                $cantidad = $po['Porcione']['cantidad'];
+                
+                $existe_insumo = $this->Insumo->find('first', array('recursive' => -1, 'conditions'=>array('id'=>$id_insumo, 'bodega >='=>$cantidad)));
+                
+                if($existe_insumo){
+                    echo "el producto es ".$nombre_producto. "<br />";
+                    $platos[$i]=$id_producto;
+                    $i++;
+                }
+                                
+            }        
+        }
+        $productos = $this->Producto->find('all', array('recursive' => -1, 'conditions'=>array('id'=>$platos)));
+        //debug($productos);
+        //debug($mostrar_plato);
+        //$productos = $this->Producto->find('all', array('recursive' => 3, 'order' => 'Producto.id DESC', 'conditions'=>array('Producto.estado'=>1, 'Porcione.insumo_id >='=>1)));        
+        //debug($productos);
+        $porciones = $this->Porcione->find('all');
+        //debug($porciones);
         $items_pedido = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$pedido)));
         //debug($items_pedido); 
         $this->set(compact('productos', 'id_moso', 'pedido', 'categorias', 'mesa', 'items_pedido'));
