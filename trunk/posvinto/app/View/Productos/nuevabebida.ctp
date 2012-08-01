@@ -9,16 +9,13 @@
 			<span>&gt;</span>
 			Registro de Platos
 		</div>
-		<!-- End Small Nav -->
-		
+		<!-- End Small Nav -->		
 		<br />
 		<!-- Main -->
 		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
+			<div class="cl">&nbsp;</div>			
 			<!-- Content -->
-			<div id="content">
-				
+			<div id="content">				
 				<!-- Box -->
 				<div class="box">
 					<!-- Box Head -->
@@ -26,7 +23,6 @@
 						<h2 class="left">Registro Nueva Bebida</h2>						
 					</div>
 					<!-- End Box Head -->	
-
 					<!-- Table -->
 					<div class="table">
 <?php echo $this->Form->create('Producto'); ?>
@@ -37,15 +33,15 @@
 </tr>
 <tr>
 	<td>Cantidad</td>
-	<td><?php echo $this->Form->text('cantidad', array('size'=>4)); ?></td>
+	<td><?php echo $this->Form->text('cantidad', array('size'=>4, 'value'=>0)); ?></td>
 </tr>
 <tr>
 	<td>Precio Compra</td>
-	<td><?php echo $this->Form->text('precio', array('size'=>4)); ?></td>
+	<td><?php echo $this->Form->text('precio', array('size'=>4, 'value'=>0)); ?></td>
 </tr>
 <tr>
 	<td>Precio Venta</td>
-	<td><?php echo $this->Form->text('precioventa', array('size'=>4)); ?></td>
+	<td><?php echo $this->Form->text('precioventa', array('size'=>4, 'value'=>0)); ?></td>
 </tr>
 <tr>
 	<td>Categoria</td>
