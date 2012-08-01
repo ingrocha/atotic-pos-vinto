@@ -44,15 +44,15 @@
 			    <li><a href="<?php echo $url?>usuarios/"><span>Usuarios</span></a></li>
                 <li><a href="<?php echo $url?>clientes/"><span>Clientes</span></a></li>
 			    <li><a href="<?php echo $url?>controlpedidos/"><span>Pedidos</span></a></li>
+                <li>
+                    <?php echo $this->Html->link("<span>Carta</span>", array('controller'=>'Productos', 'action'=>'platos'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                </li>
 			    <li>
                     <?php echo $this->Html->link("<span>Bodega</span>", array('controller'=>'Insumos', 'action'=>'bodega'), array('class'=>"add-button", 'escape' => FALSE)); ?>                
                 </li>
                 <li>
                     <?php echo $this->Html->link("<span>Almacen</span>", array('controller'=>'Insumos', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-                </li>
-			    <li>
-                    <?php echo $this->Html->link("<span>Carta</span>", array('controller'=>'Productos', 'action'=>'platos'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-                </li>
+                </li>			    
                 <!--<li>
                     <?php //echo $this->Html->link("<span>Bebidas</span>", array('controller'=>'Productos', 'action'=>'bebidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                 </li>-->
