@@ -8,6 +8,7 @@ class InsumosController extends AppController
 
     public function index()
     {
+        
         $this->paginate = array('limit' => 50, 'order' => array('Insumo.id' => 'desc'));
         // similar to findAll(), but fetches paged results
         $insumos = $this->paginate('Insumo');
@@ -346,7 +347,7 @@ class InsumosController extends AppController
     }
 
     public function nuevo()
-    {
+    {        
         $fecha = date("Y-m-d");
         if (!empty($this->data)) {
             $this->request->data['Insumo']['fecha'] = $fecha;
@@ -357,10 +358,10 @@ class InsumosController extends AppController
             } else {
                 $this->Session->setFlash('No se pudo registrar el Insumo');
             }
-        }
-        //$dct = $this->TiposInsumo->find('list', array('fields' => 'TiposInsumo.nombre'));
-        //$this->set(compact('dct', 'options'));
-        //debug($dct);
+        }        
+        /*$dct = $this->TiposInsumo->find('list', array('fields' => 'TiposInsumo.nombre'));
+        $this->set(compact('dct', 'options'));
+        debug($dct);*/
     }
 
     public function modificar($id = null)
