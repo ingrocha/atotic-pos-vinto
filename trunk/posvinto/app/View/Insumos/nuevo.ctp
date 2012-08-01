@@ -6,8 +6,7 @@
 		<!-- Small Nav -->
 		<div class="small-nav">
 			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller' =>
-'usuarios', 'action' => 'index')) ?>
+            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action' => 'index')) ?>
 			<span>&gt;</span>
 			Registro de Insumos
 		</div>
