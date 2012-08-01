@@ -200,11 +200,14 @@ class ProductosController extends AppController
         } else {
             if ($this->Producto->save($this->data)) {
                 $this->Session->setFlash('Los datos fueron modificados');
-                $this->redirect(array('action' => 'index'), null, true);
+                $this->redirect(array('action' => 'bebidas'), null, true);
             } else {
                 $this->Session->setFlash('no se pudo modificar!!');
             }
         }
+        $dcc = $this->Categoria->find('list', array('conditions'=>array('tipo'=>'Bebidas'), 'fields'=>'nombre'));
+            //debug($dcc);
+        $this->set(compact('dcc'));   
     }
 
     public function eliminar($id = null)
