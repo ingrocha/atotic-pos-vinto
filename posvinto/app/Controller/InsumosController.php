@@ -2,20 +2,70 @@
 class InsumosController extends AppController
 {
 
-    public $helpers = array('Html', 'Form');
-    public $uses = array('Insumo', 'Almacen', 'Bodega');
+    public $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
+    public $uses = array('Insumo', 'Almacen', 'Bodega', 'Tipo');
     public $layout = 'admin';
 
     public function index()
     {
         
-        $this->paginate = array('limit' => 50, 'order' => array('Insumo.id' => 'desc'));
+        //$this->paginate = array('limit' => 20, 'order' => array('Insumo.id' => 'desc'), 'conditions'=>array('estado'=>1));
         // similar to findAll(), but fetches paged results
-        $insumos = $this->paginate('Insumo');
+        //$insumos = $this->paginate('Insumo');
+        $insumos = $this->Insumo->find('all', array('recursive'=>0, 'conditions'=>array('Insumo.estado'=>1), 'order'=>array('Insumo.id'=>'DESC'), 'limit'=>20));
         //debug($insumos);
         $this->set(compact('insumos'));
         //$insumos = $this->Insumo->find('all');
         //$this->set(compact('insumos'));
+    }
+    
+    public function nuevacategoria(){
+        
+        if(!empty($this->data)){
+            //debug($this->data);
+            if($this->Tipo->save($this->data)){
+                $this->Session->setFlash('Ingreso registrado con exito!');
+                $this->redirect(array('action'=>'categoriasalmacen'));
+            }else{
+                $this->Session->setFlash('Error al guardar');
+                $this->redirect(array('action'=>'categoriasalmacen'));    
+            }            
+        }else{
+            
+        }
+    }
+    
+    public function editarcategoria($id=null){
+        
+        $this->Tipo->id = $id;        
+        if (!$id) {
+            $this->Session->setFlash('No existe tal registro');
+            $this->redirect(array('action' => 'categoriasalmacen'), null, true);
+        }
+        
+        if (empty($this->data)) {
+            $this->data = $this->Tipo->read();
+
+        } else {
+            
+            if ($this->Tipo->save($this->data)) {
+                $this->Session->setFlash('Los datos fueron modificados');
+                $this->redirect(array('action' => 'categoriasalmacen'), null, true);
+            } else {
+                $this->Session->setFlash('no se pudo modificar!!');
+            }
+        }
+        
+    }
+    
+    public function descat($id=null){
+        
+        $this->Tipo->id = $id;
+        $this->request->data['Tipo']['estado']=0;
+        if($this->Tipo->save($this->data)){
+           $this->Session->setFlash('Se Elimino la Categoria');
+           $this->redirect(array('action'=>'categoriasalmacen'));
+        }               
     }
 
     public function salidas()
@@ -346,22 +396,62 @@ class InsumosController extends AppController
         }
     }
 
+    public function buscar(){
+        
+        $this->layout='ajax';
+        $nombre = $this->data['Insumo']['nombre']; 
+        $insumos = $this->Insumo->find('all', array('recursive'=>0, 'conditions'=>array('Insumo.nombre like'=>"%$nombre%")));
+        //debug($insumos);
+        $this->set(compact('insumos'));
+        //debug($this->data);    
+    }
+    
     public function nuevo()
-    {        
+    {   
+                
         $fecha = date("Y-m-d");
         if (!empty($this->data)) {
+            
+            //debug($this->data);exit;    
+            $cantidad = $this->data['Insumo']['total'];
+            $pc = $this->data['Insumo']['preciocompra'];
             $this->request->data['Insumo']['fecha'] = $fecha;
             $this->Insumo->create();
-            if ($this->Insumo->save($this->data)) {
-                $this->Session->setFlash('Insumo registrado con exito');
-                $this->redirect(array('action' => 'index'), null, true);
+            if($this->Insumo->save($this->data)) {
+                
+                //$this->Session->setFlash('Insumo registrado con exito');
+                $id_insumo = $this->Insumo->getLastInsertID();                
+                //$this->data = "";                
+                //$this->Insumo->id = $id_insumo;
+                //$this->request->data['Insumo']['total'] = $cant_entrada;
+                
+                //if (!$this->Insumo->save($this->data)){                    
+                //    echo "no guardo";
+                //}
+
+                $this->data = "";
+                $fecha = date("Y-m-d");
+                $this->request->data['Almacen']['insumo_id'] = $id_insumo;
+                $this->request->data['Almacen']['preciocompra'] = $pc;
+                $this->request->data['Almacen']['ingreso'] = $cantidad;
+                $this->request->data['Almacen']['total'] = $cantidad;
+                $this->request->data['Almacen']['fecha'] = $fecha;
+                //debug($this->data);exit;
+                $this->Almacen->create();
+                if ($this->Almacen->save($this->data)) {
+                                                            
+                    $this->Session->setFlash('Ingreso registrado con exito!');
+                    $this->redirect(array('action' => 'index'));
+                }
+                
+                //$this->redirect(array('action' => 'index'), null, true);
             } else {
                 $this->Session->setFlash('No se pudo registrar el Insumo');
             }
         }        
-        /*$dct = $this->TiposInsumo->find('list', array('fields' => 'TiposInsumo.nombre'));
-        $this->set(compact('dct', 'options'));
-        debug($dct);*/
+        $dct = $this->Tipo->find('list', array('fields' => 'nombre', 'conditions'=>array('estado'=>1)));
+        $this->set(compact('dct'));
+        //debug($dct);
     }
 
     public function modificar($id = null)
@@ -383,18 +473,24 @@ class InsumosController extends AppController
             }
         }
     }
+    
+    public function categoriasalmacen(){
+        
+        $catalmacen = $this->Tipo->find('all', array('recursive'=>-1, 'conditions'=>array('estado'=>'1'), 'order'=>array('id'=>'DESC')));
+        //debug($catalmacen);
+        $this->set(compact('catalmacen'));
+    }
 
-    public function eliminar($id = null)
+    public function deshabilitar($id = null)
     {
-        if (!$id) {
-            $this->Session->setFlash('id Invalida para borrar');
-            $this->redirect(array('action' => 'index'));
-        }
-        if ($this->Insumo->delete($id)) {
-
-            $this->Session->setFlash('El Insumo  ' . $id . ' fue borrado');
-            $this->redirect(array('action' => 'index'));
-        }
+                          
+            $this->Insumo->id = $id;
+            $this->request->data['Insumo']['estado']=0;
+            if($this->Insumo->save($this->data)){
+                $this->Session->setFlash('Se borro el insumo');
+                $this->redirect(array('action'=>'index'));
+            }            
+        
     }
 }
 ?>
