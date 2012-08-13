@@ -16,7 +16,7 @@
 		echo $this->fetch('script');        
 	?>
 <script type="text/javascript">
-   jQuery.noConflict();
+   //jQuery.noConflict();
 </script>
 </head>
 <body>
@@ -45,7 +45,7 @@
                 <li><a href="<?php echo $url?>clientes/"><span>Clientes</span></a></li>
 			    <li><a href="<?php echo $url?>controlpedidos/"><span>Pedidos</span></a></li>
                 <li>
-                    <?php echo $this->Html->link("<span>Carta</span>", array('controller'=>'Productos', 'action'=>'platos'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                    <?php echo $this->Html->link("<span>Menu</span>", array('controller'=>'Productos', 'action'=>'platos'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                 </li>
 			    <li>
                     <?php echo $this->Html->link("<span>Bodega</span>", array('controller'=>'Insumos', 'action'=>'bodega'), array('class'=>"add-button", 'escape' => FALSE)); ?>                
