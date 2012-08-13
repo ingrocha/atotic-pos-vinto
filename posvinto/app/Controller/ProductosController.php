@@ -2,7 +2,7 @@
 class ProductosController extends AppController
 {
 
-    public $helpers = array('Html', 'Form');
+    public $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
     public $uses = array('Producto', 'Categoria', 'Porcione', 'Insumo', 'Almacen');
     public $layout = "admin";
 
@@ -15,6 +15,14 @@ class ProductosController extends AppController
 
     }
     
+    public function categoriasmenu(){
+        
+        $cat = $this->Categoria->find('all', array('recursive'=>-1, 'conditions'=>array('Categoria.estado'=>1), 'limit'=>20));
+        //debug($cat);
+        $this->set(compact('cat'));
+            
+    }   
+     
     public function receta($id=null){
         
         $rec=$this->Porcione->find('all', array('conditions'=>array('producto_id'=>$id)));
@@ -61,7 +69,7 @@ class ProductosController extends AppController
     public function platos()
     {
 
-        $this->paginate = array('limit' => 6, 'order' => array('id' => 'desc'), 'recursive'=>0, 'conditions'=>array('Categoria.tipo'=>'Comida', 'estado'=>1));
+        $this->paginate = array('limit' => 6, 'order' => array('id' => 'desc'), 'recursive'=>0, 'conditions'=>array('Categoria.tipo'=>'Comida'));
         // similar to findAll(), but fetches paged results
         $platos = $this->paginate('Producto');
         //debug($platos);
