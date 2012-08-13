@@ -1,5 +1,6 @@
 <!-- registro insumo -->
 <!-- Container -->
+<?php echo $this->element('combobusca'); ?>
 <div id="container">
 	<div class="shell">
 		
@@ -39,11 +40,23 @@
 </tr> 
 <tr>
 	<td>Precio Compra</td>
-	<td><?php echo $this->Form->text('preciocompra', array('size'=>5)); ?></td>
+	<td><?php echo $this->Form->text('preciocompra', array('size'=>5, 'value'=>0)); ?></td>
 </tr>
 <tr>
 	<td>Precio Venta</td>
-	<td><?php echo $this->Form->text('precioventa', array('size'=>5)); ?></td>
+	<td><?php echo $this->Form->text('precioventa', array('size'=>5, 'value'=>0)); ?></td>
+</tr>
+<tr>
+	<td>Cantidad</td>
+	<td><?php echo $this->Form->text('total', array('size'=>5, 'value'=>0)); ?></td>
+</tr>
+<tr>
+	<td>Categoria</td>
+	<td> 
+    <div class="ui-widget">           
+        <?php echo $this->Form->select('tipo_id', $dct, array('id'=>'combobox')); ?>
+    </div>
+</td>
 </tr>
 <tr>
 	<td>Observaciones</td>
