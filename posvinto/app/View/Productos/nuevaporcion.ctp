@@ -1,3 +1,4 @@
+<?php //echo $this->element('combobusca'); ?>
 <!-- registro insumo -->
 <?php echo $this->Html->script('jquery.sheepItPlugin-1.0.0.min'); ?>
 <script type="text/javascript">
@@ -59,7 +60,7 @@ jQuery(document).ready(function() {
         $p=$plato['Producto']['id']; 
     ?>
     <?php echo $this->Form->hidden('#index#.Porcione.producto_id', array('value'=>$p)); ?>
-    Insumo:<?php echo $this->Form->select('#index#.Porcione.insumo_id', $dci); ?>
+    Insumo: <?php echo $this->Form->select('#index#.Porcione.insumo_id', $dci, array('id'=>'combobox')); ?>    
     Cantidad:<?php echo $this->Form->text('#index#.Porcione.cantidad', array('size' => 5)); ?>  
                                 
     <!--<input id="sheepItForm_#index#_phone" name="person[phones][#index#][phone]" type="text"/>-->
