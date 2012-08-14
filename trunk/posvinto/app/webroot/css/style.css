@@ -93,7 +93,7 @@ h3 a{ text-decoration: none; }
 
 .box { background:#fbfcfc; height:100%; padding:1px; margin-bottom:20px; }
 .box-head { background:#ba4c32; height:32px; color:#fff; padding: 0 10px; line-height:32px; white-space:nowrap; border-bottom:solid 1px #fff; }
-.box-head .right{ padding-top:5px; line-height:13px;}
+.box-head .right{ padding-top:5px; line-height:13px; width: 281px;}
 .box-head .right label,
 .box-head .right input { float:left; }
 .box-head .right label { padding:4px 0 0 0;}
