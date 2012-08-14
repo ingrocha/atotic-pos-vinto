@@ -21,28 +21,48 @@
 					<div class="box-head">
 						<h2 class="left">LISTADO DE PRODUCTOS EN LA BODEGA</h2>
 						<div class="right">
-							<label>filtrar</label>
-							<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />
+							<?php echo $this->Form->create(null, array('action'=>'buscarbodega')); ?>
+							<label>Filtrar</label>
+							<!--<input type="text" class="field small-field" />
+							<input type="submit" class="button" value="buscar" />-->
+                            <?php echo $this->Form->text('nombre'); ?>
+                            <?php
+                                $options = array(
+                                    'label' => 'Buscar',
+                                    'class' => 'button'
+                                );
+                            ?>
+                        <?php
+                            echo $this->Ajax->submit('Buscar', array(
+                            'url'=> array('controller'=>'insumos', 'action'=>'buscarbodega'), 
+                            'update' => 'muestrabodega'
+                            /*'condition' => '$("#PostEmail1").val() == $("#PostName1").val()'*/
+                            )); 
+                            //echo $this->Form->end($options); 
+                        ?>
 						</div>
 					</div>
 					<!-- End Box Head -->	
 					<!-- Table -->
-					<div class="table">
-					<table>
+	<div class="table">
+	<table cellspacing="0" cellpadding="1" width="740">
     <tr>
-        <th>Nombre</th>
-        <th>Precio Compra</th>
-        <th>Precio Venta</th>  
-        <th>Bodega</th> 
-        <th>Almacen</th>
-        <th>Total</th>
+        <th style="width: 280px;">Nombre</th>
+        <th style="width: 92px;">$.Compra</th>
+        <th style="width: 92px;">$.Venta</th>  
+        <th style="width: 92px;">Bodega</th> 
+        <th style="width: 92px;">Almacen</th>
+        <th style="width: 92px;">Total</th>
         <!--<th>Observaciones</th>
         <th>Acciones</th>-->     
     </tr>
-<?php foreach ($bodega as $i): ?>
+    </table>
+    <div id="muestrabodega">
+    <div style="width:740px; height:300px; overflow:auto;">
+    <table cellspacing="0" cellpadding="1" width="740">
+    <?php foreach ($bodega as $i): ?>
     <tr>
-        <td>
+        <td style="width: 280px;">
             <?php $id = $i['Insumo']['id']; ?>            
             <?php echo $i['Insumo']['nombre']; ?>
         </td>
@@ -50,19 +70,19 @@
         </div> 
         <div id="cuadro2_<?php echo $id; ?>" title="Salida de insumos">
         </div> 
-        <td>
+        <td style="width: 92px;">
             <?php echo $i['Insumo']['preciocompra']; ?>
         </td>
-        <td>
+        <td style="width: 92px;">
             <?php echo $i['Insumo']['precioventa']; ?>
         </td>
-        <td>
+        <td style="width: 92px;">
             <?php echo $i['Insumo']['bodega']; ?>
         </td> 
-        <td>
+        <td style="width: 92px;">
             <?php echo $i['Insumo']['total']; ?>
         </td>
-        <td>
+        <td style="width: 92px;">
             <?php 
                 $almacen = $i['Insumo']['total']; 
                 $bodega = $i['Insumo']['bodega'];
@@ -112,26 +132,13 @@
     </tr>
 <?php endforeach; ?>
 </table>
-						<!-- Pagging -->
-						<div class="pagging">
-							<div class="left"><?php
-echo $this->Paginator->counter('Mostrando {:current} - {:end}  de {:pages}, total
-                                     {:count}');
-?></div>
-							<div class="right">
-                            
-                            <?php echo $this->Paginator->prev('<< Anterior',
-array(), null, array('class' => 'disabled')); ?>  
-                            <?php echo $this->Paginator->numbers(); ?>  
-                            <?php echo $this->Paginator->next('Siguiente >>',
-array(), null, array('class' => 'disabled')); ?>
-								
-							</div>
-						</div>
-						<!-- End Pagging -->
+</div>
+</div>
+
 						
-					</div>
-					<!-- Table -->
+						
+</div>
+<!-- Table -->
 					
 				</div>
 				<!-- End Box -->
