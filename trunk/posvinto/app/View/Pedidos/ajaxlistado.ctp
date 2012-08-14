@@ -1,4 +1,9 @@
 <?php //debug($pedidos); ?>
+<?php if($control != 0):?>
+    
+<?php else:?>
+
+
 <div class="pedidomesa" style="font-size: x-large; font-weight: bolder;">
     Mesa: <?php echo $mesa; ?>
     Platos: <?php echo $cant_platos['0']['0']['cantidad']; ?>
@@ -49,3 +54,4 @@
  <?php //echo $total_pagar; ?>
  <?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar), array('class'=>'button')); ?>
  <?php echo $this->Html->link('Cancelar Pedido', array('controller'=>'Pedidos', 'action'=>'listadopedidos'),array('class'=>'button')); ?>
+ <?php endif;?>
