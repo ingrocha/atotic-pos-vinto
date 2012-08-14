@@ -48,10 +48,11 @@
 	<table cellspacing="0" cellpadding="1" width="740">
     <tr>
         <th style="width: 280px;">Nombre</th>
-        <th style="width: 92px;">$.Compra</th>
-        <th style="width: 92px;">$.Venta</th>  
-        <th style="width: 92px;">Bodega</th> 
-        <th style="width: 92px;">Almacen</th>
+        <th style="width: 90px;">$.Compra</th>
+        <th style="width: 90px;">$.Venta</th>  
+        <th style="width: 90px;">Bodega</th> 
+        <th style="width: 90px;">Almacen</th>
+        <th>Salidas</th>
         <th style="width: 92px;">Total</th>
         <!--<th>Observaciones</th>
         <th>Acciones</th>-->     
@@ -77,15 +78,18 @@
             <?php echo $i['Insumo']['precioventa']; ?>
         </td>
         <td style="width: 92px;">
-            <?php echo $i['Insumo']['bodega']; ?>
+            <?php echo $i['Bodega']['total']; ?>
         </td> 
         <td style="width: 92px;">
             <?php echo $i['Insumo']['total']; ?>
         </td>
+        <td>
+            <?php echo $i['Bodega']['salida']; ?>
+        </td>
         <td style="width: 92px;">
             <?php 
                 $almacen = $i['Insumo']['total']; 
-                $bodega = $i['Insumo']['bodega'];
+                $bodega = $i['Bodega']['total'];
                 echo $almacen+$bodega;
             ?>
         </td>       
