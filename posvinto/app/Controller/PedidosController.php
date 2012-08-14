@@ -36,7 +36,7 @@ class PedidosController extends AppController {
         //debug($productos);
         $platos=array();    
         $i=0;    
-        foreach ($productos as $p){
+        /*foreach ($productos as $p){
             $id_producto = $p['Producto']['id'];
             $nombre_producto = $p['Producto']['nombre'];
             $porciones = $this->Porcione->find('all', array('recursive' => -1, 'conditions'=>array('producto_id'=>$id_producto)));
@@ -55,8 +55,8 @@ class PedidosController extends AppController {
                 }
                                 
             }        
-        }
-        $productos = $this->Producto->find('all', array('recursive' => -1, 'conditions'=>array('id'=>$platos)));
+        }*/
+        //$productos = $this->Producto->find('all', array('recursive' => -1, 'conditions'=>array('id'=>$platos)));
         //debug($productos);
         //debug($mostrar_plato);
         //$productos = $this->Producto->find('all', array('recursive' => 3, 'order' => 'Producto.id DESC', 'conditions'=>array('Producto.estado'=>1, 'Porcione.insumo_id >='=>1)));        
