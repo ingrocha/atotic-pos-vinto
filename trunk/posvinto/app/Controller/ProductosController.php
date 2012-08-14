@@ -15,6 +15,30 @@ class ProductosController extends AppController
 
     }
     
+    public function ajaxprodmenu($id=null){
+        
+        $this->layout='ajax';
+        $insumo = $this->Insumo->find('first', array('recursive'=>-1, 'conditions'=>array('id'=>$id, 'estado'=>1)));                
+        if(!empty($this->data)){
+            //debug($this->data);
+            //$this->data="";
+            $this->request->data['Producto']['nombre']=$insumo['Insumo']['nombre'];
+            $this->request->data['Producto']['estado']=1;
+            debug($this->data);
+        }else{
+            
+            $dcc = $this->Categoria->find('list', array('fields'=>'nombre'));                    
+            $this->set(compact('dcc', 'insumo', 'id'));    
+        }
+        
+    }
+    
+    public function nuevoprodmenu(){
+        
+        $insumos = $this->Insumo->find('all', array('recursive'=>0, 'conditions'=>array('Insumo.estado'=>1), 'order'=>array('Insumo.id'=>'DESC'), 'limit'=>20));        
+        $this->set(compact('insumos'));
+    }
+    
     public function categoriasmenu(){
         
         $cat = $this->Categoria->find('all', array('recursive'=>-1, 'conditions'=>array('Categoria.estado'=>1), 'limit'=>20));
