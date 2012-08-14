@@ -12,7 +12,14 @@ class InsumosController extends AppController
         //$this->paginate = array('limit' => 20, 'order' => array('Insumo.id' => 'desc'), 'conditions'=>array('estado'=>1));
         // similar to findAll(), but fetches paged results
         //$insumos = $this->paginate('Insumo');
-        $insumos = $this->Insumo->find('all', array('recursive'=>0, 'conditions'=>array('Insumo.estado'=>1), 'order'=>array('Insumo.id'=>'DESC'), 'limit'=>20));
+        $insumos = $this->Insumo->find('all', 
+                                        array(
+                                            'recursive'=>0, 
+                                            'conditions'=>array('Insumo.estado'=>1), 
+                                            'order'=>array('Insumo.id'=>'DESC'), 
+                                            'limit'=>20
+                                            )
+                                        );
         //debug($insumos);
         $this->set(compact('insumos'));
         //$insumos = $this->Insumo->find('all');
@@ -161,15 +168,57 @@ class InsumosController extends AppController
     
     public function bodega(){
         
-        $this->paginate = array('limit' => 6, 'order' => array('id' => 'desc'));
+        //$this->paginate = array('limit' => 6, 'order' => array('id' => 'desc'));
         // similar to findAll(), but fetches paged results
-        $bodega = $this->paginate('Bodega');
-        //debug($insumos);        
-        $this->set(compact('bodega'));
+        //$bodega = $this->paginate('Bodega');
+        //debug($bodega);  exit;      
+        //$this->set(compact('bodega'));
         //$insumos = $this->Insumo->find('all');
-        //$this->set(compact('insumos'));            
+        //$this->set(compact('insumos'));
+         $bodega = $this->Bodega->find('all', 
+                                        array(
+                                            'recursive'=>0,
+                                            'order'=>array('Bodega.id'=>'DESC'), 
+                                            
+                                            )
+                                        );
+       // debug($bodega);
+        $this->set(compact('bodega'));            
     }
-    
+    function buscarbodega(){
+       
+        $this->layout='ajax';
+        $dato = $this->data['Insumo']['nombre'];
+        $tipo = $this->Tipo->find('all', array('conditions'=>array('Tipo.nombre like'=>"%$dato%"), 'recursive'=>-1)); 
+        //debug($tipo);exit;
+        $i=0;
+        foreach($tipo as $t){
+            $tipos[$i] = $t['Tipo']['id'];
+            $i++;
+        }
+        //debug($tipos);exit;
+        if(empty($tipos)){
+            $bodega = $this->Bodega->find('all', 
+        array('recursive'=>0, 
+        'conditions'=>array('Insumo.nombre like'=>"%$dato%"),
+        'order'=>array('Bodega.id DESC')
+        ));
+        }else{
+          $bodega = $this->Bodega->find('all', 
+        array('recursive'=>0, 
+        'conditions'=>array(
+        'or'=>array('Insumo.nombre like'=>"%$dato%", 
+        'Insumo.tipo_id'=>$tipos
+        )
+        ),
+        'order'=>array('Bodega.id DESC')
+        ));  
+        }
+        
+        //debug($insumos);exit;
+        $this->set(compact('bodega'));
+        
+    }
     function _guardabodega(){
         
         echo 'esta es la funcion';
