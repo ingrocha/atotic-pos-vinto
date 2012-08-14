@@ -30,7 +30,7 @@
 					</div>
 					<!-- End Box Head -->	
 					<!-- Table -->
-                    <?if ($rec):?>
+                    <?php if ($rec):?>
 					<div class="table">
 					<table>
     <tr>
