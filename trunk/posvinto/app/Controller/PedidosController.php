@@ -197,13 +197,14 @@ class PedidosController extends AppController {
         }*/
         //debug($ultima_mesa);
         $this->Pedido->id = $pedido;
+        
         //$this->request->data['Pedido']['mesa'] = $nueva_mesa;
         $this->request->data['Pedido']['total'] = $total;
         if ($this->Pedido->save($this->data)) {
             /******************************************registro y actualizacion del moviemiento de items*********/
             //debug($pedido);exit;
             $items = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$pedido), 'order'=>array('Item.producto_id ASC'),'recursive'=>-1));
-            //debug($items);exit;
+            debug($items);exit;
             $insumo = array();
             $productos = array();
             $i=0;
@@ -369,8 +370,8 @@ class PedidosController extends AppController {
                 $fecha_ayer = date("Y-m-d", strtotime("yesterday"));
                 $fecha_hoy = date("Y-m-d");
                 
-                echo "la fecha hoy es ".$fecha_hoy."<br />";
-                echo "la fecha es ".$fecha_ayer;                                
+                //echo "la fecha hoy es ".$fecha_hoy."<br />";
+               // echo "la fecha es ".$fecha_ayer;                                
                 
                 $fecha = date('Y-m-d H:i:s');
                 //if($fecha_ayer == $fecha_hoy){
