@@ -47,41 +47,47 @@
 					<div class="table">                    
                 	<table cellspacing="0" cellpadding="1" width="740"> 
                     <tr>
-                        <th style="width: 300px;">Nombre</th>                                                 
-                        <th style="width: 250px;">Tipo</th>
+                        <th style="width: 400px;">Nombre</th>
+                        <th style="width: 80px;">Categoria</th>                         
+                        <th style="width: 60px;">Cantidad Almacen</th>                       
                         <th>Acciones</th>     
                     </tr>    
                     </table>
 <?php //comienzo de mostrar los datos ?>    
 <div id="muestra">                
 <div style="width:740px; height:300px; overflow:auto;">
-<table class="mitabla">
-<?php $i=1; ?>
-<?php foreach ($cat as $c): ?>
-    <tr <?php echo fmod($i,2)?"class='mifila'":""; ?>>
-        <td style="width: 300px;">
-            <?php $id = $c['Categoria']['id']; ?>            
-            <?php echo $c['Categoria']['nombre']; ?>
-        </td>         
-        <td style="width: 250px;">
-            <?php echo $c['Categoria']['tipo']; ?>
-        </td>             
-        <td>
+<table>
+<?php foreach ($insumos as $i): ?>
+<?php $id = $i['Insumo']['id']; ?> 
+    <div id="cuadro_<?php echo $id; ?>" title="Insumo al Menu">
+        </div> 
+    <tr>
+        <td style="width: 400px;">
+                       
+            <?php echo $i['Insumo']['nombre']; ?>
+        </td>
+        <td style="width: 80px;">
+            <?php echo $i['Tipo']['nombre']; ?>
+        </td>       
+        <td style="width: 60px;">
+            <?php echo $i['Insumo']['total']; ?>
+        </td>                    
+        <td>                       
+           <div id="dialog_<?php echo $id; ?>" style="float: left;">
             <?php 
-                echo $this->Html->image("edit.png", array(
-                    "title" => "Editar",
-                    'url' => array('action' => 'editarcategoria', $id)
-                ));
-            ?>                                                            
-            <?php 
-                echo $this->Html->image("elim.png", array(
-                    "title" => "Eliminar Insumo",
-                    'url' => array('action' => 'descat', $id)
-                ));
-            ?>                 
+                echo $this->Html->image("menu.png", array("title" => "Ingreso Almacen"));
+            ?>
+            </div>
+            <script type="text/javascript">
+            var dialogOpts = {
+                modal: true
+            };
+            jQuery("#dialog_<?php echo $id; ?>").click(function(){
+                jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("ajaxprodmenu/<?php echo $id; ?>");                //alert("click");
+            }); 
+            </script>    
         </td>
     </tr>
-    <?php $i++; ?>
 <?php endforeach; ?>
 </table>
 </div>
@@ -106,15 +112,8 @@
 					</div>
 					<!-- End Box Head-->
 					
-					<div class="box-content">
-                    <?php echo $this->Html->link("<span>Nuevo Insumo</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
-                    <?php //echo $this->Html->link("<span>Registrar Salida</span>", array('action'=>'salidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-                    <div class="cl">&nbsp;</div>
-                    <div class="cl">&nbsp;</div>
-                    <?php echo $this->Html->link("<span>Categorias Almacen</span>", array('action'=>'categoriasalmacen'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-                    <?php echo $this->Html->link("<span>Registrar Categoria</span>", array('action'=>'nuevacategoria'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-						<div class="cl">&nbsp;</div>																		
-						
+					<div class="box-content">                    																		
+						<?php echo $this->element("menucarta"); ?>
 					</div>
 				</div>
 				<!-- End Box -->
