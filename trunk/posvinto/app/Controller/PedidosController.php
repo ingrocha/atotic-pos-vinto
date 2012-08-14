@@ -189,11 +189,12 @@ class PedidosController extends AppController {
         $this->Pedido->id = $pedido;
         
         $this->request->data['Pedido']['total'] = $total;
+        
         if ($this->Pedido->save($this->data)) {
             /******************************************registro y actualizacion del moviemiento de items*********/
             //debug($pedido);exit;
             $items = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$pedido), 'order'=>array('Item.producto_id ASC'),'recursive'=>-1));
-            //debug($items);
+            //debug($items);exit;
             $insumo = array();
             $productos = array();
             $i=0;
@@ -216,7 +217,7 @@ class PedidosController extends AppController {
                         $fecha = date('Y-m-d');
                         $this->Bodega->id=$movimiento['Bodega']['id'];
                        
-                        //debug($this->Bodega);
+                        //debug($this->Bodega);exit;
                       
                         $cantidad = $cantidad * $porcionitem['Porcione']['cantidad'];
                         
