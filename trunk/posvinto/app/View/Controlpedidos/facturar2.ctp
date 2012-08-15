@@ -1,3 +1,4 @@
+<?php //debug($datos);?>
 <div id="aImprimir">
 
 <table class="tablafactura">
