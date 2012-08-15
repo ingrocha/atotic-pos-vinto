@@ -27,3 +27,14 @@ table.reportea tr th{
 .oculto{
     display:none;
 }
+
+table.imprimir-factura{
+    border: none;
+    width: 358px;
+}
+table.imprimir-factura tr td{
+    padding: 5px;
+}
+table.imprimir-factura tr td.cantidad{
+    padding-left: 59px;
+}
