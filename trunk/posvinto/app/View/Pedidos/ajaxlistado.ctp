@@ -1,7 +1,7 @@
 <?php //debug($pedidos); ?>
-<?php if($control != 0):?>
+<?php //if($control != 0):?>
     
-<?php else:?>
+<?php //else:?>
 
 
 <div class="pedidomesa" style="font-size: x-large; font-weight: bolder;">
@@ -53,5 +53,5 @@
  </table>
  <?php //echo $total_pagar; ?>
  <?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar), array('class'=>'button')); ?>
- <?php echo $this->Html->link('Cancelar Pedido', array('controller'=>'Pedidos', 'action'=>'listadopedidos'),array('class'=>'button')); ?>
- <?php endif;?>
+ <?php echo $this->Html->link('Cancelar Pedido', array('controller'=>'Pedidos', 'action'=>'cancelarpedido', $pedido, $mesa),array('class'=>'button'), ('Esta seguro de cancelar?')); ?>
+ <?php //endif;?>
