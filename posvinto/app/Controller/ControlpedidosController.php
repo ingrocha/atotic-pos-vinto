@@ -26,8 +26,13 @@ class ControlpedidosController extends AppController{
     $this->set(compact('data'));
 
     }
+    public function autocomplete(){
+        
+    }
     public function facturar1($idpedido=null){
+        
         $pedido = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$idpedido)));
+        //debug($pedido);exit;
         $this->set(compact('pedido', 'idpedido'));
     }
     public function recibo($idpedido=null){
@@ -91,9 +96,9 @@ class ControlpedidosController extends AppController{
             }
     }
     public function facturar2(){
-        //debug($this->data);exit;
+        
        $this->layout = 'imprimir';
-       
+       //debug($this->data);
        $cliente = $this->data[1]['Pedido']['nombre'];
        $nitcliente = $this->data[1]['Pedido']['nit'];
        $idpedido = $this->data[1]['Pedido']['idpedido'];
@@ -123,6 +128,7 @@ class ControlpedidosController extends AppController{
              $j++;
            }
        }
+      /// DEBUG($datos);exit;
        $total = number_format($total,2, '.', ',');
        $monto = split('\.', $total);
        $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
@@ -169,7 +175,7 @@ class ControlpedidosController extends AppController{
            $fech2 = split(' ', $fech);
            $fecha = $fech2[0];
            $hora = $fech2[1]; 
-                          
+           //  DEBUG($datos);exit;             
            $this->set(compact('datosfactura','idfactura','cliente', 'nitcliente','codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total'));
         }else{
             $this->Session->setFlash('No se pudo generar la nueva factura');
