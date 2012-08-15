@@ -171,7 +171,7 @@
 					<!-- End Box Head -->
                     <!-- Form -->
                        <?php echo $this->Form->create(null, array(
-                            'url' => array('controller' => 'controlpedidos', 'action' => 'facturar2')
+                            'url' => array('controller' => 'controlpedidos', 'action' => 'facturarnormal')
                             ));
                     ?>
                    <div class="form">
@@ -185,12 +185,14 @@
                              <td>NOMBRE:</td>
                              <td>
                                 <?php echo $this->Form->text("1.Pedido.nombre",array('size'=>20));?>
+                                
                              </td>
                           </tr>
                           <tr>
                              <td>NIT: </td>
                              <td>
                                 <?php echo $this->Form->text("1.Pedido.nit", array('size'=>20));?>
+                                <?php //echo $ajax->autoComplete('1.Pedido.nit', '/autoComplete')?>
                              </td>
                           </tr>
                      </table>
