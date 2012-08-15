@@ -16,13 +16,7 @@ class Porcione extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Producto' => array(
-			'className' => 'Producto',
-			'foreignKey' => 'producto_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
+	
 		'Insumo' => array(
 			'className' => 'Insumo',
 			'foreignKey' => 'insumo_id',
@@ -31,4 +25,10 @@ class Porcione extends AppModel {
 			'order' => ''
 		)
 	);
+    public $hasMany = array(
+       'Producto'=>array(
+          'className'=>'Item',
+          'foreignKey'=>'producto_id'
+       )
+    );
 }
