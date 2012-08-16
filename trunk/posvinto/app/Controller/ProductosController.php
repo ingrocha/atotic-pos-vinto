@@ -15,6 +15,28 @@ class ProductosController extends AppController
 
     }
     
+    public function descatmenu($id=null){
+        
+        $this->Categoria->id = $id;
+        $this->request->data['Categoria']['estado']=0;
+        if($this->Categoria->save($this->data)){
+           $this->Session->setFlash('Se Deshabilito Correctamente');
+           $this->redirect(array('action'=>'categoriasmenu'));
+        }    
+        
+    }
+    
+    public function habcatmenu($id=null){
+        
+        $this->Categoria->id = $id;
+        $this->request->data['Categoria']['estado']=1;
+        if($this->Categoria->save($this->data)){
+           $this->Session->setFlash('Se Habilito Correctamente');
+           $this->redirect(array('action'=>'categoriasmenu'));
+        }    
+        
+    }
+    
     public function desprodmenu($id=null){
         
         $this->Producto->id = $id;
@@ -91,7 +113,7 @@ class ProductosController extends AppController
     
     public function categoriasmenu(){
         
-        $cat = $this->Categoria->find('all', array('recursive'=>-1, 'conditions'=>array('Categoria.estado'=>1), 'limit'=>20));
+        $cat = $this->Categoria->find('all', array('recursive'=>-1, 'limit'=>20));
         //debug($cat);
         $this->set(compact('cat'));
             
