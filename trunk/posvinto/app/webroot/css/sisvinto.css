@@ -1,10 +1,13 @@
 .verify-number{ height:30px; width:20%; font-size:20px; margin-top:15px;  }
-#PedidosVerificamosoForm{ text-align:center;}
+#PedidosVerificamosoForm{ text-align:center; float:left; padding: 10px 500px;}
+#PedidosVerificamosoForm input{ float:right;}
+#PedidosVerificamosoForm .submit{ float:right; margin-right:10px;}
+#PedidosVerificamosoForm .submit input#button-login{ margin-top:0px;}
 .mypedidos{ float:left; color:#000; margin-left:45px;}
 .table-pedidos{ border:2px solid #000;}
 .table-pedidos tr td{ border:1px solid #000; text-align:center; padding:5px;}
 #pedidos{ color: #000;}
-#listado{ float: left; width: 35%; margin: 0 auto;}
+#listado{ float: left; width: 25%; margin: 0 auto;}
 table.lista-pedidos{ border: 1px solid #000; margin-top: 20px; margin: 10px auto;}
 table.lista-pedidos tr { border: 1px solid #000;}
 table.lista-pedidos tr td{ border: 1px solid #000; padding: 5px;}
@@ -39,7 +42,7 @@ h1{ color:#060; text-align:center; text-transform:uppercase; margin-top:15px;}
 input { text-align:center; border:1px solid #666; padding:10px 30px; font-size: 16px;}
 
 .lista_productos{
-    width:65%;
+    width: 75%;
     float: left;
 }
 .pedidosa{
@@ -330,10 +333,10 @@ pre {
 	display:none;
 }
 ul.list-products{ padding:0; margin:0;}
-ul.list-products li{ cursor:pointer; list-style:none; display:inline; width:175px; height:75px; margin-left:15px; margin-bottom:15px; float:left; border:1px solid #030;}
-ul.list-products li:hover{ background: #487A23; color: #fff; border: 1px solid #000;}
+ul.list-products li{ cursor:pointer; list-style:none; display:inline; width:160px; height:75px; margin-left:15px; margin-bottom:15px; float:left; border:1px solid #030; border-radius: 10px;}
+ul.list-products li:hover{ background: #487A23; border: 1px solid #000;}
 ul.list-products li img{ text-align:center; float:left; margin-left: 10px;}
-ul.list-products li span{ width:30px; float:left; text-align:center; width:165px; padding:5px 5px; font-size: 20px; }
+ul.list-products li span{ width:30px; float:left; text-align:center; width:150px; padding:5px 5px; font-size: 28px; background: url(../img/bg-menu.png) repeat-x; height:65px; border-radius: 10px; color: #fff;}
 
 ul.table-asign{ width:100%; float:left; margin-top:50px;}
 ul.table-asign li{ float:left; list-style:none; border:2px solid #000; padding:10px; width:150px; background:#4D0F04; padding-bottom:10px; margin:0 30px 30px 30px;-moz-border-radius: 15px;-webkit-border-radius: 15px;behavior:url(border-radius.htc);}
@@ -342,4 +345,7 @@ ul.table-asign li a img{ padding:10px 10px 10px 30px;}
 ul.table-asign li a span.number{ font-size:25px; text-align:center; width:150px; float:left; margin-bottom:15px;}
 ul.table-asign li a span.total{ float:left; width:55px; padding-left:15px;}
 ul.table-asign li a span.detail{float:right; padding-right:10px; width:65px;}
-a.button{ text-decoration:none; background:#487A23; font-size:1.5em; margin-bottom: 30px; font-weight:bold; margin-top:30px; margin-left:30px; float:left; padding:10px; color:#fff; text-transform:uppercase;-moz-border-radius: 15px;-webkit-border-radius: 15	px;behavior:url(border-radius.htc); }
+a.button{  text-decoration:none; background:#487A23; font-size:1.5em; margin-bottom: 4px; font-weight:bold; margin-top: 4px; margin-left:30px; float:left; padding:10px; color:#fff; text-transform:uppercase;-moz-border-radius: 15px;-webkit-border-radius: 15	px;behavior:url(border-radius.htc); }
+.list-pedidos{ width:450px; text-align:center; float:left; padding:0 420px;}
+.list-pedidos a{border-radius: 10px; background:url(../img/button-bg.png) repeat-x; height:27px; }
+.list-pedidos a:hover{ background:none; color:#64C921;}
