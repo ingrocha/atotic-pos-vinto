@@ -48,10 +48,9 @@
 					<div class="table">                    
                 	<table cellspacing="0" cellpadding="1" width="740"> 
                     <tr>
-                        <th style="width: 300px;">Nombre</th>
-                        <th style="width: 120px;">Categoria</th>                         
-                        <th style="width: 60px;">Visible</th>                       
-                        <th>Acciones</th>     
+                        <th style="width: 350px;">Nombre</th>
+                        <th style="width: 200px;">Categoria</th>                         
+                        <th>Visible</th>                                               
                     </tr>    
                     </table>
 <?php //comienzo de mostrar los datos ?>    
@@ -63,35 +62,38 @@
     <div id="cuadro_<?php echo $id; ?>" title="Insumo al Menu">
         </div> 
     <tr>
-        <td style="width: 300px;">
-                       
+        <td style="width: 350px;">                       
             <?php echo $p['Producto']['nombre']; ?>
         </td>
-        <td style="width: 120px;">
+        <td style="width: 200px;">
             <?php echo $p['Categoria']['nombre']; ?>
         </td>       
-        <td style="width: 60px;">
+        <td>
         <?php if($p['Producto']['estado']): ?>        
-            <?php echo $this->Html->image('muestra.png'); ?>
+            <?php //echo $this->Html->image('muestra.png'); ?>
+            <?php /*echo $this->Ajax->link(
+                $this->Html->image('muestra.png'),
+                array( 'controller' => 'ajax', 'action' => 'view', $id),
+                array( 'update' => 'post',  'escape' => false)
+                );*/
+                //echo $this->Html->link()
+            ?>
+            <?php 
+                echo $this->Html->image("muestra.png", array(
+                    "title" => "Eliminar Insumo",
+                    'url' => array('action' => 'desprodmenu', $id)
+                ));
+            ?>
         <?php else: ?>
-            <?php echo $this->Html->image('elim.png'); ?>
+            <?php 
+                echo $this->Html->image("elim.png", array(
+                    "title" => "Eliminar Insumo",
+                    'url' => array('action' => 'habprodmenu', $id)
+                ));
+            ?>            
+            <?php //echo $this->Html->image('elim.png'); ?>
         <?php endif; ?>    
         </td>                    
-        <td>                       
-           <div id="dialog_<?php echo $id; ?>" style="float: left;">
-            <?php 
-                echo $this->Html->image("menu.png", array("title" => "Ingreso Almacen"));
-            ?>
-            </div>
-            <script type="text/javascript">
-            var dialogOpts = {
-                modal: true
-            };
-            jQuery("#dialog_<?php echo $id; ?>").click(function(){
-                jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("ajaxprodmenu/<?php echo $id; ?>");                //alert("click");
-            }); 
-            </script>    
-        </td>
     </tr>
 <?php endforeach; ?>
 </table>

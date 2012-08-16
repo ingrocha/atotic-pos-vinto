@@ -229,6 +229,7 @@ class InsumosController extends AppController
     {
 
         $this->layout = 'ajax';
+        
         if (!empty($this->data)) {
 
             $cant_salida = $this->data['Movimiento']['salida'];

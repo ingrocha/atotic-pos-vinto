@@ -28,14 +28,14 @@ class PedidosController extends AppController {
 
     public function pedidomoso($id_moso = null, $pedido = null, $mesa = null) {
         
-        $categorias = $this->Categoria->find('all', array('recursive' => -1));
+        $categorias = $this->Categoria->find('all', array('recursive' => -1, 'conditions'=>array('estado'=>1)));
         //debug($categorias);   
         //$productos = $this->Producto->find('all', array('recursive' => -1, 'order' => 'Producto.categoria_id ASC'));
         //$sql = "Select ";
         $productos = $this->Producto->find('all', array('recursive' => -1, 'order' => 'id DESC', 'conditions'=>array('estado'=>1)));
         //debug($productos);
-        $platos=array();    
-        $i=0;    
+        //$platos=array();    
+        //$i=0;    
         /*foreach ($productos as $p){
             $id_producto = $p['Producto']['id'];
             $nombre_producto = $p['Producto']['nombre'];
@@ -342,7 +342,7 @@ $this->Bodega->save($this->data);
                 $fecha_hoy = date("Y-m-d");
                 
                 //echo "la fecha hoy es ".$fecha_hoy."<br />";
-               // echo "la fecha es ".$fecha_ayer;                                
+                //echo "la fecha es ".$fecha_ayer;                                
                 
                 $fecha = date('Y-m-d H:i:s');
                 //if($fecha_ayer == $fecha_hoy){

@@ -11,24 +11,74 @@ class ProductosController extends AppController
 
         $productos = $this->Producto->find('all');
         //debug($productos);exit;
-        $this->set(compact('productos'));
+        $this->set(compact('productos'));//68207984
 
+    }
+    
+    public function desprodmenu($id=null){
+        
+        $this->Producto->id = $id;
+        $this->request->data['Producto']['estado']=0;
+        if($this->Producto->save($this->data)){
+           $this->Session->setFlash('Se Oculto Correctamente');
+           $this->redirect(array('action'=>'productosmenu'));
+        }
+        
+    }
+    
+    public function habprodmenu($id=null){
+        
+        $this->Producto->id = $id;
+        $this->request->data['Producto']['estado']=1;
+        if($this->Producto->save($this->data)){
+           $this->Session->setFlash('Se Oculto Correctamente');
+           $this->redirect(array('action'=>'productosmenu'));
+        }
+        
+    }
+    
+    public function productosmenu(){
+        
+        $prod = $this->Producto->find('all', array('recursive'=>0));
+        $this->set(compact('prod'));
+        //debug($prod);
     }
     
     public function ajaxprodmenu($id=null){
         
         $this->layout='ajax';
-        $insumo = $this->Insumo->find('first', array('recursive'=>-1, 'conditions'=>array('id'=>$id, 'estado'=>1)));                
+        $insumo = $this->Insumo->find('first', array('recursive'=>-1, 'conditions'=>array('id'=>$id, 'estado'=>1))); 
+                       
         if(!empty($this->data)){
             //debug($this->data);
             //$this->data="";
             $this->request->data['Producto']['nombre']=$insumo['Insumo']['nombre'];
             $this->request->data['Producto']['estado']=1;
-            debug($this->data);
+            //debug($this->data);
+            if($this->Producto->save($this->data)){
+                
+                $id_prod = $this->Producto->getLastInsertID();
+                $this->data="";
+                $this->request->data['Porcione']['producto_id']=$id_prod;
+                $this->request->data['Porcione']['insumo_id']=$id;
+                $this->request->data['Porcione']['cantidad']=1;
+                //debug($this->data);
+                if($this->Porcione->save($this->data)){
+                    
+                    $this->Session->setFlash('Insumo Registrado en menu');
+                    $this->redirect(array('action'=>'nuevoprodmenu'));    
+                }
+                                    
+            }
         }else{
-            
+            $esta=0;
+            $yaenmenu = $this->Producto->find('first', array('recursive'=>-1, 'conditions'=>array('insumo_id'=>$id)));
+            if($yaenmenu){
+                $esta=1;
+            }
+            //debug($yaenmenu);
             $dcc = $this->Categoria->find('list', array('fields'=>'nombre'));                    
-            $this->set(compact('dcc', 'insumo', 'id'));    
+            $this->set(compact('dcc', 'insumo', 'id', 'esta'));    
         }
         
     }
