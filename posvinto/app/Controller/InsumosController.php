@@ -235,12 +235,13 @@ class InsumosController extends AppController
             $cant_salida = $this->data['Movimiento']['salida'];
             $id_insumo = $this->data['Movimiento']['id_insumo'];
             $pc = $this->data['Movimiento']['pc'];
+            
             $existe_insumo = $this->Almacen->find('first', array(
                 'conditions' => array('insumo_id' => $id_insumo),
                 'order' => 'id DESC',
                 'recursive' => -1));
             //debug($existe_insumo);exit;
-            if ($existe_insumo) {
+            if ($existe_insumo){
 
                 $total_anterior = $existe_insumo['Almacen']['total'];
                 $cant_actual = $total_anterior - $cant_salida;
@@ -280,18 +281,19 @@ class InsumosController extends AppController
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
                     
                     $mod_bodega = $this->Insumo->find('first', array('conditions'=>array('id'=>$id_insumo), 'recursive'=>-1));
-                    $this->data="";
-                    
+                    $this->data="";                    
                     $this->request->data['Insumo']['bodega']=$cant_bodega_actual;
                     $id_mod_insumo = $mod_bodega['Insumo']['id'];
-                    $this->Insumo->id=$id_mod_insumo;
+                    //$this->Insumo
+                    //$this->Insumo->id=$id_mod_insumo;
                     
                     if($this->Insumo->save($this->data)){
                         
-                    } 
+                    }
+                     
                     
                     $this->data = "";
-                    $this->Bodega->id = $id_bodega;
+                    //$this->Bodega->id = $id_bodega;
                     $this->request->data['Bodega']['insumo_id'] = $id_insumo;
                     $this->request->data['Bodega']['preciocompra'] = $pc;
                     $this->request->data['Bodega']['ingreso'] = $cant_salida;
