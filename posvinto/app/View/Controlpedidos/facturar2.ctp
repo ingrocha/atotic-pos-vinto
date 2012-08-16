@@ -55,7 +55,7 @@
 <div class="linea">
 .........................................................................................
 </div>
-<table style="border: none;">
+<table class="imprimir-factura">
    <tr>
       <th>Producto</th>
       <th>Cantidad</th>
