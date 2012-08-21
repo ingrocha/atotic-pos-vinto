@@ -1,7 +1,4 @@
-* { padding:0; margin:0; outline:0; }
-.mitabla .mifila{
-    background-color: #FBFCA1;
-}
+* { padding:0; margin:0; outline:0; } 
 body {
 	background:#f9ebae;
 	font-family: Verdana, sans-serif;
@@ -469,3 +466,7 @@ ul.table-asign li a span.number{ font-size:25px; text-align:center; width:150px;
 ul.table-asign li a span.total{ float:left; width:55px; padding-left:15px;}
 ul.table-asign li a span.detail{float:right; padding-right:10px; width:65px;}
 a.button{ text-decoration:none; background:#487A23; font-size:1.5em; margin-bottom: 30px; font-weight:bold; margin-top:30px; margin-left:30px; float:left; padding:10px; color:#fff; text-transform:uppercase;-moz-border-radius: 15px;-webkit-border-radius: 15	px;behavior:url(border-radius.htc); }
+/** Tablas **/
+.mifila td{
+    background-color: #FBF6A5;
+}
