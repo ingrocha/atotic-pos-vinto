@@ -20,7 +20,7 @@
 				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">LISTADO DE PRODUCTOS EN ALMACEN</h2>                        
+						<h2 class="left">PRODUCTOS EN MENU</h2>                        
 						<div class="right">                        
                         <?php echo $this->Form->create(null, array('action'=>'buscar')); ?>
 							<label>Filtrar</label>
@@ -50,18 +50,19 @@
                     <tr>
                         <th style="width: 350px;">Nombre</th>
                         <th style="width: 200px;">Categoria</th>                         
-                        <th>Visible</th>                                               
+                        <th>Acciones</th>                                               
                     </tr>    
                     </table>
 <?php //comienzo de mostrar los datos ?>    
 <div id="muestra">                
 <div style="width:740px; height:300px; overflow:auto;">
 <table>
+<?php $i=1; ?>
 <?php foreach ($prod as $p): ?>
 <?php $id = $p['Producto']['id']; ?> 
     <div id="cuadro_<?php echo $id; ?>" title="Insumo al Menu">
         </div> 
-    <tr>
+    <tr <?php echo fmod($i,2)?"class='mifila'":""; ?>>
         <td style="width: 350px;">                       
             <?php echo $p['Producto']['nombre']; ?>
         </td>
@@ -79,22 +80,35 @@
                 //echo $this->Html->link()
             ?>
             <?php 
-                echo $this->Html->image("muestra.png", array(
-                    "title" => "Eliminar Insumo",
+                echo $this->Html->image("show.png", array(
+                    "title" => "Ocultar",
                     'url' => array('action' => 'desprodmenu', $id)
                 ));
             ?>
-        <?php else: ?>
+            <?php else: ?>
             <?php 
-                echo $this->Html->image("elim.png", array(
-                    "title" => "Eliminar Insumo",
+                echo $this->Html->image("hide.png", array(
+                    "title" => "Mostrar",
                     'url' => array('action' => 'habprodmenu', $id)
                 ));
             ?>            
             <?php //echo $this->Html->image('elim.png'); ?>
-        <?php endif; ?>    
+            <?php endif; ?>   
+            <?php 
+                echo $this->Html->image("receta.png", array(
+                    "title" => "Receta",
+                    'url' => array('action' => 'receta', $id)
+                ));
+            ?> 
+             <?php 
+                echo $this->Html->image("edit.png", array(
+                    "title" => "Editar",
+                    'url' => array('action' => 'editaprodmenu', $id)
+                ));
+            ?> 
         </td>                    
     </tr>
+<?php $i++; ?>
 <?php endforeach; ?>
 </table>
 </div>

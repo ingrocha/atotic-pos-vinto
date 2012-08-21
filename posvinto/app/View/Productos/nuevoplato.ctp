@@ -23,7 +23,7 @@
 				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Registro Nuevo Plato</h2>						
+						<h2 class="left">REGISTRO DE NUEVO PLATO</h2>						
 					</div>
 					<!-- End Box Head -->	
 
