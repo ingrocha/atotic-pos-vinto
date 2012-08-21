@@ -10,7 +10,7 @@ App::uses('AppModel', 'Model');
  * @property Multa $Multa
  * @property Pedido $Pedido
  */
-class Usuario extends AppModel {
+class Usuario extends AppModel {    
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
