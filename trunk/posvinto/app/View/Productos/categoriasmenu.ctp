@@ -19,7 +19,7 @@
 				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">LISTADO DE PRODUCTOS EN ALMACEN</h2>                        
+						<h2 class="left">LISTADO DE CATEGORIAS DEL MENU</h2>                        
 						<div class="right">                        
                         <?php echo $this->Form->create(null, array('action'=>'buscar')); ?>
 							<label>Filtrar</label>
@@ -55,7 +55,7 @@
 <?php //comienzo de mostrar los datos ?>    
 <div id="muestra">                
 <div style="width:740px; height:300px; overflow:auto;">
-<table class="mitabla">
+<table>
 <?php $i=1; ?>
 <?php foreach ($cat as $c): ?>
     <tr <?php echo fmod($i,2)?"class='mifila'":""; ?>>
@@ -72,13 +72,22 @@
                     "title" => "Editar",
                     'url' => array('action' => 'editarcategoria', $id)
                 ));
-            ?>                                                            
+            ?>
+       <?php if($c['Categoria']['estado'] == 1): ?>                                                            
             <?php 
-                echo $this->Html->image("elim.png", array(
-                    "title" => "Eliminar Insumo",
-                    'url' => array('action' => 'descat', $id)
+                echo $this->Html->image("show.png", array(
+                    "title" => "Ocultar",
+                    'url' => array('action' => 'descatmenu', $id)
                 ));
             ?>                 
+       <?php else: ?>
+            <?php 
+                echo $this->Html->image("hide.png", array(
+                    "title" => "Mostrar",
+                    'url' => array('action' => 'habcatmenu', $id)
+                ));
+            ?>
+       <?php endif; ?>
         </td>
     </tr>
     <?php $i++; ?>
