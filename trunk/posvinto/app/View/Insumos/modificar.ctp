@@ -1,8 +1,7 @@
 <!-- registro insumo -->
 <!-- Container -->
 <div id="container">
-	<div class="shell">
-		
+	<div class="shell">		
 		<!-- Small Nav -->
 		<div class="small-nav">
 			<!--<a href="controlingresos">Pedidos</a>-->
@@ -45,6 +44,10 @@
 <tr>
 	<td>Precio Venta</td>
 	<td><?php echo $this->Form->text('precioventa', array('size'=>5)); ?></td>
+</tr>
+<tr>
+	<td>Total</td>
+	<td><?php echo $this->Form->text('total', array('size'=>5)); ?></td>
 </tr>
 <tr>
 	<td>Observaciones</td>
