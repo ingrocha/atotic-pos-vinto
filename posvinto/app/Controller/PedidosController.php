@@ -413,28 +413,25 @@ $this->Bodega->save($this->data);
         'recursive'=>3
         ));
         
-        //debug($items);exit;
-       
-        
         foreach($items as $item){
-           $porciones = $item['Producto']['Porcione'];
            
+            $cantidad = $item['Item']['cantidad'];
+           $porciones = $item['Producto']['Porcione'];
            foreach($porciones as $p){
-            //debug($p);exit;
+           
+              $cantidadporcion= $p['cantidad'];
+             
+              $cantidadresta = $cantidadporcion * $cantidad;
+             
               $bodega = $this->Bodega->find('first', array(
               'conditions'=>array('Bodega.insumo_id'=>$p['insumo_id']), 
               'order'=>array('Bodega.id desc')
               ));
-               
-              //debug($bodega);
               $this->Bodega->id = $bodega['Bodega']['id'];
-             
-              $this->request->data['Bodega']['salida'] = $bodega['Bodega']['salida'] - 1;
-              $this->request->data['Bodega']['total'] = $bodega['Bodega']['total'] + 1;
-              
-              //debug($this->data);
+              $this->Bodega->read();
+              $this->request->data['Bodega']['salida'] = $bodega['Bodega']['salida'] - $cantidadresta;
+              $this->request->data['Bodega']['total'] = $bodega['Bodega']['total'] + $cantidadresta;
               $this->Bodega->save($this->data);
-              //debug($bodega);exit;
               
            }
            
@@ -457,7 +454,7 @@ $this->Bodega->save($this->data);
                                             'order'=>array('Porcione.producto_id ASC'), 
                                             'recursive'=>-1
                                             ));
-        //debug($porciones);exit;
+     
         $producto = $this->Producto->find('first', array('conditions' => array('Producto.id'=>$id_prod)));
         $producto = $producto['Producto']['nombre'];
             
