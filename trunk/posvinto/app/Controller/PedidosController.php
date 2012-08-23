@@ -164,19 +164,22 @@ class PedidosController extends AppController {
         
         $this->layout='ajax';
         $item = $this->Item->findById($id_item);
-       // debug($item);exit;
+        //debug($item);
+        $precio = $item['Item']['precio'] - $item['Producto']['precio'];
         $id_prod = $item['Item']['producto_id'];
-        $cantidad_anterior = $item['Item']['cantidad'];
+        $cantidad = $item['Item']['cantidad'] - 1;
         $pedido = $item['Pedido']['id'];
-        if ($cantidad_anterior == 1) {
+        
+        if ($item['Item']['cantidad'] == 1) {
             $this->Item->delete($id_item);
         } else {
+            //debug($precio);
+            //debug($cantidad);
             $this->Item->id = $id_item;
-            $precio_producto = $item['Producto']['precio'];
-            $cantidad_actual = --$cantidad_anterior;
-            $precio = $cantidad_actual * $precio_producto;
-            $this->request->data['Item']['cantidad'] = $cantidad_actual;
+            $this->Item->read();
+            $this->request->data['Item']['cantidad'] = $cantidad;
             $this->request->data['Item']['precio'] = $precio;
+            //debug($this->data);exit;
             $this->Item->save($this->data);
         }
         
@@ -189,17 +192,20 @@ $porciones = $this->Porcione->find('all',
                                             'order'=>array('Porcione.producto_id ASC'), 
                                             'recursive'=>-1
                                             ));
+//debug($porciones);exit;
 foreach($porciones as $porcion){
-$items = $this->Bodega->find('first', array(
+$item = $this->Bodega->find('first', array(
                                            'conditions'=>array(
                                                               'Bodega.insumo_id'=>$porcion['Porcione']['insumo_id']
                                                               ),
                                            'order'=>array('Bodega.id desc')
                                             )
                             );
-$this->Bodega->id=$items['Bodega']['id'];
-$this->request->data['Bodega']['salida'] = $items['Bodega']['salida'] - 1;
-$this->request->data['Bodega']['total'] = $items['Bodega']['total'] + 1;
+//debug($item);exit;
+$this->Bodega->id=$item['Bodega']['id'];
+$this->Bodega->read();
+$this->request->data['Bodega']['salida'] = $item['Bodega']['salida'] - 1;
+$this->request->data['Bodega']['total'] = $item['Bodega']['total'] + 1;
 $this->Bodega->save($this->data);
 }
 /*****************fin actualiza bodega*******************************/
@@ -208,7 +214,7 @@ $this->Bodega->save($this->data);
         
         $items = $this->Item->find('all', array('conditions' => array('pedido_id' => $pedido)));
         $cant_platos = $this->Item->find('all', array('conditions' => array('pedido_id' => $pedido), 'recursive' => -1, 'fields' => array('SUM(Item.cantidad) as cantidad')));
-        //debug($items);
+        //debug($items);exit;
         $this->set(compact('items', 'pedido', 'cant_platos', 'mesa'));
     }
 
@@ -407,7 +413,7 @@ $this->Bodega->save($this->data);
         'recursive'=>3
         ));
         
-        //debug($items);
+        //debug($items);exit;
        
         
         foreach($items as $item){
