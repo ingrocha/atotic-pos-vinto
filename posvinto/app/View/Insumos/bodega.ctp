@@ -61,8 +61,9 @@
     <div id="muestrabodega">
     <div style="width:740px; height:300px; overflow:auto;">
     <table cellspacing="0" cellpadding="1" width="740">
+    <?php $c=1; ?>
     <?php foreach ($bodega as $i): ?>
-    <tr>
+    <tr <?php echo fmod($c,2)?"class='mifila'":""; ?>>
         <td style="width: 280px;">
             <?php $id = $i['Insumo']['id']; ?>            
             <?php echo $i['Insumo']['nombre']; ?>
@@ -134,6 +135,7 @@
             </script>       
         </td>-->
     </tr>
+<?php $c++; ?>
 <?php endforeach; ?>
 </table>
 </div>
