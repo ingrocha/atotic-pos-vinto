@@ -52,6 +52,9 @@
                 </li>
                 <li>
                     <?php echo $this->Html->link("<span>Almacen</span>", array('controller'=>'Insumos', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                </li>
+                <li>
+                    <?php echo $this->Html->link("<span>Reservas</span>", array('controller'=>'Reservas', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                 </li>			    
                 <!--<li>
                     <?php //echo $this->Html->link("<span>Bebidas</span>", array('controller'=>'Productos', 'action'=>'bebidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
