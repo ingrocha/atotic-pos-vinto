@@ -60,8 +60,9 @@
 <div id="muestra">                
 <div style="width:740px; height:300px; overflow:auto;">
 <table>
+<?php $c=1; ?>
 <?php foreach ($insumos as $i): ?>
-    <tr>
+    <tr <?php echo fmod($c,2)?"class='mifila'":""; ?>>
         <td style="width: 250px;">
             <?php $id = $i['Insumo']['id']; ?>            
             <?php echo $i['Insumo']['nombre']; ?>
@@ -133,6 +134,7 @@
             </script>       
         </td>
     </tr>
+<?php $c++; ?>
 <?php endforeach; ?>
 </table>
 </div>

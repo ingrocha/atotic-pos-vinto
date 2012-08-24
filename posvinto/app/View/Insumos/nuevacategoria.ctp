@@ -11,8 +11,7 @@
 			<span>&gt;</span>
 			Registro de Categorias en Almacen
 		</div>
-		<!-- End Small Nav -->
-		
+		<!-- End Small Nav -->		
 		<br />
 		<!-- Main -->
 		<div id="main">
@@ -25,11 +24,9 @@
 				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Nueva Categoria en Almacen</h2>
-						
+						<h2 class="left">Nueva Categoria en Almacen</h2>						
 					</div>
 					<!-- End Box Head -->	
-
 					<!-- Table -->
 <div class="table">
 	<?php echo $this->Form->create('Tipo'); ?>
