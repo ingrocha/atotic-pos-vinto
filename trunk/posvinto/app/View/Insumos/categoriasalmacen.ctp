@@ -56,8 +56,9 @@
 <div id="muestra">                
 <div style="width:740px; height:300px; overflow:auto;">
 <table>
+<?php $i=1; ?>
 <?php foreach ($catalmacen as $c): ?>
-    <tr>
+    <tr <?php echo fmod($i,2)?"class='mifila'":""; ?>>
         <td style="width: 200px;">
             <?php $id = $c['Tipo']['id']; ?>            
             <?php echo $c['Tipo']['nombre']; ?>
@@ -80,6 +81,7 @@
             ?>                 
         </td>
     </tr>
+<?php $i++; ?>
 <?php endforeach; ?>
 </table>
 </div>
