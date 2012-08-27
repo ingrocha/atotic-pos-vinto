@@ -20,7 +20,7 @@
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">REPORTES GRAFICOS</h2>						
@@ -66,35 +66,15 @@
 			<!-- Sidebar -->
 			<div id="sidebar">				
 				<!-- Box -->
-				<div class="box">					
+				<div class="boxa">					
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2>Management</h2>
+						<h2>Reportes</h2>
 					</div>
 					<!-- End Box Head-->					
 					<div class="box-content">
-                    <?php //echo $this->Html->link('Nuevo Usuario', 'nuevo'); ?> 
-						<a href="http://localhost/posvinto/posvinto/clientes/nuevo" class="add-button"><span>Nuevo Usuario</span></a>
-						<div class="cl">&nbsp;</div>
-						
-						<p class="select-all"><input type="checkbox" class="checkbox" /><label>seleccionar todos</label></p>
-						<p><a href="#">Deseleccionar todos</a></p>
-						
-						<!-- Sort -->
-						<div class="sort">
-							<label>Ordenar por</label>
-							<select class="field">
-								<option value="">T&iacute;tulo</option>
-							</select>
-							<select class="field">
-								<option value="">Fecha</option>
-							</select>
-							<select class="field">
-								<option value="">Persona</option>
-							</select>
-						</div>
-						<!-- End Sort -->
-						
+                        <?php echo $this->Html->link("<span>Insumos por fecha</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                        <div class="cl">&nbsp;</div>					
 					</div>
 				</div>
 				<!-- End Box -->
