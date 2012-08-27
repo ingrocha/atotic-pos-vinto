@@ -16,36 +16,19 @@
 			<!-- Content -->
 			<div id="content">				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">LISTADO DE PRODUCTOS EN LA BODEGA</h2>
-						<div class="right">
-							<?php echo $this->Form->create(null, array('action'=>'buscarbodega')); ?>
-							<label>Filtrar</label>
-							<!--<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />-->
-                            <?php echo $this->Form->text('nombre'); ?>
-                            <?php
-                                $options = array(
-                                    'label' => 'Buscar',
-                                    'class' => 'button'
-                                );
-                            ?>
-                        <?php
-                            echo $this->Ajax->submit('Buscar', array(
-                            'url'=> array('controller'=>'insumos', 'action'=>'buscarbodega'), 
-                            'update' => 'muestrabodega'
-                            /*'condition' => '$("#PostEmail1").val() == $("#PostName1").val()'*/
-                            )); 
-                            //echo $this->Form->end($options); 
-                        ?>
+						<div class="right">					
 						</div>
 					</div>
 					<!-- End Box Head -->	
 					<!-- Table -->
+        <?php echo $this->element('tablagrid'); ?>  
 	<div class="table">
-	<table cellspacing="0" cellpadding="1" width="740">
+	<table id="grid">
+    <thead>
     <tr>
         <th style="width: 180px;">Cliente</th>
         <th style="width: 90px;">Evento</th>
@@ -53,14 +36,10 @@
         <th style="width: 120px;">Fecha y Hora</th>        
         <th>Acciones</th>     
     </tr>
-    </table>
-    <?php //debug($reservas); ?>
-    <div id="muestrabodega">
-    <div style="width:740px; height:300px; overflow:auto;">
-    <table cellspacing="0" cellpadding="1" width="740">
-    <?php $c=1; ?>
+    </thead>
+    <tbody>    
     <?php foreach ($reservas as $r): ?>
-    <tr <?php echo fmod($c,2)?"class='mifila'":""; ?>>
+    <tr>
         <td style="width: 180px;">
             <?php $id = $r['Reserva']['id']; ?>            
             <?php echo $r['Cliente']['nombre']; ?>
@@ -92,8 +71,9 @@
             ?>                           
         </td>
     </tr>
-<?php $c++; ?>
+
 <?php endforeach; ?>
+</tbody>
 </table>
 </div>
 </div>											
@@ -107,7 +87,7 @@
 			<!-- Sidebar -->
 			<div id="sidebar">				
 				<!-- Box -->
-				<div class="box">					
+				<div class="boxa">					
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2>Administracion</h2>
@@ -117,8 +97,8 @@
                     <?php echo $this->Html->link("<span>Nueva Reserva</span>", array('controller'=>'Reservas', 'action'=>'add'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                     <div class="cl">&nbsp;</div>
                     <div class="cl">&nbsp;</div>
-                    <?php echo $this->Html->link("<span>Nuevo Tipo de Evento</span>", array('action'=>'add'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
-                    <?php echo $this->Html->link("<span>Lista de tipos de Evento</span>", array('action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                    <?php echo $this->Html->link("<span>Nuevo Tipo de Evento</span>", array('controller'=>'Tipoeventos', 'action'=>'add'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
+                    <?php echo $this->Html->link("<span>Lista de tipos de Evento</span>", array('controller'=>'Tipoeventos', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
 						<div class="cl">&nbsp;</div>																		
 						
 					</div>
