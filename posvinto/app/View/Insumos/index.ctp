@@ -16,54 +16,33 @@
 			<!-- Content -->
 			<div id="content">				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">LISTADO DE PRODUCTOS EN ALMACEN</h2>                        
+						<h2 class="left">LISTADO DE INSUMOS EN ALMACEN</h2>                        
 						<div class="right">                        
-                        <?php echo $this->Form->create(null, array('action'=>'buscar')); ?>
-							<label>Filtrar</label>
-							<!--<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />-->
-                            <?php echo $this->Form->text('nombre'); ?>
-                            <?php
-                                $options = array(
-                                    'label' => 'Buscar',
-                                    'class' => 'button'
-                                );
-                            ?>
-                        <?php
-                            echo $this->Ajax->submit('Buscar', array(
-                            'url'=> array('controller'=>'insumos', 'action'=>'buscar'), 
-                            'update' => 'muestra'
-                            /*'condition' => '$("#PostEmail1").val() == $("#PostName1").val()'*/
-                            )); 
-                            //echo $this->Form->end($options); 
-                        ?>
-						</div>    
+                                            						</div>    
 					</div>
 					<!-- End Box Head -->	
 					<!-- Table -->
-					<div class="table">                    
-                	<table cellspacing="0" cellpadding="1" width="740"> 
+					<div class="table">  
+                    <?php echo $this->element('tablagrid'); ?>                                    
+                	<table id="grid"> 
+                    <thead>
                     <tr>
-                        <th style="width: 250px;">Nombre</th>
-                        <th style="width: 80px;">Categoria</th>
-                        <th style="width: 50px;">Precio Compra</th>
-                        <th style="width: 50px;">Precio Venta</th>  
-                        <th style="width: 50px;">Cantidad Almacen</th> 
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                        <th>P.Compra</th>
+                        <th>P.Venta</th>  
+                        <th >Almacen</th> 
                         <!--<th>Observaciones</th>-->
-                        <th>Acciones</th>     
+                        <th style="width: 105px;">Acciones</th>     
                     </tr>    
-                    </table>
-<?php //comienzo de mostrar los datos ?>    
-<div id="muestra">                
-<div style="width:740px; height:300px; overflow:auto;">
-<table>
-<?php $c=1; ?>
+                    </thead>
+                    <tbody>
 <?php foreach ($insumos as $i): ?>
-    <tr <?php echo fmod($c,2)?"class='mifila'":""; ?>>
-        <td style="width: 250px;">
+    <tr>
+        <td>
             <?php $id = $i['Insumo']['id']; ?>            
             <?php echo $i['Insumo']['nombre']; ?>
         </td>
@@ -71,16 +50,16 @@
         </div> 
         <div id="cuadro2_<?php echo $id; ?>" title="Salida de insumos">
         </div> 
-        <td style="width: 80px;">
+        <td>
             <?php echo $i['Tipo']['nombre']; ?>
         </td>
-        <td style="width: 50px;">
+        <td>
             <?php echo $i['Insumo']['preciocompra']; ?>
         </td>
-        <td style="width: 50px;">
+        <td>
             <?php echo $i['Insumo']['precioventa']; ?>
         </td>
-        <td style="width: 50px;">
+        <td>
             <?php echo $i['Insumo']['total']; ?>
         </td>        
         <!--<td>
@@ -134,8 +113,8 @@
             </script>       
         </td>
     </tr>
-<?php $c++; ?>
 <?php endforeach; ?>
+</tbody>
 </table>
 </div>
 </div>
@@ -152,7 +131,7 @@
 			<!-- Sidebar -->
 			<div id="sidebar">				
 				<!-- Box -->
-				<div class="box">					
+				<div class="boxa">					
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2>Administracion</h2>
@@ -160,13 +139,15 @@
 					<!-- End Box Head-->
 					
 					<div class="box-content">
+                    
                     <?php echo $this->Html->link("<span>Nuevo Insumo</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
                     <?php //echo $this->Html->link("<span>Registrar Salida</span>", array('action'=>'salidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                     <div class="cl">&nbsp;</div>
                     <div class="cl">&nbsp;</div>
                     <?php echo $this->Html->link("<span>Categorias Almacen</span>", array('action'=>'categoriasalmacen'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-                    <?php echo $this->Html->link("<span>Registrar Categoria</span>", array('action'=>'nuevacategoria'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-						<div class="cl">&nbsp;</div>																		
+                    <div class="cl">&nbsp;</div>
+                    <?php echo $this->Html->link("<span>Nueva Categoria</span>", array('action'=>'nuevacategoria'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+					<div class="cl">&nbsp;</div>																		
 						
 					</div>
 				</div>
