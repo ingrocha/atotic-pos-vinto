@@ -20,31 +20,33 @@
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Listado de usuarios Registrados</h2>
+						<h2 class="left">LISTADO DE USUARIOS DEL SISTEMA</h2>
 						<div class="right">
-							<label>filtrar</label>
-							<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />
+							
 						</div>
 					</div>
 					<!-- End Box Head -->	
 
 					<!-- Table -->
 					<div class="table">
-					<table>
+<?php echo $this->element('tablagrid'); ?>  
+<table id="grid" style="width: 740px;">
+<thead>
     <tr>
         <th>Nombre</th>
-        <th>Direccion</th>
-        <th>Usuario</th>
         
+        <th>Usuario</th>        
         <th>Codigo</th>
         <th>Perfile</th>
-        <th>Sucursal</th>
+        
         <th>Estado</th>
+        <th>Aciones</th>
     </tr>
+</thead>
+<tbody>
 <?php foreach($usuarios as $c): ?>
     <tr>
         <td>
@@ -52,9 +54,7 @@
             
             <?php echo $c['Usuario']['nombre']; ?>
         </td>
-        <td>
-            <?php echo $c['Usuario']['direccion']; ?>
-        </td>
+       
         <td>
             <?php echo $c['Usuario']['usuario']; ?>
         </td>
@@ -65,9 +65,7 @@
         <td>
             <?php echo $c['Perfile']['nombre']; ?>
         </td>
-        <td>
-            <?php echo $c['Sucursal']['nombre']; ?>
-        </td>
+       
         <td>
         <?php echo $c['Estado']['nombre']; ?>
         </td>
@@ -79,23 +77,14 @@
         </td>
     </tr>
 <?php endforeach; ?>
+</tbody>
 </table>
 						
 						
 						<!-- Pagging -->
 						<div class="pagging">
-							<div class="left"><?php 
-                        echo $this->Paginator->counter(
-                                    'Mostrando {:current} - {:end}  de {:pages}, total
-                                     {:count}'
-                                );
-                        ?></div>
-							<div class="right">
-                            
-                            <?php echo $this->Paginator->prev('<< Anterior', array(), null, array('class'=>'disabled'));?>  
-                            <?php echo $this->Paginator->numbers( ); ?>  
-                            <?php echo $this->Paginator->next('Siguiente >>', array(), null, array('class'=>'disabled'));?>
-								
+							<div class="left"></div>
+							<div class="right">                            								
 							</div>
 						</div>
 						<!-- End Pagging -->
@@ -114,34 +103,20 @@
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2>Management</h2>
+						<h2>Administracion</h2>
 					</div>
 					<!-- End Box Head-->
 					
 					<div class="box-content">                     
 						<?php echo $this->Html->link("<span>Nuevo Usuario</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-						<div class="cl">&nbsp;</div>
-						
-						<p class="select-all"><input type="checkbox" class="checkbox" /><label>seleccionar todos</label></p>
-						<p><a href="#">Deseleccionar todos</a></p>
+						<div class="cl">&nbsp;</div>												
 						
 						<!-- Sort -->
-						<div class="sort">
-							<label>Ordenar por</label>
-							<select class="field">
-								<option value="">T&iacute;tulo</option>
-							</select>
-							<select class="field">
-								<option value="">Fecha</option>
-							</select>
-							<select class="field">
-								<option value="">Persona</option>
-							</select>
-						</div>
+						
 						<!-- End Sort -->
 						
 					</div>
