@@ -19,7 +19,7 @@
 			<div id="content" style="width: 90%; margin-bottom:30px;">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">Panel de control</h2>
@@ -98,30 +98,20 @@
                       </div>
                       <div style="float: left; margin: 5px;">
                          <a href="<?php echo $url?>controlpedidos/formbuscar" class="add-button"><span>control pedidos</span></a>
-                      </div>
-						
+                      </div>						
                         <div style="float: left; margin: 5px;">
                            <a href="<?php echo $url?>controlingresos/ingresar" class="add-button"><span>control Insumos</span></a>
-                        </div>
-						
+                        </div>						
                         <div style="float: left; margin: 5px;">
                            <a href="<?php echo $url?>controlpedidos" class="add-button"><span>Facturar</span></a>
-                        </div>
-   
+                        </div>   
                     </div>
-                    <!--</form>-->
-                    
-					<!-- panel control fin -->
-					
+                    <!--</form>-->                    
+					<!-- panel control fin -->					
 				</div>
-				<!-- End Box -->
-			
-
+				<!-- End Box -->			
 			</div>
-			<!-- End Content -->
-			
-			
-			
+			<!-- End Content -->									
 			<div class="cl">&nbsp;</div>			
 		</div>
 		<!-- Main -->
