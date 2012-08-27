@@ -22,11 +22,10 @@
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Registro Nuevo Insumo</h2>
-						
+						<h2 class="left">REGISTRO DE NUEVO INSUMO</h2>						
 					</div>
 					<!-- End Box Head -->	
 
@@ -90,7 +89,7 @@
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">
@@ -98,8 +97,16 @@
 					</div>
 					<!-- End Box Head-->					
 					<div class="box-content">
-                    <?php echo $this->Html->link("<span>Listado Insumos</span>", array('action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>						
-						<div class="cl">&nbsp;</div>																	
+                            <?php echo $this->Html->link("<span>Listado Insumos</span>", array('action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>						
+    						<div class="cl">&nbsp;</div>		
+                            <?php echo $this->Html->link("<span>Nuevo Insumo</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
+                            <?php //echo $this->Html->link("<span>Registrar Salida</span>", array('action'=>'salidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                            <div class="cl">&nbsp;</div>
+                            <div class="cl">&nbsp;</div>
+                            <?php echo $this->Html->link("<span>Categorias Almacen</span>", array('action'=>'categoriasalmacen'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                            <div class="cl">&nbsp;</div>
+                            <?php echo $this->Html->link("<span>Nueva Categoria</span>", array('action'=>'nuevacategoria'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+        					<div class="cl">&nbsp;</div>															
 					</div>
 				</div>
 				<!-- End Box -->

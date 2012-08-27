@@ -16,133 +16,52 @@
 			<!-- Content -->
 			<div id="content">				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">LISTADO DE PRODUCTOS EN LA BODEGA</h2>
-						<div class="right">
-							<?php echo $this->Form->create(null, array('action'=>'buscarbodega')); ?>
-							<label>Filtrar</label>
-							<!--<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />-->
-                            <?php echo $this->Form->text('nombre'); ?>
-                            <?php
-                                $options = array(
-                                    'label' => 'Buscar',
-                                    'class' => 'button'
-                                );
-                            ?>
-                        <?php
-                            echo $this->Ajax->submit('Buscar', array(
-                            'url'=> array('controller'=>'insumos', 'action'=>'buscarbodega'), 
-                            'update' => 'muestrabodega'
-                            /*'condition' => '$("#PostEmail1").val() == $("#PostName1").val()'*/
-                            )); 
-                            //echo $this->Form->end($options); 
-                        ?>
+						<h2 class="left">MOVIMIENTOS DE LA BODEGA</h2>
+						<div class="right">					
 						</div>
 					</div>
 					<!-- End Box Head -->	
 					<!-- Table -->
 	<div class="table">
-	<table cellspacing="0" cellpadding="1" width="740">
+    <?php echo $this->element('tablagrid'); ?>
+	<table id="grid">
+    <thead>
     <tr>
-        <th style="width: 280px;">Nombre</th>
-        <th style="width: 90px;">$.Compra</th>
-        <th style="width: 90px;">$.Venta</th>  
-        <th style="width: 90px;">Bodega</th> 
-        <th style="width: 90px;">Almacen</th>
-        <th>Salidas</th>
-        <th style="width: 92px;">Total</th>
-        <!--<th>Observaciones</th>
-        <th>Acciones</th>-->     
-    </tr>
-    </table>
-    <div id="muestrabodega">
-    <div style="width:740px; height:300px; overflow:auto;">
-    <table cellspacing="0" cellpadding="1" width="740">
-    <?php $c=1; ?>
-    <?php foreach ($bodega as $i): ?>
-    <tr <?php echo fmod($c,2)?"class='mifila'":""; ?>>
-        <td style="width: 280px;">
-            <?php $id = $i['Insumo']['id']; ?>            
-            <?php echo $i['Insumo']['nombre']; ?>
-        </td>
-        <div id="cuadro_<?php echo $id; ?>" title="Ingreso de  insumos">
-        </div> 
-        <div id="cuadro2_<?php echo $id; ?>" title="Salida de insumos">
-        </div> 
-        <td style="width: 92px;">
-            <?php echo $i['Insumo']['preciocompra']; ?>
-        </td>
-        <td style="width: 92px;">
-            <?php echo $i['Insumo']['precioventa']; ?>
-        </td>
-        <td style="width: 92px;">
-            <?php echo $i['Bodega']['total']; ?>
+        <th style="width: 250px;">Nombre</th>     
+        <th style="width: 80px;">Ingreso</th>         
+        <th style="width: 80px;">Vendidos</th>
+        <th style="width: 70px;">Total</th>
+        <th>Fecha</th> 
+    </tr>  
+    </thead>
+    <tbody> 
+    <?php foreach ($bodega as $b): ?>
+    <tr>
+        <td style="width: 250px;">
+            <?php $id = $b['Insumo']['id']; ?>            
+            <?php echo $b['Insumo']['nombre']; ?>
+        </td>        
+        <td style="width: 80px;">
+            <?php echo $b['Bodega']['ingreso']; ?>
         </td> 
-        <td style="width: 92px;">
-            <?php echo $i['Insumo']['total']; ?>
+        <td style="width: 80px;">
+            <?php echo $b['Bodega']['salida']; ?>
+        </td>
+        <td style="width: 70px;">
+            <?php echo $b['Bodega']['total']; ?>
         </td>
         <td>
-            <?php echo $i['Bodega']['salida']; ?>
-        </td>
-        <td style="width: 92px;">
-            <?php 
-                $almacen = $i['Insumo']['total']; 
-                $bodega = $i['Bodega']['total'];
-                echo $almacen+$bodega;
-            ?>
-        </td>       
-        <!--<td>
-            <?php //echo $i['Insumo']['observaciones']; ?>
-        </td>       
-        <td>
-            <?php 
-                /*echo $this->Html->image("edit.png", array(
-                    "title" => "Editar",
-                    'url' => array('action' => 'modificar', $id)
-                ));*/
-            ?>
-            <div id="dialog_<?php echo $id; ?>" style="float: left;">
-            <?php 
-                //echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
-            ?>
-            </div>            
-            <div id="dialog2_<?php echo $id; ?>" style="float: left;">
-            <?php 
-                /*echo $this->Html->image("out.png", array(
-                    "title" => "Salida Almacen"                    
-                ));*+
-            ?>
-            </div>            
-            <?php 
-                /*echo $this->Html->image("elim.png", array(
-                    "title" => "Salida Almacen",
-                    'url' => array('action' => 'modificar', $id)
-                ));*/
-            ?>        
-            <script type="text/javascript">
-            jQuery("#dialog_<?php echo $id; ?>").click(function(){
-                jQuery("#cuadro_<?php echo $id; ?>").dialog().load("insumos/ingresoalmacen/<?php echo $id; ?>");
-                //alert("click");
-            });   
-            
-            jQuery("#dialog2_<?php echo $id; ?>").click(function(){
-                jQuery("#cuadro2_<?php echo $id; ?>").dialog().load("insumos/salidalmacen/<?php echo $id; ?>");
-                //alert("click");
-            });  
-            </script>       
-        </td>-->
+            <?php echo $b['Bodega']['fecha']; ?>
+        </td>          
     </tr>
-<?php $c++; ?>
 <?php endforeach; ?>
+    </tbody>
 </table>
 </div>
 </div>
-
-						
-						
 </div>
 <!-- Table -->
 					
@@ -155,7 +74,7 @@
 			<!-- Sidebar -->
 			<div id="sidebar">				
 				<!-- Box -->
-				<div class="box">					
+				<div class="boxa">					
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2>Administracion</h2>
