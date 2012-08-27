@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 <!-- Container -->
 <div id="container">
 	<div class="shell">
@@ -17,8 +9,7 @@
 			<span>&gt;</span>
 			Lista de Usuarios
 		</div>
-		<!-- End Small Nav -->
-		
+		<!-- End Small Nav -->		
 		<br />
 		<!-- Main -->
 		<div id="main">
@@ -28,26 +19,25 @@
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Listado de clientes</h2>
-						<div class="right">
-							<label>filtrar</label>
-							<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />
-						</div>
+						<h2 class="left">LISTADO DE CLIENTES</h2>						
 					</div>
 					<!-- End Box Head -->	
-
 					<!-- Table -->
 					<div class="table">
-				<table>
+                    <?php echo $this->element('tablagrid'); ?>  
+<table id="grid" style="width: 740px;">
+<thead>
     <tr>
         <th>Nombre</th>
         <th>Direccion</th>
         <th>Telefono</th>
+        <th>Acciones</th>
     </tr>
+</thead>
+<tbody>
 <?php foreach($clientes as $c): ?>
     <tr>
         <td>
@@ -68,38 +58,15 @@
         </td>
     </tr>
 <?php endforeach; ?>
-</table>
-						
-						
+</tbody>
+</table>												
 						<!-- Pagging -->
-						<div class="pagging">
-							<div class="left"><?php 
-                        echo $this->Paginator->counter(
-                                    'Mostrando {:current} - {:end}  de {:pages}, total
-                                     {:count}'
-                                );
-                        ?></div>
-							<div class="right">
-								<a href="#">Previous</a>
-								<a href="#">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#">4</a>
-								<a href="#">245</a>
-								<span>...</span>
-								<a href="#">Next</a>
-								<a href="#">View all</a>
-							</div>
-						</div>
-						<!-- End Pagging -->
 						
+						<!-- End Pagging -->						
 					</div>
-					<!-- Table -->
-					
+					<!-- Table -->					
 				</div>
-				<!-- End Box -->
-				
-				
+				<!-- End Box -->								
 			</div>
 			<!-- End Content -->
 			
@@ -107,38 +74,16 @@
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2>Management</h2>
 					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">
-                    <?php //echo $this->Html->link('Nuevo Usuario', 'nuevo'); ?> 
-                    <?php // echo $this->Html->link('Nuevo Cliente', 'nuevo'); ?>
+					<!-- End Box Head-->					
+					<div class="box-content">                    
 						<a href="nuevo" class="add-button"><span>Nuevo Cliente</span></a>
-						<div class="cl">&nbsp;</div>
-						
-						<p class="select-all"><input type="checkbox" class="checkbox" /><label>seleccionar todos</label></p>
-						<p><a href="#">Deseleccionar todos</a></p>
-						
-						<!-- Sort -->
-						<div class="sort">
-							<label>Ordenar por</label>
-							<select class="field">
-								<option value="">T&iacute;tulo</option>
-							</select>
-							<select class="field">
-								<option value="">Fecha</option>
-							</select>
-							<select class="field">
-								<option value="">Persona</option>
-							</select>
-						</div>
-						<!-- End Sort -->
-						
+						<div class="cl">&nbsp;</div>												
 					</div>
 				</div>
 				<!-- End Box -->
