@@ -24,7 +24,6 @@ class ProductosController extends AppController
         $this->set(compact('productos')); //68207984
 
     }
-
     public function platocompleto()
     {
 
@@ -115,7 +114,7 @@ class ProductosController extends AppController
     public function productosmenu()
     {
 
-        $prod = $this->Producto->find('all', array('recursive' => 0));
+        $prod = $this->Producto->find('all', array('recursive' => 0, 'order'=>'Producto.id DESC'));
         $this->set(compact('prod'));
         //debug($prod);
     }
@@ -365,7 +364,7 @@ class ProductosController extends AppController
             if ($this->Producto->save($this->data))
             {
                 $this->Session->setFlash('Plato registrado con exito');
-                $this->redirect(array('action' => 'platos'), null, true);
+                $this->redirect(array('action' => 'productosmenu'), null, true);
             }
         }
 
@@ -480,7 +479,7 @@ class ProductosController extends AppController
 
             if ($this->Categoria->save($this->data))
             {
-                $this->Session->setFlash('Producto registrado con exito');
+                $this->Session->setFlash('Categoria registrada!!!');
                 $this->redirect(array('action' => 'categoriasmenu'), null, true);
 
             } else
@@ -488,6 +487,8 @@ class ProductosController extends AppController
                 $this->Session->setFlash('No se pudo registrar el Producto!');
             }
         }
+        $dct = array('Comida' => 'Comida', 'Bebidas' => 'Bebidas');
+        $this->set(compact('dct'));
     }
 
     public function editaprodmenu($id = null)
@@ -507,7 +508,7 @@ class ProductosController extends AppController
             if ($this->Producto->save($this->data))
             {
                 $this->Session->setFlash('Los datos fueron modificados');
-                $this->redirect(array('action' => 'categoriasmenu'), null, true);
+                $this->redirect(array('action' => 'productosmenu'), null, true);
             } else
             {
                 $this->Session->setFlash('no se pudo modificar!!');

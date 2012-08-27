@@ -31,6 +31,16 @@ class ControlpedidosController extends AppController
         $this->set(compact('data'));
 
     }
+    
+    public function imprecibo($id_pedido=null){
+        
+        $this->layout='imprimir';
+        $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $id_pedido)));
+        //debug($pedido);
+        $moso = $this->Pedido->find('first', array('recursive'=>0, 'conditions'=>array('Pedido.id'=>$id_pedido)));
+        //debug($moso);
+        $this->set(compact('pedido', 'id_pedido', 'moso'));
+    }
     public function autocomplete()
     {
 

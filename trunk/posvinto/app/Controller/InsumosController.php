@@ -208,11 +208,10 @@ class InsumosController extends AppController
         //$insumos = $this->Insumo->find('all');
         //$this->set(compact('insumos'));
         $bodega = $this->Bodega->find('all', array(
-            'recursive' => 0,
-            'order' => array('Bodega.id' => 'DESC'),
-
+            'recursive' => 1,
+            'order' => array('Bodega.id DESC')                       
             ));
-        // debug($bodega);
+        //debug($bodega);
         $this->set(compact('bodega'));
     }
     function buscarbodega()
@@ -377,7 +376,7 @@ class InsumosController extends AppController
 
                     if ($this->Bodega->save($this->data))
                     {
-                        $this->redirect(array('action' => 'bodega'));
+                        $this->redirect(array('action' => 'index'));
                     } else
                     {
                         echo "no guardo";
