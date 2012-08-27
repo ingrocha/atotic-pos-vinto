@@ -39,7 +39,7 @@ jQuery(document).ready(function() {
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">Registro Nuevo Insumo</h2>
@@ -116,7 +116,7 @@ jQuery(document).ready(function() {
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">

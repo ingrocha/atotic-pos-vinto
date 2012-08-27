@@ -18,7 +18,7 @@
 			<!-- Content -->
 			<div id="content">				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">Receta</h2>
@@ -79,7 +79,7 @@
 			<!-- Sidebar -->
 			<div id="sidebar">				
 				<!-- Box -->
-				<div class="box">					
+				<div class="boxa">					
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2>Adminsitracion</h2>

@@ -20,7 +20,7 @@
 				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Registro Nueva Bebida</h2>						
+						<h2 class="left">REGISTRO DE NUEVA CATEGORIA MENU</h2>						
 					</div>
 					<!-- End Box Head -->	
 					<!-- Table -->
