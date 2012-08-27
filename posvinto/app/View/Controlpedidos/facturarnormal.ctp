@@ -1,6 +1,5 @@
 <?php //debug($datos);?>
 <div id="aImprimir">
-
 <table class="tablafactura">
    <tr>
       <td colspan="4" align="center" style="text-transform: uppercase; font-weight: bold;"> 
@@ -105,16 +104,9 @@
    conforme a Ley"
 </div>
 
-</div>
-
-
-
-      
+</div>      
 <?php  if(!empty($newdata)):?>
-
 <?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' =>'facturar3')));?>
-
-
 <table>
    
    <?php $i=0;?>

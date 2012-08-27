@@ -2,15 +2,9 @@
 <script type="text/javascript">
 
 	var bIsFirebugReady = (!!window.console && !!window.console.log);
-
-
-
 	jQuery(document).ready(
-
 		function (){
-
 			// update the plug-in version
-
 			jQuery("#idPluginVersion").text(jQuery.Calculation.version);
 
 /*			
@@ -163,7 +157,7 @@
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 				<!-- Box Head -->
 					<div class="box-head">
 						<h2>Buscar pedido</h2>
@@ -271,25 +265,7 @@
 				</div>
 				<!-- End Box -->
 						<!-- Pagging -->
-						<div class="pagging">
-							<div class="left"><?php 
-                        //echo $this->Paginator->counter(
-                        //            'Mostrando {:current} - {:end}  de {:pages}, total
-                        //             {:count}'
-                        //        );
-                        ?></div>
-							<div class="right">
-								<a href="#">Previous</a>
-								<a href="#">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#">4</a>
-								<a href="#">245</a>
-								<span>...</span>
-								<a href="#">Next</a>
-								<a href="#">View all</a>
-							</div>
-						</div>
+					
 						<!-- End Pagging -->
 						
 					</div>
@@ -306,7 +282,7 @@
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">
@@ -341,7 +317,7 @@
 				<!-- End Box -->
 			</div>
 			<!-- End Sidebar -->
-			
+			<div class="cl">&nbsp;</div>
 			<div class="cl">&nbsp;</div>			
 		</div>
 		<!-- Main -->
