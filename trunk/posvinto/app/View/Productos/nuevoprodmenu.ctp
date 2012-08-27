@@ -16,10 +16,10 @@
 			<!-- Content -->
 			<div id="content">				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">LISTADO DE PRODUCTOS EN ALMACEN</h2>                        
+						<h2 class="left">PRODUCTOS EN ALMACEN PARA COLOCAR EN MENU</h2>                        
 						<div class="right">                        
                         <?php echo $this->Form->create(null, array('action'=>'buscar')); ?>
 							<label>Filtrar</label>
@@ -75,7 +75,7 @@
         <td>                       
            <div id="dialog_<?php echo $id; ?>" style="float: left;">
             <?php 
-                echo $this->Html->image("menu.png", array("title" => "Ingreso Almacen"));
+                echo $this->Html->image("menu.png", array("title" => "Colocar en Menu"));
             ?>
             </div>
             <script type="text/javascript">
@@ -105,7 +105,7 @@
 			<!-- Sidebar -->
 			<div id="sidebar">				
 				<!-- Box -->
-				<div class="box">					
+				<div class="boxa">					
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2>Administracion</h2>

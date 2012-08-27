@@ -17,46 +17,28 @@
 			<!-- Content -->
 			<div id="content">				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">PRODUCTOS EN MENU</h2>                        
 						<div class="right">                        
-                        <?php echo $this->Form->create(null, array('action'=>'buscar')); ?>
-							<label>Filtrar</label>
-							<!--<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />-->
-                            <?php echo $this->Form->text('nombre'); ?>
-                            <?php
-                                $options = array(
-                                    'label' => 'Buscar',
-                                    'class' => 'button'
-                                );
-                            ?>
-                        <?php
-                            echo $this->Ajax->submit('Buscar', array(
-                            'url'=> array('controller'=>'insumos', 'action'=>'buscar'), 
-                            'update' => 'muestra'
-                            /*'condition' => '$("#PostEmail1").val() == $("#PostName1").val()'*/
-                            )); 
-                            //echo $this->Form->end($options); 
-                        ?>
+                        
 						</div>    
 					</div>
 					<!-- End Box Head -->	
 					<!-- Table -->
-					<div class="table">                    
-                	<table cellspacing="0" cellpadding="1" width="740"> 
+					<div class="table">   
+                    <?php echo $this->element('tablagrid'); ?>                 
+                	<table id="grid"> 
+                    <thead>
                     <tr>
                         <th style="width: 350px;">Nombre</th>
                         <th style="width: 200px;">Categoria</th>                         
                         <th>Acciones</th>                                               
-                    </tr>    
-                    </table>
-<?php //comienzo de mostrar los datos ?>    
-<div id="muestra">                
-<div style="width:740px; height:300px; overflow:auto;">
-<table>
+                    </tr>   
+                    </thead>
+                    <tbody> 
+
 <?php $i=1; ?>
 <?php foreach ($prod as $p): ?>
 <?php $id = $p['Producto']['id']; ?> 
@@ -110,12 +92,12 @@
     </tr>
 <?php $i++; ?>
 <?php endforeach; ?>
+</tbody>
 </table>
 </div>
 </div>
 <?php //fin de mostrar los datos ?>
-</div>
-						
+</div>						
 					</div>
 					<!-- Table -->
 					
@@ -126,13 +108,12 @@
 			<!-- Sidebar -->
 			<div id="sidebar">				
 				<!-- Box -->
-				<div class="box">					
+				<div class="boxa">					
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2>Administracion</h2>
 					</div>
-					<!-- End Box Head-->
-					
+					<!-- End Box Head-->					
 					<div class="box-content">                    																		
 						<?php echo $this->element("menucarta"); ?>
 					</div>
