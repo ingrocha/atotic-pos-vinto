@@ -16,6 +16,12 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
+<html>
+<head>
+    <title>Viva Vinto</title>
+</head>
+<body>
+<?php echo $this->Html->css('imprimir', 'stylesheet', array('media' => 'print')); ?>
 <?php echo $this->Html->css(array('imprimir', 'redmond/jquery-ui-1.8.20.custom','validationEngine.jquery'));
 echo $this->Html->script(array('jquery-1.7.2.min','jquery-ui', 'print'));
 		echo $this->fetch('meta');
@@ -23,3 +29,5 @@ echo $this->Html->script(array('jquery-1.7.2.min','jquery-ui', 'print'));
 		echo $this->fetch('script');
 ?>
 <?php echo $this->fetch('content'); ?>
+</body>
+</html>

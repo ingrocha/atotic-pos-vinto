@@ -9,8 +9,19 @@
 	</title>
     <?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css(array('ui-lightness/jquery-ui-1.8.21.custom', 'style', 'validationEngine.jquery'));
-        echo $this->Html->script(array('jquery-1.7.2.min', 'jquery-ui-1.8.21.custom.min','jquery.calculation', 'jquery.validationEngine', 'languages/jquery.validationEngine-es', 'print'));
+		echo $this->Html->css(array(
+                                    'ui-lightness/jquery-ui-1.8.21.custom', 
+                                    'demo_table',                                    
+                                    'style',                                    
+                                    'validationEngine.jquery'));
+        echo $this->Html->script(array(
+                                        'jquery-1.7.2.min', 
+                                        'jquery-ui-1.8.21.custom.min',
+                                        'jquery.calculation', 
+                                        'jquery.validationEngine',
+                                        'jquery.dataTables',
+                                        'languages/jquery.validationEngine-es', 
+                                        'print'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');        
@@ -55,6 +66,9 @@
                 </li>
                 <li>
                     <?php echo $this->Html->link("<span>Reservas</span>", array('controller'=>'Reservas', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                </li>
+                <li>
+                    <?php echo $this->Html->link("<span>Reportes</span>", array('controller'=>'Graficos', 'action'=>'genera'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                 </li>			    
                 <!--<li>
                     <?php //echo $this->Html->link("<span>Bebidas</span>", array('controller'=>'Productos', 'action'=>'bebidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
@@ -77,8 +91,7 @@
 <div id="footer">
 	<div class="shell">
 		<span class="left">&copy; 2012 - Viva Vinto derechos reservados</span>
-		<span class="right">
-			
+		<span class="right">			
             Desarrollado por <a href="http://www.atotic.com" target="_blank" title="Desarrollado por ATOTIC">ATOTIC</a>
 		</span>
 	</div>
