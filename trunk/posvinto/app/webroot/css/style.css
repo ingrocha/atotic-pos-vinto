@@ -78,17 +78,17 @@ h3 a{ text-decoration: none; }
 
 #main {}
 #content { float:left; width:750px; }
-#sidebar { float:right; width:225px; }
+#sidebar { float: left; margin-left: 10px; width:225px; }
 
 
 .table {}
 .table th{ background:#fffdfa url(images/th.gif) repeat-x 0 0; color:#818181; text-align: left; padding:7px 10px; border-bottom:solid 1px #d2d1cb;}
 .table td{ background:#fbfcfc;  border-bottom:solid 1px #e0e0e0; padding:8px 10px; }
 .table tr.odd td{ background:#f8f8f8; }
-.table tr:hover td{ background:#EFCA4B; }
+.table tr:hover td{ background:#FFFEBE; }
 .table a.ico{ }
 
-.box { background:#fbfcfc; height:100%; padding:1px; margin-bottom:20px; }
+.boxa { background:#fbfcfc; height:100%; padding:1px; margin-bottom:20px; }
 .box-head { background:#ba4c32; height:32px; color:#fff; padding: 0 10px; line-height:32px; white-space:nowrap; border-bottom:solid 1px #fff; }
 .box-head .right{ padding-top:5px; line-height:13px; width: 281px;}
 .box-head .right label,
@@ -470,3 +470,16 @@ a.button{ text-decoration:none; background:#487A23; font-size:1.5em; margin-bott
 .mifila td{
     background-color: #FBF6A5;
 }
+
+/** Titulos **/
+	h1.tituloh1{
+		color:#000;
+		font-weight: bolder;
+	}
+    
+/** Titulos **/
+ .ayuda{
+    border-radius: 10px;
+    background: #FEFBC0;
+    border: 1pt;
+ }

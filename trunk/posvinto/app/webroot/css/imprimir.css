@@ -1,11 +1,37 @@
+body{
+    font-family: Verdana, Arial, Helvetica, sans-serif;    
+}
+.tituloh1{
+    
+    font-weight: bolder;
+    font-size: x-large;   
+}
+.tituloh3{    
+    font-weight: bolder;
+    font-size: large;
+    float: left;
+    position: static;
+}
+.tituloh5{
+    font-weight: bolder;
+    font-size: medium;
+    float: left;
+    position: static;
+}
 .linea{
     
     margin: 0 70%  0 0;
 }
 table.tablafactura{
     margin-right: 70%;
-    width: 22%;
+    width: 22%;  
+     border-collapse: collapse;  
 } 
+
+table.tablafactura tr.contenido td{
+    border: 2px solid black;
+   
+}
 
 table.reportea{
     margin: 10px 20px 50px 25px;
