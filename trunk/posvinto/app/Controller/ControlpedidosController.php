@@ -68,6 +68,7 @@ class ControlpedidosController extends AppController
                     $idpedido)));
         $this->set(compact('pedido', 'idpedido'));
     }
+    
     public function facturar3()
     {
         //  debug($this->data);exit;
@@ -84,6 +85,7 @@ class ControlpedidosController extends AppController
             //$this->redirect('http://localhost/posvinto/posvinto/controlpedidos');
         }
     }
+    
     public function dividir($idped = null)
     {
 
@@ -93,7 +95,7 @@ class ControlpedidosController extends AppController
         $detalle = array();
         $i2 = 0;
         foreach ($pedido as $p) {
-            for ($i = 0; $i < $p['Item']['cantidad']; $i++) {
+            for ($i = 0; $i < $p['Item']['cantidad']; $i++){
                 $detalle[$i2]['Detalle']['producto_id'] = $p['Producto']['id'];
                 $detalle[$i2]['Detalle']['producto'] = $p['Producto']['nombre'];
                 $detalle[$i2]['Detalle']['precio'] = $p['Producto']['precio'];
