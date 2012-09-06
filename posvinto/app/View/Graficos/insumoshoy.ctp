@@ -22,62 +22,25 @@
 					<!-- Table -->
                     <?php //debug($ventas); ?>
 					<div class="table">   
-                    <div class="tituloh1">Producto Vendidos</div>                    
-                     <?php
-                            $nombres = array();
-                            $valores = array();
-                            $datos = $ventas;
-                            $i=0;
-                            $max = 0;
-                            foreach($datos as $d){
-                                $nombres[$i]=$d['Producto']['nombre'];
-                                $valores[$i]=$d['0']['total'];
-                                
-                                if($d['0']['total'] >= $max){
-                                    $max = $d['0']['total'];
-                                }
-                                $i++;        
-                            }
-                            //echo 'El maximo es '.$max;
-                            //debug($nombres);                                                 
-                            echo $this->FlashChart->begin();
-                                          
-                            $this->FlashChart->axis('y',array('range' => array(0, $max, 10)));  
-                            $this->FlashChart->axis('x',array('labels'=>$nombres),array('colour'=>'#aaFF33', 'vertical'=>true));
-                            $this->FlashChart->setData($valores);
-                            
-                            echo $this->FlashChart->chart('bar_3d', array('colour'=>'#BA4C32'));                  
-                            echo $this->FlashChart->render(720,360);         
-                            //echo $this->FlashChart->setData(array(1,3,2,4),'{n}',false,'stuff','chart2');
-                            echo $this->FlashChart->chart('line',array(),'stuff','chart2');      
-                            echo $this->FlashChart->render(400,400,'chart2','chartDomId');
-                    ?>                 
+                    <div class="tituloh1">Producto Vendidos</div>                                                     
                 	<table style="width: 100%;"> 
                     <tr>
                         <th>Producto</th>                                                 
-                        <th>Cantidad</th>        
-                        <th>Precio</th>                     
-                    </tr>
-                    <?php //echo $this->Utilidades->fec ?>    
+                        <th>Cantidad</th>                                  
+                    </tr>    
 <?php 
     $total=0;
+    //debug($insumos);
     //$preciou=0; 
 ?>                    
-<?php foreach ($ventas as $v): ?>
+<?php foreach ($insumos as $i): ?>
     <tr>
         <td>                   
-            <?php echo $v['Producto']['nombre']; ?>
+            <?php echo $i['Insumo']['nombre']; ?>
         </td>         
         <td>
-            <?php echo $v['0']['total']; ?>
-        </td>
-        <td>
-            <?php echo $v['0']['precio']; ?> Bs.
-            <?php 
-                $preciou=$v['0']['precio'];
-                $total+=$preciou; 
-            ?>
-        </td>              
+            <?php echo $i['Bodega']['total']; ?>
+        </td>                    
     </tr>
 <?php endforeach; ?>
 <tr>
