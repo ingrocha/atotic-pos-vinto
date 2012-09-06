@@ -153,15 +153,11 @@
 </table>
  <script type="text/javascript">
    jQuery(document).ready(function() {
-
          jQuery("#imprimir").click(function() {
             // windows.location("http://localhost/posvinto/posvinto/facturas/facturar3");
-             printElem({ leaveOpen: true, printMode: 'popup' });
-             
+             printElem({ leaveOpen: true, printMode: 'popup' });             
             // printElem({ overrideElementCSS: ['http://localhost/unibol/app/webroot/css/printable.css'] });
          });
-
-
      });
  function printElem(options){
      jQuery('#aImprimir').printElement(options);
