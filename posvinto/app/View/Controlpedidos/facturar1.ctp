@@ -163,7 +163,7 @@
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 				<!-- Box Head -->
 					<div class="box-head">
 						<h2>Buscar pedido</h2>
@@ -318,7 +318,7 @@
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">
