@@ -39,12 +39,12 @@
                     </thead>
                     <tbody> 
 
-<?php $i=1; ?>
+<?php //$i=1; ?>
 <?php foreach ($prod as $p): ?>
 <?php $id = $p['Producto']['id']; ?> 
     <div id="cuadro_<?php echo $id; ?>" title="Insumo al Menu">
         </div> 
-    <tr <?php echo fmod($i,2)?"class='mifila'":""; ?>>
+    <tr>
         <td style="width: 350px;">                       
             <?php echo $p['Producto']['nombre']; ?>
         </td>
@@ -90,7 +90,7 @@
             ?> 
         </td>                    
     </tr>
-<?php $i++; ?>
+<?php //$i++; ?>
 <?php endforeach; ?>
 </tbody>
 </table>

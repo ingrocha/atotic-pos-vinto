@@ -1,16 +1,9 @@
-<?php //debug($rec); ?>
+<?php //debug($platoreceta); ?>
 <!-- Container -->
 <div id="container">
 	<div class="shell">		
 		<!-- Small Nav -->
-		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
-			<span>&gt;</span>
-			Lista de Usuarios
-		</div>
-		<!-- End Small Nav -->
-		
+		<!-- End Small Nav -->		
 		<br />
 		<!-- Main -->
 		<div id="main">
@@ -23,9 +16,7 @@
 					<div class="box-head">
 						<h2 class="left">Receta</h2>
 						<div class="right">
-							<label>filtrar</label>
-							<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />
+							
 						</div>
 					</div>
 					<!-- End Box Head -->	
@@ -34,7 +25,8 @@
                     <?php if ($rec):?>
 
 					<div class="table">
-					<table>
+<h2>Receta del Plato: <?php echo $platoreceta['Producto']['nombre']; ?></h2>                    
+<table>
     <tr>
         <th>Insumo</th>
         <th>Cantidad</th>
