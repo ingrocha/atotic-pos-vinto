@@ -234,7 +234,11 @@ class PedidosController extends AppController
             //debug($item);exit;
             $this->Bodega->id = $item['Bodega']['id'];
             $this->Bodega->read();
-            $this->request->data['Bodega']['salida'] = $item['Bodega']['salida'] - 1;
+            $verif = $item['Bodega']['salida'] - 1;
+            if($verif < 0){
+                $verif=0;
+            }            
+            $this->request->data['Bodega']['salida'] = $verif;
             $this->request->data['Bodega']['total'] = $item['Bodega']['total'] + 1;
             $this->Bodega->save($this->data);
         }
@@ -550,8 +554,9 @@ class PedidosController extends AppController
                             $this->request->data['Bodega']['fecha'] = $fecha;
                             $this->request->data['Bodega']['preciocompra'] = $items['Bodega']['preciocompra'];
                             $this->request->data['Bodega']['insumo_id'] = $items['Bodega']['insumo_id'];
-                            $this->request->data['Bodega']['salida'] = $items['Bodega']['salida'] + 1;
+                            //$this->request->data['Bodega']['salida'] = $items['Bodega']['salida'] + 1;
                             $this->request->data['Bodega']['total'] = $items['Bodega']['total'] - 1;
+                            $this->request->data['Bodega']['salida'] = 1;
                             $this->Bodega->save($this->data);
                             
                         } else
