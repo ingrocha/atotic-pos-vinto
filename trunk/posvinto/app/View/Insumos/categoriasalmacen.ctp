@@ -20,50 +20,29 @@
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">LISTADO DE CATEGORIAS DEL ALMACEN</h2>                        
-						<div class="right">                        
-                        <?php echo $this->Form->create(null, array('action'=>'buscar')); ?>
-							<label>Filtrar</label>
-							<!--<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />-->
-                            <?php echo $this->Form->text('nombre'); ?>
-                            <?php
-                                $options = array(
-                                    'label' => 'Buscar',
-                                    'class' => 'button'
-                                );
-                            ?>
-                        <?php
-                            echo $this->Ajax->submit('Buscar', array(
-                            'url'=> array('controller'=>'insumos', 'action'=>'buscar'), 
-                            'update' => 'muestra'
-                            /*'condition' => '$("#PostEmail1").val() == $("#PostName1").val()'*/
-                            )); 
-                            //echo $this->Form->end($options); 
-                        ?>
+						<div class="right">                                             
 						</div>    
 					</div>
 					<!-- End Box Head -->	
 					<!-- Table -->
-					<div class="table">                    
-                	<table cellspacing="0" cellpadding="1" width="740"> 
+					<div class="table">  
+                    <?php echo $this->element('tablagrid'); ?>                  
+                	<table id="grid" style="width: 100%;"> 
+                    <thead>
                     <tr>
-                        <th style="width: 200px;">Nombre</th>                                                 
-                        <th style="width: 350px;">Observaciones</th>
+                        <th>Nombre</th>                                                 
+                        <th>Observaciones</th>
                         <th>Acciones</th>     
                     </tr>    
-                    </table>
-<?php //comienzo de mostrar los datos ?>    
-<div id="muestra">                
-<div style="width:740px; height:300px; overflow:auto;">
-<table>
-<?php $i=1; ?>
+                    </thead>
+                    <tbody>
 <?php foreach ($catalmacen as $c): ?>
-    <tr <?php echo fmod($i,2)?"class='mifila'":""; ?>>
-        <td style="width: 200px;">
+    <tr>
+        <td>
             <?php $id = $c['Tipo']['id']; ?>            
             <?php echo $c['Tipo']['nombre']; ?>
         </td>         
-        <td style="width: 350px;">
+        <td>
             <?php echo $c['Tipo']['descripcion']; ?>
         </td>             
         <td>
@@ -81,10 +60,9 @@
             ?>                 
         </td>
     </tr>
-<?php $i++; ?>
 <?php endforeach; ?>
+</tbody>
 </table>
-</div>
 </div>
 <?php //fin de mostrar los datos ?>
 </div>
