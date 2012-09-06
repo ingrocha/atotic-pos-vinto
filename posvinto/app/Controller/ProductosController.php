@@ -114,7 +114,8 @@ class ProductosController extends AppController
     public function productosmenu()
     {
 
-        $prod = $this->Producto->find('all', array('recursive' => 0, 'order'=>'Producto.id DESC'));
+        $prod = $this->Producto->find('all', array('recursive' => 0, 'order' =>
+                'Producto.id DESC'));
         $this->set(compact('prod'));
         //debug($prod);
     }
@@ -190,13 +191,15 @@ class ProductosController extends AppController
 
     public function receta($id = null)
     {
-
-        $rec = $this->Porcione->find('all', array('conditions' => array('producto_id' =>
+        $platoreceta = $this->Producto->find('first', array('conditions' => array('Producto.id' =>
                     $id)));
+        $rec = $this->Porcione->find('all', array('recursive' => 1, 'conditions' =>
+                array('producto_id' => $id)));
         $id_plato = $id;
-        $this->set(compact('rec', 'id_plato'));
+        //$plato = $this->Producto->find('all', array('recursive'=>-1, 'conditions'=>array('Producto.id'=>$id)));
+        //debug($plato);
+        $this->set(compact('rec', 'id_plato', 'platoreceta'));
         //debug($rec);
-
     }
 
     public function elimporcionplato($id_porcione = null, $id_producto)
@@ -514,11 +517,10 @@ class ProductosController extends AppController
                 $this->Session->setFlash('no se pudo modificar!!');
             }
         }
-        $dcc = $this->Categoria->find('list', array(
-                                      'conditions' => array('estado' => 1), 
-                                      'fields' => 'nombre'));
+        $dcc = $this->Categoria->find('list', array('conditions' => array('estado' => 1),
+                'fields' => 'nombre'));
         //debug($dcc);
-        $this->set(compact('dcc'));        
+        $this->set(compact('dcc'));
     }
 }
 
