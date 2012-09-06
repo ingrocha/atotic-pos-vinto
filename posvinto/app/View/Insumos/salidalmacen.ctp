@@ -12,7 +12,7 @@ Tienes <b><?php echo $ce['Almacen']['total']; ?></b> unidades en almacen.
     <tr>
         <td>Cantidad</td> 
         <td>            
-            <?php echo $this->Form->text('salida', array('size'=>5)); ?>Unidades                                    
+            <?php echo $this->Form->text('salida', array('size'=>5, 'value'=>0)); ?>Unidades                                    
             <?php echo $this->Form->hidden('id_insumo', array('value'=>$id)); ?>
             <?php echo $this->Form->hidden('pc', array('value'=>$pc)); ?>
         </td>    
