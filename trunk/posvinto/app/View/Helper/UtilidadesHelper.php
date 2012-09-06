@@ -74,7 +74,7 @@ class UtilidadesHelper extends AppHelper
     }
     
     /**
-     * @param dateTime se envia la fecha en formato ('Y-m-s')    
+     * @param dateTime se envia la fecha en formato ('Y-m-d')    
      * @return string la fecha en formato (Miercoles, 22 de Agosto de 2012)
      */
     public function fechaes($fecha)
@@ -82,9 +82,8 @@ class UtilidadesHelper extends AppHelper
         //$pieza = explode(" ", $fecha);
         //$fecha_proc = $pieza[0];
         //$hora_proc = $pieza[1];
-
         list($ano, $mes, $dia) = explode("-", $fecha);
-
+        
         $dias = array(
             'Domingo',
             'Lunes',
