@@ -74,6 +74,7 @@
 					<!-- End Box Head-->					
 					<div class="box-content">
                         <?php echo $this->Html->link("<span>Insumos por fecha</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                        <?php echo $this->Html->link("<span>Ventas del Dia</span>", array('action'=>'ventashoy'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                         <div class="cl">&nbsp;</div>					
 					</div>
 				</div>
