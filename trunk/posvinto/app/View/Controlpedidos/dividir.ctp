@@ -147,9 +147,7 @@
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<a href="#">Ingresos</a>
-			<span>&gt;</span>
-			Listado &uacute;ltimos ingresos
+			Divisi&oacute;n de la cuenta
 		</div>
 		<!-- End Small Nav -->
 		
@@ -162,7 +160,7 @@
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 				<!-- Box Head -->
 					<div class="box-head">
 						<h2>Buscar pedido</h2>
@@ -278,87 +276,19 @@
                      
 				</div>
 				<!-- End Box -->
-						<!-- Pagging -->
-						<div class="pagging">
-							<div class="left"><?php 
-                        //echo $this->Paginator->counter(
-                        //            'Mostrando {:current} - {:end}  de {:pages}, total
-                        //             {:count}'
-                        //        );
-                        ?></div>
-							<div class="right">
-								<a href="#">Previous</a>
-								<a href="#">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#">4</a>
-								<a href="#">245</a>
-								<span>...</span>
-								<a href="#">Next</a>
-								<a href="#">View all</a>
-							</div>
-						</div>
-						<!-- End Pagging -->
+				
 						
 					</div>
 					<!-- Table -->
 					
 				</div>
 				<!-- End Box -->
-				
-				<!-- Box -->
-				<div class="box">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Add New Article</h2>
-					</div>
-					<!-- End Box Head -->
-					
-				</div>
-				<!-- End Box -->
+
 
 			</div>
 			<!-- End Content -->
 			
-			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="box">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Management</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">
-						<a href="controlingresos/ingresar" class="add-button"><span>Ingresar nuevo item</span></a>
-						<div class="cl">&nbsp;</div>
-						
-						<p class="select-all"><input type="checkbox" class="checkbox" /><label>seleccionar todos</label></p>
-						<p><a href="#">Deseleccionar todos</a></p>
-						
-						<!-- Sort -->
-						<div class="sort">
-							<label>Ordenar por</label>
-							<select class="field">
-								<option value="">T&iacute;tulo</option>
-							</select>
-							<select class="field">
-								<option value="">Fecha</option>
-							</select>
-							<select class="field">
-								<option value="">Persona</option>
-							</select>
-						</div>
-						<!-- End Sort -->
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
+			<?php echo $this->element('menupedidos') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>

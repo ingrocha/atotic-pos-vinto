@@ -302,47 +302,44 @@ class ControlpedidosController extends AppController
     public function formbuscar()
     {
         if (!empty($this->data)) {
-            //debug($this->data);exit;
-            $a = 0;
-
-            if (empty($this->data['Pedido']['mesa'])) {
-                $idmesa = 0;
-                $a++;
-            } else {
-                $idmesa = $this->data['Pedido']['mesa'];
-
-            }
-            if (empty($this->data['Pedido']['mozos'])) {
-                $mozo = 0;
-                $a++;
-            } else {
-                $mozo = $this->data['Pedido']['mozos'];
-            }
-            if (empty($this->data['Pedido']['fecha'])) {
-                $fechac = '0';
-                $a++;
-            } else {
-                //$fechac = $this->data['Pedido']['fecha'];
-                $fechachar = split(' ', $this->data['Pedido']['fecha']);
-                $fecha = split('-', $fechachar[0]);
-                $fechac = '';
-                foreach ($fecha as $f) {
-                    $fechac .= $f;
-                }
-
-                //debug($fechac);
-            }
-
+            //debug($this->data);
+            $a=0;
             $condiciones = "SELECT `Pedido`.`id`, `Pedido`.`usuario_id`, `Pedido`.`fecha`,Pedido.fechac, `Pedido`.`mesa`, `Pedido`.`estado`, `Pedido`.`total`, 
             `Usuario`.`id`, `Usuario`.`nombre`, `Usuario`.`direccion`, `Usuario`.`usuario`, `Usuario`.`pass`, `Usuario`.`codigo`, `Usuario`.`perfile_id` 
             FROM `sisvinto`.`pedidos` AS `Pedido` 
             LEFT JOIN `sisvinto`.`usuarios` AS `Usuario` 
-            ON (`Pedido`.`usuario_id` = `Usuario`.`id`) 
-            WHERE (Pedido.mesa = $idmesa OR $idmesa = 0)
-            AND (Pedido.usuario_id = $mozo OR $mozo =  0)
-            AND (Pedido.fechac = '$fechac' OR '$fechac' = '0')
+            ON (`Pedido`.`usuario_id` = `Usuario`.`id`)
+            WHERE 1
             ";
-            //debug($condiciones);
+            
+            if (!empty($this->data['Pedido']['fecha'])) {
+                $fecha = $this->data['Pedido']['fecha']." %";
+                $condiciones .= "AND Pedido.fecha LIKE '$fecha'";
+                $a++;
+            }
+          
+            if (!empty($this->data['Pedido']['mozos'])) {
+                $mozo = $this->data['Pedido']['mozos'];
+                $condiciones .= "AND Pedido.usuario_id LIKE '$mozo'";
+                $a++;
+            }
+            if(!empty($this->data['Pedido']['mesa'])){
+                $mesa = $this->data['Pedido']['mesa'];
+                $condiciones .= "AND Pedido.mesa = $mesa";
+                $a++;
+            }
+            //debug($condiciones);exit;
+            if (!empty($this->data['Pedido']['fecha_desde']) and !empty($this->data['Pedido']['fecha_hasta'])){
+                $fecha1 = $this->data['Pedido']['fecha_desde']." 00:00:00";
+                $fecha2 = $this->data['Pedido']['fecha_hasta']." 23:59:59";
+                
+                $condiciones .= "
+                AND (Pedido.fecha >= '$fecha1')
+                AND (Pedido.fecha <= '$fecha2')
+                ";
+                $a++;
+            }
+            //debug($condiciones);exit;
             if ($a == 0) {
                 $this->Session->setFlash(__('Debe ingresar al menos un dato!!!!'));
                 $this->redirect(array('action' => 'formbuscar'));
@@ -353,7 +350,7 @@ class ControlpedidosController extends AppController
         } else {
 
             $this->set('mozos', $this->Usuario->find('list', array('conditions' => array('Usuario.perfile_id' =>
-                        1), 'fields' => array('Usuario.nombre'))));
+                        2), 'fields' => array('Usuario.nombre'))));
         }
 
     }

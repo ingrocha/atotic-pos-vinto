@@ -56,7 +56,7 @@ class GraficosController extends AppController
         //echo $hoy;
         App::uses('CakeTime', 'Utility');
         $fecha_hoy = CakeTime::dayAsSql($hoy, 'Item.fecha');
-        //echo $fecha_hoy;
+       // echo $fecha_hoy;exit;
         $ventas = $this->Item->find('all', array(
             'recursive' => 0,
             'fields' => array('Producto.id, SUM(Item.cantidad) as total, SUM(Item.precio) as precio, Producto.nombre'),
