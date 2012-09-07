@@ -3,9 +3,6 @@
 	<div class="shell">		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Pedidos', array('controller'=>'controlpedidos', 'action'=>'index'))?>
-			<span>&gt;</span>
 			Detalle del pedido
 		</div>
 		<!-- End Small Nav -->		
@@ -156,26 +153,7 @@
 			</div>
 			<!-- End Content -->
 			
-			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="boxa">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Administracion</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">
-						
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
+			<?php echo $this->element('menupedidos') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>

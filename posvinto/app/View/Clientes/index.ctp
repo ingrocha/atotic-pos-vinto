@@ -4,10 +4,7 @@
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
-			<span>&gt;</span>
-			Lista de Usuarios
+			<span>Lista de Clientes</span>
 		</div>
 		<!-- End Small Nav -->		
 		<br />
@@ -70,25 +67,7 @@
 			</div>
 			<!-- End Content -->
 			
-			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="boxa">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Management</h2>
-					</div>
-					<!-- End Box Head-->					
-					<div class="box-content">                    
-						<a href="nuevo" class="add-button"><span>Nuevo Cliente</span></a>
-						<div class="cl">&nbsp;</div>												
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
+		<?php echo $this->element('menuclientes') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>

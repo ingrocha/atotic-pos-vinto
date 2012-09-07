@@ -3,14 +3,14 @@
 	<div class="shell">
 		
 		<!-- Small Nav -->
-		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
+		<!--<div class="small-nav">
+			
+            <?php //echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
 			<span>&gt;</span>
 			Lista de Usuarios
-		</div>
+		</div>-->
 		<!-- End Small Nav -->
-		
+		<h3><span>Lista de Usuarios</span></h3>
 		<br />
 		<!-- Main -->
 		<div id="main">
@@ -100,29 +100,9 @@
 			<!-- End Content -->
 			
 			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="boxa">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Administracion</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">                     
-						<?php echo $this->Html->link("<span>Nuevo Usuario</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-						<div class="cl">&nbsp;</div>												
-						
-						<!-- Sort -->
-						
-						<!-- End Sort -->
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
+			<!-- Sidebar -->
+			<?php echo $this->element('menuusuarios') ?>
+			<!-- End Sidebar -->
 			<!-- End Sidebar -->
 			
 			<div class="cl">&nbsp;</div>			
