@@ -11,20 +11,21 @@
         $("#date").datepicker(pickerOpts);
     });
 </script>
+
+
 <!-- Container -->
-<?php echo $this->element('combobusca'); ?>
 <div id="container">
 	<div class="shell">
 		
 		<!-- Small Nav -->
-		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action' => 'index')) ?>
+		<!--<div class="small-nav">
+			
+            <?php //echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
 			<span>&gt;</span>
-			Registro de Categorias en Almacen
-		</div>
+			Lista de Usuarios
+		</div>-->
 		<!-- End Small Nav -->
-		
+		<h3><span>Nueva multa</span></h3>
 		<br />
 		<!-- Main -->
 		<div id="main">
@@ -37,32 +38,27 @@
 				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">NUEVO TIPO DE EVENTO</h2>
-						
+						<h2 class="left">NUEVA MULTA</h2>
+						<div class="right">
+							
+						</div>
 					</div>
 					<!-- End Box Head -->	
 
 					<!-- Table -->
-<div class="table">
-	<?php echo $this->Form->create('Reserva'); ?>
+					<div class="table">
+<?php echo $this->element('tablagrid'); ?>  
+
+						<?php echo $this->Form->create('ConfMulta'); ?>
 <table>
 <tr>
-	<td>Cliente</td>
-	<td><?php echo $this->Form->select('cliente_id', $dcc, array('id'=>'combobox')); ?></td>
-</tr> 
-<tr>
-	<td>Evento</td>
-	<td><?php echo $this->Form->select('tipoevento_id', $dct); ?></td>
-</tr>
-<tr>
-	<td>Cantidad Personas</td>
-	<td><?php echo $this->Form->text('cantidad_personas', array('size'=>5)); ?></td>
-</tr>
-<tr>
-	<td>Fecha</td>
-	<td>
+	<td>Hora actual</td>
+    <td>
+    <?php echo $hora ?>:<?php echo $minuto ?>
+    </td>
+    <td>
+    
         <?php 
-            echo $this->Form->text('fecha', array('size'=>10, 'id'=>'date'));
             $options = array(
                 'label' => '',
                 'type' => 'time',
@@ -75,20 +71,25 @@
     </td>
 </tr>
 <tr>
+	<td>Monto</td>
+	<td><?php echo $this->Form->text('monto'); ?></td>
+</tr>
+<tr>
 	<td>Observaciones</td>
-	<td><?php echo $this->Form->textarea('observaciones'); ?></td>
+	<td><?php echo $this->Form->text('observaciones'); ?></td>
+</tr>
+
+<tr>
+	<td></td>
 </tr>
 </table>
-<?php $options = array(
-    'Value' => 'Editar',
-    'class' => 'button-submit',
-    ) ?>
-<?php echo $this->Form->end($options); ?>
-<div style="clear: both;"></div>
-						
+<?php echo $this->Form->end('editar'); ?>
 						
 						<!-- Pagging -->
-					
+						<div class="pagging">
+							<div class="left"></div>
+							<div class="right">                            								
+							</div>
 						</div>
 						<!-- End Pagging -->
 						
@@ -102,7 +103,11 @@
 			</div>
 			<!-- End Content -->
 			
-		<?php echo $this->element('menureservas') ?>
+			<!-- Sidebar -->
+			<!-- Sidebar -->
+			<?php echo $this->element('menuusuarios') ?>
+			<!-- End Sidebar -->
+			<!-- End Sidebar -->
 			
 			<div class="cl">&nbsp;</div>			
 		</div>

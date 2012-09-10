@@ -3,10 +3,7 @@
 	<div class="shell">		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller' => 'usuarios', 'action' => 'index')) ?>
-			<span>&gt;</span>
-			Lista de Insumos
+			Lista de tipos de eventos
 		</div>
 		<!-- End Small Nav -->		
 		<br />
@@ -16,45 +13,18 @@
 			<!-- Content -->
 			<div id="content">				
 				<!-- Box -->
-				<div class="box">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">LISTADO DE PRODUCTOS EN LA BODEGA</h2>
-						<div class="right">
-							<?php echo $this->Form->create(null, array('action'=>'buscarbodega')); ?>
-							<label>Filtrar</label>
-							<!--<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />-->
-                            <?php echo $this->Form->text('nombre'); ?>
-                            <?php
-                                $options = array(
-                                    'label' => 'Buscar',
-                                    'class' => 'button'
-                                );
-                            ?>
-                        <?php
-                            echo $this->Ajax->submit('Buscar', array(
-                            'url'=> array('controller'=>'insumos', 'action'=>'buscarbodega'), 
-                            'update' => 'muestrabodega'
-                            /*'condition' => '$("#PostEmail1").val() == $("#PostName1").val()'*/
-                            )); 
-                            //echo $this->Form->end($options); 
-                        ?>
-						</div>
-					</div>
-					<!-- End Box Head -->	
+				<div class="boxa">	
 					<!-- Table -->
 	<div class="table">
-	<table cellspacing="0" cellpadding="1" width="740">
-    <tr>
+	<table cellspacing="0" cellpadding="1" width="740" id="grid">
+    <thead>
+     <tr>
         <th style="width: 280px;">Nombre</th>
         <th style="width: 90px;">Descripcion</th>        
         <th>Acciones</th>     
     </tr>
-    </table>
-    <div id="muestrabodega">
-    <div style="width:740px; height:300px; overflow:auto;">
-    <table cellspacing="0" cellpadding="1" width="740">
+    </thead>
+   <tbody>
     <?php $c=1; ?>
     <?php foreach ($tipoeventos as $t): ?>
     <tr <?php echo fmod($c,2)?"class='mifila'":""; ?>>
@@ -82,9 +52,12 @@
     </tr>
 <?php $c++; ?>
 <?php endforeach; ?>
+
+</tbody>
+
 </table>
-</div>
-</div>											
+
+											
 </div>
 <!-- Table -->
 					
@@ -94,27 +67,73 @@
 				
 			</div>
 			<!-- End Content -->			
-			<!-- Sidebar -->
-			<div id="sidebar">				
-				<!-- Box -->
-				<div class="box">					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Administracion</h2>
-					</div>
-					<!-- End Box Head-->					
-					<div class="box-content">
-                    <?php echo $this->Html->link("<span>Nuevo Tipo de Evento</span>", array('action'=>'add'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
-                    <?php echo $this->Html->link("<span>Lista de tipos de Evento</span>", array('action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-						<div class="cl">&nbsp;</div>																		
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
+			<?php echo $this->element('menureservas') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>
 		<!-- Main -->
 	</div> 
+    <script type="text/javascript" charset="utf-8">
+                    var asInitVals = new Array();
+            			$(document).ready(function() {
+            				var oTable = $('#grid').dataTable(
+                            {
+                                "bJQueryUI": true,    
+                                "oLanguage": {                                    
+                                    "sEmptyTable":     "No data available in table",
+                                    "sSearch":         "Busqueda por columnas:",
+                                    "sInfo":           "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
+                                    "sInfoEmpty":      "Mostrando desde 0 hasta 0 de 0 registros",
+                                    "sInfoFiltered":   "(filtrado de _MAX_ registros en total)",
+                                    "sInfoPostFix":    "",
+                                    "sInfoThousands":  ",",
+                                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                                    "sLoadingRecords": "Cargando...",
+                                    "sProcessing":     "Procesando...",
+                                    "sSearch":         "Buscar:",
+                                    "sZeroRecords":    "No se encontraron resultados",
+                                    "oPaginate": {
+                                        "sFirst":    "Primero",
+                                        "sLast":     "Último",
+                                        "sNext":     "Siguiente",
+                                        "sPrevious": "Anterior"
+                                    },
+                                    "oAria": {
+                                        "sSortAscending":  ": activar para Ordenar Ascendentemente",
+                                        "sSortDescending": ": activar para Ordendar Descendentemente"
+                                    }
+                                }    
+                            });
+                            
+                            $("tfoot input").keyup( function () {
+        /* Filter on the column (the index) of this element */
+        oTable.fnFilter( this.value, $("tfoot input").index(this) );
+    } );
+     
+     
+     
+    /*
+     * Support functions to provide a little bit of 'user friendlyness' to the textboxes in 
+     * the footer
+     */
+    $("tfoot input").each( function (i) {
+        asInitVals[i] = this.value;
+    } );
+     
+    $("tfoot input").focus( function () {
+        if ( this.className == "search_init" )
+        {
+            this.className = "";
+            this.value = "";
+        }
+    } );
+     
+    $("tfoot input").blur( function (i) {
+        if ( this.value == "" )
+        {
+            this.className = "search_init";
+            this.value = asInitVals[$("tfoot input").index(this)];
+        }
+    } );
+            			});
+            		</script>    

@@ -1,6 +1,16 @@
 <!-- Container -->
 <div id="container">
-	<div class="shell">		
+	<div class="shell">
+    <?php if(empty($ventas)): ?>
+    <div id="main">
+    <div class="cl">&nbsp;</div>
+    <div id="content">
+    <div class="message"><h3>No exiten datos el dia de hoy</h3></div>
+    </div>
+       
+    </div>
+    
+    <?php else: ?>		
 		<!-- Small Nav -->
 		<!-- End Small Nav -->		
 		<br />
@@ -95,37 +105,11 @@
 					<!-- Table -->
 					
 				</div>
-				<!-- End Box -->								
+				<!-- End Box -->
+                <?php endif; ?>								
 			</div>
 			<!-- End Content -->			
-			<!-- Sidebar -->
-			<div id="sidebar">				
-				<!-- Box -->
-				<div class="boxa">					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Administracion</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">
-                    <?php echo $this->Html->link("<span>Listado Insumos</span>", array('action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>						
-					<div class="cl">&nbsp;</div>
-                    <?php echo $this->Html->link("<span>Nuevo Insumo</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
-                    <?php //echo $this->Html->link("<span>Registrar Salida</span>", array('action'=>'salidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-                    <div class="cl">&nbsp;</div>
-                    <div class="cl">&nbsp;</div>
-                    <?php echo $this->Html->link("<span>Categorias Almacen</span>", array('action'=>'categoriasalmacen'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-                    <div class="cl">&nbsp;</div>
-                    <?php echo $this->Html->link("<span>Registrar Categoria</span>", array('action'=>'nuevacategoria'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-					<div class="cl">&nbsp;</div>																		
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
-			
+			<?php echo $this->element('menureportes') ?>
 			<div class="cl">&nbsp;</div>			
 		</div>
 		<!-- Main -->

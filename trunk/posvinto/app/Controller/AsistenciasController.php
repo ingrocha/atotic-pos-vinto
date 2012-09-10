@@ -2,7 +2,7 @@
 class AsistenciasController extends AppController
 { 
     public $helpers = array('Html', 'Form','Time'); 
-    public $uses = array('Asistencia','Usuario','ConfMulta','Multa');
+    public $uses = array('Asistencia','Usuario','ConfMulta','Horario', 'Retraso');
     public $layout = 'publico';
     
     public function index() 
@@ -48,36 +48,53 @@ public function entradas()
               $this->request->data['Asistencia']['fecha']=$date;
               $this->request->data['Asistencia']['usuario_id']=$usuario_id;
               $this->request->data['Asistencia']['horaingreso']=date('H:i:s');
+              $horaingreso = $this->Horario->find('first', array('fields'=>array('Horario.entrada')));
+              
+              $ingreso = $horaingreso['Horario']['entrada'];
+              
+              
+              $hora=split(':', $ingreso);
+              $hora_entrada = $hora[0];
+              $minutos_entrada = $hora[1];
+              
+              $hora=split(':', date('H:i:s'));
+              $hora_ingreso=$hora[0];
+              $minutos_ingreso=$hora[1];
+              $horas_retraso =  $hora_ingreso - $hora_entrada;
+              $minutos_retraso = $minutos_ingreso - $minutos_entrada;
+              
+              //debug($horas_retraso);
+              //debug($minutos_retraso);
+              
+              if(($horas_retraso != 0)|| ($minutos_retraso != 0)){
+                $multa =$this->ConfMulta->find('first',array(
+                'conditions'=>array(
+                'or'=>array(
+                'ConfMulta.horas >='=>$horas_retraso,
+                'ConfMulta.minutos <='=>$minutos_retraso,
+                'ConfMulta.minutos >='=>$minutos_retraso
+                )
+                ), 
+                'order'=>array('ConfMulta.monto DESC')
+                ));
+                //debug($multa);exit;
+              }
+          
+              
+              
           if($this->Asistencia->save($this->data)){
-             if(!empty($this->data)){
-              $valores='30600';
-              $hora=split(':',date('H:i:s'));
-              $hora[0]=$hora[0]*3600;
-              $hora[1]=$hora[1]*60;
-              $hora[2]=$hora[2]*1;
-              $time=$hora[0]+$hora[1]+$hora[2];
-              $multas=$this->ConfMulta->find('all',array('order'=>'ConfMulta.id ASC'));
-    foreach($multas as $multa){
-    $hora_entrada=split(':',$multa['ConfMulta']['horas']);
-    $horas_e=$hora_entrada[0]*3600;
-    $minutos_e=$hora_entrada[1]*60;
-    $segundos_e=$hora_entrada[2];
-    $h_entrada=$horas_e+ $minutos_e+$segundos_e;
-            if($time>$h_entrada){      
-            $retraso_id=$multa['ConfMulta']['id'];
-            }
-        else{
-        //nada $retraso_id==0;   
-        }
-    }
-        if(!empty($retraso_id)){   //Guardando los Datos
-     $this->request->data['Multa']['conf_multa_id']=$retraso_id;
-     $this->request->data['Multa']['usuario_id']=$usuario_id;
-     $this->request->data['Multa']['fecha']=$date;
-     $this->Multa->save($this->data);
-      
-         }
-               } 
+            if(!empty($multa)){
+                $this->Retraso->create();
+                $this->data = '';
+                $this->request->data['Retraso']['usuario_id']=$usuario_id;
+                $this->request->data['Retraso']['horas']=$horas_retraso;
+                $this->request->data['Retraso']['minutos']=$minutos_retraso;
+                $this->request->data['Retraso']['descuento']= $multa['ConfMulta']['monto'];
+                 $this->request->data['Retraso']['fecha']= date('Y-m-d');
+                //debug($this->data);exit;
+                $this->Retraso->save($this->data);
+              }
+             
        $this->Session->setFlash('Hora de Ingreso Guardada...');
        $this->redirect(array('action'=>'index'));
            }

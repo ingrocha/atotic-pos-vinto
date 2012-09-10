@@ -22,10 +22,7 @@ jQuery(document).ready(function() {
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller' => 'usuarios', 'action' => 'index')) ?>
-			<span>&gt;</span>
-			Registro de Salidas
+			Registro de Salidas de insumos de almacen a bodega
 		</div>
 		<!-- End Small Nav -->
 		
@@ -38,7 +35,7 @@ jQuery(document).ready(function() {
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">Registro Nuevo Insumo</h2>

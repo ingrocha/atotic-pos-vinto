@@ -3,7 +3,8 @@ class ConfMultasController extends AppController
 { 
 
     public $helpers = array('Html', 'Form'); 
-    public $uses = array('ConfMulta'); 
+    public $uses = array('ConfMulta');
+    public $layout = 'admin';
     public function index()
     {
 
@@ -16,9 +17,10 @@ class ConfMultasController extends AppController
     {
         
         if (!empty($this->data)) { 
-
+            //debug($this->data);exit;
+            $this->request->data['ConfMulta']['horas']= $this->data['ConfMulta']['Hora']['hour'];
+            $this->request->data['ConfMulta']['minutos']=$this->data['ConfMulta']['Hora']['min'];
             $this->ConfMulta->create(); 
-
             if ($this->ConfMulta->save($this->data)) { 
 
                 $this->Session->setFlash('Conf Multa registrado con exito'); 
@@ -33,7 +35,7 @@ class ConfMultasController extends AppController
         
     }
 
-    public function modificar($id = null)
+    public function editar($id = null)
     {
         $this->ConfMulta->id = $id;
         if (!$id) {
@@ -42,8 +44,13 @@ class ConfMultasController extends AppController
         }
         if (empty($this->data)) {
             $this->data = $this->ConfMulta->read();
-
+            //debug($this->data);exit;
+            $hora = $this->data['ConfMulta']['horas'];
+            $minuto = $this->data['ConfMulta']['minutos'];
+            $this->set(compact('hora', 'minuto'));
         } else {
+            $this->request->data['ConfMulta']['horas']= $this->data['ConfMulta']['Hora']['hour'];
+            $this->request->data['ConfMulta']['minutos']=$this->data['ConfMulta']['Hora']['min'];
             if ($this->ConfMulta->save($this->data)) {
                 $this->Session->setFlash('Los datos fueron modificados');
                 $this->redirect(array('action' => 'index'), null, true);
