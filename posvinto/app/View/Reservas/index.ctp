@@ -1,14 +1,7 @@
 <!-- Container -->
 <div id="container">
 	<div class="shell">		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller' => 'usuarios', 'action' => 'index')) ?>
-			<span>&gt;</span>
-			Lista de Insumos
-		</div>
-		<!-- End Small Nav -->		
+			
 		<br />
 		<!-- Main -->
 		<div id="main">
@@ -19,7 +12,7 @@
 				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">LISTADO DE PRODUCTOS EN LA BODEGA</h2>
+						<h2 class="left">LISTADO DE EVENTOS RESERVADOS</h2>
 						<div class="right">					
 						</div>
 					</div>
@@ -84,28 +77,7 @@
 				<!-- End Box -->								
 			</div>
 			<!-- End Content -->			
-			<!-- Sidebar -->
-			<div id="sidebar">				
-				<!-- Box -->
-				<div class="boxa">					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Administracion</h2>
-					</div>
-					<!-- End Box Head-->					
-					<div class="box-content">
-                    <?php echo $this->Html->link("<span>Nueva Reserva</span>", array('controller'=>'Reservas', 'action'=>'add'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-                    <div class="cl">&nbsp;</div>
-                    <div class="cl">&nbsp;</div>
-                    <?php echo $this->Html->link("<span>Nuevo Tipo de Evento</span>", array('controller'=>'Tipoeventos', 'action'=>'add'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
-                    <?php echo $this->Html->link("<span>Lista de tipos de Evento</span>", array('controller'=>'Tipoeventos', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-						<div class="cl">&nbsp;</div>																		
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
+			<?php echo $this->element('menureservas') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>

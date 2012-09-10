@@ -17,7 +17,7 @@
 			<!-- Content -->
 			<div id="content">				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">REGISTRO DE NUEVA CATEGORIA MENU</h2>						
@@ -63,11 +63,11 @@
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2>Management</h2>
+						<h2>Administraci&oacute;n</h2>
 					</div>
 					<!-- End Box Head-->
 					

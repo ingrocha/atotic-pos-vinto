@@ -18,10 +18,7 @@
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action' => 'index')) ?>
-			<span>&gt;</span>
-			Registro de Categorias en Almacen
+			Registro de nueva reserva
 		</div>
 		<!-- End Small Nav -->
 		
@@ -102,25 +99,7 @@
 			</div>
 			<!-- End Content -->
 			
-			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="box">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Administracion</h2>
-					</div>
-					<!-- End Box Head-->					
-					<div class="box-content">
-                    <?php echo $this->Html->link("<span>Listado Insumos</span>", array('action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>						
-						<div class="cl">&nbsp;</div>																	
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
+		<?php echo $this->element('menureservas') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>

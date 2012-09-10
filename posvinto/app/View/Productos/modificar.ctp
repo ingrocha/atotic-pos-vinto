@@ -17,7 +17,7 @@
 			<!-- Content -->
 			<div id="content">				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">Registro Nueva Bebida</h2>						
@@ -76,7 +76,7 @@
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">

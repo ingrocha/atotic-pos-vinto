@@ -3,10 +3,7 @@
 	<div class="shell">		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller' => 'usuarios', 'action' => 'index')) ?>
-			<span>&gt;</span>
-			Lista de Insumos
+			Lista de Insumos en bodega
 		</div>
 		<!-- End Small Nav -->		
 		<br />

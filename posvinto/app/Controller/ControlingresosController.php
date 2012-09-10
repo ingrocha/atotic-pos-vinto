@@ -1,5 +1,5 @@
 <?php
-class ControlingresosController extends AppController{
+class ControlingresosalidasController extends AppController{
     public $uses= array('Bodega', 'Movimientosinsumo', 'Insumo');
     public $layout = 'admin';
     
