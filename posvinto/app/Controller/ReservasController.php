@@ -54,15 +54,24 @@ class ReservasController extends AppController {
            $min = $this->data['Reserva']['Hora']['min'];
            $fecha = $this->data['Reserva']['fecha'];
            $fechac = $fecha." ".$hora.":".$min;
+           $reserva = $this->Reserva->find('first', array(
+           'conditions'=>array('Reserva.fecha like'=>$fecha." %")
+           ));
+           //debug($reserva);exit;
            $this->request->data['Reserva']['fecha']=$fechac;
            //debug($this->data);exit;
-			$this->Reserva->create();
+           if(empty($reserva)){
+            $this->Reserva->create();
 			if ($this->Reserva->save($this->request->data)) {
-				$this->Session->setFlash(__('The reserva has been saved'));
+				$this->Session->setFlash(__('La reserva fue guardada'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The reserva could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('No se pudo registrar. Por favor, intente mas tarde.'));
 			}
+           }else{
+            $this->Session->setFlash(__('Ya hay una reserva en '.$fecha));
+           }
+			
 		}
 		$dcc = $this->Cliente->find('list', array('fields'=>array('Cliente.nombre')));
         //debug($dcc);

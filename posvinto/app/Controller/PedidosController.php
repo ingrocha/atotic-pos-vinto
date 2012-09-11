@@ -396,8 +396,9 @@ class PedidosController extends AppController
         {
 
             $num = $this->data['Pedidos']['numero'];
-            $verif = $this->Usuario->find('first', array('conditions' => array('Usuario.codigo' =>
-                        $num), 'recursive' => -1));
+            $verif = $this->Usuario->find('first', array(
+            'conditions' => array('Usuario.codigo' =>$num, 'Usuario.estado_id'=>1),
+            'recursive' => -1));
 
             if (!empty($verif))
             {
@@ -461,7 +462,7 @@ class PedidosController extends AppController
                 //debug($this->data);exit;
             } else
             {
-                $this->Session->setFlash('Codigo erroneo Vuelva a intentarlo');
+                $this->Session->setFlash('Codigo erroneo o no habil, Vuelva a intentarlo');
             }
             //echo $num;
             //debug($verif);

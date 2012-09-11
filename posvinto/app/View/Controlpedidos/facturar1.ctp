@@ -198,7 +198,6 @@
                        
 							<tr>
 								<th width="13"><input type="checkbox" class="checkbox" /></th>
-                                
                                 <th>Item</th>
 								<th>cantidad</th>
                                 <th>precio</th>

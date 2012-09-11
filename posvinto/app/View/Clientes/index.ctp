@@ -31,6 +31,7 @@
         <th>Nombre</th>
         <th>Direccion</th>
         <th>Telefono</th>
+        <th>Estado</th>
         <th>Acciones</th>
     </tr>
 </thead>
@@ -48,10 +49,16 @@
         <td>
             <?php echo $c['Cliente']['telefono']; ?>
         </td>
-        
+        <td>
+            <?php if($c['Cliente']['estado']==1): ?>
+               Alta
+            <?php else: ?>
+               Baja
+            <?php endif; ?>
+        </td>
         <td>
             <?php echo $this->Html->link('Modificar', array('action'=>'modificar', $id));?>
-               
+            <?php echo $this->Html->link('Dar de Baja', array('action'=>'baja', $id));?>
         </td>
     </tr>
 <?php endforeach; ?>

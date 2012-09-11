@@ -64,15 +64,14 @@ $this->paginate  = array(
         }
     }
 
-    public function eliminar($id = null)
+    public function baja($id = null)
     {
-        if (!$id) {
-            $this->Session->setFlash('id Invalida para borrar');
-            $this->redirect(array('action' => 'index'));
-        }
-        if ($this->Cliente->delete($id)) {
+        $this->request->data['Cliente']['id']=$id;
+        $this->request->data['Cliente']['estado'] = 0;
+        
+        if ($this->Cliente->save($this->data)) {
             
-            $this->Session->setFlash('El usuario  ' . $id . ' fue borrado');
+            $this->Session->setFlash('El usuario  ' . $id . ' fue dado de baja');
             $this->redirect(array('action' => 'index'));
         }
     }
