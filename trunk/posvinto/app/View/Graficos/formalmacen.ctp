@@ -18,7 +18,7 @@
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			Filtro para ver pedidos
+			Filtro para ver insumos
 		</div>
 		<!-- End Small Nav -->
 		
@@ -34,12 +34,12 @@
                     <div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2>Buscar pedido</h2>
+						<h2>Buscar por fechas</h2>
 					</div>
 					<!-- End Box Head -->
                     <!-- Form -->
-                    <?php echo $this->Form->create('Pedido', array(
-                            'url' => array('controller' => 'graficos', 'action' => 'ventasfechas')
+                    <?php echo $this->Form->create(null, array(
+                            'url' => array('controller' => 'graficos', 'action' => 'almacenfechas')
                             ));
                     ?>
 					

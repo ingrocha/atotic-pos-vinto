@@ -201,7 +201,7 @@
              <?php endif;?>
 			<!-- End Content -->
 			</div>
-			<?php echo $this->element('menupedidos') ?>
+			<?php echo $this->element('menureportes') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		

@@ -1,7 +1,7 @@
 <!-- Container -->
 
             <div id="aImprimir">
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">Cuenta pedido mesa <?php echo $items[0]['Pedido']['mesa']?></h2>
@@ -52,7 +52,7 @@
             //alert("imprimir");
             // windows.location("http://localhost/posvinto/posvinto/facturas/facturar3");
             // printElem({ leaveOpen: true, printMode: 'popup' });
-            printElem({ overrideElementCSS: ['http://localhost/sistemaVintoCV/posvinto/app/webroot/css/imprimir.css'] });
+            printElem({ overrideElementCSS: ['http://localhost/posvinto/posvinto/app/webroot/css/imprimir.css'] });
          });
 
 

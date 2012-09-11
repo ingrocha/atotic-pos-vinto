@@ -1,11 +1,11 @@
 <!-- Container -->
 <div id="container">
 	<div class="shell">
-    <?php if(empty($ventas)): ?>
+    <?php if(empty($insumos)): ?>
     <div id="main">
     <div class="cl">&nbsp;</div>
     <div id="content">
-    <div class="message"><h3>No exiten datos con esos par&aacute;metros de filtro</h3></div>
+    <div class="message"><h3>No exiten datos el dia de hoy</h3></div>
     </div>
        
     </div>
@@ -23,8 +23,8 @@
 				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-     
-						<h2 class="left">REPORTE DE LAS VENTAS</h2>                        
+                        <?php $hoy=date('Y-m-d'); ?>
+						<h2 class="left">REPORTE DE INSUMOS (<?php echo $this->Utilidades->fechaes($hoy); ?>) </h2>                        
 						<div class="right">                                                
 						</div>    
 					</div>
@@ -32,19 +32,19 @@
 					<!-- Table -->
                     <?php //debug($ventas); ?>
 					<div class="table">   
-                    <div class="tituloh1">Producto Vendidos desde <?php echo $this->Utilidades->fechahoraes($fecha1); ?> hasta  (<?php echo $this->Utilidades->fechahoraes($fecha2); ?></div>                    
+                    <div class="tituloh1">Movimientos de insumos</div>                    
                      <?php
                             $nombres = array();
                             $valores = array();
-                            $datos = $ventas;
+                            $datos = $insumos;
                             $i=0;
                             $max = 0;
                             foreach($datos as $d){
-                                $nombres[$i]=$d['Producto']['nombre'];
-                                $valores[$i]=$d['0']['total'];
+                                $nombres[$i]=$d['Insumo']['nombre'];
+                                $valores[$i]=$d['0']['salidas'];
                                 
-                                if($d['0']['total'] >= $max){
-                                    $max = $d['0']['total'];
+                                if($d['0']['salidas'] >= $max){
+                                    $max = $d['0']['salidas'];
                                 }
                                 $i++;        
                             }
@@ -63,38 +63,36 @@
                             echo $this->FlashChart->render(400,400,'chart2','chartDomId');
                     ?>                 
                 	<table style="width: 100%;"> 
-                    <tr>
-                        <th>Producto</th>                                                 
-                        <th>Cantidad</th>        
-                        <th>Precio</th>                     
+                    <tr>                                                
+                        <th>Insumo</th>        
+                        <th>Ingresos</th>
+                        <th>salidas</th> 
+                        <th>Total en almacen</th>                    
                     </tr>
                     <?php //echo $this->Utilidades->fec ?>    
 <?php 
     $total=0;
     //$preciou=0; 
 ?>                    
-<?php foreach ($ventas as $v): ?>
+<?php foreach ($insumos as $v): ?>
     <tr>
         <td>                   
-            <?php echo $v['Producto']['nombre']; ?>
+            <?php echo $v['Insumo']['nombre']; ?>
         </td>         
         <td>
-            <?php echo $v['0']['total']; ?>
+            <?php echo $v['0']['ingresos']; ?>
         </td>
         <td>
-            <?php echo $v['0']['precio']; ?> Bs.
-            <?php 
-                $preciou=$v['0']['precio'];
-                $total+=$preciou; 
-            ?>
+            <?php echo $v['0']['salidas']; ?>
         </td>              
+        <td>
+        <?php 
+                $total=$v['0']['ingresos'] - $v['0']['salidas'];
+                echo $total; 
+            ?>
+        </td>
     </tr>
 <?php endforeach; ?>
-<tr>
-                        <th></th>                                                 
-                        <th>TOTAL</th>        
-                        <th><?php echo $total; ?> Bs.</th>                     
-                    </tr>
 </table>
 
 </div>
