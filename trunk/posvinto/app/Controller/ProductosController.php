@@ -223,7 +223,18 @@ class ProductosController extends AppController
 
         if (!empty($this->data))
         {
-            //debug($this->data);exit;
+            
+            foreach($this->data as $item){
+               $porcion = $this->Porcione->find('first', array(
+            'conditions'=>array('Porcione.producto_id'=>$id_plato, 'Porcione.insumo_id'=>$item['Porcione']['insumo_id'])
+            )); 
+            //debug($porcion);exit;
+             if(!empty($porcion)){
+                $this->Session->setFlash("Ya tiene registrado el insumo ".$porcion['Insumo']['nombre']);
+                $this->redirect(array('controller'=>'Productos', 'action'=>'nuevaporcion'));
+             }   
+            }
+            
             $this->Porcione->create();
             if ($this->Porcione->saveMany($this->data))
             {

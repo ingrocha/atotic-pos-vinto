@@ -50,12 +50,12 @@
 	<td>Perfile</td>
 	<td><?php echo $this->Form->select('perfile_id',$dperf); ?></td>
 </tr>
-<tr>
+<!--<tr>
 	<td>Sucursal</td>
     <td>
-       <?php echo $this->Form->select('sucursal_id', $sucursales);?>
+       <?php //echo $this->Form->select('sucursal_id', $sucursales);?>
     </td>
-</tr>
+</tr>-->
 <tr>
 	<td>Estado</td>
     <td>

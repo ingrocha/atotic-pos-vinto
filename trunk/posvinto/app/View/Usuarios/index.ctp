@@ -73,7 +73,7 @@
             <?php echo $this->Html->link('Modificar', array('action'=>'modificar', $id));?>
             <?php echo $this->Html->link('Dara baja', array('action'=>'baja', $id));?>
             <?php //echo $this->Html->link('Eliminar', array('action'=>'eliminar', $id));?>    
-            <?php echo $this->Html->link('Eliminar',array('action'=>'eliminar',$id),null,('Desea aliminar a este usuario?')); ?>       
+            <?php //echo $this->Html->link('Eliminar',array('action'=>'eliminar',$id),null,('Desea aliminar a este usuario?')); ?>       
         </td>
     </tr>
 <?php endforeach; ?>
