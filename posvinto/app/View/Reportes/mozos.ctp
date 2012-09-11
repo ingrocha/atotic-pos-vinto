@@ -28,7 +28,7 @@ function popitup(url) {
 <!-- Container -->
 
 					<!-- Box -->
-                    <div class="box">
+                    <div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2>Buscar pedido</h2>
@@ -82,7 +82,7 @@ function popitup(url) {
 
 <?php else:?>
 
-                <div class="box" id="aImprimir">
+                <div class="boxa" id="aImprimir">
                 <div class="box-head">
 					<h2>Listado pedidos del mozo <?php echo $mozo?></h2>
 				</div>
@@ -125,7 +125,7 @@ function popitup(url) {
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">
@@ -173,7 +173,7 @@ function popitup(url) {
             //alert("imprimir");
             // windows.location("http://localhost/posvinto/posvinto/facturas/facturar3");
             // printElem({ leaveOpen: true, printMode: 'popup' });
-            printElem({ overrideElementCSS: ['http://localhost/sistemaVintoCV/posvinto/app/webroot/css/imprimir.css'] });
+            printElem({ overrideElementCSS: ['http://localhost/posvinto/posvinto/app/webroot/css/imprimir.css'] });
          });
 
 

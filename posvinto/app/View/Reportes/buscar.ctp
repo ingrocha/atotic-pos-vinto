@@ -20,7 +20,7 @@
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">&Uacute;ltimos 20 ingresos</h2>
@@ -104,7 +104,7 @@
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">
@@ -113,7 +113,7 @@
 					<!-- End Box Head-->
 					
 					<div class="box-content">
-						<a href="http://localhost/sistemaVintoCV/posvinto/reportes/pedidos" class="add-button"><span>Mostrar todo</span></a>
+						<a href="http://localhost/posvinto/posvinto/reportes/pedidos" class="add-button"><span>Mostrar todo</span></a>
 						<div class="cl">&nbsp;</div>
 						<a href="javascript:history.go(-1)" class="add-button"><span>Retornar atr&aacute;s</span></a>
                         <div class="cl">&nbsp;</div>

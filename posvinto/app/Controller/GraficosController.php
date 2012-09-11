@@ -14,7 +14,9 @@ class GraficosController extends AppController
         'Utilidades',
         'Bodega',
         'Insumo', 
-        'Usuario'); //definimos las tablas que vamos a utilizar
+        'Usuario', 
+        'Almacen'
+        ); //definimos las tablas que vamos a utilizar
     public $layout = 'admin';
 
     public function genera()
@@ -57,7 +59,7 @@ class GraficosController extends AppController
     }
     function ventasfechas(){
         if (!empty($this->data)) {
-            //debug($this->data);
+            //debug($this->data);exit;
             $a=0;
             
             
@@ -79,6 +81,8 @@ class GraficosController extends AppController
                 AND (Item.fecha <= '$fecha2')
                 ";
                 $a++;
+            }else{
+                $this->Session->setFlash(__('Debe ingresar las dos fechas!!!!'));
             }
             
             $condiciones .= " GROUP BY(Item.producto_id)";
@@ -115,5 +119,41 @@ class GraficosController extends AppController
             $this->Session->setFlash("Debe introducir al menos un parametro de busqueda");
             $this->Session->redirect(array('action'=>'forminsumos'));
         }
+    }
+    function formalmacen(){
+        
+    }
+    function almacenfechas(){
+        if(!empty($this->data)){
+        // debug($this->data);
+        
+            $fecha1 = $this->data['Cliente']['fecha_desde'];
+            $fecha2 = $this->data['Cliente']['fecha_hasta'];
+            if(!empty($fecha1) and !empty($fecha2)){
+            $insumos= $this->Almacen->find('all', array(
+            'conditions'=>array('Almacen.fecha >='=>$fecha1, 'Almacen.fecha <='=>$fecha2),
+            'fields'=>array('sum(Almacen.salida) as salidas', 'sum(Almacen.ingreso) as ingresos', 'Insumo.nombre', 'Insumo.id'), 
+            'group'=>array('Almacen.insumo_id')
+            ));
+            //debug($insumos);exit;
+            $this->set(compact('insumos'));    
+            }else{
+              $this->Session->setFlash(__("Debe introducir las dos fechas"));  
+            }    
+        
+        }else{
+            $this->Session->setFlash(__("Debe introducir las dos fechas"));
+        }
+    }
+    public function almacenhoy()
+    {       
+        $hoy = date('Y-m-d');
+        $insumos= $this->Almacen->find('all', array(
+            'fields'=>array('sum(Almacen.salida) as salidas', 'sum(Almacen.ingreso) as ingresos', 'Insumo.nombre', 'Insumo.id'), 
+            'group'=>array('Almacen.insumo_id')
+            ));
+        
+        
+        $this->set(compact('insumos'));
     }
 }

@@ -25,7 +25,7 @@ function popitup(url) {
 			<!-- Content -->
 			<div id="content">
             <!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">Pedidos de hoy</h2>
@@ -97,7 +97,7 @@ function popitup(url) {
 			<div id="sidebar">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					
 					<!-- Box Head -->
 					<div class="box-head">

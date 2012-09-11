@@ -170,7 +170,13 @@ class ReportesController extends AppController{
         $mozos = $this->Usuario->find('list', array('conditions'=>array('Usuario.perfile_id'=>2), 'fields'=>array('Usuario.nombre')));
         $this->set(compact('data', 'mozos'));
     }
-    
+    public function ventas(){
+        if(!empty($this->data)){
+          debug($this->data);exit;  
+        }else{
+            $this->Session->setFlash(__("Debe introducir un dato para filtro"));
+        }
+    }
 }
 
 ?>
