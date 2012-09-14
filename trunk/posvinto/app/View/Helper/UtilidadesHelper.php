@@ -9,7 +9,7 @@ class UtilidadesHelper extends AppHelper
     // Logic to create specially formatted link goes here...
     //}
     /**
-     * @param dateTime se envia la fecha en formato ('Y-m-d H:m:s')    
+     * @param dateTime se envia la fecha en formato ('Y-m-d H:m:s') Ej: Ej; (2012-02-24 23:45:12)
      * @return string la fecha en formato (Miercoles, 22 de Agosto de 2012 Hrs 16:22:07)
      */
     public function fechahoraes($fecha)
@@ -74,7 +74,7 @@ class UtilidadesHelper extends AppHelper
     }
     
     /**
-     * @param dateTime se envia la fecha en formato ('Y-m-d')    
+     * @param dateTime se envia la fecha en formato ('Y-m-d') . Ej; (2012-02-24)   
      * @return string la fecha en formato (Miercoles, 22 de Agosto de 2012)
      */
     public function fechaes($fecha)
