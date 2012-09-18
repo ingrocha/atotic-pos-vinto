@@ -22,7 +22,7 @@
 			<div id="content">
 				
 				<!-- Box -->
-				<div class="box">
+				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
 						<h2 class="left">Nueva Categoria en Almacen</h2>
@@ -68,23 +68,7 @@
 			<!-- End Content -->
 			
 			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="box">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Administracion</h2>
-					</div>
-					<!-- End Box Head-->					
-					<div class="box-content">
-                    <?php echo $this->Html->link("<span>Listado Insumos</span>", array('action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>						
-						<div class="cl">&nbsp;</div>																	
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
+			<?php echo $this->element('menualmacenes') ?>
 			<!-- End Sidebar -->
 			
 			<div class="cl">&nbsp;</div>			
