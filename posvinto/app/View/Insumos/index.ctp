@@ -16,7 +16,7 @@
 				<div class="boxa">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">LISTADO DE INSUMOS EN ALMACEN</h2>                        
+						<h2 class="left">LISTADO DE INSUMOS ALMACEN</h2>                        
 						<div class="right">                        
                                             						</div>    
 					</div>
