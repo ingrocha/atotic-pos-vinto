@@ -81,7 +81,13 @@
                                                 "title" => "Dar de baja",
                                                 'url' => array('action' => 'baja', $id)
                                             ));
-                                            ?>                                             
+                                            ?>
+                                             <?php
+                                            echo $this->Html->image("candado.png", array(
+                                                "title" => "Cambiar password",
+                                                'url' => array('action' => 'cambiarpassword', $id)
+                                            ));
+                                            ?>                                              
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

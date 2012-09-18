@@ -1,3 +1,5 @@
+<div class="boxa">
+
 <div class="table">
          <table>
             <thead>
@@ -56,3 +58,4 @@
             </tbody>
             </table>
          </div>
+</div>

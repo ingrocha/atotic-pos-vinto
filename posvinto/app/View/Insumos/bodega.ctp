@@ -24,30 +24,23 @@
 					<!-- Table -->
 	<div class="table">
     <?php echo $this->element('tablagrid'); ?>
-	<table id="grid">
+	<table id="grid" style="width: 100%;">
     <thead>
     <tr>
-        <th style="width: 250px;">Nombre</th>     
-        <th style="width: 80px;">Ingreso</th>         
-        <th style="width: 80px;">Vendidos</th>
-        <th style="width: 70px;">Total</th>
+        <th>Nombre</th>     
+        <th>Total</th>
         <th>Fecha</th> 
     </tr>  
     </thead>
     <tbody> 
     <?php foreach ($bodega as $b): ?>
     <tr>
-        <td style="width: 250px;">
+        <td>
             <?php $id = $b['Insumo']['id']; ?>            
             <?php echo $b['Insumo']['nombre']; ?>
         </td>        
-        <td style="width: 80px;">
-            <?php echo $b['Bodega']['ingreso']; ?>
-        </td> 
-        <td style="width: 80px;">
-            <?php echo $b['Bodega']['salida']; ?>
-        </td>
-        <td style="width: 70px;">
+        
+        <td>
             <?php echo $b['Bodega']['total']; ?>
         </td>
         <td>

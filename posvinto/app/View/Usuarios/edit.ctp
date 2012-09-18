@@ -5,9 +5,9 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('nombre');
+        echo $this->Form->input('codigo');
 		echo $this->Form->input('direccion');
 		echo $this->Form->input('usuario');
-		echo $this->Form->input('pass');
 		echo $this->Form->input('perfile_id');
 	?>
 	</fieldset>

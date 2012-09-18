@@ -39,36 +39,50 @@
                <td>
                <?php echo $diastrabajados ?>
                </td>
+               <td>Pago correspondiente</td>
+               <td>
+               <?php echo $pagar ?>
+               </td>
             </tr>
             <tr>
-               <td>Total descuentos</td>
+            <td colspan="3">Total descuentos</td>
                <td>
                <?php echo $descuento ?>
                </td>
             </tr>
             <tr>
-               <td>Total pago</td>
+            <?php if($pago <=0): ?>
+               <td colspan="3" style="background-color: red;">Deuda</td>
+               <td style="background-color: red;">
+               <?php 
+               $name=substr($pago,1);
+                echo $name;
+               ?>
+               </td>
+            <?php else: ?>
+            <td colspan="3">Total a cancelar</td>
                <td>
                <?php echo $pago ?>
                </td>
+            <?php endif; ?>
             </tr>
          </tbody>
          </table>
          </div>
-         <?php echo $this->Ajax->link(
-'Ver detalle',
-array( 'action' => 'verdetalle', $mozo, $fecha1, $fecha2),
-array( 'update' => 'carga')
-);
-?>
-         <div class="table" id="carga">
-         
+         <div class="cl">&nbsp;</div>
+         <div class="ayuda">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <?php echo $this->Html->link($this->Html->image("menu.png", array("title" =>
+                    "ver detalle asistencias")), array(
+                'action' => 'verdetalle',$mozo, $fecha1, $fecha2
+                ), array('escape' => false));?>
+                Ver detalle asistencias
          </div>
+         <div class="cl">&nbsp;</div>
       </div> 
    </div>
    <?php echo $this->element('menuusuarios') ?>
-			
-			<div class="cl">&nbsp;</div>
+   <div class="cl">&nbsp;</div>
 </div>
 </div>
 </div>
