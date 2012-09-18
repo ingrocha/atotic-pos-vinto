@@ -69,24 +69,7 @@
 			</div>
 			<!-- End Content -->			
 			<!-- Sidebar -->
-			<div id="sidebar">				
-				<!-- Box -->
-				<div class="boxa">					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Administracion</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">
-                    <?php echo $this->Html->link("<span>Nuevo Insumo</span>", array('action'=>'nuevo'), array('class'=>"add-button", 'escape' => FALSE)); ?>      						
-                    <?php echo $this->Html->link("<span>Registrar Salida</span>", array('action'=>'salidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
-						<div class="cl">&nbsp;</div>																		
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
+			<?php echo $this->element('menualmacenes') ?>
 			<!-- End Sidebar -->
 			
 			<div class="cl">&nbsp;</div>			
