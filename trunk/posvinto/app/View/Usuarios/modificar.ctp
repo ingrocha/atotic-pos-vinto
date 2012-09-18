@@ -43,8 +43,8 @@
 	<td><?php echo $this->Form->text('usuario'); ?></td>
 </tr>
 <tr>
-	<td>Password</td>
-	<td><?php echo $this->Form->text('pass'); ?></td>
+	<td>Codigo ingreso</td>
+	<td><?php echo $this->Form->text('codigo'); ?></td>
 </tr>
 <tr>
 	<td>Perfile</td>

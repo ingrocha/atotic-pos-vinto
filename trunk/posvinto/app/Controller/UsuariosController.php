@@ -63,10 +63,8 @@ class UsuariosController extends AppController
         }
         if (empty($this->data)) {
             $this->data = $this->Usuario->read();
-
         } else {
-            $pass = sha1($this->data['Usuario']['pass']);
-            $this->request->data['Usuario']['pass'] = $pass;
+            
             if ($this->Usuario->save($this->data)) {
                 $this->Session->setFlash('Los datos fueron modificados');
                 $this->redirect(array('action' => 'index'), null, true);
@@ -110,6 +108,29 @@ class UsuariosController extends AppController
             $this->Session->setFlash('El usuario  ' . $id . ' fue eliminado');
             $this->redirect(array('action' => 'index'));
         }
+    }
+    public function cambiarpassword($id=null){
+        if(!empty($this->data)){
+            
+            $contrasena = sha1($this->data['Usuario']['pass']);
+            $this->data = '';
+            $this->request->data['Usuario']['id']= $id;
+            $this->request->data['Usuario']['pass'] = $contrasena;
+            $this->Usuario->read();
+            if($this->Usuario->save($this->data)){
+                $this->Session->setFlash("Contrasena modificada");
+                $this->redirect(array('action'=>'index'));
+            }else{
+                $this->Session->setFlash("No se pudo modificar la contrasena");
+                $this->redirect(array('action'=>'index')); 
+            }
+        }
+    }
+    function logout(){
+      $this->Session->delete('nombre');
+      $this->Session->delete('usuario_id');      
+      $this->Session->delete('tipousuario_id');      
+      $this->redirect('/admin');
     }
 }
 ?>

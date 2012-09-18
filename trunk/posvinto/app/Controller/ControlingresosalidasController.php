@@ -49,11 +49,10 @@ class ControlingresosalidasController extends AppController{
         $sueldo = $sueldoempleado['Contrato']['sueldo'];
         
         $pago = number_format((($sueldo/31) * $diastrabajados) - $descuento,'2', ',', ' ');
-        
-        $this->set(compact('pago', 'diastrabajados', 'sueldoempleado', 'descuento', 'sueldo', 'mozo', 'fecha1', 'fecha2'));
+        $pagar = number_format(($sueldo/31) * $diastrabajados, '2', ',', ' ');
+        $this->set(compact('pago','pagar', 'diastrabajados', 'sueldoempleado', 'descuento', 'sueldo', 'mozo', 'fecha1', 'fecha2'));
     }
     public function verdetalle($id=null, $fecha1=null, $fecha2=null){
-        $this->layout = 'ajax';
         
         $ingresos = $this->Asistencia->find('all', array(
         'conditions'=>array('Asistencia.fecha >='=>$fecha1, 'Asistencia.fecha <='=>$fecha2, 
