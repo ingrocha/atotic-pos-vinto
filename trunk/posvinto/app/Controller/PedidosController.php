@@ -259,7 +259,14 @@ class PedidosController extends AppController
     {
 
         $this->Pedido->id = $pedido;
-
+        
+        $items = $this->Item->find('all', array(
+        'conditions'=>array('Item.pedido_id'=>$pedido)
+        ));
+        $total = 0;
+        foreach($items as $item){
+            $total += $item['Item']['precio'];
+        }
         $this->request->data['Pedido']['total'] = $total;
 
         if ($this->Pedido->save($this->data))
@@ -511,7 +518,7 @@ class PedidosController extends AppController
 
     public function ajaxlistado($id_moso = null, $id_prod = null, $pedido = null, $mesa = null)
     {
-
+        
         $this->layout = 'ajax';
 
         /************************************************/
@@ -536,8 +543,10 @@ class PedidosController extends AppController
             $control = 0;
             foreach ($porciones as $porcion)
             {
-                $items = $this->Bodega->find('first', array('conditions' => array('Bodega.insumo_id' =>
-                            $porcion['Porcione']['insumo_id']), 'order' => array('Bodega.id DESC')));
+                $items = $this->Bodega->find('first', array(
+                'conditions' => array('Bodega.insumo_id' =>$porcion['Porcione']['insumo_id']), 
+                'order' => array('Bodega.id DESC')
+                ));
                 //debug($items);exit;
                 if (!empty($items))
                 {
@@ -669,18 +678,67 @@ class PedidosController extends AppController
             //$this->Session->setFlash("No existen datos");
         }
     }
-    function registroalmacen($id = null){
+    function registroalmacen($mozo=null){
         $this->layout = 'pedidos';
-        //debug($this->data);exit;
         $insumos = $this->Insumo->find('all', array(
             'recursive' => 0,
             'conditions' => array('Insumo.estado' => 1),
             'order' => array('Insumo.id' => 'DESC'),
-            'limit' => 20));
-        //debug($insumos);
-        $mozo = $id;
+            'limit' => 5));
         $this->set(compact('insumos', 'mozo'));
-    }
+        if(!empty($this->data)){
+            
+            $id = $this->data['Pedido']['insumo_id'];
+            $insumo = $this->Insumo->findById($id);
+            //debug($insumo);exit;
+            $nombre_insumo= $insumo['Insumo']['nombre'];
+            $precio_compra=$insumo['Insumo']['preciocompra'];
+            $total = $insumo['Insumo']['total'];
+            $cantidad_solicitada= $this->data['Pedido']['cantidad'];
+            $this->data = '';
+            $almacen = $this->Almacen->find('first', array(
+            'conditions'=>array('Almacen.insumo_id'=>$id), 
+            'order'=>array('Almacen.id DESC')
+            ));
+            if($total == 0){
+                $this->Session->setFlash("No le queda ".$nombre_insumo);
+                $this->redirect(array('action'=>'registroalmacen', $mozo));
+            }
+            $this->Almacen->create();
+            $this->request->data['Almacen']['insumo_id'] = $id;
+            $this->request->data['Almacen']['preciocompra'] = $precio_compra;
+            $this->request->data['Almacen']['salida'] = $cantidad_solicitada;
+            $this->request->data['Almacen']['total'] = $total - $cantidad_solicitada;
+            $this->request->data['Almacen']['fecha'] = date('Y-m-d');
+            $this->request->data['Almacen']['usuario_id'] = $mozo;
+            
+            
+            if($this->Almacen->save($this->data)){
+                $bodega = $this->Bodega->find('first', array(
+                'conditions'=>array('Bodega.insumo_id'=>$id), 
+                'order'=>array('Bodega.id DESC')
+                ));
+                $this->data='';
+                $this->Bodega->create();
+                $this->request->data['Bodega']['insumo_id'] = $id;
+                $this->request->data['Bodega']['preciocompra'] = $precio_compra;
+                $this->request->data['Bodega']['fecha'] = date('Y-m-d');
+                
+                if(empty($bodega)){
+                    $this->request->data['Bodega']['total'] = $cantidad_solicitada;
+                    $this->request->data['Bodega']['ingreso'] = $cantidad_solicitada;
+                }else{
+                    $total_bodega= $bodega['Bodega']['total'];
+                    $this->request->data['Bodega']['ingreso'] = $cantidad_solicitada;
+                    $this->request->data['Bodega']['total'] = $total_bodega + $cantidad_solicitada;
+                }
+                if($this->Bodega->save($this->data)){
+                    $this->Session->setFlash("Se sacaron ".$cantidad_solicitada." ".$nombre_insumo);
+                    $this->redirect(array('action'=>'registroalmacen', $mozo));
+                }
+            }
+         }
+   }         
     public function salidalmacen($id=null, $mozo=null)
     {
 

@@ -19,20 +19,27 @@ class InsumosController extends AppController
 
     public function index()
     {
-
-        //$this->paginate = array('limit' => 20, 'order' => array('Insumo.id' => 'desc'), 'conditions'=>array('estado'=>1));
-        //similar to findAll(), but fetches paged results
-        //$insumos = $this->paginate('Insumo');
-        $insumos = $this->Insumo->find('all', array(
-            'recursive' => 0,
-            'conditions' => array('Insumo.estado' => 1),
-            'order' => array('Insumo.id' => 'DESC'),
-            'limit' => 20));
-        //debug($insumos);
+        $idsinsumos = $this->Almacen->find('all', array(
+            'fields'=>array('max(Almacen.id)as id'), 
+            'group' => array('Almacen.insumo_id'),
+            'order'=>array('Almacen.insumo_id ASC')
+            ));
+        $i=0;
+   
+        foreach($idsinsumos as $id){
+            foreach($id as $di)
+                 $ids[$i] = $di['id'];
+                 $i++;
+        }
+        
+        $insumos = $this->Almacen->find('all', array(
+        'conditions'=>array('Almacen.id'=>$ids)
+        ));
+        
+        //, 'Insumo.nombre', 'Insumo.preciocompra', 'Insumo.precioventa', 'Almacen.total', 'Almacen.insumo_id'
+        //debug($insumos);exit;
         $this->set(compact('insumos'));
-        //$insumos = $this->Insumo->find('all');
-        //$this->set(compact('insumos'));
-    }
+   }
 
     public function nuevacategoria()
     {
@@ -199,19 +206,28 @@ class InsumosController extends AppController
 
     public function bodega()
     {
-
-        //$this->paginate = array('limit' => 6, 'order' => array('id' => 'desc'));
-        // similar to findAll(), but fetches paged results
-        //$bodega = $this->paginate('Bodega');
-        //debug($bodega);  exit;
-        //$this->set(compact('bodega'));
-        //$insumos = $this->Insumo->find('all');
-        //$this->set(compact('insumos'));
         $bodega = $this->Bodega->find('all', array(
+            'fields'=>array('max(Bodega.id) as id'),
             'recursive' => 1,
-            'order' => array('Bodega.id DESC')                       
+            'group'=>array('Bodega.insumo_id'),
+            'order' => array('Bodega.id ASC')                       
             ));
-        //debug($bodega);
+        
+        $ids = array();
+        $i=0;
+        foreach($bodega as $insumo){
+            foreach($insumo as $id){
+               $ids[$i]=$id['id'];    
+            }
+             $i++;
+        }
+        
+        $bodega = $this->Bodega->find('all', array(
+            'conditions'=>array('Bodega.id'=>$ids),
+            'recursive' => 1,
+            'group'=>array('Bodega.insumo_id'),
+            'order' => array('Bodega.id ASC')                       
+            ));
         $this->set(compact('bodega'));
     }
     function buscarbodega()

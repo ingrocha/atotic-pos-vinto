@@ -3,7 +3,8 @@
     App::uses('AppController', 'Controller');
     class FacturarController extends AppController {
         
-        public $components = array('Verhoeff', 'Rc', 'Codigocontrol');        
+        public $components = array('Verhoeff', 'Rc', 'Codigocontrol');  
+        public $uses = array('Parametrosfactura');      
         
         public function genera(){
             
@@ -160,5 +161,14 @@
                                                 'A3Fs4s$)2cvD(eY667A5C4A2rsdf53kw9654E2B23s24df35F5');
             $codigo=$this->Codigocontrol->generar();                                                
             debug($codigo);
-        }   
+        } 
+
+        public function editar(){
+            $parametros = $this->Parametrosfactura->find('all');
+            //debug($parametros);exit;
+            $this->set(compact('parametros'));
+            if(!empty($this->data)){
+                debug($this->data);exit;
+            }
+        }  
     }

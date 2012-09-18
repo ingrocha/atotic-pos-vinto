@@ -13,7 +13,8 @@ class ControlpedidosController extends AppController
         'Item',
         'Parametrosfactura',
         'Factura',
-        'Sucursal');
+        'Sucursal', 
+        'Descuento', 'Recibo');
     public $layout = 'admin';
 
     public function index()
@@ -34,12 +35,33 @@ class ControlpedidosController extends AppController
     
     public function imprecibo($id_pedido=null){
         
-        $this->layout='imprimir';
+        //$this->layout='imprimir';
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $id_pedido)));
-        //debug($pedido);
+        $totalpagado = 0.00;
+        foreach($pedido as $item){
+            $totalpagado += $item['Item']['precio'];
+        }
+        
         $moso = $this->Pedido->find('first', array('recursive'=>0, 'conditions'=>array('Pedido.id'=>$id_pedido)));
         //debug($moso);
-        $this->set(compact('pedido', 'id_pedido', 'moso'));
+        $descuentos = $this->Descuento->find('list', array(
+        'fields'=>array('Descuento.porcentaje', 'Descuento.observacion')
+        ));
+        $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos'));
+        if(!empty($this->data)){
+           
+            $this->request->data['Recibo']['fecha']=date('Y-m-d');
+            $this->Recibo->create();
+            
+            if($this->Recibo->save($this->data)){
+                $this->Session->setFlash(__('Recibo guardado'));
+                //$this->redirect(array('action' => 'index', $id));
+                
+            }else{
+            $this->Session->setFlash('error');
+            $this->redirect(array('action' => 'index'), null, true);
+            }
+        }
     }
     public function autocomplete()
     {
@@ -359,7 +381,11 @@ class ControlpedidosController extends AppController
         $this->set('itemspedidos', $this->Item->find('all', array('conditions' => array
                 ('Item.pedido_id' => $id))));
     }
-
+    function totalcondescuento($total=null, $descuento=null){
+        $this->layout = 'imprimir';
+        $totalpagar = $total - ($total * $descuento);
+        $this->set(compact('total', 'totalpagar', 'descuento'));
+    }
 }
 ?>
 
