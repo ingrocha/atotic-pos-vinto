@@ -73,7 +73,9 @@
                 <!--<li>
                     <?php //echo $this->Html->link("<span>Bebidas</span>", array('controller'=>'Productos', 'action'=>'bebidas'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                 </li>-->
-			    <li><a href="<?php echo $url?>panelcontrol/config"><span>Configuraciones</span></a></li>
+			    <li>
+                <?php echo $this->Html->link("<span>Configuraciones</span>", array('controller'=>'Configuraciones', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                </li>
 			</ul>
 		</div>
 		<!-- End Main Nav -->

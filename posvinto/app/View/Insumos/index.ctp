@@ -28,40 +28,34 @@
                     <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Categoria</th>
                         <th>P.Compra</th>
                         <th>P.Venta</th>  
-                        <th >Almacen</th> 
+                        <th >Existencias</th> 
                         <!--<th>Observaciones</th>-->
                         <th style="width: 105px;">Acciones</th>     
                     </tr>    
                     </thead>
                     <tbody>
 <?php foreach ($insumos as $i): ?>
+<?php $id = $i['Almacen']['insumo_id'] ?>
+   <div id="cuadro_<?php echo $id ?>">
+   </div>
+   <div id="cuadro2_<?php echo $id ?>">
+   </div>
     <tr>
         <td>
-            <?php $id = $i['Insumo']['id']; ?>            
-            <?php echo $i['Insumo']['nombre']; ?>
-        </td>
-        <div id="cuadro_<?php echo $id; ?>" title="Ingreso de  insumos">
-        </div> 
-        <div id="cuadro2_<?php echo $id; ?>" title="Salida de insumos">
-        </div> 
-        <td>
-            <?php echo $i['Tipo']['nombre']; ?>
+        <?php echo $i['Insumo']['nombre'] ?>
         </td>
         <td>
-            <?php echo $i['Insumo']['preciocompra']; ?>
+        <?php echo $i['Insumo']['preciocompra'] ?>
         </td>
         <td>
-            <?php echo $i['Insumo']['precioventa']; ?>
+        <?php echo $i['Insumo']['precioventa'] ?>
         </td>
         <td>
-            <?php echo $i['Insumo']['total']; ?>
+            <?php echo $i['Almacen']['total']; ?>
         </td>        
-        <!--<td>
-            <?php //echo $i['Insumo']['observaciones']; ?>
-        </td>-->       
+             
         <td>
             <?php 
                 echo $this->Html->image("edit.png", array(
@@ -88,11 +82,6 @@
                     'url' => array('action' => 'deshabilitar', $id)
                 ));
             ?>            
-            <?php //echo $this->Html->link('Modificar', array('action' => 'modificar', $id)); ?>
-            <?php //echo $this->Html->link('Dara baja', array('action' => 'baja', $id)); ?>
-            <?php //echo $this->Html->link('', array('action' => 'baja', $id)); ?>
-            <?php //echo $this->Html->link('Eliminar', array('action'=>'eliminar', $id)); ?>    
-            <?php //echo $this->Html->link('Eliminar', array('action' => 'eliminar', $id), null, ('Desea aliminar a este insumo?')); ?>
             
             <script type="text/javascript">
             var dialogOpts = {
@@ -100,7 +89,7 @@
             };
             jQuery("#dialog_<?php echo $id; ?>").click(function(){
                 jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/ingresoalmacen/<?php echo $id; ?>");
-                //alert("click");
+               
             });   
             
             jQuery("#dialog2_<?php echo $id; ?>").click(function(){

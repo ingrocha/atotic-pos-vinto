@@ -12,7 +12,6 @@
     <tr>
         <td>Plato</td>
         <td>Cantidad</td>
-       <!-- <td>Precio</td> -->
         <td>Acciones</td>
     </tr>
     <?php //echo $id_moso; ?>
