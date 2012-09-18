@@ -4,6 +4,7 @@ class ParametrosFacturasController extends AppController
 
     public $helpers = array('Html', 'Form'); 
     public $uses = array('ParametrosFactura'); 
+    public $layout = 'admin';
     public function index()
     {
 
