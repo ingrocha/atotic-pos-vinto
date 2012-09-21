@@ -23,27 +23,27 @@
 	<table id="grid">
     <thead>
     <tr>
-        <th style="width: 180px;">Cliente</th>
-        <th style="width: 90px;">Evento</th>
-        <th style="width: 90px;">Cantidad Personas</th>
-        <th style="width: 120px;">Fecha y Hora</th>        
+        <th>Cliente</th>
+        <th>Evento</th>
+        <th>Cantidad Personas</th>
+        <th>Fecha y Hora</th>        
         <th>Acciones</th>     
     </tr>
     </thead>
     <tbody>    
     <?php foreach ($reservas as $r): ?>
     <tr>
-        <td style="width: 180px;">
+        <td>
             <?php $id = $r['Reserva']['id']; ?>            
             <?php echo $r['Cliente']['nombre']; ?>
         </td>
-        <td style="width: 90px;">
+        <td>
             <?php echo $r['Tipoevento']['nombre']; ?>
         </td>  
-        <td style="width: 90px;">
+        <td>
             <?php echo $r['Reserva']['cantidad_personas']; ?>
         </td>
-        <td style="width: 120px;">
+        <td>
             <?php 
                 $fecha = $r['Reserva']['fecha']; 
                 echo  $this->Utilidades->fechahoraes($fecha); 
