@@ -24,7 +24,7 @@
 					<!-- Table -->
 					<div class="table">  
                     <?php echo $this->element('tablagrid'); ?>                                    
-                	<table id="grid"> 
+                	<table id="grid" style="width: 100%"> 
                     <thead>
                     <tr>
                         <th>Nombre</th>

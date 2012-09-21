@@ -1,7 +1,4 @@
-<?php
-
-App::uses('AppController', 'Controller');
-
+<?php App::uses('AppController', 'Controller');
 /**
  * Pedidos Controller
  *
@@ -11,9 +8,7 @@ App::uses('AppController', 'Controller');
  */
 class PedidosController extends AppController
 {
-
     public $helpers = array('Form', 'Html');
-
     public $components = array('Session');
     public $uses = array(
         'Usuario',
@@ -24,74 +19,28 @@ class PedidosController extends AppController
         'Insumo',
         'PedidosMesa',
         'Porcione',
-        'Bodega', 
+        'Bodega',
         'Almacen');
     public $layout = 'publico';
-
     public function index()
     {
-
         $this->Pedido->recursive = 0;
         $this->set('pedidos', $this->paginate());
     }
-
     public function pedidomoso($id_moso = null, $pedido = null, $mesa = null)
     {
-
         $categorias = $this->Categoria->find('all', array('recursive' => -1,
                 'conditions' => array('estado' => 1)));
-        //debug($categorias);
-        //$productos = $this->Producto->find('all', array('recursive' => -1, 'order' => 'Producto.categoria_id ASC'));
-        //$sql = "Select ";
         $productos = $this->Producto->find('all', array(
             'recursive' => -1,
             'order' => 'id DESC',
             'conditions' => array('estado' => 1)));
-        //debug($productos);
-        //$platos=array();
-        //$i=0;
-        /*foreach ($productos as $p){
-        $id_producto = $p['Producto']['id'];
-        $nombre_producto = $p['Producto']['nombre'];
-        $porciones = $this->Porcione->find('all', array('recursive' => -1, 'conditions'=>array('producto_id'=>$id_producto)));
-        //debug($porciones);
-        foreach($porciones as $po){
-        
-        $id_insumo = $po['Porcione']['id'];
-        $cantidad = $po['Porcione']['cantidad'];
-        
-        $existe_insumo = $this->Insumo->find('first', array('recursive' => -1, 'conditions'=>array('id'=>$id_insumo, 'bodega >='=>$cantidad)));
-        
-        if($existe_insumo){
-        echo "el producto es ".$nombre_producto. "<br />";
-        $platos[$i]=$id_producto;
-        $i++;
-        }
-        
-        }        
-        }*/
-        //$productos = $this->Producto->find('all', array('recursive' => -1, 'conditions'=>array('id'=>$platos)));
-        //debug($productos);
-        //debug($mostrar_plato);
-        //$productos = $this->Producto->find('all', array('recursive' => 3, 'order' => 'Producto.id DESC', 'conditions'=>array('Producto.estado'=>1, 'Porcione.insumo_id >='=>1)));
-        //debug($productos);
         $porciones = $this->Porcione->find('all');
-        //debug($porciones);
         $items_pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
                     $pedido)));
-        //debug($items_pedido);
         $this->set(compact('productos', 'id_moso', 'pedido', 'categorias', 'mesa',
             'items_pedido'));
     }
-    //aqui un cambio
-    //de muestra
-
-    /**
-     * view method
-     *
-     * @param string $id
-     * @return void
-     */
     public function view($id = null)
     {
         $this->Pedido->id = $id;
@@ -101,7 +50,6 @@ class PedidosController extends AppController
         }
         $this->set('pedido', $this->Pedido->read(null, $id));
     }
-
     /**
      * add method
      *
@@ -125,7 +73,6 @@ class PedidosController extends AppController
         $usuarios = $this->Pedido->Usuario->find('list');
         $this->set(compact('platos', 'usuarios'));
     }
-
     /**
      * edit method
      *
@@ -157,7 +104,6 @@ class PedidosController extends AppController
         $usuarios = $this->Pedido->Usuario->find('list');
         $this->set(compact('platos', 'usuarios'));
     }
-
     public function verdetalle($id_ped = nulll)
     {
         $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
@@ -167,7 +113,6 @@ class PedidosController extends AppController
         //debug($pedido);
         $this->set(compact('items'));
     }
-
     /**
      * delete method
      *
@@ -193,10 +138,8 @@ class PedidosController extends AppController
         $this->Session->setFlash(__('Pedido was not deleted'));
         $this->redirect(array('action' => 'index'));
     }
-
     public function restarproducto($id_item = null, $mesa = null)
     {
-
         $this->layout = 'ajax';
         $item = $this->Item->findById($id_item);
         //debug($item);
@@ -204,7 +147,6 @@ class PedidosController extends AppController
         $id_prod = $item['Item']['producto_id'];
         $cantidad = $item['Item']['cantidad'] - 1;
         $pedido = $item['Pedido']['id'];
-
         if ($item['Item']['cantidad'] == 1)
         {
             $this->Item->delete($id_item);
@@ -219,10 +161,9 @@ class PedidosController extends AppController
             //debug($this->data);exit;
             $this->Item->save($this->data);
         }
-
-        /************************************************/
+        /*         * ********************************************* */
         /*   Porciones productos y reservas de bodega   */
-        /************************************************/
+        /*         * ********************************************* */
         $porciones = $this->Porcione->find('all', array(
             'conditions' => array('Porcione.producto_id' => $id_prod),
             'order' => array('Porcione.producto_id ASC'),
@@ -236,16 +177,15 @@ class PedidosController extends AppController
             $this->Bodega->id = $item['Bodega']['id'];
             $this->Bodega->read();
             $verif = $item['Bodega']['salida'] - 1;
-            if($verif < 0){
-                $verif=0;
-            }            
+            if ($verif < 0)
+            {
+                $verif = 0;
+            }
             $this->request->data['Bodega']['salida'] = $verif;
             $this->request->data['Bodega']['total'] = $item['Bodega']['total'] + 1;
             $this->Bodega->save($this->data);
         }
-        /*****************fin actualiza bodega*******************************/
-
-
+        /*         * ***************fin actualiza bodega****************************** */
         $items = $this->Item->find('all', array('conditions' => array('pedido_id' => $pedido)));
         $cant_platos = $this->Item->find('all', array(
             'conditions' => array('pedido_id' => $pedido),
@@ -254,24 +194,19 @@ class PedidosController extends AppController
         //debug($items);exit;
         $this->set(compact('items', 'pedido', 'cant_platos', 'mesa'));
     }
-
     public function registrarpedido($pedido = null, $total = null)
     {
-
         $this->Pedido->id = $pedido;
-        
-        $items = $this->Item->find('all', array(
-        'conditions'=>array('Item.pedido_id'=>$pedido)
-        ));
+        $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
+                    $pedido)));
         $total = 0;
-        foreach($items as $item){
+        foreach ($items as $item)
+        {
             $total += $item['Item']['precio'];
         }
         $this->request->data['Pedido']['total'] = $total;
-
         if ($this->Pedido->save($this->data))
         {
-
             $this->Session->setFlash('Pedido Registrado');
             $this->redirect(array('action' => 'listadopedidos'));
         }
@@ -285,7 +220,6 @@ class PedidosController extends AppController
         }else{
         $nueva_mesa=1;
         } */
-
         /* $this->request->data['PedidosMesa']['pedido_id']=$pedido;
         $this->request->data['PedidosMesa']['mesa']=$nueva_mesa;
         $this->request->data['PedidosMesa']['fecha']=$fecha;
@@ -299,10 +233,8 @@ class PedidosController extends AppController
         $this->Session->setFlash('Pedido No se Pudo registrar');
         } */
     }
-
     public function entregarmesa($id_ped = null)
     {
-
         $this->Pedido->id = $id_ped;
         $this->request->data['Pedido']['estado'] = 1;
         if ($this->Pedido->save($this->data))
@@ -315,17 +247,12 @@ class PedidosController extends AppController
         }
         //debug($this->data);
     }
-
     public function detallemimesa($id_pedido = null)
     {
-
         $mesa = $this->Pedido->find('first');
-
     }
-
     public function asignacionmesa()
     {
-
         //if($this)
         $pedidos = $this->Pedido->find('all', array('conditions' => array('Pedido.estado' => false),
                 'recursive' => 0));
@@ -339,10 +266,8 @@ class PedidosController extends AppController
         //$this->set(compact('pedidos', 'nueva_mesa'));
         //debug($pedidos);
     }
-
     public function mismesas()
     {
-
         if (!empty($this->data))
         {
             $num = $this->data['Pedidos']['numero'];
@@ -354,16 +279,13 @@ class PedidosController extends AppController
             {
                 $this->redirect(array('action' => 'listadomesas', $id_moso));
             }
-
         } else
         {
             //$this->Session->setFlash("No existen datos");
         }
     }
-
     public function listadomesas($id_moso = null)
     {
-
         $hoy = date('Y-m-d');
         App::uses('CakeTime', 'Utility');
         $dia = CakeTime::dayAsSql($hoy, 'fecha');
@@ -372,54 +294,38 @@ class PedidosController extends AppController
         //debug($mesas);
         $this->set(compact('mesas'));
     }
-
     public function ingreso()
     {
-
     }
-
     public function listadopedidos()
     {
-
         //$pedidos = $this->Pedido->find('all', array('conditions' => array('Pedido.estado' => 1)));
         $pedidos = $this->Item->find('all', array('order' => 'Item.Id DESC'));
         //debug($pedidos);
         //debug($pedidos);
     }
-
     public function listadocosina()
     {
-
         $pedidos = $this->Item->find('all', array('order' => 'Item.Id DESC'));
         //debug($pedidos);
         $this->set(compact('pedidos'));
-
     }
-
     public function verificamoso()
     {
-
         //debug($this->data);
         if (!empty($this->data))
         {
-
             $num = $this->data['Pedidos']['numero'];
-            $verif = $this->Usuario->find('first', array(
-            'conditions' => array('Usuario.codigo' =>$num, 'Usuario.estado_id'=>1),
-            'recursive' => -1));
-
+            $verif = $this->Usuario->find('first', array('conditions' => array('Usuario.codigo' =>
+                        $num, 'Usuario.estado_id' => 1), 'recursive' => -1));
             if (!empty($verif))
             {
-
                 $fecha_ayer = date("Y-m-d", strtotime("yesterday"));
                 $fecha_hoy = date("Y-m-d");
-
                 //echo "la fecha hoy es ".$fecha_hoy."<br />";
                 //echo "la fecha es ".$fecha_ayer;
-
                 $fecha = date('Y-m-d H:i:s');
                 //if($fecha_ayer == $fecha_hoy){
-
                 //}
                 $this->data = "";
                 $id_moso = $verif['Usuario']['id'];
@@ -443,20 +349,15 @@ class PedidosController extends AppController
                 //if(empty($pedido)){
                 //$mesa = 1;
                 //}else{
-
                 //}
                 //debug($ul_pedido);exit;
                 $this->request->data['Pedido']['usuario_id'] = $verif['Usuario']['id'];
                 $this->request->data['Pedido']['fecha'] = $fecha;
                 $this->request->data['Pedido']['mesa'] = $mesa;
-
                 //$mesa = $this->Pedido->find('neighbors', array('field' => 'id', 'value' => $ul_pedido, 'recursive' => -1));
-
                 $this->Pedido->create();
-
                 if ($this->Pedido->save($this->data))
                 {
-
                     $ul_pedido = $this->Pedido->getLastInsertID();
                     //insertamos la mesa creada
                     //$this->Pedido->id = $ul_pedido;
@@ -476,30 +377,22 @@ class PedidosController extends AppController
             //debug($verif);
         } else
         {
-
         }
     }
-
+    
     public function cancelarpedido($pedido = null, $mesa = null)
     {
-
         $this->layout = 'ajax';
-
         $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
                     $pedido), 'recursive' => 3));
-
         foreach ($items as $item)
         {
-
             $cantidad = $item['Item']['cantidad'];
             $porciones = $item['Producto']['Porcione'];
             foreach ($porciones as $p)
             {
-
                 $cantidadporcion = $p['cantidad'];
-
                 $cantidadresta = $cantidadporcion * $cantidad;
-
                 $bodega = $this->Bodega->find('first', array('conditions' => array('Bodega.insumo_id' =>
                             $p['insumo_id']), 'order' => array('Bodega.id desc')));
                 $this->Bodega->id = $bodega['Bodega']['id'];
@@ -507,32 +400,94 @@ class PedidosController extends AppController
                 $this->request->data['Bodega']['salida'] = $bodega['Bodega']['salida'] - $cantidadresta;
                 $this->request->data['Bodega']['total'] = $bodega['Bodega']['total'] + $cantidadresta;
                 $this->Bodega->save($this->data);
-
             }
-
         }
         $this->Pedido->delete($pedido);
         $this->Session->setFlash("Se cancelo el pedido " . $pedido . " de la mesa " . $mesa);
         $this->redirect(array('action' => 'listadopedidos'));
     }
-
+    
+    public function ajaxbuscainsumo($moso = Null)
+    {
+        $this->layout = 'ajax';
+        //debug($this->data);
+        $abuscar = $this->data['Pedidos']['buscar'];
+        $moso = $this->data['Pedidos']['moso'];
+        $insumos = $this->Insumo->find('all', array(
+            'recursive' => 0,
+            'conditions' => array('Insumo.estado' => 1, 'Insumo.nombre Like' => "%$abuscar%"),
+            'order' => array('Insumo.id' => 'DESC'),
+            'limit' => 5));
+        $this->set(compact('insumos', 'moso'));
+    }
+    public function guardapedidoinsumo()
+    {
+        //debug($this->data);exit;
+        if (!empty($this->data))
+        {
+            $mozo = $this->data['Pedido']['moso'];
+            $id = $this->data['Pedido']['insumo_id'];
+            $insumo = $this->Insumo->findById($id);
+            //debug($insumo);exit;
+            $nombre_insumo = $insumo['Insumo']['nombre'];
+            $precio_compra = $insumo['Insumo']['preciocompra'];
+            $total = $insumo['Insumo']['total'];
+            $cantidad_solicitada = $this->data['Pedido']['cantidad'];
+            $this->data = '';
+            $almacen = $this->Almacen->find('first', array('conditions' => array('Almacen.insumo_id' =>
+                        $id), 'order' => array('Almacen.id DESC')));
+            if ($total == 0)
+            {
+                $this->Session->setFlash("No le queda " . $nombre_insumo);
+                $this->redirect(array('action' => 'registroalmacen', $mozo));
+            }
+            $this->Almacen->create();
+            $this->request->data['Almacen']['insumo_id'] = $id;
+            $this->request->data['Almacen']['preciocompra'] = $precio_compra;
+            $this->request->data['Almacen']['salida'] = $cantidad_solicitada;
+            $this->request->data['Almacen']['total'] = $total - $cantidad_solicitada;
+            $this->request->data['Almacen']['fecha'] = date('Y-m-d');
+            $this->request->data['Almacen']['usuario_id'] = $mozo;
+            if ($this->Almacen->save($this->data))
+            {
+                $bodega = $this->Bodega->find('first', array('conditions' => array('Bodega.insumo_id' =>
+                            $id), 'order' => array('Bodega.id DESC')));
+                $this->data = '';
+                $this->Bodega->create();
+                $this->request->data['Bodega']['insumo_id'] = $id;
+                $this->request->data['Bodega']['preciocompra'] = $precio_compra;
+                $this->request->data['Bodega']['fecha'] = date('Y-m-d');
+                if (empty($bodega))
+                {
+                    $this->request->data['Bodega']['total'] = $cantidad_solicitada;
+                    $this->request->data['Bodega']['ingreso'] = $cantidad_solicitada;
+                } else
+                {
+                    $total_bodega = $bodega['Bodega']['total'];
+                    $this->request->data['Bodega']['ingreso'] = $cantidad_solicitada;
+                    $this->request->data['Bodega']['total'] = $total_bodega + $cantidad_solicitada;
+                }
+                if ($this->Bodega->save($this->data))
+                {
+                    $this->Session->setFlash("Se sacaron " . $cantidad_solicitada . " " . $nombre_insumo);
+                    $this->redirect(array('action' => 'registroalmacen', $mozo));
+                }
+            }
+        }
+    }
     public function ajaxlistado($id_moso = null, $id_prod = null, $pedido = null, $mesa = null)
     {
-        
         $this->layout = 'ajax';
-
-        /************************************************/
+        /*         * ********************************************* */
         /*   Porciones productos y reservas de bodega   */
-        /************************************************/
+        /*         * ********************************************* */
         $porciones = $this->Porcione->find('all', array(
             'conditions' => array('Porcione.producto_id' => $id_prod),
             'order' => array('Porcione.producto_id ASC'),
             'recursive' => -1));
-
         $producto = $this->Producto->find('first', array('conditions' => array('Producto.id' =>
                     $id_prod)));
         $producto = $producto['Producto']['nombre'];
-
         if (empty($porciones))
         {
             $this->Session->setFlash('No existen insumos del producto ' . $producto);
@@ -543,14 +498,11 @@ class PedidosController extends AppController
             $control = 0;
             foreach ($porciones as $porcion)
             {
-                $items = $this->Bodega->find('first', array(
-                'conditions' => array('Bodega.insumo_id' =>$porcion['Porcione']['insumo_id']), 
-                'order' => array('Bodega.id DESC')
-                ));
+                $items = $this->Bodega->find('first', array('conditions' => array('Bodega.insumo_id' =>
+                            $porcion['Porcione']['insumo_id']), 'order' => array('Bodega.id DESC')));
                 //debug($items);exit;
                 if (!empty($items))
                 {
-
                     if ($items['Bodega']['total'] == 0)
                     {
                         $this->Session->setFlash('Ya no hay el insumo ' . $items['Insumo']['nombre']);
@@ -569,12 +521,11 @@ class PedidosController extends AppController
                             $this->request->data['Bodega']['total'] = $items['Bodega']['total'] - 1;
                             $this->request->data['Bodega']['salida'] = 1;
                             $this->Bodega->save($this->data);
-                            
-                        } else
+                        }else
                         {
                             $this->request->data['Bodega']['fecha'] = $fecha;
                             $this->request->data['Bodega']['preciocompra'] = $items['Bodega']['preciocompra'];
-                            $this->request->data['Bodega']['insumo_id'] = $items['Bodega']['insumo_id'];                            
+                            $this->request->data['Bodega']['insumo_id'] = $items['Bodega']['insumo_id'];
                             $this->request->data['Bodega']['salida'] = 1;
                             $this->request->data['Bodega']['ingreso'] = 0;
                             $this->request->data['Bodega']['total'] = $items['Bodega']['total'] - 1;
@@ -588,7 +539,6 @@ class PedidosController extends AppController
                 }
             } //end foreach
         } //end else principal
-
         //debug($control);exit;
         if ($control == 0)
         {
@@ -597,15 +547,11 @@ class PedidosController extends AppController
             $this->request->data['Item']['producto_id'] = $id_prod;
             //$this->request->data['Pedido']['usuario_id'] = $id_moso;
             $this->request->data['Item']['fecha'] = $fecha;
-
             $productos = $this->Producto->find('first', array('conditions' => array('Producto.id' =>
                         $id_prod), 'recursive' => -1));
             $precio_prod = $productos['Producto']['precio'];
-
             $plato_pedido = $this->Item->find('first', array('conditions' => array('Item.pedido_id' =>
                         $pedido, 'Item.producto_id' => $id_prod), 'recursive' => -1));
-
-
             if (!empty($plato_pedido))
             {
                 //$precio =
@@ -631,10 +577,8 @@ class PedidosController extends AppController
                 //debug($cantidad_encontrada);
             } else
             {
-
                 $this->request->data['Item']['precio'] = 1 * $precio_prod;
                 $this->request->data['Item']['cantidad'] = 1;
-
                 if ($this->Item->save($this->data))
                 {
                     $items = $this->Item->find('all', array('conditions' => array('pedido_id' => $pedido)));
@@ -656,13 +600,13 @@ class PedidosController extends AppController
                 'fields' => array('SUM(Item.cantidad) as cantidad')));
             $this->set(compact('items', 'pedido', 'mesa', 'cant_platos', 'producto'));
         }
-
-
-    } //fin funcio ajaxliatado
-    function formingresoalmacen(){
+    }
+    //fin funcio ajaxliatado
+    function formingresoalmacen()
+    {
         if (!empty($this->data))
         {
-           // debug($this->data);exit;
+            // debug($this->data);exit;
             $num = $this->data['Pedidos']['numero'];
             $verif = $this->Usuario->find('first', array('conditions' => array('Usuario.codigo' =>
                         $num), 'recursive' => -1));
@@ -670,39 +614,41 @@ class PedidosController extends AppController
             //debug($verif);exit;
             if ($verif)
             {
-                $this->redirect(array('controller'=>'pedidos', 'action' => 'registroalmacen', $id_moso));
+                $this->redirect(array(
+                    'controller' => 'pedidos',
+                    'action' => 'registroalmacen',
+                    $id_moso));
             }
-
         } else
         {
             //$this->Session->setFlash("No existen datos");
         }
     }
-    function registroalmacen($mozo=null){
-        $this->layout = 'pedidos';
+    function registroalmacen($moso = null)
+    {
+        //$this->layout = 'pedidos';
         $insumos = $this->Insumo->find('all', array(
             'recursive' => 0,
             'conditions' => array('Insumo.estado' => 1),
             'order' => array('Insumo.id' => 'DESC'),
             'limit' => 5));
-        $this->set(compact('insumos', 'mozo'));
-        if(!empty($this->data)){
-            
+        $this->set(compact('insumos', 'moso'));
+        if (!empty($this->data))
+        {
             $id = $this->data['Pedido']['insumo_id'];
             $insumo = $this->Insumo->findById($id);
             //debug($insumo);exit;
-            $nombre_insumo= $insumo['Insumo']['nombre'];
-            $precio_compra=$insumo['Insumo']['preciocompra'];
+            $nombre_insumo = $insumo['Insumo']['nombre'];
+            $precio_compra = $insumo['Insumo']['preciocompra'];
             $total = $insumo['Insumo']['total'];
-            $cantidad_solicitada= $this->data['Pedido']['cantidad'];
+            $cantidad_solicitada = $this->data['Pedido']['cantidad'];
             $this->data = '';
-            $almacen = $this->Almacen->find('first', array(
-            'conditions'=>array('Almacen.insumo_id'=>$id), 
-            'order'=>array('Almacen.id DESC')
-            ));
-            if($total == 0){
-                $this->Session->setFlash("No le queda ".$nombre_insumo);
-                $this->redirect(array('action'=>'registroalmacen', $mozo));
+            $almacen = $this->Almacen->find('first', array('conditions' => array('Almacen.insumo_id' =>
+                        $id), 'order' => array('Almacen.id DESC')));
+            if ($total == 0)
+            {
+                $this->Session->setFlash("No le queda " . $nombre_insumo);
+                $this->redirect(array('action' => 'registroalmacen', $mozo));
             }
             $this->Almacen->create();
             $this->request->data['Almacen']['insumo_id'] = $id;
@@ -711,45 +657,41 @@ class PedidosController extends AppController
             $this->request->data['Almacen']['total'] = $total - $cantidad_solicitada;
             $this->request->data['Almacen']['fecha'] = date('Y-m-d');
             $this->request->data['Almacen']['usuario_id'] = $mozo;
-            
-            
-            if($this->Almacen->save($this->data)){
-                $bodega = $this->Bodega->find('first', array(
-                'conditions'=>array('Bodega.insumo_id'=>$id), 
-                'order'=>array('Bodega.id DESC')
-                ));
-                $this->data='';
+            if ($this->Almacen->save($this->data))
+            {
+                $bodega = $this->Bodega->find('first', array('conditions' => array('Bodega.insumo_id' =>
+                            $id), 'order' => array('Bodega.id DESC')));
+                $this->data = '';
                 $this->Bodega->create();
                 $this->request->data['Bodega']['insumo_id'] = $id;
                 $this->request->data['Bodega']['preciocompra'] = $precio_compra;
                 $this->request->data['Bodega']['fecha'] = date('Y-m-d');
-                
-                if(empty($bodega)){
+                if (empty($bodega))
+                {
                     $this->request->data['Bodega']['total'] = $cantidad_solicitada;
                     $this->request->data['Bodega']['ingreso'] = $cantidad_solicitada;
-                }else{
-                    $total_bodega= $bodega['Bodega']['total'];
+                } else
+                {
+                    $total_bodega = $bodega['Bodega']['total'];
                     $this->request->data['Bodega']['ingreso'] = $cantidad_solicitada;
                     $this->request->data['Bodega']['total'] = $total_bodega + $cantidad_solicitada;
                 }
-                if($this->Bodega->save($this->data)){
-                    $this->Session->setFlash("Se sacaron ".$cantidad_solicitada." ".$nombre_insumo);
-                    $this->redirect(array('action'=>'registroalmacen', $mozo));
+                if ($this->Bodega->save($this->data))
+                {
+                    $this->Session->setFlash("Se sacaron " . $cantidad_solicitada . " " . $nombre_insumo);
+                    $this->redirect(array('action' => 'registroalmacen', $mozo));
                 }
             }
-         }
-   }         
-    public function salidalmacen($id=null, $mozo=null)
+        }
+    }
+    public function salidalmacen($id = null, $mozo = null)
     {
-
         $this->layout = 'ajax';
-
         if (!empty($this->data))
         {
             $cant_salida = $this->data['Movimiento']['salida'];
             $id_insumo = $this->data['Movimiento']['id_insumo'];
             $pc = $this->data['Movimiento']['pc'];
-
             $existe_insumo = $this->Almacen->find('first', array(
                 'conditions' => array('insumo_id' => $id_insumo),
                 'order' => 'id DESC',
@@ -757,19 +699,15 @@ class PedidosController extends AppController
             //debug($existe_insumo);exit;
             if ($existe_insumo)
             {
-
                 $total_anterior = $existe_insumo['Almacen']['total'];
                 $cant_actual = $total_anterior - $cant_salida;
-
                 $this->data = "";
                 $this->Insumo->id = $id_insumo;
                 $this->request->data['Insumo']['total'] = $cant_actual;
-
                 if (!$this->Insumo->save($this->data))
                 {
                     echo "no guardo";
                 }
-
                 $this->data = "";
                 $fecha = date("Y-m-d");
                 $this->request->data['Almacen']['usuario_id'] = $mozo;
@@ -785,19 +723,15 @@ class PedidosController extends AppController
                     $this->Session->setFlash('Ingreso registrado con exito!');
                     //$this->redirect(array('action' => 'index'));
                 }
-
                 $existe_insumo_bodega = $this->Bodega->find('first', array(
                     'conditions' => array('insumo_id' => $id_insumo),
                     'order' => 'id DESC',
                     'recursive' => -1));
-
                 if ($existe_insumo_bodega)
                 {
-
                     $cantidad_bodega = $existe_insumo_bodega['Bodega']['total'];
                     $id_bodega = $existe_insumo_bodega['Bodega']['id'];
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
-
                     $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo),
                             'recursive' => -1));
                     $this->data = "";
@@ -805,13 +739,9 @@ class PedidosController extends AppController
                     $id_mod_insumo = $mod_bodega['Insumo']['id'];
                     //$this->Insumo
                     //$this->Insumo->id=$id_mod_insumo;
-
                     if ($this->Insumo->save($this->data))
                     {
-
                     }
-
-
                     $this->data = "";
                     //$this->Bodega->id = $id_bodega;
                     $this->request->data['Bodega']['insumo_id'] = $id_insumo;
@@ -820,35 +750,27 @@ class PedidosController extends AppController
                     $this->request->data['Bodega']['total'] = $cant_bodega_actual;
                     $this->request->data['Bodega']['fecha'] = $fecha;
                     $this->Bodega->create();
-
                     if ($this->Bodega->save($this->data))
                     {
-                        $this->redirect(array('controller'=>'Pedidos', 'action' => 'listadopedidos'));
+                        $this->redirect(array('controller' => 'Pedidos', 'action' => 'listadopedidos'));
                     } else
                     {
                         echo "no guardo";
                     }
-
                 } else
                 {
-
                     $cantidad_bodega = $existe_insumo_bodega['Bodega']['total'];
                     $id_bodega = $existe_insumo_bodega['Bodega']['id'];
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
-
                     $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo),
                             'recursive' => -1));
                     $this->data = "";
-
                     $this->request->data['Insumo']['bodega'] = $cant_bodega_actual;
                     $id_mod_insumo = $mod_bodega['Insumo']['id'];
                     $this->Insumo->id = $id_mod_insumo;
-
                     if ($this->Insumo->save($this->data))
                     {
-
                     }
-
                     $this->data = "";
                     //$this->Bodega->id = $id_bodega;
                     $this->request->data['Bodega']['insumo_id'] = $id_insumo;
@@ -857,19 +779,16 @@ class PedidosController extends AppController
                     $this->request->data['Bodega']['total'] = $cant_salida;
                     $this->request->data['Bodega']['fecha'] = $fecha;
                     $this->Bodega->create();
-
                     if ($this->Bodega->save($this->data))
                     {
-                        $this->redirect(array('controller'=>'Pedidos', 'action' => 'listadopedidos'));
+                        $this->redirect(array('controller' => 'Pedidos', 'action' => 'listadopedidos'));
                     } else
                     {
                         echo "no guardo";
                     }
                 }
-
             } else
             {
-
                 //$this->data="";
                 $this->Insumo->id = $id_insumo;
                 $this->request->data['Insumo']['total'] = $cant_salida;
@@ -889,7 +808,7 @@ class PedidosController extends AppController
                 if ($this->Almacen->save($this->data))
                 {
                     $this->Session->setFlash('Ingreso registrado con exito!');
-                    $this->redirect(array('controller'=>'Pedidos', 'action' => 'listadopedidos'));
+                    $this->redirect(array('controller' => 'Pedidos', 'action' => 'listadopedidos'));
                 }
             }
             //debug($this->data);
@@ -906,7 +825,4 @@ class PedidosController extends AppController
             $this->set(compact('insumo', 'ce'));
         }
     }
-
-}
-
-?>
+} ?>

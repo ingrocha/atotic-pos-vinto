@@ -31,6 +31,9 @@
                         <?php echo $this->Html->link("PEDIDOS", array('controller'=>'Pedidos', 'action'=>'listadopedidos')); ?>                        
                     </li>                    
 					<li>
+                        <?php echo $this->Html->link("ALMACEN", array('controller'=>'Pedidos', 'action'=>'formingresoalmacen')); ?>
+                    </li>
+                    <li>
                         <?php echo $this->Html->link("ASISTENCIAS", array('controller'=>'Asistencias', 'action'=>'entradas')); ?>
                     </li>
 				</ul>
@@ -52,6 +55,6 @@
 			?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

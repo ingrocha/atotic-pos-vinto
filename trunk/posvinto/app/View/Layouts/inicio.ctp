@@ -30,6 +30,6 @@
 			Centro Ecoturistico VIVA VINTO Derechos Reservados 2012
           <span style="float: right;"> Desarrollado por <a href="http://www.atotic.com">ATOTIC&#174;</a></span> 		</p>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>
