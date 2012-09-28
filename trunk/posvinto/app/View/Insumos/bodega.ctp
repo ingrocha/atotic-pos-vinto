@@ -28,8 +28,7 @@
     <thead>
     <tr>
         <th>Nombre</th>     
-        <th>Total</th>
-        <th>Fecha</th> 
+        <th>Existencias</th>        
     </tr>  
     </thead>
     <tbody> 
@@ -42,10 +41,7 @@
         
         <td>
             <?php echo $b['Bodega']['total']; ?>
-        </td>
-        <td>
-            <?php echo $b['Bodega']['fecha']; ?>
-        </td>          
+        </td>     
     </tr>
 <?php endforeach; ?>
     </tbody>
