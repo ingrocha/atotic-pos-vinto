@@ -8,6 +8,7 @@ App::uses('AppModel', 'Model');
  */
 class Porcione extends AppModel {
 
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
@@ -16,7 +17,13 @@ class Porcione extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-	
+		'Producto' => array(
+			'className' => 'Producto',
+			'foreignKey' => 'producto_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'Insumo' => array(
 			'className' => 'Insumo',
 			'foreignKey' => 'insumo_id',
@@ -25,10 +32,4 @@ class Porcione extends AppModel {
 			'order' => ''
 		)
 	);
-    public $hasMany = array(
-       'Producto'=>array(
-          'className'=>'Item',
-          'foreignKey'=>'producto_id'
-       )
-    );
 }
