@@ -33,11 +33,12 @@ class InsumosController extends AppController
         }
         
         $insumos = $this->Almacen->find('all', array(
-        'conditions'=>array('Almacen.id'=>$ids)
+            'recursive'=>2,
+            'conditions'=>array('Almacen.id'=>$ids)
         ));
         
         //, 'Insumo.nombre', 'Insumo.preciocompra', 'Insumo.precioventa', 'Almacen.total', 'Almacen.insumo_id'
-        //debug($insumos);exit;
+        //debug($insumos);
         $this->set(compact('insumos'));
    }
 
