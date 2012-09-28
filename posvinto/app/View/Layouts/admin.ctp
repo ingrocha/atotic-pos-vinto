@@ -49,12 +49,18 @@
 		<div id="navigation">
 			<ul>
 			    <li>
-                <?php $url = "http://localhost/posvinto/posvinto/"?>
-                   <a href="<?php echo $url?>panelcontrol/" class="active"><span>Inicio</span></a>                 
+                <?php $url = "http://localhost/posvinto/posvinto/"?>                   
+                   <?php echo $this->Html->link("<span>Inicio</span>", array('controller'=>'Panelcontrol', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>                 
                 </li>
-			    <li><a href="<?php echo $url?>usuarios/"><span>Usuarios</span></a></li>
-                <li><a href="<?php echo $url?>clientes/"><span>Clientes</span></a></li>
-			    <li><a href="<?php echo $url?>controlpedidos/"><span>Pedidos</span></a></li>
+			    <li>                    
+                    <?php echo $this->Html->link("<span>Usuarios</span>", array('controller'=>'Usuarios', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                </li>
+                <li>                    
+                    <?php echo $this->Html->link("<span>Clientes</span>", array('controller'=>'Clientes', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+                </li>
+			    <li>
+                    <?php echo $this->Html->link("<span>Pedidos</span>", array('controller'=>'controlpedidos', 'action'=>'index'), array('class'=>"add-button", 'escape' => FALSE)); ?>                    
+                </li>
                 <li>
                     <?php echo $this->Html->link("<span>Menu</span>", array('controller'=>'Productos', 'action'=>'productosmenu'), array('class'=>"add-button", 'escape' => FALSE)); ?>
                 </li>
