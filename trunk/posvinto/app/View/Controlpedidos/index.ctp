@@ -1,11 +1,6 @@
 <!-- Container -->
 <div id="container">
-	<div class="shell">		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			Detalle del pedido
-		</div>
-		<!-- End Small Nav -->		
+	<div class="shell">			
 		<br />
 		<!-- Main -->
 		<div id="main">
@@ -94,7 +89,7 @@
                                     "sZeroRecords":    "No se encontraron resultados",
                                     "oPaginate": {
                                         "sFirst":    "Primero",
-                                        "sLast":     "Último",
+                                        "sLast":     "ï¿½ltimo",
                                         "sNext":     "Siguiente",
                                         "sPrevious": "Anterior"
                                     },
