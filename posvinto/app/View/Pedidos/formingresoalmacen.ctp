@@ -6,9 +6,6 @@ jQuery(function () {
 });
 </script>
 <h1>Ingrese su codigo</h1>
-<div class="formverificacodigo">
 <?php echo $this->Form->create('Pedidos', array('action'=>'formingresoalmacen')); ?>
 <?php echo $this->Form->text('numero', array('id'=>'tecladonumerico', 'size'=>5)); ?>
-<?php $options=array('id'=>'button-login', 'Value'=>'Ingresar')?>
-<?php echo $this->Form->end($options); ?>`
-</div>
+<?php echo $this->Form->end('Verficar'); ?>
