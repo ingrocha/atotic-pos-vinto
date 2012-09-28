@@ -60,13 +60,13 @@
                                             'url' => array('action' => 'modificar', $id)
                                         ));
                                         ?>
-                                        
+
                                         <div id="dialog_<?php echo $id; ?>" style="float: left;">
                                             <?php
                                             echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
                                             ?>
                                         </div>
-                                        
+
                                         <div id="dialog2_<?php echo $id; ?>" style="float: left;">
                                             <?php
                                             echo $this->Html->image("out.png", array(
@@ -74,7 +74,7 @@
                                             ));
                                             ?>            
                                         </div>  
-                                        
+
                                         <?php
                                         echo $this->Html->image("elim.png", array(
                                             "title" => "Eliminar Insumo",
@@ -88,9 +88,9 @@
                                             };
                                             jQuery("#dialog_<?php echo $id; ?>").click(function(){
                                                 jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/ingresoalmacen/<?php echo $id; ?>");
-                   
+                       
                                             });   
-                
+                    
                                             jQuery("#dialog2_<?php echo $id; ?>").click(function(){
                                                 jQuery("#cuadro2_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/salidalmacen/<?php echo $id; ?>");
                                                 //alert("click");
