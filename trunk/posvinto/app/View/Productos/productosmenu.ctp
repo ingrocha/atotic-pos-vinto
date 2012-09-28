@@ -1,4 +1,4 @@
-<?php //debug($prod);  ?>
+<?php //debug($prod);   ?>
 <!-- Container -->
 <div id="container">
     <div class="shell">		
@@ -34,7 +34,6 @@
                                 </tr>   
                             </thead>
                             <tbody> 
-
                                 <?php //$i=1; ?>
                                 <?php foreach ($prod as $p): ?>
                                     <?php $id = $p['Producto']['id']; ?> 
@@ -58,30 +57,34 @@
                                               ); */
                                             //echo $this->Html->link()
                                             ?>
-                                            <?php echo $this->Html->image("show.png", array("title" => "Ocultar",
+                                            <?php
+                                            echo $this->Html->image("show.png", array("title" => "Ocultar",
                                                 'url' => array('action' => 'desprodmenu', $id)));
                                             ?>
                                         <?php else: ?>
-                                            <?php echo $this->Html->image("hide.png", array("title" => "Mostrar",
+                                            <?php
+                                            echo $this->Html->image("hide.png", array("title" => "Mostrar",
                                                 'url' => array('action' => 'habprodmenu', $id)));
                                             ?>            
                                             <?php //echo $this->Html->image('elim.png'); ?>
                                         <?php endif; ?>   
-                                        <?php echo $this->Html->image("receta.png", array("title" =>
+                                        <?php
+                                        echo $this->Html->image("receta.png", array("title" =>
                                             "Receta", 'url' => array('action' => 'receta', $id)));
                                         ?> 
-                                <?php echo $this->Html->image("edit.png", array("title" => "Editar",
-                                    'url' => array('action' => 'editaprodmenu', $id)));
-                                ?> 
+    <?php
+    echo $this->Html->image("edit.png", array("title" => "Editar",
+        'url' => array('action' => 'editaprodmenu', $id)));
+    ?> 
                                     </td>                    
                                 </tr>
-                    <?php //$i++;  ?>
+    <?php //$i++;   ?>
                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-<?php //fin de mostrar los datos  ?>
+<?php //fin de mostrar los datos   ?>
             </div>						
         </div>
         <!-- Table -->
