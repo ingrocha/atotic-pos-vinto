@@ -25,7 +25,7 @@
                     <div class="box-head">
                         <h2 class="left">LISTADO DE USUARIOS DEL SISTEMA</h2>
                         <div class="right">
-
+                           
                         </div>
                     </div>
                     <!-- End Box Head -->	
