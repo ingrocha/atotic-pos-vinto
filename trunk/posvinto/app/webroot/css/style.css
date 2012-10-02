@@ -37,6 +37,7 @@ a:hover { color:#8d341f; text-decoration: none;}
 .ac { text-align: center !important; }
 
 h1{ font-size:22px; line-height:24px; color:#fff; font-weight: normal;}
+h1.titulos{ font-size:20px; line-height:24px; color:#000; font-weight: normal;}
 h1 a{ color:#fff; text-decoration: none; }
 h2 { font-size:15px; font-weight: normal; }
 h3 { font-size:12px; line-height:14px; font-weight: normal; }
@@ -69,8 +70,7 @@ h3 a{ text-decoration: none; }
 
 #navigation ul li a.active { font-size:12px; font-weight: bold; color:#887e42; }
 
-
-#container { padding:20px 0;}
+#container { padding:1px 0;}
 
 .small-nav { color:#978b48; /*padding-bottom:20px;*/ }
 .small-nav a{ color:#6f6636; }

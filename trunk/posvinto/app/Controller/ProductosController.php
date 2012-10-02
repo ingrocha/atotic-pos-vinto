@@ -44,8 +44,7 @@ class ProductosController extends AppController
             if($this->Porcione->save($this->data)){
                 $this->Session->setFlash("Cantidad Modificada!!!");
                 $this->redirect(array('action'=>'receta', $cod));
-            }
-            
+            }            
             //if()
             debug($this->data);
         }
@@ -86,6 +85,7 @@ class ProductosController extends AppController
     public function descatmenu($id = null)
     {
         $this->Categoria->id = $id;
+        //$this->Categoria->get
         $this->request->data['Categoria']['estado'] = 0;
         if ($this->Categoria->save($this->data))
         {
@@ -191,7 +191,7 @@ class ProductosController extends AppController
 
     public function categoriasmenu()
     {
-        $cat = $this->Categoria->find('all', array('recursive' => -1, 'limit' => 20));
+        $cat = $this->Categoria->find('all', array('recursive' => -1));
         //debug($cat);
         $this->set(compact('cat'));
     }

@@ -52,7 +52,6 @@
                                     <td>
                                         <?php echo $i['Almacen']['total']; ?>
                                     </td>        
-
                                     <td>
                                         <?php
                                         echo $this->Html->image("edit.png", array(
@@ -88,9 +87,9 @@
                                             };
                                             jQuery("#dialog_<?php echo $id; ?>").click(function(){
                                                 jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/ingresoalmacen/<?php echo $id; ?>");
-                       
+                           
                                             });   
-                    
+                        
                                             jQuery("#dialog2_<?php echo $id; ?>").click(function(){
                                                 jQuery("#cuadro2_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/salidalmacen/<?php echo $id; ?>");
                                                 //alert("click");
