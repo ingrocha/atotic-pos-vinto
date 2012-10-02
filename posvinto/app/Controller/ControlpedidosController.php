@@ -1,7 +1,9 @@
 
 <?php
+
 class ControlpedidosController extends AppController
 {
+
     public $helpers = array('Form', 'Html');
     public $components = array(
         'Session',
@@ -13,7 +15,7 @@ class ControlpedidosController extends AppController
         'Item',
         'Parametrosfactura',
         'Factura',
-        'Sucursal', 
+        'Sucursal',
         'Descuento', 'Recibo');
     public $layout = 'admin';
 
@@ -23,83 +25,95 @@ class ControlpedidosController extends AppController
         $fecha = date('Y-m-d') . " %";
 
         $this->paginate = array(
-            'conditions' => array('Pedido.fecha LIKE' => $fecha),
-            'limit' => 25,
+            'conditions' => array(
+                'Pedido.fecha LIKE' => $fecha,
+                'Pedido.estado <=' => 2),
             'order' => array('Pedido.id' => 'desc'));
 
         // similar to findAll(), but fetches paged results
         $data = $this->paginate('Pedido');
         $this->set(compact('data'));
-
     }
-    
-    public function imprecibo($id_pedido=null){
-        
+
+    public function imprecibo($id_pedido = null)
+    {
+
         //$this->layout='imprimir';
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $id_pedido)));
         $totalpagado = 0.00;
-        foreach($pedido as $item){
+        foreach ($pedido as $item)
+        {
             $totalpagado += $item['Item']['precio'];
         }
-        
-        $moso = $this->Pedido->find('first', array('recursive'=>0, 'conditions'=>array('Pedido.id'=>$id_pedido)));
+
+        $moso = $this->Pedido->find('first', array('recursive' => 0, 'conditions' => array('Pedido.id' => $id_pedido)));
         //debug($moso);
         $descuentos = $this->Descuento->find('list', array(
-        'fields'=>array('Descuento.porcentaje', 'Descuento.observacion')
-        ));
+            'fields' => array('Descuento.porcentaje', 'Descuento.observacion')
+                ));
         $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos'));
-        if(!empty($this->data)){
-           
-            $this->request->data['Recibo']['fecha']=date('Y-m-d');
+        if (!empty($this->data))
+        {
+
+            $this->request->data['Recibo']['fecha'] = date('Y-m-d');
             $this->Recibo->create();
-            
-            if($this->Recibo->save($this->data)){
+
+            if ($this->Recibo->save($this->data))
+            {
                 $this->Session->setFlash(__('Recibo guardado'));
                 //$this->redirect(array('action' => 'index', $id));
-                
-            }else{
-            $this->Session->setFlash('error');
-            $this->redirect(array('action' => 'index'), null, true);
+            } else
+            {
+                $this->Session->setFlash('error');
+                $this->redirect(array('action' => 'index'), null, true);
             }
         }
     }
+
     public function autocomplete()
     {
-
+        
     }
+
     public function facturar1($idpedido = null)
     {
 
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                    $idpedido)));
+                $idpedido)));
         //debug($pedido);exit;
         $this->set(compact('pedido', 'idpedido'));
     }
+
     public function recibo($idpedido = null)
     {
-        if (!empty($this->data)) {
-            if ($this->Factura->save($this->data)) {
+        if (!empty($this->data))
+        {
+            if ($this->Factura->save($this->data))
+            {
                 $this->Session->setFlash('Recibo registrado con exito');
                 $this->redirect(array('action' => 'index'), null, true);
-            } else {
+            } else
+            {
                 $this->Session->setFlash('No se pudo registrar el recibo!!!');
                 $this->redirect(array('action' => 'index'), null, true);
             }
         }
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                    $idpedido)));
+                $idpedido)));
         $this->set(compact('pedido', 'idpedido'));
     }
-    
+
     public function facturar3()
     {
         //  debug($this->data);exit;
-        if (!empty($this->data)) {
+        if (!empty($this->data))
+        {
             //debug($this->data);exit;
             $count = 0;
             $detalle = $this->data;
             $this->set(compact('detalle'));
-        } else {
+        } else
+        {
 
             //$this->redirect($this->referer());
             $this->redirect(array('action' => 'index'));
@@ -107,17 +121,19 @@ class ControlpedidosController extends AppController
             //$this->redirect('http://localhost/posvinto/posvinto/controlpedidos');
         }
     }
-    
+
     public function dividir($idped = null)
     {
 
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                    $idped)));
+                $idped)));
         //debug($pedido);
         $detalle = array();
         $i2 = 0;
-        foreach ($pedido as $p) {
-            for ($i = 0; $i < $p['Item']['cantidad']; $i++){
+        foreach ($pedido as $p)
+        {
+            for ($i = 0; $i < $p['Item']['cantidad']; $i++)
+            {
                 $detalle[$i2]['Detalle']['producto_id'] = $p['Producto']['id'];
                 $detalle[$i2]['Detalle']['producto'] = $p['Producto']['nombre'];
                 $detalle[$i2]['Detalle']['precio'] = $p['Producto']['precio'];
@@ -128,21 +144,23 @@ class ControlpedidosController extends AppController
         }
         //debug($detalle);exit;
         $this->set(compact('detalle', 'idped'));
-
     }
+
     public function facturartotal()
     {
         $this->Factura->create();
-        if ($this->Factura->save($this->data)) {
+        if ($this->Factura->save($this->data))
+        {
 
             $this->Session->setFlash('Factura registrada con exito');
             $this->redirect(array('action' => 'index'), null, true);
-
-        } else {
+        } else
+        {
 
             $this->Session->setFlash('No se pudo registrar los datos de la factura');
         }
     }
+
     public function facturar2()
     {
 
@@ -159,9 +177,11 @@ class ControlpedidosController extends AppController
         $newdata = array();
         $datos = array();
 
-        foreach ($datas as $d) {
+        foreach ($datas as $d)
+        {
             //debug($d);exit;
-            if ($d['Pedido']['chk'] != 0) {
+            if ($d['Pedido']['chk'] != 0)
+            {
                 $datos[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
                 $datos[$i]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
                 $datos[$i]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
@@ -170,7 +190,8 @@ class ControlpedidosController extends AppController
                 $total = $total + $d['Pedido']['preciou'];
 
                 $i++;
-            } else {
+            } else
+            {
                 $newdata[$j]['Pedido']['pedido_id'] = $idpedido;
                 $newdata[$j]['Pedido']['producto'] = $d['Pedido']['producto'];
                 $newdata[$j]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
@@ -197,14 +218,14 @@ class ControlpedidosController extends AppController
         $this->request->data['Factura']['importetotal'] = $total;
         $this->request->data['Factura']['fecha'] = $fecha;
         // debug($this->data);exit;
-        if ($this->Factura->save($this->data)) {
+        if ($this->Factura->save($this->data))
+        {
             $idfactura = $this->Factura->id;
 
             $llave = $datosfactura[0]['Parametrosfactura']['llave'];
             $nueva_fecha = ereg_replace("[-]", "", $fecha);
 
-            $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nit, $nueva_fecha, $total,
-                $llave);
+            $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nit, $nueva_fecha, $total, $llave);
 
             //autorizacion, factura, nit, fecha, monto, llave
             $codigo = $this->Codigocontrol->generar();
@@ -225,20 +246,18 @@ class ControlpedidosController extends AppController
             $fecha = $fech2[0];
             $hora = $fech2[1];
             //debug($datos);exit;
-            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente',
-                'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto',
-                'totalliteral', 'total'));
-        } else {
+            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total'));
+        } else
+        {
             $this->Session->setFlash('No se pudo generar la nueva factura');
             $this->redirect(array('action' => 'index'), null, true);
         }
-
     }
+
     public function facturarnormal()
     {
 
         $this->layout = 'imprimir';
-
         $cliente = $this->data[1]['Pedido']['nombre'];
         $nitcliente = $this->data[1]['Pedido']['nit'];
         $idpedido = $this->data[1]['Pedido']['idpedido'];
@@ -249,8 +268,10 @@ class ControlpedidosController extends AppController
         $j = 0;
         $newdata = array();
         $datos = array();
-        foreach ($datas as $d) {
-            if ($d['Pedido']['chk'] != 0) {
+        foreach ($datas as $d)
+        {
+            if ($d['Pedido']['chk'] != 0)
+            {
                 $datos[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
                 $datos[$i]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
                 $datos[$i]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
@@ -259,7 +280,8 @@ class ControlpedidosController extends AppController
                 $total = $total + $d['Pedido']['preciou'];
 
                 $i++;
-            } else {
+            } else
+            {
                 $newdata[$j]['Pedido']['pedido_id'] = $idpedido;
                 $newdata[$j]['Pedido']['producto'] = $d['Pedido']['producto'];
                 $newdata[$j]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
@@ -274,10 +296,10 @@ class ControlpedidosController extends AppController
         $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
 
         $datosfactura = $this->Parametrosfactura->find('all');
-
         $nit = $datosfactura[0]['Parametrosfactura']['nit'];
         $autoriza = $datosfactura[0]['Parametrosfactura']['numero_autorizacion'];
         $fecha = date('Y-m-d');
+
         $this->Factura->create();
         $this->request->data['Factura']['pedido_id'] = $idpedido;
         $this->request->data['Factura']['nit'] = $nitcliente;
@@ -285,18 +307,19 @@ class ControlpedidosController extends AppController
         $this->request->data['Factura']['importetotal'] = $total;
         $this->request->data['Factura']['fecha'] = $fecha;
 
-        if ($this->Factura->save($this->data)) {
+        if ($this->Factura->save($this->data))
+        {
+            $data = array('id' => $idpedido, 'estado' => 3);
+            $this->Pedido->save($data);
+
             $factura = $this->Factura->find('first', array('order' => array('Factura.id DESC')));
             $idfactura = $factura['Factura']['id'];
             $llave = $datosfactura[0]['Parametrosfactura']['llave'];
-            $nueva_fecha = ereg_replace("[-]", "", $fecha);
-
-            $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nit, $nueva_fecha, $total,
-                $llave);
-
+            $nueva_fecha = ereg_replace("[-]", "", $fecha);            
+            //echo $autoriza.' - '.$idfactura.' - '.$nitcliente.' - '.$nueva_fecha.' - '.$total_redondeado.' - '.$llave;exit;
+            $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $total, $llave);
             //autorizacion, factura, nit, fecha, monto, llave
             $codigo = $this->Codigocontrol->generar();
-
             $this->Factura->id = $idfactura;
             $this->Factura->read();
             $this->request->data['Factura']['codigo_control'] = $codigo;
@@ -312,20 +335,20 @@ class ControlpedidosController extends AppController
             $fecha = $fech2[0];
             $hora = $fech2[1];
             //  DEBUG($datos);exit;
-            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente',
-                'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto',
-                'totalliteral', 'total'));
-        } else {
+            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total'));
+        } else
+        {
             $this->Session->setFlash('No se pudo generar la nueva factura');
             $this->redirect(array('action' => 'index'), null, true);
         }
-
     }
+
     public function formbuscar()
     {
-        if (!empty($this->data)) {
+        if (!empty($this->data))
+        {
             //debug($this->data);
-            $a=0;
+            $a = 0;
             $condiciones = "SELECT `Pedido`.`id`, `Pedido`.`usuario_id`, `Pedido`.`fecha`,Pedido.fechac, `Pedido`.`mesa`, `Pedido`.`estado`, `Pedido`.`total`, 
             `Usuario`.`id`, `Usuario`.`nombre`, `Usuario`.`direccion`, `Usuario`.`usuario`, `Usuario`.`pass`, `Usuario`.`codigo`, `Usuario`.`perfile_id` 
             FROM `sisvinto`.`pedidos` AS `Pedido` 
@@ -333,28 +356,32 @@ class ControlpedidosController extends AppController
             ON (`Pedido`.`usuario_id` = `Usuario`.`id`)
             WHERE 1
             ";
-            
-            if (!empty($this->data['Pedido']['fecha'])) {
-                $fecha = $this->data['Pedido']['fecha']." %";
+
+            if (!empty($this->data['Pedido']['fecha']))
+            {
+                $fecha = $this->data['Pedido']['fecha'] . " %";
                 $condiciones .= "AND Pedido.fecha LIKE '$fecha'";
                 $a++;
             }
-          
-            if (!empty($this->data['Pedido']['mozos'])) {
+
+            if (!empty($this->data['Pedido']['mozos']))
+            {
                 $mozo = $this->data['Pedido']['mozos'];
                 $condiciones .= "AND Pedido.usuario_id LIKE '$mozo'";
                 $a++;
             }
-            if(!empty($this->data['Pedido']['mesa'])){
+            if (!empty($this->data['Pedido']['mesa']))
+            {
                 $mesa = $this->data['Pedido']['mesa'];
                 $condiciones .= "AND Pedido.mesa = $mesa";
                 $a++;
             }
             //debug($condiciones);exit;
-            if (!empty($this->data['Pedido']['fecha_desde']) and !empty($this->data['Pedido']['fecha_hasta'])){
-                $fecha1 = $this->data['Pedido']['fecha_desde']." 00:00:00";
-                $fecha2 = $this->data['Pedido']['fecha_hasta']." 23:59:59";
-                
+            if (!empty($this->data['Pedido']['fecha_desde']) and !empty($this->data['Pedido']['fecha_hasta']))
+            {
+                $fecha1 = $this->data['Pedido']['fecha_desde'] . " 00:00:00";
+                $fecha2 = $this->data['Pedido']['fecha_hasta'] . " 23:59:59";
+
                 $condiciones .= "
                 AND (Pedido.fecha >= '$fecha1')
                 AND (Pedido.fecha <= '$fecha2')
@@ -362,30 +389,35 @@ class ControlpedidosController extends AppController
                 $a++;
             }
             //debug($condiciones);exit;
-            if ($a == 0) {
+            if ($a == 0)
+            {
                 $this->Session->setFlash(__('Debe ingresar al menos un dato!!!!'));
                 $this->redirect(array('action' => 'formbuscar'));
             }
             $pedidos = $this->Pedido->query($condiciones);
             //debug($pedidos);
             $this->set(compact('pedidos'));
-        } else {
+        } else
+        {
 
             $this->set('mozos', $this->Usuario->find('list', array('conditions' => array('Usuario.perfile_id' =>
-                        2), 'fields' => array('Usuario.nombre'))));
+                            2), 'fields' => array('Usuario.nombre'))));
         }
-
     }
+
     public function verdetallepedido($id = null)
     {
         $this->set('itemspedidos', $this->Item->find('all', array('conditions' => array
-                ('Item.pedido_id' => $id))));
+                        ('Item.pedido_id' => $id))));
     }
-    function totalcondescuento($total=null, $descuento=null){
+
+    function totalcondescuento($total = null, $descuento = null)
+    {
         $this->layout = 'imprimir';
         $totalpagar = $total - ($total * $descuento);
         $this->set(compact('total', 'totalpagar', 'descuento'));
     }
+
 }
 ?>
 

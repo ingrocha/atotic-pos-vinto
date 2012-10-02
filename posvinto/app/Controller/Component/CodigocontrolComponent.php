@@ -42,12 +42,13 @@ class Codigocontrolcomponent extends Component{
          * @return string: codigo de control generado
          */
         function CodigoControl($autorizacion, $factura, $nitci, $fecha, $monto, $llave) {
-                
+               
+                $monto_redondeado = round($monto);
                 $this->autorizacion = $autorizacion;
                 $this->factura = $factura;
                 $this->nitci = $nitci;
                 $this->fecha = $fecha;
-                $this->monto = $monto;
+                $this->monto = $monto_redondeado;
                 $this->llave = $llave;
                 
         }
@@ -137,6 +138,7 @@ class Codigocontrolcomponent extends Component{
          * @return string: cadena cifrada
          */
         private function allegedrc4($mensaje, $llaverc4) {
+            
                 $state = array();
                 $x = 0;
                 $y = 0;

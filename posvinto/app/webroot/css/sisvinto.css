@@ -368,10 +368,10 @@ pre {
 	display:none;
 }
 ul.list-products{ padding:0; margin:0;}
-ul.list-products li{ cursor:pointer; list-style:none; display:inline; width:160px; height:75px; margin-left:10px; margin-bottom:15px; float:left; border:1px solid #030; border-radius: 10px;}
+ul.list-products li{ cursor:pointer; list-style:none; display:inline; width:160px; height:110px; margin-left:10px; margin-bottom:15px; float:left; border:1px solid #030; border-radius: 10px; background-color: #E76F0E; }
 ul.list-products li:hover{ background: #487A23; border: 1px solid #000;}
 ul.list-products li img{ text-align:center; float:left; margin-left: 10px;}
-ul.list-products li span{ width:30px; float:left; text-align:center; width:150px; padding:5px 5px; font-size: 28px; background: url(../img/bg-menu.png) repeat-x; height:65px; border-radius: 10px; color: #fff;}
+ul.list-products li span{ width:30px; float:left; text-align:center; width:150px; padding:5px 5px; font-size: 28px; height:65px; border-radius: 10px; color: #fff; text-transform: uppercase; }
 
 ul.table-asign{ width:100%; float:left; margin-top:50px;}
 ul.table-asign li{ float:left; list-style:none; border:2px solid #000; padding:10px; width:150px; background:#4D0F04; padding-bottom:10px; margin:0 30px 30px 30px;-moz-border-radius: 15px;-webkit-border-radius: 15px;behavior:url(border-radius.htc);}

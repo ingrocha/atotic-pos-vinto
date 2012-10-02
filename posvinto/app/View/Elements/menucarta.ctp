@@ -3,7 +3,7 @@
 <div class="cl">&nbsp;</div>
 <div class="cl">&nbsp;</div>
 
-<?php echo $this->Html->link("<span>Listado Platos</span>", array('action'=>'platos'), array('class'=>"add-button", 'escape' => FALSE)); ?>
+<?php //echo $this->Html->link("<span>Listado Platos</span>", array('action'=>'platos'), array('class'=>"add-button", 'escape' => FALSE)); ?>
 <div class="cl">&nbsp;</div>
 <?php echo $this->Html->link("<span>Nuevo Plato</span>", array('action'=>'nuevoplato'), array('class'=>"add-button", 'escape' => FALSE)); ?>
 <div class="cl">&nbsp;</div>
