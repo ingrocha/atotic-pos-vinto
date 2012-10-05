@@ -1,46 +1,43 @@
 <?php
-
 class InsumosController extends AppController
 {
-
     public $helpers = array(
         'Html',
         'Form',
         'Javascript',
         'Ajax');
-
     public $uses = array(
         'Insumo',
         'Almacen',
         'Bodega',
         'Tipo');
-
     public $layout = 'admin';
 
     public function index()
     {
         $idsinsumos = $this->Almacen->find('all', array(
-            'fields'=>array('max(Almacen.id)as id'), 
+            'fields' => array('max(Almacen.id)as id'),
             'group' => array('Almacen.insumo_id'),
-            'order'=>array('Almacen.insumo_id ASC')
-            ));
-        $i=0;
-   
-        foreach($idsinsumos as $id){
-            foreach($id as $di)
-                 $ids[$i] = $di['id'];
-                 $i++;
+            'order' => array('Almacen.insumo_id ASC')
+                ));
+        $i = 0;
+
+        foreach ($idsinsumos as $id)
+        {
+            foreach ($id as $di)
+                $ids[$i] = $di['id'];
+            $i++;
         }
-        
+
         $insumos = $this->Almacen->find('all', array(
-            'recursive'=>2,
-            'conditions'=>array('Almacen.id'=>$ids)
-        ));
-        
+            'recursive' => 2,
+            'conditions' => array('Almacen.id' => $ids)
+                ));
+
         //, 'Insumo.nombre', 'Insumo.preciocompra', 'Insumo.precioventa', 'Almacen.total', 'Almacen.insumo_id'
         //debug($insumos);
         $this->set(compact('insumos'));
-   }
+    }
 
     public function nuevacategoria()
     {
@@ -59,7 +56,7 @@ class InsumosController extends AppController
             }
         } else
         {
-
+            
         }
     }
 
@@ -76,7 +73,6 @@ class InsumosController extends AppController
         if (empty($this->data))
         {
             $this->data = $this->Tipo->read();
-
         } else
         {
 
@@ -89,7 +85,6 @@ class InsumosController extends AppController
                 $this->Session->setFlash('no se pudo modificar!!');
             }
         }
-
     }
 
     public function descat($id = null)
@@ -187,7 +182,6 @@ class InsumosController extends AppController
                         }
                     }
                     //debug($this->data);
-
                     //fin guardamos
                 }
                 $this->redirect(array('action' => 'index'));
@@ -195,49 +189,50 @@ class InsumosController extends AppController
                 //echo $i."<br />";
                 //$i++;
             }
-
         } else
         {
             $dci = $this->Insumo->find('list', array('fields' => array('nombre')));
             //debug($dci);
             $this->set(compact('dci'));
         }
-
     }
 
     public function bodega()
     {
         $bodega = $this->Bodega->find('all', array(
-            'fields'=>array('max(Bodega.id) as id'),
+            'fields' => array('max(Bodega.id) as id'),
             'recursive' => 1,
-            'group'=>array('Bodega.insumo_id'),
-            'order' => array('Bodega.id ASC')                       
-            ));
-        
+            'group' => array('Bodega.insumo_id'),
+            'order' => array('Bodega.id ASC')
+                ));
+
         $ids = array();
-        $i=0;
-        foreach($bodega as $insumo){
-            foreach($insumo as $id){
-               $ids[$i]=$id['id'];    
+        $i = 0;
+        foreach ($bodega as $insumo)
+        {
+            foreach ($insumo as $id)
+            {
+                $ids[$i] = $id['id'];
             }
-             $i++;
+            $i++;
         }
-        
+
         $bodega = $this->Bodega->find('all', array(
-            'conditions'=>array('Bodega.id'=>$ids),
+            'conditions' => array('Bodega.id' => $ids),
             'recursive' => 1,
-            'group'=>array('Bodega.insumo_id'),
-            'order' => array('Bodega.id ASC')                       
-            ));
+            'group' => array('Bodega.insumo_id'),
+            'order' => array('Bodega.id ASC')
+                ));
         $this->set(compact('bodega'));
     }
+
     function buscarbodega()
     {
 
         $this->layout = 'ajax';
         $dato = $this->data['Insumo']['nombre'];
         $tipo = $this->Tipo->find('all', array('conditions' => array('Tipo.nombre like' =>
-                    "%$dato%"), 'recursive' => -1));
+                "%$dato%"), 'recursive' => -1));
         //debug($tipo);exit;
         $i = 0;
         foreach ($tipo as $t)
@@ -257,19 +252,18 @@ class InsumosController extends AppController
             $bodega = $this->Bodega->find('all', array(
                 'recursive' => 0,
                 'conditions' => array('or' => array('Insumo.nombre like' => "%$dato%",
-                            'Insumo.tipo_id' => $tipos)),
+                        'Insumo.tipo_id' => $tipos)),
                 'order' => array('Bodega.id DESC')));
         }
 
         //debug($insumos);exit;
         $this->set(compact('bodega'));
-
     }
+
     function _guardabodega()
     {
 
         echo 'esta es la funcion';
-
     }
 
     public function salidalmacen($id = null)
@@ -332,7 +326,7 @@ class InsumosController extends AppController
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
 
                     $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo),
-                            'recursive' => -1));
+                        'recursive' => -1));
                     $this->data = "";
                     $this->request->data['Insumo']['bodega'] = $cant_bodega_actual;
                     $id_mod_insumo = $mod_bodega['Insumo']['id'];
@@ -341,7 +335,7 @@ class InsumosController extends AppController
 
                     if ($this->Insumo->save($this->data))
                     {
-
+                        
                     }
 
 
@@ -361,7 +355,6 @@ class InsumosController extends AppController
                     {
                         echo "no guardo";
                     }
-
                 } else
                 {
 
@@ -370,7 +363,7 @@ class InsumosController extends AppController
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
 
                     $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo),
-                            'recursive' => -1));
+                        'recursive' => -1));
                     $this->data = "";
 
                     $this->request->data['Insumo']['bodega'] = $cant_bodega_actual;
@@ -379,7 +372,7 @@ class InsumosController extends AppController
 
                     if ($this->Insumo->save($this->data))
                     {
-
+                        
                     }
 
                     $this->data = "";
@@ -399,7 +392,6 @@ class InsumosController extends AppController
                         echo "no guardo";
                     }
                 }
-
             } else
             {
 
@@ -430,7 +422,7 @@ class InsumosController extends AppController
         {
             //debug($this->data);
             $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id),
-                    'recursive' => -1));
+                'recursive' => -1));
             $ce = $this->Almacen->find('first', array(
                 'conditions' => array('insumo_id' => $id),
                 'order' => 'id DESC',
@@ -514,7 +506,7 @@ class InsumosController extends AppController
         {
             //debug($this->data);
             $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id),
-                    'recursive' => -1));
+                'recursive' => -1));
             //debug($insumo);
             $this->set(compact('insumo'));
         }
@@ -526,7 +518,7 @@ class InsumosController extends AppController
         $this->layout = 'ajax';
         $nombre = $this->data['Insumo']['nombre'];
         $insumos = $this->Insumo->find('all', array('recursive' => 0, 'conditions' =>
-                array('Insumo.nombre like' => "%$nombre%")));
+            array('Insumo.nombre like' => "%$nombre%")));
         //debug($insumos);
         $this->set(compact('insumos'));
         //debug($this->data);
@@ -552,7 +544,6 @@ class InsumosController extends AppController
                 //$this->data = "";
                 //$this->Insumo->id = $id_insumo;
                 //$this->request->data['Insumo']['total'] = $cant_entrada;
-
                 //if (!$this->Insumo->save($this->data)){
                 //    echo "no guardo";
                 //}
@@ -579,8 +570,9 @@ class InsumosController extends AppController
                 $this->Session->setFlash('No se pudo registrar el Insumo');
             }
         }
-        $dct = $this->Tipo->find('list', array('fields' => 'nombre', 'conditions' =>
-                array('estado' => 1)));
+        $dct = $this->Tipo->find('list', 
+                array('fields' => 'nombre', 
+                      'conditions' => array('estado' => 1)));
         $this->set(compact('dct'));
         //debug($dct);
     }
@@ -596,17 +588,16 @@ class InsumosController extends AppController
         if (empty($this->data))
         {
             $this->data = $this->Insumo->read();
-
         } else
         {
             if ($this->Insumo->save($this->data))
             {
 
                 $datos_insumo = $this->Insumo->find('first', array('recursive' => -1,
-                        'conditions' => array('id' => $id)));
+                    'conditions' => array('id' => $id)));
                 $cantidad = $datos_insumo['Insumo']['total'];
                 $insumo_almacen = $this->Almacen->find('first', array('recursive' => -1,
-                        'conditions' => array('insumo_id' => $id)));
+                    'conditions' => array('insumo_id' => $id)));
                 $id_almacen = $insumo_almacen['Almacen']['id'];
 
                 //$data=array('id'=>$id_almacen, array('ingreso'=>$cantidad, 'total'=>$cantidad));
@@ -624,7 +615,6 @@ class InsumosController extends AppController
                 {
                     $this->Session->setFlash('No se pudo modificar!!');
                 }
-
             } else
             {
                 $this->Session->setFlash('no se pudo modificar!!');
@@ -653,8 +643,8 @@ class InsumosController extends AppController
             $this->Session->setFlash('Se borro el insumo');
             $this->redirect(array('action' => 'index'));
         }
-
     }
+
 }
 
 ?>

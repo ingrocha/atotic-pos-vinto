@@ -249,7 +249,7 @@ class PedidosController extends AppController
         
         if ($this->Pedido->save($this->data))
         {
-            exec("D:\imprime\VivaVinto.exe");
+            //exec("D:\imprime\VivaVinto.exe");
             $this->Session->setFlash('Pedido Registrado');
             $this->redirect(array('action' => 'listadopedidos'));
         }

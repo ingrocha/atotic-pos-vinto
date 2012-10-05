@@ -2,14 +2,13 @@
 
 class ProductosController extends AppController
 {
-
     public $helpers = array(
         'Html',
         'Form',
         'Javascript',
         'Ajax');
     public $uses = array(
-        'Producto',        
+        'Producto',
         'Categoria',
         'Porcione',
         'Insumo',
@@ -31,20 +30,20 @@ class ProductosController extends AppController
     public function ajaxmodificareceta($id = Null)
     {
         $this->layout = 'ajax';
-        $receta = $this->Porcione->find('first', 
-                array('conditions'=>
-                    array('Porcione.id'=>$id)));
-        if(!empty($this->data))
+        $receta = $this->Porcione->find('first', array('conditions' =>
+            array('Porcione.id' => $id)));
+        if (!empty($this->data))
         {
             $cod = $receta['Producto']['id'];
             $this->Porcione->id = $id;
             $cantidad = $this->data['Receta']['cantidad'];
             $this->data = "";
-            $this->request->data['Porcione']['cantidad']=$cantidad;
-            if($this->Porcione->save($this->data)){
+            $this->request->data['Porcione']['cantidad'] = $cantidad;
+            if ($this->Porcione->save($this->data))
+            {
                 $this->Session->setFlash("Cantidad Modificada!!!");
-                $this->redirect(array('action'=>'receta', $cod));
-            }            
+                $this->redirect(array('action' => 'receta', $cod));
+            }
             //if()
             debug($this->data);
         }
@@ -129,10 +128,9 @@ class ProductosController extends AppController
 
     public function productosmenu()
     {
-        $prod = $this->Producto->find('all', 
-                array('recursive' => 0,
-                      'conditions'=>array('Producto.estado <='=>1),
-                      'order' => 'Producto.id DESC'));
+        $prod = $this->Producto->find('all', array('recursive' => 0,
+            'conditions' => array('Producto.estado <=' => 1),
+            'order' => 'Producto.id DESC'));
         $this->set(compact('prod'));
         //debug($prod);
     }
@@ -184,8 +182,8 @@ class ProductosController extends AppController
         $insumos = $this->Insumo->find('all', array(
             'recursive' => 0,
             'conditions' => array('Insumo.estado' => 1),
-            'order' => array('Insumo.id' => 'DESC'),
-            'limit' => 20));
+            'order' => array('Insumo.id' => 'DESC')
+                ));
         $this->set(compact('insumos'));
     }
 
