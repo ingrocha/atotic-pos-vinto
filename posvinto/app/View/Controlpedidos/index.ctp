@@ -1,7 +1,6 @@
 <!-- Container -->
 <div id="container">
 	<div class="shell">			
-		<br />
 		<!-- Main -->
 		<div id="main">
 			<div class="cl">&nbsp;</div>			
@@ -32,17 +31,35 @@
                             <?php $i=0;?>
                             
                             <?php foreach($data as $data):?>   
-                            <?php $id=$data['Pedido']['id']; ?>                            
-    							<tr>
-							   	 	
-                                    <td class="tituloh1"><?php echo $data['Pedido']['mesa'];?></td>
+                            <?php $id=$data['Pedido']['id']; ?>   
+                            <div id="cuadro_<?php echo $id ?>" title="Recibo">
+                                </div>                         
+    							<tr>							   	 	
+                                    <td><h1 class="tituloh1"><?php echo $data['Pedido']['mesa'];?></h1></td>
     								<td><?php echo $data['Usuario']['nombre'];?></td>
     								<td><?php echo $data['Pedido']['total'];?></td>
                                     <?php
                                     $hora = split(' ', $data['Pedido']['fecha']);
                                     ?>
                                     <td><?php echo $hora[1];?></td>
-    								<td>
+    								<td>                                       
+                                       <div id="dialog_<?php echo $id; ?>" style="float: left;">
+                                            <?php
+                                            echo $this->Html->image("print.png", array(
+                                                "title" => "Ver Recibo"
+                                            ));
+                                            ?>            
+                                        </div>  
+                                        &nbsp;
+                                        <script type="text/javascript">
+                                            var dialogOpts = {
+                                                modal: true
+                                            };
+                                            jQuery("#dialog_<?php echo $id; ?>").click(function(){
+                                                jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("controlpedidos/ajaxverecibo/<?php echo $id; ?>");
+                            
+                                            });                                                                        
+                                        </script> 
                                        <?php 
                                             echo $this->Html->image("facturar.png", array(
                                                 "title" => "Facturar Pedido",
@@ -54,7 +71,7 @@
                                                 "title" => "Imprimir recibo",
                                                 'url' => array('action' => 'imprecibo', $id)
                                             ));
-                                        ?>
+                                        ?>                                        
                                        <?php //echo $this->Html->link('',array('controller' => 'controlpedidos', 'action' => 'facturar1', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
                                        <?php //echo $this->Html->link('',array('controller' => 'controlpedidos', 'action' => 'Recibo', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
                                     </td>
@@ -103,10 +120,7 @@
                             $("tfoot input").keyup( function () {
         /* Filter on the column (the index) of this element */
         oTable.fnFilter( this.value, $("tfoot input").index(this) );
-    } );
-     
-     
-     
+    } );               
     /*
      * Support functions to provide a little bit of 'user friendlyness' to the textboxes in 
      * the footer
@@ -154,4 +168,3 @@
 		</div>
 		<!-- Main -->
 	</div>
-

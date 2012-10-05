@@ -1,31 +1,10 @@
-<!-- Container -->
-<div id="container">
-    <div class="shell">		
-        <!-- Small Nav -->
-        <div class="small-nav">
-            Detalle del pedido
-        </div>
-        <!-- End Small Nav -->		
-        <br />
-        <!-- Main -->
-        <div id="main">
-            <div class="cl">&nbsp;</div>			
-            <!-- Content -->
-            <div id="content">				
-                <!-- Box -->
-                <div class="boxa">
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2 class="left">LISTADO DE PEDIDOS</h2>						
-                    </div>
-                    <!-- End Box Head -->	
-                    <!-- Table -->
-                    <div class="table">
+<?php //debug($pedido); ?>
                         <div id="aImprimir">
                             <?php echo $this->Form->create('Recibo') ?>
                             <div class="tituloh1" style="padding-left: 80px;">Viva Vinto</div>
+                            <p>&nbsp;</p>
                             <div class="tituloh1" style="padding-left: 90px;">Recibo</div>
-                            <table class="tablafactura">
+                            <table class="recibo">
                                 <tr>
                                     <td colspan="4"><div class="tituloh3">Mesa: </div><div class="tituloh3">&nbsp;<div class="tituloh3">&nbsp;<?php echo $moso['Pedido']['mesa']; ?></div></div></td>    
                                 </tr>
@@ -55,49 +34,9 @@
                                         <div class="tituloh5" ><?php echo $totalpagado; ?></div>
                                     </td>
                                 </tr>
-                            </table>
-                            <br />
-                            <table>
-                                <tr>
-                                    <td>
-                                        Nombre:
-                                    </td>
-                                    <td>
-                                        <?php echo $this->Form->text('nombre'); ?>
-                                    </td>
-                                </tr>
-
-                        </div><!--fin imprimir-->  
-                        <tr>
-                            <td colspan="4">
-
-                                <?php echo $this->Form->end('Guardar') ?>
-
-                            </td>
-                        </tr>
-                        </table>   	                       					
-                    </div>
-                    <div class="cl">&nbsp;</div>
-                    <div class="ayuda">
-                        <?php echo $this->Html->image('recibo.png'); ?> Aplicar descuento
-                        <?php echo $this->Form->select('descuento', $descuentos, array('id' => 'descuento')) ?>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <?php echo $this->Html->image('print.png', array('id' => "bt_imprimir")); ?> Imprimir el Pedido&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    </div>
-                    <div class="cl">&nbsp;</div>
-                    <!-- Table -->					
-                </div>
-                <!-- End Box -->								
-            </div>
-            <!-- End Content -->
-
-            <?php echo $this->element('menupedidos') ?>
-
-            <div class="cl">&nbsp;</div>			
-        </div>
-        <!-- Main -->
-    </div>
+                            </table>                                                      
+                        </div><!--fin imprimir-->                                                                                            
+                        <?php echo $this->Html->image('print.png', array('id' => "bt_imprimir")); ?> Imprimir el Pedido&nbsp;&nbsp;&nbsp;&nbsp;            
     <script type="text/javascript">
         jQuery("#descuento").change(function(){
             //alert(this.value);
