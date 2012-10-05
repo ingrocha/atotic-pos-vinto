@@ -62,7 +62,7 @@
 
                                         <div id="dialog_<?php echo $id; ?>" style="float: left;">
                                             <?php
-                                            echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
+                                                echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
                                             ?>
                                         </div>
 
@@ -80,7 +80,6 @@
                                             'url' => array('action' => 'deshabilitar', $id)
                                         ));
                                         ?>            
-
                                         <script type="text/javascript">
                                             var dialogOpts = {
                                                 modal: true
