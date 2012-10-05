@@ -1,8 +1,8 @@
 body{
     font-family: Verdana, Arial, Helvetica, sans-serif;    
 }
-.tituloh1{
-    
+.tituloh1{    
+    color: #000;
     font-weight: bolder;
     font-size: x-large;   
 }
@@ -22,6 +22,15 @@ body{
     
     margin: 0 70%  0 0;
 }
+table.recibo{
+    border-bottom: 2px solid black; 
+    border-collapse: collapse;   
+}
+table.recibo tr.contenido td{
+    border: 2px solid black;
+   
+}
+
 table.tablafactura{
     margin-right: 70%;
     width: 22%;  
@@ -59,7 +68,7 @@ table.imprimir-factura{
     width: 358px;
 }
 table.imprimir-factura tr td{
-    padding: 5px;
+    padding: 5px;     
 }
 table.imprimir-factura tr td.cantidad{
     padding-left: 59px;
