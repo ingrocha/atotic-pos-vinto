@@ -8,12 +8,12 @@
         
         public function genera(){
             
-            $nfactura = 1503;
-            $autorizacion = "29040011007";
+            $nfactura = 5138;
+            $autorizacion = "190400913428";
             $nit = 4189179011;
             $fecha = 20070702;
             $monto = 2500;
-            $llave = "9rCB7Sv4X29d)5k7N%3ab89p-3(5[A";
+            $llave = "Y-gkN8gZW#n}c+hWq8Qp4sppw7DH@J\Q*ZUt+HZ_[7_PFxt@[]f5$*cE}s+MRfyG";
             //$this->Verhoeff->saluda("Cristiam");
             //$this->Verhoeff::saluda("Cristiam");
             /*echo $nfactura."<br />";
@@ -130,13 +130,14 @@
             //debug($cad2);
             
             //autorizacion, factura, nit, fecha, monto, llave
-            $this->Codigocontrol->CodigoControl('79040011859',
-                                                '152',
-                                                '1026469026',
-                                                '20070728',
-                                                '135',
-                                                'A3Fs4s$)2cvD(eY667A5C4A2rsdf53kw9654E2B23s24df35F5');
-            $codigo=$this->Codigocontrol->generar();                                                
+            $this->Codigocontrol->CodigoControl('29040011007',
+                                                '1503',
+                                                '4189179011',
+                                                '20070702',
+                                                '2500',
+                                                '9rCB7Sv4X29d)5k7N%3ab89p-3(5[A');
+            $codigo=$this->Codigocontrol->generar();  
+            echo '<h1> Codigo de control generado para la prueba</h1>';
             debug($codigo);
             /*debug($cad1);
             debug($nuevo_nautorizacion);         
@@ -151,6 +152,7 @@
             //echo $tmp_nfactura;
                 
         } 
+        
         public function genera2(){
             
             $this->Codigocontrol->CodigoControl('79040011859',
