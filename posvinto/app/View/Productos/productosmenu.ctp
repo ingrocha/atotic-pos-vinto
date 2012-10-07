@@ -1,13 +1,7 @@
-<?php //debug($prod);   ?>
+<?php //debug($prod); ?>
 <!-- Container -->
 <div id="container">
-    <div class="shell">		
-        <!-- Small Nav -->
-        <div class="small-nav">
-            Listado de productos
-        </div>
-        <!-- End Small Nav -->		
-        <br />
+    <div class="shell">		        
         <!-- Main -->
         <div id="main">
             <div class="cl">&nbsp;</div>			
@@ -29,7 +23,8 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Categoria</th>                         
+                                    <th>Categoria</th>   
+                                    <th>Precio</th>   
                                     <th>Acciones</th>                                               
                                 </tr>   
                             </thead>
@@ -45,7 +40,10 @@
                                     </td>
                                     <td>
                                         <?php echo $p['Categoria']['nombre']; ?>
-                                    </td>       
+                                    </td>   
+                                    <td>
+                                        <?php echo $p['Producto']['precio']; ?>
+                                    </td>
                                     <td>
                                         <?php if ($p['Producto']['estado']): ?>        
                                             <?php //echo $this->Html->image('muestra.png'); ?>
@@ -72,19 +70,19 @@
                                         echo $this->Html->image("receta.png", array("title" =>
                                             "Receta", 'url' => array('action' => 'receta', $id)));
                                         ?> 
-    <?php
-    echo $this->Html->image("edit.png", array("title" => "Editar",
-        'url' => array('action' => 'editaprodmenu', $id)));
-    ?> 
+                                        <?php
+                                        echo $this->Html->image("edit.png", array("title" => "Editar",
+                                            'url' => array('action' => 'editaprodmenu', $id)));
+                                        ?> 
                                     </td>                    
                                 </tr>
-    <?php //$i++;   ?>
-                <?php endforeach; ?>
+                                <?php //$i++;   ?>
+                            <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-<?php //fin de mostrar los datos   ?>
+                <?php //fin de mostrar los datos   ?>
             </div>						
         </div>
         <!-- Table -->
@@ -103,7 +101,7 @@
         </div>
         <!-- End Box Head-->					
         <div class="box-content">                    																		
-<?php echo $this->element("menucarta"); ?>
+            <?php echo $this->element("menucarta"); ?>
         </div>
     </div>
     <!-- End Box -->

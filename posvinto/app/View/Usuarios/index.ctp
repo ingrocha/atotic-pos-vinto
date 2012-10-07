@@ -9,27 +9,22 @@
             <span>&gt;</span>
             Lista de Usuarios
         </div>-->
-        <!-- End Small Nav -->
-        <h3><span>Lista de Usuarios</span></h3>
-        <br />
+        <!-- End Small Nav -->        
         <!-- Main -->
         <div id="main">
             <div class="cl">&nbsp;</div>
-
             <!-- Content -->
             <div id="content">
-
                 <!-- Box -->
                 <div class="boxa">
                     <!-- Box Head -->
                     <div class="box-head">
                         <h2 class="left">LISTADO DE USUARIOS DEL SISTEMA</h2>
                         <div class="right">
-                           
+
                         </div>
                     </div>
                     <!-- End Box Head -->	
-
                     <!-- Table -->
                     <div class="table">
                         <?php echo $this->element('tablagrid'); ?>  
@@ -37,11 +32,9 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-
                                     <th>Usuario</th>        
                                     <th>Codigo</th>
                                     <th>Perfile</th>
-
                                     <th>Estado</th>
                                     <th>Aciones</th>
                                 </tr>
@@ -82,7 +75,7 @@
                                                 'url' => array('action' => 'baja', $id)
                                             ));
                                             ?>
-                                             <?php
+                                            <?php
                                             echo $this->Html->image("candado.png", array(
                                                 "title" => "Cambiar password",
                                                 'url' => array('action' => 'cambiarpassword', $id)
@@ -93,32 +86,37 @@
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
-
-
-                        <!-- Pagging -->
-                        <div class="pagging">
-                            <div class="left"></div>
-                            <div class="right">                            								
-                            </div>
-                        </div>
-                        <!-- End Pagging -->
-
+                        <?php
+                            echo $this->Html->image("edit.png", array(
+                                "title" => "Editar Usuario")
+                            );
+                        ?> 
+                        Edita la informacion del Usuario
+                        &nbsp;&nbsp;&nbsp;
+                        <?php
+                            echo $this->Html->image("elim.png", array(
+                                "title" => "Dar de baja"
+                            ));
+                        ?>
+                        &nbsp;&nbsp;&nbsp;
+                        Elimina la inforacion del Usuario
+                        <?php
+                            echo $this->Html->image("candado.png", array(
+                                "title" => "Cambiar password"
+                            ));
+                        ?>                               
+                        Cambia el password del usuario
                     </div>
                     <!-- Table -->
-
                 </div>
                 <!-- End Box -->
-
-
             </div>
             <!-- End Content -->
-
             <!-- Sidebar -->
             <!-- Sidebar -->
             <?php echo $this->element('menuusuarios') ?>
             <!-- End Sidebar -->
             <!-- End Sidebar -->
-
             <div class="cl">&nbsp;</div>			
         </div>
         <!-- Main -->

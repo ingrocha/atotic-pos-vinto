@@ -1,12 +1,6 @@
 <!-- Container -->
 <div id="container">
-    <div class="shell">	 
-        <!-- Small Nav -->
-        <div class="small-nav">
-            Lista de Insumos en almacen
-        </div>
-        <!-- End Small Nav -->		
-        <br />
+    <div class="shell">	        
         <!-- Main -->
         <div id="main">
             <div class="cl">&nbsp;</div>			

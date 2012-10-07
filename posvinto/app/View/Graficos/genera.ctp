@@ -3,15 +3,9 @@
 	<div class="shell">
 		
 		<!-- Small Nav -->
-		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
-			<span>&gt;</span>
-			Registro de usuarios
-		</div>
-		<!-- End Small Nav -->
 		
-		<br />
+		<!-- End Small Nav -->
+	
 		<!-- Main -->
 		<div id="main">
 			<div class="cl">&nbsp;</div>

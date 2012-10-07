@@ -1,6 +1,8 @@
 <?php
+
 class InsumosController extends AppController
 {
+
     public $helpers = array(
         'Html',
         'Form',
@@ -33,9 +35,6 @@ class InsumosController extends AppController
             'recursive' => 2,
             'conditions' => array('Almacen.id' => $ids)
                 ));
-
-        //, 'Insumo.nombre', 'Insumo.preciocompra', 'Insumo.precioventa', 'Almacen.total', 'Almacen.insumo_id'
-        //debug($insumos);
         $this->set(compact('insumos'));
     }
 
@@ -97,6 +96,33 @@ class InsumosController extends AppController
             $this->Session->setFlash('Se Elimino la Categoria');
             $this->redirect(array('action' => 'categoriasalmacen'));
         }
+    }
+    
+    public function variasalidas()
+    {
+        $idsinsumos = $this->Almacen->find('all', array(
+            'fields' => array('max(Almacen.id)as id'),
+            'group' => array('Almacen.insumo_id'),
+            'order' => array('Almacen.insumo_id ASC')
+                ));
+        $i = 0;
+
+        foreach ($idsinsumos as $id)
+        {
+            foreach ($id as $di)
+                $ids[$i] = $di['id'];
+            $i++;
+        }
+
+        $insumos = $this->Almacen->find('all', array(
+            'recursive' => 2,
+            'conditions' => array('Almacen.id' => $ids)
+                ));
+        $this->set(compact('insumos'));
+        
+        $insumos = $this->Insumo->find('all', 
+                array('recursive'=>-1));
+        $this->set(compact('insumos'));
     }
 
     public function salidas()
@@ -570,9 +596,8 @@ class InsumosController extends AppController
                 $this->Session->setFlash('No se pudo registrar el Insumo');
             }
         }
-        $dct = $this->Tipo->find('list', 
-                array('fields' => 'nombre', 
-                      'conditions' => array('estado' => 1)));
+        $dct = $this->Tipo->find('list', array('fields' => 'nombre',
+            'conditions' => array('estado' => 1)));
         $this->set(compact('dct'));
         //debug($dct);
     }

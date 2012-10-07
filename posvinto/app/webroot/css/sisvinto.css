@@ -64,7 +64,7 @@ h1{ color:#060; text-align:center; text-transform:uppercase; margin-top:15px;}
 #header{ }
 #header h1{ text-align:left; margin-top:0; float: left; width: 450px;}
 #content{ background:#fff; float: left; margin-left: 10px; width: 100%;  margin-top:10px; border: 3px solid green; -moz-border-radius: 15px;-webkit-border-radius: 15	px;behavior:url(border-radius.htc);}
-.navigation{ background:#E76F0E; width:60%; float:right; margin-top:25px; height:60px;-moz-border-radius: 15px;-webkit-border-radius: 15	px;behavior:url(border-radius.htc);}
+.navigation{ background:#E76F0E; width:60%; float:right; margin-top:5px; height:60px;-moz-border-radius: 15px;-webkit-border-radius: 15	px;behavior:url(border-radius.htc);}
 .navigation ul{ height:66px; }
 .navigation ul li{ display:inline; float:left; margin-top:15px;    padding: 0 15px; border-right:1px solid #fff; } 
 .navigation ul li a{ color:#fff;margin-top:10px; font-size:22px; text-decoration:none; }

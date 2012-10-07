@@ -42,6 +42,10 @@ table.tablafactura tr.contenido td{
    
 }
 
+table.tablafactura tr td.titulos{
+   font-size: 26px;
+}
+
 table.reportea{
     margin: 10px 20px 50px 25px;
     width: 600px;
