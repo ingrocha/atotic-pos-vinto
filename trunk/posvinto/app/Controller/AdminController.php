@@ -39,11 +39,13 @@ class AdminController extends AppController {
                 $this->Session->write("sucursal_id", $sucursal);
                 
                 $this->Session->setFlash('Ingreso con exito');
-                if($tipo_usuarioid == 1):
+                if($tipo_usuarioid == 1){
                   $this->redirect('/Panelcontrol/');
-                else:
-                   $this->redirect('/Pedidos/listadopedidos/');
-                endif;
+                }elseif($tipo_usuarioid == 3){
+                   $this->redirect(array('controller'=>'Cobrador', 'action'=>'index'));
+                }else{
+                   $this->redirect('/Pedidos/listadopedidos/'); 
+                }
             else:
                 $this->Session->setFlash('La contrase&ntilde;a no coincide, por favor intente de nuevo.');
                 $this->redirect('/');

@@ -1,4 +1,4 @@
-<?php //debug($platoreceta);     ?>
+<?php //debug($platoreceta);      ?>
 <!-- Container -->
 <div id="container">
     <div class="shell">		
@@ -61,7 +61,7 @@
                                             };
                                             jQuery("#dialog_<?php echo $id_porcione; ?>").click(function(){
                                                 jQuery("#cuadro_<?php echo $id_porcione; ?>").dialog(dialogOpts).load("../ajaxmodificareceta/<?php echo $id_porcione; ?>");
-                                   
+                                           
                                             });                                                                 
                                         </script> 
                                     </td>
@@ -84,7 +84,7 @@
                 <div class="boxa">					
                     <!-- Box Head -->
                     <div class="box-head">
-                        <h2>Adminsitracion</h2>
+                        <h2>Administracion</h2>
                     </div>
                     <!-- End Box Head-->					
                     <div class="box-content">                    
@@ -92,10 +92,8 @@
                         echo $this->Html->link("<span>Nuevo Insumo a Receta</span>", array('action' => 'nuevaporcion', $id_plato), array('class' => "add-button",
                             'escape' => false));
                         ?>
-                        <div class="cl">&nbsp;</div>
-                        <hr />                     
+                        <div class="cl">&nbsp;</div> 
                         <?php echo $this->element("menucarta"); ?>
-
                     </div>
                 </div>
                 <!-- End Box -->

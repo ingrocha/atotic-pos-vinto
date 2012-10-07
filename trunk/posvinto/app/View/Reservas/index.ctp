@@ -1,8 +1,6 @@
 <!-- Container -->
 <div id="container">
-	<div class="shell">		
-			
-		<br />
+	<div class="shell">			
 		<!-- Main -->
 		<div id="main">
 			<div class="cl">&nbsp;</div>			

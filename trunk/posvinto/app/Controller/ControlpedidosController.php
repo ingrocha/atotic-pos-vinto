@@ -19,13 +19,102 @@
     {
         //$this->Pedido->recursive = 0;
         $fecha = date('Y-m-d') . " %";
-        $this->paginate = array('conditions' => array('Pedido.fecha LIKE' => $fecha,
-                    'Pedido.estado <=' => 2), 'order' => array('Pedido.id' => 'desc'));
+        $this->paginate = array('conditions' => array('Pedido.fecha LIKE' => $fecha),
+                'order' => array('Pedido.id' => 'desc'));
         // similar to findAll(), but fetches paged results
         $data = $this->paginate('Pedido');
         $this->set(compact('data'));
     }
-    
+    public function facturar()
+    {
+        $this->layout = 'imprimir';
+        $id_pedido = $this->data['Controlpedidos']['id_pedido'];
+        $pedido = $this->Pedido->find('all', array('recursive' => -1, 'conditions' =>
+                array('id' => $id_pedido)));
+        if (!empty($this->data))
+        {
+            //debug($this->data);
+            $cliente = $this->data['Controlpedidos']['apellido'];
+            $nitcliente = $this->data['Controlpedidos']['nit'];
+            $importe = $pedido['0']['Pedido']['total'];
+            $this->data = "";
+            $this->request->data['Factura']['cliente'] = $cliente;
+            $this->request->data['Factura']['nit'] = $nitcliente;
+            $this->request->data['Factura']['importetotal'] = $importe;
+            $this->Factura->create();
+            if ($this->Factura->save($this->data))
+            {
+                $pf = $this->Parametrosfactura->find('first');                
+                $nfactura = $this->Factura->getLastInsertID();
+                                
+                //datos de prueba para la factura
+                /*$autoriza = '29040011007';
+                $idfactura = '1503';
+                $nitcliente = '4189179011';
+                $nueva_fecha = '20070702';
+                $rtotal = '2500';
+                $llave = '9rCB7Sv4X29d)5k7N%3ab89p-3(5[A';*/
+                $autoriza = $pf['Parametrosfactura']['numero_autorizacion'];
+                $idfactura = $nfactura;
+                $fecha = date('Y-m-d');
+                $nueva_fecha = ereg_replace("[-]", "", $fecha);
+                $rtotal = round($importe);
+                $llave = $pf['Parametrosfactura']['llave'];
+                //debug($autoriza);
+                //$nitcliente = $nitcliente
+                //$autoriza = $pf['Parametrosfactura']['numero_aurorizacion'];
+                //autorizacion, factura, nit, fecha, monto, llave
+                $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
+                $codigo = $this->Codigocontrol->generar();
+                //$this->Factura->id = $nfactura;
+                //$this->request->data[''];
+                //debug($codigo);
+            }
+            //debug($this->data);
+            //if($this)
+            //$this->request->data['Facturar']['']
+            //$this->request->data['Factura']['cliente']=
+        } else
+        {
+        }
+        //debug($this->data);
+        $items = $this->Item->find('all', array('recursive' => 1, 'conditions' => array
+                ('pedido_id' => $id_pedido)));
+        
+        $atotal = $pedido['0']['Pedido']['total'];
+        $total = number_format($atotal, 2, '.', ',');
+        $monto = split('\.', $total);
+        $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
+        //debug($atotal);
+        //debug($totalliteral);
+        //debug($pedido);
+        //debug($items);
+        //debug($pf);
+        $this->set(compact('pedido', 'items', 'pf', 'totalliteral', 'monto', 'cliente',
+            'nitcliente', 'nfactura', 'codigo'));
+    }
+    public function ajaxpago($id_pedido = null)
+    {
+        $this->layout = 'ajax';
+        if (!empty($this->data))
+        {
+            debug($this->data);
+            $pago = $this->data['Pedido']['monto'];
+            $data = array('id' => $id_pedido, 'monto' => $pago);
+            $this->Pedido->id = $id_pedido;
+            $this->request->data['Pedido']['monto'] = $pago;
+            $this->request->data['Pedido']['estado'] = 3;
+            // This will update Recipe with id 10
+            //$this->Recipe->save($data);
+            if ($this->Pedido->save($this->data))
+            {
+                $this->redirect(array('action' => 'verpedido', $id_pedido));
+            }
+        } else
+        {
+        }
+        $this->set(compact('id_pedido'));
+    }
     public function ajaxverecibo($id_pedido = null)
     {
         $this->layout = 'ajax';
@@ -44,7 +133,24 @@
                     'Descuento.observacion')));
         $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos'));
     }
-    
+    public function verpedido($id_pedido = null)
+    {
+        //$this->layout = 'ajax';
+        //$this->layout='imprimir';
+        $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
+                    $id_pedido)));
+        $totalpagado = 0.00;
+        foreach ($pedido as $item)
+        {
+            $totalpagado += $item['Item']['precio'];
+        }
+        $moso = $this->Pedido->find('first', array('recursive' => 0, 'conditions' =>
+                array('Pedido.id' => $id_pedido)));
+        //debug($moso);
+        $descuentos = $this->Descuento->find('list', array('fields' => array('Descuento.porcentaje',
+                    'Descuento.observacion')));
+        $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos'));
+    }
     public function imprecibo($id_pedido = null)
     {
         //$this->layout='imprimir';
@@ -232,6 +338,17 @@
         {
             $this->Session->setFlash('No se pudo generar la nueva factura');
             $this->redirect(array('action' => 'index'), null, true);
+        }
+    }
+    public function ajaxfactura($id_pedido = null)
+    {
+        $this->layout = 'ajax';
+        $this->set(compact('id_pedido'));
+        if (!empty($this->data))
+        {
+            debug($this->data);
+        } else
+        {
         }
     }
     public function facturarnormal()

@@ -6,6 +6,9 @@ body {
 	line-height:14px;
 	color:#000;
 }
+table.recibo tr td.titulos{
+    font-size: 26px;
+}
 input, textarea, select { font-family: Verdana, sans-serif; font-size:16px; }
 textarea { overflow:hidden; }
 
@@ -41,7 +44,7 @@ h1.titulos{ font-size:20px; line-height:24px; color:#000; font-weight: normal;}
 h2.titulos{ font-size:18px; line-height:24px; color:#000; font-weight: normal;}
 h1 a{ color:#fff; text-decoration: none; }
 h2 { font-size:15px; font-weight: normal; }
-h3 { font-size:12px; line-height:14px; font-weight: normal; }
+h3 { font-size:22px; line-height:14px; font-weight: bolder; }
 h3 a{ text-decoration: none; }
 
 
