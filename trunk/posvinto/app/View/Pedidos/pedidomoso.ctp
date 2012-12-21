@@ -29,7 +29,8 @@
                                 $(document).ready(function() {
                                     $("#prod_<?php echo $id; ?>").click(function(){
                                         $("#listado").load("../../../ajaxlistado/<?php echo $id_moso; ?>/<?php echo $id_prod; ?>/<?php echo $pedido; ?>/<?php echo $mesa; ?>");
-                                        //console.log('el id es: '+<?php //echo $prod_id;  ?>);                        
+                                        //console.log('el id es: '+<?php //echo $prod_id;  ?>); 
+                                        $("#desaparece").hide();                       
                                     });              
                                 });
                             </script>
@@ -43,23 +44,34 @@
 </div>
 <div>
     <div id="pedidos">
+    <div style="font-size: x-large; font-weight: bolder;">Moso: <?php echo $moso['Usuario']['nombre']; ?></div>
+    <div id="desaparece">
+    <div class="pedidomesa" style="font-size: x-large; font-weight: bolder;">
+    Mesa: <?php echo $mesa; ?>
+    Items: <?php echo $cant_platos['0']['0']['cant']; ?>
+    </div>
+    </div>
         <?php if (!empty($items_pedido)): ?>
             <div id="listado">
                 <table class="lista-pedidos">
+                <thead>
                     <tr>
-                        <td>Plato</td>
-                        <td>Cantidad</td>
+                        <th>Plato</th>
+                        <th>Cant</th>
                        <!--  <td>Precio</td> -->
-                        <td>Acciones</td>
+                        <th>Elim</th>
                     </tr>
+                </thead>
+                <tbody>
                     <?php //echo $id_moso; ?>
                     <?php
                     $total_platos = 0;
                     $total_pagar = 0;
                     ?>
+                    <?php $ce = 0; ?>
                     <?php foreach ($items_pedido as $i): ?>
                         <?php $id_item = $i['Item']['id']; ?>
-                        <tr>
+                        <tr class="<?php echo fmod($ce, 2)? 'segundo' : 'primero' ?>">
                             <td><?php echo $i['Producto']['nombre']; ?></td>
                             <td>
                                 <?php echo $i['Item']['cantidad']; ?>
@@ -76,7 +88,7 @@
                                 ?>
                                 </td> -->
                             <td>            
-                                <div id="restar_<?php echo $id_item; ?>"><?php echo $this->Html->image('menos.jpg'); ?></div>
+                                <div id="restar_<?php //echo $id_item; ?>"><?php //echo $this->Html->image('menos.jpg'); ?></div>
                                 <script type="text/javascript">                                           
                                     //$(document).ready(function() {
                                     $("#restar_<?php echo $id_item; ?>").click(function(){
@@ -86,12 +98,14 @@
                                 </script>
                             </td>
                         </tr>
-                    <?php endforeach; ?>                             
+                        <?php $ce++; ?>
+                    <?php endforeach; ?> 
+                    </tbody>                            
                 </table>            
             </div> 
         <?php else: ?>
             <div id="listado"> 
-                Seleccione un plato           
+                Seleccione un plato de la lista          
             </div> 
         <?php endif; ?>              
     </div>

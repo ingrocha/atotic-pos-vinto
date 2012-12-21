@@ -177,6 +177,7 @@ class ReportesController extends AppController{
             $this->Session->setFlash(__("Debe introducir un dato para filtro"));
         }
     }
+     
 }
 
 ?>

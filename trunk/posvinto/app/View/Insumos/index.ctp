@@ -1,53 +1,41 @@
-<!-- Container -->
-<div id="container">
-    <div class="shell">	        
-        <!-- Main -->
-        <div id="main">
-            <div class="cl">&nbsp;</div>			
-            <!-- Content -->
-            <div id="content">				
-                <!-- Box -->
-                <div class="boxa">
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2 class="left">LISTADO DE INSUMOS ALMACEN</h2>                        
-                        <div class="right">                        
-                        </div>    
-                    </div>
-                    <!-- End Box Head -->	
-                    <!-- Table -->
-                    <?php //debug($insumos); ?>
-                    <div class="table">  
-                        <?php echo $this->element('tablagrid'); ?>                                    
-                        <table id="grid" style="width: 100%"> 
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Categoria</th>  
-                                    <th>Existencias</th> 
-                                    <!--<th>Observaciones</th>-->
-                                    <th style="width: 105px;">Acciones</th>     
-                                </tr>    
-                            </thead>
-                            <tbody>
-                                <?php foreach ($insumos as $i): ?>
-                                    <?php $id = $i['Almacen']['insumo_id'] ?>
-                                <div id="cuadro_<?php echo $id ?>" title="Almacen">
-                                </div>
-                                <div id="cuadro2_<?php echo $id ?>" title="Almacen">
-                                </div>
-                                <tr>
-                                    <td>
-                                        <?php echo $i['Insumo']['nombre'] ?>
-                                    </td>                                    
-                                    <td>
-                                        <?php echo $i['Insumo']['Tipo']['nombre']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $i['Almacen']['total']; ?>
-                                    </td>        
-                                    <td>
-                                        <?php
+<div id="main-content" class="main-content container-fluid">
+<!-- // sidebar --> 
+    <?php echo $this->element('sidebar/insumos'); ?>               
+<!-- // fin sidebar -->
+
+<!-- // contenido pricipal -->                                 
+<div id="page-content" class="page-content">
+    <section>
+        <div class="page-header">
+            <h3><i class="aweso-icon-table opaci35"></i> Insumos <small>listado</small></h3>
+            <p>Despliega la lista de todos los insumos</p>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget widget-simple widget-table">
+                    <table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+                        <caption>
+                            Insumos<span></span>
+                        </caption>
+                        <thead>
+                            <tr>  
+                                <th scope="col">ID <span class="column-sorter"></span></th>                          
+                                <th scope="col">Nombre <span class="column-sorter"></span></th>
+                                <th scope="col">Categoria <span class="column-sorter"></span></th>
+                                <th scope="col">Categoria <span class="column-sorter"></span></th>
+                                <th scope="col">Acciones <span class="column-sorter"></span></th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($insumos as $i): ?>
+                        <?php $id = $i['Almacen']['insumo_id'] ?>                        
+                            <tr>                               
+                                <td><?php echo $id; ?></td>
+                                <td><?php echo $i['Insumo']['nombre']; ?></td>
+                                <td> <?php echo $i['Insumo']['Tipo']['nombre']; ?></td>
+                                 <td> <?php echo $i['Insumo']['Tipo']['nombre']; ?></td>                                
+                                <td>
+                                <?php
                                         echo $this->Html->image("edit.png", array(
                                             "title" => "Editar",
                                             'url' => array('action' => 'modificar', $id)
@@ -56,7 +44,7 @@
 
                                         <div id="dialog_<?php echo $id; ?>" style="float: left;">
                                             <?php
-                                                echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
+                                            echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
                                             ?>
                                         </div>
 
@@ -80,35 +68,34 @@
                                             };
                                             jQuery("#dialog_<?php echo $id; ?>").click(function(){
                                                 jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/ingresoalmacen/<?php echo $id; ?>");
-                           
+                               
                                             });   
-                        
+                            
                                             jQuery("#dialog2_<?php echo $id; ?>").click(function(){
                                                 jQuery("#cuadro2_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/salidalmacen/<?php echo $id; ?>");
                                                 //alert("click");
                                             });  
-                                        </script>       
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                        </script>        
+                                </td>                                
+                            </tr>
+                        <?php endforeach; ?>                           
+                        </tbody>
+                    </table>
+                    <!-- // BOO TABLE - DTB-2 -->
+
                 </div>
-                <?php //fin de mostrar los datos ?>
+                <!-- // Widget -->
+
             </div>
+            <!-- // Column -->
 
         </div>
-        <!-- Table -->
+        <!-- // Example row -->
 
-    </div>
-    <!-- End Box -->								
-</div>
-<!-- End Content -->			
+    </section>
+</div>	
+<!-- // fin contenido principal --> 
+</div>		
 <!-- Sidebar -->
-<?php echo $this->element('menualmacenes') ?>
+<?php //echo $this->element('menualmacenes') ?>
 <!-- End Sidebar -->
-
-<div class="cl">&nbsp;</div>			
-</div>
-<!-- Main -->
