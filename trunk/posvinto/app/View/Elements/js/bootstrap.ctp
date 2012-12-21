@@ -1,0 +1,19 @@
+<?php 
+    echo $this->Html->script(array(
+        'plugins/bootstrap-datepicker/js/bootstrap-datepicker',
+        'plugins/bootstrap-timepicker/js/bootstrap-timepicker',
+        'plugins/bootstrap-colorpicker/js/bootstrap-colorpicker',
+        'plugins/bootstrap-daterangepicker/js/date',
+        'plugins/bootstrap-daterangepicker/js/bootstrap-daterangepicker',
+        'plugins/bootstrap-fileupload/js/bootstrap-fileupload',
+        'plugins/bootstrap-rowlink/js/bootstrap-rowlink',
+        'plugins/bootstrap-progressbar/js/bootstrap-progressbar',
+        'plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5',
+        'plugins/bootstrap-select/bootstrap-select',
+        'plugins/bootstrap-bootbox/bootbox.min',
+        'plugins/bootstrap-modal/js/bootstrap-modalmanager',
+        'plugins/bootstrap-modal/js/bootstrap-modal',
+        'plugins/bootstrap-wizard/js/bootstrap-wizard',
+        'plugins/bootstrap-toggle-buttons/js/bootstrap-toggle-buttons'
+    )); 
+?>

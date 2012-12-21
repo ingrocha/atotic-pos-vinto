@@ -1,123 +1,115 @@
-<!-- Container -->
-<div id="container">
-    <div class="shell">
-
-        <!-- Small Nav -->
-        <!--<div class="small-nav">
-            
-        <?php //echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
-            <span>&gt;</span>
-            Lista de Usuarios
-        </div>-->
-        <!-- End Small Nav -->        
-        <!-- Main -->
-        <div id="main">
-            <div class="cl">&nbsp;</div>
-            <!-- Content -->
-            <div id="content">
-                <!-- Box -->
-                <div class="boxa">
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2 class="left">LISTADO DE USUARIOS DEL SISTEMA</h2>
-                        <div class="right">
-
-                        </div>
-                    </div>
-                    <!-- End Box Head -->	
-                    <!-- Table -->
-                    <div class="table">
-                        <?php echo $this->element('tablagrid'); ?>  
-                        <table id="grid" style="width: 740px;">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Usuario</th>        
-                                    <th>Codigo</th>
-                                    <th>Perfile</th>
-                                    <th>Estado</th>
-                                    <th>Aciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($usuarios as $c): ?>
-                                    <tr>
-                                        <td>
-                                            <?php $id = $c['Usuario']['id']; ?>
-
-                                            <?php echo $c['Usuario']['nombre']; ?>
-                                        </td>
-
-                                        <td>
-                                            <?php echo $c['Usuario']['usuario']; ?>
-                                        </td>
-
-                                        <td>
-                                            <?php echo $c['Usuario']['codigo']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $c['Perfile']['nombre']; ?>
-                                        </td>
-
-                                        <td>
-                                            <?php echo $c['Estado']['nombre']; ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            echo $this->Html->image("edit.png", array(
-                                                "title" => "Editar Usuario",
-                                                'url' => array('action' => 'modificar', $id)
-                                            ));
-                                            ?> 
-                                            <?php
-                                            echo $this->Html->image("elim.png", array(
-                                                "title" => "Dar de baja",
-                                                'url' => array('action' => 'baja', $id)
-                                            ));
-                                            ?>
-                                            <?php
-                                            echo $this->Html->image("candado.png", array(
-                                                "title" => "Cambiar password",
-                                                'url' => array('action' => 'cambiarpassword', $id)
-                                            ));
-                                            ?>                                              
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                        <?php
-                            echo $this->Html->image("edit.png", array(
-                                "title" => "Editar Usuario")
-                            );
-                        ?> 
-                        Edita la informacion del Usuario
-                        &nbsp;&nbsp;&nbsp;
-                        <?php
-                            echo $this->Html->image("elim.png", array(
-                                "title" => "Dar de baja"
-                            ));
-                        ?>
-                        &nbsp;&nbsp;&nbsp;
-                        Elimina la inforacion del Usuario
-                        <?php
-                            echo $this->Html->image("candado.png", array(
-                                "title" => "Cambiar password"
-                            ));
-                        ?>                               
-                        Cambia el password del usuario
-                    </div>
-                    <!-- Table -->
-                </div>
-                <!-- End Box -->
-            </div>
-            <!-- End Content -->
-            <!-- Sidebar -->
-            <!-- Sidebar -->
-            <?php echo $this->element('menuusuarios') ?>
-            <!-- End Sidebar -->
-            <!-- End Sidebar -->
-            <div class="cl">&nbsp;</div>			
-        </div>
-        <!-- Main -->
-    </div>
+<div id="main-content" class="main-content container-fluid">
+	<!-- // sidebar -->
+	<?php echo $this->
+		element('sidebar/usuarios'); ?>
+		<!-- // fin sidebar -->
+		<!--contenido-->
+		<div id="page-content" class="page-content">
+			<section>
+				<div class="page-header">
+					<h3>
+						<i class="aweso-icon-table opaci35">
+						</i>
+						Usuarios
+						<small>
+							listado
+						</small>
+					</h3>
+					<p>
+						Despliega la lista de todos los usuarios registrados en el sistema
+					</p>
+				</div>
+				<div class="row-fluid">
+					<div class="span12">
+						<!--contenedor de la tabla-->
+						<div class="widget widget-simple widget-table">
+							<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+								<caption>
+									Insumos
+									<span>
+									</span>
+								</caption>
+								<thead>
+									<tr>
+										<th scope="col">
+											ID
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Nombre
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Usuario
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											C&oacute;digo
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Perfil
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Estado
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Acciones
+											<span class="column-sorter">
+											</span>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($usuarios as $c): ?>
+										<?php $id=$c[ 'Usuario'][ 'id']; ?>
+											<tr>
+												<td>
+													<?php echo $id ?>
+												</td>
+												<td>
+													<?php echo $c[ 'Usuario'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $c[ 'Usuario'][ 'usuario']; ?>
+												</td>
+												<td>
+													<?php echo $c[ 'Usuario'][ 'codigo']; ?>
+												</td>
+												<td>
+													<?php echo $c[ 'Perfile'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $c[ 'Estado'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $this->
+														Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
+														<?php echo $this->
+															Html->image("elim.png", array( "title" => "Dar de baja", 'url' => array('action' => 'baja', $id) )); ?>
+															<?php echo $this->
+																Html->image("candado.png", array( "title" => "Cambiar password", 'url' => array('action' => 'cambiarpassword', $id) )); ?>
+												</td>
+											</tr>
+											<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+						<!--fin contenedor de la tabla-->
+					</div>
+					<!-- widget identificacion de los iconos-->
+                    <?php echo $this->element('widget_footer_actions'); ?>
+                    <!--fin widget footer-->
+				</div>
+			</section>
+		</div>
+		<!--fin contenido-->
+</div>
