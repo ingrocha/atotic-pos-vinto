@@ -40,7 +40,7 @@ class AdminController extends AppController {
                 
                 $this->Session->setFlash('Ingreso con exito');
                 if($tipo_usuarioid == 1){
-                  $this->redirect('/Panelcontrol/');
+                  $this->redirect(array('controller'=>'Panelcontrol', 'action'=>'admin'));
                 }elseif($tipo_usuarioid == 3){
                    $this->redirect(array('controller'=>'Cobrador', 'action'=>'index'));
                 }else{

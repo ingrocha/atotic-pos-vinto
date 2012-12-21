@@ -13,15 +13,14 @@ class InsumosController extends AppController
         'Almacen',
         'Bodega',
         'Tipo');
-    public $layout = 'admin';
+    public $layout = 'vivavinto';
 
     public function index()
     {
         $idsinsumos = $this->Almacen->find('all', array(
             'fields' => array('max(Almacen.id)as id'),
             'group' => array('Almacen.insumo_id'),
-            'order' => array('Almacen.insumo_id ASC')
-                ));
+            'order' => array('Almacen.insumo_id ASC')));
         $i = 0;
 
         foreach ($idsinsumos as $id)
@@ -31,10 +30,8 @@ class InsumosController extends AppController
             $i++;
         }
 
-        $insumos = $this->Almacen->find('all', array(
-            'recursive' => 2,
-            'conditions' => array('Almacen.id' => $ids)
-                ));
+        $insumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
+                array('Almacen.id' => $ids)));
         $this->set(compact('insumos'));
     }
 
@@ -48,14 +45,16 @@ class InsumosController extends AppController
             {
                 $this->Session->setFlash('Ingreso registrado con exito!');
                 $this->redirect(array('action' => 'categoriasalmacen'));
-            } else
+            }
+            else
             {
                 $this->Session->setFlash('Error al guardar');
                 $this->redirect(array('action' => 'categoriasalmacen'));
             }
-        } else
+        }
+        else
         {
-            
+
         }
     }
 
@@ -72,14 +71,16 @@ class InsumosController extends AppController
         if (empty($this->data))
         {
             $this->data = $this->Tipo->read();
-        } else
+        }
+        else
         {
 
             if ($this->Tipo->save($this->data))
             {
                 $this->Session->setFlash('Los datos fueron modificados');
                 $this->redirect(array('action' => 'categoriasalmacen'), null, true);
-            } else
+            }
+            else
             {
                 $this->Session->setFlash('no se pudo modificar!!');
             }
@@ -97,14 +98,13 @@ class InsumosController extends AppController
             $this->redirect(array('action' => 'categoriasalmacen'));
         }
     }
-    
+
     public function variasalidas()
     {
         $idsinsumos = $this->Almacen->find('all', array(
             'fields' => array('max(Almacen.id)as id'),
             'group' => array('Almacen.insumo_id'),
-            'order' => array('Almacen.insumo_id ASC')
-                ));
+            'order' => array('Almacen.insumo_id ASC')));
         $i = 0;
 
         foreach ($idsinsumos as $id)
@@ -114,14 +114,11 @@ class InsumosController extends AppController
             $i++;
         }
 
-        $insumos = $this->Almacen->find('all', array(
-            'recursive' => 2,
-            'conditions' => array('Almacen.id' => $ids)
-                ));
+        $insumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
+                array('Almacen.id' => $ids)));
         $this->set(compact('insumos'));
-        
-        $insumos = $this->Insumo->find('all', 
-                array('recursive'=>-1));
+
+        $insumos = $this->Insumo->find('all', array('recursive' => -1));
         $this->set(compact('insumos'));
     }
 
@@ -182,7 +179,8 @@ class InsumosController extends AppController
                             //$this->Session->setFlash('Ingreso registrado con exito!');
                             //$this->redirect(array('action' => 'index'));
                         }
-                    } else
+                    }
+                    else
                     {
 
                         //$this->data="";
@@ -215,7 +213,8 @@ class InsumosController extends AppController
                 //echo $i."<br />";
                 //$i++;
             }
-        } else
+        }
+        else
         {
             $dci = $this->Insumo->find('list', array('fields' => array('nombre')));
             //debug($dci);
@@ -229,8 +228,7 @@ class InsumosController extends AppController
             'fields' => array('max(Bodega.id) as id'),
             'recursive' => 1,
             'group' => array('Bodega.insumo_id'),
-            'order' => array('Bodega.id ASC')
-                ));
+            'order' => array('Bodega.id ASC')));
 
         $ids = array();
         $i = 0;
@@ -247,8 +245,7 @@ class InsumosController extends AppController
             'conditions' => array('Bodega.id' => $ids),
             'recursive' => 1,
             'group' => array('Bodega.insumo_id'),
-            'order' => array('Bodega.id ASC')
-                ));
+            'order' => array('Bodega.id ASC')));
         $this->set(compact('bodega'));
     }
 
@@ -258,7 +255,7 @@ class InsumosController extends AppController
         $this->layout = 'ajax';
         $dato = $this->data['Insumo']['nombre'];
         $tipo = $this->Tipo->find('all', array('conditions' => array('Tipo.nombre like' =>
-                "%$dato%"), 'recursive' => -1));
+                    "%$dato%"), 'recursive' => -1));
         //debug($tipo);exit;
         $i = 0;
         foreach ($tipo as $t)
@@ -273,12 +270,13 @@ class InsumosController extends AppController
                 'recursive' => 0,
                 'conditions' => array('Insumo.nombre like' => "%$dato%"),
                 'order' => array('Bodega.id DESC')));
-        } else
+        }
+        else
         {
             $bodega = $this->Bodega->find('all', array(
                 'recursive' => 0,
                 'conditions' => array('or' => array('Insumo.nombre like' => "%$dato%",
-                        'Insumo.tipo_id' => $tipos)),
+                            'Insumo.tipo_id' => $tipos)),
                 'order' => array('Bodega.id DESC')));
         }
 
@@ -352,7 +350,7 @@ class InsumosController extends AppController
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
 
                     $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo),
-                        'recursive' => -1));
+                            'recursive' => -1));
                     $this->data = "";
                     $this->request->data['Insumo']['bodega'] = $cant_bodega_actual;
                     $id_mod_insumo = $mod_bodega['Insumo']['id'];
@@ -361,7 +359,7 @@ class InsumosController extends AppController
 
                     if ($this->Insumo->save($this->data))
                     {
-                        
+
                     }
 
 
@@ -377,11 +375,13 @@ class InsumosController extends AppController
                     if ($this->Bodega->save($this->data))
                     {
                         $this->redirect(array('action' => 'bodega'));
-                    } else
+                    }
+                    else
                     {
                         echo "no guardo";
                     }
-                } else
+                }
+                else
                 {
 
                     $cantidad_bodega = $existe_insumo_bodega['Bodega']['total'];
@@ -389,7 +389,7 @@ class InsumosController extends AppController
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
 
                     $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo),
-                        'recursive' => -1));
+                            'recursive' => -1));
                     $this->data = "";
 
                     $this->request->data['Insumo']['bodega'] = $cant_bodega_actual;
@@ -398,7 +398,7 @@ class InsumosController extends AppController
 
                     if ($this->Insumo->save($this->data))
                     {
-                        
+
                     }
 
                     $this->data = "";
@@ -413,12 +413,14 @@ class InsumosController extends AppController
                     if ($this->Bodega->save($this->data))
                     {
                         $this->redirect(array('action' => 'index'));
-                    } else
+                    }
+                    else
                     {
                         echo "no guardo";
                     }
                 }
-            } else
+            }
+            else
             {
 
                 //$this->data="";
@@ -444,11 +446,12 @@ class InsumosController extends AppController
                 }
             }
             //debug($this->data);
-        } else
+        }
+        else
         {
             //debug($this->data);
             $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id),
-                'recursive' => -1));
+                    'recursive' => -1));
             $ce = $this->Almacen->find('first', array(
                 'conditions' => array('insumo_id' => $id),
                 'order' => 'id DESC',
@@ -501,7 +504,8 @@ class InsumosController extends AppController
                     $this->Session->setFlash('Ingreso registrado con exito!');
                     $this->redirect(array('action' => 'index'));
                 }
-            } else
+            }
+            else
             {
 
                 $this->data = "";
@@ -528,11 +532,12 @@ class InsumosController extends AppController
                 }
             }
             //debug($this->data);
-        } else
+        }
+        else
         {
             //debug($this->data);
             $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id),
-                'recursive' => -1));
+                    'recursive' => -1));
             //debug($insumo);
             $this->set(compact('insumo'));
         }
@@ -544,7 +549,7 @@ class InsumosController extends AppController
         $this->layout = 'ajax';
         $nombre = $this->data['Insumo']['nombre'];
         $insumos = $this->Insumo->find('all', array('recursive' => 0, 'conditions' =>
-            array('Insumo.nombre like' => "%$nombre%")));
+                array('Insumo.nombre like' => "%$nombre%")));
         //debug($insumos);
         $this->set(compact('insumos'));
         //debug($this->data);
@@ -586,17 +591,19 @@ class InsumosController extends AppController
                 if ($this->Almacen->save($this->data))
                 {
 
-                    $this->Session->setFlash('Ingreso registrado con exito!');
+                    $this->Session->setFlash('Ingreso registrado con exito!', 'alerts/bueno');
                     $this->redirect(array('action' => 'index'));
                 }
 
                 //$this->redirect(array('action' => 'index'), null, true);
-            } else
+            }
+            else
             {
                 $this->Session->setFlash('No se pudo registrar el Insumo');
             }
         }
-        $dct = $this->Tipo->find('list', array('fields' => 'nombre',
+        $dct = $this->Tipo->find('all', array(
+            'fields' => array('id', 'nombre'), 
             'conditions' => array('estado' => 1)));
         $this->set(compact('dct'));
         //debug($dct);
@@ -613,16 +620,17 @@ class InsumosController extends AppController
         if (empty($this->data))
         {
             $this->data = $this->Insumo->read();
-        } else
+        }
+        else
         {
             if ($this->Insumo->save($this->data))
             {
 
                 $datos_insumo = $this->Insumo->find('first', array('recursive' => -1,
-                    'conditions' => array('id' => $id)));
+                        'conditions' => array('id' => $id)));
                 $cantidad = $datos_insumo['Insumo']['total'];
                 $insumo_almacen = $this->Almacen->find('first', array('recursive' => -1,
-                    'conditions' => array('insumo_id' => $id)));
+                        'conditions' => array('insumo_id' => $id)));
                 $id_almacen = $insumo_almacen['Almacen']['id'];
 
                 //$data=array('id'=>$id_almacen, array('ingreso'=>$cantidad, 'total'=>$cantidad));
@@ -636,11 +644,13 @@ class InsumosController extends AppController
                 {
                     $this->Session->setFlash('Los datos fueron modificados');
                     $this->redirect(array('action' => 'index'), null, true);
-                } else
+                }
+                else
                 {
                     $this->Session->setFlash('No se pudo modificar!!');
                 }
-            } else
+            }
+            else
             {
                 $this->Session->setFlash('no se pudo modificar!!');
             }

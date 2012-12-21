@@ -6,22 +6,25 @@
 
 <div class="pedidomesa" style="font-size: x-large; font-weight: bolder;">
     Mesa: <?php echo $mesa; ?>
-    Platos: <?php echo $cant_platos['0']['0']['cantidad']; ?>
+    Items: <?php echo $cant_platos['0']['0']['cantidad']; ?>
 </div>
  <table class="lista-pedidos">
+ <thead>
     <tr>
-        <td>Plato</td>
-        <td>Cantidad</td>
-        <td>Acciones</td>
+        <th>Plato</th>
+        <th>Cant</th>
+        <th>Elim</th>
     </tr>
-    <?php //echo $id_moso; ?>
+ </thead>
+ <tbody>    
     <?php 
         $total_platos = 0;
         $total_pagar = 0; 
     ?>
+    <?php $ce = 0; ?>
     <?php foreach($items as $i): ?>
     <?php $id_item = $i['Item']['id']; ?>
-    <tr>
+    <tr class="<?php echo fmod($ce, 2)? 'segundo' : 'primero' ?>">
         <td><?php echo $i['Producto']['nombre']; ?></td>
         <td>
             <?php echo $i['Item']['cantidad']; ?>
@@ -48,9 +51,11 @@
             </script>
         </td>
     </tr>
-    <?php endforeach; ?>                             
+    <?php $ce++; ?>
+    <?php endforeach; ?>     
+    </tbody>                        
  </table>
  <?php //echo $total_pagar; ?>
  <?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar), array('class'=>'button')); ?>
- <?php echo $this->Html->link('Cancelar Pedido', array('controller'=>'Pedidos', 'action'=>'cancelarpedido', $pedido, $mesa),array('class'=>'button'), ('Esta seguro de cancelar?')); ?>
+ <?php //echo $this->Html->link('Cancelar Pedido', array('controller'=>'Pedidos', 'action'=>'cancelarpedido', $pedido, $mesa),array('class'=>'button'), ('Esta seguro de cancelar?')); ?>
  <?php //endif;?>

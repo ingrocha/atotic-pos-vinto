@@ -29,78 +29,7 @@
                     <!-- End Box Head -->	
                     <!-- Table -->
                     <div class="table">  
-                        <div id="aImprimir"><?php //comienza impresion    ?>
-                            <div style="float: left; background-color: #fff;">
-                                ESTADO: 
-                                <?php
-                                $estado = $pedido['0']['Pedido']['estado'];
-                                if ($estado < 3)
-                                {
-                                    echo 'Por pagar';
-                                } else
-                                {
-                                    echo 'Pagado';
-                                }
-                                ?>
-                                <h1 class="tituloh1">Mesa: <?php echo $pedido['0']['Pedido']['mesa']; ?></h1>
-                                <h1 class="tituloh1">Mozo: <?php echo $moso['Usuario']['nombre']; ?></h1>
-                                <table style="width: 300px;" class="tablafactura">
-                                    <tr>
-                                        <td>                                    
-                                            <?php //debug($pedido);  ?>
-                                        </td>
-                                    </tr>    
-                                    <tr>
-                                        <td><h3>Producto</h3></td>
-                                        <td><h3>Cant</h3></td>
-                                        <td><h3>P/U</h3></td>
-                                        <td><h3>Costo</h3></td>                                       
-                                    </tr>
-                                    <?php foreach ($pedido as $p): ?>
-                                        <tr>
-                                            <td><?php echo $p['Producto']['nombre']; ?></td>
-                                            <td><?php echo round($p['Item']['cantidad']); ?></td>
-                                            <td><?php echo round($p['Producto']['precio']); ?></td>
-                                            <td><?php echo round($p['Item']['precio']); ?></td>                                                                                                                                     
-                                        </tr>                                                         
-                                    <?php endforeach; ?>
-                                    <div id="cuadro" title="Cancelar Cuenta">
-                                    </div>    
-                                    <div id="facturar" title="Facturar Cuenta">
-                                    </div> 
-                                    <div id="descuentos" title="Facturar Cuenta">
-                                    </div>
-                                    </table>
-                                    <table style="width: 300px;" class="tablafactura">
-                                    <tr>
-                                        <td colspan="4" style="background-color: #CAFEA0;">
-                                            <h4 style="float: right; padding-right: 35px;">Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $totalpagado; ?></h4>                                                                 
-                                        </td>                                               
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" style="background-color: #FEF286;">
-                                            <h4 style="float: right; padding-right: 35px;">Monto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo round($pedido['0']['Pedido']['monto']); ?></h4>
-                                        </td>                                               
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" style="background-color: #FFC9C9;">
-                                            <h4 style="float: right; padding-right: 35px; color: '#f00'">Cambio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                                <?php
-                                                $montop = $pedido['0']['Pedido']['monto'];
-                                                $cambio = $montop - $totalpagado;
-                                                if($cambio<=0)
-                                                    echo '0';
-                                                else
-                                                    echo round($cambio);                                                
-                                                ?>
-                                            </h4>
-                                        </td>                                               
-                                    </tr>
-                                </table><?php //debug($pedido);   ?>                                                                                                                               
-                                </h4>
-                            </div>  
-                        </div><?php //fin de la impresion   ?>
-                        <div>
+                    <div>
                             <?php //echo $this->Html->link('Cuenta', array('action' => 'imprimecuenta')); ?>
                             <?php echo $this->Html->image('btcuenta.jpg', array('id' => "bt_imprimir", 'style'=>'"float: left;"')); ?>                                                        
                             <div id="dialog" style="float: left;">
@@ -155,7 +84,78 @@
                            
                                 });                                                            
                             </script>                                                
-                        </div>                                                                       
+                        </div> 
+                        <div id="aImprimir"><?php //comienza impresion    ?>
+                            <div style="float: left; background-color: #fff;">
+                                ESTADO: 
+                                <?php
+                                $estado = $pedido['0']['Pedido']['estado'];
+                                if ($estado < 3)
+                                {
+                                    echo 'Por pagar';
+                                } else
+                                {
+                                    echo 'Pagado';
+                                }
+                                ?>
+                                <h1 class="tituloh1">Mesa: <?php echo $pedido['0']['Pedido']['mesa']; ?></h1>
+                                <h1 class="tituloh1">Mozo: <?php echo $moso['Usuario']['nombre']; ?></h1>
+                                <table style="width: 744px;" class="tablafactura">
+                                    <tr>
+                                        <td>                                    
+                                            <?php //debug($pedido);  ?>
+                                        </td>
+                                    </tr>    
+                                    <tr>
+                                        <td><h3>Producto</h3></td>
+                                        <td><h3>Cant</h3></td>
+                                        <td><h3>P/U</h3></td>
+                                        <td><h3>Costo</h3></td>                                       
+                                    </tr>
+                                    <?php foreach ($pedido as $p): ?>
+                                        <tr>
+                                            <td><?php echo $p['Producto']['nombre']; ?></td>
+                                            <td><?php echo round($p['Item']['cantidad']); ?></td>
+                                            <td><?php echo round($p['Producto']['precio']); ?></td>
+                                            <td><?php echo round($p['Item']['precio']); ?></td>                                                                                                                                     
+                                        </tr>                                                         
+                                    <?php endforeach; ?>
+                                    <div id="cuadro" title="Cancelar Cuenta">
+                                    </div>    
+                                    <div id="facturar" title="Facturar Cuenta">
+                                    </div> 
+                                    <div id="descuentos" title="Facturar Cuenta">
+                                    </div>
+                                    </table>
+                                    <table style="width: 744px;" class="tablafactura">
+                                    <tr>
+                                        <td colspan="4" style="background-color: #CAFEA0;">
+                                            <h4 style="float: right; padding-right: 125px;">Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $totalpagado; ?></h4>                                                                 
+                                        </td>                                               
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="background-color: #FEF286;">
+                                            <h4 style="float: right; padding-right: 125px;">Monto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo round($pedido['0']['Pedido']['monto']); ?></h4>
+                                        </td>                                               
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="background-color: #FFC9C9;">
+                                            <h4 style="float: right; padding-right: 125px; color: '#f00'">Cambio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                <?php
+                                                $montop = $pedido['0']['Pedido']['monto'];
+                                                $cambio = $montop - $totalpagado;
+                                                if($cambio<=0)
+                                                    echo '0';
+                                                else
+                                                    echo round($cambio);                                                
+                                                ?>
+                                            </h4>
+                                        </td>                                               
+                                    </tr>
+                                </table><?php //debug($pedido);   ?>                                                                                                                               
+                                </h4>
+                            </div>  
+                        </div><?php //fin de la impresion   ?>                                                                                              
                     </div>
                     <!-- Table -->
                 </div>
