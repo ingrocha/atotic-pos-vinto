@@ -10,7 +10,7 @@ class UsuariosController extends AppController
         'Departamento',
         'Sucursal',
         'Estado');
-    public $layout = 'admin';
+    public $layout = 'vivavinto';
 
     public function beforefilter()
     {
@@ -45,11 +45,12 @@ class UsuariosController extends AppController
             }
 
         }
-        $dperf = $this->Perfile->find('list', array('fields' => 'Perfile.nombre'));
+        $perfiles = $this->Perfile->find('all', array('fields' => array('Perfile.id', 'Perfile.nombre')));
+        //debug($perfiles);exit;
         $sucursales = $this->Sucursal->find('list', array('fields' => array('Sucursal.id',
                     'Sucursal.nombre')));
         $estados = $this->Estado->find('list', array('fields' => array('Estado.nombre')));
-        $this->set(compact('dperf', 'sucursales', 'estados'));
+        $this->set(compact('dperf', 'sucursales', 'estados', 'perfiles'));
 
 
     }
