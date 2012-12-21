@@ -2,7 +2,6 @@
     <!-- // sidebar --> 
     <?php echo $this->element('sidebar/insumos'); ?>               
     <!-- // fin sidebar -->
-
     <!-- // contenido pricipal -->                                 
     <div id="page-content" class="page-content">
         <section>            
@@ -17,7 +16,7 @@
                         <label for="formA04">Nombre:</label>                            
                         <?php echo $this->Form->text('nombre', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese en nombre Ej: Cerveza', 'required', 'title'=>'Este campo Necesario')); ?>
                         <!-- // form item -->
-
+                        <label for="formA04">Precios y cantidad:</label>
                         <div class="controls controls-row">                                                               
                             <?php echo $this->Form->text('preciocompra', array('class' => 'span3', 'placeholder' => 'Precio de compra Ej: 12.50', 'required', 'pattern'=>"^(\d|-)?(\d|,)*\.?\d*$")); ?>
                             <?php echo $this->Form->text('precioventa', array('class' => 'span3', 'placeholder' => 'Precio de venta Ej: 60', 'required', 'pattern'=>"^(\d|-)?(\d|,)*\.?\d*$")); ?>                                
@@ -47,4 +46,5 @@
                 </div>
             </div>
         </section>
-    </div>    
+    </div>  
+  </div> 
