@@ -29,7 +29,8 @@
                         <tbody>
                         <?php foreach ($insumos as $i): ?>
                         <?php $id = $i['Almacen']['insumo_id'] ?>                        
-                            <tr>                               
+                            <tr>    
+                                                         
                                 <td><?php echo $id; ?></td>
                                 <td><?php echo $i['Insumo']['nombre']; ?></td>
                                 <td> <?php echo $i['Insumo']['Tipo']['nombre']; ?></td>
