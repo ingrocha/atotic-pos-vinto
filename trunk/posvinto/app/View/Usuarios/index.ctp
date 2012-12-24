@@ -1,7 +1,6 @@
 <div id="main-content" class="main-content container-fluid">
 	<!-- // sidebar -->
-	<?php echo $this->
-		element('sidebar/usuarios'); ?>
+	<?php echo $this->element('sidebar/usuarios'); ?>
 		<!-- // fin sidebar -->
 		<!--contenido-->
 		<div id="page-content" class="page-content">
