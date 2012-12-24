@@ -49,10 +49,8 @@ class UsuariosController extends AppController
         //debug($perfiles);exit;
         $sucursales = $this->Sucursal->find('list', array('fields' => array('Sucursal.id',
                     'Sucursal.nombre')));
-        $estados = $this->Estado->find('list', array('fields' => array('Estado.nombre')));
-        $this->set(compact('dperf', 'sucursales', 'estados', 'perfiles'));
-
-
+        $estados = $this->Estado->find('all', array('fields' => array('Estado.id', 'Estado.nombre')));
+        $this->set(compact('sucursales', 'estados', 'perfiles'));
     }
 
     public function modificar($id = null)
@@ -65,7 +63,6 @@ class UsuariosController extends AppController
         if (empty($this->data)) {
             $this->data = $this->Usuario->read();
         } else {
-            
             if ($this->Usuario->save($this->data)) {
                 $this->Session->setFlash('Los datos fueron modificados');
                 $this->redirect(array('action' => 'index'), null, true);
@@ -73,12 +70,13 @@ class UsuariosController extends AppController
                 $this->Session->setFlash('no se pudo modificar!!');
             }
         }
-        $dperf = $this->Perfile->find('list', array('fields' => 'Perfile.nombre'));
-        // debug($dperf);
+        $perfiles= $this->Perfile->find('list', array('fields' => array('Perfile.id', 'Perfile.nombre')));
+        //$perfiles = $this->Perfile->find('all', array('fields' => array('Perfile.id', 'Perfile.nombre')));
+        //debug($perfiles);exit;
         $sucursales = $this->Sucursal->find('list', array('fields' => array('Sucursal.id',
                     'Sucursal.nombre')));
-        $estados = $this->Estado->find('list', array('fields' => array('Estado.nombre')));
-        $this->set(compact('dperf', 'sucursales', 'estados'));
+        $estados = $this->Estado->find('list', array('fields' => array('Estado.id', 'Estado.nombre')));
+        $this->set(compact('sucursales', 'estados', 'perfiles'));
 
     }
 
