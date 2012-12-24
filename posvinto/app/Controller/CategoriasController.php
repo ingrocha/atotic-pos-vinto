@@ -2,26 +2,29 @@
 class CategoriasController extends AppController
 { 
 
-    public $helpers = array('Html', 'Form'); 
+    public $helpers = array('Html', 'Form', 'Session'); 
     public $uses = array('Categoria'); 
+    public $layout = 'vivavinto';
+    
     public function index()
     {
 
-        $categorias = $this->Categoria->find('all'); 
-      //  debug($categorias);
+        $categorias = $this->Categoria->find('all', array('recursive'=>-1)); 
+        //debug($categorias);exit;
         $this->set(compact('categorias'));
         
     }
   public function nuevo()
     {
         
-        if (!empty($this->data)) { 
+        if (!empty($this->request->data)) { 
 
             $this->Categoria->create(); 
 
-            if ($this->Categoria->save($this->data)) { 
-
-                $this->Session->setFlash('Categoria registrada con exito'); 
+            if ($this->Categoria->save($this->request->data)) { 
+                //debug($this->request->data);exit;
+                $this->Session->setFlash('Ingreso registrado con exito!', 'alerts/bueno');
+                //$this->Session->setFlash('Categoria registrada con exito'); 
                 $this->redirect(array('action' => 'index'), null, true); 
 
             } else { 
@@ -29,8 +32,7 @@ class CategoriasController extends AppController
                 $this->Session->setFlash('No se pudo registrar la Categoria'); 
             }
             
-        }
-        
+        }       
         
     }
 

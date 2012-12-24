@@ -3,7 +3,7 @@ class ControlingresosalidasController extends AppController{
     public $uses= array('Asistencia', 'Usuario', 'Retraso', 'Contrato');
     public $helper = array('Html', 'Form', 'Ajax', 'Javascript');
     public $components = array('Manejofechas');
-    public $layout = 'admin';
+    public $layout = 'vivavinto';
     
     public function index(){
         $data = $this->paginate('Asistencia');  
