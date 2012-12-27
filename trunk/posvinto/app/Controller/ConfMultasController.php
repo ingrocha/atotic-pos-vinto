@@ -4,7 +4,7 @@ class ConfMultasController extends AppController
 
     public $helpers = array('Html', 'Form'); 
     public $uses = array('ConfMulta');
-    public $layout = 'admin';
+    public $layout = 'vivavinto';
     public function index()
     {
 

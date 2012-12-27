@@ -19,12 +19,13 @@ class ControlingresosalidasController extends AppController{
     }
     function ingresosfechas(){
         //$hoy = date('d-m-Y');
-        //debug($this->data);exit;
+        //debug($this->data);
         $mozo = $this->data['Asistencia']['mozo'];
-        $fecha1 = $this->data['Asistencia']['fecha_desde'];
-        $fecha2 = $this->data['Asistencia']['fecha_hasta'];
+        //$fecha1 = $this->data['Asistencia']['fecha_desde'];
+        //$fecha2 = $this->data['Asistencia']['fecha_hasta'];
         //$dias = $this->Manejofechas->diasEntreFechas($fecha1, $fecha2);
-        
+        $fecha1 = "2012-01-01";
+        $fecha2 = "2012-12-12";
         $diastrabajados = $this->Asistencia->find('count', array(
         'conditions'=>array('Asistencia.fecha >='=>$fecha1, 'Asistencia.fecha <='=>$fecha2, 
         'Asistencia.usuario_id'=>$mozo)
@@ -45,7 +46,7 @@ class ControlingresosalidasController extends AppController{
         $sueldoempleado = $this->Contrato->find('first', array(
         'conditions'=>array('Contrato.usuario_id'=>$mozo)
         ));
-       
+       //debug($sueldoempleado);exit;
         $sueldo = $sueldoempleado['Contrato']['sueldo'];
         
         $pago = number_format((($sueldo/31) * $diastrabajados) - $descuento,'2', ',', ' ');
@@ -63,7 +64,7 @@ class ControlingresosalidasController extends AppController{
         'conditions'=>array('Retraso.usuario_id'=>$id, 
         'Retraso.fecha >='=>$fecha1, 'Retraso.fecha <='=>$fecha2)    
         ));
-        //debug($retrasos);exit;
+        //debug($ingresos);exit;
         $this->set(compact('ingresos', 'retrasos'));
     }
 }
