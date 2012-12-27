@@ -2,8 +2,9 @@
 class CategoriasController extends AppController
 { 
 
-    public $helpers = array('Html', 'Form', 'Session'); 
+    public $helpers = array('Html', 'Form'); 
     public $uses = array('Categoria'); 
+    public $components = array('Session');
     public $layout = 'vivavinto';
     
     public function index()

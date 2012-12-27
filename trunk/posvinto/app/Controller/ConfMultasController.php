@@ -4,6 +4,7 @@ class ConfMultasController extends AppController
 
     public $helpers = array('Html', 'Form'); 
     public $uses = array('ConfMulta');
+    public $components = array('Session');
     public $layout = 'vivavinto';
     public function index()
     {
@@ -22,7 +23,6 @@ class ConfMultasController extends AppController
             $this->request->data['ConfMulta']['minutos']=$this->data['ConfMulta']['Hora']['min'];
             $this->ConfMulta->create(); 
             if ($this->ConfMulta->save($this->data)) { 
-
                 $this->Session->setFlash('Conf Multa registrado con exito'); 
                 $this->redirect(array('action' => 'index'), null, true); 
 
