@@ -15,28 +15,31 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta name="description" content="">
         <meta name="author" content="">
-
+        
         <!-- Le styles -->
-        <?php 
-            echo $this->Html->css(array(
-                'lib/bootstrap',
-                'lib/bootstrap-responsive',
-                'extension',
-                'boo',
-                'style',
-                'boo-coloring',
-                'boo-utility'    
-            )); 
+        <?php
+        echo $this->Html->css(array(
+            'lib/bootstrap',
+            'lib/bootstrap-responsive',
+            'extension',
+            'boo',
+            'style',
+            'boo-coloring',
+            'boo-utility',
+            'jquery-ui-1.9.2.custom.min'
+        ));
         ?>     
-         <?php 
-            echo $this->Html->script(array(
-                'plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min',
-                'lib/jquery',
-                'lib/jquery-ui',
-                'lib/bootstrap',
-                'lib/jquery.cookie'
-            )); 
-        ?>                          
+        <?php
+        echo $this->Html->script(array(            
+            'lib/jquery',
+            'plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min',
+            'lib/jquery-ui',
+            'lib/bootstrap',
+            'lib/jquery.cookie'
+        ));
+        ?>    
+        <?php echo $this->fetch('script'); ?>
+        <?php echo $this->fetch('css'); ?>                      
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -118,13 +121,13 @@
             <!-- // header-container -->
 
             <div id="main-container">                                                                                
-                    <!-- //contenido Principal -->
-                    <?php echo $this->Session->flash(); ?>
-                    <?php echo $this->fetch('content'); ?>
-                    <!-- // fin del contenido principal -->                
+                <!-- //contenido Principal -->
+                <?php echo $this->Session->flash(); ?>                
+                <?php echo $this->fetch('content'); ?>
+                <!-- // fin del contenido principal -->                
             </div>
             <!-- // main-container  -->
-           
+
             <!-- // footer-fix  --> 
 
         </div>
@@ -153,7 +156,7 @@
                 </ul>
             </div>
             <!-- // inject -->            
-            
+
         </div>
 
         <!-- Le javascript --> 
@@ -161,13 +164,13 @@
 
         <!-- Plugins Bootstrap -->          
         <?php echo $this->element('js/bootstrap') ?>
-        
+
         <!-- Plugins Custom -->
         <?php echo $this->element('js/custom') ?>          
 
         <!-- Plugins Forms -->         
         <?php echo $this->element('js/formularios') ?> 
-         
+
         <!-- Charts -->  
         <?php echo $this->element('js/charts'); ?>       
 
