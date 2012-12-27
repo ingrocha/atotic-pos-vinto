@@ -1,7 +1,7 @@
 <script type="text/javascript">
     $(function(){
         var pickerOpts = {        
-        dateFormat: "yy-mm-dd",
+        dateFormat: "Y-m-d",
         changeMonth: true,
         changeYear: true,
         defaultDate: "+5",
@@ -12,81 +12,35 @@
         $("#date2").datepicker(pickerOpts);
     });
 </script>
-<!-- Container -->
-<div id="container">
-	<div class="shell">
-		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			Filtro para ver pago correspondiente
-		</div>
-		<!-- End Small Nav -->
-		
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-				<!-- Box -->
-                    <div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Pago del mes</h2>
-					</div>
-					<!-- End Box Head -->
-                    <!-- Form -->
-                    <?php echo $this->Form->create(null, array(
+<div id="main-content" class="main-content container-fluid">
+   <?php echo $this->element('sidebar/usuarios'); ?>
+   
+   <div id="page-content" class="page-content">
+      <section>
+         <div class="row-fluid">
+         <?php echo $this->Form->create(null, array(
                             'url' => array('controller'=>'Controlingresosalidas', 'action' => 'ingresosfechas')
                             ));
                     ?>
-					
-             					
-						
-						<div class="form">
-                        <p class="inline-field">
-                        <label>Seleccione el mozo</label>
-                        <?php echo $this->Form->select('mozo', $mozos) ?>
-                        </p>
-							<p class="inline-field">
-                            <label>Para int&eacute;rvalos de fechas</label>
-                            </p>
-                            <p class="inline-field">
-                                   <label>Fecha desde</label>
-                                   <?php echo $this->Form->date('fecha_desde', array('size'=>10, 'class'=>'field size2', 'id'=>'date1'));?>
-                            </p>
-                            <p class="inline-field">
-                                   <label>Fecha hasta</label>
-                                   <?php echo $this->Form->date('fecha_hasta', array('size'=>10, 'class'=>'field size2', 'id'=>'date2'));?>
-                                </p>
-						</div>
-						<!-- End Form -->
-						
-						<!-- Form Buttons -->
-						<div class="buttons">
-							<!--<input type="button" class="button" value="preview" />-->
-							<?php 
-                            $options = array(
-                            'label' => 'Enviar!',
-                            'name' => 'Enviar',
-                            'class' => 'button',
-      
-                            );
-                            echo $this->Form->end($options);?>
-						</div>
-						<!-- End Form Buttons -->
-					
-                     
-				</div>
-				<!-- End Box -->
-			<!-- End Content -->
-			</div>
-			<?php echo $this->element('menuusuarios') ?>
-			
-			<div class="cl">&nbsp;</div>			
-		
-		<!-- Main -->
-	</div>
-
-
+            <div class="page-header">
+            <h3>
+            <i class="fontello-icon-article-alt opaci35"></i>B&uacute;squeda<small>asistencias</small></h3>
+            </div>
+            <div class="span10 well well-nice">
+               <fieldset>
+               <legend>Formulario<small>busca asistencia</small></legend>
+               <label for="formA04">Seleccione el mozo:</label>
+               <?php echo $this->Form->select('mozo', $mozos) ?>
+               <label for="formA04">para int&eacute;rvalos de fechas:</label>
+               <div class="controls controls-row">
+               <?php echo $this->Form->date('fecha_desde', array('placeholder'=>'desde','size'=>10, 'id'=>'date1'));?>
+               <?php echo $this->Form->date('fecha_hasta', array('placeholder'=>'hasta', 'size'=>10, 'id'=>'date2'));?>
+               </div>
+               <button class="btn btn-green" type="submit">Enviar</button>
+               </form>
+               </fieldset>
+            </div>
+         </div>
+      </section>
+   </div>
+</div>
