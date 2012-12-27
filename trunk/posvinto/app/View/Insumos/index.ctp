@@ -29,9 +29,13 @@
                         <tbody>
                         <?php foreach ($insumos as $i): ?>
                         <?php $id = $i['Almacen']['insumo_id'] ?>                        
-                            <tr>    
-                                                         
-                                <td><?php echo $id; ?></td>
+                            <tr>                                    
+                                <td>
+                                    <?php echo $id; ?>
+                                    <div id="cuadro_<?php echo $id; ?>"></div>                         
+                                    <div id="cuadro2_<?php echo $id; ?>"></div>
+                                    <div id="ajax-modal_<?php echo $id; ?>" class="modal hide fade" tabindex="-1"></div>
+                                </td>
                                 <td><?php echo $i['Insumo']['nombre']; ?></td>
                                 <td> <?php echo $i['Insumo']['Tipo']['nombre']; ?></td>
                                  <td> <?php echo $i['Insumo']['Tipo']['nombre']; ?></td>                                
@@ -43,7 +47,7 @@
                                         ));
                                         ?>
 
-                                        <div id="dialog_<?php echo $id; ?>" style="float: left;">
+                                        <div id="ajaxModal_<?php echo $id; ?>" style="float: left;">
                                             <?php
                                             echo $this->Html->image("in.png", array("title" => "Ingreso Almacen"));
                                             ?>
@@ -64,16 +68,29 @@
                                         ));
                                         ?>            
                                         <script type="text/javascript">
+                                        $(document).ready(function(){
+                                            var $modal = $('#ajax-modal_<?php echo $id; ?>');
+                                        	$('#ajaxModal_<?php echo $id; ?>').on('click', function () {
+                                        			// create the backdrop and wait for next modal to be triggered
+                                        			GlobalModalManager.loading();
+                                        	
+                                        			setTimeout(function () {
+                                        					$modal.load("insumos/ingresoalmacen/<?php echo $id; ?>", '', function () {
+                                        							$modal.modal();
+                                        					});
+                                        			}, 500);
+                                        	});
+                                        });
                                             var dialogOpts = {
                                                 modal: true
                                             };
-                                            jQuery("#dialog_<?php echo $id; ?>").click(function(){
-                                                jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/ingresoalmacen/<?php echo $id; ?>");
-                               
+                                            $("#dialog_<?php echo $id; ?>").click(function(){
+                                                $("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/ingresoalmacen/<?php echo $id; ?>");
+                                                console.log('Hizo click');
                                             });   
                             
-                                            jQuery("#dialog2_<?php echo $id; ?>").click(function(){
-                                                jQuery("#cuadro2_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/salidalmacen/<?php echo $id; ?>");
+                                            $("#dialog2_<?php echo $id; ?>").click(function(){
+                                                $("#cuadro2_<?php echo $id; ?>").dialog(dialogOpts).load("insumos/salidalmacen/<?php echo $id; ?>");
                                                 //alert("click");
                                             });  
                                         </script>        
