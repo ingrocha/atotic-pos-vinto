@@ -1,3 +1,116 @@
+<div id="main-content" class="main-content container-fluid">
+    <!-- // sidebar --> 
+    <?php echo $this->element('sidebar/insumos'); ?>               
+    <!-- // fin sidebar -->
+
+    <!-- // contenido pricipal -->                                 
+    <div id="page-content" class="page-content">  
+        <section>
+            <div class="row-fluid">
+                <div class="span6 grider">
+                    <h3><i class="aweso-icon-table"></i> table <small>caption, total</small></h3>
+                    <p>This is the caption for <code>.boo-table .table-content</code></p>
+                    <table class="table boo-table table-striped table-content table-hover">
+                        <colgroup>
+                            <col class="col20">
+                            <col class="col20">
+                            <col class="col45">
+                            <col class="col15">
+                        </colgroup>
+                        <caption>
+                            Boo Table Caption - Title fot table <span>Here text in span</span>
+                        </caption>
+                        <thead>
+                            <tr id="HeadersRow0">
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cant</th>
+                                <th scope="col">P/U</th>
+                                <th scope="col">Costo</th>                                       
+                            </tr>                        
+                        </thead>
+                        <tfoot>
+                            <tr class="total" id="HeadersRow0">
+                                <th>Total sum</th>
+                                <th></th>
+                                <th></th>
+                                <th class="text-right">202.46</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr id="DataRow0">
+                                <td class="bold"><a href="#">10248</a></td>
+                                <td>VINET</td>
+                                <td>8/16/2012</td>
+                                <td class="text-right">32.38</td>
+                            </tr>
+                            <tr id="DataRow1">
+                                <td class="bold"><a href="#">10249</a></td>
+                                <td>TOMSP</td>
+                                <td>8/10/2012</td>
+                                <td class="text-right">11.61</td>
+                            </tr>                    
+                        </tbody>
+                    </table>
+                </div>
+                <!-- //tabla -->       
+
+                <div class="span4 grider">
+                    <h3><i class="aweso-icon-table"></i> table <small>caption, total</small></h3>
+                    <p>This is the caption for <code>.boo-table .table-content</code></p>
+                    <table class="table boo-table table-striped table-content table-hover">
+                        <colgroup>
+                            <col class="col20">
+                            <col class="col20">
+                            <col class="col45">
+                            <col class="col15">
+                        </colgroup>
+                        <caption>
+                            Boo Table Caption - Title fot table <span>Here text in span</span>
+                        </caption>
+                        <thead>
+                            <tr id="HeadersRow0">
+                                <th scope="col">Order ID</th>
+                                <th scope="col">Customer ID</th>
+                                <th scope="col">Shipped Date</th>
+                                <th scope="col">Costs</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="total" id="HeadersRow0">
+                                <th>Total sum</th>
+                                <th></th>
+                                <th></th>
+                                <th class="text-right">202.46</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr id="DataRow0">
+                                <td class="bold"><a href="#">10248</a></td>
+                                <td>VINET</td>
+                                <td>8/16/2012</td>
+                                <td class="text-right">32.38</td>
+                            </tr>
+                            <tr id="DataRow1">
+                                <td class="bold"><a href="#">10249</a></td>
+                                <td>TOMSP</td>
+                                <td>8/10/2012</td>
+                                <td class="text-right">11.61</td>
+                            </tr>                    
+                        </tbody>
+                    </table>
+                </div>
+                <!-- //tabla --> 
+            </div>
+        </section>
+    </div>	
+    <!-- // fin contenido principal --> 
+</div>		
+<!-- Sidebar -->
+<?php //echo $this->element('menualmacenes') ?>
+<!-- End Sidebar -->
+<?php //echo $this->element('menupedidos') ?>
+
+
 <!-- Container -->
 <?php echo $this->Html->css('imprimir', 'stylesheet', array('media' => 'print')); ?>
 <div id="container">
@@ -29,9 +142,9 @@
                     <!-- End Box Head -->	
                     <!-- Table -->
                     <div class="table">  
-                    <div>
+                        <div>
                             <?php //echo $this->Html->link('Cuenta', array('action' => 'imprimecuenta')); ?>
-                            <?php echo $this->Html->image('btcuenta.jpg', array('id' => "bt_imprimir", 'style'=>'"float: left;"')); ?>                                                        
+                            <?php echo $this->Html->image('btcuenta.jpg', array('id' => "bt_imprimir", 'style' => '"float: left;"')); ?>                                                        
                             <div id="dialog" style="float: left;">
                                 <?php
                                 echo $this->Html->image("btpagar.jpg", array(
@@ -53,12 +166,12 @@
                                 ));
                                 ?>            
                             </div> 
-                              <?php 
-                                echo $this->Html->image("divcuenta.jpg", array(
-                                    "title" => "Dividir la Cuenta",
-                                    'url' => array('action' => 'facturar1', $pedido['0']['Pedido']['id'])
-                                            ));
-                                        ?> 
+                            <?php
+                            echo $this->Html->image("divcuenta.jpg", array(
+                                "title" => "Dividir la Cuenta",
+                                'url' => array('action' => 'facturar1', $pedido['0']['Pedido']['id'])
+                            ));
+                            ?> 
                             <script type="text/javascript">
                                 var dialogOpts = {
                                     modal: true
@@ -76,7 +189,7 @@
                            
                                 });  
                                 
-                                 var dialogOpts = {
+                                var dialogOpts = {
                                     modal: true
                                 };
                                 jQuery("#des").click(function(){
@@ -85,7 +198,7 @@
                                 });                                                            
                             </script>                                                
                         </div> 
-                        <div id="aImprimir"><?php //comienza impresion    ?>
+                        <div id="aImprimir"><?php //comienza impresion         ?>
                             <div style="float: left; background-color: #fff;">
                                 ESTADO: 
                                 <?php
@@ -126,8 +239,8 @@
                                     </div> 
                                     <div id="descuentos" title="Facturar Cuenta">
                                     </div>
-                                    </table>
-                                    <table style="width: 744px;" class="tablafactura">
+                                </table>
+                                <table style="width: 744px;" class="tablafactura">
                                     <tr>
                                         <td colspan="4" style="background-color: #CAFEA0;">
                                             <h4 style="float: right; padding-right: 125px;">Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $totalpagado; ?></h4>                                                                 
@@ -144,18 +257,18 @@
                                                 <?php
                                                 $montop = $pedido['0']['Pedido']['monto'];
                                                 $cambio = $montop - $totalpagado;
-                                                if($cambio<=0)
+                                                if ($cambio <= 0)
                                                     echo '0';
                                                 else
-                                                    echo round($cambio);                                                
+                                                    echo round($cambio);
                                                 ?>
                                             </h4>
                                         </td>                                               
                                     </tr>
-                                </table><?php //debug($pedido);   ?>                                                                                                                               
+                                </table><?php //debug($pedido);        ?>                                                                                                                               
                                 </h4>
                             </div>  
-                        </div><?php //fin de la impresion   ?>                                                                                              
+                        </div><?php //fin de la impresion        ?>                                                                                              
                     </div>
                     <!-- Table -->
                 </div>
