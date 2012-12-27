@@ -1,99 +1,97 @@
-
-<!-- Container -->
-<div id="container">
-	<div class="shell">
-		
-		<!-- Small Nav -->
-		<!--<div class="small-nav">
-			
-            <?php //echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
-			<span>&gt;</span>
-			Lista de Usuarios
-		</div>-->
-		<!-- End Small Nav -->
-		<h3><span>Lista de asistencias</span></h3>
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-				
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">LISTADO DE MULTAS</h2>
-						<div class="right">
-							
-						</div>
-					</div>
-					<!-- End Box Head -->	
-
-					<!-- Table -->
-					<div class="table">
-<?php echo $this->element('tablagrid'); ?>  
-<table>
-    <tr>
-        <th>Nro</th>
-        <th>Horas</th>
-        <th>Minutos</th>
-        <th>Monto</th>
-        <th>Observaciones</th>
-        <th>Acciones</th>
-   </tr>
-<?php foreach($conf_multas as $c): ?>
-    <tr>
-        <td>
-            <?php echo $id=$c['ConfMulta']['id'];?>
-         </td>
-         <td>
-            <?php echo $c['ConfMulta']['horas']; ?>
-        </td>
-         <td>
-            <?php echo $c['ConfMulta']['minutos']; ?>
-        </td>
-        <td>
-            <?php echo $c['ConfMulta']['monto']; ?>
-        </td>
-        <td>
-            <?php echo $c['ConfMulta']['observaciones']; ?>
-        </td>
-        <td>
-           <?php echo $this->Html->link('Editar', array('action'=>'editar', $id));?> 
-            <?php echo $this->Html->link('Eliminar', array('action'=>'eliminar', $id));?>           
-        </td>
-    </tr>
-<?php endforeach; ?>
-</table>
-						
-						
-						<!-- Pagging -->
-						<div class="pagging">
-							<div class="left"></div>
-							<div class="right">                            								
-							</div>
-						</div>
-						<!-- End Pagging -->
-						
-					</div>
-					<!-- Table -->
-					
+<div id="main-content" class="main-content container-fluid">
+	<?php echo $this->
+		element('sidebar/usuarios'); ?>
+		<div id="page-content" class="page-content">
+			<section>
+				<div class="page-header">
+					<h3>
+						<i class="aweso-icon-table opaci35">
+						</i>
+						Multas
+						<small>
+							listado
+						</small>
+					</h3>
+					<p>
+						Despliega la lista de todos las multas calculadas por el sistema
+					</p>
 				</div>
-				<!-- End Box -->
-				
-				
-			</div>
-			<!-- End Content -->
-			
-			<!-- Sidebar -->
-			<!-- Sidebar -->
-			<?php echo $this->element('menuusuarios') ?>
-			<!-- End Sidebar -->
-			<!-- End Sidebar -->
-			
-			<div class="cl">&nbsp;</div>			
+				<div class="row-fluid">
+					<div class="span12">
+						<!--contenedor de la tabla-->
+						<div class="widget widget-simple widget-table">
+							<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+								<caption>
+									Multas
+									<span>
+									</span>
+								</caption>
+								<thead>
+									<tr>
+										<th scope="col">
+											ID
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Horas
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Minutos
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Monto
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Observaciones
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Acciones
+											<span class="column-sorter">
+											</span>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach($conf_multas as $c): ?>
+										<tr>
+											<td>
+												<?php echo $id=$c[ 'ConfMulta'][ 'id'];?>
+											</td>
+											<td>
+												<?php echo $c[ 'ConfMulta'][ 'horas']; ?>
+											</td>
+											<td>
+												<?php echo $c[ 'ConfMulta'][ 'minutos']; ?>
+											</td>
+											<td>
+												<?php echo $c[ 'ConfMulta'][ 'monto']; ?>
+											</td>
+											<td>
+												<?php echo $c[ 'ConfMulta'][ 'observaciones']; ?>
+											</td>
+											<td>
+												<?php echo $this->
+													Html->image("edit.png", array( "title" => "Editar", 'url' => array('action' => 'editar', $id) )); ?>
+													<?php echo $this->
+														Html->image("elim.png", array( "title" => "Dar de baja", 'url' => array('action' => 'eliminar', $id) )); ?>
+											</td>
+										</tr>
+										<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+						<!--fin contenedor de la tabla-->
+					</div>
+				</div>
+			</section>
 		</div>
-		<!-- Main -->
-	</div>
+</div>
