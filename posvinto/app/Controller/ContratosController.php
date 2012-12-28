@@ -4,6 +4,8 @@ class ContratosController extends AppController
 
     public $helpers = array('Html', 'Form'); 
     public $uses = array('Contrato','Usuario');
+    public $components = array('Session');
+    public $layout = 'vivavinto';
 
     public function index()
     {
@@ -16,7 +18,7 @@ class ContratosController extends AppController
     public function nuevo()
     {
         if (!empty($this->data)) { 
-
+            
             $this->Contrato->create(); 
 
             if ($this->Contrato->save($this->data)) { 
@@ -30,19 +32,22 @@ class ContratosController extends AppController
             }
 
         }
-    $dct = $this->Usuario->find('list', array('fields'=>'Usuario.nombre'));
-     $this->set(compact('dct'));
+    $empleados = $this->Usuario->find('all', array('fields'=>array('Usuario.id', 'Usuario.nombre')));
+     $this->set(compact('empleados'));
     }
 
     public function modificar($id = null)
     {
         $this->Contrato->id = $id;
+        
         if (!$id) {
             $this->Session->setFlash('No existe tal registro de contrato');
             $this->redirect(array('action' => 'index'), null, true);
         }
         if (empty($this->data)) {
             $this->data = $this->Contrato->read();
+            $id_usuario = $this->data['Contrato']['usuario_id'];
+            $this->set(compact('id_usuario'));
 
         } else {
             if ($this->Contrato->save($this->data)) {
@@ -52,8 +57,8 @@ class ContratosController extends AppController
                 $this->Session->setFlash('no se pudo modificar!!');
             }
         }
-    $dct = $this->Usuario->find('list', array('fields'=>'Usuario.nombre'));
-     $this->set(compact('dct'));
+    $empleados = $this->Usuario->find('all', array('fields'=>array('Usuario.id', 'Usuario.nombre')));
+     $this->set(compact('empleados'));
     }
 
     public function eliminar($id = null)

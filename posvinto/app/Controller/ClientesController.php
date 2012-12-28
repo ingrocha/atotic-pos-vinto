@@ -5,7 +5,8 @@ class ClientesController extends AppController
 
     public $helpers = array('Html', 'Form'); //definimos que ayudantes vamos a usar
     public $uses = array('Cliente'); //definimos las tablas que vamos a utilizar
-    public $layout = 'admin';
+    public $components = array('Session');
+    public $layout = 'vivavinto';
 
     public function index()
     {

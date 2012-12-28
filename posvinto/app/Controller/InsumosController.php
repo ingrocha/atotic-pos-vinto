@@ -13,6 +13,7 @@ class InsumosController extends AppController
         'Almacen',
         'Bodega',
         'Tipo');
+    public $components=array('Session');
     public $layout = 'vivavinto';
 
     public function index()
