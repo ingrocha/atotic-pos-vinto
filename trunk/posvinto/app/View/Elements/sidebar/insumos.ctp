@@ -24,7 +24,7 @@
             <ul class="accordion-content nav nav-list collapse in" id="accForms">
                 <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'nuevo')); ?>"> <i class="fontello-icon-right-dir"></i> Nuevo Insumo </a> </li>
                 <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'categoriasalmacen')); ?>"> <i class="fontello-icon-right-dir"></i> Listado Categorias </a> </li>
-                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'nuevacategoria')); ?>"> <i class="fontello-icon-right-dir"></i> Nueva Caegoria </a> </li>                
+                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'nuevacategoria')); ?>"> <i class="fontello-icon-right-dir"></i> Nueva Categoria </a> </li>                
             </ul>
         </li>         
     </ul>

@@ -1,6 +1,6 @@
 <div id="main-content" class="main-content container-fluid">
 	<?php echo $this->
-		element('sidebar/usuarios'); ?>
+		element('sidebar/clientes'); ?>
 		<div id="page-content" class="page-content">
 			<section>
 				<div class="page-header">
@@ -27,75 +27,44 @@
 									</span>
 								</caption>
 								<thead>
-                                <th scope="col">
-											ID
-											<span class="column-sorter">
-											</span>
-										</th>
-								</thead>
-								<tbody>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-</div>
-<!-- Container -->
-<div id="container">
-	<div class="shell">
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<span>
-				Lista de Clientes
-			</span>
-		</div>
-		<!-- End Small Nav -->
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">
-				&nbsp;
-			</div>
-			<!-- Content -->
-			<div id="content">
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">
-							LISTADO DE CLIENTES
-						</h2>
-					</div>
-					<!-- End Box Head -->
-					<!-- Table -->
-					<div class="table">
-						<?php echo $this->
-							element('tablagrid'); ?>
-							<table id="grid" style="width: 740px;">
-								<thead>
-									<tr>
-										<th>
-											Nombre
-										</th>
-										<th>
-											Direccion
-										</th>
-										<th>
-											Telefono
-										</th>
-										<th>
-											Estado
-										</th>
-										<th>
-											Acciones
-										</th>
-									</tr>
+									<th scope="col">
+										ID
+										<span class="column-sorter">
+										</span>
+									</th>
+									<th scope="col">
+										Nombre
+										<span class="column-sorter">
+										</span>
+									</th>
+									<th scope="col">
+										Direcci&oacute;n
+										<span class="column-sorter">
+										</span>
+									</th>
+									<th scope="col">
+										Tel&eacute;fono
+										<span class="column-sorter">
+										</span>
+									</th>
+									<th scope="col">
+										Estado
+										<span class="column-sorter">
+										</span>
+									</th>
+									<th scope="col">
+										Acciones
+										<span class="column-sorter">
+										</span>
+									</th>
 								</thead>
 								<tbody>
 									<?php foreach ($clientes as $c): ?>
+                                    <?php $id = $c['Cliente']['id'] ?>
 										<tr>
+                                        <td>
+                                        <?php echo $id ?>
+                                        </td>
 											<td>
 												<?php $id=$c[ 'Cliente'][ 'id']; ?>
 													<?php echo $c[ 'Cliente'][ 'nombre']; ?>
@@ -118,28 +87,14 @@
 													Html->image("edit.png", array( "title" => "Editar Cliente", 'url' => array('action' => 'modificar', $id) )); ?>
 													<?php echo $this->
 														Html->image("elim.png", array( "title" => "Dar de baja", 'url' => array('action' => 'baja', $id) )); ?>
-														<?php //echo $this->
-															Html->link('Modificar', array('action' => 'modificar', $id)); ?>
-															<?php //echo $this->
-																Html->link('Dar de Baja', array('action' => 'baja', $id)); ?>
 											</td>
 										</tr>
 										<?php endforeach; ?>
 								</tbody>
 							</table>
-							<!-- Pagging -->
-							<!-- End Pagging -->
+						</div>
 					</div>
-					<!-- Table -->
 				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Content -->
-			<?php echo $this->
-				element('menuclientes') ?>
-				<div class="cl">
-					&nbsp;
-				</div>
+			</section>
 		</div>
-		<!-- Main -->
-	</div>
+</div>

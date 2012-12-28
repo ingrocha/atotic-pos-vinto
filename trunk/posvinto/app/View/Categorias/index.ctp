@@ -15,7 +15,7 @@
 						</small>
 					</h3>
 					<p>
-						Despliega la lista de todos las categorias registradas en el sistema
+						Despliega la lista de todos las categorias registradas en el sistema para mostrar en el men&uacute;
 					</p>
 				</div>
 				<div class="row-fluid">
@@ -86,7 +86,7 @@
                                                     <?php endif; ?>
 												</td>
 												<td>
-													<?php echo $this->Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
+													<?php echo $this->Html->image("edit.png", array( "title" => "Editar categoria", 'url' => array('action' => 'modificar', $id) )); ?>
 													<?php echo $this->Html->image("elim.png", array( "title" => "Dar de baja", 'url' => array('action' => 'eliminar', $id) )); ?>
 												</td>
 											</tr>
@@ -96,6 +96,7 @@
 						</div>
 						<!--fin contenedor de la tabla-->
 					</div>
+                    
 					<!-- widget identificacion de los iconos-->
                     <?php echo $this->element('widget_footer_actions1'); ?>
                     <!--fin widget footer-->
@@ -104,28 +105,4 @@
 		</div>
 		<!--fin contenido-->
 </div>
-<!--------------------------------------------------------------------------------------------------------------------------->
-<h1>Listado de Categorias</h1>
-<table>
-    <tr>
-        <th>Nombre</th>
-        <th>Descripcion</th>
-   </tr>
-<?php foreach($categorias as $c): ?>
-    <tr>
-        <td>
-            <?php $id=$c['Categoria']['id'];?>
-            
-            <?php echo $c['Categoria']['nombre']; ?>
-        </td>
-        <td>
-            <?php echo $c['Categoria']['descripcion']; ?>
-        </td>
-        <td>
-            <?php echo $this->Html->link('Modificar', array('action'=>'modificar', $id));?>
-            <?php echo $this->Html->link('Eliminar', array('action'=>'eliminar', $id));?>           
-        </td>
-    </tr>
-<?php endforeach; ?>
-</table>
-<?php echo $this->Html->link('Nuevo Pedido', 'nuevo'); ?>
+
