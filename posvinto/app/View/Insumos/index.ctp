@@ -22,7 +22,7 @@
                                 <th scope="col">ID <span class="column-sorter"></span></th>                          
                                 <th scope="col">Nombre <span class="column-sorter"></span></th>
                                 <th scope="col">Categoria <span class="column-sorter"></span></th>
-                                <th scope="col">Categoria <span class="column-sorter"></span></th>
+                                <th scope="col">Stock almacen<span class="column-sorter"></span></th>
                                 <th scope="col">Acciones <span class="column-sorter"></span></th>                                
                             </tr>
                         </thead>
@@ -37,8 +37,9 @@
                                     <div id="ajax-modal_<?php echo $id; ?>" class="modal hide fade" tabindex="-1"></div>
                                 </td>
                                 <td><?php echo $i['Insumo']['nombre']; ?></td>
-                                <td> <?php echo $i['Insumo']['Tipo']['nombre']; ?></td>
-                                 <td> <?php echo $i['Insumo']['Tipo']['nombre']; ?></td>                                
+                                
+                                 <td> <?php echo $i['Insumo']['Tipo']['nombre']; ?></td>  
+                                 <td> <?php echo $i['Insumo']['total']; ?></td>                              
                                 <td>
                                 <?php
                                         echo $this->Html->image("edit.png", array(

@@ -1,83 +1,93 @@
-<!-- Container -->
-<div id="container">
-	<div class="shell">		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller' =>'usuarios', 'action' => 'index')) ?>
-			<span>&gt;</span>
-			Lista de Insumos
-		</div>
-		<!-- End Small Nav -->		
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>			
-			<!-- Content -->
-			<div id="content">				
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">LISTADO DE CATEGORIAS DEL ALMACEN</h2>                        
-						<div class="right">                                             
-						</div>    
+<?php //debug($catalmacen);exit; ?>
+	<div id="main-content" class="main-content container-fluid">
+		<?php echo $this->
+			element('sidebar/insumos'); ?>
+			<div id="page-content" class="page-content">
+				<section>
+					<div class="page-header">
+						<h3>
+							<i class="aweso-icon-table opaci35">
+							</i>
+							Categor&iacute;as de almacen
+							<small>
+								listado
+							</small>
+						</h3>
+						<p>
+							Despliega la lista de todos las categor&iacute;as del almacen
+						</p>
 					</div>
-					<!-- End Box Head -->	
-					<!-- Table -->
-					<div class="table">  
-                    <?php echo $this->element('tablagrid'); ?>                  
-                	<table id="grid" style="width: 100%;"> 
-                    <thead>
-                    <tr>
-                        <th>Nombre</th>                                                 
-                        <th>Observaciones</th>
-                        <th>Acciones</th>     
-                    </tr>    
-                    </thead>
-                    <tbody>
-<?php foreach ($catalmacen as $c): ?>
-    <tr>
-        <td>
-            <?php $id = $c['Tipo']['id']; ?>            
-            <?php echo $c['Tipo']['nombre']; ?>
-        </td>         
-        <td>
-            <?php echo $c['Tipo']['descripcion']; ?>
-        </td>             
-        <td>
-            <?php 
-                echo $this->Html->image("edit.png", array(
-                    "title" => "Editar",
-                    'url' => array('action' => 'editarcategoria', $id)
-                ));
-            ?>                                                            
-            <?php 
-                echo $this->Html->image("elim.png", array(
-                    "title" => "Eliminar Insumo",
-                    'url' => array('action' => 'descat', $id)
-                ));
-            ?>                 
-        </td>
-    </tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-</div>
-<?php //fin de mostrar los datos ?>
-</div>
-						
+					<div class="row-fluid">
+						<div class="span12">
+							<!--contenedor de la tabla-->
+							<div class="widget widget-simple widget-table">
+								<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+									<caption>
+										Categor&iacute;as
+										<span>
+										</span>
+									</caption>
+									<thead>
+										<th scope="col">
+											ID
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Nombre
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Descripci&oacute;n
+											<span class="column-sorter">
+											</span>
+										</th>
+										
+										<th scope="col">
+											Estado
+											<span class="column-sorter">
+											</span>
+										</th>
+                                        <th scope="col">
+											Acciones
+											<span class="column-sorter">
+											</span>
+										</th>
+									</thead>
+									<tbody>
+										<?php foreach ($catalmacen as $c): ?>
+                                        <?php $id=$c[ 'Tipo'][ 'id']; ?>
+											<tr>
+                                               <td>
+                                               <?php echo $id ?>
+                                               </td>
+												<td>
+													<?php echo $c[ 'Tipo'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $c[ 'Tipo'][ 'descripcion']; ?>
+												</td>
+                                                <td>
+                                                <?php if($c['Tipo']['estado'] == 1): ?>
+                                                Alta
+                                                <?php else: ?>
+                                                Baja
+                                                <?php endif; ?>
+                                                </td>
+												<td>
+													<?php echo $this->
+														Html->image("edit.png", array( "title" => "Editar", 'url' => array('action' => 'editarcategoria', $id) )); ?>
+														<?php echo $this->
+															Html->image("elim.png", array( "title" => "Eliminar Insumo", 'url' => array('action' => 'descat', $id) )); ?>
+												</td>
+											</tr>
+											<?php endforeach; ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
-					<!-- Table -->
-					
-				</div>
-				<!-- End Box -->								
+				</section>
 			</div>
-			<!-- End Content -->			
-			<!-- Sidebar -->
-			<?php echo $this->element('menualmacenes') ?>
-			<!-- End Sidebar -->
-			
-			<div class="cl">&nbsp;</div>			
-		</div>
-		<!-- Main -->
+	</div>
