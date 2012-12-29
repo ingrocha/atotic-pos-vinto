@@ -7,7 +7,8 @@ App::uses('AppController', 'Controller');
  */
 class ReservasController extends AppController {
 
-    public $layout = 'admin';
+    public $layout = 'vivavinto';
+    public $components = array('Session');
     public $uses = array('Reserva',  'Tipoevento', 'Cliente');
 /**
  * Helpers
