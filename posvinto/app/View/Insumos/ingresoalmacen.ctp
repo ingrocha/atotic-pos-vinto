@@ -1,5 +1,4 @@
-
-    <!-- // contenido pricipal -->                                 
+<!-- // contenido pricipal -->                                 
     <div id="page-content" class="span10">
         <?php $id=$insumo['Insumo']['id']; ?>
         <?php $pc=$insumo['Insumo']['preciocompra']; ?>
@@ -27,4 +26,3 @@
             </div>
         </section>
     </div>  
-  
