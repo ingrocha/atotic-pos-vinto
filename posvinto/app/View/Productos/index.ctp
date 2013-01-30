@@ -41,9 +41,9 @@
                                 <td><?php echo $p['Producto']['precio']; ?></td>
                                 <td><?php echo $p['Producto']['descripcion']; ?></td>                               
                                 <td>
-                                        <?php echo $this->Html->link('MODIFICAR', array('action' => 'modificar', $id)); ?>
-                                        <?php echo $this->Html->link('ANADIR MODIFICAR PORCIONES', array('action' => 'modificarporciones', $id)); ?>
-                                        <?php echo $this->Html->link('ELIMINAR', array('action' => 'eliminar', $id), array('class' => 'inner_a'), ('Desea eliminar realmente?')); ?>        
+                                        <?php echo $this->Html->link('MODIFICAR', array('action' => 'modificar', $idProducto)); ?>
+                                        <?php echo $this->Html->link('ANADIR MODIFICAR PORCIONES', array('action' => 'modificarporciones', $idProducto)); ?>
+                                        <?php echo $this->Html->link('ELIMINAR', array('action' => 'eliminar', $idProducto), array('class' => 'inner_a'), ('Desea eliminar realmente?')); ?>        
                                 </td>                                
                             </tr>
                         <?php endforeach; ?>                           
