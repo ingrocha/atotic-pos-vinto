@@ -65,29 +65,21 @@
                                 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                                 <a class="brand" href="javascript:void(0);"><?php echo $this->Html->image('logo-brand.png') ?></a>
                                 <div class="search-global">
-                                    <input id="globalSearch" class="search search-query input-medium" type="search">
-                                    <a class="search-button" href="javascript:void(0);"><i class="fontello-icon-search-5"></i></a> </div>
+                                    <!-- // navbar <input id="globalSearch" class="search search-query input-medium" type="search">
+                                    <a class="search-button" href="javascript:void(0);"><i class="fontello-icon-search-5"></i></a> </div> Ojo verlo-->
                                 <div class="nav-collapse collapse">
-                                    <ul class="nav user-menu visible-desktop">
-                                        <li><a class="btn-glyph fontello-icon-edit tip-bc" href="javascript:void(0);" title="Messages"><span class="badge badge-important">8</span></a></li>
-                                        <li><a class="btn-glyph fontello-icon-mail-1 tip-bc" href="javascript:void(0);" title="Emails"></a></li>
-                                        <li><a class="btn-glyph fontello-icon-lifebuoy tip-bc" href="javascript:void(0);" title="Support"><span class="badge badge-important">4</span></a></li>
-                                    </ul>
                                     <ul class="nav">
-                                        <li> <a href="dashboard-one.html">Dashboard</a> </li>
-                                        <li class="active"> <a href="javascript:void(0);">Components</a> </li>
-                                        <li> <a href="component-fullcalendar-demo.html"><span class="fontello-icon-calendar"></span>Calendar</a> </li>
-                                        <li> <a href="javascript:void(0);"><span class="fontello-icon-users"></span>Contacts</a> </li>
-                                        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="fontello-icon-list-1"></span>Customize <b class="caret"></b></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="component-form-demo.html">Demo Form</a></li>
-                                                <li><a href="component-widgets-remember.html">Remember</a></li>
-                                                <li><a href="component-widgets-users.html">User List</a></li>
-                                                <li class="divider"></li>
-                                                <li class="nav-header">Next Update</li>
-                                                <li><a href="javascript:void(0);">Contacts</a></li>
-                                                <li><a href="javascript:void(0);">Email</a></li>
-                                            </ul>
+                                        <li><?php echo $this->Html->link('INICIO', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('USUARIOS', array('controller' => 'Categorias', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('CLIENTES', array('controller' => 'Lugares', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('PEDIDOS', array('controller' => 'Clientes', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('MENU', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('BODEGA', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('ALMACEN', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('REPORTES', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('CONFIGURACIONES', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                   </ul>
                                         </li>
                                     </ul>
                                 </div>
@@ -101,16 +93,8 @@
                         <!-- // Resposive navigation -->
                         <div class="breadcrumbs-nav hidden-phone">
                             <ul id="breadcrumbs" class="breadcrumb">
-                                <li><a href="javascript:void(0);"><i class="fontello-icon-home f12"></i> Dashboard</a> <span class="divider">/</span></li>
-                                <li class="dropdown"><a href="javascript:void(0);">Table </a> <span class="divider">/</span>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0);">Table</a></li>
-                                        <li><a href="javascript:void(0);">Elements</a></li>
-                                        <li><a href="javascript:void(0);">Elements</a></li>
-                                        <li><a href="javascript:void(0);">Elements</a></li>
-                                    </ul>
-                                </li>
-                                <li class="active">Boo Admin </li>
+                                <li><a href="javascript:void(0);"><i class="fontello-icon-home f12"></i> Restaurante</a> <span class="divider">/</span></li>
+                                <li class="active">Viva Vinto</li>
                             </ul>
                         </div>
                         <!-- // breadcrumbs --> 
