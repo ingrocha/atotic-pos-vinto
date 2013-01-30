@@ -9,7 +9,10 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Viva Vinto</title>
+        <title>
+            SoleMio:
+            <?php echo $title_for_layout; ?>
+        </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -65,9 +68,9 @@
                                 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                                 <a class="brand" href="javascript:void(0);"><?php echo $this->Html->image('logo-brand.png') ?></a>
                                 <div class="search-global">
-                                    <!-- // navbar <input id="globalSearch" class="search search-query input-medium" type="search">
-                                    <a class="search-button" href="javascript:void(0);"><i class="fontello-icon-search-5"></i></a> </div> Ojo verlo-->
+                                    <a class="search-button" href="javascript:void(0);"><i class="fontello-icon-search-5"></i></a> </div>
                                 <div class="nav-collapse collapse">
+                     
                                     <ul class="nav">
                                         <li><?php echo $this->Html->link('INICIO', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('USUARIOS', array('controller' => 'Categorias', 'action' => 'index')) ?></li>
@@ -79,8 +82,17 @@
                                         <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('REPORTES', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('CONFIGURACIONES', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
-                                   </ul>
-                                        </li>
+                                        <!--<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="fontello-icon-list-1"></span>Customize <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="component-form-demo.html">Demo Form</a></li>
+                                                <li><a href="component-widgets-remember.html">Remember</a></li>
+                                                <li><a href="component-widgets-users.html">User List</a></li>
+                                                <li class="divider"></li>
+                                                <li class="nav-header">Next Update</li>
+                                                <li><a href="javascript:void(0);">Contacts</a></li>
+                                                <li><a href="javascript:void(0);">Email</a></li>
+                                            </ul>
+                                        </li>-->
                                     </ul>
                                 </div>
                             </div>
@@ -93,8 +105,8 @@
                         <!-- // Resposive navigation -->
                         <div class="breadcrumbs-nav hidden-phone">
                             <ul id="breadcrumbs" class="breadcrumb">
-                                <li><a href="javascript:void(0);"><i class="fontello-icon-home f12"></i> Restaurante</a> <span class="divider">/</span></li>
-                                <li class="active">Viva Vinto</li>
+                                <li><a><i class="fontello-icon-home f12"></i>Pizzeria</a> <span class="divider">/</span></li>
+                                <li class="active">Sole Mio </li>
                             </ul>
                         </div>
                         <!-- // breadcrumbs --> 
