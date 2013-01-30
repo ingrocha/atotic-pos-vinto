@@ -1,92 +1,70 @@
-<div id="container">
-    <div class="shell">
-        <!-- Small Nav -->
-        <div class="small-nav">
-            Listado de productos
+<div id="main-content" class="main-content container-fluid">
+<!-- // sidebar --> 
+    <?php echo $this->element('sidebar/productos'); ?>               
+<!-- // fin sidebar -->
+<!-- // contenido pricipal -->                                 
+<div id="page-content" class="page-content">
+    <section>
+        <div class="page-header">
+            <h3><i class="aweso-icon-table opaci35"></i> Productos <small>Listado</small></h3>
+            <p>Despliega la lista de todos los Productos</p>
         </div>
-        <!-- End Small Nav -->		
-        <br />
-        <div id="main">
-            <div class="cl">&nbsp;</div>
-            <div id="content">
-                <div class="boxa">
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2 class="left">LISTADO DE PRODUCTOS</h2>                        
-                        <div class="right">                        
-                            <?php echo $this->Form->create(null, array('action' =>
-                                'buscar'));
-                            ?>
-                            <label>Filtrar</label>
-                            <!--<input type="text" class="field small-field" />
-                            <input type="submit" class="button" value="buscar" />-->
-                            <?php echo $this->Form->text('nombre'); ?>
-                            <?php
-                            $options = array('label' => 'Buscar', 'class' => 'button');
-                            ?>
-                            <?php
-                            echo $this->Ajax->submit('Buscar', array('url' => array('controller' =>
-                                    'insumos', 'action' => 'buscar'), 'update' => 'muestra'
-                            /* 'condition' => '$("#PostEmail1").val() == $("#PostName1").val()' */ ));
-                            //echo $this->Form->end($options);
-                            ?>
-                        </div>    
-                    </div>
-                    <!-- End Box Head -->
-                    <div class="table">
-                        <table>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget widget-simple widget-table">
+                    <table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+                        <caption>
+                            Productos<span></span>
+                        </caption>
+                        <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Productos Id</th>
-                                <th>Observaciones</th>
-                                <th>Acciones</th>
+                                <th scope="col">Numero <span class="column-sorter"></span></th>
+                                <th scope="col">Nombre <span class="column-sorter"></span></th>
+                                <th scope="col">Producto <span class="column-sorter"></span></th>
+                                <th scope="col">Precio <span class="column-sorter"></span></th>
+                                <th scope="col">Observaciones<span class="column-sorter"></span></th>
+                                <th scope="col">Acciones <span class="column-sorter"></span></th>                                
                             </tr>
-                            <?php foreach ($productos as $c): ?>
-                                <tr>
-                                    <td>
-                                        <?php $id = $c['Producto']['id']; ?>
-
-                                        <?php echo $c['Producto']['nombre']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $c['Categoria']['nombre']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $c['Producto']['precio']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $c['Producto']['descripcion']; ?>
-                                    </td>
-                                    <td>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($productos as $p): ?>                        
+                        <?php $idProducto = $p['Producto']['id'] ?>                        
+                            <tr>                                    
+                                <td>
+                                    <?php echo $idProducto; ?>
+                                    <div id="cuadro_<?php echo $idProducto; ?>"></div>                         
+                                    <div id="cuadro2_<?php echo $idProducto; ?>"></div>
+                                    <div id="ajax-modal_<?php echo $idProducto; ?>" class="modal hide fade" tabindex="-1"></div>
+                                </td>
+                                <td><?php echo $p['Producto']['nombre']; ?></td>
+                                <td> <?php echo $p['Categoria']['nombre']; ?></td>
+                                <td><?php echo $p['Producto']['precio']; ?></td>
+                                <td><?php echo $p['Producto']['descripcion']; ?></td>                               
+                                <td>
                                         <?php echo $this->Html->link('MODIFICAR', array('action' => 'modificar', $id)); ?>
                                         <?php echo $this->Html->link('ANADIR MODIFICAR PORCIONES', array('action' => 'modificarporciones', $id)); ?>
-                                        <?php echo $this->Html->link('ELIMINAR', array('action' => 'eliminar', $id), array('class' => 'inner_a'), ('Desea eliminar realmente?')); ?>           
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </table>
-                    </div>
+                                        <?php echo $this->Html->link('ELIMINAR', array('action' => 'eliminar', $id), array('class' => 'inner_a'), ('Desea eliminar realmente?')); ?>        
+                                </td>                                
+                            </tr>
+                        <?php endforeach; ?>                           
+                        </tbody>
+                    </table>
+                    <!-- // BOO TABLE - DTB-2 -->
+
                 </div>
+                <!-- // Widget -->
+
             </div>
+            <!-- // Column -->
+
         </div>
-        <!-- Sidebar -->
-        <div id="sidebar">				
-            <!-- Box -->
-            <div class="boxa">					
-                <!-- Box Head -->
-                <div class="box-head">
-                    <h2>Administracion</h2>
-                </div>
-                <!-- End Box Head-->					
-                <div class="box-content">                    																		
-                    <?php echo $this->element("menucarta"); ?>
-                    <?php echo $this->Html->link('<span>Nuevo Producto</span>', array('controller' => 'productos', 'action' => 'nuevo'), array('class' => 'add-button', 'escape' => false)); ?>
-                    <div class="cl">&nbsp;</div>
-                </div>
-            </div>
-            <!-- End Box -->
-        </div>
-        <!-- End Sidebar -->
-        <div class="cl">&nbsp;</div>
-    </div>
+        <!-- // Example row -->
+
+    </section>
+</div>	
+<!-- // fin contenido principal --> 
 </div>
+ 	
+<!-- Sidebar -->
+<?php //echo $this->element('menualmacenes') ?>
+<!-- End Sidebar -->

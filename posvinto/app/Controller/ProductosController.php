@@ -13,7 +13,7 @@ class ProductosController extends AppController
         'Porcione',
         'Insumo',
         'Almacen');
-    public $layout = "admin";
+    public $layout = "vivavinto";
 
     public function index()
     {
