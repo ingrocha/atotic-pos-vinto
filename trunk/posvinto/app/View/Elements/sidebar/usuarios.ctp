@@ -1,4 +1,4 @@
-<div id="main-sidebar" class="sidebar sidebar-inverse">
+<div id="main-sidebar" class="sidebar">
     <div class="sidebar-item">
         <div class="media profile">
             <div class="media-thumb media-left thumb-bordereb"> <a class="img-shadow" href="javascript:void(0);"><?php echo $this->Html->image('demo-avatar.jpg') ?></a> </div>
