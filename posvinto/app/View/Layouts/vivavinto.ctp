@@ -10,7 +10,7 @@
     <head>
         <meta charset="utf-8">
         <title>
-            SoleMio:
+            Viva Vinto:
             <?php echo $title_for_layout; ?>
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
@@ -105,8 +105,8 @@
                         <!-- // Resposive navigation -->
                         <div class="breadcrumbs-nav hidden-phone">
                             <ul id="breadcrumbs" class="breadcrumb">
-                                <li><a><i class="fontello-icon-home f12"></i>Pizzeria</a> <span class="divider">/</span></li>
-                                <li class="active">Sole Mio </li>
+                                <li><a><i class="fontello-icon-home f12"></i>Restaurante</a> <span class="divider">/</span></li>
+                                <li class="active">Viva Vinto</li>
                             </ul>
                         </div>
                         <!-- // breadcrumbs --> 
