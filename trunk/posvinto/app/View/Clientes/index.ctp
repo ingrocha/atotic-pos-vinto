@@ -1,6 +1,8 @@
 <div id="main-content" class="main-content container-fluid">
-	<?php echo $this->
-		element('sidebar/clientes'); ?>
+	<!-- // sidebar -->
+	<?php echo $this->element('sidebar/clientes'); ?>
+		<!-- // fin sidebar -->
+		<!--contenido-->
 		<div id="page-content" class="page-content">
 			<section>
 				<div class="page-header">
@@ -27,74 +29,77 @@
 									</span>
 								</caption>
 								<thead>
-									<th scope="col">
-										ID
-										<span class="column-sorter">
-										</span>
-									</th>
-									<th scope="col">
-										Nombre
-										<span class="column-sorter">
-										</span>
-									</th>
-									<th scope="col">
-										Direcci&oacute;n
-										<span class="column-sorter">
-										</span>
-									</th>
-									<th scope="col">
-										Tel&eacute;fono
-										<span class="column-sorter">
-										</span>
-									</th>
-									<th scope="col">
-										Estado
-										<span class="column-sorter">
-										</span>
-									</th>
-									<th scope="col">
-										Acciones
-										<span class="column-sorter">
-										</span>
-									</th>
+									<tr>
+										<th scope="col">
+											Nro.
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Nombre
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Direcci&oacute;n
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Tel&eacute;fono
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Estado
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Acciones
+											<span class="column-sorter">
+											</span>
+										</th>
+									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($clientes as $c): ?>
-                                    <?php $id = $c['Cliente']['id'] ?>
-										<tr>
-                                        <td>
-                                        <?php echo $id ?>
-                                        </td>
-											<td>
-												<?php $id=$c[ 'Cliente'][ 'id']; ?>
-													<?php echo $c[ 'Cliente'][ 'nombre']; ?>
-											</td>
-											<td>
-												<?php echo $c[ 'Cliente'][ 'direccion']; ?>
-											</td>
-											<td>
-												<?php echo $c[ 'Cliente'][ 'telefono']; ?>
-											</td>
-											<td>
-												<?php if ($c[ 'Cliente'][ 'estado']==1): ?>
-													Alta
-													<?php else: ?>
-														Baja
-														<?php endif; ?>
-											</td>
-											<td>
-												<?php echo $this->
-													Html->image("edit.png", array( "title" => "Editar Cliente", 'url' => array('action' => 'modificar', $id) )); ?>
+									<?php foreach ($clientes as $cli): ?>
+										<?php $id=$cli['Cliente'][ 'id']; ?>
+											<tr>
+								
+												<td>
+													<?php echo $cli[ 'Cliente'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $cli[ 'Cliente'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $cli[ 'Cliente'][ 'direccion']; ?>
+												</td>
+												<td>
+													<?php echo $cli[ 'Cliente'][ 'telefono']; ?>
+												</td>
+												<td>
+													<?php echo $cli[ 'Cliente'][ 'estado']; ?>
+												</td>
+												<td>
 													<?php echo $this->
-														Html->image("elim.png", array( "title" => "Dar de baja", 'url' => array('action' => 'baja', $id) )); ?>
-											</td>
-										</tr>
-										<?php endforeach; ?>
+														Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
+														<?php echo $this->
+															Html->image("elim.png", array( "title" => "Insertar Nuevo Usuario", 'url' => array('action' => 'nuevo', $id) )); ?>
+												</td>
+											</tr>
+											<?php endforeach; ?>
 								</tbody>
 							</table>
 						</div>
+						<!--fin contenedor de la tabla-->
 					</div>
+					<!-- widget identificacion de los iconos-->
+                    
+                    <!--fin widget footer-->
 				</div>
 			</section>
 		</div>
+		<!--fin contenido-->
 </div>

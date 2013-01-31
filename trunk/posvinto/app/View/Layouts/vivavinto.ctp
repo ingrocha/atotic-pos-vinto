@@ -73,13 +73,13 @@
                      
                                     <ul class="nav">
                                         <li><?php echo $this->Html->link('INICIO', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
-                                        <li><?php echo $this->Html->link('USUARIOS', array('controller' => 'Categorias', 'action' => 'index')) ?></li>
-                                        <li><?php echo $this->Html->link('CLIENTES', array('controller' => 'Lugares', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('USUARIOS', array('controller' => 'Usuarios', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('CLIENTES', array('controller' => 'Clientes', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('PEDIDOS', array('controller' => 'Clientes', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('MENU', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('BODEGA', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('ALMACEN', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
-                                        <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Reservas', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('REPORTES', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('CONFIGURACIONES', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <!--<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="fontello-icon-list-1"></span>Customize <b class="caret"></b></a>
