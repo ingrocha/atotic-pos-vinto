@@ -153,7 +153,7 @@
 			</div>
 			<!-- End Content -->
 			
-			<?php echo $this->element('sidebar/usuarios') ?>
+			<?php echo $this->element('menupedidos') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>
