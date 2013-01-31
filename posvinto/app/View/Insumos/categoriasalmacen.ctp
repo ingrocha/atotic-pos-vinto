@@ -1,7 +1,7 @@
 <?php //debug($catalmacen);exit; ?>
 	<div id="main-content" class="main-content container-fluid">
 		<?php echo $this->
-			element('sidebar/insumos'); ?>
+			element('sidebar/almacen'); ?>
 			<div id="page-content" class="page-content">
 				<section>
 					<div class="page-header">

@@ -1,51 +1,88 @@
-<?php //debug($prod); ?>
-<!-- Container -->
-<div id="container">
-    <div class="shell">		        
-        <!-- Main -->
-        <div id="main">
-            <div class="cl">&nbsp;</div>			
-            <!-- Content -->
-            <div id="content">				
-                <!-- Box -->
-                <div class="boxa">
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2 class="left">PRODUCTOS EN MENU</h2>                        
-                        <div class="right">                        
-                        </div>    
-                    </div>
-                    <!-- End Box Head -->	
-                    <!-- Table -->
-                    <div class="table">   
-                        <?php echo $this->element('tablagrid'); ?>                 
-                        <table id="grid" style="width: 100%;"> 
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Categoria</th>   
-                                    <th>Precio</th>   
-                                    <th>Acciones</th>                                               
-                                </tr>   
-                            </thead>
-                            <tbody> 
-                                <?php //$i=1; ?>
-                                <?php foreach ($prod as $p): ?>
-                                    <?php $id = $p['Producto']['id']; ?> 
-                                <div id="cuadro_<?php echo $id; ?>" title="Insumo al Menu">
-                                </div> 
-                                <tr>
-                                    <td>                       
-                                        <?php echo $p['Producto']['nombre']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $p['Categoria']['nombre']; ?>
-                                    </td>   
-                                    <td>
-                                        <?php echo $p['Producto']['precio']; ?>
-                                    </td>
-                                    <td>
-                                        <?php if ($p['Producto']['estado']): ?>        
+<div id="main-content" class="main-content container-fluid">
+	<!-- // sidebar -->
+	<?php echo $this->element('sidebar/productosmenu'); ?>
+		<!-- // fin sidebar -->
+		<!--contenido-->
+		<div id="page-content" class="page-content">
+			<section>
+				<div class="page-header">
+					<h3>
+						<i class="aweso-icon-table opaci35">
+						</i>
+						Productos
+						<small>
+						Listado
+						</small>
+					</h3>
+					<p>
+						Despliega la lista de todos los Productos registrados en el sistema
+					</p>
+				</div>
+				<div class="row-fluid">
+					<div class="span12">
+						<!--contenedor de la tabla-->
+						<div class="widget widget-simple widget-table">
+							<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+								<caption>
+									Insumos
+									<span>
+									</span>
+								</caption>
+								<thead>
+									<tr>
+										<th scope="col">
+											Nombre
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Nombre
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Categoria
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Precio
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Estado
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Acciones
+											<span class="column-sorter">
+											</span>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($prod as $p): ?>
+										<?php $id=$p['Producto'][ 'id']; ?>
+											<tr>
+												<td>
+													<?php echo $id ?>
+												</td>
+												<td>
+													<?php echo $p[ 'Producto'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $p[ 'Categoria'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $p[ 'Producto'][ 'precio']; ?>
+												</td>
+												<td>
+													<?php echo $p[ 'Producto'][ 'estado']; ?>
+												</td>
+												<td>
+												<?php if ($p['Producto']['estado']): ?>        
                                             <?php //echo $this->Html->image('muestra.png'); ?>
                                             <?php
                                             /* echo $this->Ajax->link(
@@ -73,41 +110,20 @@
                                         <?php
                                         echo $this->Html->image("edit.png", array("title" => "Editar",
                                             'url' => array('action' => 'editaprodmenu', $id)));
-                                        ?> 
-                                    </td>                    
-                                </tr>
-                                <?php //$i++;   ?>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <?php //fin de mostrar los datos   ?>
-            </div>						
-        </div>
-        <!-- Table -->
-
-    </div>
-    <!-- End Box -->								
+                                        ?> 	
+                                                    </td>
+											</tr>
+											<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+						<!--fin contenedor de la tabla-->
+					</div>
+					<!-- widget identificacion de los iconos-->
+                    
+                    <!--fin widget footer-->
+				</div>
+			</section>
+		</div>
+		<!--fin contenido-->
 </div>
-<!-- End Content -->			
-<!-- Sidebar -->
-<div id="sidebar">				
-    <!-- Box -->
-    <div class="boxa">					
-        <!-- Box Head -->
-        <div class="box-head">
-            <h2>Administracion</h2>
-        </div>
-        <!-- End Box Head-->					
-        <div class="box-content">                    																		
-            <?php echo $this->element("menucarta"); ?>
-        </div>
-    </div>
-    <!-- End Box -->
-</div>
-<!-- End Sidebar -->
-
-<div class="cl">&nbsp;</div>			
-</div>
-<!-- Main -->

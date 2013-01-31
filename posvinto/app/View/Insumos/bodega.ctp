@@ -1,6 +1,6 @@
 <?php //debug($bodega);exit; ?>
 <div id="main-content" class="main-content container-fluid">
-   <?php echo $this->element('sidebar/insumos'); ?>
+   <?php echo $this->element('sidebar/bodega'); ?>
 		<div id="page-content" class="page-content">
 			<section>
 				<div class="page-header">

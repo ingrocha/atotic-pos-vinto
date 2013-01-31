@@ -1,94 +1,90 @@
-<?php //comienza aqui  ?>
-<div id="container">
-    <div class="shell">
-        <!-- Small Nav -->
-        <div class="small-nav">
-            Listado de productos
-        </div>
-        <!-- End Small Nav -->		
-        <br />
-        <div id="main">
-            <div class="cl">&nbsp;</div>
-            <div id="content">
-                <div class="boxa">
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2 class="left">LISTADO DE CATRGORIAS EN ALMACEN</h2>                        
-                        <div class="right">                                               
-                        </div>    
-                    </div>
-                    <!-- End Box Head -->
-                    <div class="table">
-                        <?php echo $this->element('tablagrid'); ?> 
-                        <table id="grid" style="width: 100%">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Tipo</th>     
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($cat as $c): ?>
-                                    <tr>
-                                        <td>
-                                            <?php $id = $c['Categoria']['id']; ?>
-
-                                            <?php echo $c['Categoria']['nombre']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $c['Categoria']['tipo']; ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            echo $this->Html->image("edit.png", array(
-                                                "title" => "Editar",
-                                                'url' => array('action' => 'editarcategoria', $id)
-                                            ));
-                                            ?>
-                                            <?php if ($c['Categoria']['estado'] == 1): ?>                                                            
-                                                <?php
-                                                echo $this->Html->image("show.png", array(
-                                                    "title" => "Ocultar",
-                                                    'url' => array('action' => 'descatmenu', $id)
-                                                ));
-                                                ?>                 
-                                            <?php else: ?>
-                                                <?php
-                                                echo $this->Html->image("hide.png", array(
-                                                    "title" => "Mostrar",
-                                                    'url' => array('action' => 'habcatmenu', $id)
-                                                ));
-                                                ?>
-                                            <?php endif; ?>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Sidebar -->
-        <div id="sidebar">				
-            <!-- Box -->
-            <div class="boxa">					
-                <!-- Box Head -->
-                <div class="box-head">
-                    <h2>Administracion</h2>
-                </div>
-                <!-- End Box Head-->					
-                <div class="box-content">                    																		
-                    <?php echo $this->element("menucarta"); ?>
-                    <div class="cl">&nbsp;</div>
-                </div>
-            </div>
-            <!-- End Box -->
-        </div>
-        <!-- End Sidebar -->
-        <div class="cl">&nbsp;</div>
-    </div>
+<div id="main-content" class="main-content container-fluid">
+	<!-- // sidebar -->
+	<?php echo $this->element('sidebar/categoriasmenu'); ?>
+		<!-- // fin sidebar -->
+		<!--contenido-->
+		<div id="page-content" class="page-content">
+			<section>
+				<div class="page-header">
+					<h3>
+						<i class="aweso-icon-table opaci35">
+						</i>
+						Categorias en Almacen
+						<small>
+							Listado
+						</small>
+					</h3>
+					<p>
+						Despliega la lista de todas las categorias del almacen registrados en el sistema
+					</p>
+				</div>
+				<div class="row-fluid">
+					<div class="span12">
+						<!--contenedor de la tabla-->
+						<div class="widget widget-simple widget-table">
+							<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+								<caption>
+									Categorias del Almacen
+									<span>
+									</span>
+								</caption>
+								<thead>
+									<tr>
+                                        <th scope="col">
+											Numero
+											<span class="column-sorter">
+											</span>
+										</th>
+                                    
+										<th scope="col">
+											Nombre
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Tipo
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Acciones
+											<span class="column-sorter">
+											</span>
+										</th>
+									</tr>
+								</thead>
+                                <?php $i=1;?>
+								<tbody>
+									<?php foreach ($cat as $c): ?>
+										<?php $id=$c[ 'Categoria'][ 'id']; ?>
+											<tr>
+                                                <td><?php echo $i; $i++;?></td>
+												<td>
+													<?php echo $c[ 'Categoria'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $c[ 'Categoria'][ 'tipo']; ?>
+												</td>
+												<td>
+													<?php echo $this->
+														Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
+														<?php echo $this->
+															Html->image("elim.png", array( "title" => "Dar de baja", 'url' => array('action' => 'baja', $id) )); ?>
+															<?php echo $this->
+																Html->image("candado.png", array( "title" => "Cambiar password", 'url' => array('action' => 'cambiarpassword', $id) )); ?>
+												</td>
+											</tr>
+											<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+						<!--fin contenedor de la tabla-->
+					</div>
+					<!-- widget identificacion de los iconos-->
+                    
+                    <!--fin widget footer-->
+				</div>
+			</section>
+		</div>
+		<!--fin contenido-->
 </div>
-<?php
-//fin ?>
