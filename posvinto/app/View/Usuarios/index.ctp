@@ -105,7 +105,7 @@
 						<!--fin contenedor de la tabla-->
 					</div>
 					<!-- widget identificacion de los iconos-->
-                    <?php echo $this->element('widget_footer_actions'); ?>
+                    
                     <!--fin widget footer-->
 				</div>
 			</section>
