@@ -1,5 +1,5 @@
 <!-- Container -->
-<div id="container">
+<div id="main-content" class="main-content container-fluid">
 	<div class="shell">
 		
 		<!-- Small Nav -->
@@ -48,8 +48,7 @@
 				<!-- End Box -->								
 			</div>
 			<!-- End Content -->
-			
-		<?php echo $this->element('menuconfiguraciones') ?>
+        <?php echo $this->element('sidebar/configuraciones'); ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>
