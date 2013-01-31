@@ -5,15 +5,19 @@ class ConfiguracionesController extends AppController{
         'Session'
         );
     public $uses = array(
-        'Descuento');
+        'Descuento','Cliente');
     public $layout = 'vivavinto';
     
     public function index(){
+   $descuentos = $this->Descuento->find('all');
+        $this->set(compact('descuentos'));
+    //debug($configuraciones);exit;
         
     }
     function descuentos(){
         $descuentos = $this->Descuento->find('all');
         $this->set(compact('descuentos'));
+      //  debug($descuentos);exit;
     } 
     function nuevodescuento(){
         if(!empty($this->data)){
