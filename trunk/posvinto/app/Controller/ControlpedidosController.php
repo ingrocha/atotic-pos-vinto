@@ -14,7 +14,7 @@
         'Sucursal',
         'Descuento',
         'Recibo');
-    public $layout = 'admin';
+    public $layout = 'vivavinto';
     public function index()
     {
         //$this->Pedido->recursive = 0;

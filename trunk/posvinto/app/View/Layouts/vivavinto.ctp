@@ -75,7 +75,7 @@
                                         <li><?php echo $this->Html->link('INICIO', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('USUARIOS', array('controller' => 'Usuarios', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('CLIENTES', array('controller' => 'Clientes', 'action' => 'index')) ?></li>
-                                        <li><?php echo $this->Html->link('PEDIDOS', array('controller' => 'Clientes', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('PEDIDOS', array('controller' => 'controlpedidos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('MENU', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('BODEGA', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('ALMACEN', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
