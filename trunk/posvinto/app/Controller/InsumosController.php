@@ -34,6 +34,7 @@ class InsumosController extends AppController
         $insumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
                 array('Almacen.id' => $ids)));
         $this->set(compact('insumos'));
+        //debug($insumos);exit;
     }
 
     public function nuevacategoria()
