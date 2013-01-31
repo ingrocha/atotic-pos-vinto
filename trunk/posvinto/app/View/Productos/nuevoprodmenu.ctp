@@ -1,54 +1,64 @@
-<?php //comienza aqui    ?>
-<!-- Container -->
-<div id="container">
-    <div class="shell">
-
-        <!-- Small Nav -->
-        <div class="small-nav">
-            <span></span>
-        </div>
-        <!-- End Small Nav -->		
-        <br />
-        <!-- Main -->
-        <div id="main">
-            <div class="cl">&nbsp;</div>
-
-            <!-- Content -->
-            <div id="content">
-
-                <!-- Box -->
-                <div class="boxa">
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2 class="left">PRODUCTOS EN ALMACEN PARA COLOCAR EN MENU</h2>						
-                    </div>
-                    <!-- End Box Head -->	
-                    <!-- Table -->
-                    <div class="table">
-                        <?php echo $this->element('tablagrid'); ?>  
-                        <table id="grid" style="width: 740px;">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Categoria</th>    
-                                    <th>Acciones</th>    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($insumos as $i): ?>
-                                    <?php $id = $i['Insumo']['id']; ?> 
-                                <div id="cuadro_<?php echo $id; ?>" title="Insumo al Menu">
-                                </div> 
-                                <tr>
-                                    <td>
-                                        <?php //$id = $c['Cliente']['id']; ?>
-                                        <?php echo $i['Insumo']['nombre']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $i['Tipo']['nombre']; ?>
-                                    </td>                                                                                 
-                                    <td>
-                                        <div id="dialog_<?php echo $id; ?>" style="float: left;">
+<div id="main-content" class="main-content container-fluid">
+	<!-- // sidebar -->
+	<?php echo $this->element('sidebar/nuevoprod'); ?>
+		<!-- // fin sidebar -->
+		<!--contenido-->
+		<div id="page-content" class="page-content">
+			<section>
+				<div class="page-header">
+					<h3>
+						<i class="aweso-icon-table opaci35">
+						</i>
+						Productos en Almacen para Colocar en Menu
+						<small>
+							Listado
+						</small>
+					</h3>
+					<p>
+						Despliega la lista de todos los productos en Almacen registrados en el sistema
+					</p>
+				</div>
+				<div class="row-fluid">
+					<div class="span12">
+						<!--contenedor de la tabla-->
+						<div class="widget widget-simple widget-table">
+							<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+								<caption>
+									Productos en Almacen
+									<span>
+									</span>
+								</caption>
+								<thead>
+									<tr>
+										<th scope="col">
+											Nombre
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Categoria
+											<span class="column-sorter">
+											</span>
+										</th>
+                                        <th scope="col">
+											Acciones
+											<span class="column-sorter">
+											</span>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($insumos as $i): ?>
+										<?php $id=$i[ 'Insumo'][ 'id']; ?>
+											<tr>
+												<td>
+													<?php echo $i[ 'Insumo'][ 'nombre']; ?>
+												</td>
+												<td>
+													<?php echo $i[ 'Tipo'][ 'nombre']; ?>
+												</td>
+												<td>
+                                                 <div id="dialog_<?php echo $id; ?>" style="float: left;">
                                             <?php
                                             echo $this->Html->image("menu.png", array("title" => "Colocar en Menu"));
                                             ?>
@@ -61,38 +71,19 @@
                                                 jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("ajaxprodmenu/<?php echo $id; ?>");                //alert("click");
                                             }); 
                                         </script> 
-                                        <?php //echo $this->Html->link('Modificar', array('action' => 'modificar', $id)); ?>
-                                        <?php //echo $this->Html->link('Dar de Baja', array('action' => 'baja', $id)); ?>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>												
-                        <!-- Pagging -->
-
-                        <!-- End Pagging -->						
-                    </div>
-                    <!-- Table -->					
-                </div>
-                <!-- End Box -->								
-            </div>
-            <!-- End Content -->
-            <div id="sidebar">				
-                <!-- Box -->
-                <div class="boxa">					
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2>Administracion</h2>
-                    </div>
-                    <!-- End Box Head-->
-
-                    <div class="box-content">                    																		
-                        <?php echo $this->element("menucarta"); ?>
-                    </div>
-                </div>
-                <!-- End Box -->
-            </div>
-            <div class="cl">&nbsp;</div>			
-        </div>
-        <!-- Main -->
-    </div>        
+                                                </td>
+											</tr>
+											<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+						<!--fin contenedor de la tabla-->
+					</div>
+					<!-- widget identificacion de los iconos-->
+                    
+                    <!--fin widget footer-->
+				</div>
+			</section>
+		</div>
+		<!--fin contenido-->
+</div>

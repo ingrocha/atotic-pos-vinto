@@ -1,57 +1,79 @@
-<!-- Container -->
-<div id="container">
-	<div class="shell">		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
-			<span>&gt;</span>
-			Lista de Usuarios
-		</div>
-		<!-- End Small Nav -->
-		
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>			
-			<!-- Content -->
-			<div id="content">				
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">Listado de Platos</h2>
-						<div class="right">
-							<label>filtrar</label>
-							<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="buscar" />
-						</div>
-					</div>
-					<!-- End Box Head -->	
-
-					<!-- Table -->
-					<div class="table">
-					<table>
-    <tr>
-        <th>Nombre</th>
-        <th>Categoria</th>
-        <th>Precio</th>  
-        <th>Aciones</th>        
-    </tr>
-<?php foreach($platos as $p): ?>
-    <tr>
-        <td>
-            <?php $id=$p['Producto']['id'];?>            
-            <?php echo $p['Producto']['nombre']; ?>
-        </td>
-        <td>
-            <?php echo $p['Categoria']['nombre']; ?>
-        </td>
-        <td>
-            <?php echo $p['Producto']['precio']; ?>
-        </td>                       
-        <td>
-            <?php 
+<div id="main-content" class="main-content container-fluid">
+	<!-- // sidebar -->
+	<?php echo $this->element('sidebar/platos'); ?>
+		<!-- // fin sidebar -->
+		<!--contenido-->
+		<div id="page-content" class="page-content">
+			<section>
+				<div class="page-header">
+					<h3>
+						<i class="aweso-icon-table opaci35">
+						</i>
+						Platos
+						<small>
+						Listado
+						</small>
+					</h3>
+					<p>
+						Despliega la lista de todos los platos registrados en el sistema
+					</p>
+				</div>
+				<div class="row-fluid">
+					<div class="span12">
+						<!--contenedor de la tabla-->
+						<div class="widget widget-simple widget-table">
+							<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+								<caption>
+									Platos
+									<span>
+									</span>
+								</caption>
+								<thead>
+									<tr>
+										<th scope="col">
+											Nro.
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Nombre
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Categoria
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Precio
+											<span class="column-sorter">
+											</span>
+										</th>
+										<th scope="col">
+											Acciones
+											<span class="column-sorter">
+											</span>
+										</th>
+									</tr>
+								</thead>
+                                <?php $i=1;?>
+								<tbody>
+									<?php foreach ($platos as $p): ?>
+										<?php $id=$p['Producto'][ 'id']; ?>
+											<tr>
+												<td><?php echo $i; $i++;?></td>
+												<td>
+													<?php echo $p['Producto']['nombre']; ?>
+												</td>
+												<td>
+													<?php echo $p['Categoria']['nombre']; ?>
+												</td>
+												<td>
+													<?php echo $p[ 'Producto']['precio']; ?>
+												</td>
+												<td>
+												            <?php 
                 echo $this->Html->image("edit.png", array(
                     "title" => "Editar",
                     'url' => array('action' => 'modificar', $id)
@@ -68,62 +90,20 @@
                     "title" => "Eliminar",
                     'url' => array('action' => 'eliminarplato', $id)
                 ));
-            ?>   
-        </td>
-    </tr>
-<?php endforeach; ?>
-</table>
-						
-						
-						<!-- Pagging -->
-						<div class="pagging">
-							<div class="left"><?php 
-                        echo $this->Paginator->counter(
-                                    'Mostrando {:current} - {:end}  de {:pages}, total
-                                     {:count}'
-                                );
-                        ?></div>
-							<div class="right">
-                            
-                            <?php echo $this->Paginator->prev('<< Anterior', array(), null, array('class'=>'disabled'));?>  
-                            <?php echo $this->Paginator->numbers( ); ?>  
-                            <?php echo $this->Paginator->next('Siguiente >>', array(), null, array('class'=>'disabled'));?>
-								
-							</div>
+            ?> 
+                                                </td>
+											</tr>
+											<?php endforeach; ?>
+								</tbody>
+							</table>
 						</div>
-						<!-- End Pagging -->
-						
+						<!--fin contenedor de la tabla-->
 					</div>
-					<!-- Table -->
-					
+					<!-- widget identificacion de los iconos-->
+                    
+                    <!--fin widget footer-->
 				</div>
-				<!-- End Box -->
-				
-				
-			</div>
-			<!-- End Content -->
-			
-			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="boxa">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Adminsitracion</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">                     
-					<?php echo $this->element("menucarta"); ?>																												
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
-			
-			<div class="cl">&nbsp;</div>			
+			</section>
 		</div>
-		<!-- Main -->
-	</div>
+		<!--fin contenido-->
+</div>
