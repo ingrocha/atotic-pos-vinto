@@ -7,7 +7,7 @@
 					<h3>
 						<i class="aweso-icon-table opaci35">
 						</i>
-						Listado eventos
+						Listado de Resrvas
 						<small>
 							reservas
 						</small>

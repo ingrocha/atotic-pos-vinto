@@ -3,8 +3,9 @@
         <div class="media profile">
             <div class="media-thumb media-left thumb-bordereb"> <a class="img-shadow" href="javascript:void(0);"><?php echo $this->Html->image('demo-avatar.jpg') ?></a> </div>
             <div class="media-body">
-                <h5 class="media-heading">Nombre <small>as Administrador</small></h5>
-                <p class="data">Last Access: 16 May 15:30</p>
+            
+            <h5 class="media-heading">Nombre <small>Administrador</small></h5>
+                
             </div>
         </div>
     </div>
@@ -24,12 +25,12 @@
     
     <ul id="mainSideMenu" class="nav nav-list nav-side">
         <li class="accordion-group active">
-            <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Accion "Usuarios" </a> </div>
+            <div class="accordion-heading in"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Accion "Usuarios" </a> </div>
             <ul class="nav nav-list">
-                                        <li><?php echo $this->Html->image('iconos/edit.png')?>&nbsp;&nbsp;&nbsp;Edita al Usuario</li>
-                                        <li><?php echo $this->Html->image('iconos/elim.png')?>&nbsp;&nbsp;&nbsp;Elimina al Usuario</li>
-										<li><?php echo $this->Html->image('iconos/candado.png')?>&nbsp;&nbsp;&nbsp;Cambia el Password</li>
-								    </ul>
+            <li><?php echo $this->Html->image('iconos/edit.png')?>&nbsp;&nbsp;&nbsp;Edita al Usuario</li>
+            <li><?php echo $this->Html->image('iconos/elim.png')?>&nbsp;&nbsp;&nbsp;Elimina al Usuario</li>
+            <li><?php echo $this->Html->image('iconos/candado.png')?>&nbsp;&nbsp;&nbsp;Cambia el Password</li>
+            </ul>
         </li>
         <!-- // item accordionMenu Dashboard -->
        
