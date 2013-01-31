@@ -6,7 +6,7 @@ class ConfiguracionesController extends AppController{
         );
     public $uses = array(
         'Descuento');
-    public $layout = 'admin';
+    public $layout = 'vivavinto';
     
     public function index(){
         

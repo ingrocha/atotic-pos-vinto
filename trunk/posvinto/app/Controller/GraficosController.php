@@ -17,7 +17,7 @@ class GraficosController extends AppController
         'Usuario', 
         'Almacen'
         ); //definimos las tablas que vamos a utilizar
-    public $layout = 'admin';
+    public $layout = 'vivavinto';
 
     public function genera()
     {
