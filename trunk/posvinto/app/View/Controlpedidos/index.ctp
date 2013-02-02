@@ -1,162 +1,138 @@
-<!-- Container -->
-<div id="container">
-	<div class="shell">		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			Detalle del pedido
-		</div>
-		<!-- End Small Nav -->		
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>			
-			<!-- Content -->
-			<div id="content">				
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">LISTADO DE PEDIDOS</h2>						
-					</div>
-					<!-- End Box Head -->	
-					<!-- Table -->
-					<div class="table">
-                    <?php //echo $this->element('tablagrid'); ?>                     
-						<table id="grid" style="width: 740px;">
-                        <thead>
-							<tr>
-								<!--<th width="13"><input type="checkbox" class="checkbox" /></th>-->                                
-								<th>Mesa</th>
-                                <th>Mozo</th>
-                                <th style="width: 60px;">total</th>
-                                <th>Hora</th>
-                                <th>Acciones</th>								
-							</tr>
-                            </thead>
-                            <tbody>
-                            <?php $i=0;?>
-                            
-                            <?php foreach($data as $data):?>   
-                            <?php $id=$data['Pedido']['id']; ?>                            
-    							<tr>
-							   	 	
-                                    <td class="tituloh1"><?php echo $data['Pedido']['mesa'];?></td>
-    								<td><?php echo $data['Usuario']['nombre'];?></td>
-    								<td><?php echo $data['Pedido']['total'];?></td>
-                                    <?php
-                                    $hora = split(' ', $data['Pedido']['fecha']);
-                                    ?>
-                                    <td><?php echo $hora[1];?></td>
-    								<td>
-                                       <?php 
-                                            echo $this->Html->image("facturar.png", array(
-                                                "title" => "Facturar Pedido",
-                                                'url' => array('action' => 'facturar1', $id)
-                                            ));
-                                        ?>
-                                        <?php 
-                                            echo $this->Html->image("recibo.png", array(
-                                                "title" => "Imprimir recibo",
-                                                'url' => array('action' => 'imprecibo', $id)
-                                            ));
-                                        ?>
-                                       <?php //echo $this->Html->link('',array('controller' => 'controlpedidos', 'action' => 'facturar1', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
-                                       <?php //echo $this->Html->link('',array('controller' => 'controlpedidos', 'action' => 'Recibo', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
-                                    </td>
-    							</tr>
-							<?php endforeach;?>
-                            </tbody>
-                            <tfoot>
-                        		<tr>
-                        			<th><input type="text" name="search_engine" value="Buscar por Mesa" class="search_init" /></th>
-                        			<th><input type="text" name="search_browser" value="Buscar por Moso" class="search_init" /></th>                        			
-                        		</tr>
-                        	</tfoot>
-						</table>
-                        <script type="text/javascript" charset="utf-8">
-                    var asInitVals = new Array();
-            			$(document).ready(function() {
-            				var oTable = $('#grid').dataTable(
-                            {
-                                "bJQueryUI": true,    
-                                "oLanguage": {                                    
-                                    "sEmptyTable":     "No data available in table",
-                                    "sSearch":         "Busqueda por columnas:",
-                                    "sInfo":           "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
-                                    "sInfoEmpty":      "Mostrando desde 0 hasta 0 de 0 registros",
-                                    "sInfoFiltered":   "(filtrado de _MAX_ registros en total)",
-                                    "sInfoPostFix":    "",
-                                    "sInfoThousands":  ",",
-                                    "sLengthMenu":     "Mostrar _MENU_ registros",
-                                    "sLoadingRecords": "Cargando...",
-                                    "sProcessing":     "Procesando...",
-                                    "sSearch":         "Buscar:",
-                                    "sZeroRecords":    "No se encontraron resultados",
-                                    "oPaginate": {
-                                        "sFirst":    "Primero",
-                                        "sLast":     "Último",
-                                        "sNext":     "Siguiente",
-                                        "sPrevious": "Anterior"
-                                    },
-                                    "oAria": {
-                                        "sSortAscending":  ": activar para Ordenar Ascendentemente",
-                                        "sSortDescending": ": activar para Ordendar Descendentemente"
-                                    }
-                                }    
-                            });
-                            
-                            $("tfoot input").keyup( function () {
-        /* Filter on the column (the index) of this element */
-        oTable.fnFilter( this.value, $("tfoot input").index(this) );
-    } );
-     
-     
-     
-    /*
-     * Support functions to provide a little bit of 'user friendlyness' to the textboxes in 
-     * the footer
-     */
-    $("tfoot input").each( function (i) {
-        asInitVals[i] = this.value;
-    } );
-     
-    $("tfoot input").focus( function () {
-        if ( this.className == "search_init" )
-        {
-            this.className = "";
-            this.value = "";
-        }
-    } );
-     
-    $("tfoot input").blur( function (i) {
-        if ( this.value == "" )
-        {
-            this.className = "search_init";
-            this.value = asInitVals[$("tfoot input").index(this)];
-        }
-    } );
-            			});
-            		</script>    												
-						<!-- Pagging -->						
-						<!-- End Pagging -->	                       					
-					</div>
-                    <div class="cl">&nbsp;</div>
-                    <div class="ayuda">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <?php echo $this->Html->image('facturar.png'); ?> Factura el Pedido&nbsp;&nbsp;&nbsp;&nbsp;
-                    <?php echo $this->Html->image('recibo.png'); ?> Imprime recibo del Pedido
-                    </div>
-                    <div class="cl">&nbsp;</div>
-					<!-- Table -->					
-				</div>
-				<!-- End Box -->								
-			</div>
-			<!-- End Content -->
-			
-			<?php echo $this->element('menupedidos') ?>
-			
-			<div class="cl">&nbsp;</div>			
-		</div>
-		<!-- Main -->
-	</div>
+<div id="main-content" class="main-content container-fluid">
+    <!-- // sidebar --> 
+    <?php echo $this->element('sidebar/insumos'); ?>               
+    <!-- // fin sidebar -->
 
+    <!-- // contenido pricipal -->                                 
+    <div id="page-content" class="page-content">
+        <section>
+            <div class="page-header">
+                <h4><i class="aweso-icon-table opaci35"></i> Insumos <small>listado</small></h4>
+                <p>Despliega la lista de todos los insumos</p>
+            </div>
+            <div class="row-fluid">
+
+                <div class="span12">
+                    <div class="widget widget-simple widget-table">
+                        <table id="exampleDTCF" class="table table-striped table-content table-condensed boo-table table-hover bg-blue-light">
+                            <caption>
+                                Default Table Caption - Title for table <span>Here text in span</span>
+                            </caption>
+                            <thead>
+                                <tr id="HeadersRow0">
+                                    <th scope="col"><input type="checkbox" class="checkbox check-all" data-tableid="exampleDTCF" value="ON" name="check-all"></th>
+                                    <th scope="col">Mesa <span class="column-sorter"></span></th>                          
+                                    <th scope="col">Mozo <span class="column-sorter"></span></th>
+                                    <th scope="col">Hora <span class="column-sorter"></span></th>
+                                    <th scope="col">Estado <span class="column-sorter"></span></th>                                    
+                                    <th scope="col">Total <span class="column-sorter"></span></th>                                                                     
+                                    <th scope="col"><span class="column-sorter"></span></th>                                                                        
+                                </tr>
+
+                                <tr id="filter-row" class="filter">
+                                    <th></th> 
+                                    <th>Mesa</th>                          
+                                    <th>Mozo</th>
+                                    <th>Total</th> 
+                                    <th>Hora</th>
+                                    <th>Estado</th>
+                                    <th>Pagar</th>                               
+                                </tr>                                                               
+                            </thead>
+                            <tfoot>
+                                <tr id="FootersRow0" class="total">
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Suma Total</th>
+                                    <th></th>
+                                    <th class="text-right"></th>
+                                </tr>
+                            </tfoot>
+                            <tbody>                                                                
+                                <?php $i = 0; ?>
+                                <?php foreach ($data as $d): ?>                                    
+                                <?php $id = $d['Pedido']['id']; ?>
+                                <div id="cuadro_<?php echo $id ?>" title="Recibo">
+                                </div>                         
+                                <tr id="DataRow<?php echo $i; ?>">							   	 	
+                                    <td><input type="checkbox" class="checkbox check-row" value="0" name="checkRow"></td>
+                                    <td><h4 class="statistic-values"><?php echo $d['Pedido']['mesa']; ?></h4></td>
+                                    <td><h4 class="statistic-values"><?php echo $d['Usuario']['nombre']; ?></h4></td>                                    
+                                    <?php
+                                    $hora = split(' ', $d['Pedido']['fecha']);
+                                    ?>
+                                    <td><h4 class="statistic-values"><?php echo $hora[1]; ?></h4></td>                                    
+                                    <?php if ($d['Pedido']['estado'] != 3): ?>
+                                        <td style="background-color: #FFC9C9;">
+                                            <h4 class="statistic-values">POR PAGAR</h4>
+                                        </td>
+                                    <?php elseif ($d['Pedido']['estado'] == 3): ?>
+                                        <td style="background-color: #CAFEA0;;">
+                                            <h4 class="statistic-values">PAGADO</h4>
+                                        </td>
+                                    <?php endif; ?> 
+                                    <td><?php echo $d['Pedido']['total']; ?></td>    
+                                    <td>                                       
+                                        <div id="dialog_<?php echo $id; ?>" style="float: left;">
+                                            <?php
+                                            /* echo $this->Html->image("print.png", array(
+                                              "title" => "Ver Recibo"
+                                              )); */
+                                            ?>            
+                                        </div>  
+                                        &nbsp;
+                                        <script type="text/javascript">
+                                            var dialogOpts = {
+                                                modal: true
+                                            };
+                                            jQuery("#dialog_<?php echo $id; ?>").click(function(){
+                                                jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("controlpedidos/ajaxverecibo/<?php echo $id; ?>");
+                                    
+                                            });                                                                        
+                                        </script> 
+                                        <?php
+                                        echo $this->Html->image("facturar.png", array(
+                                            "title" => "Ver Pedido",
+                                            'url' => array('action' => 'verpedido', $id)
+                                        ));
+                                        ?>
+                                        <?php
+                                        /* echo $this->Html->image("facturar.png", array(
+                                          "title" => "Facturar Pedido",
+                                          'url' => array('action' => 'facturar1', $id)
+                                          )); */
+                                        ?>
+                                        <?php
+                                        /* echo $this->Html->image("recibo.png", array(
+                                          "title" => "Imprimir recibo",
+                                          'url' => array('action' => 'imprecibo', $id)
+                                          )); */
+                                        ?>                                        
+                                        <?php //echo $this->Html->link('',array('controller' => 'controlpedidos', 'action' => 'facturar1', $d['Pedido']['id']), array('class' => 'ico edit')); ?>
+                                        <?php //echo $this->Html->link('',array('controller' => 'controlpedidos', 'action' => 'Recibo', $d['Pedido']['id']), array('class' => 'ico edit')); ?>
+                                    </td>
+                                </tr>    
+                            <?php endforeach; ?>                                                                                                                                                                                             
+                            </tbody>
+                        </table>
+                        <!-- // DATATABLE - DTCF --> 
+
+                    </div>
+                    <!-- // Widget -->
+
+                </div>
+                <!-- comenzamod demo -->
+               
+            </div>
+            <!-- // Example row -->
+
+        </section>
+    </div>	
+    <!-- // fin contenido principal --> 
+</div>		
+<!-- Sidebar -->
+<?php //echo $this->element('menualmacenes') ?>
+<!-- End Sidebar -->
+<?php //echo $this->element('menupedidos') ?>
