@@ -1,106 +1,104 @@
-<?php //debug($platoreceta);      ?>
-<!-- Container -->
-<div id="container">
-    <div class="shell">		
-        <!-- Small Nav -->
-        <!-- End Small Nav -->		
-        <br />
-        <!-- Main -->
-        <div id="main">
-            <div class="cl">&nbsp;</div>			
-            <!-- Content -->
-            <div id="content">				
-                <!-- Box -->
-                <div class="boxa">
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2 class="left">Receta</h2>
-                        <div class="right">
-                        </div>
-                    </div>
-                    <!-- End Box Head -->	
-                    <!-- Table -->
-                    <?php if ($rec): ?>
-                        <div class="table">
-                            <h1  class="titulos">Receta del Plato: <?php echo $platoreceta['Producto']['nombre']; ?></h1>                    
-                            <table>
-                                <tr>
-                                    <th>Insumo</th>
-                                    <th>Cantidad</th>
-                                    <th>Acciones</th>                 
-                                </tr>
-                                <?php foreach ($rec as $r): ?>
+<?php
+//App::import('Model', 'Insumo');
+//$Modelo = new Insumo;
+?>
+<div id="main-content" class="main-content container-fluid">
+    <!-- // sidebar --> 
+    <?php echo $this->element('sidebar/insumos'); ?>               
+    <!-- // fin sidebar -->
+    <!-- // contenido pricipal -->
+    <div id="page-content" class="page-content">
+        <section>
+            <div class="page-header">
+                <h3>
+                    <i class="aweso-icon-table opaci35">
+                    </i>
+                    Producto
+                    <small>
+                        <?php echo $platoreceta['Producto']['nombre']; ?>
+                    </small>
+                </h3>             
+            </div>
+            <div class="row-fluid">
+                <div class="span6 grider">
+                    <div class="widget widget-simple widget-table">                        
+                        <?php if (!empty($rec)): ?>
+                            <table class="table boo-table table-striped table-condensed table-content bg-blue-light">
+                                <colgroup>
+                                    <col class="col20" />
+                                    <col class="col20" />
+                                    <col class="col45" />
+                                </colgroup>
+                                <caption>
+                                    Insumos del producto                                    
+                                </caption>
+                                <thead>
                                     <tr>
-                                        <td>
-                                            <?php $id_porcione = $r['Porcione']['id']; ?> 
-                                            <?php $id_producto = $r['Porcione']['producto_id']; ?>           
-                                            <?php echo $r['Insumo']['nombre']; ?>
-                                        </td>
-                                    <div id="cuadro_<?php echo $id_porcione; ?>" title="Almacen">
-                                    </div>
-                                    <td>
-                                        <?php echo $r['Porcione']['cantidad']; ?>
-                                    </td>                              
-                                    <td>
-                                        <div id="dialog_<?php echo $id_porcione; ?>" style="float: left;">
-                                            <?php
-                                            echo $this->Html->image("edit.png", array("title" => "Receta"));
-                                            ?>
-                                        </div>
-                                        &nbsp;
-                                        <?php
-                                        echo $this->Html->image("elim.png", array("title" =>
-                                            "Eliminar", 'url' => array(
-                                                'action' => 'elimporcionplato',
-                                                $id_porcione,
-                                                $id_producto)));
-                                        ?> 
-                                        <script type="text/javascript">
-                                            var dialogOpts = {
-                                                modal: true
-                                            };
-                                            jQuery("#dialog_<?php echo $id_porcione; ?>").click(function(){
-                                                jQuery("#cuadro_<?php echo $id_porcione; ?>").dialog(dialogOpts).load("../ajaxmodificareceta/<?php echo $id_porcione; ?>");
-                                           
-                                            });                                                                 
-                                        </script> 
-                                    </td>
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Acciones</th>
                                     </tr>
+                                </thead>
+                                <tbody>                                    
+                                    <?php $c = 0; ?>
+                                    <?php foreach ($rec as $r): ?>                                       
+                                        <tr id="DataRow<?php echo $c; $c++; ?>">
+                                            <td class="bold">                                                
+                                                <?php $id_porcione = $r['Porcione']['id']; ?> 
+                                                <?php $id_producto = $r['Porcione']['producto_id']; ?>           
+                                                <?php echo $r['Insumo']['nombre']; ?>
+                                            </td>
+                                            <td>                                                
+                                                <?php echo $r['Porcione']['cantidad']; ?>
+                                            </td>
+                                            <td>                                                
+                                                <?php
+                                                echo $this->Ajax->link($this->Html->image("edit.png"), array(
+                                                    'action' => 'ajaxmodificareceta', 
+                                                    $id_porcione
+                                                ), 
+                                                        array(
+                                                            'update' => 'cargaDatos',
+                                                            'title' => 'Editar datos del insumo del producto',
+                                                            'escape' => false
+                                                ));
+                                                ?>
+                                                &nbsp;
+                                                <?php 
+                                                    echo $this->Html->link($this->Html->image("elim.png"), 
+                                                        array('action' => 'elimporcionplato', $id_porcione, $id_producto), 
+                                                        array('escape'=>false), 
+                                                        "Esta seguro de quitar este insumo?"
+                                                   ) 
+                                                ?>
+                                            </td>
+                                        </tr>
                                 <?php endforeach; ?>
+                                </tbody>
                             </table>
-                        <?php else: ?>
-                            <h1 class="titulos">Receta del Plato: <?php echo $platoreceta['Producto']['nombre']; ?></h1>  
-                            <h3>No se haregistrado insumos</h3>
-                        <?php endif; ?>
+                            <!-- // BOO TABLE - DTB-2 -->
+<?php endif; ?>
                     </div>
-                    <!-- Table -->					
-                </div>
-                <!-- End Box -->								
-            </div>
-            <!-- End Content -->			
-            <!-- Sidebar -->
-            <div id="sidebar">				
-                <!-- Box -->
-                <div class="boxa">					
-                    <!-- Box Head -->
-                    <div class="box-head">
-                        <h2>Administracion</h2>
-                    </div>
-                    <!-- End Box Head-->					
-                    <div class="box-content">                    
+                    <!-- // Widget -->
+                    <div class="span4">
                         <?php
-                        echo $this->Html->link("<span>Nuevo Insumo a Receta</span>", array('action' => 'nuevaporcion', $id_plato), array('class' => "add-button",
-                            'escape' => false));
+                         echo $this->Ajax->link('Asignar Insumo', array(
+                          'action' => 'ajaxinsertarinsumo',
+                          $platoreceta['Producto']['id']), array(
+                          'update' => 'cargaDatos',
+                          'class' => 'btn btn-green'
+                          ))
                         ?>
-                        <div class="cl">&nbsp;</div> 
-                        <?php echo $this->element("menucarta"); ?>
                     </div>
                 </div>
-                <!-- End Box -->
-            </div>
-            <!-- End Sidebar -->
+                <!-- // Column -->
+                <div class="span6 grider" id="cargaDatos">
 
-            <div class="cl">&nbsp;</div>			
-        </div>
-        <!-- Main -->
+                </div>
+                <!-- // Example row -->
+            </div>
+        </section>
+        <!-- // fin contenido principal -->
+
     </div>
+</div>

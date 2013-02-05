@@ -19,11 +19,13 @@ class PanelcontrolController  extends AppController {
     {
         App::uses('CakeTime', 'Utility');
         $fecha = date("Y-m-d");
-        $fechaTodoElDia = CakeTime::dayAsSql($fecha, null);
+        //$fechaTodoElDia = CakeTime::dayAsSql($fecha, null);
+        
         $pedidosHoy = $this->Pedido->find('all', array(
             'recursive'=>-1,
-            'conditions'=>array('Pedido.fecha'=>$fechaTodoElDia)
+            'conditions'=>(CakeTime::dayAsSql($fecha, 'Pedido.fecha'))
         ));
+        $this->set(compact('pedidosHoy'));
         //debug()
     }
 }

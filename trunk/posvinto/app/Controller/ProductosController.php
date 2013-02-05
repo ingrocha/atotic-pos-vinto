@@ -2,6 +2,7 @@
 
 class ProductosController extends AppController
 {
+
     public $helpers = array(
         'Html',
         'Form',
@@ -32,13 +33,15 @@ class ProductosController extends AppController
         $this->layout = 'ajax';
         $receta = $this->Porcione->find('first', array('conditions' =>
             array('Porcione.id' => $id)));
-        if (!empty($this->data))
+        
+        if (!empty($this->request->data))
         {
+            //debug($this->request->data);
             $cod = $receta['Producto']['id'];
             $this->Porcione->id = $id;
-            $cantidad = $this->data['Receta']['cantidad'];
-            $this->data = "";
-            $this->request->data['Porcione']['cantidad'] = $cantidad;
+            //$cantidad = $this->data['Receta']['cantidad'];
+            //$this->data = "";
+            //$this->request->data['Porcione']['cantidad'] = $cantidad;
             if ($this->Porcione->save($this->data))
             {
                 $this->Session->setFlash("Cantidad Modificada!!!");
@@ -196,8 +199,10 @@ class ProductosController extends AppController
 
     public function receta($id = null)
     {
-        $platoreceta = $this->Producto->find('first', array('conditions' => array('Producto.id' =>
-                $id)));
+        $platoreceta = $this->Producto->find('first', array(
+            'recursive' => -1,
+            'conditions' => array('Producto.id' => $id)
+                ));
         $rec = $this->Porcione->find('all', array('recursive' => 1, 'conditions' =>
             array('producto_id' => $id)));
         $id_plato = $id;
@@ -505,6 +510,34 @@ class ProductosController extends AppController
             'fields' => 'nombre'));
         //debug($dcc);
         $this->set(compact('dcc'));
+    }
+    
+    public function ajaxinsertarinsumo($idProducto = null)
+    {
+        $this->layout = 'ajax';
+        $producto = $this->Producto->find('first', array(
+            'conditions'=>array('Producto.id'=>$idProducto)
+        ));
+        $idProducto = $producto['Producto']['id'];
+        
+        $insumos = $this->Insumo->find('all', array(
+            'recursive'=>-1,            
+        ));
+        
+        if($this->request->data)
+        {
+            //debug($this->request->data);
+            if($this->Porcione->save($this->data))
+            {
+                $this->Session->setFlash('Registro correctamente', 'alerts/bueno');
+                $this->redirect(array('action'=>'receta', $idProducto));
+            }
+            
+        }else{
+            
+        }
+        
+        $this->set(compact('producto', 'insumos'));
     }
 
 }
