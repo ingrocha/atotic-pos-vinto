@@ -1,5 +1,4 @@
 <?php
-
 class InsumosController extends AppController
 {
 
@@ -18,21 +17,22 @@ class InsumosController extends AppController
 
     public function index()
     {
-        $idsinsumos = $this->Almacen->find('all', array(
-            'fields' => array('max(Almacen.id)as id'),
-            'group' => array('Almacen.insumo_id'),
-            'order' => array('Almacen.insumo_id ASC')));
+        /*$idsinsumos = $this->Almacen->find('all', array(
+        'fields' => array('max(Almacen.id)as id'),
+        'group' => array('Almacen.insumo_id'),
+        'order' => array('Almacen.insumo_id ASC')));
         $i = 0;
 
         foreach ($idsinsumos as $id)
         {
-            foreach ($id as $di)
-                $ids[$i] = $di['id'];
-            $i++;
-        }
+        foreach ($id as $di)
+        $ids[$i] = $di['id'];
+        $i++;
+        }*/
 
-        $insumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
-                array('Almacen.id' => $ids)));
+        /*$dinsumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
+                array('Almacen.id' => $ids)));*/
+        $insumos = $this->Insumo->find('all', array('recursive' => 0));
         $this->set(compact('insumos'));
         //debug($insumos);exit;
     }
@@ -604,9 +604,8 @@ class InsumosController extends AppController
                 $this->Session->setFlash('No se pudo registrar el Insumo');
             }
         }
-        $dct = $this->Tipo->find('all', array(
-            'fields' => array('id', 'nombre'), 
-            'conditions' => array('estado' => 1)));
+        $dct = $this->Tipo->find('all', array('fields' => array('id', 'nombre'),
+                'conditions' => array('estado' => 1)));
         $this->set(compact('dct'));
         //debug($dct);
     }

@@ -45,7 +45,7 @@ class AppController extends Controller {
     
     public $helpers = array('Html', 'Form', 'Session');
 
-    public $components = array('DebugKit.Toolbar');
+    public $components = array('DebugKit.Toolbar', 'Session');
 
 
     /*public function beforeFilter() {

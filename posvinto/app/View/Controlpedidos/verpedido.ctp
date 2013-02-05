@@ -1,6 +1,6 @@
 <div id="main-content" class="main-content container-fluid">
     <!-- // sidebar --> 
-    <?php echo $this->element('sidebar/insumos'); ?>               
+    <?php echo $this->element('sidebar/sinsumos'); ?>               
     <!-- // fin sidebar -->
 
     <!-- // contenido pricipal -->                                 
