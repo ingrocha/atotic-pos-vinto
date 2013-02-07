@@ -8,96 +8,87 @@
         <section>
             <div class="row-fluid">
                 <div class="span6 grider">
-                    <h3><i class="aweso-icon-table"></i> table <small>caption, total</small></h3>
-                    <p>This is the caption for <code>.boo-table .table-content</code></p>
+                    <h3><i class="aweso-icon-table"></i> Mesa: <?php echo $pedido['0']['Pedido']['mesa']; ?> <small>Mozo: <?php echo $moso['Usuario']['nombre']; ?></small></h3>                   
                     <table class="table boo-table table-striped table-content table-hover">
                         <colgroup>
                             <col class="col20">
-                            <col class="col20">
-                            <col class="col45">
+                            <col class="col50">
+                            <col class="col15">
+                            <col class="col15">
                             <col class="col15">
                         </colgroup>
                         <caption>
-                            Boo Table Caption - Title fot table <span>Here text in span</span>
+                            Descripcion del Pedido
                         </caption>
                         <thead>
                             <tr id="HeadersRow0">
+                                <th scope="col">No.</th>
                                 <th scope="col">Producto</th>
-                                <th scope="col">Cant</th>
+                                <th scope="col">Cantidad</th>
                                 <th scope="col">P/U</th>
                                 <th scope="col">Costo</th>                                       
                             </tr>                        
-                        </thead>
+                        </thead>                       
+                        <tbody>
+                            <?php $totalCancelar = 0; ?>
+                            <?php $i = 1; ?>
+                            <?php foreach ($pedido as $p): ?>
+                                <?php
+                                $precio = $p['Producto']['precio'];
+                                $totalCancelar += $precio;
+                                ?>
+                                <tr id="DataRow0">
+                                    <td><?php echo $i; ?></td>
+                                    <td class="bold" style="width: 250px;"><b><?php echo $p['Producto']['nombre']; ?></b></td>
+                                    <td><b><?php echo round($p['Item']['cantidad']); ?></b></td>
+                                    <td><b><?php echo round($p['Producto']['precio']); ?></b></td>
+                                    <td><b><?php echo round($p['Item']['precio']); ?></b></td>                                                                 
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
+                        </tbody>
                         <tfoot>
                             <tr class="total" id="HeadersRow0">
-                                <th>Total sum</th>
+                                <th>Total</th>
                                 <th></th>
                                 <th></th>
-                                <th class="text-right">202.46</th>
+                                <th></th>
+                                <th class="text-right"><b><?php echo $totalCancelar; ?></b></th>
                             </tr>
                         </tfoot>
-                        <tbody>
-                            <tr id="DataRow0">
-                                <td class="bold"><a href="#">10248</a></td>
-                                <td>VINET</td>
-                                <td>8/16/2012</td>
-                                <td class="text-right">32.38</td>
-                            </tr>
-                            <tr id="DataRow1">
-                                <td class="bold"><a href="#">10249</a></td>
-                                <td>TOMSP</td>
-                                <td>8/10/2012</td>
-                                <td class="text-right">11.61</td>
-                            </tr>                    
-                        </tbody>
                     </table>
                 </div>
                 <!-- //tabla -->       
 
                 <div class="span4 grider">
-                    <h3><i class="aweso-icon-table"></i> table <small>caption, total</small></h3>
-                    <p>This is the caption for <code>.boo-table .table-content</code></p>
-                    <table class="table boo-table table-striped table-content table-hover">
-                        <colgroup>
-                            <col class="col20">
-                            <col class="col20">
-                            <col class="col45">
-                            <col class="col15">
-                        </colgroup>
-                        <caption>
-                            Boo Table Caption - Title fot table <span>Here text in span</span>
-                        </caption>
-                        <thead>
-                            <tr id="HeadersRow0">
-                                <th scope="col">Order ID</th>
-                                <th scope="col">Customer ID</th>
-                                <th scope="col">Shipped Date</th>
-                                <th scope="col">Costs</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr class="total" id="HeadersRow0">
-                                <th>Total sum</th>
-                                <th></th>
-                                <th></th>
-                                <th class="text-right">202.46</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr id="DataRow0">
-                                <td class="bold"><a href="#">10248</a></td>
-                                <td>VINET</td>
-                                <td>8/16/2012</td>
-                                <td class="text-right">32.38</td>
-                            </tr>
-                            <tr id="DataRow1">
-                                <td class="bold"><a href="#">10249</a></td>
-                                <td>TOMSP</td>
-                                <td>8/10/2012</td>
-                                <td class="text-right">11.61</td>
-                            </tr>                    
-                        </tbody>
-                    </table>
+                    <h3><i class="aweso-icon-table"></i> Acciones</h3>                                        
+                    <a class="btn btn-large btn-orange" href="#"><i class="fontello-icon-publish"></i> IMPRIMIR CUENTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <div style="height: 10px;">&nbsp;</div>                    
+                    <a class="btn btn-large btn-red" href="#" id="btMuestraFacturar"><i class="fontello-icon-publish"></i> FACTURAR PEDIDO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+                    <div style="height: 10px;">&nbsp;</div>  
+                    <div id="muestraFacturar" style="display: none;">
+                        <fieldset>                            
+                            <label for="formA05">Nit: </label>
+                            <input id="formA05" class="span6" type="text" placeholder="placeholder">                           
+                            <!-- // form item -->
+                            
+                            <legend>Detalles para facturar</legend>
+                            <label for="formA04">Nombre: </label>
+                            <input id="formA04" class="input-block-level" type="text" placeholder="placeholder">
+                            <!-- // form item -->                           
+                            
+                        </fieldset>
+                        <hr>
+                    </div>                 
+                    <a class="btn btn-large btn-green" href="#"><i class="fontello-icon-publish"></i> PAGAR CUENTA</a>
+                    <div style="height: 10px;">&nbsp;</div>                   
+                    <a class="btn btn-large btn-turgu" href="#"><i class="fontello-icon-publish"></i> AGREGAR DESCUENTO</a>
+                    <script>
+                        $("#btMuestraFacturar").click(function() {
+                            //console.log('click');
+                            $("#muestraFacturar").toggle("slow");
+                        });
+                    </script>
                 </div>
                 <!-- //tabla --> 
             </div>
@@ -198,7 +189,7 @@
                                 });                                                            
                             </script>                                                
                         </div> 
-                        <div id="aImprimir"><?php //comienza impresion         ?>
+                        <div id="aImprimir"><?php //comienza impresion          ?>
                             <div style="float: left; background-color: #fff;">
                                 ESTADO: 
                                 <?php
@@ -265,10 +256,10 @@
                                             </h4>
                                         </td>                                               
                                     </tr>
-                                </table><?php //debug($pedido);        ?>                                                                                                                               
+                                </table><?php //debug($pedido);         ?>                                                                                                                               
                                 </h4>
                             </div>  
-                        </div><?php //fin de la impresion        ?>                                                                                              
+                        </div><?php //fin de la impresion         ?>                                                                                              
                     </div>
                     <!-- Table -->
                 </div>
