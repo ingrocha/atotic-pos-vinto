@@ -13,38 +13,20 @@
 </script>
 <!-- Container -->
 <?php echo $this->element('combobusca'); ?>
-<div id="container">
-	<div class="shell">
-		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action' => 'index')) ?>
-			<span>&gt;</span>
-			Registro de Categorias en Almacen
-		</div>
-		<!-- End Small Nav -->
-		
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-				
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">NUEVO TIPO DE EVENTO</h2>
-						
-					</div>
-					<!-- End Box Head -->	
+<div id="main-content" class="main-content container-fluid">
+<?php echo $this->element('sidebar/reservas'); ?>
+<div id="page-content" class="page-content">
+<section>            
+            <div class="row-fluid">
+                <?php echo $this->Form->create('Reserva'); ?>                
+                <div class="page-header">
+                    <h3><i class="fontello-icon-article-alt opaci35"></i>Nuevo Tipo <small>Evento</small></h3>
+                </div>
+                <div class="span10 well well-nice">
+                    <fieldset>
+                        <legend>Formulario <small>TIPO DE EVENTO</small></legend>
 
-					<!-- Table -->
-<div class="table">
-	<?php echo $this->Form->create('Reserva'); ?>
+
 <table>
 <tr>
 	<td>Cliente</td>
@@ -79,12 +61,9 @@
 	<td><?php echo $this->Form->textarea('observaciones'); ?></td>
 </tr>
 </table>
-<?php $options = array(
-    'Value' => 'Editar',
-    'class' => 'button-submit',
-    ) ?>
-<?php echo $this->Form->end($options); ?>
-<div style="clear: both;"></div>
+
+<button class="btn btn-green" type="submit">Editar Evento</button>
+</form>
 						
 						
 						<!-- Pagging -->
@@ -102,7 +81,7 @@
 			</div>
 			<!-- End Content -->
 			
-		<?php echo $this->element('menureservas') ?>
+		<?php //echo $this->element('menureservas') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>

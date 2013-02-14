@@ -5,16 +5,16 @@ jQuery("#UsuarioCambiarpasswordForm").validationEngine();
 });
 </script>
 <!-- Container -->
-<div id="container">
-	<div class="shell">
-		
-		<!-- Small Nav -->
-		<h3>
-        <span>Modificar usuario</span>
-		</h3>
-		<!-- End Small Nav -->
-		
-		<br />
+<div id="main-content" class="main-content container-fluid">
+    <!-- // sidebar --> 
+    <?php echo $this->element('sidebar/cambiopassword'); ?>               
+    <!-- // fin sidebar -->
+    <div id="page-content" class="page-content">
+	<section>
+            <div class="page-header">
+                <h3><i class="aweso-icon-table opaci35"></i> Usuarios <small>Modificar Password</small></h3>
+                <p>Cambia el Password del Usuario</p>
+            </div>
 		<!-- Main -->
 		<div id="main">
 			<div class="cl">&nbsp;</div>
@@ -32,10 +32,13 @@ jQuery("#UsuarioCambiarpasswordForm").validationEngine();
 					<!-- End Box Head -->	
 
 					<!-- Table -->
-					<div class="table">
 				<?php echo $this->Form->create('Usuario'); ?>
-                <table>
-
+<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
+<caption>
+Usuario<span></span>
+</caption>
+<thead>
+<fieldset>
 <tr>
    <td>Nuevo c&oacute;digo</td>
    <td>
@@ -48,34 +51,17 @@ jQuery("#UsuarioCambiarpasswordForm").validationEngine();
    <?php echo $this->Form->password('pass', array('id'=>'password2','class'=>"validate[required,equals[password]] text-input"))?>
    </td>
 </tr>
-
+</fieldset>
+</thead>
 </table>
 
-<?php $options=array('Value'=>'Cambiar','class'=>'button-submit', )?>
-<?php echo $this->Form->end($options); ?>
-<div style="clear: both;"></div>
-						
-						
-						<!-- Pagging -->
-					
-						</div>
-						<!-- End Pagging -->
-						
-					</div>
-					<!-- Table -->
-					
-				</div>
-				<!-- End Box -->
-				
-				
-			</div>
-			<!-- End Content -->
-			
-			<!-- Sidebar -->
-			<?php echo $this->element('menuusuarios') ?>
-			<!-- End Sidebar -->
-			
-			<div class="cl">&nbsp;</div>			
+<button class="btn btn-green" type="submit">Cambiar Password</button>
+</form>							
+</div>
+</div>
+</div>
+<div class="cl">&nbsp;</div>
+            </section>			
 		</div>
 		<!-- Main -->
 	</div>

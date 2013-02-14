@@ -1,16 +1,8 @@
-<!-- Container -->
-<div id="container">
+<div id="main-content" class="main-content container-fluid">
+	<!-- // sidebar -->
+	<?php echo $this->element('sidebar/productosmenu'); ?>
+		<!-- // fin sidebar -->
 	<div class="shell">
-		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<!--<a href="controlingresos">Pedidos</a>-->
-            <?php echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index')); ?>
-			<span>&gt;</span>
-			Registro de Platos
-		</div>
-		<!-- End Small Nav -->
-		
 		<br />
 		<!-- Main -->
 		<div id="main">
@@ -22,9 +14,11 @@
 				<!-- Box -->
 				<div class="boxa">
 					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">REGISTRO DE NUEVO PLATO</h2>						
-					</div>
+					<div class="page-header">
+                    <h3><i class="fontello-icon-article-alt opaci35"></i>Registro<small>Nuevo Plato</small></h3>
+                </div>
+                <div class="span10 well well-nice">
+                        <legend>Formulario <small>REGISTRO DE NUEVO PLATO</small></legend>
 					<!-- End Box Head -->	
 
 					<!-- Table -->
@@ -48,9 +42,8 @@
 	<td><?php echo $this->Form->textarea('descripcion'); ?></td>
 </tr>
 </table>
-<?php $options=array('Value'=>'Guardar','class'=>'button-submit', )?>
-<?php echo $this->Form->end($options); ?>
-<div style="clear: both;"></div>
+ <button class="btn btn-green" type="submit">Guardar Plato</button>
+ </form>
 						
 						
 						<!-- Pagging -->
@@ -65,26 +58,6 @@
 				<!-- End Box -->
 				
 				
-			</div>
-			<!-- End Content -->
-			
-			<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="boxa">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Management</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">
-                    <?php echo $this->element("menucarta"); ?>
-					</div>
-				</div>
-				<!-- End Box -->
 			</div>
 			<!-- End Sidebar -->
 			
