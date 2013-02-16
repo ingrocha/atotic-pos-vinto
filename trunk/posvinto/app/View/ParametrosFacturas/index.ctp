@@ -1,5 +1,6 @@
 <!-- Container -->
-<div id="container">
+<div id="main-content" class="main-content container-fluid">
+<?php echo $this->element('sidebar/configuraciones'); ?>
 	<div class="shell">		
 			
 		<br />
@@ -18,9 +19,8 @@
 					</div>
 					<!-- End Box Head -->	
 					<!-- Table -->
-        <?php echo $this->element('tablagrid'); ?>  
-	<div class="table">
-	<table id="grid">
+	<div class="widget widget-simple widget-table">
+	<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
     <thead>
     <tr>
         <th style="width: 90px;">NIT</th>
@@ -67,7 +67,7 @@
 				<!-- End Box -->								
 			</div>
 			<!-- End Content -->			
-			<?php echo $this->element('menuconfiguraciones') ?>
+			<?php //echo $this->element('menuconfiguraciones') ?>
 			
 			<div class="cl">&nbsp;</div>			
 		</div>
