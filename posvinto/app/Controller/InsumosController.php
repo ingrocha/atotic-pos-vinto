@@ -1,4 +1,5 @@
 <?php
+
 class InsumosController extends AppController
 {
 
@@ -12,7 +13,7 @@ class InsumosController extends AppController
         'Almacen',
         'Bodega',
         'Tipo');
-    public $components=array('Session');
+    public $components = array('Session');
     public $layout = 'vivavinto';
 
     public function index()
@@ -31,7 +32,7 @@ class InsumosController extends AppController
         }*/
 
         /*$dinsumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
-                array('Almacen.id' => $ids)));*/
+        array('Almacen.id' => $ids)));*/
         $insumos = $this->Insumo->find('all', array('recursive' => 0));
         $this->set(compact('insumos'));
         //debug($insumos);exit;
@@ -116,8 +117,7 @@ class InsumosController extends AppController
             $i++;
         }
 
-        $insumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
-                array('Almacen.id' => $ids)));
+        $insumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' => array('Almacen.id' => $ids)));
         $this->set(compact('insumos'));
 
         $insumos = $this->Insumo->find('all', array('recursive' => -1));
@@ -256,8 +256,7 @@ class InsumosController extends AppController
 
         $this->layout = 'ajax';
         $dato = $this->data['Insumo']['nombre'];
-        $tipo = $this->Tipo->find('all', array('conditions' => array('Tipo.nombre like' =>
-                    "%$dato%"), 'recursive' => -1));
+        $tipo = $this->Tipo->find('all', array('conditions' => array('Tipo.nombre like' => "%$dato%"), 'recursive' => -1));
         //debug($tipo);exit;
         $i = 0;
         foreach ($tipo as $t)
@@ -277,8 +276,7 @@ class InsumosController extends AppController
         {
             $bodega = $this->Bodega->find('all', array(
                 'recursive' => 0,
-                'conditions' => array('or' => array('Insumo.nombre like' => "%$dato%",
-                            'Insumo.tipo_id' => $tipos)),
+                'conditions' => array('or' => array('Insumo.nombre like' => "%$dato%", 'Insumo.tipo_id' => $tipos)),
                 'order' => array('Bodega.id DESC')));
         }
 
@@ -351,8 +349,7 @@ class InsumosController extends AppController
                     $id_bodega = $existe_insumo_bodega['Bodega']['id'];
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
 
-                    $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo),
-                            'recursive' => -1));
+                    $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo), 'recursive' => -1));
                     $this->data = "";
                     $this->request->data['Insumo']['bodega'] = $cant_bodega_actual;
                     $id_mod_insumo = $mod_bodega['Insumo']['id'];
@@ -363,7 +360,6 @@ class InsumosController extends AppController
                     {
 
                     }
-
 
                     $this->data = "";
                     //$this->Bodega->id = $id_bodega;
@@ -384,14 +380,16 @@ class InsumosController extends AppController
                     }
                 }
                 else
-                {
-
+                {                    
                     $cantidad_bodega = $existe_insumo_bodega['Bodega']['total'];
-                    $id_bodega = $existe_insumo_bodega['Bodega']['id'];
+                    //$id_bodega = $existe_insumo_bodega['Bodega']['id'];
+                    if(empty($cantidad_bodega) && empty($id_bodega))
+                    {
+                        $cantidad_bodega=0;                        
+                    }                    
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
 
-                    $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo),
-                            'recursive' => -1));
+                    $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo), 'recursive' => -1));
                     $this->data = "";
 
                     $this->request->data['Insumo']['bodega'] = $cant_bodega_actual;
@@ -452,8 +450,7 @@ class InsumosController extends AppController
         else
         {
             //debug($this->data);
-            $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id),
-                    'recursive' => -1));
+            $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id), 'recursive' => -1));
             $ce = $this->Almacen->find('first', array(
                 'conditions' => array('insumo_id' => $id),
                 'order' => 'id DESC',
@@ -538,8 +535,7 @@ class InsumosController extends AppController
         else
         {
             //debug($this->data);
-            $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id),
-                    'recursive' => -1));
+            $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id), 'recursive' => -1));
             //debug($insumo);
             $this->set(compact('insumo'));
         }
@@ -550,8 +546,7 @@ class InsumosController extends AppController
 
         $this->layout = 'ajax';
         $nombre = $this->data['Insumo']['nombre'];
-        $insumos = $this->Insumo->find('all', array('recursive' => 0, 'conditions' =>
-                array('Insumo.nombre like' => "%$nombre%")));
+        $insumos = $this->Insumo->find('all', array('recursive' => 0, 'conditions' => array('Insumo.nombre like' => "%$nombre%")));
         //debug($insumos);
         $this->set(compact('insumos'));
         //debug($this->data);
@@ -604,8 +599,7 @@ class InsumosController extends AppController
                 $this->Session->setFlash('No se pudo registrar el Insumo');
             }
         }
-        $dct = $this->Tipo->find('all', array('fields' => array('id', 'nombre'),
-                'conditions' => array('estado' => 1)));
+        $dct = $this->Tipo->find('all', array('fields' => array('id', 'nombre'), 'conditions' => array('estado' => 1)));
         $this->set(compact('dct'));
         //debug($dct);
     }
@@ -627,11 +621,9 @@ class InsumosController extends AppController
             if ($this->Insumo->save($this->data))
             {
 
-                $datos_insumo = $this->Insumo->find('first', array('recursive' => -1,
-                        'conditions' => array('id' => $id)));
+                $datos_insumo = $this->Insumo->find('first', array('recursive' => -1, 'conditions' => array('id' => $id)));
                 $cantidad = $datos_insumo['Insumo']['total'];
-                $insumo_almacen = $this->Almacen->find('first', array('recursive' => -1,
-                        'conditions' => array('insumo_id' => $id)));
+                $insumo_almacen = $this->Almacen->find('first', array('recursive' => -1, 'conditions' => array('insumo_id' => $id)));
                 $id_almacen = $insumo_almacen['Almacen']['id'];
 
                 //$data=array('id'=>$id_almacen, array('ingreso'=>$cantidad, 'total'=>$cantidad));

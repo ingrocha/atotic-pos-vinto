@@ -4,16 +4,19 @@
 </div>
 <?php echo $this->Form->create('Movimiento'); ?>
 <div class="modal-body">
-<p><?php echo $insumo['Insumo']['nombre']; ?></p>
 <?php if($ce['Almacen']['total'] >= 1): ?>
 <?php $id=$insumo['Insumo']['id']; ?>
 <?php $pc=$insumo['Insumo']['preciocompra']; ?>
-	<?php echo $this->Form->text('salida', array('placeholder'=>'Introduzca la cantidad Ej: 2')); ?>Unidades
-            <?php echo $this->Form->hidden('id_insumo', array('value'=>$id)); ?>
-            <?php echo $this->Form->hidden('pc', array('value'=>$pc)); ?>	
+    <fieldset>
+    <legend>Insumo: <small><?php echo $insumo['Insumo']['nombre']; ?></small></legend>
+    <p>Existen <?php echo $ce['Almacen']['total']; ?> Unidades</p>
+	<?php echo $this->Form->text('salida', array('placeholder'=>'Introduzca la cantidad a sacar Ej: 2')); ?> Unidades
+    <?php echo $this->Form->hidden('id_insumo', array('value'=>$id)); ?>
+    <?php echo $this->Form->hidden('pc', array('value'=>$pc)); ?>
+    </fieldset>	
 </div>
 <?php else: ?>
-    Tienes 0 productos para entregar
+    <h4>Tienes 0 productos para entregar del insumo <?php echo $insumo['Insumo']['nombre']; ?></h4>
 <?php endif; ?>
 <div class="modal-footer">
 	<button type="button" data-dismiss="modal" class="btn btn-boo">Cerrar</button>
