@@ -6,7 +6,8 @@ class GraficosController extends AppController
     public $helpers = array(
         'Html',
         'Form',
-        'FlashChart'); //definimos que ayudantes vamos a usar
+    ); //definimos que ayudantes vamos a usar
+    
     public $uses = array(
         'Cliente',
         'Pedido',
