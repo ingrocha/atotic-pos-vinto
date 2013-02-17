@@ -1,27 +1,36 @@
-<div class="login">
-    
-    
-    <?php echo $this->Form->create('Usuarios', array('url' => array('controller' =>
+<?php echo $this->Form->create('Usuarios', array('url' => array('controller' =>
 'admin', 'action' => 'login'), 'id' => 'form-login', 'class' => 'formular')); ?>
-    
-     <div id="content-header">
 
-				  <h1>Panel de control Administrativo<br /> VIVA VINTO</h1>
-     </div> 
-    	
-     	
-            
-                 <!--<input type="text" name="username" id="req" class="validate[required] text-input" placeholder="Username"><br><br>-->
-                 <?php echo $this->Form->text('usuario', array('placeholder' =>
-'Usuario', 'id' => 'req')); ?><br/><br/>
-                <!-- <input type="text" name="pass" id="pass" class="validate[required] text-input" placeholder="Password"><br><br>-->
-                 <?php echo $this->Form->password('contrasena', array('placeholder' =>
-'Password', 'id' => 'pass')); ?><br/><br/>
-                 
-                 <?php echo $this->Form->end('Ingresar'); ?>
-        
-     
-    
- </div>
- 
- 
+<? //php echo $this->Form->create('User', array('action'=>'login')); ?>
+<div class="form-horizontal well well-nice">
+	<h4 class="simple-header">
+		Ingrese su usuario y contrasena
+	</h4>
+	<div class="control-group">
+		<label for="inputEmail" class="control-label">
+			Usuario
+		</label>
+		<div class="controls">
+            <?php echo $this->Form->text('username', array('placeholder'=>'Usuario')); ?>
+			<!--<input type="text" placeholder="Usuario" id="inputEmail">-->
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="inputPassword" class="control-label">
+			Password
+		</label>
+		<div class="controls">
+            <?php echo $this->Form->password('password', array('placeholder'=>'Password')); ?>
+			<!--<input type="password" placeholder="Password" id="inputPassword">-->
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">			
+			<button class="btn" type="submit">
+				Ingresar
+			</button>
+		</div>
+	</div>
+	<hr class="margin-mx" />	
+</div>
+</form>
