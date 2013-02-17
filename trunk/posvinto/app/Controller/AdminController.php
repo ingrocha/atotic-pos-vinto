@@ -3,7 +3,7 @@ class AdminController extends AppController {
    public $helpers = array('Form','Html');
     public $components = array('Session');
     public $uses = array('Usuario');
-    public $layout = 'vivavinto';
+    public $layout = 'login';
 
     public function index(){
         //debug($this->params);exit;
