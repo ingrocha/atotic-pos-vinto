@@ -11,34 +11,16 @@ jQuery("#UsuarioCambiarpasswordForm").validationEngine();
     <!-- // fin sidebar -->
     <div id="page-content" class="page-content">
 	<section>
+            <div class="row-fluid"> 
+            <?php echo $this->Form->create('Usuario'); ?>
             <div class="page-header">
                 <h3><i class="aweso-icon-table opaci35"></i> Usuarios <small>Modificar Password</small></h3>
                 <p>Cambia el Password del Usuario</p>
             </div>
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-				
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">Modificar contrase&ntilde;a</h2>
-						
-					</div>
-					<!-- End Box Head -->	
-
-					<!-- Table -->
-				<?php echo $this->Form->create('Usuario'); ?>
-<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
-<caption>
-Usuario<span></span>
-</caption>
-<thead>
-<fieldset>
+            <div class="span10 well well-nice">
+            <fieldset>
+            <legend>Formulario <small>Modificar su Password</small></legend> 	
+<table>
 <tr>
    <td>Nuevo c&oacute;digo</td>
    <td>
@@ -52,17 +34,12 @@ Usuario<span></span>
    </td>
 </tr>
 </fieldset>
-</thead>
 </table>
 
 <button class="btn btn-green" type="submit">Cambiar Password</button>
 </form>							
 </div>
 </div>
-</div>
-<div class="cl">&nbsp;</div>
-            </section>			
+</div>			
 		</div>
-		<!-- Main -->
-	</div>
 
