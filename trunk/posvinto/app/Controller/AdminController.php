@@ -11,6 +11,7 @@ class AdminController extends AppController {
     }
     public function login(){
         //debug($this->params);exit;
+        $this->layout = 'login';
         if(!empty($this->data)){
             
         $usuario = $this->data['Usuarios']['usuario'];
