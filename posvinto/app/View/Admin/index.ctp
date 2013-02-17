@@ -3,6 +3,7 @@
 
 <? //php echo $this->Form->create('User', array('action'=>'login')); ?>
 <div class="form-horizontal well well-nice">
+    <h3>VIVA VINTO</h3>
 	<h4 class="simple-header">
 		Ingrese su usuario y contrasena
 	</h4>
