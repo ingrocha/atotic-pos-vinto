@@ -15,7 +15,7 @@ class AdminController extends AppController {
         if(!empty($this->data)){
             
         $usuario = $this->data['Usuarios']['usuario'];
-        $password = sha1($this->data['Usuarios']['contrasena']);
+        $password = sha1($this->data['Usuarios']['pass']);
         $nombre_usuario = $this->Usuario->find('first', array('conditions' => array('Usuario.usuario' =>
             $usuario)));
         if (empty($nombre_usuario)):
