@@ -23,8 +23,8 @@
 	<table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
     <thead>
     <tr>
-        <th style="width: 90px;">NIT</th>
-        <th style="width: 90px;">NUMERO DE AUTORIZACION</th>      
+        <th scope="col">NIT</th>
+        <th scope="col">NUMERO DE AUTORIZACION</th>      
         <th>Acciones</th>     
     </tr>
     </thead>
@@ -45,13 +45,9 @@
                     "title" => "Editar",
                     'url' => array('action' => 'modificar', $id)
                 ));
-            ?>      
-            <?php 
-                echo $this->Html->image("elim.png", array(
-                    "title" => "Eliminar",
-                    'url' => array('action' => 'eliminar', $id)
-                ));
-            ?>                           
+            ?> 
+        <?php echo $this->Html->link($this->Html->image("elim.png"), array('controller' => 'insumos', 'action' => 'eliminar', $id), array('escape' => false), "Esta seguro de eliminar el parametro de Factura..??");?>         
+        <?php //echo $this->Html->image("elim.png", array("title" => "Eliminar",'url' => array('action' => 'eliminar', $id)));?>                           
         </td>
     </tr>
 
