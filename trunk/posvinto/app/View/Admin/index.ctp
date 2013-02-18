@@ -1,6 +1,6 @@
-<?php //echo $this->Form->create('Usuarios', array('url' => array('controller' =>'admin', 'action' => 'login'), 'id' => 'form-login', 'class' => 'formular')); ?>
+<?php echo $this->Form->create('Usuarios', array('url' => array('controller' =>'admin', 'action' => 'login'), 'id' => 'form-login', 'class' => 'formular')); ?>
 
-<?php echo $this->Form->create('Admin', array('action'=>'admin')); ?>
+<?php //echo $this->Form->create('Usuarios', array('action'=>'admin')); ?>
 <div class="form-horizontal well well-nice">
     <h3>VIVA VINTO</h3>
 	<h4 class="simple-header">
