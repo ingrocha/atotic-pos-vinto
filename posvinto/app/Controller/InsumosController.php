@@ -672,6 +672,18 @@ class InsumosController extends AppController
             $this->redirect(array('action' => 'index'));
         }
     }
+    public function eliminar($id = null)
+    {
+        if (!$id) {
+            $this->Session->setFlash('id Invalida para borrar');
+            $this->redirect(array('action' => 'index'));
+        }
+        if ($this->Insumo->delete($id)) {
+            
+            $this->Session->setFlash('El usuario  ' . $id . ' fue borrado');
+            $this->redirect(array('action' => 'index'));
+        }
+    }
 
 }
 
