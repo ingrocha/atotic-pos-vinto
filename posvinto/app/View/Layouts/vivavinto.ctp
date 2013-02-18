@@ -122,7 +122,7 @@
                 
                 <div style="text-align: center; color:gray;">
                  <?php echo $this->Html->image('epcm/logo_epcm.png') ?>
-                <p class="f-left">&copy; 2013 <a href="http://www.labware.com.bo/">LABWARE CONSULTORES</a>, Todos Los Derechos Reservados &reg;</p>
+                <p class="f-left">&copy; 2013 <a href="http://www.labware.com.bo/">LabWare</a>, Todos Los Derechos Reservados &reg;</p>
                 <p class="f-right">Creado por <a href="http://www.labware.com.bo/">LabWare</a></p>
                 </div>
                 <!-- // fin del contenido principal -->                
