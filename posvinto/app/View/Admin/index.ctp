@@ -11,7 +11,7 @@
 			Usuario
 		</label>
 		<div class="controls">
-            <?php echo $this->Form->text('username', array('placeholder'=>'Usuario')); ?>
+            <?php echo $this->Form->text('usuario', array('placeholder'=>'Usuario')); ?>
 			<!--<input type="text" placeholder="Usuario" id="inputEmail">-->
 		</div>
 	</div>
@@ -20,7 +20,7 @@
 			Password
 		</label>
 		<div class="controls">
-            <?php echo $this->Form->password('password', array('placeholder'=>'Password')); ?>
+            <?php echo $this->Form->password('pass', array('placeholder'=>'Password')); ?>
 			<!--<input type="password" placeholder="Password" id="inputPassword">-->
 		</div>
 	</div>
