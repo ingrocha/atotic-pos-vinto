@@ -1,5 +1,8 @@
-<?php class ControlpedidosController extends AppController
+<?php
+
+class ControlpedidosController extends AppController
 {
+
     public $helpers = array('Form', 'Html');
     public $components = array(
         'Session',
@@ -15,22 +18,26 @@
         'Descuento',
         'Recibo');
     public $layout = 'vivavinto';
+
     public function index()
     {
+        //funcion para leer un archivo
         //$this->Pedido->recursive = 0;
         $fecha = date('Y-m-d') . " %";
         $this->paginate = array('conditions' => array('Pedido.fecha LIKE' => $fecha),
-                'order' => array('Pedido.id' => 'desc'));
+            'order' => array('Pedido.id' => 'desc'));
         // similar to findAll(), but fetches paged results
-        $data = $this->paginate('Pedido');
+        $data = $this->paginate('Pedido');       
+
         $this->set(compact('data'));
     }
+
     public function facturar()
     {
         $this->layout = 'imprimir';
         $id_pedido = $this->data['Controlpedidos']['id_pedido'];
         $pedido = $this->Pedido->find('all', array('recursive' => -1, 'conditions' =>
-                array('id' => $id_pedido)));
+            array('id' => $id_pedido)));
         if (!empty($this->data))
         {
             //debug($this->data);
@@ -44,16 +51,16 @@
             $this->Factura->create();
             if ($this->Factura->save($this->data))
             {
-                $pf = $this->Parametrosfactura->find('first');                
+                $pf = $this->Parametrosfactura->find('first');
                 $nfactura = $this->Factura->getLastInsertID();
-                                
+
                 //datos de prueba para la factura
-                /*$autoriza = '29040011007';
-                $idfactura = '1503';
-                $nitcliente = '4189179011';
-                $nueva_fecha = '20070702';
-                $rtotal = '2500';
-                $llave = '9rCB7Sv4X29d)5k7N%3ab89p-3(5[A';*/
+                /* $autoriza = '29040011007';
+                  $idfactura = '1503';
+                  $nitcliente = '4189179011';
+                  $nueva_fecha = '20070702';
+                  $rtotal = '2500';
+                  $llave = '9rCB7Sv4X29d)5k7N%3ab89p-3(5[A'; */
                 $autoriza = $pf['Parametrosfactura']['numero_autorizacion'];
                 $idfactura = $nfactura;
                 $fecha = date('Y-m-d');
@@ -76,11 +83,12 @@
             //$this->request->data['Factura']['cliente']=
         } else
         {
+            
         }
         //debug($this->data);
         $items = $this->Item->find('all', array('recursive' => 1, 'conditions' => array
                 ('pedido_id' => $id_pedido)));
-        
+
         $atotal = $pedido['0']['Pedido']['total'];
         $total = number_format($atotal, 2, '.', ',');
         $monto = split('\.', $total);
@@ -90,9 +98,9 @@
         //debug($pedido);
         //debug($items);
         //debug($pf);
-        $this->set(compact('pedido', 'items', 'pf', 'totalliteral', 'monto', 'cliente',
-            'nitcliente', 'nfactura', 'codigo'));
+        $this->set(compact('pedido', 'items', 'pf', 'totalliteral', 'monto', 'cliente', 'nitcliente', 'nfactura', 'codigo'));
     }
+
     public function ajaxpago($id_pedido = null)
     {
         $this->layout = 'ajax';
@@ -112,60 +120,64 @@
             }
         } else
         {
+            
         }
         $this->set(compact('id_pedido'));
     }
+
     public function ajaxverecibo($id_pedido = null)
     {
         $this->layout = 'ajax';
         //$this->layout='imprimir';
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                    $id_pedido)));
+                $id_pedido)));
         $totalpagado = 0.00;
         foreach ($pedido as $item)
         {
             $totalpagado += $item['Item']['precio'];
         }
         $moso = $this->Pedido->find('first', array('recursive' => 0, 'conditions' =>
-                array('Pedido.id' => $id_pedido)));
+            array('Pedido.id' => $id_pedido)));
         //debug($moso);
         $descuentos = $this->Descuento->find('list', array('fields' => array('Descuento.porcentaje',
-                    'Descuento.observacion')));
+                'Descuento.observacion')));
         $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos'));
     }
+
     public function verpedido($id_pedido = null)
     {
         //$this->layout = 'ajax';
         //$this->layout='imprimir';
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                    $id_pedido)));
+                $id_pedido)));
         $totalpagado = 0.00;
         foreach ($pedido as $item)
         {
             $totalpagado += $item['Item']['precio'];
         }
         $moso = $this->Pedido->find('first', array('recursive' => 0, 'conditions' =>
-                array('Pedido.id' => $id_pedido)));
+            array('Pedido.id' => $id_pedido)));
         //debug($moso);
         $descuentos = $this->Descuento->find('list', array('fields' => array('Descuento.porcentaje',
-                    'Descuento.observacion')));
+                'Descuento.observacion')));
         $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos'));
     }
+
     public function imprecibo($id_pedido = null)
     {
         //$this->layout='imprimir';
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                    $id_pedido)));
+                $id_pedido)));
         $totalpagado = 0.00;
         foreach ($pedido as $item)
         {
             $totalpagado += $item['Item']['precio'];
         }
         $moso = $this->Pedido->find('first', array('recursive' => 0, 'conditions' =>
-                array('Pedido.id' => $id_pedido)));
+            array('Pedido.id' => $id_pedido)));
         //debug($moso);
         $descuentos = $this->Descuento->find('list', array('fields' => array('Descuento.porcentaje',
-                    'Descuento.observacion')));
+                'Descuento.observacion')));
         $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos'));
         if (!empty($this->data))
         {
@@ -182,16 +194,20 @@
             }
         }
     }
+
     public function autocomplete()
     {
+        
     }
+
     public function facturar1($idpedido = null)
     {
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                    $idpedido)));
+                $idpedido)));
         //debug($pedido);exit;
         $this->set(compact('pedido', 'idpedido'));
     }
+
     public function recibo($idpedido = null)
     {
         if (!empty($this->data))
@@ -207,9 +223,10 @@
             }
         }
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                    $idpedido)));
+                $idpedido)));
         $this->set(compact('pedido', 'idpedido'));
     }
+
     public function facturar3()
     {
         //  debug($this->data);exit;
@@ -227,10 +244,11 @@
             //$this->redirect('http://localhost/posvinto/posvinto/controlpedidos');
         }
     }
+
     public function dividir($idped = null)
     {
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                    $idped)));
+                $idped)));
         //debug($pedido);
         $detalle = array();
         $i2 = 0;
@@ -248,6 +266,7 @@
         //debug($detalle);exit;
         $this->set(compact('detalle', 'idped'));
     }
+
     public function facturartotal()
     {
         $this->Factura->create();
@@ -260,6 +279,7 @@
             $this->Session->setFlash('No se pudo registrar los datos de la factura');
         }
     }
+
     public function facturar2()
     {
         $this->layout = 'imprimir';
@@ -313,8 +333,7 @@
             $idfactura = $this->Factura->id;
             $llave = $datosfactura[0]['Parametrosfactura']['llave'];
             $nueva_fecha = ereg_replace("[-]", "", $fecha);
-            $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nit, $nueva_fecha, $total,
-                $llave);
+            $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nit, $nueva_fecha, $total, $llave);
             //autorizacion, factura, nit, fecha, monto, llave
             $codigo = $this->Codigocontrol->generar();
             $this->Factura->id = $idfactura;
@@ -331,15 +350,14 @@
             $fecha = $fech2[0];
             $hora = $fech2[1];
             //debug($datos);exit;
-            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente',
-                'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto',
-                'totalliteral', 'total'));
+            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total'));
         } else
         {
             $this->Session->setFlash('No se pudo generar la nueva factura');
             $this->redirect(array('action' => 'index'), null, true);
         }
     }
+
     public function ajaxfactura($id_pedido = null)
     {
         $this->layout = 'ajax';
@@ -349,8 +367,10 @@
             debug($this->data);
         } else
         {
+            
         }
     }
+
     public function facturarnormal()
     {
         $this->layout = 'imprimir';
@@ -407,8 +427,7 @@
             $nueva_fecha = ereg_replace("[-]", "", $fecha);
             $rtotal = round($total);
             //echo $autoriza.' - '.$idfactura.' - '.$nitcliente.' - '.$nueva_fecha.' - '.$total_redondeado.' - '.$llave;exit;
-            $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha,
-                $rtotal, $llave);
+            $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
             //autorizacion, factura, nit, fecha, monto, llave
             $codigo = $this->Codigocontrol->generar();
             $this->Factura->id = $idfactura;
@@ -424,15 +443,14 @@
             $fecha = $fech2[0];
             $hora = $fech2[1];
             //  DEBUG($datos);exit;
-            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente',
-                'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto',
-                'totalliteral', 'total'));
+            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total'));
         } else
         {
             $this->Session->setFlash('No se pudo generar la nueva factura');
             $this->redirect(array('action' => 'index'), null, true);
         }
     }
+
     public function formbuscar()
     {
         if (!empty($this->data))
@@ -487,18 +505,23 @@
         } else
         {
             $this->set('mozos', $this->Usuario->find('list', array('conditions' => array('Usuario.perfile_id' =>
-                        2), 'fields' => array('Usuario.nombre'))));
+                            2), 'fields' => array('Usuario.nombre'))));
         }
     }
+
     public function verdetallepedido($id = null)
     {
         $this->set('itemspedidos', $this->Item->find('all', array('conditions' => array
-                ('Item.pedido_id' => $id))));
+                        ('Item.pedido_id' => $id))));
     }
+
     function totalcondescuento($total = null, $descuento = null)
     {
         $this->layout = 'imprimir';
         $totalpagar = $total - ($total * $descuento);
         $this->set(compact('total', 'totalpagar', 'descuento'));
     }
-} ?>
+
+}
+
+?>
