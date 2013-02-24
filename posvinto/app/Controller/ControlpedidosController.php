@@ -7,7 +7,9 @@ class ControlpedidosController extends AppController
     public $components = array(
         'Session',
         'Codigocontrol',
-        'Montoliteral');
+        'Montoliteral',
+        'Fechasconvert'
+        );
     public $uses = array(
         'Pedido',
         'Usuario',
@@ -16,7 +18,8 @@ class ControlpedidosController extends AppController
         'Factura',
         'Sucursal',
         'Descuento',
-        'Recibo');
+        'Recibo',
+        'Cliente');
     public $layout = 'vivavinto';
 
     public function index()
@@ -32,8 +35,10 @@ class ControlpedidosController extends AppController
         $this->set(compact('data'));
     }
     public function ajaxnombre($nit=null){
+      
         $this->layout = 'ajax';
         $nombre = $this->Cliente->find('first', array('conditions'=>array('Cliente.nit'=>$nit)));
+              
         if(!empty($nombre)){
             $nombre = $nombre['Cliente']['nombrenit'];
             $existe =1;
@@ -50,7 +55,7 @@ class ControlpedidosController extends AppController
         $usuario = $this->Session->read('Auth.user.nombre');
         //debug($this->request->data);exit;
         $existe = $this->request->data['Controlpedidos']['existe'];
-        $pedido = $this->request->data['Controlpedidos']['id_pedido'];
+        $id_pedido = $this->request->data['Controlpedidos']['id_pedido'];
         
         $montoTotal = $this->request->data['Controlpedidos']['monto'];
         $nit = $this->request->data['Controlpedidos']['nit'];
@@ -59,6 +64,9 @@ class ControlpedidosController extends AppController
         $efectivo = number_format($efectivo, 2, '.',',');
         $cambio = $this->request->data['Controlpedidos']['cambio'];
         $cambio = number_format($cambio, 2, '.',',');
+        $cliente = $this->request->data['Controlpedidos']['nombre'];
+        $nitcliente = $this->data['Controlpedidos']['nit'];
+        $pf = $this->Parametrosfactura->find('first');
         
         $this->request->data='';
         
@@ -70,21 +78,19 @@ class ControlpedidosController extends AppController
             $this->Cliente->save($this->request->data);
         }
         
-        $data = array('id'=>$pedido, 'estado'=>4,'monto'=>$montoTotal);
+        $data = array('id'=>$id_pedido, 'estado'=>4,'monto'=>$montoTotal);
         $this->Pedido->save($data);
         
         
-        $id_pedido = $this->request->data['Controlpedidos']['id_pedido'];
+
         $pedido = $this->Pedido->find('all', array('recursive' => -1, 'conditions' =>
             array('id' => $id_pedido)));
             
-        if (!empty($this->request->data))
-        {
+        
             //debug($this->data);
-            $cliente = $this->request->data['Controlpedidos']['nombre'];
-            $nitcliente = $this->data['Controlpedidos']['nit'];
+            
             $importe = $pedido['0']['Pedido']['total'];
-            $this->data = "";
+            $this->request->data = "";
             $this->request->data['Factura']['cliente'] = $cliente;
             $this->request->data['Factura']['nit'] = $nitcliente;
             $this->request->data['Factura']['importetotal'] = $importe;
@@ -92,7 +98,9 @@ class ControlpedidosController extends AppController
             
             if ($this->Factura->save($this->data))
             {
-                $pf = $this->Parametrosfactura->find('first');
+                
+                $fechalimite = $this->Fechasconvert->doRevert($pf['Parametrosfactura']['fechalimite']);
+    
                 $nfactura = $this->Factura->getLastInsertID();
 
                 //datos de prueba para la factura
@@ -122,24 +130,24 @@ class ControlpedidosController extends AppController
             //if($this)
             //$this->request->data['Facturar']['']
             //$this->request->data['Factura']['cliente']=
-        } else
-        {
-            
-        }
+        
         //debug($this->data);
         $items = $this->Item->find('all', array('recursive' => 1, 'conditions' => array
-                ('pedido_id' => $id_pedido)));
+                ('Item.pedido_id' => $id_pedido)));
 
-        $atotal = $pedido['0']['Pedido']['total'];
+        $atotal = $montoTotal;
         $total = number_format($atotal, 2, '.', ',');
         $monto = split('\.', $total);
         $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
+       
         //debug($atotal);
         //debug($totalliteral);
         //debug($pedido);
         //debug($items);
         //debug($pf);
-        $this->set(compact('pedido', 'items', 'pf', 'totalliteral', 'monto', 'cliente', 'nitcliente', 'nfactura', 'codigo'));
+        $pedido = $id_pedido;
+        
+        $this->set(compact('pedido', 'items', 'pf', 'totalliteral', 'montoTotal','monto', 'efectivo', 'cambio','cliente', 'nitcliente', 'nfactura', 'codigo','fechalimite'));
     }
 
     public function ajaxpago($id_pedido = null)

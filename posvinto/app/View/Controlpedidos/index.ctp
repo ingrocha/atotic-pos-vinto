@@ -64,13 +64,26 @@
                                     $hora = split(' ', $d['Pedido']['fecha']);
                                     ?>
                                     <td><h4 class="statistic-values"><?php echo $hora[1]; ?></h4></td>                                    
-                                    <?php if ($d['Pedido']['estado'] != 3): ?>
+                                    <?php if ($d['Pedido']['estado'] == 0): ?>
                                         <td style="background-color: #FFC9C9;">
-                                            <h4 class="statistic-values">POR PAGAR</h4>
+                                            <h4 class="statistic-values">CREADO</h4>
                                         </td>
+                                         <?php elseif ($d['Pedido']['estado'] == 1): ?>
+                                        <td style="background-color: #FFC9C9;">
+                                            <h4 class="statistic-values">COCINA</h4>
+                                        </td>
+                                        <?php elseif ($d['Pedido']['estado'] == 2): ?>
+                                        <td style="background-color: #FFC9C9;">
+                                            <h4 class="statistic-values">SERVIDO</h4>
+                                        </td>
+                                        
                                     <?php elseif ($d['Pedido']['estado'] == 3): ?>
                                         <td style="background-color: #CAFEA0;;">
                                             <h4 class="statistic-values">PAGADO</h4>
+                                        </td>
+                                    <?php elseif ($d['Pedido']['estado'] == 4): ?>
+                                        <td style="background-color: #CAFEA0;;">
+                                            <h4 class="statistic-values">FACTURADO</h4>
                                         </td>
                                     <?php endif; ?> 
                                     <td><?php echo $d['Pedido']['total']; ?></td>    

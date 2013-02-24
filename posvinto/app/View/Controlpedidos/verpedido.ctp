@@ -147,7 +147,8 @@
                        
                        echo $this->Form->end($opt); ?>
                     </div>                  
-                    <a class="btn btn-large btn-turgu" href="#"><i class="fontello-icon-publish"></i> AGREGAR DESCUENTO</a>
+                    <a class="btn btn-large btn-turgu" href="<?php echo $this->Html->url(array('action' => 'facturar1', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> DIVIDIR LA CUENTA</a>
+                  
                     <script>
                     $("#btMuestraFacturar").click(function() {
                             //console.log('click');
@@ -169,10 +170,7 @@
                         );
                     </script>
                     <script>
-                        $("#btMuestraFacturar").click(function() {
-                            //console.log('click');
-                            $("#muestraFacturar").toggle("slow");
-                        });
+                       
                         $("#bt_pagar").click(function(){
                             $("#MuestraPagar").toggle("slow");
                         });
