@@ -1,6 +1,6 @@
 <div id="main-content" class="main-content container-fluid">
     <!-- // sidebar --> 
-    <?php echo $this->element('sidebar/pedidos'); ?>                
+    <?php echo $this->element('sidebar/pedidos'); ?>               
     <!-- // fin sidebar -->
 
     <!-- // contenido pricipal -->                                 
@@ -23,9 +23,10 @@
                                     <th scope="col"><input type="checkbox" class="checkbox check-all" data-tableid="exampleDTCF" value="ON" name="check-all"></th>
                                     <th scope="col">Mesa <span class="column-sorter"></span></th>                          
                                     <th scope="col">Mozo <span class="column-sorter"></span></th>
+                                    <th scope="col">Fecha</th>
                                     <th scope="col">Hora <span class="column-sorter"></span></th>
+                                    <th scope="col">Total <span class="column-sorter"></span></th>
                                     <th scope="col">Estado <span class="column-sorter"></span></th>                                    
-                                    <th scope="col">Total <span class="column-sorter"></span></th>                                                                     
                                     <th scope="col"><span class="column-sorter"></span></th>                                                                        
                                 </tr>
 
@@ -33,8 +34,9 @@
                                     <th></th> 
                                     <th>Mesa</th>                          
                                     <th>Mozo</th>
-                                    <th>Total</th> 
+                                    <th>Fecha</th>
                                     <th>Hora</th>
+                                    <th>Total</th>
                                     <th>Estado</th>
                                     <th>Pagar</th>                               
                                 </tr>                                                               
@@ -46,6 +48,8 @@
                                     <th></th>
                                     <th></th>
                                     <th>Suma Total</th>
+                                    <th></th>
+                                    
                                     <th></th>
                                     <th class="text-right"></th>
                                 </tr>
@@ -63,7 +67,9 @@
                                     <?php
                                     $hora = split(' ', $d['Pedido']['fecha']);
                                     ?>
-                                    <td><h4 class="statistic-values"><?php echo $hora[1]; ?></h4></td>                                    
+                                    <td><h4 class="statistic-values"><?php echo $hora[0]; ?></h4></td>
+                                    <td><h4 class="statistic-values"><?php echo $hora[1]; ?></h4></td>  
+                                      <td><?php echo $d['Pedido']['total']; ?></td>                                   
                                     <?php if ($d['Pedido']['estado'] != 3): ?>
                                         <td style="background-color: #FFC9C9;">
                                             <h4 class="statistic-values">POR PAGAR</h4>
@@ -73,7 +79,7 @@
                                             <h4 class="statistic-values">PAGADO</h4>
                                         </td>
                                     <?php endif; ?> 
-                                    <td><?php echo $d['Pedido']['total']; ?></td>    
+                                     
                                     <td>                                       
                                         <div id="dialog_<?php echo $id; ?>" style="float: left;">
                                             <?php
