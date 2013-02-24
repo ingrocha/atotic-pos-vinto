@@ -1,28 +1,11 @@
 <?php //debug($datos); ?>
 <div id="aImprimir">
 
-    <div><b>VIVA VINTO</b></div>
+    <div style="text-align: center; width: 335px;">
+    <b>VIVA VINTO</b><br />
     Av. Albina Pati&ntilde;o Km. 16 1/2<br />
     Cochabamba - Bolivia
-    <!--<table class="tablafactura">
-        <tr>
-            <td colspan="4" align="center" style="text-transform: uppercase; font-weight: bold;"> 
-                <?php //echo $sucursal['Sucursal']['nombre']; ?>
-                &nbsp;&nbsp;&nbsp;&nbsp;VIVA VINTO
-            </td>
-        </tr>
-        <tr>
-            <td align="center" style="text-transform: uppercase;">
-                <?php //echo $sucursal['Sucursal']['direccion']; ?>
-                Av. Albina Pati&ntilde;o
-            </td>
-        </tr>
-        <tr>
-            <td align="center" style="text-align: center; text-transform: uppercase;"> 
-                COCHABAMBA - BOLIVIA 
-            </td>
-        </tr>
-    </table>-->
+    </div>
     <div class="linea">
         ..............................................................
     </div>     
@@ -86,30 +69,72 @@
             </tr>
         <?php endforeach; ?>
         <tr>
-            <td colspan="2" style="text-align: right;">Importe total</td>
-            <td><?php echo $pedido['0']['Pedido']['total']; ?> Bs.</td>
+            <td colspan="3" style="text-align: right;">Importe total BS.</td>
+            <td><?php echo number_format($montoTotal, 2, '.', ','); ?></td>
         </tr>
-        <tr>
-            <td colspan="4">Son: <?php echo $totalliteral; ?> <?php echo $monto[1]; ?>/100 Bs.</td>            
-        </tr>
+        
     </table>
+    <table style="text-align: left; width: 335px;">
+		<tr>
+			<td colspan="4" style="text-align: right;">
+				&nbsp;&nbsp;--------------
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: right;">
+				TOTAL A PAGAR: Bs.
+			</td>
+			<td style="text-align: right;">
+				<?php echo number_format($montoTotal, 2, '.', ','); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: right;">
+				TOTAL FACTURAR: Bs.
+			</td>
+			<td style="text-align: right;">
+				<?php echo number_format($montoTotal, 2, '.', ','); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: right;">
+				Efectivo Bs.
+			</td>
+			<td style="text-align: right;">
+				<?php echo $efectivo ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: right;">
+				CAMBIO Bs.
+			</td>
+			<td style="text-align: right;">
+				<?php echo $cambio ?>
+			</td>
+		</tr>
+	</table>
     <div class="linea">
         ..............................................................
     </div>
-    <table style="border: none;">
+     
+    <table style="width: 480px;">
+       <tr>
+          <td>SON:&nbsp;</td>
+          <td><?php echo $totalliteral ?>&nbsp;CON&nbsp;<?php echo $monto[1] ?>/100</td>
+       </tr>
         <tr>
             <td style="font-weight: bold;">C&oacute;digo de control:</td>
             <td style="font-weight: bold; text-transform: uppercase;"><?php echo $codigo; ?></td>
         </tr>
         <tr>
-            <td>Fecha l&iacute;mite de emisi&oacute;n:</td>
-            <td>06/Oct/2012</td>
+            <td style="width: 198px;">Fecha l&iacute;mite de emisi&oacute;n:</td>
+            <td><?php echo $fechalimite ?></td>
         </tr>
     </table>
-    <div class="linea">
-        ....................................................
+     <div class="linea">
+        ..............................................................
     </div>
-    <div style="width: 300px; font-size: 9px;">
+    <div style="width: 300px; font-size: 14px; text-align: center;">
         "La reproducci&oacute;n total o parcial y/o el uso no
         autorizado de esta Nota Fiscal, constituye un delito a sersancionado
         conforme a Ley"
@@ -158,6 +183,7 @@
     jQuery(document).ready(function() {
 
         jQuery("#imprimir").click(function() {
+            jQuery("#imprimir").hide();
             // windows.location("http://localhost/posvinto/posvinto/facturas/facturar3");
             printElem({ leaveOpen: true, printMode: 'popup' });
              
