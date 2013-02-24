@@ -83,180 +83,7 @@
                         </div>
                     </div>
                     <!-- // Widget -->
-
-                    <div class="widget widget-box">
-                        <div class="tabbable tabs-top">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#TabBestsellers" data-toggle="tab"><i class="fontello-icon-award-1"></i> <span class="hidden-phone">Bestsellers</span></a></li>
-                                <li><a href="#TabMostViewedProduct" data-toggle="tab"><i class="fontello-icon-eye-2"></i> <span class="hidden-phone">Most Viewed Product</span></a></li>
-                                <li><a href="#TabNewCustomers" data-toggle="tab"><i class="fontello-icon-user-add"></i> <span class="hidden-phone">New Customers</span></a></li>
-                                <li><a href="#TabCustomers" data-toggle="tab"><i class="fontello-icon-user"></i> <span class="hidden-phone">Customers</span></a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="TabBestsellers">
-                                    <table class="table table-condensed table-striped no-margin">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" width="60%">Product Name</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Quantity Ordered</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Kindle Fire, Full Color 7" Multi-touch Display, Wi-Fi</td>
-                                                <td class="text-right">$89.99</td>
-                                                <td class="text-right bold">264</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brother HL-2270DW Compact Laser Printer with Wireless Networking and Duplex</td>
-                                                <td class="text-right">$1,579.50</td>
-                                                <td class="text-right bold">215</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Apple TV MD199LL/A</td>
-                                                <td class="text-right">$96.99</td>
-                                                <td class="text-right bold">204</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Apple iPod touch 8GB (4th Generation)</td>
-                                                <td class="text-right">$174.99</td>
-                                                <td class="text-right bold">173</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Panasonic Lumix TS20 16.1 MP TOUGH Waterproof Digital Camera with 4x Optical Zoom</td>
-                                                <td class="text-right">$130.62</td>
-                                                <td class="text-right bold">157</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane" id="TabMostViewedProduct">
-                                    <table class="table table-condensed no-margin">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" width="60%">Product Name</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Number of Views</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>John Doe</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right bold">$118.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Paula Gates</td>
-                                                <td class="text-right">2</td>
-                                                <td class="text-right bold">$1,579.50</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tony Rogers</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right bold">$26.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Leona Nulla</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right bold">$312.13</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Peter Johanson</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right bold">$814.20</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane" id="TabNewCustomers">
-                                    <table class="table table-condensed no-margin">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" width="60%"> Customer Name</th>
-                                                <th scope="col">Number of Orders</th>
-                                                <th scope="col">Average Order Amount</th>
-                                                <th scope="col">Total Order Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>John Doe</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right bold">$118.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Paula Gates</td>
-                                                <td class="text-right">2</td>
-                                                <td class="text-right bold">$1,579.50</td>
-                                                <td class="text-right bold">$1,579.50</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tony Rogers</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right bold">$26.00</td>
-                                                <td class="text-right bold">$1,579.50</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Leona Nulla</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right bold">$312.13</td>
-                                                <td class="text-right bold">$1,579.50</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Peter Johanson</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right bold">$814.20</td>
-                                                <td class="text-right bold">$1,579.50</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane" id="TabCustomers">
-                                    <table class="table table-condensed no-margin">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" width="60%"> Customer</th>
-                                                <th scope="col">Items</th>
-                                                <th scope="col">Grand Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>John Doe</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right bold">$118.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Paula Gates</td>
-                                                <td class="text-right">2</td>
-                                                <td class="text-right bold">$1,579.50</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tony Rogers</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right bold">$26.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Leona Nulla</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right bold">$312.13</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Peter Johanson</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right bold">$814.20</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- // tab content --> 
-
-                        </div>
-                        <!-- // Tabable --> 
-                    </div>
-                    <!-- // Widget --> 
+                   
                 </div>
                 <!-- // Column -->
 
@@ -266,115 +93,51 @@
                             <h4><i class="fontello-icon-back-in-time"></i> Ventas Totales</h4>
                         </div>
                         <div class="section-content">
-                            <h2 class="statistic-values">$79,524.33 <span class="positive"><i class="fontello-icon-up-dir"></i> <sup>+10,966.08</sup></span></h2>
-                            <span class="info-block">Total Sales Previous 30 days: 68,558.25</span> </div>
+                            <h2 class="statistic-values">Bs. <?php echo $ventasTotales['0']['0']['total']; ?> <span class="positive"><i class="fontello-icon-up-dir"></i> <sup></sup></span></h2>
+                            <span class="info-block">Total recaudado del dia de hoy</span> </div>
                     </div>
                     <!-- // Statistic Box -->
 
                     <div class="statistic-box well well-black">
                         <div class="section-title">
-                            <h6><i class="fontello-icon-back-in-time"></i> Average Orders</h6>
+                            <h6><i class="fontello-icon-back-in-time"></i> Cantidad Mesas Atendidas</h6>
                         </div>
                         <div class="section-content">
-                            <h2 class="statistic-values">$2,644.42</h2>
+                            <h2 class="statistic-values">Atendidas: <?php echo $cantidadMesas['Pedido']['mesa']; ?> Mesas</h2>
                         </div>
                     </div>
                     <!-- // Statistic Box -->
 
                     <div class="widget widget-simple">
-                        <div class="widget-header header-small"> <a class="btn btn-mini btn-success pull-right" href="#">Show All</a>
-                            <h6><i class="fontello-icon-back-in-time"></i> Last 5 Orders</h6>
+                        <div class="widget-header header-small"> 
+                            <a class="btn btn-mini btn-success pull-right" href="<?php echo $this->Html->url(array('controller'=>'Controlpedidos', 'action'=>'index')); ?>">Mostrar Todos</a>
+                            <h6><i class="fontello-icon-back-in-time"></i> Ultimos 5 Mesas Atendidas</h6>
                         </div>
                         <div class="widget-content">
                             <div class="widget-body">
                                 <table class="table table-condensed">
                                     <thead>
                                         <tr>
-                                            <th scope="col" width="60%"> Customer</th>
-                                            <th scope="col">Items</th>
-                                            <th scope="col">Grand Total</th>
+                                            <th scope="col" width="60%"> Moso</th>
+                                            <th scope="col">Mesa</th>
+                                            <th scope="col">Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach($ultimosCincoPedidos as $ucp): ?>
                                         <tr>
-                                            <td>John Doe</td>
-                                            <td class="text-right">1</td>
-                                            <td class="text-right bold">$118.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Paula Gates</td>
-                                            <td class="text-right">2</td>
-                                            <td class="text-right bold">$1,579.50</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tony Rogers</td>
-                                            <td class="text-right">1</td>
-                                            <td class="text-right bold">$26.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Leona Nulla</td>
-                                            <td class="text-right">1</td>
-                                            <td class="text-right bold">$312.13</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Peter Johanson</td>
-                                            <td class="text-right">3</td>
-                                            <td class="text-right bold">$814.20</td>
-                                        </tr>
+                                            <td><?php echo $ucp['Usuario']['nombre']; ?></td>
+                                            <td class="text-right"><?php echo $ucp['Pedido']['mesa']; ?></td>
+                                            <td class="text-right bold">Bs.<?php echo $ucp['Pedido']['total']; ?></td>
+                                        </tr>                                     
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                     <!-- // Widget -->                    
-
-                    <div class="widget widget-simple">
-                        <div class="widget-header header-small"> <a class="btn btn-mini btn-success pull-right" href="#">Show All</a>
-                            <h6><i class="fontello-icon-search-2"></i> Top 5 Search Terms</h6>
-                        </div>
-                        <div class="widget-content">
-                            <div class="widget-body">
-                                <table class="table table-condensed">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" width="60%">Search Term</th>
-                                            <th scope="col">Results</th>
-                                            <th scope="col">Number of Uses</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>iPhone</td>
-                                            <td class="text-right">36</td>
-                                            <td class="text-right bold">2458</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Apple</td>
-                                            <td class="text-right">265</td>
-                                            <td class="text-right bold">2165</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Computer</td>
-                                            <td class="text-right">184</td>
-                                            <td class="text-right bold">1278</td>
-                                        </tr>
-                                        <tr>
-                                            <td>camera</td>
-                                            <td class="text-right">19</td>
-                                            <td class="text-right bold">1065</td>
-                                        </tr>
-                                        <tr>
-                                            <td>blue</td>
-                                            <td class="text-right">27</td>
-                                            <td class="text-right bold">865</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- // Widget --> 
-
+                    
                 </div>
             </div>
             <!-- // Example row --> 
@@ -382,4 +145,253 @@
         </section>
     </div>
 </div>
-<?php echo $this->Html->script('demo/demo-dashboard2'); ?>
+<script>
+    $(document).ready(function () {
+		dashboard_B_chart.chartOrders ();
+		dashboard_B_chart.chartAmounts ();
+});
+
+// CHARTS SETTINGS
+// ------------------------------------------------------------------------------------------------ * -->
+dashboard_B_chart = {
+        // Dashboard 2 Orders
+        chartOrders: function () {
+				var elem = $('#ordersChart');
+				
+				var data = [{
+						label: "Plato",
+						color: "#4da74d",
+						data: [
+								[1341014400000, 1],
+								[1341018000000, 2],
+								[1341021600000, 3],
+								[1341025200000, 4],
+								[1341028800000, 5],
+								[1341032400000, 6],
+								[1341036000000, 1],
+								[1341039600000, 0],
+								[1341043200000, 2],
+								[1341046800000, 0],
+								[1341050400000, 0],
+								[1341054000000, 1],
+								[1341057600000, 3],
+								[1341059400000, 2], //12:30
+								[1341061200000, 1],
+								[1341064800000, 2],
+								[1341065700000, 2], //14:15
+								[1341068400000, 0],
+								[1341072000000, 1],
+								[1341073500000, 1], //16:25
+								[1341073800000, 1], //16:30
+								[1341075600000, 3],
+								[1341079200000, 4],
+								[1341082800000, 1],
+								[1341083800000, 1], //19:10
+								[1341086400000, 0],
+								[1341090000000, 0],
+								[1341093600000, 0]							
+						]
+				}];
+		
+				var options = {
+						series: {
+								lines: {
+										show: true,
+										lineWidth: 3,
+										fill: true
+								},
+								points: {
+										show: false,
+										radius: 3.5,
+										lineWidth: 3
+								},
+								shadowSize: 3,
+						},
+						legend: {
+								show: false,
+						},
+						xaxis: {
+								mode: "time",
+								font: {
+										weight: "bold",
+										size: 11
+								},
+								color: "#333",
+								tickColor: "rgba(237,194,64,0.25)",
+								tickLength: 5
+						},
+						yaxis: {
+								color: "#333333",
+								font: {
+										weight: "bold",
+										size: 11
+								}
+						},
+						grid: {
+								color: "#333333",
+								tickColor: "rgba(0,0,0,0.03)",
+								borderWidth: 0,
+								// interactive stuff
+								clickable: true,
+								hoverable: true
+						}
+				};
+		
+				chartOrders_plot = $.plot(elem, data, options);
+		
+				// Create a tooltip on our chart
+				elem.qtip({
+						prerender: true,
+						content: 'Loading...', // Use a loading message primarily
+						position: {
+								viewport: $(window), // Keep it visible within the window if possible
+								target: 'mouse', // Position it in relation to the mouse
+								adjust: {
+										x: 7
+								} // ...but adjust it a bit so it doesn't overlap it.
+						},
+						show: false, // We'll show it programatically, so no show event is needed
+						style: {
+								classes: 'ui-tooltip-shadow ui-tooltip-tipsy',
+								tip: false // Remove the default tip.
+						}
+				});
+				// Bind the plot hover
+				elem.bind("plothover", function (event, coords, item) {
+						var self = $(this),
+								api = $(this).qtip(),
+								previousPoint, content,
+								round = function (x) {
+										return Math.round(x * 1000) / 1000;
+								};
+						if(!item) {
+								api.cache.point = false;
+								return api.hide(event);
+						}
+						previousPoint = api.cache.point;
+						if(previousPoint !== item.dataIndex) {
+								api.cache.point = item.dataIndex;
+								content = item.series.label + ' = ' + round(item.datapoint[1]);
+								api.set('content.text', content);
+								api.elements.tooltip.stop(1, 1);
+								api.show(coords);
+						}
+				});
+		},
+		// Dashboard 2 Amounts
+		chartAmounts: function () {
+				var elem = $('#amountsChart');
+				
+				var d3 = [
+						[1341014400000, 0.00],
+						[1341018000000, 0.00],
+						[1341021600000, 0.00],
+						[1341025200000, 0.00],
+						[1341028800000, 0.00],
+						[1341032400000, 0.00],
+						[1341036000000, 0.00],
+						[1341039600000, 0.00],
+						[1341043200000, 158.70],
+						[1341046800000, 0.00],
+						[1341050400000, 0.00],
+						[1341054000000, 245.30],
+						[1341057600000, 78.00],
+						[1341061200000, 169.20],
+						[1341064800000, 357.33],
+						[1341068400000, 0.00],
+						[1341072000000, 49.50],
+						[1341075600000, 576.60],
+						[1341079200000, 237.00],
+						[1341082800000, 111.80],
+						[1341086400000, 0.00],
+						[1341090000000, 0.00],
+						[1341093600000, 0.00]
+		
+				];
+				
+				function dolarFormatter(v, axis) {
+						return v.toFixed(axis.tickDecimals) +"$";
+				}
+		
+				$.plot(elem, [d3], {
+						legend: {
+								show: false
+						},
+						series: {
+								label: "Revenue",
+								lines: {
+										show: true,
+										fill: true
+								}
+						},
+						xaxis: {
+								mode: "time",
+								font: {
+										weight: "bold",
+										size:11
+								},
+								color: "#333333",
+								tickColor: "rgba(237,194,64,0.25)",
+								tickLength: 5
+						},
+						yaxis: {
+								tickFormatter: dolarFormatter,
+								color: "#333333",
+								font: {
+										weight: "bold",
+										size:11
+								}
+						},
+						grid: {
+								color: "#333333",
+								tickColor: "rgba(0,0,0,0.03)",
+								borderWidth: 0,
+								// interactive stuff
+								clickable: true,
+								hoverable: true
+						},
+				});
+				
+				// Create a tooltip on our chart
+				elem.qtip({
+						prerender: true,
+						content: 'Loading...',
+						position: {
+								viewport: $(window),
+								target: 'mouse',
+								adjust: {
+										x: 7
+								}
+						},
+						show: false,
+						style: {
+								classes: 'ui-tooltip-shadow ui-tooltip-tipsy',
+								tip: false 
+						}
+				});
+				// Bind the plot hover
+				elem.bind("plothover", function (event, coords, item) {
+						var self = $(this),
+								api = $(this).qtip(),
+								previousPoint, content,
+								round = function (x) {
+										return Math.round(x * 1000) / 1000;
+								};
+						if(!item) {
+								api.cache.point = false;
+								return api.hide(event);
+						}
+						previousPoint = api.cache.point;
+						if(previousPoint !== item.dataIndex) {
+								api.cache.point = item.dataIndex;
+								content = item.series.label + ' = $' + round(item.datapoint[1]); 
+								api.set('content.text', content);
+								api.elements.tooltip.stop(1, 1);
+								api.show(coords);
+						}
+				});
+		}
+};
+
+</script>
+<?php //echo $this->Html->script('demo/demo-dashboard2'); ?>

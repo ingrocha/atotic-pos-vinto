@@ -1,5 +1,6 @@
 <?php 
 class ReportesController extends AppController{
+    
     public $helpers = array('Html', 'Form'); 
     public $uses = array('Producto', 'Movimientosinsumo', 'Pedido', 'Item', 'Usuario');
     public $components = array('Session');

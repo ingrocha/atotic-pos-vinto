@@ -12,8 +12,8 @@ App::uses('AppController', 'Controller');
 class PedidosController extends AppController
 {
 
-    public $helpers = array('Form', 'Html');
-    public $components = array('Session');
+    public $helpers = array('Form', 'Html');    
+    public $components = array('Session');    
     public $uses = array(
         'Usuario',
         'Producto',
@@ -228,6 +228,7 @@ class PedidosController extends AppController
 
     public function registrarpedido($pedido = null, $total = null)
     {
+        
         $this->Pedido->id = $pedido;
         $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $pedido)));
         $total = 0;
@@ -243,7 +244,7 @@ class PedidosController extends AppController
             //$ultimoPedido = $this->Pedido->getLastInsertID();
             //debug($ultimoPedido);exit;
             //echo $ultimoPedido;
-            exec("D:\imprime\AppImpresion.exe");
+            //exec("D:\imprime\AppImpresion.exe");
             $pedidosNoImpresos = $this->Pedido->find('all', array(
                 'recursive'=>-1,
                 'conditions'=>array('Pedido.estado'=>0)
@@ -413,6 +414,14 @@ class PedidosController extends AppController
                 //}else{
                 //}
                 //debug($ul_pedido);exit;
+                $ultimoPedido = $this->Pedido->find('first', array(
+                    'recursive'=>-1,
+                    'order'=>'Pedido.id DESC'
+                ));
+                
+                $hoy = date('Y-m-d');
+                //debug($ultimoPedido);exit;
+                
                 $this->request->data['Pedido']['usuario_id'] = $verif['Usuario']['id'];
                 $this->request->data['Pedido']['fecha'] = $fecha;
                 $this->request->data['Pedido']['mesa'] = $mesa;
