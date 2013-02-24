@@ -68,16 +68,30 @@
                     
                     <div style="height: 10px;">&nbsp;</div>  
                     <div id="muestraFacturar" style="display: none;">
+                        <?php echo $this->Form->create('Controlpedidos', array('action'=>'facturar')); ?>                        
                         <fieldset>                            
                             <label for="formA05">Nit: </label>
-                            <input id="formA05" class="span6" type="text" placeholder="placeholder">                           
+                            <?php echo $this->Form->text('nit', array('id'=>'nit', 'class'=>'input-block-level', 'placeholder'=>'Ingrese el nit')); ?>
+                            <!--<input id="formA05" class="span6" type="text" placeholder="placeholder">-->                           
                             <!-- // form item -->
-                            
+
                             <legend>Detalles para facturar</legend>
-                            <label for="formA06">Nombre: </label>
-                            <input id="formA06" class="input-block-level" type="text" placeholder="placeholder">
-                            <!-- // form item -->                           
+                            <label for="formA04">Nombre: </label>
+                            <div id="nombre">
+                            <?php echo $this->Form->text('nombre', array('class'=>'input-block-level', 'placeholder'=>'Ingrese el nombre')); ?>
+                            </div>
                             
+                            <?php echo $this->Form->hidden('monto', array('value'=>$totalCancelar)); ?>
+                            <?php echo $this->Form->hidden('id_pedido', array('value'=>$id_pedido)); ?>
+                            <!--<input id="formA04" class="input-block-level" type="text" placeholder="placeholder">-->
+                            <!-- // form item -->                           
+                            <label for="formA04">Efectivo: </label>
+                            <?php echo $this->Form->text('efectivo', array('class'=>'input-block-level', 'id'=>'efectivo','placeholder'=>'Monto efectivo')); ?>
+                            <label for="formA04">Cambio: </label>
+                            <?php echo $this->Form->text('cambio', array('class'=>'input-block-level', 'id'=>'cambio','placeholder'=>'Monto efectivo','')); ?>
+                            
+                            <input type="submit" value="Facturar"/> 
+                            </form>
                         </fieldset>
                         <hr/>
                     </div>                 
@@ -102,6 +116,7 @@
                               <label>
                                Aplicar descuento
                             </label>
+                           
                                 <select id="descuento" class="selectpicker-info" name="data[Recibo][descuento]">
                                     <option selected="selected" value="0">Sin descuento</option>
                                         <?php foreach($descuentos as $descuento): ?>
@@ -134,23 +149,32 @@
                     </div>                  
                     <a class="btn btn-large btn-turgu" href="#"><i class="fontello-icon-publish"></i> AGREGAR DESCUENTO</a>
                     <script>
+                    $("#btMuestraFacturar").click(function() {
+                            //console.log('click');
+                            $("#muestraFacturar").toggle("slow");
+                        });
+                        $("#nit").change(function(){
+                            var nit = $("#nit").val();
+                            console.log(nit);
+                            $("#nombre").load('<?php echo $this->Html->url(array('controller'=>'Controlpedidos', 'action'=>'ajaxnombre')) ?>/'+nit);
+                        });  
+                        $("#efectivo").change(function(){
+                            var efectivo = $("#efectivo").val();
+                            var total = <?php echo $totalCancelar ?>;
+                            var cambio = efectivo - total;
+                            console.log(cambio);
+                            $("#cambio").val(cambio);
+                            
+                        }
+                        );
+                    </script>
+                    <script>
                         $("#btMuestraFacturar").click(function() {
                             //console.log('click');
                             $("#muestraFacturar").toggle("slow");
                         });
                         $("#bt_pagar").click(function(){
                             $("#MuestraPagar").toggle("slow");
-                        });
-                        $("#descuento").onchange(function(){
-                            console.log(this.val);
-                            if(this.value == '0'){
-                               $("#muestraTotaldescuento").hide();
-                            }else{
-                               var totalcondescuento = <?php echo $totalCancelar ?> - (this.value * <?php echo $totalCancelar ?>); 
-                                $("#nuevoTotal").val(totalcondescuento); 
-                                $("#muestraTotaldescuento").toggle("slow");
-                            }
-                            
                         });
                         $("#montoPago").change(function(){
                              var cambio;
@@ -159,9 +183,34 @@
                             }else{
                                 cambio = $("#montoPago").val() - $("#nuevoTotal").val();
                             }
-                            
+                            console.log(cambio);
                             $("#montoCambio").val(cambio);
                         });
+                        $("#descuento").change(function(){
+                            var cambio;
+                            var valor = this.value;
+                            console.log(valor);
+                            //var valor = this.value;
+                            if(valor > 0){
+                                console.log("entro a otro ");
+                               var totalcondescuento = <?php echo $totalCancelar ?> - (valor * <?php echo $totalCancelar ?>); 
+                                $("#nuevoTotal").val(totalcondescuento); 
+                                $("#muestraTotaldescuento").toggle('slow');
+                                
+                                cambio = $("#montoPago").val() - $("#nuevoTotal").val();
+                                 
+                            }else{
+                                
+                                console.log("entro a cero");
+                               $("#muestraTotaldescuento").hide();
+                               cambio =  $("#montoPago").val() - <?php echo $totalCancelar ?>;
+                            
+                            }
+                            console.log(cambio);
+                            $("#montoCambio").val(cambio);
+                            
+                        });
+                        
                         
                     </script>
                 </div>

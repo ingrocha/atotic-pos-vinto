@@ -31,17 +31,57 @@ class ControlpedidosController extends AppController
 
         $this->set(compact('data'));
     }
-
+    public function ajaxnombre($nit=null){
+        $this->layout = 'ajax';
+        $nombre = $this->Cliente->find('first', array('conditions'=>array('Cliente.nit'=>$nit)));
+        if(!empty($nombre)){
+            $nombre = $nombre['Cliente']['nombrenit'];
+            $existe =1;
+        }else{
+            $nombre = null;
+            $existe =0;
+        }
+        $this->set(compact('nombre', 'existe'));
+    }
     public function facturar()
     {
         $this->layout = 'imprimir';
-        $id_pedido = $this->data['Controlpedidos']['id_pedido'];
+        
+        $usuario = $this->Session->read('Auth.user.nombre');
+        //debug($this->request->data);exit;
+        $existe = $this->request->data['Controlpedidos']['existe'];
+        $pedido = $this->request->data['Controlpedidos']['id_pedido'];
+        
+        $montoTotal = $this->request->data['Controlpedidos']['monto'];
+        $nit = $this->request->data['Controlpedidos']['nit'];
+        $nombre = $this->request->data['Controlpedidos']['nombre'];
+        $efectivo = $this->request->data['Controlpedidos']['efectivo'];
+        $efectivo = number_format($efectivo, 2, '.',',');
+        $cambio = $this->request->data['Controlpedidos']['cambio'];
+        $cambio = number_format($cambio, 2, '.',',');
+        
+        $this->request->data='';
+        
+        if(!$existe){
+            $this->request->data['Cliente']['nombre']= $nombre;
+            $this->request->data['Cliente']['nombrenit']=$nombre;
+            $this->request->data['Cliente']['nit']=$nit;
+            $this->Cliente->create();
+            $this->Cliente->save($this->request->data);
+        }
+        
+        $data = array('id'=>$pedido, 'estado'=>4,'monto'=>$montoTotal);
+        $this->Pedido->save($data);
+        
+        
+        $id_pedido = $this->request->data['Controlpedidos']['id_pedido'];
         $pedido = $this->Pedido->find('all', array('recursive' => -1, 'conditions' =>
             array('id' => $id_pedido)));
-        if (!empty($this->data))
+            
+        if (!empty($this->request->data))
         {
             //debug($this->data);
-            $cliente = $this->data['Controlpedidos']['apellido'];
+            $cliente = $this->request->data['Controlpedidos']['nombre'];
             $nitcliente = $this->data['Controlpedidos']['nit'];
             $importe = $pedido['0']['Pedido']['total'];
             $this->data = "";
@@ -49,6 +89,7 @@ class ControlpedidosController extends AppController
             $this->request->data['Factura']['nit'] = $nitcliente;
             $this->request->data['Factura']['importetotal'] = $importe;
             $this->Factura->create();
+            
             if ($this->Factura->save($this->data))
             {
                 $pf = $this->Parametrosfactura->find('first');
@@ -530,6 +571,7 @@ class ControlpedidosController extends AppController
         $this->set(compact('data'));  
     }
     public function pagarcuenta(){
+        $this->layout = 'imprime';
         //debug($this->request->data);exit;
         $idPedido = $this->request->data['Recibo']['pedido_id'];
         $cambio = number_format($this->request->data['Recibo']['cambio'],2,'.', ',');
@@ -545,8 +587,14 @@ class ControlpedidosController extends AppController
             
             $this->Recibo->create();
             if($this->Recibo->save($this->request->data['Recibo'])){
-                $this->Session->setFlash(__('El pedido '.$pedido['Pedido']['mesa'].' fue pagado'),'alerts/bueno');
-                $this->redirect(array('action' => 'index'));    
+               $idRecibo = $this->Recibo->getLastInsertID();
+               //debug($idRecibo);
+               $recibo = $this->Recibo->find('first', array(
+               'conditions'=>array('Recibo.id'=>$idRecibo)
+               ));
+             
+              // $usuario = $this->Session->read('Auth.User')
+               $this->set(compact('recibo', 'usuario'));
             }else{
                 $this->Session->setFlash(__('Error al registrar el recibo del pedido '.$pedido['Pedido']['mesa'].' fue pagado'),'alerts/bueno');
                 $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['mesa']));
