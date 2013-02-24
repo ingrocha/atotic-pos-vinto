@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.5
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Feb 23, 2013 at 08:50 PM
--- Server version: 5.5.16
--- PHP Version: 5.3.8
+-- Servidor: localhost
+-- Tiempo de generación: 24-02-2013 a las 17:49:05
+-- Versión del servidor: 5.1.37
+-- Versión de PHP: 5.3.0
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `sisvinto`
+-- Base de datos: `sisvinto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acos`
+-- Estructura de tabla para la tabla `acos`
 --
 
 CREATE TABLE IF NOT EXISTS `acos` (
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `acos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `almacen`
+-- Estructura de tabla para la tabla `almacen`
 --
 
 CREATE TABLE IF NOT EXISTS `almacen` (
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `almacen` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=112 ;
 
 --
--- Dumping data for table `almacen`
+-- Volcado de datos para la tabla `almacen`
 --
 
 INSERT INTO `almacen` (`id`, `insumo_id`, `preciocompra`, `ingreso`, `salida`, `total`, `fecha`, `lugar`, `observaciones`, `usuario_id`) VALUES
@@ -168,7 +168,7 @@ INSERT INTO `almacen` (`id`, `insumo_id`, `preciocompra`, `ingreso`, `salida`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aros`
+-- Estructura de tabla para la tabla `aros`
 --
 
 CREATE TABLE IF NOT EXISTS `aros` (
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `aros` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `aros`
+-- Volcado de datos para la tabla `aros`
 --
 
 INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
@@ -194,7 +194,7 @@ INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aros_acos`
+-- Estructura de tabla para la tabla `aros_acos`
 --
 
 CREATE TABLE IF NOT EXISTS `aros_acos` (
@@ -212,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `aros_acos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asistencias`
+-- Estructura de tabla para la tabla `asistencias`
 --
 
 CREATE TABLE IF NOT EXISTS `asistencias` (
@@ -226,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `asistencias` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
--- Dumping data for table `asistencias`
+-- Volcado de datos para la tabla `asistencias`
 --
 
 INSERT INTO `asistencias` (`id`, `usuario_id`, `horaingreso`, `horasalida`, `fecha`, `observaciones`) VALUES
@@ -248,7 +248,7 @@ INSERT INTO `asistencias` (`id`, `usuario_id`, `horaingreso`, `horasalida`, `fec
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bodegas`
+-- Estructura de tabla para la tabla `bodegas`
 --
 
 CREATE TABLE IF NOT EXISTS `bodegas` (
@@ -262,10 +262,10 @@ CREATE TABLE IF NOT EXISTS `bodegas` (
   `lugar` varchar(255) DEFAULT NULL,
   `observaciones` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=642 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=648 ;
 
 --
--- Dumping data for table `bodegas`
+-- Volcado de datos para la tabla `bodegas`
 --
 
 INSERT INTO `bodegas` (`id`, `insumo_id`, `preciocompra`, `ingreso`, `salida`, `total`, `fecha`, `lugar`, `observaciones`) VALUES
@@ -908,12 +908,18 @@ INSERT INTO `bodegas` (`id`, `insumo_id`, `preciocompra`, `ingreso`, `salida`, `
 (638, 4, 0.00, 0, 1, 938, '2013-02-18', NULL, NULL),
 (639, 1, 12.00, 0, 1, 917, '2013-02-18', NULL, NULL),
 (640, 4, 0.00, 0, 1, 937, '2013-02-18', NULL, NULL),
-(641, 14, 0.00, 0, 1, 1020, '2013-02-18', NULL, NULL);
+(641, 14, 0.00, 0, 1, 1020, '2013-02-18', NULL, NULL),
+(642, 1, 12.00, 0, 1, 916, '2013-02-24', NULL, NULL),
+(643, 14, 0.00, 0, 1, 1019, '2013-02-24', NULL, NULL),
+(644, 1, 12.00, 0, 1, 915, '2013-02-24', NULL, NULL),
+(645, 14, 0.00, 0, 1, 1018, '2013-02-24', NULL, NULL),
+(646, 1, 12.00, 0, 1, 914, '2013-02-24', NULL, NULL),
+(647, 14, 0.00, 0, 1, 1017, '2013-02-24', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE IF NOT EXISTS `categorias` (
@@ -926,7 +932,7 @@ CREATE TABLE IF NOT EXISTS `categorias` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
--- Dumping data for table `categorias`
+-- Volcado de datos para la tabla `categorias`
 --
 
 INSERT INTO `categorias` (`id`, `nombre`, `descripcion`, `tipo`, `estado`) VALUES
@@ -949,12 +955,14 @@ INSERT INTO `categorias` (`id`, `nombre`, `descripcion`, `tipo`, `estado`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clientes`
+-- Estructura de tabla para la tabla `clientes`
 --
 
 CREATE TABLE IF NOT EXISTS `clientes` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Es la llave primaria de la tabla clientes',
   `nombre` varchar(50) NOT NULL,
+  `nit` int(11) DEFAULT NULL,
+  `nombrenit` varchar(200) DEFAULT NULL,
   `direccion` varchar(200) DEFAULT NULL,
   `telefono` varchar(30) DEFAULT NULL,
   `estado` int(1) DEFAULT '1',
@@ -962,22 +970,22 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `clientes`
+-- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id`, `nombre`, `direccion`, `telefono`, `estado`) VALUES
-(2, 'Mauricio Ayllon', 'calle uno', '110', 1),
-(3, 'Antonio Lopez', 'Calle Garzilazo', '951478', 0),
-(5, 'Demo', 'demo', '1231', 1),
-(6, 'oscar prieto', 'calle 34', '12345', 1),
-(7, 'bryan calderon', 'ceja el alto', '8765654', 1),
-(9, 'Adriana Miranda', 'C. Vida Nueva 1234', '70688246', 0),
-(10, 'John Maxwel', 'aqui la direccion', '123123', 1);
+INSERT INTO `clientes` (`id`, `nombre`, `nit`, `nombrenit`, `direccion`, `telefono`, `estado`) VALUES
+(2, 'Mauricio Ayllon', NULL, NULL, 'calle uno', '110', 1),
+(3, 'Antonio Lopez', NULL, NULL, 'Calle Garzilazo', '951478', 0),
+(5, 'Demo', NULL, NULL, 'demo', '1231', 1),
+(6, 'oscar prieto', NULL, NULL, 'calle 34', '12345', 1),
+(7, 'bryan calderon', NULL, NULL, 'ceja el alto', '8765654', 1),
+(9, 'Adriana Miranda', NULL, NULL, 'C. Vida Nueva 1234', '70688246', 0),
+(10, 'John Maxwel', NULL, NULL, 'aqui la direccion', '123123', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `confmultas`
+-- Estructura de tabla para la tabla `confmultas`
 --
 
 CREATE TABLE IF NOT EXISTS `confmultas` (
@@ -990,7 +998,7 @@ CREATE TABLE IF NOT EXISTS `confmultas` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `confmultas`
+-- Volcado de datos para la tabla `confmultas`
 --
 
 INSERT INTO `confmultas` (`id`, `horas`, `minutos`, `monto`, `observaciones`) VALUES
@@ -1001,7 +1009,7 @@ INSERT INTO `confmultas` (`id`, `horas`, `minutos`, `monto`, `observaciones`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contratos`
+-- Estructura de tabla para la tabla `contratos`
 --
 
 CREATE TABLE IF NOT EXISTS `contratos` (
@@ -1015,7 +1023,7 @@ CREATE TABLE IF NOT EXISTS `contratos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `contratos`
+-- Volcado de datos para la tabla `contratos`
 --
 
 INSERT INTO `contratos` (`id`, `usuario_id`, `sueldo`, `fechainicio`, `fechafin`, `observaciones`) VALUES
@@ -1024,7 +1032,7 @@ INSERT INTO `contratos` (`id`, `usuario_id`, `sueldo`, `fechainicio`, `fechafin`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `departamentos`
+-- Estructura de tabla para la tabla `departamentos`
 --
 
 CREATE TABLE IF NOT EXISTS `departamentos` (
@@ -1034,7 +1042,7 @@ CREATE TABLE IF NOT EXISTS `departamentos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `departamentos`
+-- Volcado de datos para la tabla `departamentos`
 --
 
 INSERT INTO `departamentos` (`id`, `nombre`) VALUES
@@ -1044,7 +1052,7 @@ INSERT INTO `departamentos` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `descuentos`
+-- Estructura de tabla para la tabla `descuentos`
 --
 
 CREATE TABLE IF NOT EXISTS `descuentos` (
@@ -1055,17 +1063,17 @@ CREATE TABLE IF NOT EXISTS `descuentos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `descuentos`
+-- Volcado de datos para la tabla `descuentos`
 --
 
 INSERT INTO `descuentos` (`id`, `porcentaje`, `observacion`) VALUES
-(1, 0.00, '10 %'),
+(1, 0.10, '10 %'),
 (3, 0.20, '20 %');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estados`
+-- Estructura de tabla para la tabla `estados`
 --
 
 CREATE TABLE IF NOT EXISTS `estados` (
@@ -1075,7 +1083,7 @@ CREATE TABLE IF NOT EXISTS `estados` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `estados`
+-- Volcado de datos para la tabla `estados`
 --
 
 INSERT INTO `estados` (`id`, `nombre`) VALUES
@@ -1087,7 +1095,7 @@ INSERT INTO `estados` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `facturas`
+-- Estructura de tabla para la tabla `facturas`
 --
 
 CREATE TABLE IF NOT EXISTS `facturas` (
@@ -1098,10 +1106,10 @@ CREATE TABLE IF NOT EXISTS `facturas` (
   `importetotal` decimal(10,2) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=106 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=107 ;
 
 --
--- Dumping data for table `facturas`
+-- Volcado de datos para la tabla `facturas`
 --
 
 INSERT INTO `facturas` (`id`, `codigo_control`, `cliente`, `nit`, `importetotal`, `fecha`) VALUES
@@ -1160,12 +1168,13 @@ INSERT INTO `facturas` (`id`, `codigo_control`, `cliente`, `nit`, `importetotal`
 (102, NULL, 'Perez', '1234567890', '137.00', NULL),
 (103, NULL, 'Herrea', '1234567890', '132.00', NULL),
 (104, NULL, 'miranda', '4839295013', '150.00', NULL),
-(105, NULL, 'miranda', '4839295013', '75.00', NULL);
+(105, NULL, 'miranda', '4839295013', '75.00', NULL),
+(106, NULL, 'MIRANDA', '4839295013', '75.00', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `horarios`
+-- Estructura de tabla para la tabla `horarios`
 --
 
 CREATE TABLE IF NOT EXISTS `horarios` (
@@ -1179,7 +1188,7 @@ CREATE TABLE IF NOT EXISTS `horarios` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `horarios`
+-- Volcado de datos para la tabla `horarios`
 --
 
 INSERT INTO `horarios` (`id`, `entrada`, `salida`, `observacion`, `habil`, `dia`) VALUES
@@ -1188,7 +1197,7 @@ INSERT INTO `horarios` (`id`, `entrada`, `salida`, `observacion`, `habil`, `dia`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `insumos`
+-- Estructura de tabla para la tabla `insumos`
 --
 
 CREATE TABLE IF NOT EXISTS `insumos` (
@@ -1206,7 +1215,7 @@ CREATE TABLE IF NOT EXISTS `insumos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
 
 --
--- Dumping data for table `insumos`
+-- Volcado de datos para la tabla `insumos`
 --
 
 INSERT INTO `insumos` (`id`, `nombre`, `preciocompra`, `precioventa`, `fecha`, `total`, `bodega`, `tipo_id`, `estado`, `observaciones`) VALUES
@@ -1249,7 +1258,7 @@ INSERT INTO `insumos` (`id`, `nombre`, `preciocompra`, `precioventa`, `fecha`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `items`
+-- Estructura de tabla para la tabla `items`
 --
 
 CREATE TABLE IF NOT EXISTS `items` (
@@ -1260,10 +1269,10 @@ CREATE TABLE IF NOT EXISTS `items` (
   `precio` float(15,2) NOT NULL DEFAULT '0.00',
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=303 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=309 ;
 
 --
--- Dumping data for table `items`
+-- Volcado de datos para la tabla `items`
 --
 
 INSERT INTO `items` (`id`, `pedido_id`, `producto_id`, `cantidad`, `precio`, `fecha`) VALUES
@@ -1548,12 +1557,18 @@ INSERT INTO `items` (`id`, `pedido_id`, `producto_id`, `cantidad`, `precio`, `fe
 (299, 134, 14, 1, 60.00, '2013-02-18 20:20:14'),
 (300, 135, 15, 1, 60.00, '2013-02-18 22:39:44'),
 (301, 135, 14, 1, 60.00, '2013-02-18 22:39:45'),
-(302, 135, 49, 1, 15.00, '2013-02-18 22:39:47');
+(302, 135, 49, 1, 15.00, '2013-02-18 22:39:47'),
+(303, 136, 15, 1, 60.00, '2013-02-24 03:25:07'),
+(304, 136, 49, 1, 15.00, '2013-02-24 03:25:14'),
+(305, 137, 15, 1, 60.00, '2013-02-24 03:40:00'),
+(306, 137, 49, 1, 15.00, '2013-02-24 03:40:03'),
+(307, 138, 15, 1, 60.00, '2013-02-24 16:52:21'),
+(308, 138, 49, 1, 15.00, '2013-02-24 16:52:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movimientos`
+-- Estructura de tabla para la tabla `movimientos`
 --
 
 CREATE TABLE IF NOT EXISTS `movimientos` (
@@ -1569,7 +1584,7 @@ CREATE TABLE IF NOT EXISTS `movimientos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `multas`
+-- Estructura de tabla para la tabla `multas`
 --
 
 CREATE TABLE IF NOT EXISTS `multas` (
@@ -1583,7 +1598,7 @@ CREATE TABLE IF NOT EXISTS `multas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `parametrosfacturas`
+-- Estructura de tabla para la tabla `parametrosfacturas`
 --
 
 CREATE TABLE IF NOT EXISTS `parametrosfacturas` (
@@ -1597,7 +1612,7 @@ CREATE TABLE IF NOT EXISTS `parametrosfacturas` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `parametrosfacturas`
+-- Volcado de datos para la tabla `parametrosfacturas`
 --
 
 INSERT INTO `parametrosfacturas` (`id`, `nit`, `numero_autorizacion`, `llave`, `otro2`, `otro3`) VALUES
@@ -1606,7 +1621,7 @@ INSERT INTO `parametrosfacturas` (`id`, `nit`, `numero_autorizacion`, `llave`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pedidos`
+-- Estructura de tabla para la tabla `pedidos`
 --
 
 CREATE TABLE IF NOT EXISTS `pedidos` (
@@ -1616,117 +1631,122 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `mesa` smallint(6) NOT NULL DEFAULT '0',
   `estado` int(1) NOT NULL DEFAULT '0' COMMENT '0 creado, 1 impreso y cosina, 2 servido, 3 pagado, 4 facturado',
   `total` float(15,2) NOT NULL DEFAULT '0.00',
+  `descuento` decimal(10,2) DEFAULT NULL,
   `monto` float(15,2) NOT NULL DEFAULT '0.00',
   `fechac` varchar(10) NOT NULL,
+  `created` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=136 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=139 ;
 
 --
--- Dumping data for table `pedidos`
+-- Volcado de datos para la tabla `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `usuario_id`, `fecha`, `mesa`, `estado`, `total`, `monto`, `fechac`) VALUES
-(13, 2, '2012-10-06 16:25:32', 1, 1, 60.00, 0.00, ''),
-(14, 2, '2012-10-06 19:57:14', 2, 1, 72.00, 200.00, ''),
-(15, 2, '2012-10-07 00:43:04', 1, 3, 132.00, 200.00, ''),
-(16, 2, '2012-10-07 13:09:39', 2, 3, 137.00, 200.00, ''),
-(17, 2, '2012-10-07 15:23:57', 3, 3, 132.00, 200.00, ''),
-(18, 2, '2012-10-07 22:43:35', 4, 3, 197.00, 200.00, ''),
-(19, 2, '2012-12-18 19:53:24', 1, 1, 0.00, 0.00, ''),
-(20, 2, '2012-12-18 20:05:40', 2, 1, 0.00, 0.00, ''),
-(21, 2, '2012-12-21 18:42:47', 1, 1, 132.00, 0.00, ''),
-(22, 2, '2012-12-22 20:39:05', 1, 1, 60.00, 0.00, ''),
-(23, 2, '2013-01-31 15:59:22', 1, 1, 0.00, 0.00, ''),
-(24, 2, '2013-01-31 17:27:58', 2, 1, 180.00, 0.00, ''),
-(25, 2, '2013-02-02 23:20:09', 1, 1, 132.00, 0.00, ''),
-(26, 2, '2013-02-02 23:20:58', 2, 1, 132.00, 0.00, ''),
-(27, 2, '2013-02-06 23:16:45', 1, 1, 0.00, 0.00, ''),
-(28, 2, '2013-02-07 01:55:32', 1, 1, 125.00, 0.00, ''),
-(29, 2, '2013-02-11 19:25:17', 1, 1, 150.00, 0.00, ''),
-(30, 2, '2013-02-11 20:50:00', 2, 1, 225.00, 0.00, ''),
-(31, 2, '2013-02-11 20:55:17', 3, 1, 90.00, 0.00, ''),
-(32, 2, '2013-02-15 15:59:35', 1, 1, 0.00, 0.00, ''),
-(33, 2, '2013-02-16 21:23:40', 1, 1, 65.00, 0.00, ''),
-(34, 2, '2013-02-17 15:25:35', 1, 1, 68.00, 0.00, ''),
-(35, 2, '2013-02-17 16:10:54', 2, 1, 160.00, 0.00, ''),
-(36, 2, '2013-02-17 16:12:07', 3, 1, 80.00, 0.00, ''),
-(37, 2, '2013-02-17 16:12:48', 4, 1, 135.00, 0.00, ''),
-(38, 2, '2013-02-17 16:13:45', 5, 1, 30.00, 0.00, ''),
-(39, 2, '2013-02-17 16:14:31', 6, 1, 150.00, 0.00, ''),
-(40, 2, '2013-02-17 16:15:44', 7, 1, 15.00, 0.00, ''),
-(41, 2, '2013-02-17 16:21:29', 8, 1, 75.00, 0.00, ''),
-(42, 2, '2013-02-17 16:29:49', 9, 1, 15.00, 0.00, ''),
-(88, 2, '2013-02-17 20:12:06', 28, 1, 195.00, 0.00, ''),
-(87, 3, '2013-02-17 20:10:29', 27, 1, 135.00, 0.00, ''),
-(86, 2, '2013-02-17 20:10:12', 26, 1, 210.00, 0.00, ''),
-(85, 3, '2013-02-17 20:10:09', 25, 1, 150.00, 0.00, ''),
-(84, 2, '2013-02-17 20:09:33', 24, 1, 135.00, 0.00, ''),
-(83, 2, '2013-02-17 20:09:00', 23, 1, 75.00, 0.00, ''),
-(82, 3, '2013-02-17 19:58:41', 22, 1, 345.00, 0.00, ''),
-(81, 2, '2013-02-17 19:58:24', 21, 1, 135.00, 0.00, ''),
-(80, 2, '2013-02-17 19:57:48', 20, 1, 75.00, 0.00, ''),
-(79, 3, '2013-02-17 19:52:04', 19, 1, 150.00, 0.00, ''),
-(78, 2, '2013-02-17 19:52:02', 18, 1, 135.00, 0.00, ''),
-(77, 2, '2013-02-17 19:31:50', 17, 1, 135.00, 0.00, ''),
-(76, 3, '2013-02-17 19:31:39', 16, 1, 210.00, 0.00, ''),
-(75, 2, '2013-02-17 19:09:33', 15, 1, 150.00, 0.00, ''),
-(74, 2, '2013-02-17 19:07:58', 14, 1, 135.00, 0.00, ''),
-(73, 3, '2013-02-17 19:07:55', 13, 1, 135.00, 0.00, ''),
-(72, 3, '2013-02-17 19:04:26', 12, 1, 150.00, 0.00, ''),
-(71, 2, '2013-02-17 19:03:15', 11, 1, 135.00, 0.00, ''),
-(70, 3, '2013-02-17 19:02:54', 10, 1, 75.00, 0.00, ''),
-(89, 3, '2013-02-17 20:12:11', 29, 1, 75.00, 0.00, ''),
-(90, 3, '2013-02-17 20:12:47', 30, 1, 150.00, 0.00, ''),
-(91, 2, '2013-02-17 20:12:48', 31, 1, 150.00, 0.00, ''),
-(92, 2, '2013-02-17 20:14:59', 32, 1, 135.00, 0.00, ''),
-(93, 2, '2013-02-17 20:15:50', 33, 1, 135.00, 0.00, ''),
-(94, 2, '2013-02-17 20:16:45', 34, 1, 135.00, 0.00, ''),
-(95, 3, '2013-02-17 20:16:51', 35, 1, 120.00, 0.00, ''),
-(96, 3, '2013-02-17 20:17:19', 36, 1, 150.00, 0.00, ''),
-(97, 2, '2013-02-17 20:17:26', 37, 1, 135.00, 0.00, ''),
-(98, 3, '2013-02-17 20:23:26', 38, 1, 135.00, 0.00, ''),
-(99, 2, '2013-02-17 20:23:34', 39, 1, 150.00, 0.00, ''),
-(100, 2, '2013-02-17 20:35:19', 40, 1, 135.00, 0.00, ''),
-(101, 2, '2013-02-17 20:35:51', 41, 1, 135.00, 0.00, ''),
-(102, 2, '2013-02-17 20:40:18', 42, 1, 135.00, 0.00, ''),
-(103, 2, '2013-02-17 20:57:09', 43, 1, 120.00, 0.00, ''),
-(104, 2, '2013-02-17 21:00:22', 44, 1, 135.00, 0.00, ''),
-(105, 2, '2013-02-17 21:22:06', 45, 1, 135.00, 0.00, ''),
-(106, 2, '2013-02-17 21:24:44', 46, 1, 135.00, 0.00, ''),
-(107, 2, '2013-02-17 21:28:26', 47, 1, 75.00, 0.00, ''),
-(108, 2, '2013-02-17 21:31:52', 48, 1, 135.00, 0.00, ''),
-(109, 3, '2013-02-17 21:34:47', 49, 1, 75.00, 0.00, ''),
-(110, 2, '2013-02-17 21:34:52', 50, 1, 75.00, 0.00, ''),
-(111, 3, '2013-02-17 21:36:23', 51, 1, 0.00, 0.00, ''),
-(112, 1, '2013-02-17 21:36:38', 52, 1, 135.00, 0.00, ''),
-(113, 2, '2013-02-17 21:36:43', 53, 1, 135.00, 0.00, ''),
-(114, 3, '2013-02-17 21:36:49', 54, 1, 150.00, 0.00, ''),
-(115, 2, '2013-02-17 21:44:00', 55, 1, 135.00, 0.00, ''),
-(116, 3, '2013-02-17 21:44:04', 56, 1, 150.00, 0.00, ''),
-(117, 1, '2013-02-17 21:44:42', 57, 1, 135.00, 0.00, ''),
-(118, 2, '2013-02-17 21:45:22', 58, 1, 120.00, 0.00, ''),
-(119, 3, '2013-02-17 21:45:48', 59, 1, 150.00, 0.00, ''),
-(120, 2, '2013-02-17 21:47:15', 60, 1, 135.00, 0.00, ''),
-(121, 3, '2013-02-17 21:47:30', 61, 1, 225.00, 0.00, ''),
-(122, 2, '2013-02-17 21:48:14', 62, 1, 135.00, 0.00, ''),
-(123, 2, '2013-02-17 21:49:49', 63, 1, 135.00, 0.00, ''),
-(124, 3, '2013-02-17 21:50:23', 64, 1, 75.00, 0.00, ''),
-(125, 2, '2013-02-17 21:50:51', 65, 1, 135.00, 0.00, ''),
-(126, 1, '2013-02-17 21:51:16', 66, 1, 135.00, 0.00, ''),
-(127, 3, '2013-02-17 21:51:55', 67, 1, 120.00, 0.00, ''),
-(128, 1, '2013-02-17 21:51:57', 68, 1, 150.00, 0.00, ''),
-(129, 2, '2013-02-17 21:54:32', 69, 1, 135.00, 0.00, ''),
-(130, 2, '2013-02-18 14:04:00', 1, 1, 150.00, 0.00, ''),
-(131, 2, '2013-02-18 14:18:25', 2, 1, 75.00, 0.00, ''),
-(132, 1, '2013-02-18 20:17:16', 3, 1, 75.00, 0.00, ''),
-(133, 1, '2013-02-18 20:18:40', 4, 1, 150.00, 0.00, ''),
-(134, 2, '2013-02-18 20:20:11', 5, 1, 60.00, 0.00, ''),
-(135, 2, '2013-02-18 22:39:40', 6, 1, 135.00, 0.00, '');
+INSERT INTO `pedidos` (`id`, `usuario_id`, `fecha`, `mesa`, `estado`, `total`, `descuento`, `monto`, `fechac`, `created`) VALUES
+(13, 2, '2012-10-06 16:25:32', 1, 1, 60.00, NULL, 0.00, '', NULL),
+(14, 2, '2012-10-06 19:57:14', 2, 1, 72.00, NULL, 200.00, '', NULL),
+(15, 2, '2012-10-07 00:43:04', 1, 3, 132.00, NULL, 200.00, '', NULL),
+(16, 2, '2012-10-07 13:09:39', 2, 3, 137.00, NULL, 200.00, '', NULL),
+(17, 2, '2012-10-07 15:23:57', 3, 3, 132.00, NULL, 200.00, '', NULL),
+(18, 2, '2012-10-07 22:43:35', 4, 3, 197.00, NULL, 200.00, '', NULL),
+(19, 2, '2012-12-18 19:53:24', 1, 1, 0.00, NULL, 0.00, '', NULL),
+(20, 2, '2012-12-18 20:05:40', 2, 1, 0.00, NULL, 0.00, '', NULL),
+(21, 2, '2012-12-21 18:42:47', 1, 1, 132.00, NULL, 0.00, '', NULL),
+(22, 2, '2012-12-22 20:39:05', 1, 1, 60.00, NULL, 0.00, '', NULL),
+(23, 2, '2013-01-31 15:59:22', 1, 1, 0.00, NULL, 0.00, '', NULL),
+(24, 2, '2013-01-31 17:27:58', 2, 1, 180.00, NULL, 0.00, '', NULL),
+(25, 2, '2013-02-02 23:20:09', 1, 1, 132.00, NULL, 0.00, '', NULL),
+(26, 2, '2013-02-02 23:20:58', 2, 1, 132.00, NULL, 0.00, '', NULL),
+(27, 2, '2013-02-06 23:16:45', 1, 1, 0.00, NULL, 0.00, '', NULL),
+(28, 2, '2013-02-07 01:55:32', 1, 1, 125.00, NULL, 0.00, '', NULL),
+(29, 2, '2013-02-11 19:25:17', 1, 1, 150.00, NULL, 0.00, '', NULL),
+(30, 2, '2013-02-11 20:50:00', 2, 1, 225.00, NULL, 0.00, '', NULL),
+(31, 2, '2013-02-11 20:55:17', 3, 1, 90.00, NULL, 0.00, '', NULL),
+(32, 2, '2013-02-15 15:59:35', 1, 1, 0.00, NULL, 0.00, '', NULL),
+(33, 2, '2013-02-16 21:23:40', 1, 1, 65.00, NULL, 0.00, '', NULL),
+(34, 2, '2013-02-17 15:25:35', 1, 1, 68.00, NULL, 0.00, '', NULL),
+(35, 2, '2013-02-17 16:10:54', 2, 1, 160.00, NULL, 0.00, '', NULL),
+(36, 2, '2013-02-17 16:12:07', 3, 1, 80.00, NULL, 0.00, '', NULL),
+(37, 2, '2013-02-17 16:12:48', 4, 1, 135.00, NULL, 0.00, '', NULL),
+(38, 2, '2013-02-17 16:13:45', 5, 1, 30.00, NULL, 0.00, '', NULL),
+(39, 2, '2013-02-17 16:14:31', 6, 1, 150.00, NULL, 0.00, '', NULL),
+(40, 2, '2013-02-17 16:15:44', 7, 1, 15.00, NULL, 0.00, '', NULL),
+(41, 2, '2013-02-17 16:21:29', 8, 1, 75.00, NULL, 0.00, '', NULL),
+(42, 2, '2013-02-17 16:29:49', 9, 1, 15.00, NULL, 0.00, '', NULL),
+(88, 2, '2013-02-17 20:12:06', 28, 1, 195.00, NULL, 0.00, '', NULL),
+(87, 3, '2013-02-17 20:10:29', 27, 1, 135.00, NULL, 0.00, '', NULL),
+(86, 2, '2013-02-17 20:10:12', 26, 1, 210.00, NULL, 0.00, '', NULL),
+(85, 3, '2013-02-17 20:10:09', 25, 1, 150.00, NULL, 0.00, '', NULL),
+(84, 2, '2013-02-17 20:09:33', 24, 1, 135.00, NULL, 0.00, '', NULL),
+(83, 2, '2013-02-17 20:09:00', 23, 1, 75.00, NULL, 0.00, '', NULL),
+(82, 3, '2013-02-17 19:58:41', 22, 1, 345.00, NULL, 0.00, '', NULL),
+(81, 2, '2013-02-17 19:58:24', 21, 1, 135.00, NULL, 0.00, '', NULL),
+(80, 2, '2013-02-17 19:57:48', 20, 1, 75.00, NULL, 0.00, '', NULL),
+(79, 3, '2013-02-17 19:52:04', 19, 1, 150.00, NULL, 0.00, '', NULL),
+(78, 2, '2013-02-17 19:52:02', 18, 1, 135.00, NULL, 0.00, '', NULL),
+(77, 2, '2013-02-17 19:31:50', 17, 1, 135.00, NULL, 0.00, '', NULL),
+(76, 3, '2013-02-17 19:31:39', 16, 1, 210.00, NULL, 0.00, '', NULL),
+(75, 2, '2013-02-17 19:09:33', 15, 1, 150.00, NULL, 0.00, '', NULL),
+(74, 2, '2013-02-17 19:07:58', 14, 1, 135.00, NULL, 0.00, '', NULL),
+(73, 3, '2013-02-17 19:07:55', 13, 1, 135.00, NULL, 0.00, '', NULL),
+(72, 3, '2013-02-17 19:04:26', 12, 1, 150.00, NULL, 0.00, '', NULL),
+(71, 2, '2013-02-17 19:03:15', 11, 1, 135.00, NULL, 0.00, '', NULL),
+(70, 3, '2013-02-17 19:02:54', 10, 1, 75.00, NULL, 0.00, '', NULL),
+(89, 3, '2013-02-17 20:12:11', 29, 1, 75.00, NULL, 0.00, '', NULL),
+(90, 3, '2013-02-17 20:12:47', 30, 1, 150.00, NULL, 0.00, '', NULL),
+(91, 2, '2013-02-17 20:12:48', 31, 1, 150.00, NULL, 0.00, '', NULL),
+(92, 2, '2013-02-17 20:14:59', 32, 1, 135.00, NULL, 0.00, '', NULL),
+(93, 2, '2013-02-17 20:15:50', 33, 1, 135.00, NULL, 0.00, '', NULL),
+(94, 2, '2013-02-17 20:16:45', 34, 1, 135.00, NULL, 0.00, '', NULL),
+(95, 3, '2013-02-17 20:16:51', 35, 1, 120.00, NULL, 0.00, '', NULL),
+(96, 3, '2013-02-17 20:17:19', 36, 1, 150.00, NULL, 0.00, '', NULL),
+(97, 2, '2013-02-17 20:17:26', 37, 1, 135.00, NULL, 0.00, '', NULL),
+(98, 3, '2013-02-17 20:23:26', 38, 1, 135.00, NULL, 0.00, '', NULL),
+(99, 2, '2013-02-17 20:23:34', 39, 1, 150.00, NULL, 0.00, '', NULL),
+(100, 2, '2013-02-17 20:35:19', 40, 1, 135.00, NULL, 0.00, '', NULL),
+(101, 2, '2013-02-17 20:35:51', 41, 1, 135.00, NULL, 0.00, '', NULL),
+(102, 2, '2013-02-17 20:40:18', 42, 1, 135.00, NULL, 0.00, '', NULL),
+(103, 2, '2013-02-17 20:57:09', 43, 1, 120.00, NULL, 0.00, '', NULL),
+(104, 2, '2013-02-17 21:00:22', 44, 1, 135.00, NULL, 0.00, '', NULL),
+(105, 2, '2013-02-17 21:22:06', 45, 1, 135.00, NULL, 0.00, '', NULL),
+(106, 2, '2013-02-17 21:24:44', 46, 1, 135.00, NULL, 0.00, '', NULL),
+(107, 2, '2013-02-17 21:28:26', 47, 1, 75.00, NULL, 0.00, '', NULL),
+(108, 2, '2013-02-17 21:31:52', 48, 1, 135.00, NULL, 0.00, '', NULL),
+(109, 3, '2013-02-17 21:34:47', 49, 1, 75.00, NULL, 0.00, '', NULL),
+(110, 2, '2013-02-17 21:34:52', 50, 1, 75.00, NULL, 0.00, '', NULL),
+(111, 3, '2013-02-17 21:36:23', 51, 1, 0.00, NULL, 0.00, '', NULL),
+(112, 1, '2013-02-17 21:36:38', 52, 1, 135.00, NULL, 0.00, '', NULL),
+(113, 2, '2013-02-17 21:36:43', 53, 1, 135.00, NULL, 0.00, '', NULL),
+(114, 3, '2013-02-17 21:36:49', 54, 1, 150.00, NULL, 0.00, '', NULL),
+(115, 2, '2013-02-17 21:44:00', 55, 1, 135.00, NULL, 0.00, '', NULL),
+(116, 3, '2013-02-17 21:44:04', 56, 1, 150.00, NULL, 0.00, '', NULL),
+(117, 1, '2013-02-17 21:44:42', 57, 1, 135.00, NULL, 0.00, '', NULL),
+(118, 2, '2013-02-17 21:45:22', 58, 1, 120.00, NULL, 0.00, '', NULL),
+(119, 3, '2013-02-17 21:45:48', 59, 1, 150.00, NULL, 0.00, '', NULL),
+(120, 2, '2013-02-17 21:47:15', 60, 1, 135.00, NULL, 0.00, '', NULL),
+(121, 3, '2013-02-17 21:47:30', 61, 1, 225.00, NULL, 0.00, '', NULL),
+(122, 2, '2013-02-17 21:48:14', 62, 1, 135.00, NULL, 0.00, '', NULL),
+(123, 2, '2013-02-17 21:49:49', 63, 1, 135.00, NULL, 0.00, '', NULL),
+(124, 3, '2013-02-17 21:50:23', 64, 1, 75.00, NULL, 0.00, '', NULL),
+(125, 2, '2013-02-17 21:50:51', 65, 1, 135.00, NULL, 0.00, '', NULL),
+(126, 1, '2013-02-17 21:51:16', 66, 1, 135.00, NULL, 0.00, '', NULL),
+(127, 3, '2013-02-17 21:51:55', 67, 1, 120.00, NULL, 0.00, '', NULL),
+(128, 1, '2013-02-17 21:51:57', 68, 1, 150.00, NULL, 0.00, '', NULL),
+(129, 2, '2013-02-17 21:54:32', 69, 1, 135.00, NULL, 0.00, '', NULL),
+(130, 2, '2013-02-18 14:04:00', 1, 1, 150.00, NULL, 0.00, '', NULL),
+(131, 2, '2013-02-18 14:18:25', 2, 1, 75.00, NULL, 0.00, '', NULL),
+(132, 1, '2013-02-18 20:17:16', 3, 1, 75.00, NULL, 0.00, '', NULL),
+(133, 1, '2013-02-18 20:18:40', 4, 1, 150.00, NULL, 0.00, '', NULL),
+(134, 2, '2013-02-18 20:20:11', 5, 1, 60.00, NULL, 0.00, '', NULL),
+(135, 2, '2013-02-18 22:39:40', 6, 1, 135.00, NULL, 0.00, '', NULL),
+(136, 1, '2013-02-24 03:24:59', 1, 3, 75.00, NULL, 0.00, '', NULL),
+(137, 2, '2013-02-24 03:39:56', 2, 3, 75.00, NULL, 0.00, '', NULL),
+(138, 1, '2013-02-24 16:52:17', 3, 3, 75.00, NULL, 0.00, '', '2013-02-24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perfiles`
+-- Estructura de tabla para la tabla `perfiles`
 --
 
 CREATE TABLE IF NOT EXISTS `perfiles` (
@@ -1737,7 +1757,7 @@ CREATE TABLE IF NOT EXISTS `perfiles` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `perfiles`
+-- Volcado de datos para la tabla `perfiles`
 --
 
 INSERT INTO `perfiles` (`id`, `nombre`, `descripcion`) VALUES
@@ -1748,7 +1768,7 @@ INSERT INTO `perfiles` (`id`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `porciones`
+-- Estructura de tabla para la tabla `porciones`
 --
 
 CREATE TABLE IF NOT EXISTS `porciones` (
@@ -1760,7 +1780,7 @@ CREATE TABLE IF NOT EXISTS `porciones` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=73 ;
 
 --
--- Dumping data for table `porciones`
+-- Volcado de datos para la tabla `porciones`
 --
 
 INSERT INTO `porciones` (`id`, `producto_id`, `insumo_id`, `cantidad`) VALUES
@@ -1824,7 +1844,7 @@ INSERT INTO `porciones` (`id`, `producto_id`, `insumo_id`, `cantidad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE IF NOT EXISTS `productos` (
@@ -1839,7 +1859,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=56 ;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `categoria_id`, `estado`, `insumo_id`) VALUES
@@ -1900,30 +1920,43 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `categoria_id`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recibos`
+-- Estructura de tabla para la tabla `recibos`
 --
 
 CREATE TABLE IF NOT EXISTS `recibos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pedido_id` int(11) DEFAULT NULL,
   `nombre` varchar(150) DEFAULT NULL,
   `total` float(10,2) DEFAULT NULL,
+  `totaldescuento` decimal(10,2) DEFAULT NULL,
   `descuento` float(10,2) DEFAULT NULL,
-  `fecha` date DEFAULT NULL,
+  `efectivo` decimal(10,2) DEFAULT NULL,
+  `cambio` decimal(10,2) DEFAULT NULL,
+  `created` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `recibos`
+-- Volcado de datos para la tabla `recibos`
 --
 
-INSERT INTO `recibos` (`id`, `nombre`, `total`, `descuento`, `fecha`) VALUES
-(1, 'Herrera', NULL, NULL, '2012-10-04'),
-(2, 'Herrera', 32.00, 0.00, '2012-10-04');
+INSERT INTO `recibos` (`id`, `pedido_id`, `nombre`, `total`, `totaldescuento`, `descuento`, `efectivo`, `cambio`, `created`) VALUES
+(1, NULL, 'Herrera', NULL, NULL, NULL, NULL, NULL, '2012-10-04'),
+(2, NULL, 'Herrera', 32.00, NULL, 0.00, NULL, NULL, '2012-10-04'),
+(3, 137, 'MIRANDA', 75.00, NULL, 0.10, '100.00', '25.00', NULL),
+(4, 137, 'MIRANDA', 75.00, NULL, 0.10, '70.00', '2.50', NULL),
+(5, 136, 'HERRERA', 75.00, NULL, 0.00, '100.00', '25.00', NULL),
+(6, 138, 'HERRERA', 75.00, NULL, 0.10, '100.00', '32.50', '2013-02-24'),
+(7, 138, 'ana', 75.00, NULL, 0.10, '100.00', '32.50', '2013-02-24'),
+(8, 138, 'ana', 75.00, '67.50', 0.10, '100.00', '32.50', '2013-02-24'),
+(9, 138, 'ana', 75.00, '67.50', 0.10, '100.00', '32.50', '2013-02-24'),
+(10, 138, 'ana', 75.00, '67.50', 0.10, '100.00', '32.50', '2013-02-24'),
+(11, 136, 'JUANA', 75.00, '67.50', 0.10, '100.00', '32.50', '2013-02-24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservas`
+-- Estructura de tabla para la tabla `reservas`
 --
 
 CREATE TABLE IF NOT EXISTS `reservas` (
@@ -1937,7 +1970,7 @@ CREATE TABLE IF NOT EXISTS `reservas` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `reservas`
+-- Volcado de datos para la tabla `reservas`
 --
 
 INSERT INTO `reservas` (`id`, `cliente_id`, `tipoevento_id`, `cantidad_personas`, `fecha`, `observaciones`) VALUES
@@ -1955,7 +1988,7 @@ INSERT INTO `reservas` (`id`, `cliente_id`, `tipoevento_id`, `cantidad_personas`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `retrasos`
+-- Estructura de tabla para la tabla `retrasos`
 --
 
 CREATE TABLE IF NOT EXISTS `retrasos` (
@@ -1969,7 +2002,7 @@ CREATE TABLE IF NOT EXISTS `retrasos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `retrasos`
+-- Volcado de datos para la tabla `retrasos`
 --
 
 INSERT INTO `retrasos` (`id`, `usuario_id`, `horas`, `minutos`, `descuento`, `fecha`) VALUES
@@ -1984,7 +2017,7 @@ INSERT INTO `retrasos` (`id`, `usuario_id`, `horas`, `minutos`, `descuento`, `fe
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sucursales`
+-- Estructura de tabla para la tabla `sucursales`
 --
 
 CREATE TABLE IF NOT EXISTS `sucursales` (
@@ -1996,7 +2029,7 @@ CREATE TABLE IF NOT EXISTS `sucursales` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `sucursales`
+-- Volcado de datos para la tabla `sucursales`
 --
 
 INSERT INTO `sucursales` (`id`, `nombre`, `direccion`, `departamento_id`) VALUES
@@ -2005,7 +2038,7 @@ INSERT INTO `sucursales` (`id`, `nombre`, `direccion`, `departamento_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipoeventos`
+-- Estructura de tabla para la tabla `tipoeventos`
 --
 
 CREATE TABLE IF NOT EXISTS `tipoeventos` (
@@ -2017,7 +2050,7 @@ CREATE TABLE IF NOT EXISTS `tipoeventos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `tipoeventos`
+-- Volcado de datos para la tabla `tipoeventos`
 --
 
 INSERT INTO `tipoeventos` (`id`, `nombre`, `descripcion`, `estado`) VALUES
@@ -2034,7 +2067,7 @@ INSERT INTO `tipoeventos` (`id`, `nombre`, `descripcion`, `estado`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipos`
+-- Estructura de tabla para la tabla `tipos`
 --
 
 CREATE TABLE IF NOT EXISTS `tipos` (
@@ -2047,7 +2080,7 @@ CREATE TABLE IF NOT EXISTS `tipos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `tipos`
+-- Volcado de datos para la tabla `tipos`
 --
 
 INSERT INTO `tipos` (`id`, `nombre`, `descripcion`, `tipo`, `estado`) VALUES
@@ -2071,7 +2104,7 @@ INSERT INTO `tipos` (`id`, `nombre`, `descripcion`, `tipo`, `estado`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
@@ -2088,7 +2121,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `direccion`, `usuario`, `pass`, `codigo`, `perfile_id`, `sucursal_id`, `estado_id`) VALUES
@@ -2103,7 +2136,7 @@ INSERT INTO `usuarios` (`id`, `nombre`, `direccion`, `usuario`, `pass`, `codigo`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios2`
+-- Estructura de tabla para la tabla `usuarios2`
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios2` (
@@ -2118,7 +2151,7 @@ CREATE TABLE IF NOT EXISTS `usuarios2` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `usuarios2`
+-- Volcado de datos para la tabla `usuarios2`
 --
 
 INSERT INTO `usuarios2` (`id`, `nombre`, `direccion`, `usuario`, `pass`, `codigo`, `perfile_id`) VALUES
