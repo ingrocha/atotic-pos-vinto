@@ -92,20 +92,18 @@
                                Recibo a:
                            </label>
                            <input id="nombreRecibo" name="data[Recibo][nombre]" class="input-block-level" type="text" placeholder="Nombre"/>
-                           <label for="formA04">
+                           
+                            
+                            <label for="formA04">
                                Efectivo
                            </label>
                            <input id="montoPago" name="data[Recibo][efectivo]" class="input-block-level" type="text" placeholder="monto efectivo"/>
-                            <label>
-                               Cambio
-                            </label>
-                            <input id="montoCambio" name="data[Recibo][cambio]" class="input-block-level" type="text" placeholder="cambio" readonly="readonly"/>
-                            <label>
+                            <div class="selectpicker-block" style="width:275px">
+                              <label>
                                Aplicar descuento
                             </label>
-                            <div class="selectpicker-block" style="width:275px">
-                                <select id="formA07b" class="selectpicker-info">
-                                    <option selected="selected" value="">Sin descuento</option>
+                                <select id="descuento" class="selectpicker-info" name="data[Recibo][descuento]">
+                                    <option selected="selected" value="0">Sin descuento</option>
                                         <?php foreach($descuentos as $descuento): ?>
                                     <option value="<?php echo $descuento['Descuento']['porcentaje'] ?>">
                                         <?php echo $descuento['Descuento']['observacion'] ?>
@@ -113,6 +111,16 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            <div id="muestraTotaldescuento" style="display: none;">
+                            <label>Nuevo total con el descuento:</label>
+                              <input id="nuevoTotal" name="data[Recibo][totaldescuento]" value="0" class="input-block-level" type="text" readonly="readonly"/>
+                            </div>
+                            <label>
+                               Cambio
+                            </label>
+                            <input id="montoCambio" name="data[Recibo][cambio]" class="input-block-level" type="text" placeholder="cambio" readonly="readonly"/>
+                          
+                            
                             
                        </fieldset>
                       <div style="padding: 5px 0 0 0;"></div>
@@ -133,10 +141,28 @@
                         $("#bt_pagar").click(function(){
                             $("#MuestraPagar").toggle("slow");
                         });
+                        $("#descuento").onchange(function(){
+                            console.log(this.val);
+                            if(this.value == '0'){
+                               $("#muestraTotaldescuento").hide();
+                            }else{
+                               var totalcondescuento = <?php echo $totalCancelar ?> - (this.value * <?php echo $totalCancelar ?>); 
+                                $("#nuevoTotal").val(totalcondescuento); 
+                                $("#muestraTotaldescuento").toggle("slow");
+                            }
+                            
+                        });
                         $("#montoPago").change(function(){
-                            var cambio =  $("#montoPago").val() - <?php echo $totalCancelar ?>;
+                             var cambio;
+                            if($("#nuevoTotal").val() == "0"){
+                               cambio =  $("#montoPago").val() - <?php echo $totalCancelar ?>;    
+                            }else{
+                                cambio = $("#montoPago").val() - $("#nuevoTotal").val();
+                            }
+                            
                             $("#montoCambio").val(cambio);
                         });
+                        
                     </script>
                 </div>
                 <!-- //tabla --> 
