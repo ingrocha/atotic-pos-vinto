@@ -530,9 +530,8 @@ class ControlpedidosController extends AppController
         $this->set(compact('data'));  
     }
     public function pagarcuenta(){
-        debug($this->request->data);exit;
+        //debug($this->request->data);exit;
         $idPedido = $this->request->data['Recibo']['pedido_id'];
-        
         $cambio = number_format($this->request->data['Recibo']['cambio'],2,'.', ',');
         $this->request->data['Recibo']['cambio'] = $cambio;
         
@@ -543,18 +542,19 @@ class ControlpedidosController extends AppController
         $data = array('id'=>$idPedido, 'estado'=>3);
         
         if($this->Pedido->save($data)){
+            
             $this->Recibo->create();
             if($this->Recibo->save($this->request->data['Recibo'])){
-               $this->Session->setFlash(__('El pedido '.$pedido['Pedido']['numero'].' fue pagado'));
-            $this->redirect(array('action' => 'index'));    
+                $this->Session->setFlash(__('El pedido '.$pedido['Pedido']['mesa'].' fue pagado'),'alerts/bueno');
+                $this->redirect(array('action' => 'index'));    
             }else{
-                $this->Session->setFlash(__('Error al registrar el recibo del pedido '.$pedido['Pedido']['numero'].' fue pagado'));
-                $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['numero']));
+                $this->Session->setFlash(__('Error al registrar el recibo del pedido '.$pedido['Pedido']['mesa'].' fue pagado'),'alerts/bueno');
+                $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['mesa']));
             }
             
         }else{
-            $this->Session->setFlash(__('Error al registrar el recibo del pedido '.$pedido['Pedido']['numero'].' fue pagado'));
-            $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['numero']));
+            $this->Session->setFlash(__('Error al registrar el recibo del pedido de la mesa '.$pedido['Pedido']['mesa'].' fue pagado'),'alerts/bueno');
+            $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['mesa']),'alerts/bueno');
         }
     }
 
