@@ -1,6 +1,6 @@
 <div id="main-content" class="main-content container-fluid">
     <!-- // sidebar --> 
-    <?php echo $this->element('sidebar/sinsumos'); ?>               
+    <?php //echo $this->element('sidebar/pedidos'); ?>               
     <!-- // fin sidebar -->
 
     <!-- // contenido pricipal -->                                 
@@ -65,6 +65,7 @@
                     <a class="btn btn-large btn-orange" href="#"><i class="fontello-icon-publish"></i> IMPRIMIR CUENTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                     <div style="height: 10px;">&nbsp;</div>                    
                     <a class="btn btn-large btn-red" href="#" id="btMuestraFacturar"><i class="fontello-icon-publish"></i> FACTURAR PEDIDO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+                    
                     <div style="height: 10px;">&nbsp;</div>  
                     <div id="muestraFacturar" style="display: none;">
                         <fieldset>                            
@@ -73,20 +74,68 @@
                             <!-- // form item -->
                             
                             <legend>Detalles para facturar</legend>
-                            <label for="formA04">Nombre: </label>
-                            <input id="formA04" class="input-block-level" type="text" placeholder="placeholder">
+                            <label for="formA06">Nombre: </label>
+                            <input id="formA06" class="input-block-level" type="text" placeholder="placeholder">
                             <!-- // form item -->                           
                             
                         </fieldset>
-                        <hr>
+                        <hr/>
                     </div>                 
-                    <a class="btn btn-large btn-green" href="#"><i class="fontello-icon-publish"></i> PAGAR CUENTA</a>
-                    <div style="height: 10px;">&nbsp;</div>                   
+                    <a class="btn btn-large btn-green" href="#" id="bt_pagar"><i class="fontello-icon-publish"></i> PAGAR CUENTA</a>
+                    <div style="height: 10px;">&nbsp;</div>
+                    <div id="MuestraPagar" style="display: none;">
+                    <?php echo $this->Form->create('Controlpedidos', array('action'=>'pagarcuenta')); ?>
+                       <fieldset>
+                           <?php echo $this->Form->hidden('Recibo.pedido_id', array('value'=>$id_pedido)) ?>
+                           <?php echo $this->Form->hidden('Recibo.total', array('value'=>$totalCancelar)) ?>
+                           <label for="formA04">
+                               Recibo a:
+                           </label>
+                           <input id="nombreRecibo" name="data[Recibo][nombre]" class="input-block-level" type="text" placeholder="Nombre"/>
+                           <label for="formA04">
+                               Efectivo
+                           </label>
+                           <input id="montoPago" name="data[Recibo][efectivo]" class="input-block-level" type="text" placeholder="monto efectivo"/>
+                            <label>
+                               Cambio
+                            </label>
+                            <input id="montoCambio" name="data[Recibo][cambio]" class="input-block-level" type="text" placeholder="cambio" readonly="readonly"/>
+                            <label>
+                               Aplicar descuento
+                            </label>
+                            <div class="selectpicker-block" style="width:275px">
+                                <select id="formA07b" class="selectpicker-info">
+                                    <option selected="selected" value="">Sin descuento</option>
+                                        <?php foreach($descuentos as $descuento): ?>
+                                    <option value="<?php echo $descuento['Descuento']['porcentaje'] ?>">
+                                        <?php echo $descuento['Descuento']['observacion'] ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            
+                       </fieldset>
+                      <div style="padding: 5px 0 0 0;"></div>
+                       <?php 
+                       $opt = array(
+                       'class'=>'btn',
+                       'Value'=>'Pagar'
+                       );
+                       
+                       echo $this->Form->end($opt); ?>
+                    </div>                  
                     <a class="btn btn-large btn-turgu" href="#"><i class="fontello-icon-publish"></i> AGREGAR DESCUENTO</a>
                     <script>
                         $("#btMuestraFacturar").click(function() {
                             //console.log('click');
                             $("#muestraFacturar").toggle("slow");
+                        });
+                        $("#bt_pagar").click(function(){
+                            $("#MuestraPagar").toggle("slow");
+                        });
+                        $("#montoPago").change(function(){
+                            var cambio =  $("#montoPago").val() - <?php echo $totalCancelar ?>;
+                            $("#montoCambio").val(cambio);
                         });
                     </script>
                 </div>
@@ -224,7 +273,7 @@
                                             <td><?php echo round($p['Item']['precio']); ?></td>                                                                                                                                     
                                         </tr>                                                         
                                     <?php endforeach; ?>
-                                    <div id="cuadro" title="Cancelar Cuenta">
+                                    <div id="cuadro" title="Pagar la Cuenta">
                                     </div>    
                                     <div id="facturar" title="Facturar Cuenta">
                                     </div> 

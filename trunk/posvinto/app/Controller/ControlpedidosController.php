@@ -158,8 +158,8 @@ class ControlpedidosController extends AppController
         $moso = $this->Pedido->find('first', array('recursive' => 0, 'conditions' =>
             array('Pedido.id' => $id_pedido)));
         //debug($moso);
-        $descuentos = $this->Descuento->find('list', array('fields' => array('Descuento.porcentaje',
-                'Descuento.observacion')));
+        $descuentos = $this->Descuento->find('all');
+        //debug($descuentos);exit;
         $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos'));
     }
 
@@ -520,6 +520,42 @@ class ControlpedidosController extends AppController
         $this->layout = 'imprimir';
         $totalpagar = $total - ($total * $descuento);
         $this->set(compact('total', 'totalpagar', 'descuento'));
+    }
+    public function general(){
+      $this->paginate = array(
+            'order' => array('Pedido.id' => 'desc'));
+        // similar to findAll(), but fetches paged results
+        $data = $this->paginate('Pedido');       
+        
+        $this->set(compact('data'));  
+    }
+    public function pagarcuenta(){
+        debug($this->request->data);exit;
+        $idPedido = $this->request->data['Recibo']['pedido_id'];
+        
+        $cambio = number_format($this->request->data['Recibo']['cambio'],2,'.', ',');
+        $this->request->data['Recibo']['cambio'] = $cambio;
+        
+        $pedido = $this->Pedido->find('first', array(
+        'conditions'=>array('Pedido.id'=>$idPedido),
+        'recursive'=>-1));
+       
+        $data = array('id'=>$idPedido, 'estado'=>3);
+        
+        if($this->Pedido->save($data)){
+            $this->Recibo->create();
+            if($this->Recibo->save($this->request->data['Recibo'])){
+               $this->Session->setFlash(__('El pedido '.$pedido['Pedido']['numero'].' fue pagado'));
+            $this->redirect(array('action' => 'index'));    
+            }else{
+                $this->Session->setFlash(__('Error al registrar el recibo del pedido '.$pedido['Pedido']['numero'].' fue pagado'));
+                $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['numero']));
+            }
+            
+        }else{
+            $this->Session->setFlash(__('Error al registrar el recibo del pedido '.$pedido['Pedido']['numero'].' fue pagado'));
+            $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['numero']));
+        }
     }
 
 }
