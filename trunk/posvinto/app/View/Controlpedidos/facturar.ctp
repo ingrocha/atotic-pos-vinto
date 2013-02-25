@@ -117,24 +117,24 @@
         ..............................................................
     </div>
      
-    <table style="width: 480px;">
+    <table style="width: 355px;">
        <tr>
-          <td>SON:&nbsp;</td>
-          <td><?php echo $totalliteral ?>&nbsp;CON&nbsp;<?php echo $monto[1] ?>/100</td>
+          <td colspan="2">SON:&nbsp;
+          <?php echo $totalliteral ?>&nbsp;CON&nbsp;<?php echo $monto[1] ?>/100</td>
        </tr>
         <tr>
             <td style="font-weight: bold;">C&oacute;digo de control:</td>
             <td style="font-weight: bold; text-transform: uppercase;"><?php echo $codigo; ?></td>
         </tr>
         <tr>
-            <td style="width: 198px;">Fecha l&iacute;mite de emisi&oacute;n:</td>
+            <td>Fecha l&iacute;mite de emisi&oacute;n:</td>
             <td><?php echo $fechalimite ?></td>
         </tr>
     </table>
      <div class="linea">
         ..............................................................
     </div>
-    <div style="width: 300px; font-size: 14px; text-align: center;">
+    <div style="width: 355px; font-size: 14px; text-align: center;">
         "La reproducci&oacute;n total o parcial y/o el uso no
         autorizado de esta Nota Fiscal, constituye un delito a sersancionado
         conforme a Ley"
