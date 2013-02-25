@@ -613,6 +613,14 @@ class ControlpedidosController extends AppController
             $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['mesa']),'alerts/bueno');
         }
     }
+    public function imprimircuenta($idPedido=null){
+        $pedido = $this->Item->find('all', array(
+        'conditions'=>array('Item.pedido_id'=>$idPedido)
+        ));
+        debug($pedido);exit;
+        $this->set(compact('pedido'));
+
+    }
 
 }
 
