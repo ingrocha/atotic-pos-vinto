@@ -614,11 +614,12 @@ class ControlpedidosController extends AppController
         }
     }
     public function imprimircuenta($idPedido=null){
+        $this->layout = 'imprimir';
         $pedido = $this->Item->find('all', array(
         'conditions'=>array('Item.pedido_id'=>$idPedido)
         ));
-        debug($pedido);exit;
-        $this->set(compact('pedido'));
+        //debug($pedido);exit;
+        $this->set(compact('pedido', 'idPedido'));
 
     }
 

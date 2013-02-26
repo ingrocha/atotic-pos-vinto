@@ -62,7 +62,7 @@
 
                 <div class="span4 grider">
                     <h3><i class="aweso-icon-table"></i> Acciones</h3>                                        
-                    <a class="btn btn-large btn-orange" href="<?php echo $this->Html->url(array('action'=>'imprimircuenta')) ?>"><i class="fontello-icon-publish"></i> IMPRIMIR CUENTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <a class="btn btn-large btn-orange" href="<?php echo $this->Html->url(array('action'=>'imprimircuenta', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> IMPRIMIR CUENTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                     <div style="height: 10px;">&nbsp;</div>                    
                     <a class="btn btn-large btn-red" href="#" id="btMuestraFacturar"><i class="fontello-icon-publish"></i> FACTURAR PEDIDO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
                     
