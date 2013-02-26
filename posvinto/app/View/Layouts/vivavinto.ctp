@@ -81,6 +81,7 @@
                                         <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Reservas', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('REPORTES', array('controller' => 'Graficos', 'action' => 'genera')) ?></li>
                                         <li><?php echo $this->Html->link('CONFIGURACIONES', array('controller' => 'Configuraciones', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('SALIR', array('controller' => 'Users', 'action' => 'logout')) ?></li>
                                         <!--<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="fontello-icon-list-1"></span>Customize <b class="caret"></b></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="component-form-demo.html">Demo Form</a></li>

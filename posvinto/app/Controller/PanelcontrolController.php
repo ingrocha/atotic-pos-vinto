@@ -4,12 +4,14 @@ class PanelcontrolController  extends AppController {
         'Form',
         'Html'      
     );
-    public $components = array('Session');
+    //public $components = array('Session');
     public $layout = 'vivavinto'; 
     public $uses = array('Pedido', 'Item');
     
     function beforeFilter(){
-       $this->checksession();
+       //$this->checksession();
+       parent::beforeFilter();
+       $this->Auth->allow('*');
     }
     
     public function index(){

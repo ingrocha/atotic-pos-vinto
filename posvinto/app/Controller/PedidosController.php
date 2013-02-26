@@ -26,6 +26,12 @@ class PedidosController extends AppController
         'Bodega',
         'Almacen');
     public $layout = 'publico';
+    
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allow();
+    }
 
     public function index()
     {
