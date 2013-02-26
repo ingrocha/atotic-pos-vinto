@@ -3,21 +3,12 @@
     <table class="tablafactura">
         <tr>
             <td colspan="4" align="center" style="text-transform: uppercase; font-weight: bold;"> 
-                <?php //echo $sucursal['Sucursal']['nombre']; ?>
-                CENTRO ECOTUR&Iacute;STICO VIVA VINTO
-            </td>
-        </tr>
-        <tr>
-            <td style="text-transform: uppercase; text-align: left;">
-            MOZO
-            </td>
-            <td>
-            <?php echo $mozo; ?>
+            <?php //echo $sucursal['Sucursal']['nombre']; ?>
+           CENTRO ECOTUR&Iacute;TICO VIVA VINTO
             </td>
         </tr>
       
     </table>
-  
     <div class="linea">
         ....................................................
     </div> 
@@ -55,18 +46,25 @@
             <td colspan="2" style="text-align: right;">Importe total</td>
             <td><?php echo $total; ?> Bs.</td>
         </tr>
+       
+    </table>
+ 
+    <div class="linea">
+        .......................................................
+    </div>
+    <div style="width: 300px; font-size: 9px; text-align: center;">
+        "EXIJA SU FACTURA"
+    </div>
+    <table>
+    <tr>
+            <td  style="font-weight: bold;">Nombre: </td>
+            <td colspan="3">......................................</td>
+        </tr>
         <tr>
-            <td>Son</td>
-            <td><?php echo $totalliteral; ?> <?php echo $monto[1]; ?>/100 Bs.</td>
+            <td  style="font-weight: bold; text-transform: uppercase;">NIT:</td>
+            <td colspan="3">......................................</td>
         </tr>
     </table>
-    <div class="linea">
-        ....................................................
-    </div>
-    <div style="width: 300px;">
-        "EXIJA FACTURA"
-    </div>
-
 </div>      
 <?php if (!empty($newdata)): ?>
     <?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' => 'dividircuenta3'))); ?>

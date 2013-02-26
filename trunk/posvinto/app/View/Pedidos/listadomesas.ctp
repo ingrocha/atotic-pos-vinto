@@ -11,7 +11,8 @@
             <?php $mesa = $m['Pedido']['mesa']; ?>
             <li>
                 <?php //echo $this->Html->link('');?>
-                <a href="http://localhost/posvinto/posvinto/pedidos/pedidomoso/<?php echo $id_moso ?>/<?php echo $id_pedido ?>/<?php echo $mesa ?>">	    
+                
+                <a href="<?php echo $this->Html->url(array('action'=>'pedidomoso',$id_moso,$id_pedido, $mesa )) ?>">	    
                     <div id="pedido_<?php echo $id_pedido; ?>">
                         <?php echo $this->Html->image('table-small.png'); ?>
                         <span class="number">MESA:<?php echo $m['Pedido']['mesa']; ?></span>

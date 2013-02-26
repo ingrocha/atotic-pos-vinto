@@ -2,7 +2,7 @@
 <div id="aImprimir">
 
     <div style="text-align: center; width: 335px;">
-    <b>VIVA VINTO</b><br />
+    <b>CENTRO ECOTURISTICO VIVA VINTO</b><br />
     Av. Albina Pati&ntilde;o Km. 16 1/2<br />
     Cochabamba - Bolivia
     </div>
@@ -25,7 +25,7 @@
         ..............................................................
     </div> 
     <?php $fecha = date('Y-m-d'); ?>
-    <?php $hora = date('H:m'); ?>
+    <?php $hora = date('H:m:i'); ?>
     <table class="tablafactura">
         <tr>
             <td style="font-weight: bold;">Fecha:</td>

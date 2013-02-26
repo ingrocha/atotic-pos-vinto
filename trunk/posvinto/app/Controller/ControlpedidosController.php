@@ -614,15 +614,87 @@ class ControlpedidosController extends AppController
         }
     }
     public function imprimircuenta($idPedido=null){
+        
         $this->layout = 'imprimir';
+        $datosPedido = $this->Pedido->find('first', array(
+        'conditions'=>array('Pedido.id'=>$idPedido)
+        ));
+        
+        $mozo = $datosPedido['Usuario']['nombre'];
+        $mesa = $datosPedido['Pedido']['mesa'];
         $pedido = $this->Item->find('all', array(
         'conditions'=>array('Item.pedido_id'=>$idPedido)
         ));
         //debug($pedido);exit;
-        $this->set(compact('pedido', 'idPedido'));
+        $this->set(compact('pedido', 'idPedido', 'mozo', 'mesa'));
 
     }
-
+    public function dividircuenta($idpedido=null){
+        $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
+                $idpedido)));
+        //debug($pedido);exit;
+        $this->set(compact('pedido', 'idpedido'));
+    }
+    public function dividircuenta2()
+    {
+        $this->layout = 'imprimir';
+        $idpedido = $this->data[1]['Pedido']['idpedido'];
+        $datas = $this->request->data;
+        $total = 0.0;
+        $i = 0;
+        $j = 0;
+        $newdata = array();
+        $datos = array();
+        foreach ($datas as $d)
+        {
+            if ($d['Pedido']['chk'] != 0)
+            {
+                $datos[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
+                $datos[$i]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
+                $datos[$i]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
+                $datos[$i]['Pedido']['precio'] = $d['Pedido']['preciou'];
+                $total +=  $d['Pedido']['preciou'];
+                $i++;
+            } else
+            {
+                $newdata[$j]['Pedido']['pedido_id'] = $idpedido;
+                $newdata[$j]['Pedido']['producto'] = $d['Pedido']['producto'];
+                $newdata[$j]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
+                $newdata[$j]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
+                $newdata[$j]['Pedido']['precio'] = $d['Pedido']['preciou'];
+                $j++;
+            }
+        }
+        /// DEBUG($datos);exit;
+        $total = number_format($total, 2, '.', ',');
+        $idusuario = $this->Session->read('usuario_id');
+            $usuario = $this->Usuario->find('first', array('Usuario.id' => $idusuario));
+            $idsucursal = $usuario['Sucursal']['id'];
+            $sucursal = $this->Sucursal->findById($idsucursal);
+            $fech = date("Y-m-d H:m:s");
+            $fech2 = split(' ', $fech);
+            $fecha = $fech2[0];
+            $hora = $fech2[1];
+            //  DEBUG($datos);exit;
+            $this->set(compact('fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'total'));
+        
+    }
+    public function dividircuenta3(){
+         //  debug($this->data);exit;
+        if (!empty($this->request->data))
+        {
+            //debug($this->data);exit;
+            $count = 0;
+            $detalle = $this->request->data;
+            $this->set(compact('detalle'));
+        } else
+        {
+            //$this->redirect($this->referer());
+            $this->redirect(array('action' => 'index'));
+            //http://localhost/posvinto/posvinto/controlpedidos
+            //$this->redirect('http://localhost/posvinto/posvinto/controlpedidos');
+        }
+    }
 }
 
 ?>
