@@ -48,8 +48,8 @@ class AppController extends Controller
         'DebugKit.Toolbar', 
         'Session',
         'Auth' => array(
-            'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
+            'loginRedirect' => array('controller' => 'Panelcontrol', 'action' => 'admin'),
+            'logoutRedirect' => array('controller' => 'Users', 'action' => 'login', 'home')
         )
     );
 
@@ -57,7 +57,6 @@ class AppController extends Controller
     
     /*function checksession()
     {
-
         if ($this->Session->read('usuario_id')):
         else:
             $this->Session->SetFlash('Su Sesion ha terminado por favor vuelva a ingresar al sitio');
