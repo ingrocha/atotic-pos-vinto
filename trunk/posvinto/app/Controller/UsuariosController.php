@@ -14,8 +14,9 @@ class UsuariosController extends AppController
 
     public function beforefilter()
     {
-        $this->checksession();
+        //$this->checksession();
     }
+    
     public function index()
     {
         //$this->paginate = array('limit' => 6, 'order' => array('Usuario.id' => 'desc'));

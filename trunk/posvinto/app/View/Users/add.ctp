@@ -39,9 +39,9 @@
                         <div class="controls">
                             <select id="accountAddressState" class="span3" name="data[User][role]" required>
                                 <option value="" selected="selected">Selecione Perfil</option>                                                                    
-                                    <option value="Administrador">Administrador</option>                                
-                                    <option value="Administrador">Cajero</option>                                
-                                    <option value="Administrador">Moso</option>                                
+                                <option value="Administrador">Administrador</option>                                
+                                <option value="Administrador">Cajero</option>                                
+                                <option value="Administrador">Moso</option>                                
                             </select>                            
                         </div>
                         <!-- // form item -->                       

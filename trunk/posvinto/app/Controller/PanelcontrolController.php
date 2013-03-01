@@ -32,18 +32,21 @@ class PanelcontrolController  extends AppController {
                 
         $ventasTotales = $this->Pedido->find('all', array(
             'recursive'=>-1,
-            'fields'=>array('SUM(total) as total')
+            'fields'=>array('SUM(total) as total'),
+            'conditions'=>array('Pedido.created'=>$fecha)
         ));
         
         $cantidadMesas = $this->Pedido->find('first', array(
             'recursive'=>-1,
-            'order'=>'Pedido.id DESC'
+            'order'=>'Pedido.id DESC',
+            'conditions'=>array('Pedido.created'=>$fecha)
         ));
         
         $ultimosCincoPedidos = $this->Pedido->find('all', array(
             'recursive'=>0,
             'limit'=>5,
-            'order'=>array('Pedido.id DESC')
+            'order'=>array('Pedido.id DESC'),
+            'conditions'=>array('Pedido.created'=>$fecha)
         ));
         //debug()
         
