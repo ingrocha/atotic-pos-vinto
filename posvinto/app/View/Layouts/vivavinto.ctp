@@ -69,7 +69,8 @@
                                 <div class="search-global">
                                     <a class="search-button" href="javascript:void(0);"><i class="fontello-icon-search-5"></i></a> </div>
                                 <div class="nav-collapse collapse">
-                     
+                                <?php $rol = $this->Session->read('Auth.User.role'); ?>
+                                <?php if($rol == 'Administrador'): ?>
                                     <ul class="nav">
                                         <li><?php echo $this->Html->link('INICIO', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('USUARIOS', array('controller' => 'Usuarios', 'action' => 'index')) ?></li>
@@ -94,6 +95,23 @@
                                             </ul>
                                         </li>-->
                                     </ul>
+                                <?php elseif($rol == 'Cajero'): ?>
+                                    <ul class="nav">                                        
+                                        <li><?php echo $this->Html->link('PEDIDOS', array('controller' => 'controlpedidos', 'action' => 'index')) ?></li>                                                                                                                        
+                                        <li><?php echo $this->Html->link('SALIR', array('controller' => 'Users', 'action' => 'logout')) ?></li>
+                                        <!--<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="fontello-icon-list-1"></span>Customize <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="component-form-demo.html">Demo Form</a></li>
+                                                <li><a href="component-widgets-remember.html">Remember</a></li>
+                                                <li><a href="component-widgets-users.html">User List</a></li>
+                                                <li class="divider"></li>
+                                                <li class="nav-header">Next Update</li>
+                                                <li><a href="javascript:void(0);">Contacts</a></li>
+                                                <li><a href="javascript:void(0);">Email</a></li>
+                                            </ul>
+                                        </li>-->
+                                    </ul>
+                                <?php endif; ?>
                                 </div>
                             </div>
                         </div>
