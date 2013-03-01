@@ -1,6 +1,6 @@
 <div id="main-content" class="main-content container-fluid">
      <!-- // sidebar --> 
-    <?php echo $this->element('sidebar/insumos'); ?>               
+    <?php echo $this->element('sidebar/pedidos'); ?>               
     <!-- // fin sidebar -->
     <div class="row-fluid page-head">
         <h2 class="page-title"><i class="fontello-icon-monitor"></i> Viva Vinto <small>Panel de Control del sistema</small></h2>
