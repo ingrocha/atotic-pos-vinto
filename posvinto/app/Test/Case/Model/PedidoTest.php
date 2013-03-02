@@ -5,13 +5,27 @@ App::uses('Pedido', 'Model');
  * Pedido Test Case
  *
  */
-class PedidoTestCase extends CakeTestCase {
+class PedidoTest extends CakeTestCase {
+
 /**
  * Fixtures
  *
  * @var array
  */
-	public $fixtures = array('app.pedido', 'app.plato', 'app.usuario');
+	public $fixtures = array(
+		'app.pedido',
+		'app.user',
+		'app.item',
+		'app.producto',
+		'app.categoria',
+		'app.porcione',
+		'app.insumo',
+		'app.tipo',
+		'app.almacen',
+		'app.bodega',
+		'app.movimiento',
+		'app.recibo'
+	);
 
 /**
  * setUp method
