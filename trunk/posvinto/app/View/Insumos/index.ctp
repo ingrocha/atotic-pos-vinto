@@ -28,6 +28,7 @@ $cantidadAlmacen = new Almacen();
                                     <th scope="col">ID <span class="column-sorter"></span></th>                          
                                     <th scope="col">Nombre <span class="column-sorter"></span></th>
                                     <th scope="col">Categoria <span class="column-sorter"></span></th>
+                                    <th scope="col">Descripci&oacute;n <span class="column-sorter"></span></th>
                                     <th scope="col">Stock almacen<span class="column-sorter"></span></th>
                                     <th scope="col">Acciones <span class="column-sorter"></span></th>                                
                                 </tr>
@@ -43,7 +44,8 @@ $cantidadAlmacen = new Almacen();
                                             <div id="ajax-modal_<?php echo $idInsumo; ?>" class="modal hide fade" tabindex="-1"></div>
                                         </td>
                                         <td><?php echo $i['Insumo']['nombre']; ?></td>
-                                        <td> <?php echo $i['Tipo']['nombre']; ?></td>                                
+                                        <td> <?php echo $i['Tipo']['nombre']; ?></td>  
+                                        <td><?php echo $i['Insumo']['observaciones'] ?></td>                              
                                         <td> 
                                             <?php
                                             $enAlmacen = $cantidadAlmacen->find('first', array(
