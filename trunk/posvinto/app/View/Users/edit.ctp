@@ -36,17 +36,20 @@
                         <!-- // form item -->                        
 
                         <label for="accountAddressState" class="control-label">Perfil <span class="required">*</span> </label>
-                        <?php//debug($groups);?>
-                        <div class="controls">
+                        <?php //debug($groups);?>
+                        <div class="controls">                                                       
+                            <?php $roles = array('0' => array('rol' => 'Administrador'), '1' => array('rol' => 'Almacenes'), '2' => array('rol' => 'Cajero'), '3' => array('rol' => 'Moso')); ?>
+                            <?php $rola = $this->request->data['User']['role']; ?> 
                             <select id="accountAddressState" class="span3" name="data[User][group_id]" required>
-                                <option value="" selected="selected">Selecione Perfil</option>
-                                <?php $roles = array('Administrador'=>'Administrador', 'Cajero'=>'Cajero', 'Moso'=>'Moso'); ?>
-                                
-                                <option value="" selected="selected">Selecione Perfil</option>                                
-                                    <option value="Administrador">Administrador</option>                                
-                                    <option value="Administrador">Cajero</option>                                
-                                    <option value="Administrador">Moso</option>                                
-                            
+                                <option value="" selected="selected">Selecione Perfil</option>                                                                                               
+                                <?php foreach ($roles as $r): ?>  
+                                <?php //debug($r); ?>
+                                    <?php if($r['rol'] == $rola): ?>
+                                    <option value="<?php echo $r['rol']; ?>" selected="selected"><?php echo 'aqui '.$r['rol']; ?></option>                                    
+                                    <?php else: ?>                                    
+                                    <option value="<?php echo $r['rol']; ?>"><?php echo $r['rol']; ?></option>                                    
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
                             </select>                            
                         </div>
                         <!-- // form item -->                       

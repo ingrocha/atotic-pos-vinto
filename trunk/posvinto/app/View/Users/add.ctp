@@ -18,20 +18,20 @@
                         <!-- // form item -->
 
                         <label for="formA04">Direccion:</label>                            
-                        <?php echo $this->Form->text('direccion', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese la direccion Ej: Calle uno', 'required', 'title' => 'Este campo Necesario')); ?>
+                        <?php echo $this->Form->text('direccion', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese la direccion Ej: Calle uno', 'title' => 'Este campo Necesario')); ?>
                         <!-- // form item -->
 
                         <label for="formA04">Usuario y Pass:</label>
                         <div class="controls controls-row">                                                               
                             <?php echo $this->Form->text('username', array('class' => 'span4', 'placeholder' => 'Ingrese el Usuario. Ej jperez', 'required')); ?>
-                            <?php echo $this->Form->text('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556', 'required')); ?>                                                           
+                            <?php echo $this->Form->text('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556')); ?>                                                           
                         </div>
                         <!-- // form item -->
 
                         <label for="formA04">Carnet de Identidad y Celulares:</label>
                         <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->text('ci', array('class' => 'span4', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213', 'required')); ?>
-                            <?php echo $this->Form->text('celular', array('class' => 'span4', 'placeholder' => 'Ingrese el celular Ej: 60234234', 'required')); ?>                                                           
+                            <?php echo $this->Form->text('ci', array('class' => 'span4', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213')); ?>
+                            <?php echo $this->Form->text('celular', array('class' => 'span4', 'placeholder' => 'Ingrese el celular Ej: 60234234')); ?>                                                           
                         </div>
                         <!-- // form item -->                        
 
@@ -39,12 +39,19 @@
                         <div class="controls">
                             <select id="accountAddressState" class="span3" name="data[User][role]" required>
                                 <option value="" selected="selected">Selecione Perfil</option>                                                                    
-                                <option value="Administrador">Administrador</option>                                
-                                <option value="Administrador">Cajero</option>                                
-                                <option value="Administrador">Moso</option>                                
+                                <option value="Administrador">Administrador</option>
+                                <option value="Almacenes">Almacenes</option>
+                                <option value="Cajero">Cajero</option>                                
+                                <option value="Moso">Moso</option>                                
                             </select>                            
                         </div>
-                        <!-- // form item -->                       
+                        <!-- // form item -->    
+
+                        <label for="formA04">Codigo de Moso:</label>
+                        <div class="controls controls-row">                                                                                           
+                            <?php echo $this->Form->text('codigo', array('class' => 'span4', 'placeholder' => 'Ingrese el codigo Ej: 2233')); ?>                                                           
+                        </div>
+                        <!-- // form item -->
 
                         <button class="btn btn-green" type="submit">Guardar Usuario</button>
                         </form>

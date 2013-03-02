@@ -28,10 +28,10 @@ class UsersController extends AppController
     }
 
     public function add()
-    {
-        //debug($this->request->data);exit;
+    {        
         if ($this->request->is('post'))
         {
+            debug($this->request->data);exit;
             $this->User->create();
             if ($this->User->save($this->request->data))
             {
@@ -66,6 +66,8 @@ class UsersController extends AppController
             $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
         }
+        $roles = array('Administrador'=>'Administrador', 'Almacenes'=>'Almacenes', 'Cajero'=>'Cajero', 'Moso'=>'Moso');
+        $this->set(compact('roles'));
     }
 
     public function delete($id = null)

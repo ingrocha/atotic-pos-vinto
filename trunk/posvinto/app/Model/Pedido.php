@@ -3,20 +3,24 @@ App::uses('AppModel', 'Model');
 /**
  * Pedido Model
  *
- * @property Usuario $Usuario
+ * @property User $User
  * @property Item $Item
+ * @property Recibo $Recibo
  */
 class Pedido extends AppModel {
-//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
 /**
  * belongsTo associations
  *
  * @var array
  */
 	public $belongsTo = array(
-		'Usuario' => array(
-			'className' => 'Usuario',
-			'foreignKey' => 'usuario_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -31,6 +35,19 @@ class Pedido extends AppModel {
 	public $hasMany = array(
 		'Item' => array(
 			'className' => 'Item',
+			'foreignKey' => 'pedido_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Recibo' => array(
+			'className' => 'Recibo',
 			'foreignKey' => 'pedido_id',
 			'dependent' => false,
 			'conditions' => '',
