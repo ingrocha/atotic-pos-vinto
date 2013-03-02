@@ -27,12 +27,6 @@ jQuery("#UsuarioCambiarpasswordForm").validationEngine();
    <?php echo $this->Form->password('password', array('id'=>'password', 'class'=>"validate[required] text-input"))?>
    </td>
 </tr>
-<tr>
-   <td>Confirmar c&oacute;digo</td>
-   <td>
-   <?php echo $this->Form->password('pass', array('id'=>'password2','class'=>"validate[required,equals[password]] text-input"))?>
-   </td>
-</tr>
 </fieldset>
 </table>
 

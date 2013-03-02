@@ -4,7 +4,7 @@
 ?>
 <div id="main-content" class="main-content container-fluid">
     <!-- // sidebar --> 
-    <?php echo $this->element('sidebar/insumos'); ?>               
+    <?php echo $this->element('sidebar/platos'); ?>               
     <!-- // fin sidebar -->
     <!-- // contenido pricipal -->
     <div id="page-content" class="page-content">

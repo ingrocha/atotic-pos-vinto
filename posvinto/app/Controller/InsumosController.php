@@ -612,9 +612,9 @@ class InsumosController extends AppController
             $this->Session->setFlash('No existe tal registro');
             $this->redirect(array('action' => 'index'), null, true);
         }
-        if (empty($this->data))
+        if (empty($this->request->data))
         {
-            $this->data = $this->Insumo->read();
+            $this->request->data = $this->Insumo->read();
         }
         else
         {
