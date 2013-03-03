@@ -26,6 +26,7 @@
 			
         // bind the recalc function to the quantity fields
         jQuery("input[id^=qty_item_]").bind("keyup", recalc);
+        
         // run the calculation function now
         recalc();
 
@@ -193,12 +194,19 @@
 <?php //echo $ajax->autoComplete('1.Pedido.nit', '/autoComplete') ?>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>MONTO EFECTIVO: </td>
+                                    <td>
+                                        <?php echo $this->Form->text("1.Pedido.efectivo", array('size' => 10)); ?>
+<?php //echo $ajax->autoComplete('1.Pedido.nit', '/autoComplete') ?>
+                                    </td>
+                                </tr>
                             </table>
 
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
                                 <tr>
-                                    <th width="13"><input type="checkbox" class="checkbox" /></th>
+                                    <th width="13"><input type="checkbox" class="checkbox" onClick="if (this.checked) sumar(); else restar()" /></th>
                                     <th>Item</th>
                                     <th>cantidad</th>
                                     <th>precio</th>
@@ -214,7 +222,7 @@
                                     $total = $total + $data['Item']['precio'];
                                     $precio = $data['Item']['precio'] / $data['Item']['cantidad'];
                                     ?>
-    <?php if ((fmod($i, 2) == 1) ? $clase = "odd" : $clase = "") ; ?>
+                                    <?php if ((fmod($i, 2) == 1) ? $clase = "odd" : $clase = "") ; ?>
                                             <?php $i++; ?>
                                     <tr class="<?php echo $clase; ?>">
                                         <td> 

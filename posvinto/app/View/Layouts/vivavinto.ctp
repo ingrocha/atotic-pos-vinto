@@ -31,13 +31,16 @@
             'boo-utility',    
         ));
         ?>     
+        <?php echo $this->Html->css(
+        array('imprimir'),'stylesheet',array('media'=>'print')); ?>
         <?php
         echo $this->Html->script(array(            
             'lib/jquery',
             'plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min',
             'lib/jquery-ui',
             'lib/bootstrap',
-            'lib/jquery.cookie'
+            'lib/jquery.cookie',
+            'print'
         ));
         ?>    
         <?php echo $this->fetch('script'); ?>

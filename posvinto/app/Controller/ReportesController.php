@@ -2,7 +2,7 @@
 class ReportesController extends AppController{
     
     public $helpers = array('Html', 'Form'); 
-    public $uses = array('Producto', 'Movimientosinsumo', 'Pedido', 'Item', 'Usuario');
+    public $uses = array('Producto', 'Movimientosinsumo', 'Pedido', 'Item', 'Usuario','Recibo','Bodega');
     public $components = array('Session','Fechasconvert');
     public $layout = 'vivavinto';
     
@@ -230,9 +230,9 @@ class ReportesController extends AppController{
     }
     public function estadoinventarioactual(){
         
-        $maxmovimientos = $this->Movimiento->find('all', array(
-        'fields'=>array('MAX(Movimiento.id) as id'),
-        'group'=>array('Movimiento.insumo_id')
+        $maxmovimientos = $this->Bodega->find('all', array(
+        'fields'=>array('MAX(Bodega.id) as id'),
+        'group'=>array('Bodega.insumo_id')
         ));
         $ides = array();
         $i=0;
@@ -240,9 +240,9 @@ class ReportesController extends AppController{
             $ides[$i]=$movimiento['0']['id'];
             $i++;
         }
-        $movimientos = $this->Movimiento->find('all', array(
-        'conditions'=>array('Movimiento.id'=>$ides),
-        'order'=>array('Movimiento.id DESC')
+        $movimientos = $this->Bodega->find('all', array(
+        'conditions'=>array('Bodega.id'=>$ides),
+        'order'=>array('Bodega.id DESC')
         ));
         $this->set(compact('movimientos'));
     }
@@ -259,21 +259,44 @@ class ReportesController extends AppController{
         App::uses('CakeTime', 'Utility');
         //$dia = CakeTime::dayAsSql($fecha1, $fecha2, 'Pedido.created');
         $dia = CakeTime::daysAsSql("$fecha1", "$fecha2", 'Item.fecha');
-    
+        
         $pedidos = $this->Item->find('all', array(
         'conditions'=>array($dia),
-        'fields'=>array('SUM(Item.cantidad) AS cantidad', 'Pedido.numero','Producto.nombre', 'Producto.precio', 'Item.precio', 'Item.fecha'),
-        'group'=>array('Item.producto_id')
+        'fields'=>array('Item.pedido_id','Pedido.mesa', 'SUM(Item.precio) as precio', 'Item.fecha'),
+        'group'=>array('Item.pedido_id'),
+        'order'=>array('Item.pedido_id ASC')
         ));
-       //debug($pedidos);exit;
+        
        $dia2 = CakeTime::daysAsSql("$fecha1", "$fecha2", 'Recibo.created');
+       
        $descuentos = $this->Recibo->find('all', array(
-        'conditions'=>array($dia, 'Item.precio <'=>1),
-        'fields'=>array('SUM(Item.cantidad) AS cantidad', 'Pedido.numero', 'Insumo.nombre','Producto.nombre', 'Item.precio', 'Item.fecha'),
-        'group'=>array('Item.insumo_id')
+        'conditions'=>array($dia2),
+        'fields'=>array('Recibo.pedido_id','Recibo.totaldescuento','Recibo.descuento'),
+        'order'=>array('Recibo.pedido_id ASC')
         ));
-        //debug($descuentos);exit;
-        $this->set(compact('pedidos', 'descuentos','dato'));
+     
+        if(!empty($descuentos)){
+            $i=0;
+           foreach($descuentos as $descuento){
+                foreach($pedidos as $pedido){
+                    if($pedido['Item']['pedido_id'] == $descuento['Recibo']['pedido_id']){
+                        $pedidos[$i]['Item']['totalcondescuento'] = $descuento['Recibo']['totaldescuento'];
+                        $pedidos[$i]['Item']['descuento'] = $descuento['Recibo']['descuento'] * 100;  
+                    }
+                    $i++;
+                }
+            } 
+        }
+        $i=0;
+        foreach($pedidos as $p){
+            if(!isset($p['Item']['totalcondescuento'])){
+             $pedidos[$i]['Item']['totaldescuento'] = 0;  
+             $pedidos[$i]['Item']['descuento'] = 0; 
+            }
+            $i++;
+        }
+        //debug($pedidos);exit;
+        $this->set(compact('pedidos', 'dato'));
     }
      
 }

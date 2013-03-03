@@ -9,13 +9,13 @@
 					<h3>
 						<i class="aweso-icon-table opaci35">
 						</i>
-						Clientes
+						Descuentos
 						<small>
 					    Listado
 						</small>
 					</h3>
 					<p>
-						Despliega la lista de todos los Clientes registrados en el Sistema
+						Despliega la lista de todos los descuentos registrados en el Sistema
 					</p>
 				</div>
 				<div class="row-fluid">

@@ -21,7 +21,7 @@
         </li>
         <!-- // item accordionMenu Dashboard -->
        <li class="accordion-group active">
-            <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Insumos </a> </div>
+            <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Categorias insumos </a> </div>
             <ul class="accordion-content nav nav-list collapse in" id="accDash">
             <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'nuevo')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Nuevo Insumos</span></a> </li>
             <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'categoriasalmacen')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Listado de Categorias</span> </a> </li>
@@ -29,7 +29,20 @@
             </ul>
         </li>
     </ul>
-    
+     <ul id="mainSideMenu" class="nav nav-list nav-side">
+        <li class="accordion-group active">
+            <div class="accordion-heading"> 
+            <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> 
+                <span class="item-icon fontello-icon-monitor"></span> 
+                <i class="chevron fontello-icon-right-open-3"></i> Reportes Pedidos</a> </div>
+            <ul class="accordion-content nav nav-list collapse in" id="accDash">
+                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Reportes', 'action'=>'formularioreporteproductos')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Reporte ventas</span></a> </li>
+                <li> <a href="<?php //echo $this->Html->url(array('controller'=>'Reportes', 'action'=>'general')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Reporte ventas totales</span> </a> </li>
+            </ul>
+        </li>
+        <!-- // item accordionMenu Dashboard -->
+       
+    </ul>
     <ul id="mainSideMenu" class="nav nav-list nav-side">
         <li class="accordion-group active">
             <div class="accordion-heading in"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Accion "Usuarios" </a> </div>

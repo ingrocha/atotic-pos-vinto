@@ -4,11 +4,11 @@
 <!-- // fin sidebar -->
 <?php 
 
-    App::import('Model', 'Unidade');
+   /* App::import('Model', 'Unidade');
     $modeloUnidades = new Unidade();
     
     App::import('Model', 'Medida');
-    $modeloMedidas = new Medida();
+    $modeloMedidas = new Medida();*/
  ?>
 <!-- // contenido pricipal -->                                 
 <div id="page-content" class="page-content">
@@ -26,10 +26,10 @@
                         <thead>
                             <tr>  
                                 <th scope="col">Nro <span class="column-sorter"></span></th>                          
-                                <th scope="col">Insumo <span class="column-sorter"></span></th>                                
-                                <th scope="col">Salidas<span class="column-sorter"></span></th>
-                                <th scope="col">Stock</th> 
-                                <th>Peso neto</th>                              
+                                <th scope="col">Insumo <span class="column-sorter"></span></th>
+                                <th scope="col">Ingresos <span class="column-sorter"></span></th>                                
+                                <th scope="col">Salidas <span class="column-sorter"></span></th>
+                                <th scope="col">Stock <span class="column-sorter"></span></th>                            
                             </tr>
                         </thead>
                         <?php $i=1;?>
@@ -40,7 +40,7 @@
                                 <td><?php echo $i; $i++;?></td>                                   
                                 <td><?php echo $insumo['Insumo']['nombre']; ?></td>  
                                 <?php 
-                                $unidad = $modeloUnidades->find('first', array(
+                                /*$unidad = $modeloUnidades->find('first', array(
                                 'conditions'=>array('Unidade.id'=>$insumo['Insumo']['unidade_id']),
                                 'recursive'=>-1
                                 ));
@@ -50,18 +50,15 @@
                                 'recursive'=>-1
                                 ));
                                 $medida = $medida['Medida']['nombre'];
-                                 ?>                               
-                                <td><?php echo $insumo['Movimiento']['salida'].' '.$unidad;?></td>                                      
+                                 */?>    
+                                 <td><?php echo $insumo['Bodega']['ingreso'].' unidades';?></td>                           
+                                <td><?php echo $insumo['Bodega']['salida'].' unidades';?></td>                                      
                                 <td>       
-                                <?php echo $insumo['Movimiento']['totalp'] ?>&nbsp;
-                                <?php echo $unidad ?>
-                                y <?php echo $insumo['Movimiento']['pesoparcial'] ?>&nbsp;
-                                <?php echo $medida ?>
+                                <?php echo $insumo['Bodega']['total'] ?>&nbsp;
+                                <?php //echo $insumo['Movimiento']['pesoparcial'] ?>&nbsp;
+                                <?php //echo $medida ?>
                                 </td>                                                                     
-                                <td>
-                                <?php echo $insumo['Movimiento']['pesoneto'] ?>&nbsp;
-                                <?php echo $medida ?>
-                                </td>
+                                
                             </tr>
                         
                         <?php endforeach; ?>                           
@@ -97,7 +94,7 @@
          $("#Imprimir").click(function() {
             console.log('imprime');
              //printElem({ leaveOpen: true, printMode: 'popup' });
-             printElem({ overrideElementCSS: ['/pizza/css/printable.css'] });
+             printElem({ overrideElementCSS: ['/posvinto/posvinto/css/imprimir.css'] });
          });
      });
  function printElem(options){

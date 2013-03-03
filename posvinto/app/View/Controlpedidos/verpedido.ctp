@@ -118,7 +118,7 @@
                                Aplicar descuento
                             </label>
                            
-                                <select id="descuento" class="selectpicker-info" name="data[Recibo][descuento]">
+                                <select id="descuento" name="data[Recibo][descuento]">
                                     <option selected="selected" value="0">Sin descuento</option>
                                         <?php foreach($descuentos as $descuento): ?>
                                     <option value="<?php echo $descuento['Descuento']['porcentaje'] ?>">

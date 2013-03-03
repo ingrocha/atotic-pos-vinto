@@ -28,7 +28,7 @@
                             <script type="text/javascript">
                                 $(document).ready(function() {
                                     $("#prod_<?php echo $id; ?>").click(function() {
-                                        $("#listado").load("../../../ajaxlistado/<?php echo $id_moso; ?>/<?php echo $id_prod; ?>/<?php echo $pedido; ?>/<?php echo $mesa; ?>");
+                                        $("#listado").load("<?php echo $this->Html->url(array('action'=>'ajaxlistado', $id_moso, $id_prod,$pedido,$mesa, $anadido))?>");
                                         //console.log('el id es: '+<?php //echo $prod_id;   ?>); 
                                         $("#desaparece").hide();
                                     });
