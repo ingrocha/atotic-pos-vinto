@@ -1,111 +1,146 @@
 <?php //debug($datos);?>
 <div id="aImprimir">
 
-<table class="tablafactura">
-   <tr>
-      <td colspan="4" align="center" style="text-transform: uppercase; font-weight: bold;"> 
-            SUCURSAL <?php echo $sucursal['Sucursal']['nombre'];?>
-      </td>
-   </tr>
-   <tr>
-     <td align="center" style="text-transform: uppercase;">
-        <?php echo $sucursal['Sucursal']['direccion'];?>
-     </td>
-   </tr>
-   <tr>
-      <td align="center" style="text-align: center; text-transform: uppercase;"> 
-      <?php echo $sucursal['Departamento']['nombre'];?> - BOLIVIA 
-      </td>
-   </tr>
- </table>
-<div class="linea">
-.........................................................................................
-</div>     
-  <table class="tablafactura">
-   <tr>
-      <td style="font-weight: bold;">NIT</td>
-      <td><?php echo $datosfactura[0]['Parametrosfactura']['nit']?></td>
-      <td style="font-weight: bold;">#Factura</td>
-      <td><?php echo  $idfactura;?></td>
-   </tr>
-   <tr>
-      <td colspan="2" style="font-weight: bold;">#Autorizaci&oacute;n Nro.</td>
-      <td colspan="2"><?php echo $datosfactura[0]['Parametrosfactura']['numero_autorizacion']?></td>
-   </tr>
-</table>
-<div class="linea">
-.........................................................................................
-</div> 
-<table class="tablafactura">
-   <tr>
-      <td style="font-weight: bold;">Fecha:</td>
-      <td><?php echo $fecha;?></td>
-      <td style="font-weight: bold;">Hora:</td>
-      <td><?php echo $hora;?></td>
-   </tr>
-   <tr>
-      <td  style="font-weight: bold;">Nombre: </td>
-      <td colspan="3"><?php echo $cliente;?></td>
-   </tr>
-   <tr>
-      <td  style="font-weight: bold; text-transform: uppercase;">NIT:</td>
-      <td colspan="3"><?php echo $nitcliente;?></td>
-   </tr>
-</table>
-<div class="linea">
-.........................................................................................
-</div>
-<table class="imprimir-factura">
-   <tr>
-      <th>Producto</th>
-      <th>Cantidad</th>
-      <th>Precio u.</th>
-   </tr>
-    <?php foreach($datos as $d):?>
-    <tr>
-       <td>
-          <?php echo $d['Pedido']['producto'];?>
-       </td>
-       <td>
-          1
-       </td>
-       <td>
-          <?php echo $d['Pedido']['precio'];?>
-       </td>
-    </tr>
-    <?php endforeach;?>
-    <tr>
-      <td colspan="2" style="text-align: right;">Importe total</td>
-      <td><?php echo $total;?> Bs.</td>
-    </tr>
-    <tr>
-       <td>Son</td>
-       <td><?php echo $totalliteral;?> <?php echo $monto[1];?>/100 Bs.</td>
-    </tr>
-</table>
-<div class="linea">
-.........................................................................................
-</div>
-<table style="border: none;">
-   <tr>
-      <td style="font-weight: bold;">C&oacute;digo de control:</td>
-      <td style="font-weight: bold; text-transform: uppercase;"><?php echo $codigo;?></td>
-   </tr>
-   <tr>
-      <td>Fecha l&iacute;mite de emisi&oacute;n:</td>
-      <td>06/Oct/2012</td>
-   </tr>
-</table>
-<div class="linea">
-.........................................................................................
-</div>
-<div style="width: 300px; font-size: 9px;">
-   "La reproducci&oacute;n total o parcial y/o el uso no
-   autorizado de esta Nota Fiscal, constituye un delito a sersancionado
-   conforme a Ley"
-</div>
+    <div style="text-align: center; width: 335px;">
+    <b>CENTRO ECOTURISTICO VIVA VINTO</b><br />
+    Av. Albina Pati&ntilde;o Km. 16 1/2<br />
+    Cochabamba - Bolivia
+    </div>
+    <div class="linea">
+        ..............................................................
+    </div>     
+    <table class="tablafactura">
+        <tr>
+            <td style="font-weight: bold;">NIT</td>
+            <td><?php echo $pf['Parametrosfactura']['nit'] ?></td>
+            <td style="font-weight: bold;">#Factura</td>
+            <td><?php echo $nfactura; ?></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-weight: bold;">#Autorizaci&oacute;n Nro.</td>
+            <td colspan="2"><?php echo $pf['Parametrosfactura']['numero_autorizacion'] ?></td>
+        </tr>
+    </table>
+    <div class="linea">
+        ..............................................................
+    </div> 
+    <?php $fecha = date('Y-m-d'); ?>
+    <?php $hora = date('H:m:i'); ?>
+    <table class="tablafactura">
+        <tr>
+            <td style="font-weight: bold;">Fecha:</td>
+            <td><?php echo $fecha; ?></td>
+            <td style="font-weight: bold;">Hora:</td>
+            <td><?php echo $hora; ?></td>
+        </tr>
+        <tr>
+            <td  style="font-weight: bold;">Nombre: </td>
+            <td colspan="3"><?php echo $cliente; ?></td>
+        </tr>
+        <tr>
+            <td  style="font-weight: bold; text-transform: uppercase;">NIT:</td>
+            <td colspan="3"><?php echo $nitcliente; ?></td>
+        </tr>
+    </table>
+    <div class="linea">
+        ..............................................................
+    </div>
+    <table class="imprimir-factura">
+        <tr>
+            <th>Producto</th>
+            <th>Cant.</th>
+            <th>P/U</th>
+            <th>P/Total</th>
+        </tr>
+        <?php foreach ($items as $i): ?>
+            <tr>
+                <td>
+                    <?php echo $i['Producto']['nombre']; ?>
+                </td>
+                <td class="cantidad">
+                    <?php echo $i['Item']['cantidad']; ?>
+                </td>
+                <td>
+                    <?php echo $i['Producto']['precio']; ?>
+                </td>
+                <td>
+                    <?php echo $i['Producto']['precio'] * $i['Item']['cantidad'];; ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        <tr>
+            <td colspan="3" style="text-align: right;">Importe total BS.</td>
+            <td><?php echo number_format($montoTotal, 2, '.', ','); ?></td>
+        </tr>
+        
+    </table>
+    <table style="text-align: left; width: 335px;">
+		<tr>
+			<td colspan="4" style="text-align: right;">
+				&nbsp;&nbsp;--------------
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: right;">
+				TOTAL A PAGAR: Bs.
+			</td>
+			<td style="text-align: right;">
+				<?php echo number_format($montoTotal, 2, '.', ','); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: right;">
+				TOTAL FACTURAR: Bs.
+			</td>
+			<td style="text-align: right;">
+				<?php echo number_format($montoTotal, 2, '.', ','); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: right;">
+				Efectivo Bs.
+			</td>
+			<td style="text-align: right;">
+				<?php echo $efectivo ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: right;">
+				CAMBIO Bs.
+			</td>
+			<td style="text-align: right;">
+				<?php echo $cambio ?>
+			</td>
+		</tr>
+	</table>
+    <div class="linea">
+        ..............................................................
+    </div>
+     
+    <table style="width: 355px;">
+       <tr>
+          <td colspan="2">SON:&nbsp;
+          <?php echo $totalliteral ?>&nbsp;CON&nbsp;<?php echo $monto[1] ?>/100</td>
+       </tr>
+        <tr>
+            <td style="font-weight: bold;">C&oacute;digo de control:</td>
+            <td style="font-weight: bold; text-transform: uppercase;"><?php echo $codigo; ?></td>
+        </tr>
+        <tr>
+            <td>Fecha l&iacute;mite de emisi&oacute;n:</td>
+            <td><?php echo $fechalimite ?></td>
+        </tr>
+    </table>
+     <div class="linea">
+        ..............................................................
+    </div>
+    <div style="width: 355px; font-size: 14px; text-align: center;">
+        "La reproducci&oacute;n total o parcial y/o el uso no
+        autorizado de esta Nota Fiscal, constituye un delito a sersancionado
+        conforme a Ley"
+    </div>
 
-</div>
+</div> 
 
 
 

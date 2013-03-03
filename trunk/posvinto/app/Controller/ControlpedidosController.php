@@ -66,7 +66,7 @@ class ControlpedidosController extends AppController
         $cambio = number_format($cambio, 2, '.',',');
         $cliente = $this->request->data['Controlpedidos']['nombre'];
         $nitcliente = $this->data['Controlpedidos']['nit'];
-        $pf = $this->Parametrosfactura->find('first');
+        $pf = $this->Parametrosfactura->find('first', array('order'=>array('Parametrosfactura.id DESC')));
         
         $this->request->data='';
         
@@ -332,10 +332,10 @@ class ControlpedidosController extends AppController
     public function facturar2()
     {
         $this->layout = 'imprimir';
-        $cliente = $this->data[1]['Pedido']['nombre'];
-        $nitcliente = $this->data[1]['Pedido']['nit'];
-        $idpedido = $this->data[1]['Pedido']['idpedido'];
-        $datas = $this->data;
+        $cliente = $this->request->data[1]['Pedido']['nombre'];
+        $nitcliente = $this->request->data[1]['Pedido']['nit'];
+        $idpedido = $this->request->data[1]['Pedido']['idpedido'];
+        $datas = $this->request->data;
         $total = 0.0;
         $i = 0;
         $j = 0;
@@ -365,9 +365,10 @@ class ControlpedidosController extends AppController
         $total = number_format($total, 2, '.', ',');
         $monto = split('\.', $total);
         $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
-        $datosfactura = $this->Parametrosfactura->find('all');
-        $nit = $datosfactura[0]['Parametrosfactura']['nit'];
-        $autoriza = $datosfactura[0]['Parametrosfactura']['numero_autorizacion'];
+        $datosfactura = $this->Parametrosfactura->find('first', array('order'=>array('Parametrosfactura.id DESC')));
+        $nit = $datosfactura['Parametrosfactura']['nit'];
+        $autoriza = $datosfactura['Parametrosfactura']['numero_autorizacion'];
+        $fechalimite = $datosfactura['Parametrosfactura']['fechalimite'];
         $fecha = date('Y-m-d');
         $this->data = '';
         $this->Factura->create();
@@ -380,7 +381,7 @@ class ControlpedidosController extends AppController
         if ($this->Factura->save($this->data))
         {
             $idfactura = $this->Factura->id;
-            $llave = $datosfactura[0]['Parametrosfactura']['llave'];
+            $llave = $datosfactura['Parametrosfactura']['llave'];
             $nueva_fecha = ereg_replace("[-]", "", $fecha);
             $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nit, $nueva_fecha, $total, $llave);
             //autorizacion, factura, nit, fecha, monto, llave
@@ -399,7 +400,7 @@ class ControlpedidosController extends AppController
             $fecha = $fech2[0];
             $hora = $fech2[1];
             //debug($datos);exit;
-            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total'));
+            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total','fechalimite'));
         } else
         {
             $this->Session->setFlash('No se pudo generar la nueva factura');
@@ -423,10 +424,11 @@ class ControlpedidosController extends AppController
     public function facturarnormal()
     {
         $this->layout = 'imprimir';
-        $cliente = $this->data[1]['Pedido']['nombre'];
-        $nitcliente = $this->data[1]['Pedido']['nit'];
-        $idpedido = $this->data[1]['Pedido']['idpedido'];
-        $datas = $this->data;
+        $cliente = $this->request->data[1]['Pedido']['nombre'];
+        $nitcliente = $this->request->data[1]['Pedido']['nit'];
+        $idpedido = $this->request->data[1]['Pedido']['idpedido'];
+        $efectivo = $this->request->data[1]['Pedido']['efectivo'];
+        $datas = $this->request->data;
         $total = 0.0;
         $i = 0;
         $j = 0;
@@ -453,12 +455,14 @@ class ControlpedidosController extends AppController
             }
         }
         /// DEBUG($datos);exit;
+        $cambio = $efectivo - $total;
         $total = number_format($total, 2, '.', ',');
         $monto = split('\.', $total);
         $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
-        $datosfactura = $this->Parametrosfactura->find('all');
-        $nit = $datosfactura[0]['Parametrosfactura']['nit'];
-        $autoriza = $datosfactura[0]['Parametrosfactura']['numero_autorizacion'];
+        $datosfactura = $this->Parametrosfactura->find('first', array('order'=>array('Parametrosfactura.id DESC')));
+        $nit = $datosfactura['Parametrosfactura']['nit'];
+        $autoriza = $datosfactura['Parametrosfactura']['numero_autorizacion'];
+        $fechalimite = $datosfactura['Parametrosfactura']['fechalimite'];
         $fecha = date('Y-m-d');
         $this->Factura->create();
         $this->request->data['Factura']['pedido_id'] = $idpedido;
@@ -472,7 +476,7 @@ class ControlpedidosController extends AppController
             $this->Pedido->save($data);
             $factura = $this->Factura->find('first', array('order' => array('Factura.id DESC')));
             $idfactura = $factura['Factura']['id'];
-            $llave = $datosfactura[0]['Parametrosfactura']['llave'];
+            $llave = $datosfactura['Parametrosfactura']['llave'];
             $nueva_fecha = ereg_replace("[-]", "", $fecha);
             $rtotal = round($total);
             //echo $autoriza.' - '.$idfactura.' - '.$nitcliente.' - '.$nueva_fecha.' - '.$total_redondeado.' - '.$llave;exit;
@@ -492,7 +496,7 @@ class ControlpedidosController extends AppController
             $fecha = $fech2[0];
             $hora = $fech2[1];
             //  DEBUG($datos);exit;
-            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total'));
+            $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total','fechalimite'));
         } else
         {
             $this->Session->setFlash('No se pudo generar la nueva factura');

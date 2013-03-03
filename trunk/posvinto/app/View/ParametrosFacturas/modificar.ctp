@@ -1,65 +1,36 @@
-
-<!-- Container -->
-<div id="container">
-	<div class="shell">		
-			
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>			
-			<!-- Content -->
-			<div id="content">				
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">FORMULARIO DE EDICION DE DATOS</h2>
-						<div class="right">					
-						</div>
-					</div>
-					<!-- End Box Head -->	
-					<!-- Table -->
-        <?php echo $this->element('tablagrid'); ?>  
-	<div class="table">
-    <?php echo $this->Form->create('ParametrosFactura'); ?>
-<table>
-<tr>
-	<td>Nit</td>
+<div id="main-content" class="main-content container-fluid">
+    <!-- // sidebar -->
+	<?php echo $this->element('sidebar/configuraciones'); ?>
+		<!-- // fin sidebar -->
+        <div id="page-content" class="page-content">
+        <section>            
+            <div class="row-fluid"> 
+            	<?php echo $this->Form->create('ParametrosFactura'); ?>
+             <div class="page-header">
+             <h3><i class="fontello-icon-article-alt opaci35"></i>Editar <small>par&aacute;metros factura</small></h3>
+             </div>
+             
+             <div class="span10 well well-nice">
+             <fieldset>
+             <legend>Formulario <small>datos</small></legend>
+	<label for="formA04">Nit:</label> 
 	<td><?php echo $this->Form->text('nit'); ?></td>
-</tr>
-<tr>
-	<td>Numero de Autorizacion</td>
+
+    <label for="formA04">N&uacute;mero de autorizaci&oacute;n:</label> 
 	<td><?php echo $this->Form->text('numero_autorizacion'); ?></td>
-</tr>
-<tr>
-	<td>Llave</td>
+    <label for="formA04">Llave de dosificaci&oacute;n:</label> 
 	<td><?php echo $this->Form->text('llave', array('size'=>60)); ?></td>
-</tr>
-<tr>
-	<td>Otro 2</td>
-	<td><?php echo $this->Form->text('otro2'); ?></td>
-</tr>
-<tr>
-	<td>Otro 3</td>
-	<td><?php echo $this->Form->text('otro3'); ?></td>
-</tr>
-<tr>
-	<td></td>
-</tr>
-</table>
-<?php echo $this->Form->end('Editar');?>
+    <label>Fecha l&iacute;mite de emisi&oacute;n: </label>
+    <td><?php echo $this->Form->text('fechalimite', array('placeholder'=>'aaaa-mm-dd')); ?></td>
+<p></p>
+<button class="btn btn-green" type="submit">Editar datos</button>
+    </form>
+</fieldset>
+
     </div>
-</div>											
+						
 </div>
-<!-- Table -->
-					
-				</div>
-				<!-- End Box -->								
-			</div>
-			<!-- End Content -->			
-			<?php echo $this->element('menuconfiguraciones') ?>
-			
-			<div class="cl">&nbsp;</div>			
-		</div>
-		<!-- Main -->
-	</div> 
+	</section>				
+</div>
+				
+</div> 

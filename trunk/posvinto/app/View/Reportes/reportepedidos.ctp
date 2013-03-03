@@ -1,15 +1,7 @@
 <div id="main-content" class="main-content container-fluid">
 <!-- // sidebar --> 
-    <?php echo $this->element('sidebar/insumos'); ?>               
+    <?php echo $this->element('sidebar/pedidos'); ?>               
 <!-- // fin sidebar -->
-<?php 
-
-    App::import('Model', 'Unidade');
-    $modeloUnidades = new Unidade();
-    
-    App::import('Model', 'Medida');
-    $modeloMedidas = new Medida();
- ?>
 <!-- // contenido pricipal -->                                 
 <div id="page-content" class="page-content">
     <section>
@@ -25,81 +17,58 @@
                         </caption>
                         <thead>
                             <tr>
-                               <th>fecha</th>  
-                                                       
-                                <th scope="col">Producto<span class="column-sorter"></span></th>                                
-                                <th scope="col">Cantidad<span class="column-sorter"></span></th>
-                                <th>Precio unitario</th>
+                               <th>fecha</th>             
+                                <th scope="col">Mesa<span class="column-sorter"></span></th> 
+                                <th>Total</th>
+                                <th>Descuento</th>
                                 <th scope="col">Costo</th> 
                                 
                             </tr>
                         </thead>
                         <?php $costototal=0;?>
                         <tbody>
-                        <?php foreach ($pedidos as $producto): ?>  
-                        <?php 
-                        $precio = $producto['0']['cantidad'] *$producto['Producto']['precio'];
-                        $costototal += $precio;
+                        <?php foreach ($pedidos as $producto): 
+                        $costodescuento += $producto['Item']['totalcondescuento'];
+                        $costototal += $producto['0']['precio'];
                         ?>                      
                             <tr> 
-                                <td><?php echo $producto['Item']['fecha'];?></td> 
-                                                                 
-                                <td><?php echo $producto['Producto']['nombre']; ?></td>
-                                <td><?php echo $producto['0']['cantidad']; ?></td>    
-                                <td><?php echo $producto['Producto']['precio'];?></td>  
-                                <td><?php echo $precio;?></td>  
-                                
+                                <td><?php echo $producto['Item']['fecha'];?></td>           
+                                <td><?php echo $producto['Pedido']['mesa']; ?></td>
+                                <td><?php echo $producto['0']['precio'];?></td>
+                                <td><?php echo $producto['Item']['descuento']?></td>
+                                <td style="text-align: right;">
+                                <?php 
+                                if($producto['Item']['descuento'] == 0):
+                                   echo number_format($producto['0']['precio'],2,'.',',');
+                                else:
+                                   $descuentos += $producto['Item']['totalcondescuento'];
+                                   echo number_format($producto['Item']['totalcondescuento'],2,'.',',');
+                                endif;
+                                ?>
+                                </td>
                             </tr>
-                        
                         <?php endforeach; ?>  
                         <tr>
-                           <td colspan="4">Costo Total</td>
-                           <td><?php echo $costototal ?></td>
+                           <td colspan="4">Ganancia Total</td>
+                           <td style="text-align: right;">
+                           <?php echo number_format($costototal,2,'.',',') ?>
+                           </td>
                         </tr>                         
+                        <tr>
+                           <td colspan="4">Total descuentos</td>
+                           <td style="text-align: right;">
+                           <?php echo number_format($descuentos,2,'.',',') ?>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4">Ganancia neta</td>
+                           <td style="text-align: right;">
+                           <?php echo number_format($costodescuento,2,'.',',') ?>
+                           </td>
+                        </tr>
                         </tbody>
                     </table>
                     <!-- // BOO TABLE - DTB-2 -->
-                     <table id="table" class="table table-striped table-bordered  table-hover table-condensed">
-                        <caption>
-                            Reporte de descuentos de <?php echo $dato ?><span></span>
-                        </caption>
-                        <thead>
-                            <tr>
-                               <th>fecha</th>  
-                                                         
-                                <th scope="col">Producto<span class="column-sorter"></span></th> 
-                                <th>Insumo</th>                               
-                                <th scope="col">Cantidad<span class="column-sorter"></span></th>
-                                <th>Precio unitario descuento</th>
-                                <th scope="col">Costo total</th> 
-                                
-                            </tr>
-                        </thead>
-                        <?php $costototal=0;?>
-                        <tbody>
-                        <?php foreach ($descuentos as $producto): ?>  
-                        <?php 
-                        $precio = $producto['0']['cantidad'] * $producto['Item']['precio'];
-                        $costototal += $precio;
-                        ?>                      
-                            <tr> 
-                                <td><?php echo $producto['Item']['fecha'];?></td> 
-                                                                  
-                                <td><?php echo $producto['Producto']['nombre']; ?></td>
-                                <td><?php echo $producto['Insumo']['nombre']; ?></td>
-                                <td><?php echo $producto['0']['cantidad']; ?></td>    
-                                <td><?php echo $producto['Item']['precio'];?></td>  
-                                <td><?php echo $precio;?></td>  
-                                
-                            </tr>
-                        
-                        <?php endforeach; ?>  
-                        <tr>
-                           <td colspan="5">Total descuentos</td>
-                           <td><?php echo $costototal ?></td>
-                        </tr>                         
-                        </tbody>
-                    </table>
                 </div>
                 <!-- // Widget -->
 
@@ -125,7 +94,7 @@
          $("#Imprimir").click(function() {
             console.log('imprime');
              //printElem({ leaveOpen: true, printMode: 'popup' });
-             printElem({ overrideElementCSS: ['/pizza/css/printable.css'] });
+             printElem({ overrideElementCSS: ['/pizza/css/imprime.css'] });
          });
      });
  function printElem(options){

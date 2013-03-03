@@ -7,12 +7,12 @@
 
         <?php foreach ($mesas as $m): ?>
             <?php $id_pedido = $m['Pedido']['id']; ?>
-            <?php $id_moso = $m['Pedido']['usuario_id']; ?>   
+            <?php $id_moso = $m['Pedido']['user_id']; ?>   
             <?php $mesa = $m['Pedido']['mesa']; ?>
             <li>
                 <?php //echo $this->Html->link('');?>
                 
-                <a href="<?php echo $this->Html->url(array('action'=>'pedidomoso',$id_moso,$id_pedido, $mesa )) ?>">	    
+                <a href="<?php echo $this->Html->url(array('action'=>'pedidomoso',$id_moso,$id_pedido, $mesa,1)) ?>">	    
                     <div id="pedido_<?php echo $id_pedido; ?>">
                         <?php echo $this->Html->image('table-small.png'); ?>
                         <span class="number">MESA:<?php echo $m['Pedido']['mesa']; ?></span>

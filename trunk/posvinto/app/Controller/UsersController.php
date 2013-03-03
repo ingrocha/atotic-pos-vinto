@@ -89,7 +89,25 @@ class UsersController extends AppController
         $this->Session->setFlash(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
     }
-
+     public function cambiopass($id = null)
+    {
+        $this->User->id = $id;
+        if ($this->request->is('post') || $this->request->is('put'))
+        {
+            //debug($this->request->data);exit;            
+            if ($this->User->save($this->request->data))
+            {
+                $this->Session->setFlash(__('Se cambio el password'), 'alerts/bueno');
+                $this->redirect(array('action' => 'index'));
+            } else
+            {
+                $this->Session->setFlash(__('No se pudo guardar. Por favor intente de nuevo', 'alerts/bueno'));
+            }
+        } else
+        {
+            $this->request->data = $this->User->read(null, $id);
+        }
+    }
     public function login()
     {
         $this->layout = 'login';
