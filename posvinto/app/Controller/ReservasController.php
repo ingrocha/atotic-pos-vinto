@@ -79,6 +79,9 @@ class ReservasController extends AppController {
 		$dct = $this->Tipoevento->find('list', array('fields'=>array('Tipoevento.nombre')));
         //debug($dct);
 		$this->set(compact('dcc', 'dct'));
+        
+        $dcliente= $this->Cliente->find('list', array('fields'=>'Cliente.nombre'));
+        $this->set(compact('dcliente'));
 	}
 
 /**
