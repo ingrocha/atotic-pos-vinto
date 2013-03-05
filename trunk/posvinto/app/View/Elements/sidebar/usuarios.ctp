@@ -16,7 +16,7 @@
             <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Usuarios </a> </div>
             <ul class="accordion-content nav nav-list collapse in" id="accDash">
                 <li> <a href="<?php echo $this->Html->url(array('controller'=>'Users', 'action'=>'index')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Lista usuario</span></a> </li>
-                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Users', 'action'=>'nuevo')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Nuevo usuario</span> </a> </li>
+                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Users', 'action'=>'add')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Nuevo usuario</span> </a> </li>
             </ul>
         </li>
         <!-- // item accordionMenu Dashboard -->

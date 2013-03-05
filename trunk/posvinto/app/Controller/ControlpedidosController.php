@@ -197,7 +197,7 @@ class ControlpedidosController extends AppController
     {
         //$this->layout = 'ajax';
         //$this->layout='imprimir';
-        $usuario = $this->Session->read('Auth.user.id');
+        $usuario = $this->Session->read('Auth.User.id');
         
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
                 $id_pedido)));

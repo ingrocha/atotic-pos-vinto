@@ -35,14 +35,18 @@
                             <?php foreach ($pedido as $p): ?>
                                 <?php
                                 $precio = $p['Producto']['precio'];
-                                $totalCancelar += $precio;
+                                
                                 ?>
                                 <tr id="DataRow0">
                                     <td><?php echo $i; ?></td>
                                     <td class="bold" style="width: 250px;"><b><?php echo $p['Producto']['nombre']; ?></b></td>
                                     <td><b><?php echo round($p['Item']['cantidad']); ?></b></td>
                                     <td><b><?php echo round($p['Producto']['precio']); ?></b></td>
-                                    <td><b><?php echo round($p['Item']['precio']); ?></b></td>                                                                 
+                                    <td><b>
+                                    <?php 
+                                    echo round($p['Item']['precio']);
+                                    $totalCancelar += $p['Item']['precio']; 
+                                    ?></b></td>                                                                 
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach; ?>
@@ -61,12 +65,12 @@
                 <!-- //tabla -->       
 
                 <div class="span4 grider">
-                    <h3><i class="aweso-icon-table"></i>Opciones impresi&oacute;n cuenta</h3>                                        
+                    <h3><i class="aweso-icon-table"></i> Impresi&oacute;n cuenta</h3>                                        
                     <a class="btn btn-large btn-orange" href="<?php echo $this->Html->url(array('action'=>'imprimircuenta', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> IMPRIMIR CUENTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                     <div style="height: 10px;">&nbsp;</div> 
                     <a class="btn btn-large btn-turgu" href="<?php echo $this->Html->url(array('action' => 'dividircuenta', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> DIVIDIR CUENTA</a>
                     <div style="height: 10px;">&nbsp;</div> 
-                    <h3><i class="aweso-icon-table"></i>Formas de pago</h3>                    
+                    <h3><i class="aweso-icon-table"></i> Formas de pago</h3>                    
                     <a class="btn btn-large btn-red" href="#" id="btMuestraFacturar"><i class="fontello-icon-publish"></i> CON FACTURA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
                     <div style="height: 10px;">&nbsp;</div>  
                     <div id="muestraFacturar" style="display: none;">
@@ -99,9 +103,10 @@
                     </div> 
                     <div style="height: 10px;">&nbsp;</div>
                     <a class="btn btn-large btn-turgu" href="<?php echo $this->Html->url(array('action' => 'facturar1', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> DIVIDIR FACTURA</a>
-                    <?php if($usuario != 0): ?>
+                    <?php 
+                    if($usuario != 6): ?>
                     <div style="height: 10px;">&nbsp;</div>                
-                    <a class="btn btn-large btn-green" href="#" id="bt_pagar"><i class="fontello-icon-publish"></i> SIN FACTURA</a>
+                    <a class="btn btn-large btn-green" href="#" id="bt_pagar"><i class="fontello-icon-publish"></i> CON RECIBO</a>
                     <div style="height: 10px;">&nbsp;</div>
                     <div id="MuestraPagar" style="display: none;">
                     <?php echo $this->Form->create('Controlpedidos', array('action'=>'pagarcuenta')); ?>
@@ -122,7 +127,6 @@
                               <label>
                                Aplicar descuento
                             </label>
-                           
                                 <select id="descuento" name="data[Recibo][descuento]">
                                     <option selected="selected" value="0">Sin descuento</option>
                                         <?php foreach($descuentos as $descuento): ?>
@@ -139,7 +143,7 @@
                             <label>
                                Cambio
                             </label>
-                            <input id="montoCambio" name="data[Recibo][cambio]" class="input-block-level" type="text" placeholder="cambio" readonly="readonly"/>
+                            <input id="montoCambio" name="data[Recibo][cambio]" class="input-block-level" value="0" type="text" placeholder="cambio" readonly="readonly"/>
                           
                             
                             
@@ -179,6 +183,7 @@
                     <script>
                        
                         $("#bt_pagar").click(function(){
+                             
                             $("#MuestraPagar").toggle("slow");
                         });
                         $("#montoPago").change(function(){
@@ -192,7 +197,7 @@
                             $("#montoCambio").val(cambio);
                         });
                         $("#descuento").change(function(){
-                            var cambio;
+                            var cambio = 0;
                             var valor = this.value;
                             console.log(valor);
                             //var valor = this.value;
@@ -200,7 +205,7 @@
                                 console.log("entro a otro ");
                                var totalcondescuento = <?php echo $totalCancelar ?> - (valor * <?php echo $totalCancelar ?>); 
                                 $("#nuevoTotal").val(totalcondescuento); 
-                                $("#muestraTotaldescuento").toggle('slow');
+                                $("#muestraTotaldescuento").show('slow');
                                 
                                 cambio = $("#montoPago").val() - $("#nuevoTotal").val();
                                  
