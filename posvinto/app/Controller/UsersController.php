@@ -31,7 +31,7 @@ class UsersController extends AppController
     {        
         if ($this->request->is('post'))
         {
-            debug($this->request->data);exit;
+            //debug($this->request->data);exit;
             $this->User->create();
             if ($this->User->save($this->request->data))
             {
