@@ -61,12 +61,13 @@
                 <!-- //tabla -->       
 
                 <div class="span4 grider">
-                    <h3><i class="aweso-icon-table"></i> Acciones</h3>                                        
+                    <h3><i class="aweso-icon-table"></i>Opciones impresi&oacute;n cuenta</h3>                                        
                     <a class="btn btn-large btn-orange" href="<?php echo $this->Html->url(array('action'=>'imprimircuenta', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> IMPRIMIR CUENTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <div style="height: 10px;">&nbsp;</div> 
                     <a class="btn btn-large btn-turgu" href="<?php echo $this->Html->url(array('action' => 'dividircuenta', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> DIVIDIR CUENTA</a>
-                    <div style="height: 10px;">&nbsp;</div>                    
-                    <a class="btn btn-large btn-red" href="#" id="btMuestraFacturar"><i class="fontello-icon-publish"></i> FACTURAR PEDIDO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
-                    
+                    <div style="height: 10px;">&nbsp;</div> 
+                    <h3><i class="aweso-icon-table"></i>Formas de pago</h3>                    
+                    <a class="btn btn-large btn-red" href="#" id="btMuestraFacturar"><i class="fontello-icon-publish"></i> CON FACTURA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
                     <div style="height: 10px;">&nbsp;</div>  
                     <div id="muestraFacturar" style="display: none;">
                         <?php echo $this->Form->create('Controlpedidos', array('action'=>'facturar')); ?>                        
@@ -95,8 +96,12 @@
                             </form>
                         </fieldset>
                         <hr/>
-                    </div>                 
-                    <a class="btn btn-large btn-green" href="#" id="bt_pagar"><i class="fontello-icon-publish"></i> PAGAR CUENTA</a>
+                    </div> 
+                    <div style="height: 10px;">&nbsp;</div>
+                    <a class="btn btn-large btn-turgu" href="<?php echo $this->Html->url(array('action' => 'facturar1', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> DIVIDIR FACTURA</a>
+                    <?php if($usuario != 0): ?>
+                    <div style="height: 10px;">&nbsp;</div>                
+                    <a class="btn btn-large btn-green" href="#" id="bt_pagar"><i class="fontello-icon-publish"></i> SIN FACTURA</a>
                     <div style="height: 10px;">&nbsp;</div>
                     <div id="MuestraPagar" style="display: none;">
                     <?php echo $this->Form->create('Controlpedidos', array('action'=>'pagarcuenta')); ?>
@@ -147,8 +152,9 @@
                        );
                        
                        echo $this->Form->end($opt); ?>
-                    </div>                  
-                    <a class="btn btn-large btn-turgu" href="<?php echo $this->Html->url(array('action' => 'facturar1', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> DIVIDIR FACTURA</a>
+                    </div>
+                    <?php endif; ?>                  
+                    
                   
                     <script>
                     $("#btMuestraFacturar").click(function() {

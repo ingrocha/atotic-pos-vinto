@@ -197,6 +197,8 @@ class ControlpedidosController extends AppController
     {
         //$this->layout = 'ajax';
         //$this->layout='imprimir';
+        $usuario = $this->Session->read('Auth.user.id');
+        
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
                 $id_pedido)));
         $totalpagado = 0.00;
@@ -209,7 +211,7 @@ class ControlpedidosController extends AppController
         //debug($moso);
         $descuentos = $this->Descuento->find('all');
         //debug($descuentos);exit;
-        $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos'));
+        $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos','usuario'));
     }
 
     public function imprecibo($id_pedido = null)
