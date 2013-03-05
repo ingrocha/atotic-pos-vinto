@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2013 at 11:34 AM
+-- Generation Time: Mar 02, 2013 at 12:54 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -262,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `bodegas` (
   `lugar` varchar(255) DEFAULT NULL,
   `observaciones` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=722 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=724 ;
 
 --
 -- Dumping data for table `bodegas`
@@ -988,7 +988,9 @@ INSERT INTO `bodegas` (`id`, `insumo_id`, `preciocompra`, `ingreso`, `salida`, `
 (718, 1, 12.00, 0, 1, 877, '2013-02-27', NULL, NULL),
 (719, 1, 12.00, 0, 2, 875, '2013-03-01', NULL, NULL),
 (720, 4, 0.00, 0, 2, 898, '2013-03-01', NULL, NULL),
-(721, 14, 0.00, 0, 1, 1006, '2013-03-01', NULL, NULL);
+(721, 14, 0.00, 0, 1, 1006, '2013-03-01', NULL, NULL),
+(722, 1, 12.00, 0, 2, 873, '2013-03-02', NULL, NULL),
+(723, 4, 0.00, 0, 2, 896, '2013-03-02', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1353,7 +1355,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `precio` float(15,2) NOT NULL DEFAULT '0.00',
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=359 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=361 ;
 
 --
 -- Dumping data for table `items`
@@ -1692,7 +1694,9 @@ INSERT INTO `items` (`id`, `pedido_id`, `producto_id`, `cantidad`, `precio`, `fe
 (355, 154, 14, 2, 120.00, '2013-02-27 13:02:25'),
 (356, 155, 15, 1, 60.00, '2013-03-01 03:14:20'),
 (357, 155, 14, 1, 60.00, '2013-03-01 03:14:21'),
-(358, 155, 49, 1, 15.00, '2013-03-01 03:14:24');
+(358, 155, 49, 1, 15.00, '2013-03-01 03:14:24'),
+(359, 159, 15, 1, 60.00, '2013-03-02 02:45:48'),
+(360, 159, 14, 1, 60.00, '2013-03-02 02:45:50');
 
 -- --------------------------------------------------------
 
@@ -1765,7 +1769,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `fechac` varchar(10) NOT NULL,
   `created` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=156 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=160 ;
 
 --
 -- Dumping data for table `pedidos`
@@ -1887,7 +1891,11 @@ INSERT INTO `pedidos` (`id`, `usuario_id`, `fecha`, `mesa`, `estado`, `total`, `
 (152, 2, '2013-02-27 00:47:38', 1, 0, 0.00, NULL, 0.00, '', '2013-02-27'),
 (153, 2, '2013-02-27 12:56:39', 2, 4, 45.00, NULL, 45.00, '', '2013-02-27'),
 (154, 3, '2013-02-27 13:01:30', 3, 0, 181.50, NULL, 0.00, '', '2013-02-27'),
-(155, 2, '2013-03-01 03:14:12', 1, 0, 135.00, NULL, 0.00, '', '2013-03-01');
+(155, 2, '2013-03-01 03:14:12', 1, 0, 135.00, NULL, 0.00, '', '2013-03-01'),
+(156, 5, '2013-03-02 02:32:08', 1, 0, 0.00, NULL, 0.00, '', '2013-03-02'),
+(157, 5, '2013-03-02 02:32:42', 2, 0, 0.00, NULL, 0.00, '', '2013-03-02'),
+(158, 5, '2013-03-02 02:35:44', 3, 0, 0.00, NULL, 0.00, '', '2013-03-02'),
+(159, 5, '2013-03-02 02:35:53', 4, 0, 120.00, NULL, 0.00, '', '2013-03-02');
 
 -- --------------------------------------------------------
 
@@ -2263,20 +2271,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   `direccion` varchar(500) DEFAULT NULL,
   `celular` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
+  `codigo` varchar(15) DEFAULT NULL,
   `role` varchar(20) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `nombre`, `direccion`, `celular`, `password`, `role`, `created`, `modified`) VALUES
-(2, 'cherrera', 'Cristiam Herrera Daza', 'Calle yanacocha #123', '73253830', '8a1f83f11914d00b6e317a46ea01b0eda569d9c0', 'Administrador', '2013-02-26 01:43:46', '2013-02-26 01:43:46'),
-(3, 'adriana', 'Adriana Miranda de Herrera', 'Calle uno', '34123', '8a1f83f11914d00b6e317a46ea01b0eda569d9c0', 'Cajero', '2013-02-26 01:51:49', '2013-02-26 01:51:49'),
-(4, 'adolfo', 'Adolfo Guillen Vargas', 'Viva Vinto', '6052323', '8a1f83f11914d00b6e317a46ea01b0eda569d9c0', 'Administrador', '2013-02-26 02:02:20', '2013-02-26 02:02:20');
+INSERT INTO `users` (`id`, `username`, `nombre`, `direccion`, `celular`, `password`, `codigo`, `role`, `created`, `modified`) VALUES
+(2, 'cherrera', 'Cristiam Herrera Daza', 'Calle yanacocha #123', '73253830', '8a1f83f11914d00b6e317a46ea01b0eda569d9c0', NULL, 'Administrador', '2013-02-26 01:43:46', '2013-02-26 01:43:46'),
+(3, 'adriana', 'Adriana Miranda de Herrera', 'Calle uno', '34123', '8a1f83f11914d00b6e317a46ea01b0eda569d9c0', NULL, 'Cajero', '2013-02-26 01:51:49', '2013-02-26 01:51:49'),
+(4, 'adolfo', 'Adolfo Guillen Vargas', 'Viva Vinto', '6052323', '8a1f83f11914d00b6e317a46ea01b0eda569d9c0', NULL, 'Administrador', '2013-02-26 02:02:20', '2013-02-26 02:02:20'),
+(5, 'aplata', 'Alex Plata', 'Calle uno', '79', '139060fd4013d96b9acd2593f6bf483dcfe456e2', '3333', 'Administrador', '2013-03-02 02:07:26', '2013-03-02 02:52:59');
 
 -- --------------------------------------------------------
 
