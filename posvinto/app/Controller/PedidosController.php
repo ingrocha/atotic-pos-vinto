@@ -26,7 +26,7 @@ class PedidosController extends AppController
         'Bodega',
         'Almacen');
     public $layout = 'publico';
-    
+
     public function beforeFilter()
     {
         parent::beforeFilter();
@@ -103,7 +103,7 @@ class PedidosController extends AppController
             }
         }
         $platos = $this->Pedido->Plato->find('list');
-        $usuarios = $this->Pedido->Usuario->find('list');
+        $usuarios = $this->Pedido->User->find('list');
         $this->set(compact('platos', 'usuarios'));
     }
 
@@ -137,7 +137,7 @@ class PedidosController extends AppController
             $this->request->data = $this->Pedido->read(null, $id);
         }
         $platos = $this->Pedido->Plato->find('list');
-        $usuarios = $this->Pedido->Usuario->find('list');
+        $usuarios = $this->Pedido->User->find('list');
         $this->set(compact('platos', 'usuarios'));
     }
 
@@ -252,18 +252,19 @@ class PedidosController extends AppController
             //debug($ultimoPedido);exit;
             //echo $ultimoPedido;
             //exec("D:\imprime\AppImpresion.exe");
+            
             $pedidosNoImpresos = $this->Pedido->find('all', array('recursive' => -1, 'conditions' => array('Pedido.estado' => 0)));
 
-            /*foreach($pedidosNoImpresos as $pni)
+            /* foreach($pedidosNoImpresos as $pni)
             {
             echo $pni['Pedido']['id']."-".$pni['Pedido']['estado'];
             exec("D:\imprime\AppImpresion.exe");
             sleep(1);
-            }*/
-            /*if(!empty($pedidosNoImpresos))
+            } */
+            /* if(!empty($pedidosNoImpresos))
             {
             //exec("D:\imprime\AppImpresion.exe");
-            }*/
+            } */
             $anadidos = $this->Item->find('all', array(
                 'conditions'=>array('Item.pedido_id'=>$pedido, 'Item.estado'=>$anadido)
             ));
@@ -297,6 +298,7 @@ class PedidosController extends AppController
                 $this->Item->deleteAll(array('Item.estado'=>1, 'Item.pedido_id'=>$pedido));
             }
             $this->Session->setFlash('Pedido Registrado');
+            
             $this->redirect(array('action' => 'listadopedidos'));
         }
         //$this->request->data['Pedido']['']=
@@ -413,8 +415,13 @@ class PedidosController extends AppController
         
         if (!empty($this->request->data))
         {
+<<<<<<< .mine
+            $num = $this->data['Pedidos']['numero'];
+            $verif = $this->User->find('first', array('conditions' => array('User.codigo' => $num), 'recursive' => -1));
+=======
             $num = $this->request->data['Pedidos']['numero'];
             $verif = $this->User->find('first', array('conditions' => array('User.codigo' => $num), 'recursive' => -1));
+>>>>>>> .r463
             if (!empty($verif))
             {
                 $fecha_ayer = date("Y-m-d", strtotime("yesterday"));
@@ -542,14 +549,11 @@ class PedidosController extends AppController
             //debug($porciones);exit;
             foreach ($porciones as $porcion)
             {
-                $items = $this->Bodega->find('first', array(
-                    'conditions' => array('Bodega.insumo_id' => $porcion['Porcione']['insumo_id']), 
-                    'order' => array('Bodega.id DESC')
-                ));
+                $items = $this->Bodega->find('first', array('conditions' => array('Bodega.insumo_id' => $porcion['Porcione']['insumo_id']), 'order' => array('Bodega.id DESC')));
 
                 //$cantidadPorcion = $this->Porcione->find('all', array(
-                    //'conditions' => array('Porcione.producto_id' => $id_prod, 'Porcione.insumo_id'=>),                    
-                    //'recursive' => -1));
+                //'conditions' => array('Porcione.producto_id' => $id_prod, 'Porcione.insumo_id'=>),
+                //'recursive' => -1));
                 //debug($items);exit;
                 if (!empty($items))
                 {
@@ -605,6 +609,10 @@ class PedidosController extends AppController
             $this->request->data['Item']['fecha'] = $fecha;
             $productos = $this->Producto->find('first', array('conditions' => array('Producto.id' => $id_prod), 'recursive' => -1));
             $precio_prod = $productos['Producto']['precio'];
+<<<<<<< .mine
+            $plato_pedido = $this->Item->find('first', array('conditions' => array('Item.pedido_id' => $pedido, 'Item.producto_id' => $id_prod), 'recursive' => -
+                    1));
+=======
            
             
                 $plato_pedido = $this->Item->find('first', array(
@@ -613,6 +621,7 @@ class PedidosController extends AppController
             )); 
            
             
+>>>>>>> .r463
             if (!empty($plato_pedido))
             {
                 $estado = $anadido;
@@ -677,8 +686,8 @@ class PedidosController extends AppController
         {
             // debug($this->data);exit;
             $num = $this->data['Pedidos']['numero'];
-            $verif = $this->Usuario->find('first', array('conditions' => array('Usuario.codigo' => $num), 'recursive' => -1));
-            $id_moso = $verif['Usuario']['id'];
+            $verif = $this->User->find('first', array('conditions' => array('User.codigo' => $num), 'recursive' => -1));
+            $id_moso = $verif['User']['id'];
             //debug($verif);exit;
             if ($verif)
             {
@@ -899,7 +908,7 @@ class PedidosController extends AppController
             $this->set(compact('insumo', 'ce'));
         }
     }
-
+    
 }
 
 ?>
