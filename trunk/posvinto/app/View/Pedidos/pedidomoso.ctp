@@ -3,11 +3,14 @@
         $("#tabs").tabs();
     });
 </script>
+
 <div class="lista_productos">
     <div id="tabs">
         <ul>
             <?php foreach ($categorias as $c): ?>
-                <li><a href="#cat_<?php echo $c['Categoria']['id']; ?>"><?php echo $c['Categoria']['nombre']; ?></a></li>                  
+                <li>
+                    <a href="#cat_<?php echo $c['Categoria']['id']; ?>"><?php echo $c['Categoria']['nombre']; ?></a>
+                </li>                  
             <?php endforeach; ?> 
         </ul>
         <?php foreach ($categorias as $c): ?>  
