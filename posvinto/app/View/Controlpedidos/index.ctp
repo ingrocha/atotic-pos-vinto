@@ -59,7 +59,7 @@
                                 <tr id="DataRow<?php echo $i; ?>">							   	 	
                                     <td><input type="checkbox" class="checkbox check-row" value="0" name="checkRow"></td>
                                     <td><h4 class="statistic-values"><?php echo $d['Pedido']['mesa']; ?></h4></td>
-                                    <td><h4 class="statistic-values"><?php echo $d['Usuario']['nombre']; ?></h4></td>                                    
+                                    <td><h4 class="statistic-values"><?php echo $d['User']['nombre']; ?></h4></td>                                    
                                     <?php
                                     $hora = split(' ', $d['Pedido']['fecha']);
                                     ?>
