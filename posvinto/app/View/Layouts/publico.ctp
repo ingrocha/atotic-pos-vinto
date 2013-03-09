@@ -26,10 +26,10 @@
                     <ul>
                         <li>
                             <?php //echo DIR_WEB;  ?>
-                            <?php echo $this->Html->link("PEDIDOS", array('controller' => 'Pedidos', 'action' => 'listadopedidos')); ?>                        
+                            <?php //echo $this->Html->link("PEDIDOS", array('controller' => 'Pedidos', 'action' => 'listadopedidos')); ?>                        
                         </li>                    				
                         <li>
-                            <?php echo $this->Html->link("ASISTENCIAS", array('controller' => 'Asistencias', 'action' => 'entradas')); ?>
+                            <?php //echo $this->Html->link("ASISTENCIAS", array('controller' => 'Asistencias', 'action' => 'entradas')); ?>
                         </li>
                     </ul>
                 </div>
