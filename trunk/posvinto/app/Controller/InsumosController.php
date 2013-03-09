@@ -292,7 +292,6 @@ class InsumosController extends AppController
 
     public function salidalmacen($id = null)
     {
-
         $this->layout = 'ajax';
 
         if (!empty($this->data))
@@ -372,7 +371,7 @@ class InsumosController extends AppController
 
                     if ($this->Bodega->save($this->data))
                     {
-                        $this->redirect(array('action' => 'bodega'));
+                        $this->redirect(array('action' => 'index'));
                     }
                     else
                     {
