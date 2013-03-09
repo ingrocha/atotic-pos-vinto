@@ -907,7 +907,7 @@ class PedidosController extends AppController
     public function validamoso()
     {
         //if
-        //debug($this->request->data);
+        //debug($this->request->data);exit;
         if ($this->request->is("post"))
         {
 
