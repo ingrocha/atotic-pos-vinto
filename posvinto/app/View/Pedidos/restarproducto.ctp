@@ -1,4 +1,5 @@
-<h4>Cantidad Total: <?php echo $cant_platos['0']['0']['cantidad']; ?> Mesa: <?php echo $mesa; ?></h4>
+<h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $mesa ?></span></h3>
+<h3>Cantidad Total:  <?php echo $cant_platos['0']['0']['cantidad']; ?></h3>
 <div class="well sidebar-nav">
     <table class="table table-striped">
         <thead>
@@ -37,7 +38,7 @@
                         <script type="text/javascript">
                             //$(document).ready(function() {
                             $("#restar_<?php echo $id_item; ?>").click(function() {
-                                $("#cargaPedidos").load("<?php echo $this->Html->url(array('controller' => 'Pedidos', 'action' => 'restarproducto', $id_item, $mesa)) ?>");
+                                $("#cargaPedidos").load("<?php echo $this->Html->url(array('controller' => 'Pedidos', 'action' => 'restarproducto', $id_item, $mesa, $anadido)) ?>");
                             });
                             //});
                         </script>
@@ -49,4 +50,4 @@
     </table>
      
 </div>
-<?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar), array('class'=>'button')); ?>
+<?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar, $anadido), array('class'=>'button')); ?>
