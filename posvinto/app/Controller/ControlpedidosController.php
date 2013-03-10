@@ -719,6 +719,9 @@ class ControlpedidosController extends AppController
             //$this->redirect('http://localhost/posvinto/posvinto/controlpedidos');
         }
     }
+    public function reasignarmesero($idPedido = null){
+        
+    }
 }
 
 ?>

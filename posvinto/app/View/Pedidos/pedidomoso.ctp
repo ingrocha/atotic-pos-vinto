@@ -31,28 +31,7 @@
 
 </style>
 <?php $idMoso = $datosMoso['User']['id']; ?>
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="#">Viva Vinto</a>
-            <div class="nav-collapse collapse">
-                <p class="navbar-text pull-right">
-                    Bienvenido: <a href="#" class="navbar-link"><?php echo $datosMoso['User']['nombre']; ?></a>
-                </p>
-                <!--<ul class="nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                </ul>-->
-            </div><!--/.nav-collapse -->
-        </div>
-    </div>
-</div>
+
 
 <div class="container-fluid">
     <div class="row-fluid">
@@ -138,11 +117,31 @@
             </div>
 
             <div class="span4">
-                <div id="cargaPedidos">
-                   <h3>
-                   Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $mesa ?></span></h3>
-                   Seleccione los items del menu  
-                    <?php //echo $this->Html->link('Cancelarpedido', array('controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa), array('class' => 'btn btn-block')) ?>  
+                <div id="cargaPedidos">  
+                      
+                <h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $mesa ?></span></h3>
+<h3>Cantidad Total: <?php echo $cant_platos['0']['0']['cantidad']; ?></h3>
+<div class="well sidebar-nav">
+    <table class="table table-striped">
+        <thead>
+            <tr>              
+                <th>Producto</th>
+                <th>Cant.</th>                 
+                <th>Quitar</th>                 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+            </tr>                 
+        </tbody>
+    </table>    
+</div>        
+<?php echo $this->Html->link('Cancelarpedido', array(
+'controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa), 
+array('class' => 'btn btn-block'),'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa') ?>
                 </div>
             </div>
 

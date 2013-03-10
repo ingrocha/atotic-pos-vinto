@@ -49,4 +49,7 @@
         </tbody>
     </table>    
 </div>        
-<?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar, $anadido), array('class'=>'button')); ?>
+<?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar, $anadido), array('class'=>'btn btn-success btn-large')); ?>
+<?php echo $this->Html->link('Cancelarpedido', array(
+'controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa), 
+array('class' => 'btn btn-block'),'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa') ?>
