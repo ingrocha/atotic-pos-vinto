@@ -16,6 +16,6 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<?php echo $this->Html->css('imprimir'); ?>
+<?php echo $this->Html->css(array('imprimir'), 'stylesheet', array('media' => 'print')); ?>
 <?php echo $this->Session->flash(); ?>
 <?php echo $this->fetch('content'); ?>
