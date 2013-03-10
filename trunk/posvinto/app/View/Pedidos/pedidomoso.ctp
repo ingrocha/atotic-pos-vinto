@@ -56,7 +56,7 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span9">
+        <div class="span8">
             <div class="hero-unit">
                 <div class="tabbable">
                     <ul class="nav nav-tabs" id="myTab">
@@ -137,9 +137,11 @@
                 </div>
             </div>
 
-            <div class="span3">
+            <div class="span4">
                 <div id="cargaPedidos">
-                    <h2>Selecciona un Producto</h2>  
+                   <h3>
+                   Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $mesa ?></span></h3>
+                   Seleccione los items del menu  
                     <?php //echo $this->Html->link('Cancelarpedido', array('controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa), array('class' => 'btn btn-block')) ?>  
                 </div>
             </div>

@@ -1,4 +1,5 @@
-<h4>Cantidad Total: <?php //echo $cant_platos['0']['0']['cantidad']; ?> Mesa: <?php echo $mesa; ?></h4>
+<h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $datosPedido['Pedido']['mesa'] ?></span></h3>
+
 <div class="well sidebar-nav">
     <table class="table table-striped">
         <thead>
@@ -16,8 +17,8 @@
             <?php foreach ($itemsPedido as $i): ?>
                 <?php $id_item = $i['Item']['id']; ?>
                 <tr class="<?php echo fmod($ce, 2) ? 'segundo' : 'primero' ?>">                    
-                    <td><?php echo $i['Producto']['nombre']; ?></td>
-                    <td>
+                    <td style="font-size: 20px;"><?php echo $i['Producto']['nombre']; ?></td>
+                    <td style="font-size: 20px;">
                         <?php echo $i['Item']['cantidad']; ?>
                         <?php
                         $platos = $i['Item']['cantidad'];
@@ -37,4 +38,4 @@
         </tbody>
     </table>    
 </div>        
-<?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar), array('class'=>'button')); ?>
+<?php echo $this->Html->link('Aumentar sobre el Pedido', array('controller'=>'Pedidos', 'action'=>'pedidomoso', $datosPedido['Pedido']['user_id'], $datosPedido['Pedido']['id'], $datosPedido['Pedido']['mesa'], 1), array('class'=>'button')); ?>

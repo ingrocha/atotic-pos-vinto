@@ -19,7 +19,8 @@ class ControlpedidosController extends AppController
         'Sucursal',
         'Descuento',
         'Recibo',
-        'Cliente');
+        'Cliente',
+        'User');
     public $layout = 'vivavinto';
 
     public function index()
@@ -638,13 +639,29 @@ class ControlpedidosController extends AppController
     public function dividircuenta($idpedido=null){
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
                 $idpedido)));
+        $detalle = array();
+        $i2 = 0;
+        foreach ($pedido as $p)
+        {
+            for ($i = 0; $i < $p['Item']['cantidad']; $i++)
+            {
+                $detalle[$i2]['Detalle']['producto_id'] = $p['Producto']['id'];
+                $detalle[$i2]['Detalle']['producto'] = $p['Producto']['nombre'];
+                $detalle[$i2]['Detalle']['precio'] = $p['Producto']['precio'];
+                $detalle[$i2]['Detalle']['fecha'] = $p['Item']['fecha'];
+                $i2++;
+            }
+        }
+        $pedido = '';
+        $pedido = $detalle;
         //debug($pedido);exit;
         $this->set(compact('pedido', 'idpedido'));
     }
     public function dividircuenta2()
     {
+        //debug($this->request->data);exit;
         $this->layout = 'imprimir';
-        $idpedido = $this->data[1]['Pedido']['idpedido'];
+        $idpedido = $this->request->data[1]['Pedido']['idpedido'];
         $datas = $this->request->data;
         $total = 0.0;
         $i = 0;
@@ -673,8 +690,9 @@ class ControlpedidosController extends AppController
         }
         /// DEBUG($datos);exit;
         $total = number_format($total, 2, '.', ',');
-        $idusuario = $this->Session->read('usuario_id');
-            $usuario = $this->Usuario->find('first', array('Usuario.id' => $idusuario));
+        $idusuario = $this->Session->read('Auth.User.id');
+        //debug($idusuario);exit;
+            $usuario = $this->User->find('first', array('User.id' => $idusuario));
             $idsucursal = $usuario['Sucursal']['id'];
             $sucursal = $this->Sucursal->findById($idsucursal);
             $fech = date("Y-m-d H:m:s");
