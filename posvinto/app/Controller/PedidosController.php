@@ -910,7 +910,6 @@ class PedidosController extends AppController
         $this->layout = 'loginmoso';
         if ($this->request->is("post"))
         {
-
             $codigo = $this->request->data['Pedidos']['numero'];
             $verificaMoso = $this->User->find('first', array('recursive' => -1, 'conditions' =>
                 array('User.codigo' => $codigo)));

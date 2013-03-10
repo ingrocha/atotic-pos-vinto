@@ -719,8 +719,28 @@ class ControlpedidosController extends AppController
             //$this->redirect('http://localhost/posvinto/posvinto/controlpedidos');
         }
     }
-    public function reasignarmesero($idPedido = null){
-        
+    public function ajaxmeseros( $idPedido = null){
+        $this->layout = 'ajax';
+        $mosos = $this->User->find('all', array(
+        'fields'=>array('User.id', 'User.nombre'),
+        'conditions'=>array('User.role like '=>'Moso')
+        ));
+        $this->set(compact('mosos','idPedido'));
+    }
+    public function reasignamesero(){
+        //debug($this->request->data);
+        $idPedido = $this->request->data['controlpedidos']['pedido'];
+        $moso = $this->request->data['controlpedidos']['mesero'];
+        $obs = $this->request->data['controlpedidos']['observaciones'];
+        $data = array('id'=>$idPedido, 'user_id'=>$moso, 'observaciones'=>$obs);
+        //debug($data);exit;
+        if($this->Pedido->save($data)){
+            $this->Session->setFlash('Mesa reasignada', 'alerts/bueno');
+            $this->redirect(array('action'=>'index'));
+        }else{
+            $this->Session->setFlash('Error no se pudo reasignar la mesa', 'alerts/bueno');
+            $this->Session->redirect(array('action'=>'index'));
+        }       
     }
 }
 
