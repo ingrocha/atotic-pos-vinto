@@ -18,6 +18,7 @@
         -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
         box-shadow: 0 1px 2px rgba(0,0,0,.05);
     }
+    
     .form-signin .form-signin-heading,
     .form-signin .checkbox {
         margin-bottom: 10px;
@@ -26,19 +27,19 @@
     .form-signin input[type="password"] {
         font-size: 16px;
         height: auto;
-        margin-bottom: 15px;
+        margin-bottom: -2px;
         padding: 7px 9px;
-    }
+    }            
 
 </style>
 
-<div class="container">   
+<div class="container">
+    <!-- <form class="form-inline">-->
     <?php echo $this->Form->create('Pedidos', array('action' => 'validamoso', 'class'=>'form-signin')); ?>    
-        <h3 class="form-signin-heading">INGRESE SU CODIGO</h3>        
-        <input name="data[Pedidos][numero]" type="password" class="input-block-level" id="tecladonumerico" placeholder="Ingrese su Codigo">        
-        <button class="btn btn-large btn-primary" type="submit">Ingresar</button>
+    <h3 class="form-signin-heading">INGRESE SU CODIGO</h3>                 
+      <input name="data[Pedidos][numero]" type="password" class="input-small" id="tecladonumerico" placeholder="Password" />      
+      <button type="submit" class="btn btn-primary">Ingresar</button>                                              
     </form>
-
 </div>
 
 <script type="text/javascript">

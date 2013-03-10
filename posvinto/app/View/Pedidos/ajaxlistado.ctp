@@ -1,4 +1,4 @@
-<h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $mesa ?></span></h3>
+<!--<h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $mesa ?></span></h3>-->
 <h3>Cantidad Total: <?php echo $cant_platos['0']['0']['cantidad']; ?></h3>
 <div class="well sidebar-nav">
     <table class="table table-striped">
@@ -49,7 +49,8 @@
         </tbody>
     </table>    
 </div>        
-<?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar, $anadido), array('class'=>'btn btn-success btn-large')); ?>
-<?php echo $this->Html->link('Cancelarpedido', array(
-'controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa), 
-array('class' => 'btn btn-block'),'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa') ?>
+<?php echo $this->Html->link('Realizar Pedido', array('controller' => 'Pedidos', 'action' => 'registrarpedido', $pedido, $total_pagar, $anadido), array('class' => 'btn btn-success btn-large')); ?>
+<?php
+echo $this->Html->link('Cancelarpedido', array(
+    'controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa), array('class' => 'btn btn-block'), 'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa')
+?>
