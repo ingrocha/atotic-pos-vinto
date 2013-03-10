@@ -36,7 +36,7 @@
                                     <th>Total</th> 
                                     <th>Hora</th>
                                     <th>Estado</th>
-                                    <th>Pagar</th>                               
+                                    <th>Acciones</th>                               
                                 </tr>                                                               
                             </thead>
                             <tfoot>
@@ -54,12 +54,36 @@
                                 <?php $i = 0; ?>
                                 <?php foreach ($data as $d): ?>                                    
                                 <?php $id = $d['Pedido']['id']; ?>
-                                <div id="cuadro_<?php echo $id ?>" title="Recibo">
-                                </div>                         
+                                <div id="modal_<?php echo $id; ?>" class="modal hide fade" tabindex="-1" data-width="760"></div>                        
                                 <tr id="DataRow<?php echo $i; ?>">							   	 	
-                                    <td><input type="checkbox" class="checkbox check-row" value="0" name="checkRow"></td>
+                                    <td><input type="checkbox" class="checkbox check-row" value="0" name="checkRow"/></td>
                                     <td><h4 class="statistic-values"><?php echo $d['Pedido']['mesa']; ?></h4></td>
-                                    <td><h4 class="statistic-values"><?php echo $d['User']['nombre']; ?></h4></td>                                    
+                                    <td><h4 class="statistic-values">
+                                    <div id="mesero_<?php echo $id; ?>" style="float: left;">
+                                            <?php
+                                            echo $d['User']['nombre'];
+                                            ?>            
+                                        </div>  
+                                        &nbsp;
+                                        <script type="text/javascript">
+                                            $(document).ready(function() {
+                                                var $modal1 = $('#modal_<?php echo $id; ?>');
+                                                
+                                                $('#mesero_<?php echo $id; ?>').on('click', function() {
+                                                        // create the backdrop and wait for next modal to be triggered
+                                                        GlobalModalManager.loading();
+
+                                                        setTimeout(function() {
+                                                            $modal1.load("<?php echo $this->Html->url(array('action' => 'ajaxmeseros', $id)) ?>", '', function() {
+                                                                $modal1.modal();
+                                                            });
+                                                        }, 100);
+                                                    });
+                                                
+                                                    
+                                            });                                                                        
+                                        </script>
+                                    </h4></td>                                    
                                     <?php
                                     $hora = split(' ', $d['Pedido']['fecha']);
                                     ?>
@@ -88,44 +112,14 @@
                                     <?php endif; ?> 
                                     <td><?php echo $d['Pedido']['total']; ?></td>    
                                     <td>                                       
-                                        <div id="dialog_<?php echo $id; ?>" style="float: left;">
-                                            <?php
-                                            /* echo $this->Html->image("print.png", array(
-                                              "title" => "Ver Recibo"
-                                              )); */
-                                            ?>            
-                                        </div>  
-                                        &nbsp;
-                                        <script type="text/javascript">
-                                            var dialogOpts = {
-                                                modal: true
-                                            };
-                                            jQuery("#dialog_<?php echo $id; ?>").click(function(){
-                                                jQuery("#cuadro_<?php echo $id; ?>").dialog(dialogOpts).load("controlpedidos/ajaxverecibo/<?php echo $id; ?>");
-                                    
-                                            });                                                                        
-                                        </script> 
+                                         
                                         <?php
                                         echo $this->Html->image("facturar.png", array(
                                             "title" => "Ver Pedido",
                                             'url' => array('action' => 'verpedido', $id)
                                         ));
                                         ?>
-                                        <?php
-                                        /* echo $this->Html->image("facturar.png", array(
-                                          "title" => "Facturar Pedido",
-                                          'url' => array('action' => 'facturar1', $id)
-                                          )); */
-                                        ?>
-                                        <?php
-                                        /* echo $this->Html->image("recibo.png", array(
-                                          "title" => "Imprimir recibo",
-                                          'url' => array('action' => 'imprecibo', $id)
-                                          )); */
-                                        ?>                                        
-                                        <?php //echo $this->Html->link('',array('controller' => 'controlpedidos', 'action' => 'facturar1', $d['Pedido']['id']), array('class' => 'ico edit')); ?>
-                                        <?php //echo $this->Html->link('',array('controller' => 'controlpedidos', 'action' => 'Recibo', $d['Pedido']['id']), array('class' => 'ico edit')); ?>
-                                    </td>
+                                     </td>
                                 </tr>    
                             <?php endforeach; ?>                                                                                                                                                                                             
                             </tbody>
