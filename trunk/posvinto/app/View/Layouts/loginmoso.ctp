@@ -82,29 +82,7 @@
     }
 
 </style>
-<?php $idMoso = $datosMoso['User']['id']; ?>
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="#">Viva Vinto</a>
-            <div class="nav-collapse collapse">
-                <p class="navbar-text pull-right">
-                    Bienvenido: <a href="<?php echo $this->Html->url(array('action'=>'validamoso')); ?>" class="navbar-link"><?php echo $datosMoso['User']['nombre']; ?></a>
-                </p>               
-                <ul class="nav">
-                  <li class="active"><a href="<?php echo $this->Html->url(array('action'=>'menumoso', $datosMoso['User']['id'])) ?>">Mis Mesas</a></li>
-                  <!--<li><a href="#about">About</a></li>-->
-                  <li><a href="<?php echo $this->Html->url(array('action'=>'validamoso')) ?>">Salir</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </div>
-</div>
+
         <?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
         <!-- container -->
