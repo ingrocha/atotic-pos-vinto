@@ -8,6 +8,7 @@
                 <h3>Bienvenido <?php echo $datosMoso['User']['nombre']; ?></h3>  
                 <h3>Tus mesas</h3>              
                 <?php foreach ($mesas as $m): ?>
+				
                     <?php $id_pedido = $m['Pedido']['id']; ?>
                     <?php $id_moso = $m['Pedido']['user_id']; ?> 
                     <?php //$idMesa = $m['Pedido']['user_id']; ?>  
