@@ -65,6 +65,7 @@
                 <!-- //tabla -->       
 
                 <div class="span4 grider">
+                <?php if($moso['Pedido']['estado'] != 3 && $moso['Pedido']['estado'] != 4): ?>
                     <h3><i class="aweso-icon-table"></i> Impresi&oacute;n cuenta</h3>                                        
                     <a class="btn btn-large btn-orange" href="<?php echo $this->Html->url(array('action'=>'imprimircuenta', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> IMPRIMIR CUENTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                     <div style="height: 10px;">&nbsp;</div> 
@@ -223,6 +224,7 @@
                         
                         
                     </script>
+                    <?php endif; ?>
                 </div>
                 <!-- //tabla --> 
             </div>

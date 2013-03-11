@@ -196,8 +196,6 @@ class ControlpedidosController extends AppController
 
     public function verpedido($id_pedido = null)
     {
-        //$this->layout = 'ajax';
-        //$this->layout='imprimir';
         $usuario = $this->Session->read('Auth.User.id');
         
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>

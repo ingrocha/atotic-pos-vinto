@@ -54,18 +54,22 @@
                                 <?php $i = 0; ?>
                                 <?php foreach ($data as $d): ?>                                    
                                 <?php $id = $d['Pedido']['id']; ?>
-                                <div id="modal_<?php echo $id; ?>" class="modal hide fade" tabindex="-1" data-width="760"></div>                        
+                                                        
                                 <tr id="DataRow<?php echo $i; ?>">							   	 	
                                     <td><input type="checkbox" class="checkbox check-row" value="0" name="checkRow"/></td>
                                     <td><h4 class="statistic-values"><?php echo $d['Pedido']['mesa']; ?></h4></td>
-                                    <td><h4 class="statistic-values">
+                                    <td>
+                                    <?php if($d['Pedido']['estado'] != 4 && $d['Pedido']['estado'] != 3): ?>
+                                    <div id="modal_<?php echo $id; ?>" class="modal hide fade" tabindex="-1" data-width="760"></div>
+                                   
                                     <div id="mesero_<?php echo $id; ?>" style="float: left;">
-                                            <?php
+                                    <h4 class="statistic-values">
+                                    <?php
                                             echo $d['User']['nombre'];
-                                            ?>            
-                                        </div>  
-                                        &nbsp;
-                                        <script type="text/javascript">
+                                            ?> 
+                                            </h4>           
+                                    </div>  
+                                    <script type="text/javascript">
                                             $(document).ready(function() {
                                                 var $modal1 = $('#modal_<?php echo $id; ?>');
                                                 
@@ -81,9 +85,12 @@
                                                     });
                                                 
                                                     
-                                            });                                                                        
-                                        </script>
-                                    </h4></td>                                    
+                                            });
+                                            </script>
+                                        <?php else: ?>
+                                        <h4 class="statistic-values"><?php echo $d['User']['nombre'] ?></h4>
+                                        <?php endif; ?>
+                                    </td>                                    
                                     <?php
                                     $hora = split(' ', $d['Pedido']['fecha']);
                                     ?>
