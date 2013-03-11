@@ -311,10 +311,10 @@ class PedidosController extends AppController
         {
             if ($anadido == 1)
             {
-               //$data = array('id'=>$pedido, 'estado'=>5);
-               //$this->Pedido->save($data);
+               $data = array('id'=>$pedido, 'estado'=>5);
+               $this->Pedido->save($data);
                
-               //exec("D:\print\AppImpresion.exe");
+               exec("D:\print\AppImpresion.exe");
                
                $anadidos = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$pedido, 'Item.estado'=>1)));
                
@@ -357,7 +357,7 @@ class PedidosController extends AppController
             
             }else{
                     //imprime las comandas 
-                    //exec("D:\imprime\AppImpresion.exe");
+                    exec("D:\imprime\AppImpresion.exe");
             }
             $moso = $id_moso;
            
@@ -678,7 +678,7 @@ class PedidosController extends AppController
                         'recursive' => -1,
                         'fields' => array('SUM(Item.cantidad) as cantidad')));
                     //debug($cant_platos);
-                    $this->set(compact('items', 'pedido', 'mesa', 'cant_platos', 'anadido'));
+                    $this->set(compact('items', 'pedido', 'mesa', 'cant_platos', 'anadido', 'id_moso'));
                 }
                 //debug($cantidad_encontrada);
             } else
