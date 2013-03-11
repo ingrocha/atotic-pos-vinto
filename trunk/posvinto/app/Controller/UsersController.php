@@ -42,6 +42,8 @@ class UsersController extends AppController
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         }
+        $roles = array('Administrador'=>'Administrador', 'Almacenes'=>'Almacenes', 'Cajero'=>'Cajero', 'Moso'=>'Moso', 'Jefe'=>'Jefe de mosos');
+        $this->set(compact('roles'));
     }
 
     public function edit($id = null)
@@ -66,7 +68,7 @@ class UsersController extends AppController
             $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
         }
-        $roles = array('Administrador'=>'Administrador', 'Almacenes'=>'Almacenes', 'Cajero'=>'Cajero', 'Moso'=>'Moso');
+        $roles = array('Administrador'=>'Administrador', 'Almacenes'=>'Almacenes', 'Cajero'=>'Cajero', 'Moso'=>'Moso', 'Jefe'=>'Jefe de mosos');
         $this->set(compact('roles'));
     }
 
