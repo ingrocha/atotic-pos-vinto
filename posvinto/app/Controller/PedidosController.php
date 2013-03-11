@@ -890,6 +890,7 @@ class PedidosController extends AppController
         $hoy = date('Y-m-d');
         App::uses('CakeTime', 'Utility');
         $dia = CakeTime::dayAsSql($hoy, 'fecha');
+        $usuario = $this->User->find('');
         $mesas = $this->Pedido->find('all', array(
             'conditions' => array('Pedido.user_id' => $idMoso, $dia, 'Pedido.estado'=>array('0', '1')), 
             'recursive' => -1
