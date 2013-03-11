@@ -30,7 +30,7 @@
     }
 
 </style>
-<?php $idMoso = $datosMoso['User']['id']; ?>
+<?php $id_moso = $datosMoso['User']['id']; ?>
 
 
 <div class="container-fluid">
