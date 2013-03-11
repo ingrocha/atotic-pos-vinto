@@ -38,7 +38,7 @@
                         <script type="text/javascript">
                             //$(document).ready(function() {
                             $("#restar_<?php echo $id_item; ?>").click(function() {
-                                $("#cargaPedidos").load("<?php echo $this->Html->url(array('controller' => 'Pedidos', 'action' => 'restarproducto', $id_item, $mesa, $anadido)) ?>");
+                                $("#cargaPedidos").load("<?php echo $this->Html->url(array('controller' => 'Pedidos', 'action' => 'restarproducto', $id_moso,$id_item, $mesa, $anadido)) ?>");
                             });
                             //});
                         </script>
@@ -49,8 +49,8 @@
         </tbody>
     </table>    
 </div>        
-<?php echo $this->Html->link('Realizar Pedido', array('controller' => 'Pedidos', 'action' => 'registrarpedido', $pedido, $total_pagar, $anadido), array('class' => 'btn btn-success btn-large')); ?>
+<?php echo $this->Html->link('Realizar Pedido', array('controller' => 'Pedidos', 'action' => 'registrarpedido', $id_moso, $pedido, $total_pagar, $anadido), array('class' => 'btn btn-success btn-large')); ?>
 <?php
 echo $this->Html->link('Cancelarpedido', array(
-    'controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa), array('class' => 'btn btn-block'), 'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa')
+    'controller' => 'Pedidos', 'action' => 'cancelapedido', $id_moso,$idPedido, $idMesa), array('class' => 'btn btn-block'), 'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa')
 ?>

@@ -16,7 +16,20 @@
                     <?php //echo $this->Html->link('');?>
                                 <!--<button class="btn btn-large btn-danger" type="button">Mesa <?php //echo $m['Pedido']['mesa'];   ?></button>-->   
                     <?php
-                    echo $this->Ajax->link(
+                    if($datosMoso['User']['role'] == "Jefe"){
+                        echo $this->Ajax->link(
+                            "Mesa: $mesa", array(
+                        'controller' => 'Pedidos',
+                        'action' => 'detallemesajefe',
+                        $id_pedido, $datosMoso['User']['id']
+                            ), array(
+                        'update' => 'cargaPedidos',
+                        'escape' => false,
+                        'class' => "btn btn-large btn-danger",
+                        'style' => 'width: 150px')
+                    );
+                    }else{
+                       echo $this->Ajax->link(
                             "Mesa: $mesa", array(
                         'controller' => 'Pedidos',
                         'action' => 'detallemesa',
@@ -26,7 +39,9 @@
                         'escape' => false,
                         'class' => "btn btn-large btn-danger",
                         'style' => 'width: 150px')
-                    );
+                    ); 
+                    }
+                    
                     ?>                                        
                 <?php endforeach; ?>
                 
