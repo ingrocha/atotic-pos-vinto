@@ -8,6 +8,13 @@ class FechasconvertComponent extends Component
         
     }
     
+    public function doFechaInvertida($fecha){
+        
+        $arreglo_cadena = explode("-", $fecha);
+        $arreglo = $arreglo_cadena[2] .'-'. $arreglo_cadena[0] . '-' . $arreglo_cadena[1];        
+        return($arreglo);
+    }
+    
     public function doFechaPago($fecha){
         $arreglo_cadena = explode("/", $fecha);
 
@@ -15,6 +22,7 @@ class FechasconvertComponent extends Component
         
         return($arreglo);
     }
+    
     public function doRevertFechaPago($fecha){
         $arreglo_cadena = explode("-", $fecha);
 

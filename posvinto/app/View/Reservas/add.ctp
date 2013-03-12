@@ -6,29 +6,37 @@
     <div id="page-content" class="page-content">
         <section>            
             <div class="row-fluid">                
-                <?php echo $this->Form->create('Insumo', array('id' => 'formA', 'class' => 'span12')); ?>
+                <?php echo $this->Form->create('Reserva', array('id' => 'formA', 'class' => 'span12')); ?>
                 <div class="page-header">
-                    <h3><i class="fontello-icon-article-alt opaci35"></i> Nuevo <small>Contrato</small></h3>
+                    <h3><i class="fontello-icon-article-alt opaci35"></i> Nueva <small>Reserva</small></h3>
                 </div>
                 <div class="span10 well well-nice">
                     <fieldset>
-                       <legend>Formulario <small>CONTRATO</small></legend>
+                        <legend>Formulario <small>RESERVAS</small></legend>
                         <div class="controls">
-                        <label for="accountAddressState" class="control-label">Empleado<span class="required">*</span></label>
-                        <?php echo $this->Form->select('nombre',$dcliente, array('placeholder'=>'Inserte el cliente'));?>
+                            <label for="accountAddressState" class="control-label">Cliente<span class="required">*</span></label>
+                            <?php echo $this->Form->select('cliente_id', $dcliente); ?>
                         </div>
                         <!-- // form item -->
-                        <label for="formA04">Fechas contrato:</label>
-                        <div class="controls">                                                             
-                            <?php echo $this->Form->text('fechainicio', array('class' => 'span4', 'placeholder' => 'Fecha inicio Ej: 2012-05-30')); ?>
-                            <?php echo $this->Form->text('fechafin', array('class' => 'span4', 'placeholder' => 'Fecha fin Ej: 2013-12-31')); ?>                                
+                                                
+                        <div class="controls">
+                            <label for="accountAddressState" class="control-label">Tipo de Evento<span class="required">*</span></label>
+                            <?php echo $this->Form->select('tipoevento_id', $dct); ?>
                         </div>
                         <!-- // form item -->
                         
-                        <label for="formA04">Sueldo y Observaciones</label>
+                        <label for="formA04">Fecha evento:</label>
+                        <div class="controls">                                                             
+                            <?php echo $this->Form->text('fecha', array('id'=>'datePicker', 'class' => 'span4', 'placeholder' => 'Fecha inicio Ej: 2012-05-30')); ?>                            
+                            <?php //echo $this->Form->text('hora', array('class' => 'span4', 'placeholder' => 'Fecha inicio Ej: 2012-05-30')); ?>
+                            <?php echo $this->Form->input('hora', array('type' => 'time', 'interval' => 15, 'timeFormat'=>24)); ?>
+                        </div>
+                        <!-- // form item -->
+
+                        <label for="formA04">Cantidad Personas</label>
                         <div class="control-label">
-                        <?php echo $this->Form->text('sueldo', array('class' => 'span3', 'placeholder' => 'sueldo Ej: 2000', 'required')); ?>
-                        <?php echo $this->Form->textarea('observaciones',array('class' => 'span3', 'placeholder' => 'Observaciones aqui'));?>
+                            <?php echo $this->Form->text('cantidad_personas', array('class' => 'span3', 'placeholder' => 'sueldo Ej: 2000', 'required')); ?>
+                            <?php echo $this->Form->textarea('observaciones', array('class' => 'span3', 'placeholder' => 'Observaciones aqui')); ?>
                         </div>               
                         <button class="btn btn-green" type="submit">Guardar contrato</button>
                         </form>
@@ -38,5 +46,4 @@
             </div>
         </section>
     </div>  
-  </div> 
-  
+</div> 

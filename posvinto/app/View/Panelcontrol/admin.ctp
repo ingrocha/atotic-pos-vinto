@@ -126,7 +126,7 @@
                                     <tbody>
                                         <?php foreach($ultimosCincoPedidos as $ucp): ?>
                                         <tr>
-                                            <td><?php echo $ucp['Usuario']['nombre']; ?></td>
+                                            <td><?php echo $ucp['User']['nombre']; ?></td>
                                             <td class="text-right"><?php echo $ucp['Pedido']['mesa']; ?></td>
                                             <td class="text-right bold">Bs.<?php echo $ucp['Pedido']['total']; ?></td>
                                         </tr>                                     
