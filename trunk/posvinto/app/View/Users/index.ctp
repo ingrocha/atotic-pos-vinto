@@ -20,7 +20,7 @@
                                 <tr>                                  
                                     <th scope="col">Nombre <span class="column-sorter"></span></th>
                                     <th scope="col">Usuario <span class="column-sorter"></span></th>                               
-                                    <th scope="col">Celular <span class="column-sorter"></span></th>                               
+                                    <th scope="col">ID Moso <span class="column-sorter"></span></th>                               
                                     <th scope="col">Perfil <span class="column-sorter"></span></th>                               
                                     <th scope="col">Acciones <span class="column-sorter"></span></th>                                
                                 </tr>
@@ -31,7 +31,7 @@
                                     <tr>                                         
                                         <td><?php echo $user['User']['nombre']; ?></td>
                                         <td><?php echo $user['User']['username']; ?></td>
-                                        <td><?php echo $user['User']['celular']; ?></td>                                   
+                                        <td><?php echo $user['User']['codigo']; ?></td>                                   
                                         <td><?php echo $user['User']['role']; ?></td>
                                         <td>
                                             <?php echo $this->Html->image("iconos/edit.png", array("title" => "Editar", 'url' => array('action' => 'edit', $user['User']['id']))); ?>

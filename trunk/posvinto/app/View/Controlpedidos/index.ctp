@@ -59,7 +59,7 @@
                                     <td><input type="checkbox" class="checkbox check-row" value="0" name="checkRow"/></td>
                                     <td><h4 class="statistic-values"><?php echo $d['Pedido']['mesa']; ?></h4></td>
                                     <td>
-                                    <?php if($d['Pedido']['estado'] != 4 && $d['Pedido']['estado'] != 3): ?>
+                                    <?php if($d['Pedido']['estado'] != 4 || $d['Pedido']['estado'] != 3): ?>
                                     <div id="modal_<?php echo $id; ?>" class="modal hide fade" tabindex="-1" data-width="760"></div>
                                    
                                     <div id="mesero_<?php echo $id; ?>" style="float: left;">
@@ -115,6 +115,14 @@
                                     <?php elseif ($d['Pedido']['estado'] == 4): ?>
                                         <td style="background-color: #CAFEA0;;">
                                             <h4 class="statistic-values">FACTURADO</h4>
+                                        </td>
+                                    <?php elseif ($d['Pedido']['estado'] == 5): ?>
+                                        <td style="background-color: #CAFEA0;;">
+                                            <h4 class="statistic-values">Producto a&ntilde;adidos</h4>
+                                        </td>
+                                    <?php elseif ($d['Pedido']['estado'] == 6): ?>
+                                        <td style="background-color: #CAFEA0;;">
+                                            <h4 class="statistic-values">CANCELADO</h4>
                                         </td>
                                     <?php endif; ?> 
                                     <td><?php echo $d['Pedido']['total']; ?></td>    

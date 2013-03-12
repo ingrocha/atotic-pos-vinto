@@ -139,9 +139,9 @@
         </tbody>
     </table>    
 </div>        
-<?php echo $this->Html->link('Cancelarpedido', array(
+<?php /*echo $this->Html->link('Cancelarpedido', array(
 'controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa), 
-array('class' => 'btn btn-block'),'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa') ?>
+array('class' => 'btn btn-block'),'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa')*/ ?>
                 </div>
             </div>
 

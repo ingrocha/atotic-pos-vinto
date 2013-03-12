@@ -237,7 +237,7 @@ class PedidosController extends AppController
     {
         $this->layout = 'ajax';
         $item = $this->Item->findById($id_item);
-        //debug($item);
+        
         $precio = $item['Item']['precio'] - $item['Producto']['precio'];
         $id_prod = $item['Item']['producto_id'];
         $cantidad = $item['Item']['cantidad'] - 1;
@@ -482,9 +482,20 @@ class PedidosController extends AppController
         //if($fecha_ayer == $fecha_hoy){
         //}
         $this->data = "";
+        
         $id_moso = $idMoso;
-        $pedido = $this->Pedido->find('first', array('order' => 'Pedido.id DESC'));
+        $pedido = $this->Pedido->find('first', array(
+        'fields' => array('MAX(Pedido.id) as id')
+        ));
+        
+        $idPedido = $pedido[0]['id'];
+       
+        $pedido = $this->Pedido->find('first', array(
+        'recursive'=>-1,
+        'conditions'=>array('Pedido.id'=>$idPedido)));
+      
         $pedido_fecha = $pedido['Pedido']['fecha'];
+        
         $caracteres = preg_split('/ /', $pedido_fecha);
         $fecha_ul_ped = $caracteres['0'];
         //echo 'la fecha del ultimo pedido es '.$fecha_ul_ped;
@@ -499,19 +510,11 @@ class PedidosController extends AppController
             $mesa = 1;
         }
         
-        $ultimoPedido = $this->Pedido->find('first', array('recursive' => -1, 'order' =>
-            'Pedido.id DESC'));
-
-        $hoy = date('Y-m-d');
-        //debug($ultimoPedido);exit;
-
         $this->request->data['Pedido']['user_id'] = $idMoso;
         $this->request->data['Pedido']['fecha'] = $fecha;
         $this->request->data['Pedido']['mesa'] = $mesa;
-        //debug($this->request->data);exit;
-        //$mesa = $this->Pedido->find('neighbors', array('field' => 'id', 'value' => $ul_pedido, 'recursive' => -1));
-        $this->Pedido->create();
-        if ($this->Pedido->save($this->data))
+         $this->Pedido->create();
+        if ($this->Pedido->save($this->request->data))
         {
             $ul_pedido = $this->Pedido->getLastInsertID();
             //insertamos la mesa creada
@@ -524,11 +527,14 @@ class PedidosController extends AppController
                 $mesa,
                 0));
         }
-        //debug($this->data);exit;
-        //echo $num;
-        //debug($verif);
+        
     }
-
+    public function cancelapedido($idUsuario = null, $pedido = null, $mesa = null){
+        $data = array('id'=>$pedido, 'estado'=>6, 'user_id'=>$idUsuario);
+        $this->Pedido->save($data);
+        $this->Session->setFlash("Se cancelo el pedido #: " . $pedido . " de la mesa " . $mesa);
+        $this->redirect(array('action' => 'menumoso', $idUsuario));
+    }
     public function cancelarpedido($pedido = null, $mesa = null)
     {
         $this->layout = 'ajax';
@@ -558,6 +564,8 @@ class PedidosController extends AppController
 
     public function ajaxlistado($id_moso = null, $id_prod = null, $pedido = null, $mesa = null, $anadido = null)
     {
+        $usuario = $this->User->find('count', array('conditions'=>array('User.id'=>$id_moso, 'User.role like '=>"%Jefe%")));
+        
         //debug($anadido);exit;
         $this->layout = 'ajax';
         /*         * ********************************************* */
@@ -678,7 +686,7 @@ class PedidosController extends AppController
                         'recursive' => -1,
                         'fields' => array('SUM(Item.cantidad) as cantidad')));
                     //debug($cant_platos);
-                    $this->set(compact('items', 'pedido', 'mesa', 'cant_platos', 'anadido', 'id_moso'));
+                    $this->set(compact('items', 'pedido', 'mesa', 'cant_platos', 'anadido', 'id_moso', 'usuario'));
                 }
                 //debug($cantidad_encontrada);
             } else
@@ -696,7 +704,7 @@ class PedidosController extends AppController
                         'recursive' => -1,
                         'fields' => array('SUM(Item.cantidad) as cantidad')));
                     //debug($items);exit;
-                    $this->set(compact('items', 'pedido', 'mesa', 'cant_platos', 'anadido','id_moso'));
+                    $this->set(compact('items', 'pedido', 'mesa', 'cant_platos', 'anadido','id_moso', 'usuario'));
                 }
             }
             //fin guardar plato o item
@@ -708,7 +716,7 @@ class PedidosController extends AppController
                 'conditions' => array('Item.pedido_id' => $pedido, 'Item.estado' => $anadido),
                 'recursive' => -1,
                 'fields' => array('SUM(Item.cantidad) as cantidad')));
-            $this->set(compact('items', 'pedido', 'mesa', 'cant_platos', 'producto', 'anadido', 'id_moso'));
+            $this->set(compact('items', 'pedido', 'mesa', 'cant_platos', 'producto', 'anadido', 'id_moso', 'usuario'));
         }
     }
 
@@ -1016,13 +1024,32 @@ class PedidosController extends AppController
             'recursive'=>-1,
             'conditions'=>array('Pedido.id'=>$idPedido)
         ));
-        //debug($datosPedido);exit;
+        $moso_actual = $datosPedido['Pedido']['user_id'];
+        $datosMoso = $this->User->find('first', array('conditions'=>array('User.id'=>$moso_actual)));
         $itemsPedido = $this->Item->find('all', array(
             'recursive'=>0,
             'conditions'=>array('Item.pedido_id'=>$idPedido)
         ));
+        $mosos = $this->User->find('list', array(
+        'conditions'=>array('User.role like'=>"%Moso%"),
+        'fields'=>array('User.id', 'User.nombre')
+        ));
+        $this->set(compact('itemsPedido', 'datosPedido', 'id_moso', 'datosMoso', 'mosos'));
+    }
+     public function reasignamesero(){
+       //debug($this->request->data);exit;
+        $idPedido = $this->request->data['Pedidos']['pedido'];
+        $moso = $this->request->data['Pedidos']['moso'];
+        $idMoso = $this->request->data['Pedidos']['id_moso'];
+       $data = array('id'=>$idPedido, 'user_id'=>$moso);
         
-        $this->set(compact('itemsPedido', 'datosPedido', 'id_moso'));
+        if($this->Pedido->save($data)){
+            $this->Session->setFlash('Mesa reasignada', 'alerts/bueno');
+            $this->redirect(array('action'=>'menumoso', $idMoso));
+        }else{
+            $this->Session->setFlash('Error no se pudo reasignar la mesa', 'alerts/bueno');
+            $this->redirect(array('action'=>'menumoso', $idMoso));
+        }       
     }
 
 }
