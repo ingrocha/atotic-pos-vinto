@@ -28,11 +28,9 @@ class ControlpedidosController extends AppController
         //funcion para leer un archivo
         //$this->Pedido->recursive = 0;
         $fecha = date('Y-m-d') . " %";
-        $this->paginate = array('conditions' => array('Pedido.fecha LIKE' => $fecha),
-            'order' => array('Pedido.id' => 'desc'));
-        // similar to findAll(), but fetches paged results
-        $data = $this->paginate('Pedido');       
-
+        $data= $this->Pedido->find('all', array('conditions' => array('Pedido.fecha LIKE' => $fecha),
+            'order' => array('Pedido.id' => 'desc')));    
+    
         $this->set(compact('data'));
     }
     public function ajaxnombre($nit=null){

@@ -50,4 +50,4 @@
     </table>
      
 </div>
-<?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar, $anadido), array('class'=>'button')); ?>
+<?php echo $this->Html->link('Realizar Pedido', array('controller'=>'Pedidos', 'action'=>'registrarpedido', $pedido, $total_pagar, $anadido), array('class'=>'btn btn-success btn-large')); ?>

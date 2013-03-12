@@ -1,5 +1,5 @@
 <h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $datosPedido['Pedido']['mesa'] ?></span></h3>
-
+<h4>Mozo: <?php echo $datosMoso['User']['nombre'] ?></h4>
 <div class="well sidebar-nav">
     <table class="table table-striped">
         <thead>
@@ -57,3 +57,21 @@
 </div>        
 
 <?php echo $this->Html->link('Aumentar sobre el Pedido', array('controller'=>'Pedidos', 'action'=>'pedidomoso', $id_moso, $datosPedido['Pedido']['id'], $datosPedido['Pedido']['mesa'], 1), array('class'=>'btn btn-success btn-large')); ?>
+
+<div class="span10">
+&nbsp;
+</div>
+<div class="span10">
+   <?php echo $this->Form->create('Pedidos', array('action'=>'reasignamesero')) ?>
+   <?php echo $this->Form->select('moso', $mosos) ?>
+   <?php echo $this->Form->hidden('pedido', array('value'=>$datosPedido['Pedido']['id'])) ?>
+   <?php echo $this->Form->hidden('id_moso', array('value'=>$id_moso)) ?>
+   <?php echo $this->Form->end('ASIGNAR MOSO >>') ?>
+</div>
+<div class="span10">
+<?php
+    echo $this->Html->link('Cancelarpedido', array(
+    'controller' => 'Pedidos', 'action' => 'cancelapedido', $id_moso, $datosPedido['Pedido']['id'], $datosPedido['Pedido']['mesa']), array('class' => 'btn btn-block'), 'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa');    
+
+?>
+</div>
