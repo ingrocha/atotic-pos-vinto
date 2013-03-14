@@ -289,14 +289,12 @@ class PedidosController extends AppController
         //debug($items);exit;
         $this->set(compact('items', 'pedido', 'cant_platos', 'mesa', 'anadido'));
     }
-
-    public function registrarpedido($id_moso=null, $pedido = null, $total = null, $anadido = null)
+    
+    public function registrarpedido($id_moso=null, $idPedido = null, $total = null, $anadido = null)
     {
-        $this->Pedido->id = $pedido;
-        $idPedido = $pedido;
+        $this->Pedido->id = $idPedido;
         
-        $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                $pedido)));
+        $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>$idPedido)));
         //debug($items);exit;
         $total = 0;
         
@@ -307,25 +305,39 @@ class PedidosController extends AppController
 
         $this->request->data['Pedido']['total'] = $total;
 
-        if ($this->Pedido->save($this->data))
+        if ($this->Pedido->save($this->request->data))
         {
-            if ($anadido == 1)
+            $this->regularizapedido($idPedido, $anadido);
+            $this->Session->setFlash('Pedido Registrado');            
+            $this->redirect(array('action' => 'menumoso', $id_moso));
+        }
+    }
+    function regularizapedido($pedidoId = null, $anadido = null){
+        
+        if ($anadido == 1)
             {
-               $data = array('id'=>$pedido, 'estado'=>5);
+               $data = array('id'=>$pedidoId, 'estado'=>5);
+               
                $this->Pedido->save($data);
                
                exec("D:\print\AppImpresion.exe");
-              
-               $data = array('id'=>$pedido, 'estado'=>1);
-               $this->Pedido->save($data);
                
-               $anadidos = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$pedido, 'Item.estado'=>1)));
+               $datospedido = $this->Pedido->find('first', array(
+               'conditions'=>array('Pedido.id'=>$pedidoId)
+               ));
+               
+               if($datospedido['Pedido']['estado'] ==  5){
+                    $data = array('id'=>$pedidoId, 'estado'=>1);
+                    $this->Pedido->save($data); 
+               }
+               
+               $anadidos = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$pedidoId, 'Item.estado'=>1)));
                
                 foreach ($anadidos as $a)
                 {
 
                     $plato_pedido = $this->Item->find('first', array(
-                    'conditions' => array('Item.pedido_id' =>$pedido, 'Item.producto_id' => $a['Item']['producto_id'], 'Item.estado' => 0)
+                    'conditions' => array('Item.pedido_id' =>$pedidoId, 'Item.producto_id' => $a['Item']['producto_id'], 'Item.estado' => 0)
                     ));
                     
                     $data = "";
@@ -356,42 +368,13 @@ class PedidosController extends AppController
                     
                 }
                 
-                $this->Item->deleteAll(array('Item.estado' => 1, 'Item.pedido_id' => $pedido));
+                $this->Item->deleteAll(array('Item.estado' => 1, 'Item.pedido_id' => $pedidoId));
             
             }else{
                     //imprime las comandas 
                     exec("D:\imprime\AppImpresion.exe");
             }
-            $moso = $id_moso;
-           
-            $this->Session->setFlash('Pedido Registrado');
-                //$this->redirect(array('action' => '', $idPedido));
-            $this->redirect(array('action' => 'menumoso', $moso));
-        }
-        //$this->request->data['Pedido']['']=
-        /* $fecha = date('Y-m-d H:i:s');
-          $mesas = $this->PedidosMesa->find('first', array('order'=>'PedidosMesa.id DESC'));
-          //debug($mesas);
-          if(!empty($mesas)){
-          $ultima_mesa = $mesas['PedidosMesa']['mesa'];
-          $nueva_mesa = ++$ultima_mesa;
-          }else{
-          $nueva_mesa=1;
-          } */
-        /* $this->request->data['PedidosMesa']['pedido_id']=$pedido;
-          $this->request->data['PedidosMesa']['mesa']=$nueva_mesa;
-          $this->request->data['PedidosMesa']['fecha']=$fecha;
-          $this->request->data['PedidosMesa']['estado']=0;
-          //debug($this->data);
-          //debug($pedido);
-          if($this->PedidosMesa->save($this->data)){
-          $this->Session->setFlash('Pedido Registrado');
-          $this->redirect(array('action'=>'listadopedidos'));
-          }else{
-          $this->Session->setFlash('Pedido No se Pudo registrar');
-          } */
     }
-
     public function entregarmesa($id_ped = null)
     {
         $this->Pedido->id = $id_ped;
@@ -955,11 +938,12 @@ class PedidosController extends AppController
 
     public function menumoso($idMoso = null)
     {
+        //debug($idMoso);exit;
         $hoy = date('Y-m-d');
         App::uses('CakeTime', 'Utility');
         $dia = CakeTime::dayAsSql($hoy, 'fecha');
         $datosMoso = $this->User->find('first', array('conditions'=>array('User.id'=>$idMoso, 'User.role like '=>'%Jefe%')));
-        
+        //debug($datosMoso);
         if(!empty($datosMoso)){
             $mesas = $this->Pedido->find('all', array(
             'conditions' => array($dia, 'Pedido.estado'=>array('0', '1')), 
@@ -971,11 +955,11 @@ class PedidosController extends AppController
             ));
             
             $mesas = $this->Pedido->find('all', array(
-            'conditions' => array('Pedido.user_id' => $idMoso, $dia, 'Pedido.estado'=>array('0', '1')), 
-            'recursive' => -1
-        ));
-        }                
-                     
+            'conditions' => array($dia, 'Pedido.estado'=>array('0', '1'), 'Pedido.user_id'=>$idMoso), 
+            'recursive' => -1));
+        } 
+                       
+        //debug($mesas);exit;             
         $this->set(compact('mesas', 'datosMoso'));
         //$demoMoso = $this->User->find
         //debug($datosMoso);exit;
