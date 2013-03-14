@@ -315,6 +315,9 @@ class PedidosController extends AppController
                $this->Pedido->save($data);
                
                exec("D:\print\AppImpresion.exe");
+              
+               $data = array('id'=>$pedido, 'estado'=>1);
+               $this->Pedido->save($data);
                
                $anadidos = $this->Item->find('all', array('conditions'=>array('Item.pedido_id'=>$pedido, 'Item.estado'=>1)));
                
@@ -956,6 +959,7 @@ class PedidosController extends AppController
         App::uses('CakeTime', 'Utility');
         $dia = CakeTime::dayAsSql($hoy, 'fecha');
         $datosMoso = $this->User->find('first', array('conditions'=>array('User.id'=>$idMoso, 'User.role like '=>'%Jefe%')));
+        
         if(!empty($datosMoso)){
             $mesas = $this->Pedido->find('all', array(
             'conditions' => array($dia, 'Pedido.estado'=>array('0', '1')), 
