@@ -38,20 +38,16 @@
                                 </span>
                             </th>
                             <th scope="col">
-                                Total ingresos
-                                <span class="column-sorter">
-                                </span>
-                            </th>
-                            <th scope="col">
-                                Total salidas
-                                <span class="column-sorter">
-                                </span>
-                            </th>
-                            <th scope="col">
                                 Sotck bodega
                                 <span class="column-sorter">
                                 </span>
                             </th>
+                            <th scope="col">
+                                Lugar
+                                <span class="column-sorter">
+                                </span>
+                            </th>
+                            
 
                             </thead>
                             <tbody>
@@ -65,15 +61,13 @@
                                         <td>           
                                             <?php echo $b['Insumo']['nombre']; ?>
                                         </td>
-                                        <td>
-                                            <?php echo $b['Bodega']['ingreso']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $b['Bodega']['salida']; ?>
-                                        </td>
+                                       
                                         <td>
                                             <?php echo $b['Bodega']['total']; ?>
                                         </td>    
+                                         <td>
+                                            <?php echo $b['Lugare']['nombre']; ?>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

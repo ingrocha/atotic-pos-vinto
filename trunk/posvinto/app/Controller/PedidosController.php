@@ -24,7 +24,9 @@ class PedidosController extends AppController
         'PedidosMesa',
         'Porcione',
         'Bodega',
-        'Almacen');
+        'Almacen',
+        'Lugare'
+        );
     public $layout = 'mosos';
 
     public function beforeFilter()
@@ -181,11 +183,11 @@ class PedidosController extends AppController
     public function restarproductojefe($id_item = null, $mesa = null){
         $this->layout = 'ajax';
         $item = $this->Item->findById($id_item);
-        //debug($item);
         $precio = $item['Item']['precio'] - $item['Producto']['precio'];
         $id_prod = $item['Item']['producto_id'];
         $cantidad = $item['Item']['cantidad'] - 1;
-        $pedido = $item['Pedido']['id'];
+        $pedido = $item['Item']['pedido_id'];
+        
         if ($item['Item']['cantidad'] == 1)
         {
             $this->Item->delete($id_item);
@@ -199,7 +201,9 @@ class PedidosController extends AppController
             $this->request->data['Item']['precio'] = $precio;
             //debug($this->data);exit;
             $this->Item->save($this->data);
+            
         }
+        
         /*         * ********************************************* */
         /*   Porciones productos y reservas de bodega   */
         /*         * ********************************************* */
@@ -225,7 +229,12 @@ class PedidosController extends AppController
             $this->Bodega->save($this->data);
         }
         /*         * ***************fin actualiza bodega****************************** */
-        $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $pedido)));
+        $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $pedido), 'recursive'=>-1));
+        //debug($items);exit;
+        foreach($items as $item){
+            $monto += $item['Item']['precio']; 
+        }
+        debug($monto);exit;
         $cant_platos = $this->Item->find('all', array(
             'conditions' => array('pedido_id' => $pedido),
             'recursive' => -1,
@@ -475,19 +484,17 @@ class PedidosController extends AppController
         ));
         
         $idPedido = $pedido[0]['id'];
+        //debug($idPedido);exit;
        
         $pedido = $this->Pedido->find('first', array(
         'recursive'=>-1,
         'conditions'=>array('Pedido.id'=>$idPedido)));
-      
-        $pedido_fecha = $pedido['Pedido']['fecha'];
+        $numeromesa = $pedido['Pedido']['mesa'];
         
-        $caracteres = preg_split('/ /', $pedido_fecha);
-        $fecha_ul_ped = $caracteres['0'];
-        //echo 'la fecha del ultimo pedido es '.$fecha_ul_ped;
-        if ($fecha_ul_ped == $fecha_hoy)
+        $pedido_fecha = $pedido['Pedido']['created'];
+        
+        if ($pedido_fecha == $fecha_hoy)
         {
-            //echo 'son iguales';
             $m = $pedido['Pedido']['mesa'];
             $mesa = ++$m;
         } else
@@ -795,7 +802,7 @@ class PedidosController extends AppController
     public function salidalmacen($id = null, $mozo = null)
     {
         $this->layout = 'ajax';
-        if (!empty($this->data))
+        if (!empty($this->request->data))
         {
             $cant_salida = $this->data['Movimiento']['salida'];
             $id_insumo = $this->data['Movimiento']['id_insumo'];
@@ -932,7 +939,10 @@ class PedidosController extends AppController
                 'order' => 'id DESC',
                 'recursive' => -1));
             //debug($insumo);
-            $this->set(compact('insumo', 'ce'));
+            $lugares = $this->Lugar->find('list',array(
+            'fields'=>array('Lugare.id', 'Lugare.nombre')
+            ));
+            $this->set(compact('insumo', 'ce','lugares'));
         }
     }
 
@@ -968,9 +978,12 @@ class PedidosController extends AppController
     public function validamoso()
     {
         $this->layout = 'loginmoso';
-        if ($this->request->is("post"))
+        
+        if (!empty($this->request->data))
         {
-            $codigo = $this->request->data['Pedidos']['numero'];
+            //debug($codigo);exit;
+            if($codigo != null){
+                $codigo = $this->request->data['Pedidos']['numero'];
             $verificaMoso = $this->User->find('first', array('recursive' => -1, 'conditions' =>
                 array('User.codigo' => $codigo)));
             $idMoso = $verificaMoso['User']['id'];
@@ -983,11 +996,12 @@ class PedidosController extends AppController
                 $this->Session->setFlash('Clave Incorrecta!!!');
                 $this->redirect(array('action' => 'validamoso'));
             }
-        } else
-        {
+            }else{
+                $this->Session->setFlash('Clave Incorrecta!!!');
+                $this->redirect(array('action' => 'validamoso'));
+            }
             
         }
-        //debug($ve)
     }
     
     public function detallemesa($idPedido = null)    
@@ -1039,7 +1053,7 @@ class PedidosController extends AppController
             $this->redirect(array('action'=>'menumoso', $idMoso));
         }       
     }
-
+    
 }
 
 ?>

@@ -23,6 +23,7 @@
             <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Bodega </a> </div>
             <ul class="accordion-content nav nav-list collapse in" id="accDash">
             <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'bodega')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Listado de Insumos en Bodega</span> </a> </li>
+            <li> <a href="<?php echo $this->Html->url(array('controller'=>'Lugares', 'action'=>'index')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Lugares</span> </a> </li>
             </ul>
         </li>
         <li class="accordion-group active">

@@ -1,72 +1,78 @@
 <?php
-class ParametrosFacturasController extends AppController
-{ 
+class ParametrosfacturasController extends AppController
+{
+    public $same ='Parametrosfacturas';
+    public $uses =array('Parametrosfactura');
+   public $layout = 'pizza';
 
-    public $helpers = array('Html', 'Form'); 
-    public $uses = array('ParametrosFactura'); 
-    public $layout = 'vivavinto';
-    public function index()
+    public function beforeFilter()
     {
-
-        $parametrosfacturas = $this->ParametrosFactura->find('all'); 
-        $this->set(compact('parametrosfacturas'));
-        
+        parent::beforeFilter();
+        $this->Auth->allow();
     }
-
-    public function nuevo()
+    public function index ()
     {
-        
-        if (!empty($this->data)) { 
-
-            $this->ParametrosFactura->create(); 
-
-            if ($this->ParametrosFactura->save($this->data)) { 
-
-                $this->Session->setFlash('El Parametro Factura registrado con exito'); 
-                $this->redirect(array('action' => 'index'), null, true); 
-
-            } else { 
-
-                $this->Session->setFlash('No se pudo registrar el Parametro Factura'); 
+        $pfacturas=$this->Parametrosfactura->find('all');
+        $this->set(compact('pfacturas'));
+    }    
+    public function insertar()
+    {
+        if(!empty($this->request->data))
+            {
+                $this->Parametrosfactura->create();
+                    if($this->Parametrosfactura->save($this->data))
+                        {
+                            $this->Session->setFlash('El Parametro factura fue Registrado con Exito', 'msgbueno');
+                            $this->redirect(array('action'=>'index'));
+                        }
+                    else
+                    {
+                        $this->Session->setFlash('No se pudo registrar el Parametr factura');
+                    }
             }
-            
-        }
-
     }
-
-    public function modificar($id = null)
+    public function editar($id=null)
     {
-        $this->ParametrosFactura->id = $id;
-        if (!$id) {
-            $this->Session->setFlash('No existe tal registro');
-            $this->redirect(array('action' => 'index'), null, true);
-        }
-        if (empty($this->data)) {
-            $this->data = $this->ParametrosFactura->read();
-
-        } else {
-            if ($this->ParametrosFactura->save($this->data)) {
-                $this->Session->setFlash('Los datos fueron modificados');
-                $this->redirect(array('action' => 'index'), null, true);
-            } else {
-                $this->Session->setFlash('no se pudo modificar!!');
+        $this->Parametrosfactura->id=$id;
+            if(!$id)
+            {
+                $this->Session->setFlash('No existe el Parametro factura');
+                $this->redirect(array('action'=>'index'));
             }
-        }
-  //      $dperf = $this->Perfil->find('list', array('fields'=>'Perfil.nombre'));
-  //     $this->set(compact('dperf'));
-        
+            if(empty($this->request->data))
+            {
+                $this->data=$this->Parametrosfactura->read();
+            }
+                else
+                {
+                    if($this->Parametrosfactura->save($this->data))
+                    {
+                        $this->Session->setFlash('Los datos fueron modificados', 'msgbueno');
+                        $this->redirect(array('action'=>'index'));
+                    }
+                    else
+                    {
+                        $this->Session->setFlash('no se puedo modificar');    
+                    }
+                }
     }
-
-    public function eliminar($id = null)
+    public function eliminar($id=null)
     {
-        if (!$id) {
-            $this->Session->setFlash('id Invalida para borrar');
-            $this->redirect(array('action' => 'index'));
+        $this->Parametrosfactura->id=$id;
+        $this->data=$this->Parametrosfactura->read();
+        if(!$id){
+            $this->Session->setFlash('No existe el Parametr factura a Eliminar');
+            $this->redirect(array('action' =>'index'));
         }
-        if ($this->ParametrosFactura->delete($id)) {
-            
-            $this->Session->setFlash('El Parametro Factura  ' . $id . ' fue borrado');
-            $this->redirect(array('action' => 'index'));
+        else{
+            if($this->Parametrosfactura->delete($id))
+            {
+                $this->Session->setFlash('Se elimino el Parametro factura '.$this->data['Parametrosfactura']['nombre']);
+                $this->redirect(array('action' =>'index'));
+            }
+            else{
+                $this->Session->setFlash('Error al eliminar');
+            }
         }
     }
 }

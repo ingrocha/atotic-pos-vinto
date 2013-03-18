@@ -118,7 +118,13 @@ class UsersController extends AppController
             if ($this->Auth->login())
             {
                 //$this->redirect($this->Auth->redirect(array('controller' => 'Panelcontrol', 'action' => 'admin'));
-                $this->redirect(array('controller' => 'Panelcontrol', 'action' => 'admin'));
+                $perfil = $this->Session->read("Auth.User.role");
+                if($perfil == "Almacenes"){
+                    $this->redirect(array('controller' => 'Insumos', 'action' => 'bodega'));
+                }else{
+                    $this->redirect(array('controller' => 'Panelcontrol', 'action' => 'admin'));    
+                }
+                
                 
             } else
             {

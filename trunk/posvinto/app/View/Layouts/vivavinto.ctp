@@ -68,7 +68,7 @@
                         <div class="navbar-inner">
                             <div class="container-fluid">
                                 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                                <a class="brand" href="javascript:void(0);"><?php echo $this->Html->image('logo-brand.png') ?></a>
+                                <a class="brand" href="<?php echo $this->Html->url(array('controller'=>'Panelcontrol', 'action'=>'admin'))?>"><?php echo $this->Html->image('logo-brand.png') ?></a>
                                 <div class="search-global">
                                     <a class="search-button" href="javascript:void(0);"><i class="fontello-icon-search-5"></i></a> </div>
                                 <div class="nav-collapse collapse">
@@ -114,6 +114,12 @@
                                             </ul>
                                         </li>-->
                                     </ul>
+                                <?php elseif($rol == 'Almacenes'): ?>
+                                <ul class="nav">
+                                    <li><?php echo $this->Html->link('BODEGA', array('controller' => 'Insumos', 'action' => 'Bodega')) ?></li>
+                                    <li><?php echo $this->Html->link('ALMACEN', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                    <li><?php echo $this->Html->link('SALIR', array('controller' => 'Users', 'action' => 'logout')) ?></li>
+                                </ul>
                                 <?php endif; ?>
                                 </div>
                             </div>
