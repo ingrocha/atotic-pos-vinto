@@ -12,8 +12,9 @@ class InsumosController extends AppController
         'Insumo',
         'Almacen',
         'Bodega',
-        'Tipo');
-    public $components = array('Session');
+        'Tipo',
+        'Lugare');
+    public $components = array('Session', 'Fechasconvert');
     public $layout = 'vivavinto';
 
     public function index()
@@ -234,7 +235,7 @@ class InsumosController extends AppController
 
         $ids = array();
         $i = 0;
-        foreach ($bodega as $insumo)
+        foreach($bodega as $insumo)
         {
             foreach ($insumo as $id)
             {
@@ -242,7 +243,6 @@ class InsumosController extends AppController
             }
             $i++;
         }
-
         $bodega = $this->Bodega->find('all', array(
             'conditions' => array('Bodega.id' => $ids),
             'recursive' => 1,
@@ -293,14 +293,14 @@ class InsumosController extends AppController
     public function salidalmacen($id = null)
     {
         $this->layout = 'ajax';
-
-        if (!empty($this->data))
+        //debug($this->request->data);exit;
+        if (!empty($this->request->data))
         {
-
-            $cant_salida = $this->data['Movimiento']['salida'];
-            $id_insumo = $this->data['Movimiento']['id_insumo'];
-            $pc = $this->data['Movimiento']['pc'];
-
+            $cant_salida = $this->request->data['Movimiento']['salida'];
+            $id_insumo = $this->request->data['Movimiento']['id_insumo'];
+            $pc = $this->request->data['Movimiento']['pc'];
+            $lugar = $this->request->dara['Movimiento']['lugar'];
+            
             $existe_insumo = $this->Almacen->find('first', array(
                 'conditions' => array('insumo_id' => $id_insumo),
                 'order' => 'id DESC',
@@ -308,26 +308,26 @@ class InsumosController extends AppController
             //debug($existe_insumo);exit;
             if ($existe_insumo)
             {
-
                 $total_anterior = $existe_insumo['Almacen']['total'];
                 $cant_actual = $total_anterior - $cant_salida;
 
-                $this->data = "";
+                $this->request->data = "";
                 $this->Insumo->id = $id_insumo;
                 $this->request->data['Insumo']['total'] = $cant_actual;
 
-                if (!$this->Insumo->save($this->data))
+                if (!$this->Insumo->save($this->request->data))
                 {
                     echo "no guardo";
                 }
 
-                $this->data = "";
+                $this->request->data = "";
                 $fecha = date("Y-m-d");
                 $this->request->data['Almacen']['insumo_id'] = $id_insumo;
                 $this->request->data['Almacen']['preciocompra'] = $pc;
                 $this->request->data['Almacen']['salida'] = $cant_salida;
                 $this->request->data['Almacen']['total'] = $cant_actual;
                 $this->request->data['Almacen']['fecha'] = $fecha;
+                $this->request->data['Almacen']['lugare_id'] = $lugar;
                 //debug($this->data);exit;
                 $this->Almacen->create();
                 if ($this->Almacen->save($this->data))
@@ -337,7 +337,7 @@ class InsumosController extends AppController
                 }
 
                 $existe_insumo_bodega = $this->Bodega->find('first', array(
-                    'conditions' => array('insumo_id' => $id_insumo),
+                    'conditions' => array('insumo_id' => $id_insumo,'lugare_id'=>$lugar),
                     'order' => 'id DESC',
                     'recursive' => -1));
 
@@ -349,24 +349,25 @@ class InsumosController extends AppController
                     $cant_bodega_actual = $cantidad_bodega + $cant_salida;
 
                     $mod_bodega = $this->Insumo->find('first', array('conditions' => array('id' => $id_insumo), 'recursive' => -1));
-                    $this->data = "";
+                    $this->request->data = "";
                     $this->request->data['Insumo']['bodega'] = $cant_bodega_actual;
                     $id_mod_insumo = $mod_bodega['Insumo']['id'];
                     //$this->Insumo
                     //$this->Insumo->id=$id_mod_insumo;
 
-                    if ($this->Insumo->save($this->data))
+                    if ($this->Insumo->save($this->request->data))
                     {
 
                     }
 
-                    $this->data = "";
+                    $this->request->data = "";
                     //$this->Bodega->id = $id_bodega;
                     $this->request->data['Bodega']['insumo_id'] = $id_insumo;
                     $this->request->data['Bodega']['preciocompra'] = $pc;
                     $this->request->data['Bodega']['ingreso'] = $cant_salida;
                     $this->request->data['Bodega']['total'] = $cant_bodega_actual;
                     $this->request->data['Bodega']['fecha'] = $fecha;
+                    $this->request->data['Bodega']['lugare_id'] = $lugar;
                     $this->Bodega->create();
 
                     if ($this->Bodega->save($this->data))
@@ -407,6 +408,7 @@ class InsumosController extends AppController
                     $this->request->data['Bodega']['ingreso'] = $cant_salida;
                     $this->request->data['Bodega']['total'] = $cant_salida;
                     $this->request->data['Bodega']['fecha'] = $fecha;
+                    $this->request->data['Bodega']['lugare_id'] = $lugar;
                     $this->Bodega->create();
 
                     if ($this->Bodega->save($this->data))
@@ -421,8 +423,6 @@ class InsumosController extends AppController
             }
             else
             {
-
-                //$this->data="";
                 $this->Insumo->id = $id_insumo;
                 $this->request->data['Insumo']['total'] = $cant_salida;
                 if (!$this->Insumo->save($this->data))
@@ -454,8 +454,11 @@ class InsumosController extends AppController
                 'conditions' => array('insumo_id' => $id),
                 'order' => 'id DESC',
                 'recursive' => -1));
+            $lugares = $this->Lugare->find('list', array(
+            'fields'=>array('Lugare.id', 'Lugare.nombre')
+            ));
             //debug($insumo);
-            $this->set(compact('insumo', 'ce'));
+            $this->set(compact('insumo', 'ce','lugares'));
         }
     }
 
@@ -557,16 +560,12 @@ class InsumosController extends AppController
         $fecha = date("Y-m-d");
         if (!empty($this->data))
         {
-
-            //debug($this->data);exit;
             $cantidad = $this->data['Insumo']['total'];
             $pc = $this->data['Insumo']['preciocompra'];
             $this->request->data['Insumo']['fecha'] = $fecha;
             $this->Insumo->create();
             if ($this->Insumo->save($this->data))
             {
-
-                //$this->Session->setFlash('Insumo registrado con exito');
                 $id_insumo = $this->Insumo->getLastInsertID();
                 //$this->data = "";
                 //$this->Insumo->id = $id_insumo;
@@ -682,6 +681,34 @@ class InsumosController extends AppController
             $this->Session->setFlash('El usuario  ' . $id . ' fue borrado');
             $this->redirect(array('action' => 'index'));
         }
+    }
+    public function formularioreporteproductos(){
+        
+    }
+    public function reportepedidos(){
+        $dato = $this->request->data['dato'];
+        $fechas = explode(" - ", $this->request->data['dato']);
+        
+        $fecha1 = $this->Fechasconvert->doInvertir($fechas[0]);
+        $fecha2 = $this->Fechasconvert->doInvertir($fechas[1]);
+        
+        App::uses('CakeTime', 'Utility');
+        //$dia = CakeTime::dayAsSql($fecha1, $fecha2, 'Pedido.created');
+        $dia = CakeTime::daysAsSql("$fecha1", "$fecha2", 'Bodega.fecha');
+    
+        /*$pedidos = $this->Bodega->find('all', array(
+        'conditions'=>array($dia),
+        'fields'=>array('SUM(Bodega.cantidad) AS cantidad', 'Pedido.numero','Producto.nombre', 'Producto.precio', 'Item.precio', 'Item.fecha'),
+        'group'=>array('Item.producto_id')
+        ));*/
+       //debug($pedidos);exit;
+       $descuentos = $this->Bodega->find('all', array(
+        'conditions'=>array($dia),
+        'fields'=>array('Insumo.nombre', 'Insumo.id','SUM(Bodega.ingreso) AS ingreso', 'SUM(Bodega.salida) AS salida', '(salida * Bodega.preciocompra) AS inversion'),
+        'group'=>array('Bodega.insumo_id')
+        ));
+        debug($descuentos);exit;
+        $this->set(compact('descuentos','dato'));
     }
 
 }
