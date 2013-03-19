@@ -49,5 +49,11 @@
         </tbody>
     </table>    
 </div>        
-<?php echo $this->Html->link('Realizar Pedido', array('controller' => 'Pedidos', 'action' => 'registrarpedido', $id_moso, $pedido, $total_pagar, $anadido), array('class' => 'btn btn-success btn-large')); ?>
+<?php echo $this->Html->link('Realizar Pedido', array('controller' => 'Pedidos', 'action' => 'registrarpedido', $id_moso, $pedido, $total_pagar, $anadido), array('class' => 'btn btn-success btn-large', 'id'=>'btn_envio')); ?>
 
+<script>
+   $("#btn_envio").click(function(){
+    alert("Pedido registrado...espere mientras s imprime su tickect!!!");       
+   }
+   );
+</script>
