@@ -1026,11 +1026,7 @@ class PedidosController extends AppController
             'conditions' => array($dia, 'Pedido.estado'=>array('0', '1'), 'Pedido.user_id'=>$idMoso), 
             'recursive' => -1));
         } 
-                       
-        //debug($mesas);exit;             
         $this->set(compact('mesas', 'datosMoso'));
-        //$demoMoso = $this->User->find
-        //debug($datosMoso);exit;
     }
 
     public function validamoso()
