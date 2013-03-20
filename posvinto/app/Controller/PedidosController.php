@@ -184,9 +184,19 @@ class PedidosController extends AppController
         $this->layout = 'ajax';
         $item = $this->Item->findById($id_item);
         $precio = $item['Item']['precio'] - $item['Producto']['precio'];
+        
         $id_prod = $item['Item']['producto_id'];
         $cantidad = $item['Item']['cantidad'] - 1;
         $pedido = $item['Item']['pedido_id'];
+        $pedido2 = $this->Pedido->find('first', array(
+        'conditions'=>array('Pedido.id'=>$pedido)
+        ));
+        
+        $total = $pedido2['Pedido']['total'] - $item['Producto']['precio']; 
+        
+        $data = array('id'=>$pedido, 'total'=>$total);
+        
+        $this->Pedido->save($data);
         
         if ($item['Item']['cantidad'] == 1)
         {
@@ -200,8 +210,7 @@ class PedidosController extends AppController
             $this->request->data['Item']['cantidad'] = $cantidad;
             $this->request->data['Item']['precio'] = $precio;
             //debug($this->data);exit;
-            $this->Item->save($this->data);
-            
+            $this->Item->save($this->request->data);
         }
         
         /*         * ********************************************* */
@@ -228,9 +237,12 @@ class PedidosController extends AppController
             $this->request->data['Bodega']['total'] = $item['Bodega']['total'] + 1;
             $this->Bodega->save($this->data);
         }
-        /*         * ***************fin actualiza bodega****************************** */
         
-        $this->actualizamontopedido($pedido);
+        $items = $this->Item->find('all', 
+        array('conditions' => array('Item.pedido_id' => $pedido)
+        ));
+      
+        /*         * ***************fin actualiza bodega****************************** */
         $cant_platos = $this->Item->find('all', array(
             'conditions' => array('pedido_id' => $pedido),
             'recursive' => -1,
@@ -238,15 +250,6 @@ class PedidosController extends AppController
         //debug($items);exit;
         $this->set(compact('items', 'pedido', 'cant_platos', 'mesa'));
     }
-    function actualizamontopedido($pedido=null){
-        $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $pedido), 'recursive'=>-1));
-        //debug($items);exit;
-        foreach($items as $item){
-            $monto += $item['Item']['precio']; 
-        }
-        $data = array('id'=>$pedido, 'total'=>$monto);
-        $this->Pedido->save($data);
-    } 
     public function restarproducto($id_item = null, $mesa = null, $anadido = null)
     {
         $this->layout = 'ajax';
@@ -256,7 +259,12 @@ class PedidosController extends AppController
         $id_prod = $item['Item']['producto_id'];
         $cantidad = $item['Item']['cantidad'] - 1;
         $pedido = $item['Pedido']['id'];
-        
+        $pedido2 = $this->Pedido->find('first', array(
+        'conditions'=>array('Pedido.id'=>$pedido)
+        ));
+        $total = $pedido2['Pedido']['total'] - $precio; 
+        $data = array('id'=>$pedido, 'total'=>$total);
+        $this->Pedido->save($data);
         if ($item['Item']['cantidad'] == 1)
         {
             $this->Item->delete($id_item);
@@ -297,7 +305,7 @@ class PedidosController extends AppController
         }
         /*         * ***************fin actualiza bodega****************************** */
         $items = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $pedido, 'Item.estado'=>$anadido)));
-        $this->actualizamontopedido($pedido);
+        
         $cant_platos = $this->Item->find('all', array(
             'conditions' => array('pedido_id' => $pedido, 'estado'=>$anadido),
             'recursive' => -1,
