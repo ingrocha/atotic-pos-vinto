@@ -3,6 +3,7 @@
 // app/Controller/UsersController.php
 class UsersController extends AppController
 {
+
     public $layout = 'vivavinto';
 
     public function beforeFilter()
@@ -28,7 +29,7 @@ class UsersController extends AppController
     }
 
     public function add()
-    {        
+    {
         if ($this->request->is('post'))
         {
             //debug($this->request->data);exit;
@@ -42,7 +43,7 @@ class UsersController extends AppController
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         }
-        $roles = array('Administrador'=>'Administrador', 'Almacenes'=>'Almacenes', 'Cajero'=>'Cajero', 'Moso'=>'Moso', 'Jefe'=>'Jefe de mosos');
+        $roles = array('Administrador' => 'Administrador', 'Almacenes' => 'Almacenes', 'Cajero' => 'Cajero', 'Moso' => 'Moso', 'Jefe' => 'Jefe de mosos');
         $this->set(compact('roles'));
     }
 
@@ -68,7 +69,7 @@ class UsersController extends AppController
             $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
         }
-        $roles = array('Administrador'=>'Administrador', 'Almacenes'=>'Almacenes', 'Cajero'=>'Cajero', 'Moso'=>'Moso', 'Jefe'=>'Jefe de mosos');
+        $roles = array('Administrador' => 'Administrador', 'Almacenes' => 'Almacenes', 'Cajero' => 'Cajero', 'Moso' => 'Moso', 'Jefe' => 'Jefe de mosos');
         $this->set(compact('roles'));
     }
 
@@ -91,7 +92,8 @@ class UsersController extends AppController
         $this->Session->setFlash(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
     }
-     public function cambiopass($id = null)
+
+    public function cambiopass($id = null)
     {
         $this->User->id = $id;
         if ($this->request->is('post') || $this->request->is('put'))
@@ -110,6 +112,7 @@ class UsersController extends AppController
             $this->request->data = $this->User->read(null, $id);
         }
     }
+
     public function login()
     {
         $this->layout = 'login';
@@ -119,13 +122,13 @@ class UsersController extends AppController
             {
                 //$this->redirect($this->Auth->redirect(array('controller' => 'Panelcontrol', 'action' => 'admin'));
                 $perfil = $this->Session->read("Auth.User.role");
-                if($perfil == "Almacenes"){
+                if ($perfil == "Almacenes")
+                {
                     $this->redirect(array('controller' => 'Insumos', 'action' => 'bodega'));
-                }else{
-                    $this->redirect(array('controller' => 'Panelcontrol', 'action' => 'admin'));    
+                } else
+                {
+                    $this->redirect(array('controller' => 'Panelcontrol', 'action' => 'admin'));
                 }
-                
-                
             } else
             {
                 $this->Session->setFlash(__('Invalid username or password, try again'));
