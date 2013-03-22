@@ -6,8 +6,7 @@ class AdminController extends AppController {
     public $layout = 'login';
 
     public function index(){
-        //debug($this->params);exit;
-         
+        //debug($this->params);exit;         
     }
     public function login(){
         //debug($this->params);exit;

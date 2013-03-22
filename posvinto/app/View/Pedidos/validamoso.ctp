@@ -1,8 +1,11 @@
-<style type="text/css">
-    body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
+<style type="text/css">      
+    @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+            float: none;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
     }
 
     .form-signin {
@@ -32,7 +35,6 @@
     }            
 
 </style>
-
 <div class="container">
     <!-- <form class="form-inline">-->
     <?php echo $this->Form->create('Pedidos', array('action' => 'validamoso', 'class'=>'form-signin')); ?>    

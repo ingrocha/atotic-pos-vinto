@@ -10,7 +10,7 @@
         <!-- Le styles -->
         <?php echo $this->Html->css(array('bootstrap', 'bootstrap-responsive', 'keypad/jquery.keypad')); ?>
         <!--<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">-->
-        
+
         <!--<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">-->
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -24,89 +24,47 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
         <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.png">-->
-        <?php 
-            echo $this->fetch('meta');
-            echo $this->fetch('css');
-            echo $this->fetch('script');
+        <?php
+        echo $this->fetch('meta');
+        echo $this->fetch('css');
+        echo $this->fetch('script');
         ?>
-        <?php echo $this->Html->script(array(
-            'jquery-1.9.1.min', 
-            'jquery-ui-1.8.21.custom.min',              
-            'keypad/jquery.keypad.min', 
+        <?php
+        echo $this->Html->script(array(
+            'jquery-1.9.1.min',
+            'jquery-ui-1.8.21.custom.min',
+            'keypad/jquery.keypad.min',
             'keypad/jquery.keypad-es',
             'bootstrap'
-            )); 
+        ));
         ?>
     </head>
-
     <body>
-    <style type="text/css">
-    body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-    }
-    .sidebar-nav {
-        padding: 9px 0;
-    }
-
-    @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
-        .navbar-text.pull-right {
-            float: none;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-    }
-
-    .hero-unit h3.nombre{
-        color: #4D0F04;        
-    }
-
-    /* Set the fixed height of the footer here */
-    #push,
-    #footer {
-        height: 60px;
-    }
-    #footer {
-        background-color: #f5f5f5;
-    }
-    
-    .keypad-popup .keypad-row button.keypad-key{
-        padding: 10px;
-        line-height: 40px;
-    }
-    textarea {
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 62px;
-    }
-
-</style>
 <?php $idMoso = $datosMoso['User']['id']; ?>
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="#">Viva Vinto</a>
-            <div class="nav-collapse collapse">
-                <p class="navbar-text pull-right">
-                    Bienvenido: <a href="<?php echo $this->Html->url(array('action'=>'validamoso')); ?>" class="navbar-link"><?php echo $datosMoso['User']['nombre']; ?></a>
-                </p>               
-                <ul class="nav">
-                  <li class="active"><a href="<?php echo $this->Html->url(array('action'=>'menumoso', $datosMoso['User']['id'])) ?>">Mis Mesas</a></li>
-                  <!--<li><a href="#about">About</a></li>-->
-                  <li><a href="<?php echo $this->Html->url(array('action'=>'validamoso')) ?>">Salir</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="#">Viva Vinto</a>
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                            Bienvenido: <a href="<?php echo $this->Html->url(array('action' => 'validamoso')); ?>" class="navbar-link"><?php echo $datosMoso['User']['nombre']; ?></a>
+                        </p>               
+                        <ul class="nav">
+                            <li class="active"><a href="<?php echo $this->Html->url(array('action' => 'menumoso', $datosMoso['User']['id'])) ?>">Mis Mesas</a></li>
+                            <!--<li><a href="#about">About</a></li>-->
+                            <li><a href="<?php echo $this->Html->url(array('action' => 'validamoso')) ?>">Salir</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
         </div>
-    </div>
-</div>
         <?php echo $this->Session->flash(); ?>
-		<?php echo $this->fetch('content'); ?>
+<?php echo $this->fetch('content'); ?>
         <!-- container -->
         <!-- Le javascript
         ================================================== -->
