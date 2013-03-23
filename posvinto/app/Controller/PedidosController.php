@@ -364,11 +364,11 @@ class PedidosController extends AppController
         $dia = CakeTime::dayAsSql($hoy, 'fecha');
         $datosMoso = $this->User->find('first', array('conditions'=>array('User.id'=>$idMoso, 'User.role like '=>'%Jefe%')));
         //debug($datosMoso);
-        if($anadido==1){
-            exec("C:\print\AppImpresion.exe");
-        }else{
-            exec("C:\imprime\AppImpresion.exe");
-        }
+        //if($anadido==1){
+//            exec("C:\print\AppImpresion.exe");
+//        }else{
+//            exec("C:\imprime\AppImpresion.exe");
+//        }
         if(!empty($datosMoso)){
             $mesas = $this->Pedido->find('all', array(
             'conditions' => array($dia, 'Pedido.estado'=>array('0', '1')), 
