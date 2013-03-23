@@ -394,7 +394,7 @@ class PedidosController extends AppController
     
         if ($anadido == 1)
             {
-                //exec("C:\print\AppImpresion.exe");
+                exec("C:\print\AppImpresion.exe");
         
         
                $datospedido = $this->Pedido->find('first', array(
@@ -448,7 +448,7 @@ class PedidosController extends AppController
             }else{
                 //debug($anadido);exit;
                     //imprime las comandas 
-                    //exec("C:\imprime\AppImpresion.exe");
+                    exec("C:\imprime\AppImpresion.exe");
             }
     }
     public function entregarmesa($id_ped = null)
@@ -1037,6 +1037,32 @@ class PedidosController extends AppController
         } 
         $this->set(compact('mesas', 'datosMoso'));
     }
+    protected function _bodega($tipo = null)
+    {
+        $bodega = $this->Bodega->find('all', array(
+            'fields' => array('max(Bodega.id) as id'),
+            'conditions'=>array('Insumo.tipo'=>$tipo, 'Bodega.total <='=>10),
+            'recursive' => 1,
+            'group' => array('Bodega.insumo_id'),
+            'order' => array('Bodega.id ASC')));
+
+        $ids = array();
+        $i = 0;
+        foreach($bodega as $insumo)
+        {
+            foreach ($insumo as $id)
+            {
+                $ids[$i] = $id['id'];
+            }
+            $i++;
+        }
+        $bodega = $this->Bodega->find('all', array(
+            'conditions' => array('Bodega.id' => $ids),
+            'recursive' => 1,
+            'group' => array('Bodega.insumo_id'),
+            'order' => array('Bodega.id ASC')));
+        return($bodega);
+    }
 
     public function validamoso()
     {
@@ -1065,6 +1091,13 @@ class PedidosController extends AppController
                 $this->redirect(array('action' => 'validamoso'));
             }
             
+        }else{
+             $comidas =$this->_bodega('comida');
+            $bebidas = $this->_bodega('bebida');
+            $tragos = $this->_bodega('tragos');
+            $postres = $this->_bodega('postres');
+            //debug($postres);exit;
+            $this->set(compact('comidas', 'bebidas', 'tragos','postres'));
         }
     }
     

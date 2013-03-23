@@ -125,12 +125,12 @@
             }
 
         </style>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top"></div>
             <div class="container">
                 <div class="span4" style="padding-left: 20%">
 <?php echo $this->Session->flash(); ?>
                 </div>
-                <div class="span10">
+                <div class="span12">
 <?php echo $this->fetch('content'); ?>
                 </div>
 
