@@ -60,10 +60,7 @@
   </div>
   <div class="modal-body">
     <p>Espere mientras imprime su pedido…</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Listo</button>    
-  </div>
+  </div>  
 </div>
 <!-- fin ventana modal -->
 

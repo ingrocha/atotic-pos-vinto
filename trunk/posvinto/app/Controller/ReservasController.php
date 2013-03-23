@@ -87,13 +87,11 @@ class ReservasController extends AppController
                 {
                     $this->Session->setFlash(__('La reserva fue guardada'));
                     $this->redirect(array('action' => 'index'));
-                }
-                else
+                } else
                 {
                     $this->Session->setFlash(__('No se pudo registrar. Por favor, intente mas tarde.'));
                 }
-            }
-            else
+            } else
             {
                 $this->Session->setFlash(__('Ya hay una reserva en ' . $fecha));
             }
@@ -128,13 +126,11 @@ class ReservasController extends AppController
             {
                 $this->Session->setFlash(__('The reserva has been saved'));
                 $this->redirect(array('action' => 'index'));
-            }
-            else
+            } else
             {
                 $this->Session->setFlash(__('The reserva could not be saved. Please, try again.'));
             }
-        }
-        else
+        } else
         {
             $this->request->data = $this->Reserva->read(null, $id);
         }
