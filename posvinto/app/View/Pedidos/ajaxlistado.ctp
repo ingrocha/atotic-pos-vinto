@@ -48,12 +48,31 @@
             <?php endforeach; ?>                 
         </tbody>
     </table>    
-</div>        
-<?php echo $this->Html->link('Realizar Pedido', array('controller' => 'Pedidos', 'action' => 'registrarpedido', $id_moso, $pedido, $total_pagar, $anadido), array('class' => 'btn btn-success btn-large', 'id'=>'btn_envio')); ?>
+</div>  
+
+<!-- ventana modal -->
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Pedido Realizado</h3>
+  </div>
+  <div class="modal-body">
+    <p>Espere mientras imprime su pedido…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Listo</button>    
+  </div>
+</div>
+<!-- fin ventana modal -->
+
+<?php echo $this->Html->link('Realizar Pedido', array('controller' => 'Pedidos', 'action' => 'registrarpedido', $id_moso, $pedido, $total_pagar, $anadido), array('class' => 'btn btn-success btn-large', 'id' => 'btn_envio')); ?>
 
 <script>
-   $("#btn_envio").click(function(){
-    alert("Pedido registrado...espere mientras s imprime su tickect!!!");       
-   }
-   );
+    $("#btn_envio").click(function() {
+        //alert("Pedido registrado...espere mientras s imprime su tickect!!!");
+        $('#myModal').modal('toggle')
+    }
+    );
 </script>
