@@ -21,27 +21,49 @@
     }
     /*personalizamos el menu*/
     /*los botones*/
-    .hero-unit a.btn-warning{
+    .hero-unit a.btn-primary{
         text-transform: uppercase;   
         font-weight: bold;
-        font-size: 20pt;
+        font-size: 14pt;
         padding-bottom: 10px;
         padding-top: 10px;
-        width: 150px;              
+        width: 130px;              
         margin-bottom: 6px;
         margin-right: 6px;    
         line-height: 25pt;   
     }
-    /*letras de los botones*/
     .btn-mini{
+        border-radius: 15px 15px 15px 15px;
+    }
+    .btn-mini:hover,
+    .btn-mini:focus,
+    .btn-mini:active,
+    .btn-mini.active,
+    .btn-mini.disabled,
+    .btn-mini[disabled] {
+        border-radius: 15px 15px 15px 15px;
+    }
+    /*letras de los botones*/
+ /*  .btn-mini{
+        border-radius: #05396D 5px;
         background-color: #006DC;
-        background-image: linear-gradient(to bottom, #0000FF, #0000FF);
+        background-image: linear-gradient(to bottom, #05396D, #5488E9);
         background-repeat: repeat-x;
         border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
         color: #FFFFFF;
         text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     }
-
+    .btn-mini:hover,
+    .btn-mini:focus,
+    .btn-mini:active,
+    .btn-mini.active,
+    .btn-mini.disabled,
+    .btn-mini[disabled] {
+  color: #000;
+  background-color: #5488E9;
+  *background-color: #05396D;
+}
+*/
     /* Set the fixed height of the footer here */
     #push,
     #footer {
@@ -112,7 +134,7 @@
                                                         ), array(
                                                     'update' => 'cargaPedidos',
                                                     'escape' => false,
-                                                    'class' => "btn btn-mini btn-warning"
+                                                    'class' => "btn btn-mini btn-primary"
                                                     )
                                                 );
                                                 ?>
