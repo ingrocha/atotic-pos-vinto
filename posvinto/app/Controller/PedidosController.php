@@ -49,7 +49,8 @@ class PedidosController extends AppController
             $anadido = 0;
         }
         $categorias = $this->Categoria->find('all', array('recursive' => -1,
-            'conditions' => array('estado' => 1)));
+            'conditions' => array('estado' => 1),
+            'order'=>array('Categoria.tipo DESC')));
         $productos = $this->Producto->find('all', array(
             'recursive' => -1,
             'order' => 'id DESC',
