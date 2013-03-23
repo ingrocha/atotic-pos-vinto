@@ -24,7 +24,7 @@
     .hero-unit a.btn-warning{
         text-transform: uppercase;   
         font-weight: bold;
-        font-size: 14pt;
+        font-size: 16pt;
         padding-bottom: 10px;
         padding-top: 10px;
         width: 120px;              
@@ -100,7 +100,7 @@
                                             <?php else: ?>
                                                 <?php
                                                 echo $this->Ajax->link(
-                                                    "$nombreProducto ".$this->Html->image('iconos/mesa.png', array('style'=>"padding-top: 10px;")), 
+                                                    "$nombreProducto ", 
                                                     array(
                                                     'controller' => 'Pedidos',
                                                     'action' => 'ajaxlistado',
