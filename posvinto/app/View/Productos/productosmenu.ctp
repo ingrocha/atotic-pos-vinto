@@ -83,15 +83,7 @@
 												</td>
 												<td>
 												<?php if ($p['Producto']['estado']): ?>        
-                                            <?php //echo $this->Html->image('muestra.png'); ?>
-                                            <?php
-                                            /* echo $this->Ajax->link(
-                                              $this->Html->image('muestra.png'),
-                                              array( 'controller' => 'ajax', 'action' => 'view', $id),
-                                              array( 'update' => 'post',  'escape' => false)
-                                              ); */
-                                            //echo $this->Html->link()
-                                            ?>
+                                          
                                             <?php
                                             echo $this->Html->image("show.png", array("title" => "Ocultar",
                                                 'url' => array('action' => 'desprodmenu', $id)));

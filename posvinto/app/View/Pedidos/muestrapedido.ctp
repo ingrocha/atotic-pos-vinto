@@ -3,8 +3,7 @@
 
         <div class="span9">
             <div class="hero-unit">
-                <h3>Bienvenido <?php echo $datosMoso['User']['nombre']; ?></h3>  
-                <h3>Tus mesas</h3>              
+                <h3>Moso: <?php echo $datosMoso['User']['nombre']; ?> <a href="<?php echo $this->Html->url(array('action' => 'verificamoso', $datosMoso['User']['id'])); ?>" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA &raquo;</a>   </h3>                
                 <?php foreach ($mesas as $m): ?>
 				
                     <?php $id_pedido = $m['Pedido']['id']; ?>
@@ -49,7 +48,8 @@
         <div class="span3">
             <div id="cargaPedidos">
             <!--contenido del pedido-->
-            <h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $datosPedido['Pedido']['mesa'] ?></span></h3>
+            <h6>Detalle del pedido realizado</h6>
+            <h3> Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $datosPedido['Pedido']['mesa'] ?></span></h3>
 
 <div class="well sidebar-nav">
     <table class="table table-striped">

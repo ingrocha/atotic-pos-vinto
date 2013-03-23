@@ -9,13 +9,13 @@
 					<h3>
 						<i class="aweso-icon-table opaci35">
 						</i>
-						Categorias en Almacen
+						Categorias del menu
 						<small>
 							Listado
 						</small>
 					</h3>
 					<p>
-						Despliega la lista de todas las categorias del almacen registrados en el sistema
+						Muestra todas las categorias del menu
 					</p>
 				</div>
 				<div class="row-fluid">
@@ -67,11 +67,17 @@
 												</td>
 												<td>
 													<?php echo $this->
-														Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
-														<?php echo $this->
-															Html->image("elim.png", array( "title" => "Dar de baja", 'url' => array('action' => 'baja', $id) )); ?>
-															<?php echo $this->
-																Html->image("candado.png", array( "title" => "Cambiar password", 'url' => array('action' => 'cambiarpassword', $id) )); ?>
+														Html->image("edit.png", array( "title" => "Editar datos", 'url' => array('action' => 'editarcategoria', $id) )); ?>
+												<?php echo $this->
+												Html->image("elim.png", array( "title" => "Eliminar", 'url' => array('action' => 'eliminacategoria', $id) )); ?>
+                                                <?php
+                                                if ($c['Categoria']['estado'] == 1):
+                                                    echo $this->Html->image("show.png", array("title" => "Ocultar",
+                                                                            'url' => array('action' => 'oculta', $id)));
+                                                else: 
+                                                    echo $this->Html->image("hide.png", array("title" => "Mostrar",
+                                                                            'url' => array('action' => 'muestra', $id)));
+                                                endif; ?> 
 												</td>
 											</tr>
 											<?php endforeach; ?>
