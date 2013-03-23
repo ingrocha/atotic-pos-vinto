@@ -43,8 +43,13 @@
                                 </span>
                             </th>
                             <th scope="col">
-                                Lugar
+                                Area
                                 <span class="column-sorter">
+                                </span>
+                            </th>
+                            <th scope="col">
+                               Tipo
+                               <span class="column-sorter">
                                 </span>
                             </th>
                             
@@ -66,7 +71,18 @@
                                             <?php echo $b['Bodega']['total']; ?>
                                         </td>    
                                          <td>
-                                            <?php echo $b['Lugare']['nombre']; ?>
+                                            <?php 
+                                            if($b['Bodega']['lugare_id'] == null){
+                                                echo 'PARA LA VENTA';
+                                            }else{
+                                                echo uppercase($b['Lugare']['nombre']);    
+                                            }
+                                             
+                                            
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $b['Insumo']['tipo']; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
