@@ -338,7 +338,7 @@ class PedidosController extends AppController
                 $data = array('id'=>$idPedido, 'estado'=>5);
                 $this->Pedido->save($data);
             }
-            $this->Session->setFlash('Pedido Registrado');
+            $this->Session->setFlash('Pedido Registrado','alerts/bueno');
                        
             $this->redirect(array('action' => 'muestrapedido', $id_moso, $idPedido, $anadido));
         }else{
@@ -380,7 +380,7 @@ class PedidosController extends AppController
             ));
             
             $mesas = $this->Pedido->find('all', array(
-            'conditions' => array($dia, 'Pedido.estado'=>array('0', '1'), 'Pedido.user_id'=>$idMoso), 
+            'conditions' => array($dia, 'Pedido.estado'=>array('0', '1','5'), 'Pedido.user_id'=>$idMoso), 
             'recursive' => -1));
         } 
         //debug($datosMoso);
@@ -645,7 +645,7 @@ class PedidosController extends AppController
 
         if (empty($porciones))
         {
-            $this->Session->setFlash('No existen insumos del producto ' . $producto);
+            $this->Session->setFlash('No existen insumos del producto ' . $producto,'alerts/advertencia');
             $control = 1;
         } else
         {
@@ -665,7 +665,7 @@ class PedidosController extends AppController
                 {
                     if ($items['Bodega']['total'] == 0)
                     {
-                        $this->Session->setFlash('Ya no hay el insumo ' . $items['Insumo']['nombre']);
+                        $this->Session->setFlash('Ya no hay el insumo ' . $items['Insumo']['nombre'],'alerts/advertencia');
                         $control++;
                     } else
                     {
@@ -697,7 +697,7 @@ class PedidosController extends AppController
                     }
                 } else
                 {
-                    $this->Session->setFlash('No quedan existencias');
+                    $this->Session->setFlash('No quedan existencias', 'alerts/advertencia');
                     $control++;
                 }
             } //end foreach

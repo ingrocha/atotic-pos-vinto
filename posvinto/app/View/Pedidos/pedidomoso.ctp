@@ -42,6 +42,8 @@
     .btn-mini.disabled,
     .btn-mini[disabled] {
         border-radius: 15px 15px 15px 15px;
+        background-color: #0046CC;
+    background-image: linear-gradient(to bottom, #0088CC, #0044CC);
     }
     /*letras de los botones*/
  /*  .btn-mini{
