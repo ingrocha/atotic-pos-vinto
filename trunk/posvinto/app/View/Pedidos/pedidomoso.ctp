@@ -43,29 +43,29 @@
     .btn-mini[disabled] {
         border-radius: 15px 15px 15px 15px;
         background-color: #0046CC;
-    background-image: linear-gradient(to bottom, #0088CC, #0044CC);
+        background-image: linear-gradient(to bottom, #0088CC, #0044CC);
     }
     /*letras de los botones*/
- /*  .btn-mini{
-        border-radius: #05396D 5px;
-        background-color: #006DC;
-        background-image: linear-gradient(to bottom, #05396D, #5488E9);
-        background-repeat: repeat-x;
-        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-        color: #FFFFFF;
-        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    }
-    .btn-mini:hover,
-    .btn-mini:focus,
-    .btn-mini:active,
-    .btn-mini.active,
-    .btn-mini.disabled,
-    .btn-mini[disabled] {
-  color: #000;
-  background-color: #5488E9;
-  *background-color: #05396D;
-}
-*/
+    /*  .btn-mini{
+           border-radius: #05396D 5px;
+           background-color: #006DC;
+           background-image: linear-gradient(to bottom, #05396D, #5488E9);
+           background-repeat: repeat-x;
+           border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+           color: #FFFFFF;
+           text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+       }
+       .btn-mini:hover,
+       .btn-mini:focus,
+       .btn-mini:active,
+       .btn-mini.active,
+       .btn-mini.disabled,
+       .btn-mini[disabled] {
+     color: #000;
+     background-color: #5488E9;
+     *background-color: #05396D;
+   }
+    */
     /* Set the fixed height of the footer here */
     #push,
     #footer {
@@ -124,8 +124,7 @@
                                             <?php else: ?>
                                                 <?php
                                                 echo $this->Ajax->link(
-                                                    "$nombreProducto ", 
-                                                    array(
+                                                        "$nombreProducto ", array(
                                                     'controller' => 'Pedidos',
                                                     'action' => 'ajaxlistado',
                                                     $id_moso,
@@ -137,11 +136,11 @@
                                                     'update' => 'cargaPedidos',
                                                     'escape' => false,
                                                     'class' => "btn btn-mini btn-primary"
-                                                    )
+                                                        )
                                                 );
                                                 ?>
                                                 <!--<a href="<?php //echo $this->Html->url(array('controller' => 'Pedidos', 'action' => 'moso', $p['Producto']['id']));              ?>" class="btn btn-mini <?php //echo ($p['Producto']['estado'] == 1) ? 'btn-warning' : 'btn-danger'              ?>">
-                                                <?php //echo $this->Html->image('mesa.png'); ?>
+                                                <?php //echo $this->Html->image('mesa.png');  ?>
                                                     <h3><?php //echo $p['Producto']['nombre'];                ?></h3>
                                                 </a>-->
                                             <?php endif; ?>
@@ -165,39 +164,36 @@
 
             <div class="span4">
                 <div id="cargaPedidos">  
-                      
-                <h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $mesa ?></span></h3>
-<h3>Cantidad Total: <?php echo $cant_platos['0']['0']['cantidad']; ?></h3>
-<div class="well sidebar-nav">
-    <table class="table table-striped">
-        <thead>
-            <tr>              
-                <th>Producto</th>
-                <th>Cant.</th>                 
-                <th>Quitar</th>                 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-               <td>&nbsp;</td>
-               <td>&nbsp;</td>
-               <td>&nbsp;</td>
-            </tr>                 
-        </tbody>
-    </table>    
-</div>        
-<?php /*echo $this->Html->link('Cancelarpedido', array(
-'controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa), 
-array('class' => 'btn btn-block'),'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa')*/ ?>
+
+                    <h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $mesa ?></span></h3>
+                    <h3>Cantidad Total: <?php echo $cant_platos['0']['0']['cantidad']; ?></h3>
+                    <div class="well sidebar-nav">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>              
+                                    <th>Producto</th>
+                                    <th>Cant.</th>                 
+                                    <th>Quitar</th>                 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>                 
+                            </tbody>
+                        </table>    
+                    </div>        
+                    <?php /* echo $this->Html->link('Cancelarpedido', array(
+                      'controller' => 'Pedidos', 'action' => 'cancelapedido', $idPedido, $idMesa),
+                      array('class' => 'btn btn-block'),'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa') */ ?>
                 </div>
             </div>
-
         </div>
-
-
     </div><!--/row-->
 
-    <hr>
+    <hr />
 
     <div id="footer">
         <div class="container">
@@ -206,8 +202,6 @@ array('class' => 'btn btn-block'),'Esta seguro de cancelar el pedido?, se elimin
     </div>    
 
 </div><!--/.fluid-container-->
-
-
 
 <script>
     $(function() {
