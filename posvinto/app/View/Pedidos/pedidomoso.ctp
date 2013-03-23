@@ -24,10 +24,10 @@
     .hero-unit a.btn-warning{
         text-transform: uppercase;   
         font-weight: bold;
-        font-size: 16pt;
+        font-size: 20pt;
         padding-bottom: 10px;
         padding-top: 10px;
-        width: 120px;              
+        width: 150px;              
         margin-bottom: 6px;
         margin-right: 6px;    
         line-height: 25pt;   
@@ -35,7 +35,7 @@
     /*letras de los botones*/
     .btn-mini{
         background-color: #006DC;
-        background-image: linear-gradient(to bottom, #AA002A, #55002B);
+        background-image: linear-gradient(to bottom, #0000FF, #0000FF);
         background-repeat: repeat-x;
         border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
         color: #FFFFFF;
