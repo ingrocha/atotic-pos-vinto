@@ -24,7 +24,7 @@
                         <!-- // form item -->
                         <!-- // form item -->
                         <p></p>
-                        <button class="btn btn-green" type="submit">Guardar Usuario</button>
+                        <button class="btn btn-green" type="submit">Guardar</button>
                         </form>
                     </fieldset>
                     <!-- // fieldset Input Grid Sizig --> 

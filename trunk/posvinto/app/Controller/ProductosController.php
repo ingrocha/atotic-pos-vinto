@@ -44,7 +44,7 @@ class ProductosController extends AppController
             //$this->request->data['Porcione']['cantidad'] = $cantidad;
             if ($this->Porcione->save($this->data))
             {
-                $this->Session->setFlash("Cantidad Modificada!!!");
+                $this->Session->setFlash("Cantidad Modificada!!!", 'alerts/bueno');
                 $this->redirect(array('action' => 'receta', $cod));
             }
             //if()
@@ -91,7 +91,7 @@ class ProductosController extends AppController
         $this->request->data['Categoria']['estado'] = 0;
         if ($this->Categoria->save($this->data))
         {
-            $this->Session->setFlash('Se Deshabilito Correctamente');
+            $this->Session->setFlash('Se Deshabilito Correctamente', 'alerts/bueno');
             $this->redirect(array('action' => 'categoriasmenu'));
         }
     }
@@ -102,7 +102,7 @@ class ProductosController extends AppController
         $this->request->data['Categoria']['estado'] = 1;
         if ($this->Categoria->save($this->data))
         {
-            $this->Session->setFlash('Se Habilito Correctamente');
+            $this->Session->setFlash('Se Habilito Correctamente', 'alerts/bueno');
             $this->redirect(array('action' => 'categoriasmenu'));
         }
     }
@@ -113,7 +113,7 @@ class ProductosController extends AppController
         $this->request->data['Producto']['estado'] = 0;
         if ($this->Producto->save($this->data))
         {
-            $this->Session->setFlash('Se Oculto Correctamente');
+            $this->Session->setFlash('Se Oculto Correctamente', 'alerts/bueno');
             $this->redirect(array('action' => 'productosmenu'));
         }
     }
@@ -124,7 +124,7 @@ class ProductosController extends AppController
         $this->request->data['Producto']['estado'] = 1;
         if ($this->Producto->save($this->data))
         {
-            $this->Session->setFlash('Se Oculto Correctamente');
+            $this->Session->setFlash('Se muestra en menu', 'alerts/bueno');
             $this->redirect(array('action' => 'productosmenu'));
         }
     }
@@ -190,12 +190,7 @@ class ProductosController extends AppController
         $this->set(compact('insumos'));
     }
 
-    public function categoriasmenu()
-    {
-        $cat = $this->Categoria->find('all', array('recursive' => -1));
-        //debug($cat);
-        $this->set(compact('cat'));
-    }
+    
 
     public function receta($id = null)
     {
@@ -216,12 +211,12 @@ class ProductosController extends AppController
     {
         if (!$id_porcione)
         {
-            $this->Session->setFlash('id Invalida para borrar');
+            $this->Session->setFlash(' id Invalida para borrar', 'alerts/alert');
             $this->redirect(array('action' => 'receta', $id_producto));
         }
         if ($this->Porcione->delete($id_porcione))
         {
-            $this->Session->setFlash('Insumo eliminado');
+            $this->Session->setFlash(' Insumo eliminado', 'alerts/bueno');
             $this->redirect(array('action' => 'receta', $id_producto));
         }
     }
@@ -237,14 +232,14 @@ class ProductosController extends AppController
                 //debug($porcion);exit;
                 if (!empty($porcion))
                 {
-                    $this->Session->setFlash("Ya tiene registrado el insumo " . $porcion['Insumo']['nombre']);
+                    $this->Session->setFlash("Ya tiene registrado el insumo " . $porcion['Insumo']['nombre'], 'alerts/alert');
                     $this->redirect(array('controller' => 'Productos', 'action' => 'nuevaporcion'));
                 }
             }
             $this->Porcione->create();
             if ($this->Porcione->saveMany($this->data))
             {
-                $this->Session->setFlash('Plato registrado con exito');
+                $this->Session->setFlash('Plato registrado con exito', 'alerts/bueno');
                 $this->redirect(array('action' => 'receta', $id_plato));
             } else
             {
@@ -385,11 +380,11 @@ class ProductosController extends AppController
             $this->Producto->create();
             if ($this->Producto->save($this->data))
             {
-                $this->Session->setFlash('Producto registrado con exito');
+                $this->Session->setFlash('Producto registrado con exito', 'alerts/bueno');
                 $this->redirect(array('action' => 'index'), null, true);
             } else
             {
-                $this->Session->setFlash('No se pudo registrar el Producto!');
+                $this->Session->setFlash('No se pudo registrar el Producto!', 'alerts/alert');
             }
         }
     }
@@ -399,7 +394,7 @@ class ProductosController extends AppController
         $this->Producto->id = $id;
         if (!$id)
         {
-            $this->Session->setFlash('No existe tal registro');
+            $this->Session->setFlash('No existe tal registro', 'alerts/alert');
             $this->redirect(array('action' => 'index'), null, true);
         }
         if (empty($this->data))
@@ -409,11 +404,11 @@ class ProductosController extends AppController
         {
             if ($this->Producto->save($this->data))
             {
-                $this->Session->setFlash('Los datos fueron modificados');
+                $this->Session->setFlash('Los datos fueron modificados', 'alerts/bueno');
                 $this->redirect(array('action' => 'bebidas'), null, true);
             } else
             {
-                $this->Session->setFlash('no se pudo modificar!!');
+                $this->Session->setFlash('no se pudo modificar!!', 'alerts/alert');
             }
         }
         $dcc = $this->Categoria->find('list', array('conditions' => array('tipo' =>
@@ -431,7 +426,7 @@ class ProductosController extends AppController
         }
         if ($this->Producto->delete($id))
         {
-            $this->Session->setFlash('El usuario  ' . $id . ' fue borrado');
+            $this->Session->setFlash('El usuario  ' . $id . ' fue borrado', 'alerts/alert');
             $this->redirect(array('action' => 'index'));
         }
     }
@@ -446,12 +441,12 @@ class ProductosController extends AppController
         }
         if (empty($this->data))
         {
-            $this->data = $this->Categoria->read();
+            $this->request->data = $this->Categoria->read();
         } else
         {
-            if ($this->Categoria->save($this->data))
+            if ($this->Categoria->save($this->request->data))
             {
-                $this->Session->setFlash('Los datos fueron modificados');
+                $this->Session->setFlash('Los datos fueron modificados', 'alerts/bueno');
                 $this->redirect(array('action' => 'categoriasmenu'), null, true);
             } else
             {
@@ -460,10 +455,32 @@ class ProductosController extends AppController
         }
         $dct = array('Comida' => 'Comida', 'Bebidas' => 'Bebidas');
         $this->set(compact('dct'));
-        //$dcc = $this->Categoria->find('list', array('conditions' => array('tipo' =>
-        //            'Bebidas'), 'fields' => 'nombre'));
-        //debug($dcc);
-        //$this->set(compact('dcc'));
+    }
+    public function eliminacategoria($id=null){
+        $platos = $this->Producto->find('count', array(
+        'conditions'=>array('Producto.categoria_id'=>$id), 
+        'recursive'=>-1
+        ));
+        if($platos == 0){
+            if ($this->Categoria->delete($id))
+            {
+                $this->Session->setFlash('Categoria eliminada!!!', 'alerts/bueno');
+                $this->redirect(array('action' => 'categoriasmenu'), null, true);
+            } else
+            {
+                $this->Session->setFlash('Error al eliminar esta categoria!', 'alerts/error');
+                $this->redirect(array('action' => 'categoriasmenu'), null, true);
+            }
+        }else{
+            $this->Session->setFlash('No puede eliminar esta categoria porque contiene productos!', 'alerts/error');
+            $this->redirect(array('action' => 'categoriasmenu'), null, true);
+        }
+    }
+    public function categoriasmenu()
+    {
+        $cat = $this->Categoria->find('all', array('recursive' => -1));
+        //debug($cat);exit;
+        $this->set(compact('cat'));
     }
 
     public function nuevacategoria()
@@ -473,15 +490,36 @@ class ProductosController extends AppController
             $this->Categoria->create();
             if ($this->Categoria->save($this->data))
             {
-                $this->Session->setFlash('Categoria registrada!!!');
+                $this->Session->setFlash(' Categoria registrada!!!', 'alerts/bueno');
                 $this->redirect(array('action' => 'categoriasmenu'), null, true);
             } else
             {
-                $this->Session->setFlash('No se pudo registrar el Producto!');
+                $this->Session->setFlash('No se pudo registrar el Producto!', 'alerts/alerta');
             }
         }
         $dct = array('Comida' => 'Comida', 'Bebidas' => 'Bebidas');
         $this->set(compact('dct'));
+    }
+    public function oculta($id = null)
+    {
+        $this->Categoria->id = $id;
+        $this->request->data['Categoria']['estado'] = 0;
+        if ($this->Categoria->save($this->request->data))
+        {
+            $this->Session->setFlash('Se Oculto la categoria del menu', 'alerts/bueno');
+            $this->redirect(array('action' => 'categoriasmenu'));
+        }
+    }
+
+    public function muestra($id = null)
+    {
+       $this->Categoria->id = $id;
+        $this->request->data['Categoria']['estado'] = 1;
+        if ($this->Categoria->save($this->request->data))
+        {
+            $this->Session->setFlash('Se muestra la categoria en el menu', 'alerts/bueno');
+            $this->redirect(array('action' => 'categoriasmenu'));
+        }
     }
 
     public function editaprodmenu($id = null)
