@@ -28,40 +28,44 @@ body {
     #footer {
         background-color: #f5f5f5;
     }
+    /*botones principales de las mesas*/
     .btn-primary {
         background-color: #006DC;
-        background-image: linear-gradient(to bottom, #0088CC, #000);
+        background-image: linear-gradient(to bottom, #FFD47F, #FFD47F);
         background-repeat: repeat-x;
         border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-        color: #FFFFFF;
+        color: #000;
         text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     }
-    /*botones principales de las mesas*/
+    /*letras de los botones*/
     .hero-unit a.btn-primary{
         text-transform: uppercase;   
         font-weight: bold;
-        font-size: 25pt;
+        font-size: 22pt;
         padding-bottom: 20px;
         padding-top: 25px;
         width: 150px;        
         margin-bottom: 10px;
         margin-right: 10px;       
     }   
-
-    .btn-success {
-        background-color: #5BB75B;
-        background-image: linear-gradient(to bottom, #008000, #005500);
-        background-repeat: repeat-x;
-        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-        color: #FFFFFF;
-        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    }    
+    
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active,
+    .btn-primary.disabled,
+    .btn-primary[disabled] {
+  color: #000;
+  background-color: #FFD47F;
+  *background-color: #003bb3;
+}
+    
 </style>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span9">
             <div class="hero-unit">                
-                <h2>MOSO: <?php echo $datosMoso['User']['nombre']; ?> &nbsp;&nbsp;&nbsp; TUS MESAS </h2>                             
+                <h2>MOSO: <?php echo $datosMoso['User']['nombre']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo $this->Html->url(array('action' => 'verificamoso', $datosMoso['User']['id'])); ?>" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA</a></h2>                                             
                 <?php foreach ($mesas as $m): ?>
                     <?php $id_pedido = $m['Pedido']['id']; ?>
                     <?php $id_moso = $m['Pedido']['user_id']; ?> 
