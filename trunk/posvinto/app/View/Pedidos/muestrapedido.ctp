@@ -108,6 +108,7 @@ body {
          <div class="span3">
             <div id="cargaPedidos">
                 <!--contenido del pedido-->
+                <h5>Detalle del pedido realizado</h5>
                 <h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $datosPedido['Pedido']['mesa'] ?></span></h3>
 
                 <div class="well sidebar-nav">
