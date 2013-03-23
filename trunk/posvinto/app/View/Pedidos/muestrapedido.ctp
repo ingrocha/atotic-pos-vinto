@@ -30,7 +30,7 @@ body {
     }
     /*botones principales de las mesas*/
     .btn-primary {
-        background-color: #006DC;
+        background-color: #FFD47F;
         background-image: linear-gradient(to bottom, #FFD47F, #FFD47F);
         background-repeat: repeat-x;
         border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -57,7 +57,7 @@ body {
     .btn-primary[disabled] {
   color: #000;
   background-color: #FFD47F;
-  *background-color: #003bb3;
+  /*background-color: #003bb3;*/
 }
     
 </style>
