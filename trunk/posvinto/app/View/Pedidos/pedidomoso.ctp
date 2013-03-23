@@ -19,6 +19,28 @@
     .hero-unit h3.nombre{
         color: #4D0F04;        
     }
+    /*personalizamos el menu*/
+    /*los botones*/
+    .hero-unit a.btn-warning{
+        text-transform: uppercase;   
+        font-weight: bold;
+        font-size: 14pt;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        width: 120px;              
+        margin-bottom: 6px;
+        margin-right: 6px;    
+        line-height: 25pt;   
+    }
+    /*letras de los botones*/
+    .btn-mini{
+        background-color: #006DC;
+        background-image: linear-gradient(to bottom, #AA002A, #55002B);
+        background-repeat: repeat-x;
+        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+        color: #FFFFFF;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    }
 
     /* Set the fixed height of the footer here */
     #push,
@@ -37,7 +59,7 @@
     <div class="row-fluid">
         <div class="span8">
             <div class="hero-unit">
-                <div class="tabbable">
+                <div class="tabbable tabs-left">
                     <ul class="nav nav-tabs" id="myTab">
                         <?php $i = 1; ?>
                         <?php foreach ($categorias as $c): ?>                                        	
@@ -73,12 +95,13 @@
                                             <?php if ($p['Producto']['estado'] == 0): ?>
                                                 <a href="#" class="btn btn-mini <?php echo ($p['Producto']['estado'] == 1) ? 'btn-warning' : 'btn-danger' ?>">
                                                     <?php //echo $this->Html->image('mesa.png'); ?>
-                                                    <h5><?php echo $p['Producto']['nombre']; ?></h5>
+                                                    <?php echo $p['Producto']['nombre']; ?>
                                                 </a>
                                             <?php else: ?>
                                                 <?php
                                                 echo $this->Ajax->link(
-                                                    "<h5> $nombreProducto </h5>", array(
+                                                    "$nombreProducto ".$this->Html->image('iconos/mesa.png', array('style'=>"padding-top: 10px;")), 
+                                                    array(
                                                     'controller' => 'Pedidos',
                                                     'action' => 'ajaxlistado',
                                                     $id_moso,
@@ -89,8 +112,8 @@
                                                         ), array(
                                                     'update' => 'cargaPedidos',
                                                     'escape' => false,
-                                                    'class' => "btn btn-mini btn-warning",
-                                                    'style' => 'width: 150px')
+                                                    'class' => "btn btn-mini btn-warning"
+                                                    )
                                                 );
                                                 ?>
                                                 <!--<a href="<?php //echo $this->Html->url(array('controller' => 'Pedidos', 'action' => 'moso', $p['Producto']['id']));              ?>" class="btn btn-mini <?php //echo ($p['Producto']['estado'] == 1) ? 'btn-warning' : 'btn-danger'              ?>">
