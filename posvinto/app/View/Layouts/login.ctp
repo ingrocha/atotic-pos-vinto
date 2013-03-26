@@ -61,10 +61,7 @@
             <section>
                 <div class="row" style="padding-top:80px">
                     <div class="span6 offset3 text-center padding-side"> 
-<<<<<<< .mine
-=======
-                    
->>>>>>> .r511
+
                         <?php echo $this->Html->image('PizzaBanner.jpg'); ?>
                          <?php echo $this->Session->flash(); ?>                
                          <?php echo $this->fetch('content'); ?>                        
