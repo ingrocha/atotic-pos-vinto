@@ -148,12 +148,8 @@
                 <?php echo $this->fetch('content'); ?>
                 
                 <div style="text-align: center; color:gray;">
-<<<<<<< .mine
-                <p class="f-left">&copy; 2013 <a href="http://www.labware.com.bo/">LabWare</a>, Todos Los Derechos Reservados &reg;</p>
-=======
-                 <?php //echo $this->Html->image('epcm/logo_epcm.png') ?>
                 <p class="f-left">&copy; 2013 <a href="http://www.labware.com.bo/">Centro Ecoturistico Viva Vinto </a>, Todos Los Derechos Reservados &reg;</p>
->>>>>>> .r511
+
                 <p class="f-right">Creado por <a href="http://www.labware.com.bo/">LabWare</a></p>
                 </div>
                 <!-- // fin del contenido principal -->                
