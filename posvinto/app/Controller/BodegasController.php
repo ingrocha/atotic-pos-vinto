@@ -71,7 +71,9 @@ class BodegasController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+	   
 		$this->Bodega->id = $id;
+        //$this->Pupu->find('pepe', array);
 		if (!$this->Bodega->exists()) {
 			throw new NotFoundException(__('Invalid bodega'));
 		}
