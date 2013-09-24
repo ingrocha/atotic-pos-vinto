@@ -65,7 +65,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'sisvinto',
+		'database' => 'posvinto',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
