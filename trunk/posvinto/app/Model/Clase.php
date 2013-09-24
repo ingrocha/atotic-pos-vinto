@@ -1,30 +1,14 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Categoria Model
+ * Clase Model
  *
- * @property Clase $Clase
- * @property Producto $Producto
+ * @property Categoria $Categoria
  */
-class Categoria extends AppModel {
+class Clase extends AppModel {
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-/**
- * belongsTo associations
- *
- * @var array
- */
-	public $belongsTo = array(
-		'Clase' => array(
-			'className' => 'Clase',
-			'foreignKey' => 'clase_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
 
 /**
  * hasMany associations
@@ -32,9 +16,9 @@ class Categoria extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Producto' => array(
-			'className' => 'Producto',
-			'foreignKey' => 'categoria_id',
+		'Categoria' => array(
+			'className' => 'Categoria',
+			'foreignKey' => 'clase_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
