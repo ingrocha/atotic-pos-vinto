@@ -109,7 +109,6 @@ $cantidadAlmacen = new Almacen();
                                                     $('#dialog2_<?php echo $idInsumo; ?>').on('click', function () {
                                                         // create the backdrop and wait for next modal to be triggered
                                                         GlobalModalManager.loading();
-                                            	
                                                         setTimeout(function () {
                                                             $modal2.load("insumos/salidalmacen/<?php echo $idInsumo; ?>", '', function () {
                                                                 $modal2.modal();

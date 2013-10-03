@@ -23,7 +23,7 @@ $modeloCategoria = new Categoria();
             //console.log("hizo click <?php //echo $dP['Producto']['id']; ?>");
             $("#cargaObservaciones").load("<?php echo $this->Html->url(array('action' => 'ajaxmuestraobservaciones', $dP['Producto']['id'])); ?>");
             $("#cargaObservaciones").load("<?php echo $this->Html->url(array('action' => 'ajaxmuestraobservaciones', $dP['Producto']['id'])); ?>");
-            //$("#cargaDatos").load("<?php //echo $this->Html->url(array('action' => 'ajaxmuestraobservaciones', $dP['Producto']['id'])); ?>");
+            //$("#cargaDatos").load("<?php echo $this->Html->url(array('action' => 'ajaxmuestraobservaciones', $dP['Producto']['id'])); ?>");
         }
     </script>
 <?php endforeach; ?>

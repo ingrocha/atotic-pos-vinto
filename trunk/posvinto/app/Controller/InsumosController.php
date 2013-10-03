@@ -299,7 +299,8 @@ class InsumosController extends AppController
             $cant_salida = $this->request->data['Movimiento']['salida'];
             $id_insumo = $this->request->data['Movimiento']['id_insumo'];
             $pc = $this->request->data['Movimiento']['pc'];
-            $lugar = $this->request->dara['Movimiento']['lugar'];
+            $lugar = $this->request->data['Movimiento']['lugar'];
+            //debug($lugar);exit;
             
             $existe_insumo = $this->Almacen->find('first', array(
                 'conditions' => array('insumo_id' => $id_insumo),
@@ -464,7 +465,6 @@ class InsumosController extends AppController
 
     public function ingresoalmacen($id = null)
     {
-
         $this->layout = 'ajax';
         if (!empty($this->data))
         {
