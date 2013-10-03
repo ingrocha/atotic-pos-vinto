@@ -4,6 +4,9 @@ $modeloProducto = new Producto();
 
 App::import('Model', 'Categoria');
 $modeloCategoria = new Categoria();
+
+App::import('Model', 'Productosobservacione');
+$modeloproductosobservaciones = new Productosobservacione();
 ?>
 
 <style>
@@ -12,7 +15,10 @@ $modeloCategoria = new Categoria();
         list-style-type: none;
         padding: 0 0 5px 5px;
     }
-
+    
+    ul.productos li{
+        list-style-type: none;
+    }
     .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
         background-color: #EBEBEB;
         border-color: #ADADAD;
@@ -22,7 +28,7 @@ $modeloCategoria = new Categoria();
         background-image: none;
         color: #f00;
     }
-
+    
     /* CSS Tabs jQuery */
     /*contenedor_tab{float:left;clear:both;width:600px;padding:0px;margin:0 auto;display:block;background:#ccc;border:1px solid #333;-moz-border-radius:0 0 7px 7px;-webkit-border-radius:0 0 7pc 7px;border-radius: 0 0 7px 7px;}*/
     /*contenedor_tab{float:left;clear:both;width:600px;padding:0px;margin:0 auto;display:block;background:#ccc;border:1px solid #333;-moz-border-radius:0 0 7px 7px;-webkit-border-radius:0 0 7pc 7px;border-radius: 0 0 7px 7px;}*/
@@ -73,7 +79,7 @@ $modeloCategoria = new Categoria();
     <div class="row" style="padding-left: 15px;">
         <div class="col-xs-12 col-sm-6 col-md-8">           
             <div class="col-sm-12">                     
-                <div class="contenedor_tab">
+                <div class="c">
                     <?php foreach ($datosClases as $dc): ?>
                         <div id="tab<?php echo $dc['Clase']['id']; ?>" class="contenido_tab">
                             <div class="panel panel-primary" style="margin-top: -7px; width: 807px;" >
@@ -90,36 +96,77 @@ $modeloCategoria = new Categoria();
                                     ?>                                      
                                     <div style="float: left;">
                                         <div class="btn-group-vertical">
-                                            <?php foreach ($datosCategorias as $dCat): ?>                                        
-                                                <button type="button" id="btCat<?php echo $dCat['Categoria']['id']; ?>" class="btn btn-default" style="text-transform: uppercase; background-color: #<?php echo $dc['Clase']['color']; ?>; color: #fff;"><?php echo $dCat['Categoria']['nombre']; ?></button>                                                                            
-                                                <script>
-                                                    $(document).ready(function() {
-                                                        //$("#cargaProductos_<?php //echo $dc['Clase']['id'];      ?>").load("<?php //echo $this->Html->url(array('action' => 'ajaxmuestraproductos', $dCat['Categoria']['id']));      ?>"); 
-                                                    });
-
-                                                    $("#btCat<?php echo $dCat['Categoria']['id']; ?>").click(function() {
-                                                        //console.log();
-                                                        $("#imgCargando_<?php echo $dc['Clase']['id']; ?>").toggle();
-                                                        $("#cargaProductos_<?php echo $dc['Clase']['id']; ?>").load("<?php echo $this->Html->url(array('action' => 'ajaxmuestraproductos', $dCat['Categoria']['id'],)); ?>")
-                                                    });
-                                                </script>
-                                            <?php endforeach; ?>    
+                                        
+                                            <?php foreach ($datosCategorias as $dCat): ?>    
+                                            
+                                                <button type="button" id="#producto<?php echo $dc['Clase']['id'].$dCat['Categoria']['id']; ?>" class="btn btn-default" style="text-transform: uppercase; background-color: #<?php echo $dc['Clase']['color']; ?>; color: #fff;"><?php echo $dCat['Categoria']['nombre']; ?></button>   
+                                              
+                                            <?php endforeach; ?> 
+                                            
                                         </div>
                                     </div>
                                     <div style="float: left; padding-left: 10px; width: 620px;">
-                                        <div id="cargaProductos_<?php echo $dc['Clase']['id']; ?>">
-                                            <?php //echo $dc['Clase']['id']; ?>
-                                            <div id="imgCargando_<?php echo $dc['Clase']['id']; ?>" style="display: none;">
-                                                <?php echo $this->Html->image('iconos/cargando.gif'); ?>
-                                            </div>
-                                        </div>                                        
+                                        <div class="contenedor_productos">
+                                        <?php foreach ($datosCategorias as $dCat): ?>    
+                                                <div id="producto<?php echo $dc['Clase']['id'].$dCat['Categoria']['id']; ?>" class="contenido_producto">
+                                                <?php
+                                                $datosProductos = $modeloProducto->find('all', array(
+                                                    'recursive' => -1,
+                                                    'conditions' => array('Producto.categoria_id' => $dCat['Categoria']['id'])
+                                                )); 
+                                                ?>
+                                                
+                                                <div class="div-observaciones">
+                                                <?php foreach ($datosProductos as $dP): ?>
+                                                <?php //debug($dP); ?>
+                                                
+                                                <button  type="button" style="border: solid #<?php echo $dc['Clase']['color']; ?>; font-size: larger; margin: 2px; width: 185px; height: 80px; text-transform: uppercase;" id="observacion<?php echo $dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id']; ?>">
+                                                    <div>
+                                                        <?php echo $dP['Producto']['nombre']; ?>
+                                                    </div>
+                                                </button>
+                                              <?php 
+                                            $this->Js->get('#observacion'.$dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id'])->event(
+                                            'click',
+                                            $this->Js->request(
+                                                array('action' => 'ajaxpideproducto',$pedido,$dP['Producto']['id']),
+                                                array('async' => true,
+                                                //'before' => $this->Js->get('#divobservacion'.$dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id'])->effect('fadeIn', array('buffer' => false)),
+                                                //'before' => '$("'.'#divobservacion'.$dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id'].'").fadeIn()',
+                                                'update' => '#cargaDatos',
+                                                /*'complete' => 
+                                                $this->Js->request(
+                                                    array('action' => 'ajaxmuestraobservaciones',$dP['Producto']['id']),
+                                                    array('async' => true,
+                                                    'update' => '#cargaObservaciones')
+                                                )
+                                                ,*/
+                                                'method' => 'post'
+                                                //'dataExpression'=>true,
+                                                //'data'=> $this->Js->serializeForm(array('isForm' => true,'inline' => true))
+                                                ))
+                                            );?>
+                                            <?php endforeach; ?>
+                                                </div>
+                                                
+                                                </div>  
+                                            <?php endforeach; ?>
+                                        </div>                                  
                                     </div>
                                 </div>
                             </div>
                         </div>    
                     <?php endforeach; ?>
                 </div>  
-                <div class="row">                  
+                <div class="row"> 
+                <style type="text/css">
+                .active{
+                   background-color: #ff8800;
+                }
+                .desactive{
+                    background-color: blue;
+                }
+                </style>                 
                     <script type='text/javascript'>
                         $(document).ready(function() {
                             $(".contenido_tab").hide(); //Ocultar capas
@@ -131,8 +178,36 @@ $modeloCategoria = new Categoria();
                                 $("ul.tabs li").removeClass("activa"); //Borrar todas las clases "activa"
                                 $(this).addClass("activa"); //Añadir clase "activa" a la pestaña seleccionada
                                 $(".contenido_tab").hide(); //Ocultar todo el contenido de la pestaña
-                                var activatab = $(this).find("a").attr("href"); //Leer el valor de href para identificar la pestaña activa 
+                                var activatab = $(this).find("a").attr("href"); //Leer el valor de href para identificar la pestaña activa
                                 $(activatab).fadeIn(); //Visibilidad con efecto fade del contenido activo
+                                
+                                return false;
+                            });
+                           
+                           $(".contenido_producto").hide(); //Ocultar capas
+                            $(".contenido_producto:first").show(); //Mostrar contenido primera pestaña
+                            <?php foreach ($datosClases as $dc): ?>
+                                <?php
+                                    $datosCategorias = $modeloCategoria->find('first', array(
+                                        'recursive' => -1,
+                                        'conditions' => array('Categoria.clase_id' => $dc['Clase']['id']),
+                                    ));
+                                    ?>
+                                    //alert("#producto<?php echo $dc['Clase']['id'].$datosCategorias['Categoria']['id']; ?>");
+                                     $("#producto<?php echo $dc['Clase']['id'].$datosCategorias['Categoria']['id']; ?>").show(); 
+                            <?php endforeach;?>
+                           // $("#producto210").show(); //Mostrar contenido primera pestaña
+                            $("div.btn-group-vertical button").click(function() {
+                                $(".contenido_producto").hide(); //Ocultar todo el contenido de la pestaña
+                                $(this.id).fadeIn(); //Visibilidad con efecto fade del contenido activo
+                                return false;
+                            });
+                            
+                            $(".contenido_observacion").hide(); //Ocultar capas
+                            $("div.div-observaciones button").click(function() {
+                                $(".contenido_observacion").hide(); //Ocultar todo el contenido de la pestaña
+                                //alert("#"+this.id);
+                                //$(this.id).fadeIn(); //Visibilidad con efecto fade del contenido activo
                                 return false;
                             });
                         });
@@ -152,11 +227,54 @@ $modeloCategoria = new Categoria();
 
             <div class="col-sm-12">
                 <div id="cargaObservaciones">
-
+                <?php foreach ($datosClases as $dc): ?>
+                <?php
+                                    $datosCategorias = $modeloCategoria->find('all', array(
+                                        'recursive' => -1,
+                                        'conditions' => array('Categoria.clase_id' => $dc['Clase']['id']),
+                                    ));
+                                    //debug($datosCategorias);
+                                    ?> 
+                <?php foreach ($datosCategorias as $dCat): ?> 
+                <?php
+                                            $datosProductos = $modeloProducto->find('all', array(
+                                                'recursive' => -1,
+                                                'conditions' => array('Producto.categoria_id' => $dCat['Categoria']['id'])
+                                            )); 
+                                            ?>
+                <?php foreach ($datosProductos as $dP): ?>
+                
+                <?php
+                $datosObs = $modeloproductosobservaciones->find('all', array(
+                    'recursive'=>-1,
+                    'conditions'=>array('Productosobservacione.producto_id'=>$dP['Producto']['id'])
+                )); 
+                //debug($datosObs);
+                ?>
+                <div class="contenido_observacion" id="divobservacion<?php echo $dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id']; ?>">
+                <div class="panel panel-danger">
+                        <div class="panel-heading" style="background-color: #FF2A2A; color: #fff">
+                            <h3 class="panel-title">Observaciones <?php echo $dP['Producto']['nombre']; ?></h3>
+                        </div>
+                        <div class="panel-body">
+                            <?php foreach ($datosObs as $dObs): ?>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox<?php echo $dObs['Productosobservacione']['id']; ?>" value="<?php echo $dObs['Productosobservacione']['id']; ?>"> <?php echo $dObs['Productosobservacione']['observacion']; ?>
+                                </label>  
+                                
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <?php endforeach;?>
+                 <?php endforeach;?> 
+                 <?php endforeach;?>   
                 </div>
             </div><!-- /.col-sm-4 -->
 
         </div>    
     </div>
 
-</div> <!-- /container -->        
+</div> <!-- /container --> 
+<?php echo $this->Js->writeBuffer(); ?>       
