@@ -26,7 +26,8 @@ class PedidosController extends AppController {
         'Almacen',
         'Lugare',
         'Clase',
-        'Productosobservacione');
+        'Productosobservacione',
+        'Pedidosobservacione');
     public $layout = 'mosos';
 
     public function beforeFilter() {
@@ -1130,7 +1131,7 @@ class PedidosController extends AppController {
         $this->set(compact('datosProductos'));
     }
         
-    public function ajaxmuestraobservaciones($idProducto = null,$idPedido = null){        
+    public function ajaxmuestraobservaciones($idProducto = null,$idPedido = null,$idItem = null){        
         
         $this->layout = 'ajax';
         //debug($idProducto);exit;
@@ -1143,9 +1144,9 @@ class PedidosController extends AppController {
             'conditions'=>array('Producto.id'=>$idProducto),
             'fields'=>array('Producto.nombre')
         ));
-        $this->set(compact('datosObs', 'nombreProducto','idProducto','idPedido'));
+        $this->set(compact('datosObs', 'nombreProducto','idProducto','idPedido','idItem'));
     }
-    public function ajaxpideproducto($idPedido = null,$idProducto = null,$iditem = null)
+    public function ajaxpideproducto($id_moso = null,$idPedido = null,$idProducto = null,$iditem = null)
     {
         $this->layout = 'ajax';
         //debug($iditem);
@@ -1183,31 +1184,15 @@ class PedidosController extends AppController {
                 else{
                     $precio = 0;
                 }
-                $verificacantidad = $this->Item->find('first',array('recursive' => -1,'order' => 'Item.id DESC','conditions' => array('Item.pedido_id' => $idPedido,'Item.producto_id' => $idProducto)));
-                if(!empty($verificacantidad))
-                {
-                    $cantidad = $verificacantidad['Item']['cantidad'] + 1;
-                    
-                    $this->Item->id = $verificacantidad['Item']['id'];
+                $cantidad = 1;
+                $this->Item->create();
                     $this->request->data['Item']['pedido_id'] = $idPedido;
                     $this->request->data['Item']['producto_id'] = $idProducto;
                     $this->request->data['Item']['cantidad'] = $cantidad;
                     $this->request->data['Item']['precio'] = $precio;
                     $this->request->data['Item']['fecha'] = date("Y-m-d H:i:s");
                     $this->request->data['Item']['estado'] = 0;
-                    $this->Item->save($this->request->data);
-                }
-                else{
-                    $cantidad = 1;
-                    $this->Item->create();
-                    $this->request->data['Item']['pedido_id'] = $idPedido;
-                    $this->request->data['Item']['producto_id'] = $idProducto;
-                    $this->request->data['Item']['cantidad'] = $cantidad;
-                    $this->request->data['Item']['precio'] = $precio;
-                    $this->request->data['Item']['fecha'] = date("Y-m-d H:i:s");
-                    $this->request->data['Item']['estado'] = 0;
-                    $this->Item->save($this->request->data);
-                }
+                $this->Item->save($this->request->data);
                 foreach($insumo as $in)
                 {
                     $movimiento = $this->Bodega->find('first',array('recursive' => -1,'conditions' => array(
@@ -1230,15 +1215,17 @@ class PedidosController extends AppController {
             }
         }
         else{
-            $verificacantidad = $this->Item->find('first',array('recursive' => -1,'conditions' => array('Item.id' => $iditem)));
-            if($verificacantidad['Item']['cantidad'] == 1)
+            $this->Item->delete($iditem);
+            $comprueba = $this->Pedidosobservacione->find('all',array('recursive' => -1,'conditions' => array(
+                'Pedidosobservacione.pedido_id' => $idPedido,
+                'Pedidosobservacione.item_id' => $iditem,
+                )));
+            if(!empty($comprueba))
             {
-                $this->Item->delete($iditem);
-            }
-            else{
-                $this->Item->id = $iditem;
-                $this->request->data['Item']['cantidad'] = $verificacantidad['Item']['cantidad']-1;
-                $this->Item->save($this->request->data);
+                foreach($comprueba as $com)
+                {
+                    $this->Pedidosobservacione->delete($com['Pedidosobservacione']['id']);
+                }
             }
             $insumo = $this->Porcione->find('all',array('recursive' => -1,'conditions' => array('Porcione.producto_id' => $idProducto)));
             foreach($insumo as $in)
@@ -1262,41 +1249,107 @@ class PedidosController extends AppController {
         
         
         $productos = $this->Item->find('all',array('recursive' => 0,'conditions' => array('Item.pedido_id' => $idPedido)));
-        //debug($productos);exit;
-        $this->set(compact('Producto','cantidad','productos','idProducto','idPedido','mensaje','sw'));
+        //debug($productos);
+        foreach($productos as $pro)
+        {
+            $f = false;
+            if(count($productos_vector) > 0)
+            {
+                for($i = 0;$i < count($productos_vector);$i++)
+                {
+                    if($productos_vector[$i]['Producto']['producto_id'] == $pro['Item']['producto_id'])
+                    {
+                    //$productos_vector[$i]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                        $productos_vector[$i]['Producto']['cantidad']++;
+                        $f = true;
+                    } 
+                }
+            }
+            
+            if($f == false)
+            {
+                $n = count($productos_vector);
+                $productos_vector[$n]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                $productos_vector[$n]['Producto']['cantidad'] = 1;
+                $productos_vector[$n]['Producto']['nombre'] = $pro['Producto']['nombre'];
+            }
+        }
+        //$productos_vector[0]['Producto']['cantidad'] = 1;
+        /*$productos_vector[0]['Producto']['producto_id'] = 3;
+        $productos_vector[0]['Producto']['cantidad'] = 1;
+        $productos_vector[1]['Producto']['producto_id'] = 3;
+        $productos_vector[1]['Producto']['cantidad'] = 1;
+        $productos_vector[0]['Producto']['producto_id'] = 4;
+        $productos_vector[0]['Producto']['cantidad'] = $productos_vector[0]['Producto']['cantidad']+1;*/
+        //debug($productos_vector);exit;
+        $this->set(compact('Producto','cantidad','productos','idProducto','idPedido','mensaje','sw','productos_vector','id_moso'));
     }
-    public function guardaobservacion($idProducto = null,$idPedido = null)
+    public function guardaobservacion($idProducto = null,$idPedido = null,$idItem = null)
     {
         $this->layout = 'ajax';
-        //debug($n);
-        //debug($idPedido);
-        //debug($idProducto);
-        //debug($this->request->data);
-        /*for($i = 1;$i <= $n;$i++)
-        {
-            //debug($this->request->data['Movi']["$i"."obs"]);
-            
-            //$aux = ','.$aux.' '.$this->request->data['Movi']["$iobs"];
-        }*/
+        
         $observaciones = $this->Productosobservacione->find('all',array('recursive' => -1,'conditions' => array('Productosobservacione.producto_id' => $idProducto)));
         $i = 0;
         foreach($observaciones as $ob)
         { $i++;
             if($this->request->data['Movi']["$i"."obs"] == 1)
             {
-                $nombre = $ob['Productosobservacione']['observacion'];
-                $aux = $aux.', '.$nombre;
+                $comprueba = $this->Pedidosobservacione->find('first',array('recursive' => -1,'conditions' => array(
+                'Pedidosobservacione.pedido_id' => $idPedido,
+                'Pedidosobservacione.item_id' => $idItem,
+                'Pedidosobservacione.producto_id' => $idProducto,
+                'Pedidosobservacione.productosobservacione_id' => $ob['Productosobservacione']['id']
+                )));
+                if(empty($comprueba))
+                {
+                    $this->Pedidosobservacione->create();
+                    $this->request->data['Pedidosobservacione']['pedido_id'] = $idPedido;
+                    $this->request->data['Pedidosobservacione']['item_id'] = $idItem;
+                    $this->request->data['Pedidosobservacione']['producto_id'] = $idProducto;
+                    $this->request->data['Pedidosobservacione']['productosobservacione_id'] = $ob['Productosobservacione']['id'];
+                    $this->Pedidosobservacione->save($this->request->data['Pedidosobservacione']);
+                }
+                
+                //$aux = $aux.', '.$nombre;
+            }
+            else{
+                $comprueba = $this->Pedidosobservacione->find('first',array('recursive' => -1,'conditions' => array(
+                'Pedidosobservacione.pedido_id' => $idPedido,
+                'Pedidosobservacione.item_id' => $idItem,
+                'Pedidosobservacione.producto_id' => $idProducto,
+                'Pedidosobservacione.productosobservacione_id' => $ob['Productosobservacione']['id']
+                )));
+                if(!empty($comprueba))
+                {
+                    $this->Pedidosobservacione->delete($comprueba['Pedidosobservacione']['id']);
+                }
+                
             }
         }
         //debug($aux);exit;
-        $producto = $this->Producto->find('first',array('recursive' => -1,'conditions' => array('Producto.id' => $idProducto)));
-        $observacion = 'Un '.$producto['Producto']['nombre'].' '.$aux;
-        $pedido = $this->Pedido->find('first',array('recursive'=>-1,'conditions' => array('Pedido.id' => $idPedido)));
+        //$producto = $this->Producto->find('first',array('recursive' => -1,'conditions' => array('Producto.id' => $idProducto)));
+        //$observacion = 'Un '.$producto['Producto']['nombre'].' '.$aux;
+        //$pedido = $this->Pedido->find('first',array('recursive'=>-1,'conditions' => array('Pedido.id' => $idPedido)));
         
-        $this->Pedido->id = $idPedido;
-        $this->request->data['Pedido']['observaciones'] = $pedido['Pedido']['observaciones'].' - '.$observacion;
-        $this->Pedido->save($this->request->data['Pedido']);
+        //$this->Pedido->id = $idPedido;
+        //$this->request->data['Pedido']['observaciones'] = $pedido['Pedido']['observaciones'].' - '.$observacion;
+        //$this->Pedido->save($this->request->data['Pedido']);
         //debug($producto);exit;
+        
+        
+    }
+    public function confirmarpedido($idPedido = null,$id_moso = null)
+    {
+        
+        //debug($id_moso);exit;
+        $items = $this->Item->find('all',array('recursive' => -1,'conditions' => array('Item.pedido_id')));
+        foreach($items as $it)
+        {
+            $this->Item->id = $it['Item']['id'];
+            $this->request->data['Item']['estado'] = 1;
+            $this->Item->save($this->request->data['Item']);
+        }
+        $this->redirect(array('action' => 'menumoso', $id_moso));
     }
 }
 
