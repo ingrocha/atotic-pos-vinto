@@ -129,7 +129,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                                             $this->Js->get('#observacion'.$dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id'])->event(
                                             'click',
                                             $this->Js->request(
-                                                array('action' => 'ajaxpideproducto',$pedido,$dP['Producto']['id']),
+                                                array('action' => 'ajaxpideproducto',$id_moso,$pedido,$dP['Producto']['id']),
                                                 array('async' => true,
                                                 //'before' => $this->Js->get('#divobservacion'.$dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id'])->effect('fadeIn', array('buffer' => false)),
                                                 //'before' => '$("'.'#divobservacion'.$dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id'].'").fadeIn()',
