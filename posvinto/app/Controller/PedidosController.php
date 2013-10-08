@@ -23,6 +23,7 @@ class PedidosController extends AppController {
         'PedidosMesa',
         'Porcione',
         'Bodega',
+        'Objeto',
         'Almacen',
         'Lugare',
         'Clase',
@@ -1350,6 +1351,28 @@ class PedidosController extends AppController {
             $this->Item->save($this->request->data['Item']);
         }
         $this->redirect(array('action' => 'menumoso', $id_moso));
+    }
+    public function pruebamovimiento()
+    {
+        $layout = 'mosos';
+        //debug($this->request->data);exit;
+        $objetos = $this->Objeto->find('all');
+        
+        if(!empty($this->request->data))
+        {
+            $i = 0;
+            foreach($objetos as $obj)
+            {
+                $i++;
+                $this->Objeto->id = $obj['Objeto']['id'];
+                $this->request->data['Objeto']['posix'] = $this->request->data['Objeto'][$i]['posix'];
+                $this->request->data['Objeto']['posiy'] = $this->request->data['Objeto'][$i]['posiy'];
+                $this->Objeto->save($this->request->data);
+            }
+            $this->redirect(array('action' => 'pruebamovimiento'));
+        }
+        $this->set(compact('objetos'));
+        //debug($posicionx);
     }
 }
 

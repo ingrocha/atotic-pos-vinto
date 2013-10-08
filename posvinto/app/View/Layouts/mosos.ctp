@@ -8,7 +8,9 @@
         <meta name="author" content="">
 
         <!-- Le styles -->
-        <?php echo $this->Html->css(array('bootstrap', 'bootstrap-responsive', 'keypad/jquery.keypad')); ?>
+        <?php echo $this->Html->css(array('bootstrap', 'bootstrap-responsive', 'keypad/jquery.keypad'
+        ,'jquery-ui'
+        )); ?>
         <!--<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">-->
 
         <!--<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">-->
@@ -32,7 +34,8 @@
         <?php
         echo $this->Html->script(array(
             'jquery-1.9.1.min',
-            'jquery-ui-1.8.21.custom.min',
+            'jquery-ui-1.10.3.custom.min',
+            //'jquery-ui-1.8.21.custom.min',
             'keypad/jquery.keypad.min',
             'keypad/jquery.keypad-es',
             'bootstrap'
