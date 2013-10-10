@@ -26,6 +26,7 @@ class PedidosController extends AppController {
         'Objeto',
         'Almacen',
         'Lugare',
+        'Mesa',
         'Clase',
         'Productosobservacione',
         'Pedidosobservacione');
@@ -1004,6 +1005,7 @@ class PedidosController extends AppController {
     public function menumoso($idMoso = null) {
         //debug($idMoso);exit;
         //$this->layout = 'interfazmosos';
+        $mesas2 = $this->Mesa->find('all');
         $hoy = date('Y-m-d');
         App::uses('CakeTime', 'Utility');
         $dia = CakeTime::dayAsSql($hoy, 'fecha');
@@ -1022,7 +1024,7 @@ class PedidosController extends AppController {
                     'Pedido.estado' => array('0', '1'),
                     'Pedido.user_id' => $idMoso), 'recursive' => -1));
         }
-        $this->set(compact('mesas', 'datosMoso'));
+        $this->set(compact('mesas', 'datosMoso','mesas2'));
     }
 
     protected function _bodega($tipo = null) {
@@ -1373,6 +1375,12 @@ class PedidosController extends AppController {
         }
         $this->set(compact('objetos'));
         //debug($posicionx);
+    }
+    public function ajaxmesas()
+    {
+        $layout = 'ajax';
+        $mesas = $this->Mesa->find('all');
+        $this->set(compact('mesas'));
     }
 }
 

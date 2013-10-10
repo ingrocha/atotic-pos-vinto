@@ -12,8 +12,8 @@
   <?php foreach($mesas as $obj):?>
   $("#draggable<?php echo $obj['Mesa']['id'];?>").draggable({
    drag: function(event, ui){
-      $("#posx<?php echo $obj['Mesa']['id'];?>").val(ui.position.left);
-      $("#posy<?php echo $obj['Mesa']['id'];?>").val(ui.position.top);
+      $("#posx<?php echo $obj['Mesa']['id'];?>").val(ui.offset.left);
+      $("#posy<?php echo $obj['Mesa']['id'];?>").val(ui.offset.top);
       $(this).addClass("divabsoluto");
       //ui.helper.html(ui.position.left+"x"+ui.position.top);
       //ui.helper.html(ui.offset.left+"x"+ui.offset.top);
@@ -36,15 +36,16 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
 <style>
 <?php foreach($mesas as $obj):?>
   #draggable<?php echo $obj['Mesa']['id'];?> {
-    left: <?php echo $obj['Mesa']['posix'].'px';?>;
-    top: <?php echo $obj['Mesa']['posiy'].'px';?>;
+    /*left: <?php echo $obj['Mesa']['posix'].'px';?>;
+    top: <?php echo $obj['Mesa']['posiy'].'px';?>;*/
     }
 <?php endforeach;?>
 .ui-draggable{
-    width: 150px; 
-    height: 150px; 
+    width: 100px; 
+    height: 100px; 
     padding: 0.5em;
    background: #80FF00;
+   
 }
 
 /*
@@ -52,14 +53,97 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
     background: yellow;
 }*/
 </style>
-<div style="background: #E5E5E5;width: 1000px; height: 500px;" id="resizable" class="ui-widget-content">
+<div style="background: #E5E5E5;width: 1000px; height: 500px;" id="resizable">
 <?php foreach($mesas as $obj):?>
-<div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-widget-content">
-<h1><?php echo $obj['Mesa']['id'];?></h1>
+<div id="draggable<?php echo $obj['Mesa']['id'];?>" >
+<h1><?php echo $obj['Mesa']['numero'];?></h1>
 </div>
 <?php endforeach;?>
 </div>
-
+<?php foreach($mesas as $obj):?>
+<div id="minimenu<?php echo $obj['Mesa']['id'];?>" class="minimenu">
+      <ul class="minimenu">
+            
+            <li id="eliminar" class="minimenu"><?php echo $this->Html->link('Eliminar',array('action' => 'eliminar',$obj['Mesa']['id']),array('onclick' => 'alert("Esta seguro de eliminar la mesa!")'));?></li>
+        </ul>
+</div>
+<?php endforeach;?>
+<style>
+ul.minimenu{
+      list-style: none;
+      list-style-type: none;
+      list-style-position: outside;
+}
+ 
+li.minimenu{
+      line-height: 30px;
+      font-size: 16px;
+      cursor:pointer;
+}
+ 
+div.minimenu{
+      width:250px;
+      position:absolute;      
+      border:1px solid black;
+      background: white;
+      -moz-box-shadow: 0 0 5px #888;
+      -webkit-box-shadow: 0 0 5px#888;
+      box-shadow: 0 0 5px #888;
+}
+</style>
+<script>
+$(document).ready(function(){
+    
+             <?php foreach($mesas as $obj):?>
+             $('#draggable<?php echo $obj['Mesa']['id'];?>').offset({ top: <?php echo $obj['Mesa']['posiy'];?>, left: <?php echo $obj['Mesa']['posix'];?> });
+            //Ocultamos el menú al cargar la página
+            $("#minimenu<?php echo $obj['Mesa']['id'];?>").hide();
+             
+            /* mostramos el menú si hacemos click derecho
+            con el ratón */
+            
+            $('#draggable<?php echo $obj['Mesa']['id'];?>').bind("contextmenu", function(e){
+                $('div.minimenu').hide();
+                  $("#minimenu<?php echo $obj['Mesa']['id'];?>").css({'display':'block', 'left':e.pageX, 'top':e.pageY});
+                  return false;
+            });
+            
+             
+            //cuando hagamos click, el menú desaparecerá
+            $(document).click(function(e){
+                  if(e.button == 0){
+                        $("#minimenu<?php echo $obj['Mesa']['id'];?>").css("display", "none");
+                  }
+            });
+             
+            //si pulsamos escape, el menú desaparecerá
+            $(document).keydown(function(e){
+                  if(e.keyCode == 27){
+                        $("#minimenu<?php echo $obj['Mesa']['id'];?>").css("display", "none");
+                  }
+            });
+             
+            //controlamos los botones del menú
+            /*$("#minimenu<?php echo $obj['Mesa']['id'];?>").click(function(e){
+                   
+                  // El switch utiliza los IDs de los <li> del menú
+                  switch(e.target.id){
+                        case "copiar":
+                              alert("copiado!");
+                              break;      
+                        case "mover":
+                              alert("movido!");
+                              break;
+                        case "eliminar":
+                              alert("Esta seguro de eliminar la mesa!");
+                              break;
+                  }
+                   
+            });*/
+          <?php endforeach;?>   
+                         
+      }); 
+</script>
 <?php echo $this->Form->create('Mesa');?>
 <?php $i = 0;?>
 <?php foreach($mesas as $obj):?>
@@ -69,3 +153,4 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
 <?php endforeach;?>
 <?php echo $this->Form->submit('Guardar Posicion');?>
 <?php echo $this->Form->end();?>
+<?php echo $this->Html->link('ADICIONAR MESA',array('action' => 'add'),array('class' => 'btn btn-green'));?>
