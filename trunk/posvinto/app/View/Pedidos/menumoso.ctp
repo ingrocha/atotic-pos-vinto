@@ -65,7 +65,12 @@ body {
     <div class="row-fluid">
         <div class="span9">
             <div class="hero-unit">                
-                <h2>MOSO: <?php echo $datosMoso['User']['nombre']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo $this->Html->url(array('action' => 'verificamoso', $datosMoso['User']['id'])); ?>" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA</a></h2>                                             
+                <h2>MOSO: <?php echo $datosMoso['User']['nombre']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo $this->Html->url(array('action' => 'verificamoso', $datosMoso['User']['id'])); ?>" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA</a><a data-toggle="modal" href="#myModal"  class="btn btn-success btn-large" style="margin-top: 10px;" >NUEVA MESA</a><?php echo $this->Js->link('NUEVA MESAS', array('action' => '#'), array('update' => '#content','class' => 'btn btn-success btn-large','style' => 'margin-top: 10px;'));?> </h2>                                             
+                <?php 
+                /*$this->Js->get('#llamaajaxmesas')->event('click', 
+                ''
+                );*/
+                ?>
                 <?php foreach ($mesas as $m): ?>
                     <?php $id_pedido = $m['Pedido']['id']; ?>
                     <?php $id_moso = $m['Pedido']['user_id']; ?> 
@@ -115,7 +120,8 @@ body {
     </div><!--/row-->
     <div class="row-fluid">
         <div class="span10">            
-            <a href="<?php echo $this->Html->url(array('action' => 'verificamoso', $datosMoso['User']['id'])); ?>" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA &raquo;</a>      
+            <a href="<?php echo $this->Html->url(array('action' => 'verificamoso', $datosMoso['User']['id'])); ?>" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA &raquo;</a> 
+             
             <a href="<?php echo $this->Html->url(array('action' => 'validamoso')); ?>" class="btn btn-large">CERRAR</a>
         </div>
     </div>
@@ -126,5 +132,32 @@ body {
             LabWare
         </div>
     </div>    
+<div id="prueba">
 
+</div>
+<script>
+        $('#prueba').load(<?php echo $this->Html->url(array('action' => 'ajaxmesas'));?>);
+        </script>
 </div><!--/.fluid-container-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+        <div id="listamesas">
+        </div>
+        <script>
+        $('#listamesas').load(<?php echo $this->Html->url('Pedidos/ajaxmesas');?>);
+        </script>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<?php echo $this->Js->writeBuffer(); ?>
