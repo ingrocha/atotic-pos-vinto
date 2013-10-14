@@ -47,23 +47,37 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
    background: #80FF00;
    
 }
+.contenidomesas2{
+    
+    background-color: #EEEEEE;
+    border-radius: 6px 6px 6px 6px;
+    color: inherit;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
 
 /*
 .ui-draggable-dragging{
     background: yellow;
 }*/
 </style>
-<div style="background: #E5E5E5;width: 1000px; height: 500px;" id="resizable">
+<div style="margin-left: 45px; margin-top: -10;">
+
+<div  id="resizable" class="contenidomesas" style="background: #E5E5E5;width: 1000px; height: 500px;">
 <?php foreach($mesas as $obj):?>
 <div id="draggable<?php echo $obj['Mesa']['id'];?>" >
 <h1><?php echo $obj['Mesa']['numero'];?></h1>
 </div>
 <?php endforeach;?>
 </div>
+</div>
+
 <?php foreach($mesas as $obj):?>
 <div id="minimenu<?php echo $obj['Mesa']['id'];?>" class="minimenu">
       <ul class="minimenu">
-            
             <li id="eliminar" class="minimenu"><?php echo $this->Html->link('Eliminar',array('action' => 'eliminar',$obj['Mesa']['id']),array('onclick' => 'alert("Esta seguro de eliminar la mesa!")'));?></li>
         </ul>
 </div>
@@ -123,23 +137,6 @@ $(document).ready(function(){
                   }
             });
              
-            //controlamos los botones del menú
-            /*$("#minimenu<?php echo $obj['Mesa']['id'];?>").click(function(e){
-                   
-                  // El switch utiliza los IDs de los <li> del menú
-                  switch(e.target.id){
-                        case "copiar":
-                              alert("copiado!");
-                              break;      
-                        case "mover":
-                              alert("movido!");
-                              break;
-                        case "eliminar":
-                              alert("Esta seguro de eliminar la mesa!");
-                              break;
-                  }
-                   
-            });*/
           <?php endforeach;?>   
                          
       }); 

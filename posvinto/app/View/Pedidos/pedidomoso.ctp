@@ -105,7 +105,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                                             
                                         </div>
                                     </div>
-                                    <div style="float: left; padding-left: 10px; width: 620px;">
+                                    <div style="float: left; padding-left: 10px; width: 615px;">
                                         <div class="contenedor_productos">
                                         <?php foreach ($datosCategorias as $dCat): ?>    
                                                 <div id="producto<?php echo $dc['Clase']['id'].$dCat['Categoria']['id']; ?>" class="contenido_producto">

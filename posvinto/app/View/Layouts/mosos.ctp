@@ -35,6 +35,8 @@
         echo $this->Html->script(array(
             'jquery-1.9.1.min',
             'jquery-ui-1.10.3.custom.min',
+            'jquery.ui.touch-punch.min',
+            'jquery.ui.touch-punch',
             //'jquery-ui-1.8.21.custom.min',
             'keypad/jquery.keypad.min',
             'keypad/jquery.keypad-es',
