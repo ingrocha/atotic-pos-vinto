@@ -572,6 +572,16 @@ class PedidosController extends AppController {
     }
 
     public function verificamoso($idMoso = null) {
+        //debug($idMoso);
+        $cantidad = $this->request->data['Mesa']['cantidad'];
+        //debug($cantidad);exit;
+        for($i = 0;$i<$cantidad;$i++)
+            {
+                //debug($this->request->data['Mesa'][$i]['pedido']);exit;
+                $vector['Mesa'][$i]['id'] = $this->request->data['Mesa'][$i]['id'];
+                $vector['Mesa'][$i]['pedido'] = $this->request->data['Mesa'][$i]['pedido'];
+            }
+            //debug($vector);exit;
         $fecha_ayer = date("Y-m-d", strtotime("yesterday"));
         $fecha_hoy = date("Y-m-d");
         //echo "la fecha hoy es ".$fecha_hoy."<br />";
@@ -607,6 +617,19 @@ class PedidosController extends AppController {
         $this->Pedido->create();
         if ($this->Pedido->save($this->request->data)) {
             $ul_pedido = $this->Pedido->getLastInsertID();
+            //debug($vector['Mesa']);exit;
+            for($i = 0;$i<$cantidad;$i++)
+            {
+                //debug($this->request->data['Mesa'][$i]['pedido']);exit;
+                
+                if($vector['Mesa'][$i]['pedido'] == 1)
+                {
+                    $this->Mesa->id = $vector['Mesa'][$i]['id'];
+                    $this->request->data['Mesa']['pedido_id'] = $ul_pedido;
+                    $this->Mesa->save($this->request->data['Mesa']);
+                }
+                
+            }
             //insertamos la mesa creada
             //$this->Pedido->id = $ul_pedido;
             //$this->request->data['Pedido']['mesa'];
@@ -1003,9 +1026,30 @@ class PedidosController extends AppController {
     }
 
     public function menumoso($idMoso = null) {
-        //debug($idMoso);exit;
+        /*if($idMoso == null)
+        {
+            $idMoso = $this->request->data['Mesa']['idMoso'];
+        }*/
+       //debug($this->request->data['Mesa']['idMoso']);exit;
         //$this->layout = 'interfazmosos';
+        
         $mesas2 = $this->Mesa->find('all');
+        
+        //debug($mesas2);exit;
+        if(!empty($this->request->data))
+        {
+            $i = 0;
+            foreach($mesas2 as $obj)
+            {
+                $i++;
+                $this->Mesa->id = $obj['Mesa']['id'];
+                $this->request->data['Mesa']['posix'] = $this->request->data['Mesa'][$i]['posix'];
+                $this->request->data['Mesa']['posiy'] = $this->request->data['Mesa'][$i]['posiy'];
+                $this->Mesa->save($this->request->data);
+            }
+            $this->redirect(array('action' => 'menumoso',$idMoso));
+        }
+        
         $hoy = date('Y-m-d');
         App::uses('CakeTime', 'Utility');
         $dia = CakeTime::dayAsSql($hoy, 'fecha');
@@ -1379,8 +1423,20 @@ class PedidosController extends AppController {
     public function ajaxmesas()
     {
         $layout = 'ajax';
+        //debug('eynar');exit;
         $mesas = $this->Mesa->find('all');
         $this->set(compact('mesas'));
+    }
+    public function desocupamesa($idUser = null,$idPedido = null)
+    {
+        $mesas = $this->Mesa->find('all',array('conditions' => array('Mesa.pedido_id' => $idPedido)));
+        foreach($mesas as $m)
+        {
+            $this->Mesa->id = $m['Mesa']['id'];
+            $this->request->data['Mesa']['pedido_id'] = null;
+            $this->Mesa->save($this->request->data['Mesa']);
+        }
+        $this->redirect(array('action' => 'menumoso',$idUser));
     }
 }
 

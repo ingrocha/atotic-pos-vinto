@@ -57,20 +57,132 @@ body {
     .btn-primary[disabled] {
   color: #000;
   background-color: #FFD47F;
-  *background-color: #003bb3;
+  background-color: #003bb3;
 }
     
 </style>
 <div class="container-fluid">
+<div class="row-fluid">
+<div class="span7" id="resizable" >
+    
+    
+<br />
+<br />
+<br />
+<style>
+<?php foreach($mesas2 as $obj):?>
+  #draggable<?php echo $obj['Mesa']['id'];?> {
+    <?php if($obj['Mesa']['pedido_id'] != null):?>
+    background: red;
+    <?php else:?>
+    background: #80FF00;
+    <?php endif;?>
+    
+    /*left: <?php echo $obj['Mesa']['posix'].'px';?>;
+    top: <?php echo $obj['Mesa']['posiy'].'px';?>;*/
+    }
+<?php endforeach;?>
+.ui-draggable{
+    width: 100px; 
+    height: 100px; 
+    padding: 0.5em;
+   
+   
+}
+
+/*
+.ui-draggable-dragging{
+    background: yellow;
+}*/
+</style>
+<script>
+  /*$(function() {
+    $("#draggable").draggable();
+    
+  });*/
+  
+  $(function() {
+    //$("#resizable").resizable();
+  <?php foreach($mesas2 as $obj):?>
+  $("#draggable<?php echo $obj['Mesa']['id'];?>").draggable({
+   drag: function(event, ui){
+      $("#posx<?php echo $obj['Mesa']['id'];?>").val(ui.offset.left);
+      $("#posy<?php echo $obj['Mesa']['id'];?>").val(ui.offset.top);
+      $(this).addClass("divabsoluto");
+      //ui.helper.html(ui.position.left+"x"+ui.position.top);
+      //ui.helper.html(ui.offset.left+"x"+ui.offset.top);
+   },
+   containment: 'parent'
+   ,iframeFix: true
+})
+
+$("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
+      revert: "valid"
+      
+});
+<?php endforeach;?>
+
+  });
+
+    
+  
+</script>
+<br />
+<div class="hero-unit" style="width: 1000px; height: 500px;">
+<?php foreach($mesas2 as $obj):?>
+<div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable">
+<h1><?php echo $obj['Mesa']['numero'];?></h1>
+</div>
+<?php endforeach;?>
+</div>
+    
+<?php echo $this->Form->create('Pedido',array('action' => 'menumoso/'.$datosMoso['User']['id']));?>
+<?php $i = 0;?>
+<?php foreach($mesas2 as $obj):?>
+<?php $i++;?>
+<?php echo $this->Form->hidden("Mesa.$i.posix",array('id' => 'posx'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posix']));?>
+<?php echo $this->Form->hidden("Mesa.$i.posiy",array('id' => 'posy'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posiy']));?>
+<?php echo $this->Form->hidden("Mesa.idMoso",array('value' => $datosMoso['User']['id']));?>
+<?php endforeach;?>
+<?php echo $this->Form->submit('Guardar Posicion');?>
+<?php echo $this->Form->end();?>
+</div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+    
+             <?php foreach($mesas2 as $obj):?>
+             $('#draggable<?php echo $obj['Mesa']['id'];?>').offset({ top: <?php echo $obj['Mesa']['posiy'];?>, left: <?php echo $obj['Mesa']['posix'];?> });
+            
+          <?php endforeach;?>   
+                         
+      }); 
+</script>
+
+<script>
+$(document).ready(function(){
+    
+             <?php foreach($mesas2 as $obj):?>
+             $('#draggable<?php echo $obj['Mesa']['id'];?>').offset({ top: <?php echo $obj['Mesa']['posiy'];?>, left: <?php echo $obj['Mesa']['posix'];?> });
+           
+          <?php endforeach;?>   
+       $('#resizable').hide();                  
+      }); 
+</script>
+
+
     <div class="row-fluid">
         <div class="span9">
             <div class="hero-unit">                
-                <h2>MOSO: <?php echo $datosMoso['User']['nombre']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo $this->Html->url(array('action' => 'verificamoso', $datosMoso['User']['id'])); ?>" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA</a><a data-toggle="modal" href="#myModal"  class="btn btn-success btn-large" style="margin-top: 10px;" >NUEVA MESA</a><?php echo $this->Js->link('NUEVA MESAS', array('action' => '#'), array('update' => '#content','class' => 'btn btn-success btn-large','style' => 'margin-top: 10px;'));?> </h2>                                             
+                <h2>MOSO: <?php echo $datosMoso['User']['nombre']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a data-toggle="modal" href="#myModal" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA</a> <a class="btn btn-success btn-large" onclick="$('#resizable').toggle(200);" style="margin-top: 10px;">VER MAPA</a></h2>                                             
                 <?php 
                 /*$this->Js->get('#llamaajaxmesas')->event('click', 
                 ''
                 );*/
                 ?>
+                
                 <?php foreach ($mesas as $m): ?>
                     <?php $id_pedido = $m['Pedido']['id']; ?>
                     <?php $id_moso = $m['Pedido']['user_id']; ?> 
@@ -95,7 +207,7 @@ body {
                     } else
                     {
                         echo $this->Ajax->link(
-                            "MESA : $mesa".$this->Html->image('iconos/mesa.png', array('style'=>"padding-top: 10px;")), array(
+                            "PEDIDO: $mesa".$this->Html->image('iconos/mesa.png', array('style'=>"padding-top: 10px;")), array(
                             'controller' => 'Pedidos',
                             'action' => 'detallemesa',
                             $id_pedido,
@@ -125,21 +237,18 @@ body {
             <a href="<?php echo $this->Html->url(array('action' => 'validamoso')); ?>" class="btn btn-large">CERRAR</a>
         </div>
     </div>
+    
+    
     <hr/>
-
     <div id="footer">
         <div class="container">
             LabWare
         </div>
     </div>    
-<div id="prueba">
 
-</div>
-<script>
-        $('#prueba').load(<?php echo $this->Html->url(array('action' => 'ajaxmesas'));?>);
-        </script>
 </div><!--/.fluid-container-->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -147,17 +256,29 @@ body {
           <h4 class="modal-title">Modal title</h4>
         </div>
         <div class="modal-body">
-        <div id="listamesas">
-        </div>
-        <script>
-        $('#listamesas').load(<?php echo $this->Html->url('Pedidos/ajaxmesas');?>);
-        </script>
+          <?php echo $this->Form->create('Pedido',array('action' => 'verificamoso/'.$datosMoso['User']['id']));
+    $i = 0;
+    ?>
+    <?php foreach($mesas2 as $m):?>
+    
+    <?php if($m['Mesa']['pedido_id'] == null):?>
+    Mesa <?php echo $m['Mesa']['numero'];?>: 
+    <?php echo $this->Form->checkbox("Mesa.$i.pedido");
+    echo $this->Form->hidden("Mesa.$i.id",array('value' => $m['Mesa']['id']));
+    $i++;
+    ?>
+    <br />
+    <?php endif;?>
+    <?php endforeach;?>
+    <?php echo $this->Form->hidden('Mesa.cantidad',array('value' => $i));?>
+    
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <?php echo $this->Form->submit('OCUPAR',array());?>
+            <?php echo $this->Form->end();?>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+
 <?php echo $this->Js->writeBuffer(); ?>

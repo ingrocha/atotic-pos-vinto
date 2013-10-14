@@ -31,13 +31,15 @@ class MesasController extends AppController
         {
             $this->Mesa->create();
             $this->request->data['Mesa']['numero'] = $ultimamesa['Mesa']['numero'] +1;
-            $this->request->data['Mesa']['posix'] = 0;
-            $this->request->data['Mesa']['posiy'] = 135;
+            $this->request->data['Mesa']['posix'] = 80;
+            $this->request->data['Mesa']['posiy'] = 160;
             $this->Mesa->save($this->request->data['Mesa']);
         }
         else{
             $this->Mesa->create();
             $this->request->data['Mesa']['numero'] = 1;
+            $this->request->data['Mesa']['posix'] = 80;
+            $this->request->data['Mesa']['posiy'] = 160;
             $this->Mesa->save($this->request->data['Mesa']);
         }
         $this->redirect(array('action' => 'index'));
