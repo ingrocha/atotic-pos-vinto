@@ -63,7 +63,8 @@ body {
 </style>
 <div class="container-fluid">
 <div class="row-fluid">
-<div class="span7" id="resizable" >
+<div class="span7" >
+<div id="resizable" >
     
     
 <br />
@@ -73,11 +74,12 @@ body {
 <?php foreach($mesas2 as $obj):?>
   #draggable<?php echo $obj['Mesa']['id'];?> {
     <?php if($obj['Mesa']['pedido_id'] != null):?>
-    background: red;
+    background-image: url(<?php echo $this->Html->webroot('/img/mesa4.png');?>);
     <?php else:?>
-    background: #80FF00;
+    background-image: url(<?php echo $this->Html->webroot('/img/mesa3.png');?>);
     <?php endif;?>
-    
+    background-repeat:no-repeat;
+   background-size: cover;
     /*left: <?php echo $obj['Mesa']['posix'].'px';?>;
     top: <?php echo $obj['Mesa']['posiy'].'px';?>;*/
     }
@@ -86,7 +88,7 @@ body {
     width: 100px; 
     height: 100px; 
     padding: 0.5em;
-   
+   text-align:center
    
 }
 
@@ -128,14 +130,14 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
   
 </script>
 <br />
-<div class="hero-unit" style="width: 1000px; height: 500px;">
+<div class="hero-unit" style="width: 1000px; height: 500px; background-image: url(<?php echo $this->Html->webroot('/img/piso.jpg');?>);">
 <?php foreach($mesas2 as $obj):?>
-<div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable">
+<div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable" >
+
 <h1><?php echo $obj['Mesa']['numero'];?></h1>
 </div>
 <?php endforeach;?>
 </div>
-    
 <?php echo $this->Form->create('Pedido',array('action' => 'menumoso/'.$datosMoso['User']['id']));?>
 <?php $i = 0;?>
 <?php foreach($mesas2 as $obj):?>
@@ -147,6 +149,8 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
 <?php echo $this->Form->submit('Guardar Posicion');?>
 <?php echo $this->Form->end();?>
 </div>
+</div>
+
 </div>
 
 
@@ -168,21 +172,27 @@ $(document).ready(function(){
              $('#draggable<?php echo $obj['Mesa']['id'];?>').offset({ top: <?php echo $obj['Mesa']['posiy'];?>, left: <?php echo $obj['Mesa']['posix'];?> });
            
           <?php endforeach;?>   
-       $('#resizable').hide();                  
+       $('#resizable').toggle();             
       }); 
 </script>
 
 
     <div class="row-fluid">
         <div class="span9">
-            <div class="hero-unit">                
-                <h2>MOSO: <?php echo $datosMoso['User']['nombre']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a data-toggle="modal" href="#myModal" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA</a> <a class="btn btn-success btn-large" onclick="$('#resizable').toggle(200);" style="margin-top: 10px;">VER MAPA</a></h2>                                             
+            <div class="hero-unit"> 
+                         
+                <h2>MOSO: <?php echo $datosMoso['User']['nombre']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h2>
+                <p>
+                <a data-toggle="modal" href="#myModal" class="btn btn-success btn-large" >NUEVA MESA</a> 
+                 
+                <a class="btn btn-success btn-large" onclick="$('#resizable').toggle(200); $('#resizable').load('<?php echo $this->Html->url("ajaxmapa/".$datosMoso['User']['id']);?>');" href="#" >VER MAPA</a>                                            
+                
+                </p>
                 <?php 
                 /*$this->Js->get('#llamaajaxmesas')->event('click', 
                 ''
                 );*/
                 ?>
-                
                 <?php foreach ($mesas as $m): ?>
                     <?php $id_pedido = $m['Pedido']['id']; ?>
                     <?php $id_moso = $m['Pedido']['user_id']; ?> 
@@ -232,7 +242,7 @@ $(document).ready(function(){
     </div><!--/row-->
     <div class="row-fluid">
         <div class="span10">            
-            <a href="<?php echo $this->Html->url(array('action' => 'verificamoso', $datosMoso['User']['id'])); ?>" class="btn btn-success btn-large" style="margin-top: 10px;">NUEVA MESA &raquo;</a> 
+             
              
             <a href="<?php echo $this->Html->url(array('action' => 'validamoso')); ?>" class="btn btn-large">CERRAR</a>
         </div>

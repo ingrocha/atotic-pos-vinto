@@ -60,6 +60,20 @@ class MesasController extends AppController
         
         $this->redirect(array('action' => 'index'));
     }
+    public function ocupar($idMesa = null)
+    {
+        $this->Mesa->id = $idMesa;
+        $this->request->data['Mesa']['pedido_id'] = 9999;
+        $this->Mesa->save($this->request->data['Mesa']);
+        $this->redirect(array('action' => 'index'));
+    }
+    public function desocupar($idMesa = null)
+    {
+        $this->Mesa->id = $idMesa;
+        $this->request->data['Mesa']['pedido_id'] = null;
+        $this->Mesa->save($this->request->data['Mesa']);
+        $this->redirect(array('action' => 'index'));
+    }
     
 } 
 ?>
