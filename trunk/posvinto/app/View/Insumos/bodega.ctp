@@ -75,9 +75,8 @@
                                             if($b['Bodega']['lugare_id'] == null){
                                                 echo 'PARA LA VENTA';
                                             }else{
-                                                echo uppercase($b['Lugare']['nombre']);    
+                                                echo strtoupper($b['Lugare']['nombre']);    
                                             }
-                                             
                                             
                                             ?>
                                         </td>

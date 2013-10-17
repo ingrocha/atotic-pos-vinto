@@ -38,13 +38,19 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
   #draggable<?php echo $obj['Mesa']['id'];?> {
     /*left: <?php echo $obj['Mesa']['posix'].'px';?>;
     top: <?php echo $obj['Mesa']['posiy'].'px';?>;*/
+    <?php if($obj['Mesa']['pedido_id'] != null):?>
+    background-image: url(<?php echo $this->Html->webroot('/img/mesa4.png');?>);
+    <?php else:?>
+    background-image: url(<?php echo $this->Html->webroot('/img/mesa3.png');?>);
+    <?php endif;?>
     }
 <?php endforeach;?>
 .ui-draggable{
     width: 100px; 
     height: 100px; 
     padding: 0.5em;
-   background: #80FF00;
+   background-repeat:no-repeat;
+   background-size: cover;
    
 }
 .contenidomesas2{
@@ -66,9 +72,9 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
 </style>
 <div style="margin-left: 45px; margin-top: -10;">
 
-<div  id="resizable" class="contenidomesas" style="background: #E5E5E5;width: 1000px; height: 500px;">
+<div  id="resizable" class="contenidomesas" style="background-image: url(<?php echo $this->Html->webroot('/img/piso.jpg');?>);width: 1000px; height: 500px;">
 <?php foreach($mesas as $obj):?>
-<div id="draggable<?php echo $obj['Mesa']['id'];?>" >
+<div id="draggable<?php echo $obj['Mesa']['id'];?>" align="center">
 <h1><?php echo $obj['Mesa']['numero'];?></h1>
 </div>
 <?php endforeach;?>
@@ -79,6 +85,12 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
 <div id="minimenu<?php echo $obj['Mesa']['id'];?>" class="minimenu">
       <ul class="minimenu">
             <li id="eliminar" class="minimenu"><?php echo $this->Html->link('Eliminar',array('action' => 'eliminar',$obj['Mesa']['id']),array('onclick' => 'alert("Esta seguro de eliminar la mesa!")'));?></li>
+        </ul>
+      <ul class="minimenu">
+            <li id="ocupar" class="minimenu"><?php echo $this->Html->link('Ocupar',array('action' => 'ocupar',$obj['Mesa']['id']));?></li>
+        </ul>
+      <ul class="minimenu">
+            <li id="desocupar" class="minimenu"><?php echo $this->Html->link('Desocupar',array('action' => 'desocupar',$obj['Mesa']['id']));?></li>
         </ul>
 </div>
 <?php endforeach;?>

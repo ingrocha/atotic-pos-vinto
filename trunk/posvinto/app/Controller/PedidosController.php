@@ -1438,6 +1438,13 @@ class PedidosController extends AppController {
         }
         $this->redirect(array('action' => 'menumoso',$idUser));
     }
+    public function ajaxmapa($idMoso = null)
+    {
+        $layout = 'ajax';
+        //debug('eynar');exit;
+        $mesas2 = $this->Mesa->find('all');
+        $this->set(compact('mesas2','idMoso'));
+    }
 }
 
 ?>
