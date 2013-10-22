@@ -1,3 +1,8 @@
+<?php 
+App::import('Model', 'Ambiente');
+$modeloAmbiente = new Ambiente();
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
@@ -84,7 +89,19 @@
                                         <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Reservas', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('REPORTES', array('controller' => 'Graficos', 'action' => 'genera')) ?></li>
                                         <li><?php echo $this->Html->link('CONFIGURACIONES', array('controller' => 'Configuraciones', 'action' => 'index')) ?></li>
-                                        <li><?php echo $this->Html->link('MESAS', array('controller' => 'Mesas', 'action' => 'index')) ?></li>
+                                        <!--<li><?php //echo $this->Html->link('MESAS', array('controller' => 'Mesas', 'action' => 'index')) ?></li>-->
+                                        <li class="dropdown"> 
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="fontello-icon-list-1"></span>Ambientes <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                            <?php $ambientes = $modeloAmbiente->find('all');?>
+                                            <?php if(!empty($ambientes)):  ?>
+                                            <?php foreach($ambientes as$amb):?>
+                                                <li><a href="<?php echo $this->Html->url(array('controller' => 'Mesas' , 'action' => 'index',$amb['Ambiente']['id']));?>"><?php echo 'Ambiente '.$amb['Ambiente']['numero']?></a></li>
+                                                
+                                            <?php endforeach;?>
+                                            <?php endif;?>
+                                            </ul>
+                                        </li>
                                         <li><?php echo $this->Html->link('SALIR', array('controller' => 'Users', 'action' => 'logout')) ?></li>
                                         <!--<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="fontello-icon-list-1"></span>Customize <b class="caret"></b></a>
                                             <ul class="dropdown-menu">

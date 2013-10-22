@@ -1,6 +1,11 @@
 <br />
 <br />
+
 <br />
+
+<div id="tituloambiente" style="position: absolute;">
+    <h3>Ambiente <?php echo $ambiente['Ambiente']['numero']?></h3> 
+</div>
 <script>
   /*$(function() {
     $("#draggable").draggable();
@@ -84,13 +89,13 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
 <?php foreach($mesas as $obj):?>
 <div id="minimenu<?php echo $obj['Mesa']['id'];?>" class="minimenu">
       <ul class="minimenu">
-            <li id="eliminar" class="minimenu"><?php echo $this->Html->link('Eliminar',array('action' => 'eliminar',$obj['Mesa']['id']),array('onclick' => 'alert("Esta seguro de eliminar la mesa!")'));?></li>
+            <li id="eliminar" class="minimenu"><?php echo $this->Html->link('Eliminar',array('action' => 'eliminar',$obj['Mesa']['id'],$ambiente['Ambiente']['id']),array('onclick' => 'alert("Esta seguro de eliminar la mesa!")'));?></li>
         </ul>
       <ul class="minimenu">
-            <li id="ocupar" class="minimenu"><?php echo $this->Html->link('Ocupar',array('action' => 'ocupar',$obj['Mesa']['id']));?></li>
+            <li id="ocupar" class="minimenu"><?php echo $this->Html->link('Ocupar',array('action' => 'ocupar',$obj['Mesa']['id'],$ambiente['Ambiente']['id']));?></li>
         </ul>
       <ul class="minimenu">
-            <li id="desocupar" class="minimenu"><?php echo $this->Html->link('Desocupar',array('action' => 'desocupar',$obj['Mesa']['id']));?></li>
+            <li id="desocupar" class="minimenu"><?php echo $this->Html->link('Desocupar',array('action' => 'desocupar',$obj['Mesa']['id'],$ambiente['Ambiente']['id']));?></li>
         </ul>
 </div>
 <?php endforeach;?>
@@ -119,10 +124,11 @@ div.minimenu{
 </style>
 <script>
 $(document).ready(function(){
-    
+    $('#tituloambiente').offset({ top: 80, left: 450});
              <?php foreach($mesas as $obj):?>
              $('#draggable<?php echo $obj['Mesa']['id'];?>').offset({ top: <?php echo $obj['Mesa']['posiy'];?>, left: <?php echo $obj['Mesa']['posix'];?> });
             //Ocultamos el menú al cargar la página
+            
             $("#minimenu<?php echo $obj['Mesa']['id'];?>").hide();
              
             /* mostramos el menú si hacemos click derecho
@@ -159,7 +165,10 @@ $(document).ready(function(){
 <?php $i++;?>
 <?php echo $this->Form->hidden("Mesa.$i.posix",array('id' => 'posx'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posix']));?>
 <?php echo $this->Form->hidden("Mesa.$i.posiy",array('id' => 'posy'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posiy']));?>
+<?php echo $this->Form->hidden("Mesa.ambiente",array('id' => 'ambiente'.$obj['Mesa']['id'],'value' => $ambiente['Ambiente']['id']));?>
 <?php endforeach;?>
 <?php echo $this->Form->submit('Guardar Posicion');?>
 <?php echo $this->Form->end();?>
-<?php echo $this->Html->link('ADICIONAR MESA',array('action' => 'add'),array('class' => 'btn btn-green'));?>
+<?php echo $this->Html->link('ADICIONAR MESA',array('action' => 'add',$ambiente['Ambiente']['id']),array('class' => 'btn btn-green'));?> 
+<?php echo $this->Html->link('ADICIONAR AMBIENTE',array('action' => 'addambiente'),array('class' => 'btn btn-green'));?> 
+<?php echo $this->Html->link('ELIMINAR AMBIENTE',array('action' => 'deleteambiente',$ambiente['Ambiente']['id']),array('class' => 'btn btn-danger'));?>

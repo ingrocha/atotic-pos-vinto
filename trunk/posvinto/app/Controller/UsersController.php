@@ -5,7 +5,7 @@ class UsersController extends AppController
 {
 
     public $layout = 'vivavinto';
-
+    public $uses = array('Ambiente','User');
     public function beforeFilter()
     {
         parent::beforeFilter();
@@ -45,8 +45,9 @@ class UsersController extends AppController
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         }
+        $ambientes = $this->Ambiente->find('list',array('fields' => 'Ambiente.numero'));
         $roles = array('Administrador' => 'Administrador', 'Almacenes' => 'Almacenes', 'Cajero' => 'Cajero', 'Moso' => 'Moso', 'Jefe' => 'Jefe de mosos');
-        $this->set(compact('roles'));
+        $this->set(compact('roles','ambientes'));
     }
 
     public function edit($id = null)
@@ -71,26 +72,14 @@ class UsersController extends AppController
             $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
         }
+        $ambientes = $this->Ambiente->find('list',array('fields' => 'Ambiente.numero'));
         $roles = array('Administrador' => 'Administrador', 'Almacenes' => 'Almacenes', 'Cajero' => 'Cajero', 'Moso' => 'Moso', 'Jefe' => 'Jefe de mosos');
-        $this->set(compact('roles'));
+        $this->set(compact('roles','ambientes'));
     }
 
     public function delete($id = null)
     {
-        if (!$this->request->is('post'))
-        {
-            throw new MethodNotAllowedException();
-        }
-        $this->User->id = $id;
-        if (!$this->User->exists())
-        {
-            throw new NotFoundException(__('Invalid user'));
-        }
-        if ($this->User->delete())
-        {
-            $this->Session->setFlash(__('User deleted'));
-            $this->redirect(array('action' => 'index'));
-        }
+        $this->User->delete($id);
         $this->Session->setFlash(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
     }
@@ -137,7 +126,6 @@ class UsersController extends AppController
             }
         }
     }
-
     public function logout()
     {
         $this->redirect($this->Auth->logout());

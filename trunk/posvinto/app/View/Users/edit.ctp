@@ -35,7 +35,7 @@
                         </div>
                         <!-- // form item -->                        
 
-                        <label for="accountAddressState" class="control-label">Perfil <span class="required">*</span> </label>
+                        <label for="accountAddressState" class="control-label">Perfil  y Ambiente<span class="required">*</span> </label>
                         <?php //debug($groups);?>
                         <div class="controls">                                                       
                             <?php $roles = array('0' => array('rol' => 'Administrador'), '1' => array('rol' => 'Almacenes'), '2' => array('rol' => 'Cajero'), '3' => array('rol' => 'Moso')); ?>
@@ -50,7 +50,8 @@
                                     <option value="<?php echo $r['rol']; ?>"><?php echo $r['rol']; ?></option>                                    
                                     <?php endif; ?>
                                 <?php endforeach; ?>
-                            </select>                            
+                            </select>     
+                            <?php echo $this->Form->select('ambiente_id',$ambientes, array('class' => 'span4')); ?>                           
                         </div>
                         <!-- // form item -->                       
 

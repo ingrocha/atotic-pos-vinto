@@ -48,9 +48,10 @@
                         </div>
                         <!-- // form item -->    
 
-                        <label for="formA04">Codigo de Moso:</label>
+                        <label for="formA04">Codigo de Moso y El Ambiente:</label>
                         <div class="controls controls-row">                                                                                           
-                            <?php echo $this->Form->text('codigo', array('class' => 'span4', 'placeholder' => 'Ingrese el codigo Ej: 2233')); ?>                                                           
+                            <?php echo $this->Form->text('codigo', array('class' => 'span4', 'placeholder' => 'Ingrese el codigo Ej: 2233')); ?>   
+                            <?php echo $this->Form->select('ambiente_id',$ambientes, array('class' => 'span4')); ?>                                                           
                         </div>
                         <!-- // form item -->
 
