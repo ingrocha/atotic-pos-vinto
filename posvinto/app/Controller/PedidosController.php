@@ -1032,8 +1032,8 @@ class PedidosController extends AppController {
         }*/
        //debug($this->request->data['Mesa']['idMoso']);exit;
         //$this->layout = 'interfazmosos';
-        
-        $mesas2 = $this->Mesa->find('all');
+        $usuario = $this->User->find('first',array('conditions' => array('User.id' => $idMoso)));
+        $mesas2 = $this->Mesa->find('all',array('conditions' => array('Mesa.ambiente_id' => $usuario['User']['ambiente_id'])));
         
         //debug($mesas2);exit;
         if(!empty($this->request->data))
@@ -1442,7 +1442,8 @@ class PedidosController extends AppController {
     {
         $layout = 'ajax';
         //debug('eynar');exit;
-        $mesas2 = $this->Mesa->find('all');
+        $usuario = $this->User->find('first',array('conditions' => array('User.id' => $idMoso)));
+        $mesas2 = $this->Mesa->find('all',array('conditions' => array('Mesa.ambiente_id' => $usuario['User']['ambiente_id'])));
         $this->set(compact('mesas2','idMoso'));
     }
 }
