@@ -40,6 +40,9 @@ class MesasController extends AppController
             $this->request->data['Mesa']['posiy'] = 160;
             $this->request->data['Mesa']['ambiente_id'] = $idAmbiente;
             $this->Mesa->save($this->request->data['Mesa']);
+            $this->Ambiente->id = $idAmbiente;
+            $this->request->data['Ambiente']['mesas'] = $ultimamesa['Mesa']['numero'] +1;
+            $this->Ambiente->save($this->request->data);
         }
         else{
             $this->Mesa->create();
@@ -48,17 +51,72 @@ class MesasController extends AppController
             $this->request->data['Mesa']['posiy'] = 160;
             $this->request->data['Mesa']['ambiente_id'] = $idAmbiente;
             $this->Mesa->save($this->request->data['Mesa']);
+            $this->Ambiente->id = $idAmbiente;
+            $this->request->data['Ambiente']['mesas'] = 1;
+            $this->Ambiente->save($this->request->data);
         }
         $this->redirect(array('action' => 'index',$idAmbiente));
     }
     public function addambiente()
     {
-        $ultimo = $this->Ambiente->find('first',array('order' => 'Ambiente.id DESC'));
-        $this->Ambiente->create();
-        $this->request->data['Ambiente']['numero'] = $ultimo['Ambiente']['numero'] + 1;
-        $this->Ambiente->save($this->request->data['Ambiente']);
-        $idAmbiente = $this->Ambiente->getLastInsertID();
-        $this->redirect(array('action' => 'index',$idAmbiente));
+        //debug($this->request->data);exit;
+        //debug($this->data['Mesa']['imagen']['size']);
+        //debug($this->data['Mesa']['imagen']['error']);exit; 
+        $archivoImagen = $this->request->data['Mesa']['imagen'];
+        $nombreOriginal = $this->request->data['Mesa']['imagen']['name'];
+        //debug($archivoImagen['error']);exit;
+        if ($archivoImagen['error'] === UPLOAD_ERR_OK)
+        {
+            $nombre = string::uuid();
+            if (move_uploaded_file($archivoImagen['tmp_name'], WWW_ROOT . 'files' . DS . $nombre . '.jpg'))
+            {
+                
+                $ultimo = $this->Ambiente->find('first',array('order' => 'Ambiente.id DESC'));
+                $this->Ambiente->create();
+                $this->request->data['Ambiente']['imagen'] = $nombre.'.jpg';
+                $this->request->data['Ambiente']['numero'] = $ultimo['Ambiente']['numero'] + 1;
+                $this->Ambiente->save($this->request->data['Ambiente']);
+                $idAmbiente = $this->Ambiente->getLastInsertID();
+                $this->redirect(array('action' => 'index',$idAmbiente));
+            }
+            else{
+                $this->redirect(array('action' => 'ambientes'));
+            }
+        }
+        else{
+            $this->redirect(array('action' => 'ambientes'));
+        }  
+    }
+    public function cambiaimagen($idAmbiente = null)
+    {
+        $archivoImagen = $this->request->data['Mesa']['imagen'];
+        $nombreOriginal = $this->request->data['Mesa']['imagen']['name'];
+        //debug($archivoImagen['error']);exit;
+        if ($archivoImagen['error'] === UPLOAD_ERR_OK)
+        {
+            $nombre = string::uuid();
+            if (move_uploaded_file($archivoImagen['tmp_name'], WWW_ROOT . 'files' . DS . $nombre . '.jpg'))
+            {
+                $ambiente = $this->Ambiente->find('first',array('conditions' => array('Ambiente.id' => $idAmbiente)));
+                
+                $dir=WWW_ROOT . 'files' . DS . $ambiente['Ambiente']['imagen']; //puedes usar dobles comillas si quieres 
+                if(file_exists($dir)) 
+                { 
+                    unlink($dir);
+                } 
+                
+                $this->Ambiente->id = $idAmbiente;
+                $this->request->data['Ambiente']['imagen'] = $nombre.'.jpg';
+                $this->Ambiente->save($this->request->data['Ambiente']);
+                $this->redirect(array('action' => 'index',$idAmbiente));
+            }
+            else{
+                $this->redirect(array('action' => 'ambientes'));
+            }
+        }
+        else{
+            $this->redirect(array('action' => 'ambientes'));
+        }
     }
     public function eliminar($idMesa = null,$idAmbiente = null) 
     {
@@ -73,7 +131,9 @@ class MesasController extends AppController
             //$this->request->data['Mesa']['posiy'] = $me['Mesa']['posiy'] + 100;
             $this->Mesa->save($this->request->data['Mesa']);
         }
-        
+        $this->Ambiente->id = $idAmbiente;
+        $this->request->data['Ambiente']['mesas'] = $i;
+        $this->Ambiente->save($this->request->data);
         $this->redirect(array('action' => 'index',$idAmbiente));
     }
     public function ocupar($idMesa = null,$idAmbiente = null)
