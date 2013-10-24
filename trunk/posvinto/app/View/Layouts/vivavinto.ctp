@@ -38,7 +38,10 @@ $modeloAmbiente = new Ambiente();
         <?php echo $this->Html->css(
         array('imprimir'),'stylesheet',array('media'=>'print')); ?>
         <?php
-        echo $this->Html->script(array(            
+        echo $this->Html->script(array(
+            'jquery-1.9.1.min',
+            'jquery-ui-1.10.3.custom.min',
+            //'jquery-ui',            
             'lib/jquery',
             'plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min',
             'lib/jquery-ui',
@@ -96,10 +99,11 @@ $modeloAmbiente = new Ambiente();
                                             <?php $ambientes = $modeloAmbiente->find('all');?>
                                             <?php if(!empty($ambientes)):  ?>
                                             <?php foreach($ambientes as$amb):?>
-                                                <li><a href="<?php echo $this->Html->url(array('controller' => 'Mesas' , 'action' => 'index',$amb['Ambiente']['id']));?>"><?php echo 'Ambiente '.$amb['Ambiente']['numero']?></a></li>
+                                                <li><a href="<?php echo $this->Html->url(array('controller' => 'Mesas' , 'action' => 'index',$amb['Ambiente']['id']));?>"><?php echo 'Ambiente '.$amb['Ambiente']['numero'].' M('.$amb['Ambiente']['mesas'].')'?></a></li>
                                                 
                                             <?php endforeach;?>
                                             <?php endif;?>
+                                            <li><?php echo $this->Html->link('AMBIENTES', array('controller' => 'Mesas', 'action' => 'ambientes')) ?></li>
                                             </ul>
                                         </li>
                                         <li><?php echo $this->Html->link('SALIR', array('controller' => 'Users', 'action' => 'logout')) ?></li>

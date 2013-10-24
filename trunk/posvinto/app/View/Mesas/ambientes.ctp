@@ -14,3 +14,36 @@
 <?php endif;?>
 </div>
 </div>
+
+<?php echo $this->Html->link('ADICIONAR AMBIENTE','#defaultModal',array('class' => 'btn btn-green','data-toggle' => 'modal'));?> 
+
+
+<div id="defaultModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 id="myModalLabel"><i class="fontello-icon-popup"></i> ADICIONAR AMBIENTE</h4>
+    </div>
+    <?php echo $this->Form->create('Mesa',array('action' => 'addambiente', 'enctype' => 'multipart/form-data'),array('type' => 'file'));?>
+    <div class="modal-body">
+        
+                                    <h4 class="simple-header"> SUBIR IMAGEN <small>Para el fondo de ambiente</small> </h4>
+                                    <div class="well well-black inline">
+                                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <div class="fileupload-new thumbnail" style="width: 200px; height: 120px;"> <img src="http://www.placehold.it/200x120/EFEFEF/AAAAAA&amp;text=no+image" /> </div>
+                                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                            <div> <span class="btn btn-file"> <span class="fileupload-new">Seleccione una imagen de tipo "jpg"</span> <span class="fileupload-exists">Cambiar</span>
+                                                
+                                                <?php echo $this->Form->file('imagen');?>
+                                                </span> <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remover</a> </div>
+                                        </div>
+                                        <!-- // image upload --> 
+                                    </div>
+        
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-red" data-dismiss="modal">Close</button>
+        <button class="btn btn-green"  type="submit">CREAR AMBIENTE</button>
+        <?php //echo $this->Form->submit('CREAR AMBIENTE',array('class' => 'btn btn-green'));?>
+        <?php echo $this->Form->end()?>
+    </div>
+</div>
