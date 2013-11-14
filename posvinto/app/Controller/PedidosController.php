@@ -25,6 +25,7 @@ class PedidosController extends AppController {
         'Bodega',
         'Objeto',
         'Almacen',
+        'Ambiente',
         'Lugare',
         'Mesa',
         'Clase',
@@ -571,17 +572,10 @@ class PedidosController extends AppController {
         $this->set(compact('pedidos'));
     }
 
-    public function verificamoso($idMoso = null) {
+    public function verificamoso($idMoso = null,$idMesa = null) {
         //debug($idMoso);
-        $cantidad = $this->request->data['Mesa']['cantidad'];
-        //debug($cantidad);exit;
-        for($i = 0;$i<$cantidad;$i++)
-            {
-                //debug($this->request->data['Mesa'][$i]['pedido']);exit;
-                $vector['Mesa'][$i]['id'] = $this->request->data['Mesa'][$i]['id'];
-                $vector['Mesa'][$i]['pedido'] = $this->request->data['Mesa'][$i]['pedido'];
-            }
-            //debug($vector);exit;
+       
+            //debug($idMesa);exit;
         $fecha_ayer = date("Y-m-d", strtotime("yesterday"));
         $fecha_hoy = date("Y-m-d");
         //echo "la fecha hoy es ".$fecha_hoy."<br />";
@@ -618,18 +612,13 @@ class PedidosController extends AppController {
         if ($this->Pedido->save($this->request->data)) {
             $ul_pedido = $this->Pedido->getLastInsertID();
             //debug($vector['Mesa']);exit;
-            for($i = 0;$i<$cantidad;$i++)
-            {
-                //debug($this->request->data['Mesa'][$i]['pedido']);exit;
-                
-                if($vector['Mesa'][$i]['pedido'] == 1)
-                {
-                    $this->Mesa->id = $vector['Mesa'][$i]['id'];
-                    $this->request->data['Mesa']['pedido_id'] = $ul_pedido;
-                    $this->Mesa->save($this->request->data['Mesa']);
-                }
-                
-            }
+                    
+                        $this->Mesa->id = $idMesa;
+                        $this->request->data['Mesa']['pedido_id'] = $ul_pedido;
+                        $this->Mesa->save($this->request->data['Mesa']);
+                    
+                    
+               
             //insertamos la mesa creada
             //$this->Pedido->id = $ul_pedido;
             //$this->request->data['Pedido']['mesa'];
@@ -1025,6 +1014,7 @@ class PedidosController extends AppController {
         }
     }
 
+    
     public function menumoso($idMoso = null) {
         /*if($idMoso == null)
         {
@@ -1068,7 +1058,8 @@ class PedidosController extends AppController {
                     'Pedido.estado' => array('0', '1'),
                     'Pedido.user_id' => $idMoso), 'recursive' => -1));
         }
-        $this->set(compact('mesas', 'datosMoso','mesas2'));
+        $ambientes = $this->Ambiente->find('all');
+        $this->set(compact('mesas', 'datosMoso','mesas2','ambientes'));
     }
 
     protected function _bodega($tipo = null) {
@@ -1438,13 +1429,14 @@ class PedidosController extends AppController {
         }
         $this->redirect(array('action' => 'menumoso',$idUser));
     }
-    public function ajaxmapa($idMoso = null)
+    public function ajaxmapa($idMoso = null,$idAmbiente = null)
     {
         $layout = 'ajax';
         //debug('eynar');exit;
+        $ambiente = $this->Ambiente->find('first',array('recursive' => -1,'conditions' => array('Ambiente.id' => $idAmbiente)));
         $usuario = $this->User->find('first',array('conditions' => array('User.id' => $idMoso)));
-        $mesas2 = $this->Mesa->find('all',array('conditions' => array('Mesa.ambiente_id' => $usuario['User']['ambiente_id'])));
-        $this->set(compact('mesas2','idMoso'));
+        $mesas2 = $this->Mesa->find('all',array('conditions' => array('Mesa.ambiente_id' => $idAmbiente)));
+        $this->set(compact('mesas2','idMoso','ambiente'));
     }
 }
 
