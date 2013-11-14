@@ -1,9 +1,7 @@
 <div id="resizable" >
     
     
-<br />
-<br />
-<br />
+
 <style>
 <?php foreach($mesas2 as $obj):?>
   #draggable<?php echo $obj['Mesa']['id'];?> {
@@ -22,8 +20,7 @@
     width: 100px; 
     height: 100px; 
     padding: 0.5em;
-   text-align:center
-   
+   text-align:center  
 }
 
 /*
@@ -64,12 +61,21 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
   
 </script>
 <br />
-<div class="hero-unit" style="width: 1000px; height: 500px; background-image: url(<?php echo $this->Html->webroot('/img/piso.jpg');?>);">
+<div class="hero-unit" style="width: 1000px; height: 500px; background-image: url(<?php echo $this->Html->webroot('/files/'.$ambiente['Ambiente']['imagen']);?>);width: 1000px; height: 500px; background-size: cover;">
 <?php foreach($mesas2 as $obj):?>
-<div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable" >
+<?php if($obj['Mesa']['pedido_id'] == null):?>
+<div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable" ondblclick="location = '<?php echo $this->Html->url(array('action' => 'verificamoso',$idMoso,$obj['Mesa']['id']));?>';">
 
 <h1><?php echo $obj['Mesa']['numero'];?></h1>
 </div>
+<?php else:?>
+<div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable" >
+<a data-toggle="modal" href="#myModal" onclick="$('#cargaPedidos').load('<?php echo $this->Html->url(array('action' => 'detallemesa',$obj['Mesa']['pedido_id']));?>');">
+<h1><?php echo $obj['Mesa']['numero'];?></h1>
+</a>
+</div>
+<?php endif;?>
+
 <?php endforeach;?>
 </div>
 <?php echo $this->Form->create('Pedido',array('action' => 'menumoso/'.$idMoso));?>
