@@ -23,6 +23,10 @@ class MesasController extends AppController
                 $this->Mesa->id = $obj['Mesa']['id'];
                 $this->request->data['Mesa']['posix'] = $this->request->data['Mesa'][$i]['posix'];
                 $this->request->data['Mesa']['posiy'] = $this->request->data['Mesa'][$i]['posiy'];
+                
+                $this->request->data['Mesa']['posix2'] = $this->request->data['Mesa'][$i]['posix2'];
+                $this->request->data['Mesa']['posiy2'] = $this->request->data['Mesa'][$i]['posiy2'];
+                
                 $this->Mesa->save($this->request->data);
             }
             $this->redirect(array('action' => 'index',$idAmbiente));
