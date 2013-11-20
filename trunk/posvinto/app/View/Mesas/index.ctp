@@ -19,6 +19,8 @@
    drag: function(event, ui){
       $("#posx<?php echo $obj['Mesa']['id'];?>").val(ui.offset.left);
       $("#posy<?php echo $obj['Mesa']['id'];?>").val(ui.offset.top);
+      $("#posx2<?php echo $obj['Mesa']['id'];?>").val(ui.position.left);
+      $("#posy2<?php echo $obj['Mesa']['id'];?>").val(ui.position.top);
       $(this).addClass("divabsoluto");
       //ui.helper.html(ui.position.left+"x"+ui.position.top);
       //ui.helper.html(ui.offset.left+"x"+ui.offset.top);
@@ -75,7 +77,7 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
     background: yellow;
 }*/
 </style>
-<div style="margin-left: 45px; margin-top: -10;">
+<div style="margin-left: 25px; margin-top: -10;">
 
 <div  id="resizable" class="contenidomesas" style="background-image: url(<?php echo $this->Html->webroot('/files/'.$ambiente['Ambiente']['imagen']);?>);width: 1000px; height: 500px; background-size: cover;">
 <?php foreach($mesas as $obj):?>
@@ -163,6 +165,8 @@ $(document).ready(function(){
 <?php $i++;?>
 <?php echo $this->Form->hidden("Mesa.$i.posix",array('id' => 'posx'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posix']));?>
 <?php echo $this->Form->hidden("Mesa.$i.posiy",array('id' => 'posy'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posiy']));?>
+<?php echo $this->Form->hidden("Mesa.$i.posix2",array('id' => 'posx2'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posix2']));?>
+<?php echo $this->Form->hidden("Mesa.$i.posiy2",array('id' => 'posy2'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posiy2']));?>
 <?php echo $this->Form->hidden("Mesa.ambiente",array('id' => 'ambiente'.$obj['Mesa']['id'],'value' => $ambiente['Ambiente']['id']));?>
 <?php endforeach;?>
 <?php echo $this->Form->submit('Guardar Posicion');?>

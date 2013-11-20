@@ -1,7 +1,7 @@
 <h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $datosPedido['Pedido']['mesa'] ?></span></h3>
 
 <div class="well sidebar-nav">
-    <table class="table table-striped">
+    <table class="table">
         <thead>
             <tr>              
                 <th>Producto</th>
@@ -14,21 +14,21 @@
             $total_pagar = 0;
             ?>
             <?php $ce = 0; ?>
-            <?php foreach ($itemsPedido as $i): ?>
-                <?php $id_item = $i['Item']['id']; ?>
+            <?php foreach ($productos_vector as $i): ?>
+                <?php $id_item = $i['Producto']['id']; ?>
                 <tr class="<?php echo fmod($ce, 2) ? 'segundo' : 'primero' ?>">                    
                     <td style="font-size: 20px;"><?php echo $i['Producto']['nombre']; ?></td>
                     <td style="font-size: 20px;">
-                        <?php echo $i['Item']['cantidad']; ?>
+                        <?php echo $i['Producto']['cantidad']; ?>
                         <?php
-                        $platos = $i['Item']['cantidad'];
+                        $platos = $i['Producto']['cantidad'];
                         $total_platos += $platos;
                         ?>
                     </td>
                    <!-- <td>
                     <?php //echo $i['Item']['precio']?>
                     <?php
-                    $precio = $i['Item']['precio'];
+                    $precio = $i['Producto']['precio'];
                     $total_pagar += $precio;
                     ?>
                     </td> -->                    

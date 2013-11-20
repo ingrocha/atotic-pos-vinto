@@ -12,8 +12,10 @@
     <?php endif;?>
     background-repeat:no-repeat;
    background-size: cover;
-    /*left: <?php echo $obj['Mesa']['posix'].'px';?>;
-    top: <?php echo $obj['Mesa']['posiy'].'px';?>;*/
+   
+   /*
+    left: <?php echo $obj['Mesa']['posix2'].'px';?>;
+    top: <?php echo $obj['Mesa']['posiy2'].'px';?>;*/
     }
 <?php endforeach;?>
 .ui-draggable{
@@ -21,6 +23,7 @@
     height: 100px; 
     padding: 0.5em;
    text-align:center  
+   
 }
 
 /*
@@ -28,49 +31,18 @@
     background: yellow;
 }*/
 </style>
-<script>
-  /*$(function() {
-    $("#draggable").draggable();
-    
-  });*/
-  
-  $(function() {
-    //$("#resizable").resizable();
-  <?php foreach($mesas2 as $obj):?>
-  $("#draggable<?php echo $obj['Mesa']['id'];?>").draggable({
-   drag: function(event, ui){
-      $("#posx<?php echo $obj['Mesa']['id'];?>").val(ui.offset.left);
-      $("#posy<?php echo $obj['Mesa']['id'];?>").val(ui.offset.top);
-      $(this).addClass("divabsoluto");
-      //ui.helper.html(ui.position.left+"x"+ui.position.top);
-      //ui.helper.html(ui.offset.left+"x"+ui.offset.top);
-   },
-   containment: 'parent'
-   ,iframeFix: true
-})
 
-$("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
-      revert: "valid"
-      
-});
-<?php endforeach;?>
-
-  });
-
-    
-  
-</script>
 <br />
 <div class="hero-unit" style="width: 1000px; height: 500px; background-image: url(<?php echo $this->Html->webroot('/files/'.$ambiente['Ambiente']['imagen']);?>);width: 1000px; height: 500px; background-size: cover;">
 <?php foreach($mesas2 as $obj):?>
 <?php if($obj['Mesa']['pedido_id'] == null):?>
-<div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable" ondblclick="location = '<?php echo $this->Html->url(array('action' => 'verificamoso',$idMoso,$obj['Mesa']['id']));?>';">
+<div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable" onclick=" location = '<?php echo $this->Html->url(array('action' => 'verificamoso',$idMoso,$obj['Mesa']['id']));?>'">
 
 <h1><?php echo $obj['Mesa']['numero'];?></h1>
 </div>
 <?php else:?>
 <div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable" >
-<a data-toggle="modal" href="#myModal" onclick="$('#cargaPedidos').load('<?php echo $this->Html->url(array('action' => 'detallemesa',$obj['Mesa']['pedido_id']));?>');">
+<a data-toggle="modal" href="#myModal" onclick="$('#cargaPedidos').load('<?php echo $this->Html->url(array('action' => 'detallemesa',$obj['Mesa']['pedido_id']));?>');" >
 <h1><?php echo $obj['Mesa']['numero'];?></h1>
 </a>
 </div>
@@ -78,23 +50,14 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
 
 <?php endforeach;?>
 </div>
-<?php echo $this->Form->create('Pedido',array('action' => 'menumoso/'.$idMoso));?>
-<?php $i = 0;?>
-<?php foreach($mesas2 as $obj):?>
-<?php $i++;?>
-<?php echo $this->Form->hidden("Mesa.$i.posix",array('id' => 'posx'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posix']));?>
-<?php echo $this->Form->hidden("Mesa.$i.posiy",array('id' => 'posy'.$obj['Mesa']['id'],'value' => $obj['Mesa']['posiy']));?>
-<?php echo $this->Form->hidden("Mesa.idMoso",array('value' => $idMoso));?>
-<?php endforeach;?>
-<?php echo $this->Form->submit('Guardar Posicion');?>
-<?php echo $this->Form->end();?>
+
 </div>
 <script>
 $(document).ready(function(){
     
              <?php foreach($mesas2 as $obj):?>
              $('#draggable<?php echo $obj['Mesa']['id'];?>').offset({ top: <?php echo $obj['Mesa']['posiy'];?>, left: <?php echo $obj['Mesa']['posix'];?> });
-            
+            //$("#draggable<?php echo $obj['Mesa']['id'];?>").css({ top: '<?php echo $obj['Mesa']['posiy2'].'px';?>', left: '<?php echo $obj['Mesa']['posix2'].'px';?>'});
           <?php endforeach;?>   
                          
       }); 
