@@ -38,7 +38,11 @@ $item = new Item();
                     <?php foreach($productosn as $pro):?>
                     <tr id="quita<?php echo $pro['Item']['id'];?>">
                     <td><?php echo $pro['Producto']['nombre'];?> </td>
-                    <td><input type="button" value="Quitar" id="quitab<?php echo $pro['Item']['id'];?>"/></td>
+                    <td>
+                    <?php if($usuario['User']['role'] == 'jefe' || $pro['Item']['estado'] == 0):?>
+                    <input type="button" value="Quitar" id="quitab<?php echo $pro['Item']['id'];?>"/>
+                    <?php endif;?>
+                    </td>
                     </tr>
                     <?php
                                             $this->Js->get('#quitab'.$pro['Item']['id'])->event(
@@ -56,13 +60,20 @@ $item = new Item();
                                             '$("#quita'.$pro['Item']['id'].'").addClass("pintado");'
                                             );
                                             //$direccion = $this->Html->url(array('action' => 'ajaxmuestraobservaciones',$idProducto,$idPedido));
-                                            $this->Js->get('#quita'.$pro['Item']['id'])->event(
-                                            'click',
-                                            '
-                                            $("#cargaObservaciones").show();
-                                            $("#cargaObservaciones").load("'.$this->Html->url(array('action' => 'ajaxmuestraobservaciones',$pro['Producto']['id'],$idPedido,$pro['Item']['id'])).'");
-                                            '
-                                            );
+                                            
+                                            if($usuario['User']['role'] == 'jefe' || $pro['Item']['estado'] == 0)
+                                            {
+                                                $this->Js->get('#quita'.$pro['Item']['id'])->event(
+                                                'click',
+                                                '
+                                                $("#cargaObservaciones").show();
+                                                $("#cargaObservaciones").load("'.$this->Html->url(array('action' => 'ajaxmuestraobservaciones',$id_moso,$pro['Producto']['id'],$idPedido,$pro['Item']['id'])).'");
+                                                '
+                                                );
+                                            }
+                                            
+                                            
+                                            
                                             $this->Js->get('#quita'.$pro['Item']['id'])->event(
                                             'mouseout',
                                             '$("#quita'.$pro['Item']['id'].'").removeClass("pintado");'

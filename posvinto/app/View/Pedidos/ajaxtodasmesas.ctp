@@ -19,10 +19,10 @@ $mmesa = new Mesa();
                     <?php //echo $this->Html->link('');?>
                                     <!--<button class="btn btn-large btn-danger" type="button">Mesa <?php //echo $m['Pedido']['mesa'];        ?></button>-->   
                     <?php
-                    if ($datosMoso['User']['role'] == "Jefe")
+                    if ($datosMoso['User']['role'] == "jefe")
                     {
                         echo $this->Ajax->link(
-                            $this->Html->image('mesa.png')."MESA : $mesa", array(
+                            $this->Html->image('iconos/mesa.png', array('style'=>"padding-top: 10px;"))."MESA : $mesa", array(
                             'controller' => 'Pedidos',
                             'action' => 'detallemesajefe',
                             $id_pedido, $datosMoso['User']['id']

@@ -1,4 +1,4 @@
-<h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $datosPedido['Pedido']['mesa'] ?></span></h3>
+<h3>Mesa:&nbsp;<?php echo $mesa['Mesa']['numero'] ?></h3>
 
 <div class="well sidebar-nav">
     <table class="table">
@@ -14,6 +14,7 @@
             $total_pagar = 0;
             ?>
             <?php $ce = 0; ?>
+            <?php if(!empty($productos_vector)):?>
             <?php foreach ($productos_vector as $i): ?>
                 <?php $id_item = $i['Producto']['id']; ?>
                 <tr class="<?php echo fmod($ce, 2) ? 'segundo' : 'primero' ?>">                    
@@ -34,7 +35,8 @@
                     </td> -->                    
                 </tr>
                 <?php $ce++; ?>
-            <?php endforeach; ?>                 
+            <?php endforeach; ?>
+          <?php endif;?>                   
         </tbody>
     </table>    
 </div>        
