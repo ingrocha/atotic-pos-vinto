@@ -1,5 +1,8 @@
-<h3>Mesa:&nbsp;<span style="font-size: 60px; font-weight: bold;" ><?php echo $datosPedido['Pedido']['mesa'] ?></span></h3>
+<h3>Mesa:&nbsp;<?php echo $datosPedido['Pedido']['mesa'] ?></h3>
+<div id="nombremoso">
 <h4>Mozo: <?php echo $datosMoso['User']['nombre'] ?></h4>
+</div>
+
 <div class="well sidebar-nav">
     <table class="table table-striped">
         <thead>
@@ -63,15 +66,23 @@
 </div>
 <div class="span10">
    <?php echo $this->Form->create('Pedidos', array('action'=>'reasignamesero')) ?>
-   <?php echo $this->Form->select('moso', $mosos) ?>
+   <?php echo $this->Form->select('moso', $mosos,array('class' => 'form-control input-lg')) ?>
    <?php echo $this->Form->hidden('pedido', array('value'=>$datosPedido['Pedido']['id'])) ?>
    <?php echo $this->Form->hidden('id_moso', array('value'=>$id_moso)) ?>
-   <?php echo $this->Form->end('ASIGNAR MOSO >>') ?>
+   <br />
+   <?php 
+   //echo $this->Form->submit('ASIGNAR MOSO >>',array('class' => 'btn btn-primary'));
+   echo $this->Js->submit('ASIGNAR MOSO >>', array('url' => array('action' => 'ajaxreasignamoso'), 'update' => '#nombremoso','class' => 'btn btn-primary'
+                        ,'before' => '$("#nombremoso").hide(400)'
+                        ,'complete' => '$("#nombremoso").show(400)'
+                        ));
+   ?>
+   <?php echo $this->Form->end() ?>
 </div>
 <div class="span10">
 <?php
     echo $this->Html->link('Cancelarpedido', array(
     'controller' => 'Pedidos', 'action' => 'cancelapedido', $id_moso, $datosPedido['Pedido']['id'], $datosPedido['Pedido']['mesa']), array('class' => 'btn btn-block'), 'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa');    
-
 ?>
 </div>
+<?php echo $this->Js->writeBuffer();?>

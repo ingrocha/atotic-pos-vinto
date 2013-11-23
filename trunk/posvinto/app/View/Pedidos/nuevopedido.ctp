@@ -103,6 +103,17 @@ $modeloproductosobservaciones = new Productosobservacione();
                 'style' => 'color: #fff;'
                 ));?>
                 </li>
+                <?php if($datosMoso['User']['role'] == 'jefe'):?>
+                 <li>
+                <?php 
+                echo $this->Js->link('TODAS LAS MESAS', 
+                array('controller'=>'Pedidos', 'action'=>'ajaxtodasmesas',$idMoso), 
+                array('update'=>'#contenidomoso',
+                'before' => '$("#contenidomoso").hide(); $("#cargando").show(); $("#cargaPedidos").show();',
+                'complete' => '$("#cargando").hide(); $("#contenidomoso").show(); '
+                ));?>
+                </li>   
+                <?php endif;?>
                 <li><a href="#about">Mis Datos</a></li>               
             </ul>
             <ul class="nav navbar-nav navbar-right">               
