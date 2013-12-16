@@ -731,8 +731,11 @@ class ControlpedidosController extends AppController
         //debug($this->request->data);exit;
         $this->layout = 'imprimir';
         $idpedido = $this->request->data[1]['Pedido']['idpedido'];
-        $factura = $this->request->data[1]['Pedido']['factura'];
+        $facturasw = $this->request->data[1]['Pedido']['factura'];
         $efectivo = $this->request->data[1]['Pedido']['efectivo'];
+        $cliente = $this->request->data[1]['Pedido']['nombre'];
+        $nitcliente = $this->request->data[1]['Pedido']['nit'];
+            //debug($nitcliente);exit;
         
         $datas = $this->request->data;
         $total = 0.0;
@@ -778,10 +781,10 @@ class ControlpedidosController extends AppController
          
         $total = number_format($total, 2, '.', ',');
         //DEBUG($total);exit;
-        if($factura == 1)
+        if($facturasw == 1)
         {
             
-            $nitcliente = $this->request->data['Pedido']['nit'];
+            
             $cambio = $efectivo - $total;
             $total = number_format($total, 2, '.', ',');
             $monto = split('\.', $total);
@@ -810,28 +813,20 @@ class ControlpedidosController extends AppController
                 $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
                 
                 //autorizacion, factura, nit, fecha, monto, llave
-                debug($autoriza);
+                /*debug($autoriza);
                 debug($idfactura);
                 debug($nitcliente);
                 debug($nueva_fecha);
                 debug($rtotal);
-                debug($llave);
+                debug($llave);*/
                 $codigo = $this->Codigocontrol->generar();
-                debug($codigo);exit;
+                //debug($codigo);exit;
                 $this->Factura->id = $idfactura;
                 $this->Factura->read();
                 $this->request->data['Factura']['codigo_control'] = $codigo;
                 $this->Factura->save($this->data);
-                $idusuario = $this->Session->read('Auth.User.id');
-                $usuario = $this->User->find('first', array('Usuario.id' => $idusuario));
-                $idsucursal = $usuario['Sucursal']['id'];
-                $sucursal = $this->Sucursal->findById($idsucursal);
-                $fech = date("Y-m-d H:m:s");
-                $fech2 = split(' ', $fech);
-                $fecha = $fech2[0];
-                $hora = $fech2[1];
-                //  DEBUG($datos);exit;
-                $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total','fechalimite'));
+                
+                
             }
         }
         $idusuario = $this->Session->read('Auth.User.id');
@@ -844,7 +839,7 @@ class ControlpedidosController extends AppController
             $fecha = $fech2[0];
             $hora = $fech2[1];
               //DEBUG($newdata);exit;
-            $this->set(compact('fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'total'));
+            $this->set(compact('fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'total','facturasw','cliente','nitcliente','autoriza','idfactura','codigo'));
         
     }
     public function dividircuenta3(){

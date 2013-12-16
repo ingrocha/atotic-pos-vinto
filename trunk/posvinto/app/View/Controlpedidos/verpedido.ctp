@@ -103,7 +103,7 @@
                         <hr/>
                     </div> 
                     <div style="height: 10px;">&nbsp;</div>
-                    <a class="btn btn-large btn-turgu" href="<?php echo $this->Html->url(array('action' => 'facturar1', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> DIVIDIR FACTURA</a>
+                    <!--<a class="btn btn-large btn-turgu" href="<?php //echo $this->Html->url(array('action' => 'facturar1', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> DIVIDIR FACTURA</a>-->
                     <?php 
                     if($usuario != 6): ?>
                     <div style="height: 10px;">&nbsp;</div>                

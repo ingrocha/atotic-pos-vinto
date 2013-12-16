@@ -6,14 +6,18 @@
 
 <div class="span4 grider">
                             <div class="widget widget-simple widget-notes">
+                            <?php echo $this->
+						Form->create(null, array( 'url' => array('controller' => 'controlpedidos', 'action' => 'dividircuenta2') )); ?>                            
                                 <div class="widget-header">
                                     <h4><i class="fontello-icon-edit"></i> DIVIDIR CUENTA</h4>
-                                    
+                                    <div class="widget-tool">
+                                    <b>FACTURAR</b>
+                                    <?php echo $this->Form->checkbox("1.Pedido.factura");?>
+                                    </div>
                                 </div>
                                 <div class="widget-content">
                                     <div class="widget-body">
-                                    <?php echo $this->
-						Form->create(null, array( 'url' => array('controller' => 'controlpedidos', 'action' => 'dividircuenta2') )); ?>
+                                    
                                         <form id="formNotes" class="form-dark">
                                             <fieldset>
                                             <?php echo $this->
@@ -24,6 +28,12 @@
                                                 <label for="accountNotes">Nit:</label>
                                                 <?php echo $this->
 														Form->text("1.Pedido.nit", array('size' => 20)); ?>
+                                                
+                                                <label for="accountNotes">Efectivo:</label>
+                                                <?php echo $this->
+														Form->text("1.Pedido.efectivo", array('size' => 20)); ?>
+                                                
+                                                
                                             </fieldset>
                                             <!-- // fieldset Input -->
                                             <?php echo $this->Form->submit('Continuar',array('class' => 'btn btn-yellow btn-block'));?>
