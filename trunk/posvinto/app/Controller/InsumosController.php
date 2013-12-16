@@ -647,7 +647,12 @@ class InsumosController extends AppController
                 $this->Session->setFlash('no se pudo modificar!!');
             }
         }
-     $dct = $this->Tipo->find('all', array('fields' => array('id', 'nombre'), 'conditions' => array('estado' => 1)));
+      $dct = $this->Tipo->find('list', array(
+          'fields'=>array(
+              'id', 'nombre'
+          )
+      ));  
+     //$dct = $this->Tipo->find('all', array('fields' => array('id', 'nombre'), 'conditions' => array('estado' => 1)));
      $this->set(compact('dct'));
         //debug($dct);   
     }
