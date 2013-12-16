@@ -514,7 +514,7 @@ class ControlpedidosController extends AppController
             $this->request->data['Factura']['codigo_control'] = $codigo;
             $this->Factura->save($this->data);
             $idusuario = $this->Session->read('Auth.User.id');
-            $usuario = $this->Usuario->find('first', array('Usuario.id' => $idusuario));
+            $usuario = $this->User->find('first', array('Usuario.id' => $idusuario));
             $idsucursal = $usuario['Sucursal']['id'];
             $sucursal = $this->Sucursal->findById($idsucursal);
             $fech = date("Y-m-d H:m:s");
@@ -731,6 +731,9 @@ class ControlpedidosController extends AppController
         //debug($this->request->data);exit;
         $this->layout = 'imprimir';
         $idpedido = $this->request->data[1]['Pedido']['idpedido'];
+        $factura = $this->request->data[1]['Pedido']['factura'];
+        $efectivo = $this->request->data[1]['Pedido']['efectivo'];
+        
         $datas = $this->request->data;
         $total = 0.0;
         $i = 0;
@@ -772,8 +775,65 @@ class ControlpedidosController extends AppController
                 $j++;
             }*/
         }
-         //DEBUG($datos);exit;
+         
         $total = number_format($total, 2, '.', ',');
+        //DEBUG($total);exit;
+        if($factura == 1)
+        {
+            
+            $nitcliente = $this->request->data['Pedido']['nit'];
+            $cambio = $efectivo - $total;
+            $total = number_format($total, 2, '.', ',');
+            $monto = split('\.', $total);
+            $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
+            $datosfactura = $this->Parametrosfactura->find('first', array('order'=>array('Parametrosfactura.id DESC')));
+            $nit = $datosfactura['Parametrosfactura']['nit'];
+            $autoriza = $datosfactura['Parametrosfactura']['numero_autorizacion'];
+            $fechalimite = $datosfactura['Parametrosfactura']['fechalimite'];
+            $fecha = date('Y-m-d');
+            $this->Factura->create();
+            $this->request->data['Factura']['pedido_id'] = $idpedido;
+            $this->request->data['Factura']['nit'] = $nitcliente;
+            $this->request->data['Factura']['cliente'] = $cliente;
+            $this->request->data['Factura']['importetotal'] = $total;
+            $this->request->data['Factura']['fecha'] = $fecha;
+            if ($this->Factura->save($this->data))
+            {
+                $data = array('id' => $idpedido, 'estado' => 3);
+                $this->Pedido->save($data);
+                $factura = $this->Factura->find('first', array('order' => array('Factura.id DESC')));
+                $idfactura = $factura['Factura']['id'];
+                $llave = $datosfactura['Parametrosfactura']['llave'];
+                $nueva_fecha = ereg_replace("[-]", "", $fecha);
+                $rtotal = round($total);
+                //echo $autoriza.' - '.$idfactura.' - '.$nitcliente.' - '.$nueva_fecha.' - '.$total_redondeado.' - '.$llave;exit;
+                $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
+                
+                //autorizacion, factura, nit, fecha, monto, llave
+                debug($autoriza);
+                debug($idfactura);
+                debug($nitcliente);
+                debug($nueva_fecha);
+                debug($rtotal);
+                debug($llave);
+                $codigo = $this->Codigocontrol->generar();
+                debug($codigo);exit;
+                $this->Factura->id = $idfactura;
+                $this->Factura->read();
+                $this->request->data['Factura']['codigo_control'] = $codigo;
+                $this->Factura->save($this->data);
+                $idusuario = $this->Session->read('Auth.User.id');
+                $usuario = $this->User->find('first', array('Usuario.id' => $idusuario));
+                $idsucursal = $usuario['Sucursal']['id'];
+                $sucursal = $this->Sucursal->findById($idsucursal);
+                $fech = date("Y-m-d H:m:s");
+                $fech2 = split(' ', $fech);
+                $fecha = $fech2[0];
+                $hora = $fech2[1];
+                //  DEBUG($datos);exit;
+                $this->set(compact('datosfactura', 'idfactura', 'cliente', 'nitcliente', 'codigo', 'fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'totalliteral', 'total','fechalimite'));
+            }
+        }
         $idusuario = $this->Session->read('Auth.User.id');
         //debug($idusuario);exit;
             $usuario = $this->User->find('first', array('User.id' => $idusuario));
