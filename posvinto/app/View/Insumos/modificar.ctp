@@ -33,12 +33,7 @@
 
                         <label for="accountAddressState" class="control-label">Categoria <span class="required">*</span></label>
                         <div class="controls">
-                            <select id="accountAddressState" class="span6" name="data[Insumo][tipo_id]" required>
-                                <option value="" selected="selected">Selecione Categoria</option>
-                                <?php foreach ($dct as $dt): ?>                                    
-                                    <option value="<?php echo $dt['Tipo']['id']; ?>"><?php echo $dt['Tipo']['nombre']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <?php echo $this->Form->select('tipo_id', $dct, array('class'=>'span6')); ?>                            
                         </div>
                         <label>
                         Tipo <span class="required">*(para reporte de stock)</span>
