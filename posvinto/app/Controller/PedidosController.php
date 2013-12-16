@@ -31,7 +31,8 @@ class PedidosController extends AppController
         'Mesa',
         'Clase',
         'Productosobservacione',
-        'Pedidosobservacione');
+        'Pedidosobservacione'
+        );
     public $layout = 'mosos';
 
     public function beforeFilter()
@@ -673,7 +674,7 @@ class PedidosController extends AppController
         $this->Pedido->save($data);
         $this->Session->setFlash("Se cancelo el pedido #: " . $pedido . " de la mesa " .
             $mesa);
-        $this->redirect(array('action' => 'menumoso', $idUsuario));
+        $this->redirect(array('action' => 'nuevopedido', $idUsuario));
     }
 
     public function cancelarpedido($pedido = null, $mesa = null)
@@ -1623,6 +1624,7 @@ class PedidosController extends AppController
     public function ajaxambientes($idMoso = null)
     {
         $this->layout = 'ajax';
+        
         $datosMoso = $this->User->find('first', array('conditions' => array('User.id' =>
                     $idMoso), 'recursive' => -1));
         $ambientes = $this->Ambiente->find('all');

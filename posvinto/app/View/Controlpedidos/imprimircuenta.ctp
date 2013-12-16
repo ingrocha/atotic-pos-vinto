@@ -43,20 +43,20 @@
         
         <?php 
         $montoTotal=0;
-        foreach ($pedido as $i): ?>
+        foreach ($productos_vector as $i): ?>
             <tr>
                 <td>
                     <?php echo $i['Producto']['nombre']; ?>
                 </td>
                 <td style="margin-right: 6px; padding-right: 18px; width: 6px; height: 14px; padding-left: 25px;">
-                    <?php echo $i['Item']['cantidad']; ?>
+                    <?php echo $i['Producto']['cantidad']; ?>
                 </td>
                 <td>
                     <?php echo $i['Producto']['precio']; ?>
                 </td>
                 <td>
                     <?php 
-                    $precio = $i['Producto']['precio'] * $i['Item']['cantidad'];
+                    $precio = $i['Producto']['precio'] * $i['Producto']['cantidad'];
                     echo number_format($precio, 2, '.', ','); 
                     $montoTotal += $precio;
                      ?>

@@ -30,6 +30,7 @@
             <th>Precio u.</th>
         </tr>
         <?php foreach ($datos as $d): ?>
+        <?php if($d['Pedido']['cantidad'] != 0):?>
             <tr>
                 <td>
                     <?php echo $d['Pedido']['producto']; ?>
@@ -41,6 +42,7 @@
                     <?php echo $d['Pedido']['precio']; ?>
                 </td>
             </tr>
+            <?php endif;?>
         <?php endforeach; ?>
         <tr>
             <td colspan="2" style="text-align: right;">Importe total</td>
@@ -80,7 +82,7 @@
                     <?php echo $this->Form->hidden("$i.Detalle.producto", array('value' => $data['Pedido']['producto'])); ?>
                 </td>
                 <td>
-                    <?php echo $this->Form->hidden("$i.Detalle.cantidad", array('value' => 1)); ?>
+                    <?php echo $this->Form->hidden("$i.Detalle.cantidad", array('value' => $data['Pedido']['cantidad'])); ?>
                 </td>
                 <td>
                     <?php echo $this->Form->hidden("$i.Detalle.preciou", array('value' => $data['Pedido']['precio'])); ?>

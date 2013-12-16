@@ -208,7 +208,33 @@ class ControlpedidosController extends AppController
         //debug($moso);
         $descuentos = $this->Descuento->find('all');
         //debug($descuentos);exit;
-        $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos','usuario'));
+        
+        
+        
+        foreach ($pedido as $pro) {
+            $f = false;
+            if (count($productos_vector) > 0) {
+                for ($i = 0; $i < count($productos_vector); $i++) {
+                    if ($productos_vector[$i]['Producto']['producto_id'] == $pro['Item']['producto_id']) {
+                        //$productos_vector[$i]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                        $productos_vector[$i]['Producto']['cantidad']++;
+                        $f = true;
+                    }
+                }
+            }
+
+            if ($f == false) {
+                $n = count($productos_vector);
+                $productos_vector[$n]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                $productos_vector[$n]['Producto']['cantidad'] = 1;
+                $productos_vector[$n]['Producto']['nombre'] = $pro['Producto']['nombre'];
+                $productos_vector[$n]['Producto']['precio'] = $pro['Producto']['precio'];
+                $productos_vector[$n]['Item']['precio'] = $pro['Item']['precio'];
+            }
+        }
+        
+        //debug($productos_vector);exit;
+        $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos','usuario','productos_vector'));
     }
 
     public function imprecibo($id_pedido = null)
@@ -423,6 +449,7 @@ class ControlpedidosController extends AppController
     public function facturarnormal()
     {
         $this->layout = 'imprimir';
+        //debug($this->request->data);exit;
         $cliente = $this->request->data[1]['Pedido']['nombre'];
         $nitcliente = $this->request->data[1]['Pedido']['nit'];
         $idpedido = $this->request->data[1]['Pedido']['idpedido'];
@@ -486,7 +513,7 @@ class ControlpedidosController extends AppController
             $this->Factura->read();
             $this->request->data['Factura']['codigo_control'] = $codigo;
             $this->Factura->save($this->data);
-            $idusuario = $this->Session->read('usuario_id');
+            $idusuario = $this->Session->read('Auth.User.id');
             $usuario = $this->Usuario->find('first', array('Usuario.id' => $idusuario));
             $idsucursal = $usuario['Sucursal']['id'];
             $sucursal = $this->Sucursal->findById($idsucursal);
@@ -628,8 +655,30 @@ class ControlpedidosController extends AppController
         $pedido = $this->Item->find('all', array(
         'conditions'=>array('Item.pedido_id'=>$idPedido)
         ));
-        //debug($pedido);exit;
-        $this->set(compact('pedido', 'idPedido', 'mozo', 'mesa'));
+        
+        foreach ($pedido as $pro) {
+            $f = false;
+            if (count($productos_vector) > 0) {
+                for ($i = 0; $i < count($productos_vector); $i++) {
+                    if ($productos_vector[$i]['Producto']['producto_id'] == $pro['Item']['producto_id']) {
+                        //$productos_vector[$i]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                        $productos_vector[$i]['Producto']['cantidad']++;
+                        $f = true;
+                    }
+                }
+            }
+
+            if ($f == false) {
+                $n = count($productos_vector);
+                $productos_vector[$n]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                $productos_vector[$n]['Producto']['cantidad'] = 1;
+                $productos_vector[$n]['Producto']['nombre'] = $pro['Producto']['nombre'];
+                $productos_vector[$n]['Producto']['precio'] = $pro['Producto']['precio'];
+            }
+        }
+        
+        //debug($productos_vector);exit;
+        $this->set(compact('pedido', 'idPedido', 'mozo', 'mesa','productos_vector'));
 
     }
     public function dividircuenta($idpedido=null){
@@ -648,10 +697,34 @@ class ControlpedidosController extends AppController
                 $i2++;
             }
         }
+        
+        foreach ($detalle as $pro) {
+            $f = false;
+            if (count($productos_vector) > 0) {
+                for ($i = 0; $i < count($productos_vector); $i++) {
+                    if ($productos_vector[$i]['Producto']['producto_id'] == $pro['Detalle']['producto_id']) {
+                        //$productos_vector[$i]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                        $productos_vector[$i]['Producto']['cantidad']++;
+                        //$productos_vector[$i]['Producto']['precio'] = $productos_vector[$i]['Producto']['cantidad']*$productos_vector[$i]['Producto']['precio'];
+                        $f = true;
+                    }
+                }
+            }
+            
+            if ($f == false) {
+                $n = count($productos_vector);
+                $productos_vector[$n]['Producto']['producto_id'] = $pro['Detalle']['producto_id'];
+                $productos_vector[$n]['Producto']['cantidad'] = 1;
+                $productos_vector[$n]['Producto']['nombre'] = $pro['Detalle']['producto'];
+                $productos_vector[$n]['Producto']['precio'] = $pro['Detalle']['precio'];
+            }
+        }
+        
+        
         $pedido = '';
         $pedido = $detalle;
-        //debug($pedido);exit;
-        $this->set(compact('pedido', 'idpedido'));
+        //debug($productos_vector);exit;
+        $this->set(compact('pedido', 'idpedido','productos_vector'));
     }
     public function dividircuenta2()
     {
@@ -664,16 +737,31 @@ class ControlpedidosController extends AppController
         $j = 0;
         $newdata = array();
         $datos = array();
+        unset($datas['log']); 
+        //debug($datas);exit;
         foreach ($datas as $d)
         {
-            if ($d['Pedido']['chk'] != 0)
+            $datos[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
+            $datos[$i]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
+            $datos[$i]['Pedido']['cantidad'] = 0 + $d['Pedido']['cantidad'];
+            $datos[$i]['Pedido']['precio'] = $d['Pedido']['preciou'];
+            $total +=  $d['Pedido']['preciou']*$d['Pedido']['cantidad'];
+            $i++;
+            $newdata[$j]['Pedido']['pedido_id'] = $idpedido;
+            $newdata[$j]['Pedido']['producto'] = $d['Pedido']['producto'];
+            $newdata[$j]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
+            $newdata[$j]['Pedido']['cantidad'] = $d['Pedido']['totalc'] - $d['Pedido']['cantidad'];
+            $newdata[$j]['Pedido']['precio'] = $d['Pedido']['preciou'];
+            $j++;
+            
+            /*if ($d['Pedido']['chk'] != 0)
             {
                 $datos[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
                 $datos[$i]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
                 $datos[$i]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
                 $datos[$i]['Pedido']['precio'] = $d['Pedido']['preciou'];
                 $total +=  $d['Pedido']['preciou'];
-                $i++;
+                
             } else
             {
                 $newdata[$j]['Pedido']['pedido_id'] = $idpedido;
@@ -682,9 +770,9 @@ class ControlpedidosController extends AppController
                 $newdata[$j]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
                 $newdata[$j]['Pedido']['precio'] = $d['Pedido']['preciou'];
                 $j++;
-            }
+            }*/
         }
-        /// DEBUG($datos);exit;
+         //DEBUG($datos);exit;
         $total = number_format($total, 2, '.', ',');
         $idusuario = $this->Session->read('Auth.User.id');
         //debug($idusuario);exit;
@@ -695,17 +783,30 @@ class ControlpedidosController extends AppController
             $fech2 = split(' ', $fech);
             $fecha = $fech2[0];
             $hora = $fech2[1];
-            //  DEBUG($datos);exit;
+              //DEBUG($newdata);exit;
             $this->set(compact('fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'total'));
         
     }
     public function dividircuenta3(){
-         //  debug($this->data);exit;
+        //debug($this->data);exit;
         if (!empty($this->request->data))
         {
             //debug($this->data);exit;
             $count = 0;
             $detalle = $this->request->data;
+            $sw = false;
+            foreach($detalle as $de)
+            {
+                if($de['Detalle']['cantidad'] != 0)
+                {
+                    $sw = true;
+                }
+            }
+            //debug($sw);exit;
+            if($sw == false)
+            {
+                $this->redirect(array('action' => 'index'));
+            }
             $this->set(compact('detalle'));
         } else
         {
