@@ -1,159 +1,107 @@
-<!-- Container -->
-<div id="container">
-	<div class="shell">
-		<!-- Small Nav -->
-		<div class="small-nav">
-			Dividir cuenta paso 1
-		</div>
-		<!-- End Small Nav -->
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">
-				&nbsp;
-			</div>
-			<!-- Content -->
-			<div id="content">
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>
-							Dividir cuenta
-						</h2>
-					</div>
-					<!-- End Box Head -->
-					<!-- Form -->
-					<?php echo $this->
+<div id="main-content" class="main-content container-fluid">
+<div id="page-content" class="page-content">
+<section>
+<br />
+<div class="row-fluid">
+
+<div class="span4 grider">
+                            <div class="widget widget-simple widget-notes">
+                                <div class="widget-header">
+                                    <h4><i class="fontello-icon-edit"></i> DIVIDIR CUENTA</h4>
+                                    
+                                </div>
+                                <div class="widget-content">
+                                    <div class="widget-body">
+                                    <?php echo $this->
 						Form->create(null, array( 'url' => array('controller' => 'controlpedidos', 'action' => 'dividircuenta2') )); ?>
-						<div class="form">
-							<!-- Table -->
-							<?php //debug($pedido); ?>
-								<div class="table">
-									<table>
-										<?php echo $this->
+                                        <form id="formNotes" class="form-dark">
+                                            <fieldset>
+                                            <?php echo $this->
 											Form->hidden("1.Pedido.idpedido", array('value' => $idpedido)); ?>
-											<tr>
-												<td>
-													NOMBRE:
-												</td>
-												<td>
-													<?php echo $this->
+                                                <label for="accountTaxVat" class="control-label"> Nombre</label>
+                                                <?php echo $this->
 														Form->text("1.Pedido.nombre", array('size' => 20)); ?>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													NIT:
-												</td>
-												<td>
-													<?php echo $this->
+                                                <label for="accountNotes">Nit:</label>
+                                                <?php echo $this->
 														Form->text("1.Pedido.nit", array('size' => 20)); ?>
-														<?php //echo $ajax->autoComplete('1.Pedido.nit', '/autoComplete') ?>
-												</td>
-											</tr>
-									</table>
-									<table width="100%" border="0" cellspacing="0" cellpadding="0">
-										<tr>
-											<th width="13">
-												<input type="checkbox" class="checkbox" />
-											</th>
-											<th>
-												Item
-											</th>
-											<th>
-												cantidad
-											</th>
-											<th>
-												precio
-											</th>
-											<th align="center">
-												subtotal
-											</th>
-										</tr>
-										<?php $i=0; ?>
-											<?php $total=0; ?>
-												<?php foreach ($pedido as $data): ?>
-                                                <?php //debug($data); ?>
-															<?php $precio=0; ?>
-																<?php 
-                                                                $precio = $data[ 'Detalle'][ 'precio']; 
-                                                                  $total += $precio;
-                                                                ?>
-																	<?php if ((fmod($i, 2)==1) ? $clase="odd" : $clase="") ; ?>
-																		<?php $i++; ?>
-																			<tr class="<?php echo $clase; ?>">
-																				<td>
-																					<?php echo $this->
-																						Form->checkbox("$i.Pedido.chk", array('class' => 'checkbox', 'id' => "chk$i", 'value' => $data['Detalle']['producto_id'], 'checked' => 'checked')); ?>
-																						<?php echo $this->
-																							Form->hidden("$i.Pedido.producto_id", array('value' => $data['Detalle']['producto_id'])); ?>
-																				</td>
-																				<td>
-																					<?php echo $this->
-																						Form->hidden("$i.Pedido.producto", array('value' => $data['Detalle']['producto'])); ?>
-																						<?php echo $data[ 'Detalle'][ 'producto']; ?>
-																				</td>
-																				<td>
-																					<h3>
-																						<?php echo $this->Form->hidden("$i.Pedido.cantidad", array('value' => 1, "id" => "qty_item_$i")); ?>
-																							1
-																					</h3>
-																				</td>
-																				<td>
-																					<?php echo $this->
-																						Form->hidden("$i.Pedido.preciou", array('value' => $precio, "id" => "price_item_$i")); ?>
-																						<?php echo "$ " . number_format($precio, 2, '.', ','); ?>
-																				</td>
-																				<td align="left" id="total_item_<?php echo $i; ?>">
-																					$ 0
-																				</td>
-																			</tr>
-																				<?php endforeach; ?>
-																					<tr>
-																						<td colspan="4">
-																							<b style="margin-left: 27px;">
-																								Total
-																							</b>
-																						</td>
-																						<td align="left">
-																							$
-																							<?php echo number_format($total, 2, '.', ','); ?>
-																						</td>
-																					</tr>
-																					<!--<tr>
-																					<td colspan="5" style="float: left;">
-																					</td>
-																					</tr>-->
-									</table>
-									<!-- end table-->
-								</div>
-								<!-- End Form -->
-								<!-- Form Buttons -->
-								<div class="buttons">
-									<!--<input type="button" class="button" value="preview" />
-									-->
-									<div style="float: left;">
-										<?php $options=array( 'label'=>'continuar!', 'name' => "data[$i][Pedido][enviar]", 'class' => 'button', ); echo $this->Form->end($options); ?>
-									</div>
-									<div style="float: left;">
-										<?php //echo $this->Html->link('dividir cuenta', array('controller' => 'controlpedidos', 'action' => 'dividir', $idpedido), array('class' => 'buttona')); ?>
-									</div>
-								</div>
-								<!-- End Form Buttons -->
-						</div>
-						<!-- End Box -->
-				</div>
-				<!-- Table -->
-			</div>
-			<!-- End Box -->
-		</div>
-		<!-- End Content -->
-		<?php echo $this->
-			element('menupedidos') ?>
-			<div class="cl">
-				&nbsp;
-			</div>
-	</div>
-	<!-- Main -->
+                                            </fieldset>
+                                            <!-- // fieldset Input -->
+                                            <?php echo $this->Form->submit('Continuar',array('class' => 'btn btn-yellow btn-block'));?>
+                                       
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <!-- // Widget -->
+                            
+                            
+                        </div>
+<div class="span6 grider">
+                            
+                            <!-- // Table wrapper -->
+                            
+                          
+                            <!-- // Table wrapper -->
+                            
+                            <div class="table-wrapper">
+                                <table class="table boo-table table-striped table-condensed table-content bg-blue-light">
+                                    <colgroup>
+                                    <col class="col20">
+                                    <col class="col20">
+                                    <col class="col45">
+                                    <col class="col15">
+                                    </colgroup>
+                                    <caption>
+                                    DETALLE DEL PEDIDO <span>tabla de productos</span>
+                                    </caption>
+                                    <tbody>
+                                        <tr id="DataRow0">
+                                            <td class="bold" width="40%"><a href="#">Item</a></td>
+                                            <td>cantidad</td>
+                                            <td>precio</td>
+                                            <td class="text-right">subtotal</td>
+                                            <td width="10%"></td>
+                                        </tr>
+                                        <?php $i =0;?>
+                                        <?php foreach($productos_vector as $p):?>
+                                        <?php $i++;?>
+                                        <tr>
+                                            <td>
+                                            <?php echo $p['Producto']['nombre']?>
+                                            <?php echo $this->Form->hidden("$i.Pedido.producto_id", array('value' => $p['Producto']['producto_id'])); ?>
+                                            <?php echo $this->Form->hidden("$i.Pedido.producto", array('value' => $p['Producto']['nombre'])); ?>
+                                            <?php echo $this->Form->hidden("$i.Pedido.totalc", array('value' => $p['Producto']['cantidad'])); ?>
+                                            </td>
+                                            <td><?php echo $p['Producto']['cantidad']?></td>
+                                            <td>
+                                            <?php echo $this->Form->hidden("$i.Pedido.preciou", array('value' => ($p['Producto']['precio']), "id" => "price_item_$i")); ?>
+                                            <?php echo $p['Producto']['precio']?>
+                                            </td>
+                                            <td><?php echo $p['Producto']['precio']*$p['Producto']['cantidad']?></td>
+                                            <td>
+                                            <?php 
+                                            $selec = null;
+                                                    for($z = 1;$z<=$p['Producto']['cantidad'];$z++)
+                                                    {
+                                                        $selec[$z] = $z;
+                                                        
+                                                    }
+                                                    //debug($selec);exit;
+                                                    echo $this->Form->select("$i.Pedido.cantidad",$selec);
+                                            ?>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach;?>
+                                    </tbody>
+                                </table>
+                                <!-- // Table --> 
+                            </div>
+                            <?php //echo $this->Form->submit('Continuar',array('class' => 'btn btn-yellow btn-block'));?>
+                            <!-- // Table wrapper --> 
+                        </div>
 </div>
+</section>
+</div>
+    
+</div>
+

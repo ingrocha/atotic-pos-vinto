@@ -80,9 +80,10 @@
    <?php echo $this->Form->end() ?>
 </div>
 <div class="span10">
+<br />
 <?php
     echo $this->Html->link('Cancelarpedido', array(
-    'controller' => 'Pedidos', 'action' => 'cancelapedido', $id_moso, $datosPedido['Pedido']['id'], $datosPedido['Pedido']['mesa']), array('class' => 'btn btn-block'), 'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa');    
+    'controller' => 'Pedidos', 'action' => 'cancelapedido', $id_moso, $datosPedido['Pedido']['id'], $datosPedido['Pedido']['mesa']), array('class' => 'btn btn-danger'), 'Esta seguro de cancelar el pedido?, se eliminara todo el pedido y numero de mesa');    
 ?>
 </div>
 <?php echo $this->Js->writeBuffer();?>

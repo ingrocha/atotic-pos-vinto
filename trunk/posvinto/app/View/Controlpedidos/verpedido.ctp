@@ -32,7 +32,7 @@
                         <tbody>
                             <?php $totalCancelar = 0; ?>
                             <?php $i = 1; ?>
-                            <?php foreach ($pedido as $p): ?>
+                            <?php foreach ($productos_vector as $p): ?>
                                 <?php
                                 $precio = $p['Producto']['precio'];
                                 
@@ -40,12 +40,12 @@
                                 <tr id="DataRow0">
                                     <td><?php echo $i; ?></td>
                                     <td class="bold" style="width: 250px;"><b><?php echo $p['Producto']['nombre']; ?></b></td>
-                                    <td><b><?php echo round($p['Item']['cantidad']); ?></b></td>
+                                    <td><b><?php echo round($p['Producto']['cantidad']); ?></b></td>
                                     <td><b><?php echo round($p['Producto']['precio']); ?></b></td>
                                     <td><b>
                                     <?php 
-                                    echo round($p['Item']['precio']);
-                                    $totalCancelar += $p['Item']['precio']; 
+                                    echo round($p['Item']['precio']*$p['Producto']['cantidad']);
+                                    $totalCancelar += $p['Item']['precio']*$p['Producto']['cantidad']; 
                                     ?></b></td>                                                                 
                                 </tr>
                                 <?php $i++; ?>

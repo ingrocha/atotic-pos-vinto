@@ -38,13 +38,13 @@ $pedidosobservacione = new Pedidosobservacione();
     <div class="col-md-2">
     
      <?php
-            if($usuario['User']['role'] == 'jefe')
-            {
+            /*if($usuario['User']['role'] == 'jefe')
+            {*/
                 echo $this->Js->submit('Enviar', array('url' => "/Pedidos/guardaobservacion/$idProducto/$idPedido/$idItem", 'update' => '#prueba'
                         ,'complete' => '$("#cargaObservaciones").hide()','class' => 'btn btn-danger btn-lg'
                         ));
                 echo $this->Form->end();
-            }
+            //}
                         
                       
                         ?>
