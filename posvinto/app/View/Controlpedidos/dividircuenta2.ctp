@@ -19,7 +19,25 @@
             <td style="font-weight: bold;">Hora:</td>
             <td><?php echo $hora; ?></td>
         </tr>
+        
     </table>
+    <?php if($facturasw == 1):?>
+    <table class="tablafactura">
+        <tr>
+            <td style="font-weight: bold;">Nro Factura: </td>
+            <td><?php echo $idfactura;?></td>    
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Nro Autorizacion: </td>
+            <td><?php echo $autoriza;?></td>    
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Codigo Control: </td>
+            <td><?php echo $codigo;?></td>    
+        </tr>
+        
+    </table>
+    <?php endif;?>
     <div class="linea">
         ..............................................................
     </div>
@@ -60,11 +78,11 @@
     <table>
     <tr>
             <td  style="font-weight: bold;">Nombre: </td>
-            <td colspan="3">......................................</td>
+            <td colspan="3"> <?php echo $cliente;?></td>
         </tr>
         <tr>
             <td  style="font-weight: bold; text-transform: uppercase;">NIT:</td>
-            <td colspan="3">......................................</td>
+            <td colspan="3"> <?php echo $nitcliente;?></td>
         </tr>
     </table>
 </div>      
