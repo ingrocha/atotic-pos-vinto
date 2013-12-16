@@ -48,7 +48,7 @@
                         Tipo <span class="required">*(para reporte de stock)</span>
                         </label>
                         <div class="controls">
-                            <select id="accountAddressState" class="span6" name="data[Insumo][tipo_id]" required>
+                            <select id="accountAddressState" class="span6" name="data[Insumo][tipo]" required>
                                 <option value="" selected="selected">Selecione el tipo</option>
                                 <option value="comida">COMIDAS/PLATOS</option>
                                 <option value="bebida">AGUAS/REFRESCOS/JUGOS/GASEOSAS</option>
