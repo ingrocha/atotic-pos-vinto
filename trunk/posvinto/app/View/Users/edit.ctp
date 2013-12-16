@@ -51,7 +51,7 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </select>     
-                            <?php echo $this->Form->select('ambiente_id',$ambientes, array('class' => 'span4')); ?>                           
+                            <?php //echo $this->Form->select('ambiente_id',$ambientes, array('class' => 'span4')); ?>                           
                         </div>
                         <!-- // form item -->                       
 

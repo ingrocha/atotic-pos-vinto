@@ -17,7 +17,8 @@
                                 Categorias<span></span>
                             </caption>
                             <thead>
-                                <tr>                                  
+                                <tr>  
+                                    <th scope="col">Nro. <span class="column-sorter"></span></th>                                
                                     <th scope="col">Nombre <span class="column-sorter"></span></th>
                                     <th scope="col">Usuario <span class="column-sorter"></span></th>                               
                                     <th scope="col">ID Moso <span class="column-sorter"></span></th>                               
@@ -25,10 +26,11 @@
                                     <th scope="col">Acciones <span class="column-sorter"></span></th>                                
                                 </tr>
                             </thead>
-                            <?php $i = 1; ?>
                             <tbody>
+                            <?php $i=1;?>
                                 <?php foreach ($users as $user): ?>                        
                                     <tr>                                         
+                                        <td><?php echo $i; $i++; ?></td>
                                         <td><?php echo $user['User']['nombre']; ?></td>
                                         <td><?php echo $user['User']['username']; ?></td>
                                         <td><?php echo $user['User']['codigo']; ?></td>                                   

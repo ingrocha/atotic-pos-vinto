@@ -34,7 +34,8 @@ class InsumosController extends AppController
 
         /*$dinsumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
         array('Almacen.id' => $ids)));*/
-        $insumos = $this->Insumo->find('all', array('recursive' => 0));
+       
+        $insumos = $this->Insumo->find('all', array('order' => 'Insumo.id DESC','limit' => 100));
         $this->set(compact('insumos'));
         //debug($insumos);exit;
     }
@@ -646,6 +647,9 @@ class InsumosController extends AppController
                 $this->Session->setFlash('no se pudo modificar!!');
             }
         }
+     $dct = $this->Tipo->find('all', array('fields' => array('id', 'nombre'), 'conditions' => array('estado' => 1)));
+     $this->set(compact('dct'));
+        //debug($dct);   
     }
 
     public function categoriasalmacen()
