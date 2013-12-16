@@ -25,7 +25,7 @@ $cantidadAlmacen = new Almacen();
                             </caption>
                             <thead>
                                 <tr>  
-                                    <th scope="col">ID <span class="column-sorter"></span></th>                          
+                                    <th scope="col">Nro. <span class="column-sorter"></span></th>                          
                                     <th scope="col">Nombre <span class="column-sorter"></span></th>
                                     <th scope="col">Categoria <span class="column-sorter"></span></th>
                                     <th scope="col">Descripci&oacute;n <span class="column-sorter"></span></th>
@@ -34,6 +34,7 @@ $cantidadAlmacen = new Almacen();
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $n=1; ?>
                                 <?php foreach ($insumos as $i): ?>                        
                                     <?php $idInsumo = $i['Insumo']['id'] ?>                        
                                     <tr>                                    

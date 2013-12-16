@@ -21,11 +21,6 @@
                         <?php echo $this->Form->text('direccion', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese la direccion Ej: Calle uno', 'title' => 'Este campo Necesario')); ?>
                         <!-- // form item -->
 
-                        <label for="formA04">Usuario y Pass:</label>
-                        <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->text('username', array('class' => 'span4', 'placeholder' => 'Ingrese el Usuario. Ej jperez', 'required')); ?>
-                            <?php echo $this->Form->text('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556')); ?>                                                           
-                        </div>
                         <!-- // form item -->
 
                         <label for="formA04">Carnet de Identidad y Celulares:</label>
@@ -33,7 +28,15 @@
                             <?php echo $this->Form->text('ci', array('class' => 'span4', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213')); ?>
                             <?php echo $this->Form->text('celular', array('class' => 'span4', 'placeholder' => 'Ingrese el celular Ej: 60234234')); ?>                                                           
                         </div>
-                        <!-- // form item -->                        
+                        <!-- // form item --> 
+                        <label for="formA04">Usuario:</label>
+                        <div class="controls controls-row">                                                               
+                            <?php echo $this->Form->text('username', array('class' => 'span4', 'placeholder' => 'Ingrese el Usuario. Ej jperez', 'required')); ?>
+                        </div> 
+                        <label for="formA04">Password:</label>
+                        <div class="controls controls-row">
+                            <?php echo $this->Form->text('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556')); ?>                                                           
+                        </div>                       
 
                         <label for="accountAddressState" class="control-label">Perfil <span class="required">*</span> </label>
                         <div class="controls">
@@ -51,7 +54,7 @@
                         <label for="formA04">Codigo de Moso y El Ambiente:</label>
                         <div class="controls controls-row">                                                                                           
                             <?php echo $this->Form->text('codigo', array('class' => 'span4', 'placeholder' => 'Ingrese el codigo Ej: 2233')); ?>   
-                            <?php echo $this->Form->select('ambiente_id',$ambientes, array('class' => 'span4')); ?>                                                           
+                            <?php //echo $this->Form->select('ambiente_id',$ambientes, array('class' => 'span4')); ?>                                                           
                         </div>
                         <!-- // form item -->
 
