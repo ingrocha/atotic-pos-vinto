@@ -44,7 +44,7 @@
 										<?php $id=$cli['Cliente'][ 'id']; ?>
 											<tr>
                                             <td><?php echo $i, $i++; ?></td>
-								
+								                
 												<td>
 													<?php echo $cli[ 'Cliente'][ 'nombre']; ?>
 												</td>
@@ -59,13 +59,14 @@
 												</td>
 												<td>
 													<?php echo $this->Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
-                                                    <?php if ($estado == 1): ?>
-                                                        <?php echo $this->Html->link($this->Html->image("desabilitar.png", array("alt" =>
-                                                            'Deshabilitar', 'title' => 'deshabilitar')), array('action' => 'baja', $cli['Cliente']['id']), array('escape' => false));?>
-                                                    <?php else: ?>
-                                                        <?php echo $this->Html->link($this->Html->image("habilitar.png", array("alt" =>
-                                                            'Deshabilitar', 'title' => 'deshabilitar')), array('action' => 'alta', $cli['Cliente']['id']), array('escape' => false));?>            
-                                                    <?php endif; ?>
+                                                    
+                                                    <?php if ($cli['Cliente']['estado'] == 1):
+                                                            echo $this->Html->image("desabilitar.png", array("title" => "Ocultar",
+                                                                            'url' => array('action' => 'baja', $id)));
+                                                            else: 
+                                                            echo $this->Html->image("habilitar.png", array("title" => "Mostrar",
+                                                                            'url' => array('action' => 'alta', $id)));
+                                                    endif; ?>
                                                     
 													<?php //echo $this->Html->image("elim.png", array( "title" => "Insertar Nuevo Usuario", 'url' => array('action' => 'nuevo', $id) )); ?>
 												</td>

@@ -90,6 +90,9 @@
                           ))
                         ?>
                     </div>
+                    <td class="low-padding align-center">
+                            <?php echo $this->Html->link('Atras',array('controller'=>'Productos','action'=>'productosmenu'),array('class'=>'btn btn-green'));?>
+                        </td> 
                 </div>
                 <!-- // Column -->
                 <div class="span6 grider" id="cargaDatos">
