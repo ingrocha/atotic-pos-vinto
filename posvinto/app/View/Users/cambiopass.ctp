@@ -13,7 +13,7 @@
                 </div>
                 <div class="span10 well well-nice">
                     <fieldset>
-                        <legend>Formulario <small>DATOS</small></legend>
+                        <legend>Formulario <small>Cambio de Contrase&ntilde;a</small></legend>
                         <label>Inserte el nuevo password<span class="f_req">*</span></label>
                         <?php echo $this->Form->password('password', array('placeholder'=>'Inserte una contrasena', 'value'=>"" ,'class'=>'span4','required'));?>
                         <!-- // form item -->

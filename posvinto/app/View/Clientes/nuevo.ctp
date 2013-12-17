@@ -17,9 +17,14 @@
                         <label for="formA04">Nombre:</label>                            
                         <?php echo $this->Form->text('nombre', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese el nombre Ej.: Juan  Pepito Perez', 'required', 'title'=>'Este campo Necesario')); ?>
                         <!-- // form item -->
-                        <label for="formA04">Direcci&oacute;n, tel&eacute;fono:</label>
+                        <label for="formA06">Direcci&oacute;n</label>
                         <div class="controls controls-row">                                                               
                             <?php echo $this->Form->textarea('direccion', array('class' => 'span3', 'placeholder' => 'Escriba la direccion')); ?>
+                            <?php //echo $this->Form->text('telefono', array('class' => 'span3', 'placeholder' => 'Telefono Ej.: 2210325', 'required')); ?>                                
+                        </div>
+                        <label for="formA06">Tel&eacute;fono:</label>
+                        <div class="controls controls-row">                                                               
+                            <?php //echo $this->Form->textarea('direccion', array('class' => 'span3', 'placeholder' => 'Escriba la direccion')); ?>
                             <?php echo $this->Form->text('telefono', array('class' => 'span3', 'placeholder' => 'Telefono Ej.: 2210325', 'required')); ?>                                
                         </div>
                         <!-- // form item -->

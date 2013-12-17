@@ -38,7 +38,9 @@
                                         <td>
                                             <?php echo $this->Html->image("iconos/edit.png", array("title" => "Editar", 'url' => array('action' => 'edit', $user['User']['id']))); ?>
                                             <?php echo $this->Html->image("iconos/pass.png", array("title" => "Cambiar password", 'url' => array('action' => 'cambiopass', $user['User']['id']))); ?>
-                                            <?php echo $this->Html->image("iconos/elim.png", array("title" => "Eliminar", 'url' => array('action' => 'delete', $user['User']['id']))); ?>
+                                            <?php echo $this->Html->link($this->Html->image("iconos/elim.png", array("alt" => 'Eliminar', 'title' => 'Eliminar Usuario')), array('action' => 'delete', $user['User']['id']), array('escape' => false), ("Desea eliminar realmente??"));?>
+                                            
+                                            <?php //echo $this->Html->image("iconos/elim.png", array("title" => "Eliminar", 'url' => array('action' => 'delete', $user['User']['id']))); ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>                           
