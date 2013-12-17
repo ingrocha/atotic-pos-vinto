@@ -15,9 +15,9 @@
                     <fieldset>
                         <legend>Formulario <small>NUEVA CATEGORIA</small></legend>
                         <label for="formA04">Nombre:</label>                            
-                        <?php echo $this->Form->text('nombre'); ?>
+                        <?php echo $this->Form->text('nombre', array('id' => 'formA04', 'placeholder' => 'Ingrese nueva Categoria Ej: Platos', 'required', 'title' => 'Este campo es Necesario')); ?>
                         <label for="formA04">Tipo:</label>                            
-                        <?php echo $this->Form->select('tipo',$dct); ?>
+                        <?php echo $this->Form->select('tipo',$dct, array('id' => 'formA04','required', 'title'=>'Este campo es Necesario')); ?>
                         <label for="formA04">Descripci&oacute;n:</label>
                         <?php echo $this->Form->text('descripcion'); ?>                                                            
                 

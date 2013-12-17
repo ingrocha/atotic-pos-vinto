@@ -10,16 +10,17 @@ class ClientesController extends AppController
 
     public function index()
     {
-        $this->paginate = array(
-            'limit' => 25,
-            'order' => array(
-                'Cliente.id' => 'desc'
-            )
-        );
+        $clientes = $this->Cliente->find('all', array('recursive' => -1));
+        //debug($cat);exit;
+        $this->set(compact('clientes'));
+        //$this->paginate = array('Criadero' => array('conditions' => array('Criadero.estado' => true),'limit' => 5));
+        //$this->paginate = array('Cliente' => array('conditions' => array('Cliente.estado' => true)));
+        //$clientes = $this->Cliente->find('all',array('order' => 'Cliente.id DESC','limit' => 20));                    
+        //$this->paginate = array('limit' => 25,'order' => array('Cliente.id' => 'desc'));
 
         // similar to findAll(), but fetches paged results
-        $clientes = $this->paginate('Cliente'); //buscamos el listado de todos los clientes
-        $this->set(compact('clientes'));
+        //$clientes = $this->paginate('Cliente'); //buscamos el listado de todos los clientes
+        //$this->set(compact('clientes'));
         //debug($clientes);
     }
 
@@ -78,39 +79,32 @@ class ClientesController extends AppController
             $this->redirect(array('action' => 'index'));
         }
     }
+    public function categoriacliente()
+    {
+        $cat = $this->Cliente->find('all', array('recursive' => -1));
+        //debug($cat);exit;
+        $this->set(compact('cat'));
+    }
     public function baja($id = null)
     {
         $this->Cliente->id = $id;
-        if (!$id) {
-            $this->Session->setFlash('No se pudo dar de baja');
-            $this->redirect(array('action' => 'index'), null, true);
-        }
-        $estado = 0;
-        $this->request->data['Cliente']['estado'] = $estado;
-        if ($this->Cliente->save($this->data)) {
-            $this->Session->setFlash('Los datos fueron modificados Exitosamente...!!!','alerts/bueno');
-            $this->redirect(array('action' => 'index'), null, true);
-        } else {
-            $this->Session->setFlash('no se pudo modificar!!');
+        $this->request->data['Cliente']['estado'] = 0;
+        if ($this->Cliente->save($this->request->data))
+        {
+            $this->Session->setFlash('Se dio de Baja al Cliente', 'alerts/bueno');
+            $this->redirect(array('action' => 'index'));
         }
     }
 
     public function alta($id = null)
-    {
-        $this->Cliente->id = $id;
-        if (!$id) {
-            $this->Session->setFlash('No se pudo dar de baja Exitosamente...!!!','alerts/bueno');
-            $this->redirect(array('action' => 'index'), null, true);
+ {
+       $this->Cliente->id = $id;
+        $this->request->data['Cliente']['estado'] = 1;
+        if ($this->Cliente->save($this->request->data))
+        {
+            $this->Session->setFlash('Se muestra la categoria en el menu', 'alerts/bueno');
+            $this->redirect(array('action' => 'index'));
         }
-        $estado = 1;
-        $this->request->data['Cliente']['estado'] = $estado;
-        if ($this->Cliente->save($this->data)) {
-            $this->Session->setFlash('Los datos fueron modificados');
-            $this->redirect(array('action' => 'index'), null, true);
-        } else {
-            $this->Session->setFlash('no se pudo modificar!!');
-        }
-
     }
 
 }

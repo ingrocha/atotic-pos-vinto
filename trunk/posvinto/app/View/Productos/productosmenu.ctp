@@ -50,11 +50,7 @@
 											<span class="column-sorter">
 											</span>
 										</th>
-										<th scope="col">
-											Estado
-											<span class="column-sorter">
-											</span>
-										</th>
+										
 										<th scope="col">
 											Acciones
 											<span class="column-sorter">
@@ -77,9 +73,6 @@
 												</td>
 												<td>
 													<?php echo $p[ 'Producto'][ 'precio']; ?>
-												</td>
-												<td>
-													<?php echo $p[ 'Producto'][ 'estado']; ?>
 												</td>
 												<td>
 												<?php if ($p['Producto']['estado']): ?>        

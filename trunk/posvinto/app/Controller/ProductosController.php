@@ -260,7 +260,7 @@ class ProductosController extends AppController
     public function platos()
     {
         $this->paginate = array(
-            'limit' => 6,
+            'limit' => 150,
             'order' => array('id' => 'desc'),
             'recursive' => 0,
             'conditions' => array('Categoria.tipo' => 'Comida'));
@@ -361,6 +361,7 @@ class ProductosController extends AppController
         {
             //debug($this->data);
             $this->Producto->create();
+            //$this->request->data['Producto']['estado']=1;
             if ($this->Producto->save($this->data))
             {
                 $this->Session->setFlash('Plato registrado con exito');
