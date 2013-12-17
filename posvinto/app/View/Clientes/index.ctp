@@ -30,42 +30,20 @@
 								</caption>
 								<thead>
 									<tr>
-										<th scope="col">
-											Nro.
-											<span class="column-sorter">
-											</span>
-										</th>
-										<th scope="col">
-											Nombre
-											<span class="column-sorter">
-											</span>
-										</th>
-										<th scope="col">
-											Direcci&oacute;n
-											<span class="column-sorter">
-											</span>
-										</th>
-										<th scope="col">
-											Tel&eacute;fono
-											<span class="column-sorter">
-											</span>
-										</th>
-										<th scope="col">
-											Estado
-											<span class="column-sorter">
-											</span>
-										</th>
-										<th scope="col">
-											Acciones
-											<span class="column-sorter">
-											</span>
-										</th>
+										<th scope="col">Nro.<span class="column-sorter"></span></th>
+                                        <th scope="col">Nombre<span class="column-sorter"></span></th>
+                                        <th scope="col">Nombre del NIT<span class="column-sorter"></span></th>
+                                        <th scope="col">Direccion.<span class="column-sorter"></span></th>
+                                        <th scope="col">Tel&eacute;fono<span class="column-sorter"></span></th>
+										<th scope="col">Acciones<span class="column-sorter"></span></th>
 									</tr>
 								</thead>
 								<tbody>
+                                    <?php $i=1; ?>
 									<?php foreach ($clientes as $cli): ?>
 										<?php $id=$cli['Cliente'][ 'id']; ?>
 											<tr>
+                                            <td><?php echo $i, $i++; ?></td>
 								
 												<td>
 													<?php echo $cli[ 'Cliente'][ 'nombre']; ?>
@@ -80,13 +58,16 @@
 													<?php echo $cli[ 'Cliente'][ 'telefono']; ?>
 												</td>
 												<td>
-													<?php echo $cli[ 'Cliente'][ 'estado']; ?>
-												</td>
-												<td>
-													<?php echo $this->
-														Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
-														<?php echo $this->
-															Html->image("elim.png", array( "title" => "Insertar Nuevo Usuario", 'url' => array('action' => 'nuevo', $id) )); ?>
+													<?php echo $this->Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
+                                                    <?php if ($estado == 1): ?>
+                                                        <?php echo $this->Html->link($this->Html->image("desabilitar.png", array("alt" =>
+                                                            'Deshabilitar', 'title' => 'deshabilitar')), array('action' => 'baja', $cli['Cliente']['id']), array('escape' => false));?>
+                                                    <?php else: ?>
+                                                        <?php echo $this->Html->link($this->Html->image("habilitar.png", array("alt" =>
+                                                            'Deshabilitar', 'title' => 'deshabilitar')), array('action' => 'alta', $cli['Cliente']['id']), array('escape' => false));?>            
+                                                    <?php endif; ?>
+                                                    
+													<?php //echo $this->Html->image("elim.png", array( "title" => "Insertar Nuevo Usuario", 'url' => array('action' => 'nuevo', $id) )); ?>
 												</td>
 											</tr>
 											<?php endforeach; ?>

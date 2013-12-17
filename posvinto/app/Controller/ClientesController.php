@@ -33,7 +33,7 @@ class ClientesController extends AppController
 
             if ($this->Cliente->save($this->data))
             { //pregunto si guardo bien los datos
-                $this->Session->setFlash('Cliente registrado con exito'); //Mostramos un mensaje de texto al usuario
+                $this->Session->setFlash('Cliente registrado con exito','alerts/bueno'); //Mostramos un mensaje de texto al usuario
                 $this->redirect(array('action' => 'index'), null, true); //redireccionamos a la pantalla principal
             } else
             { // de lo contrario
@@ -66,7 +66,7 @@ class ClientesController extends AppController
         }
     }
 
-    public function baja($id = null)
+    public function bajasss($id = null)
     {
         $this->request->data['Cliente']['id'] = $id;
         $this->request->data['Cliente']['estado'] = 0;
@@ -77,6 +77,40 @@ class ClientesController extends AppController
             $this->Session->setFlash('El usuario  ' . $id . ' fue dado de baja');
             $this->redirect(array('action' => 'index'));
         }
+    }
+    public function baja($id = null)
+    {
+        $this->Cliente->id = $id;
+        if (!$id) {
+            $this->Session->setFlash('No se pudo dar de baja');
+            $this->redirect(array('action' => 'index'), null, true);
+        }
+        $estado = 0;
+        $this->request->data['Cliente']['estado'] = $estado;
+        if ($this->Cliente->save($this->data)) {
+            $this->Session->setFlash('Los datos fueron modificados Exitosamente...!!!','alerts/bueno');
+            $this->redirect(array('action' => 'index'), null, true);
+        } else {
+            $this->Session->setFlash('no se pudo modificar!!');
+        }
+    }
+
+    public function alta($id = null)
+    {
+        $this->Cliente->id = $id;
+        if (!$id) {
+            $this->Session->setFlash('No se pudo dar de baja Exitosamente...!!!','alerts/bueno');
+            $this->redirect(array('action' => 'index'), null, true);
+        }
+        $estado = 1;
+        $this->request->data['Cliente']['estado'] = $estado;
+        if ($this->Cliente->save($this->data)) {
+            $this->Session->setFlash('Los datos fueron modificados');
+            $this->redirect(array('action' => 'index'), null, true);
+        } else {
+            $this->Session->setFlash('no se pudo modificar!!');
+        }
+
     }
 
 }

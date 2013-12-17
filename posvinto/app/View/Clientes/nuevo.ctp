@@ -22,7 +22,7 @@
                             <?php echo $this->Form->textarea('direccion', array('class' => 'span3', 'placeholder' => 'Escriba la direccion')); ?>
                             <?php //echo $this->Form->text('telefono', array('class' => 'span3', 'placeholder' => 'Telefono Ej.: 2210325', 'required')); ?>                                
                         </div>
-                        <label for="formA06">Tel&eacute;fono:</label>
+                        <label for="formA06sisip ">Tel&eacute;fono:</label>
                         <div class="controls controls-row">                                                               
                             <?php //echo $this->Form->textarea('direccion', array('class' => 'span3', 'placeholder' => 'Escriba la direccion')); ?>
                             <?php echo $this->Form->text('telefono', array('class' => 'span3', 'placeholder' => 'Telefono Ej.: 2210325', 'required')); ?>                                
