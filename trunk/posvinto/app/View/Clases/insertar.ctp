@@ -22,14 +22,16 @@
                             <?php echo $this->Form->text('descripcion', array('class' => 'span5', 'placeholder' => 'Ingrese una Descripcion Ej. Bebidas dieteticas')); ?>
                         </div>
                         
+                        <label for="formA04">Seleccione el Color del menu :</label>
+                        <div class="controls controls-row"> 
+                            <!--<input class="input-medium colorpicker margin-00" type="text" value="#8fff00" >-->
+                            <?php echo $this->Form->text('color', array('class' => 'input-medium colorpicker margin-00', 'required')); ?>                            
+                        </div>
+                        
                         <label for="formA04">Orden de la Categoria del Menu :</label>
                         <div class="controls controls-row">                                                               
                             <?php echo $this->Form->text('orden', array('class' => 'span4', 'placeholder' => 'Ingrese el Orden del Menu Ej. 5')); ?>
-                        </div>
-                        <label for="formA04">Seleccione el Color del menu :</label>
-                        <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->text('color', array('class' => 'span4', 'placeholder' => 'Seleccione el color del menu')); ?>
-                        </div>
+                        </div>                                                
 
                         <button class="btn btn-green" type="submit">Guardar Insumo</button>
                         </form>
