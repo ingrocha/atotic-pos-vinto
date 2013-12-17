@@ -25,8 +25,8 @@
 
                         <label for="formA04">Carnet de Identidad y Celulares:</label>
                         <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->text('ci', array('class' => 'span4', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213')); ?>
-                            <?php echo $this->Form->text('celular', array('class' => 'span4', 'placeholder' => 'Ingrese el celular Ej: 60234234')); ?>                                                           
+                            <?php echo $this->Form->text('ci', array('class' => 'span5', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213 CBBA', 'required')); ?>
+                            <?php echo $this->Form->text('celular', array('class' => 'span5', 'placeholder' => 'Ingrese el celular Ej: 60234234')); ?>                                                           
                         </div>
                         <!-- // form item --> 
                         <label for="formA04">Usuario:</label>
@@ -35,7 +35,7 @@
                         </div> 
                         <label for="formA04">Password:</label>
                         <div class="controls controls-row">
-                            <?php echo $this->Form->text('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556')); ?>                                                           
+                            <?php echo $this->Form->text('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556', 'required')); ?>                                                           
                         </div>                       
 
                         <label for="accountAddressState" class="control-label">Perfil <span class="required">*</span> </label>

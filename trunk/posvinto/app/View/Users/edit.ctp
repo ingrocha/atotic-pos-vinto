@@ -20,38 +20,35 @@
                         <label for="formA04">Direccion:</label>                            
                         <?php echo $this->Form->text('direccion', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese la direccion Ej: Calle uno', 'required', 'title' => 'Este campo Necesario')); ?>
                         <!-- // form item -->
-
-                        <label for="formA04">Usuario y Pass:</label>
-                        <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->text('username', array('class' => 'span4', 'placeholder' => 'Ingrese el Usuario. Ej jperez', 'required')); ?>
-                            <?php //echo $this->Form->text('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556', 'required')); ?>                                                           
-                        </div>
-                        <!-- // form item -->
-
                         <label for="formA04">Carnet de Identidad y Celulares:</label>
                         <div class="controls controls-row">                                                               
                             <?php echo $this->Form->text('ci', array('class' => 'span4', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213', 'required')); ?>
                             <?php echo $this->Form->text('celular', array('class' => 'span4', 'placeholder' => 'Ingrese el celular Ej: 60234234', 'required')); ?>                                                           
                         </div>
+                        <label for="formA04">Usuario:</label>
+                        <div class="controls controls-row">                                                               
+                            <?php echo $this->Form->text('username', array('class' => 'span4', 'placeholder' => 'Ingrese el Usuario. Ej jperez', 'required')); ?>
+                            <?php //echo $this->Form->text('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556', 'required')); ?>                                                           
+                        </div>
                         <!-- // form item -->                        
 
-                        <label for="accountAddressState" class="control-label">Perfil  y Ambiente<span class="required">*</span> </label>
-                        <?php //debug($groups);?>
-                        <div class="controls">                                                       
-                            <?php $roles = array('0' => array('rol' => 'Administrador'), '1' => array('rol' => 'Almacenes'), '2' => array('rol' => 'Cajero'), '3' => array('rol' => 'Moso')); ?>
-                            <?php $rola = $this->request->data['User']['role']; ?> 
-                            <select id="accountAddressState" class="span3" name="data[User][group_id]" required>
-                                <option value="" selected="selected">Selecione Perfil</option>                                                                                               
-                                <?php foreach ($roles as $r): ?>  
-                                <?php //debug($r); ?>
-                                    <?php if($r['rol'] == $rola): ?>
-                                    <option value="<?php echo $r['rol']; ?>" selected="selected"><?php echo 'aqui '.$r['rol']; ?></option>                                    
-                                    <?php else: ?>                                    
-                                    <option value="<?php echo $r['rol']; ?>"><?php echo $r['rol']; ?></option>                                    
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>     
-                            <?php //echo $this->Form->select('ambiente_id',$ambientes, array('class' => 'span4')); ?>                           
+                        <label for="accountAddressState" class="control-label">Perfil <span class="required">*</span> </label>
+                        <div class="controls">
+                            <select id="accountAddressState" class="span3" name="data[User][role]" required>
+                                <option value="" selected="selected">Selecione Perfil</option>                                                                    
+                                <option value="Administrador">Administrador</option>
+                                <option value="Almacenes">Almacenes</option>
+                                <option value="Cajero">Cajero</option>                                
+                                <option value="Moso">Moso</option>
+                                <option value="Jefe">Jefe de mosos</option>                                 
+                            </select>                            
+                        </div>
+                        <!-- // form item -->    
+
+                        <label for="formA04">Codigo de Moso y El Ambiente:</label>
+                        <div class="controls controls-row">                                                                                           
+                            <?php echo $this->Form->text('codigo', array('class' => 'span4', 'placeholder' => 'Ingrese el codigo Ej: 2233')); ?>   
+                            <?php //echo $this->Form->select('ambiente_id',$ambientes, array('class' => 'span4')); ?>                                                           
                         </div>
                         <!-- // form item -->                       
 

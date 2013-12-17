@@ -464,7 +464,7 @@ class ProductosController extends AppController
         if($platos == 0){
             if ($this->Categoria->delete($id))
             {
-                $this->Session->setFlash('Categoria eliminada!!!', 'alerts/bueno');
+                $this->Session->setFlash('Categoria Eliminada Exitosamente!!!', 'alerts/bueno');
                 $this->redirect(array('action' => 'categoriasmenu'), null, true);
             } else
             {

@@ -66,18 +66,17 @@
 													<?php echo $c[ 'Categoria'][ 'tipo']; ?>
 												</td>
 												<td>
-													<?php echo $this->
-														Html->image("edit.png", array( "title" => "Editar datos", 'url' => array('action' => 'editarcategoria', $id) )); ?>
-												<?php echo $this->
-												Html->image("elim.png", array( "title" => "Eliminar", 'url' => array('action' => 'eliminacategoria', $id) )); ?>
-                                                <?php
-                                                if ($c['Categoria']['estado'] == 1):
-                                                    echo $this->Html->image("show.png", array("title" => "Ocultar",
+													<?php echo $this->Html->image("edit.png", array( "title" => "Editar datos", 'url' => array('action' => 'editarcategoria', $id) )); ?>
+								                    <?php echo $this->Html->link($this->Html->image("elim.png", array("alt" => 'Eliminar', 'title' => 'Eliminar')), array('action' => 'eliminacategoria', $id), array('escape' => false), ("Desea eliminar realmente??"));?>
+                                                    
+                                                    <?php //echo $this->Html->image("elim.png", array( "title" => "Eliminar", 'url' => array('action' => 'eliminacategoria', $id) )); ?>
+                                                    <?php if ($c['Categoria']['estado'] == 1):
+                                                            echo $this->Html->image("show.png", array("title" => "Ocultar",
                                                                             'url' => array('action' => 'oculta', $id)));
-                                                else: 
-                                                    echo $this->Html->image("hide.png", array("title" => "Mostrar",
+                                                            else: 
+                                                            echo $this->Html->image("hide.png", array("title" => "Mostrar",
                                                                             'url' => array('action' => 'muestra', $id)));
-                                                endif; ?> 
+                                                    endif; ?> 
 												</td>
 											</tr>
 											<?php endforeach; ?>

@@ -32,56 +32,59 @@ class UsersController extends AppController
 
     public function add()
     {
-        if ($this->request->is('post'))
-        {
-            //debug($this->request->data);exit;
-            $this->User->create();
-            if ($this->User->save($this->request->data))
-            {
-                $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
-            } else
-            {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+        if (!empty($this->data)) { 
+            $this->User->create(); 
+            if ($this->User->save($this->data)) { 
+                $this->Session->setFlash('Usuario registrado con exito','alerts/bueno'); 
+                $this->redirect(array('action' => 'index'), null, true); 
+            } else { 
+                $this->Session->setFlash('No se pudo registrar la Agencia'); 
             }
         }
-        $ambientes = $this->Ambiente->find('list',array('fields' => 'Ambiente.numero'));
-        $roles = array('Administrador' => 'Administrador', 'Almacenes' => 'Almacenes', 'Cajero' => 'Cajero', 'Moso' => 'Moso', 'Jefe' => 'Jefe de mosos');
-        $this->set(compact('roles','ambientes'));
     }
 
-    public function edit($id = null)
-    {
+    public function edit($id=null){
         $this->User->id = $id;
-        if (!$this->User->exists())
-        {
-            throw new NotFoundException(__('Invalid user'));
+        if (!$id) {
+            $this->Session->setFlash('No existe el Usuario en la Base de Datos');
+            $this->redirect(array('action' => 'index'), null, true);
         }
-        if ($this->request->is('post') || $this->request->is('put'))
-        {
-            if ($this->User->save($this->request->data))
-            {
-                $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
-            } else
-            {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+        if (empty($this->data)) {
+            $this->data = $this->User->read();
+
+        } else {
+            if ($this->User->save($this->data)) {
+                $this->Session->setFlash('Los datos fueron modificados Exitosamente','alerts/bueno');
+                $this->redirect(array('action' => 'index'), null, true);
+            } else {
+                $this->Session->setFlash('no se pudo modificar!!');
             }
-        } else
+        }
+        $ambientes = $this->Ambiente->find('list',array('fields' => 'Ambiente.numero'));
+        $roles = array('Administrador' => 'Administrador', 'Almacenes' => 'Almacenes', 'Cajero' => 'Cajero', 'Moso' => 'Moso', 'Jefe' => 'Jefe de mosos');
+        $this->set(compact('roles','ambientes'));        
+    }
+    
+    public function delete($id=null){
+        $this->User->id=$id;
+        $this->data=$this->User->read();
+        if(!$id){
+            $this->Session->setFlash('No existe el usuario a eliminar');
+            $this->redirect(array('action' =>'index'));
+        }
+        else
         {
-            $this->request->data = $this->User->read(null, $id);
-            unset($this->request->data['User']['password']);
+            if($this->User->delete($id)){
+                $this->Session->setFlash('Se elimino el usuario Exitosamente', 'alerts/bueno');
+                $this->redirect(array('action' =>'index'));
+            }
+            else{
+                $this->Session->setFlash('Error al eliminar');
+            }
         }
         $ambientes = $this->Ambiente->find('list',array('fields' => 'Ambiente.numero'));
         $roles = array('Administrador' => 'Administrador', 'Almacenes' => 'Almacenes', 'Cajero' => 'Cajero', 'Moso' => 'Moso', 'Jefe' => 'Jefe de mosos');
         $this->set(compact('roles','ambientes'));
-    }
-
-    public function delete($id = null)
-    {
-        $this->User->delete($id);
-        $this->Session->setFlash(__('User was not deleted'));
-        $this->redirect(array('action' => 'index'));
     }
 
     public function cambiopass($id = null)
@@ -92,7 +95,7 @@ class UsersController extends AppController
             //debug($this->request->data);exit;            
             if ($this->User->save($this->request->data))
             {
-                $this->Session->setFlash(__('Se cambio el password'), 'alerts/bueno');
+                $this->Session->setFlash(__('Se cambio el Password Exitosamente...!!!'), 'alerts/bueno');
                 $this->redirect(array('action' => 'index'));
             } else
             {
