@@ -1443,13 +1443,14 @@ class PedidosController extends AppController
 
         //debug($id_moso);exit;
         $total = 0.00;
-        $items = $this->Item->find('all', array('recursive' => 0, 'conditions' => array('Item.pedido_id' => $idPedido)));
+        $items = $this->Item->find('all', array('recursive' => 2, 'conditions' => array('Item.pedido_id' => $idPedido)));
         $contenido="--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
-        
+        $bebida="--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
         $contenido_pedido="--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
-        
+        //debug($items);exit;
         foreach($items as $it)
         {
+            //debug($it['Producto']['Categoria']['tipo']);exit;
             $f = false;
             if (count($productos_vector) > 0) {
                 for ($i = 0; $i < count($productos_vector); $i++) {
@@ -1466,22 +1467,43 @@ class PedidosController extends AppController
                 $productos_vector[$n]['Producto']['producto_id'] = $it['Item']['producto_id'];
                 $productos_vector[$n]['Producto']['cantidad'] = 1;
                 $productos_vector[$n]['Producto']['nombre'] = $it['Producto']['nombre'];
+                $productos_vector[$n]['Producto']['categoria'] = $it['Producto']['Categoria']['tipo'];
             }
         }
         //debug($productos_vector);exit;
+        $swbebidas = false;
+        $swcomida = false;
         foreach($productos_vector as $prod)
         {
             $contenido_pedido = $contenido_pedido.$prod['Producto']['cantidad'].' '.$prod['Producto']['nombre'].PHP_EOL;
+            
+            if($prod['Producto']['categoria'] == 'Comida')
+            {
+                $swcomida = true;
+                $contenido = $contenido.$prod['Producto']['cantidad'].' '.$prod['Producto']['nombre'].PHP_EOL;
+            }
+            if($prod['Producto']['categoria'] == 'Bebidas')
+            {
+                $swbebidas = true;
+                $bebida = $bebida.$prod['Producto']['cantidad'].' '.$prod['Producto']['nombre'].PHP_EOL;
+            }
         }
-        
+         
         $contenido_pedido = $contenido_pedido.'------------------------------'.PHP_EOL;
         $contenido_pedido = $contenido_pedido.'--------DETALLE---------'.PHP_EOL;
+        
+        $contenido = $contenido.'------------------------------'.PHP_EOL;
+        $contenido = $contenido.'--------DETALLE---------'.PHP_EOL;
+        
+        $bebida = $bebida.'------------------------------'.PHP_EOL;
+        $bebida = $bebida.'--------DETALLE---------'.PHP_EOL;
         //debug($contenido_pedido);exit;
         foreach ($items as $it) {
             $this->Item->id = $it['Item']['id'];
             $this->request->data['Item']['estado'] = 1;
             $this->Item->save($this->request->data['Item']);
-            $contenido = $contenido.$it['Producto']['nombre'].PHP_EOL;
+            
+            
             $contenido_pedido = $contenido_pedido.$it['Producto']['nombre'].'_______'.$it['Item']['precio'].' Bs'.PHP_EOL;
             $total = $total + $it['Item']['precio'];
             
@@ -1491,31 +1513,62 @@ class PedidosController extends AppController
             )));
             if(!empty($observaciones))
             {
+                if($it['Producto']['Categoria']['tipo'] == 'Comida')
+                {
+                    $contenido = $contenido.$it['Producto']['nombre'].PHP_EOL;
+                }
+                if($it['Producto']['Categoria']['tipo'] == 'Bebidas')
+                {
+                    $bebida = $bebida.$it['Producto']['nombre'].PHP_EOL;
+                }
                 foreach($observaciones as $ob)
                 {
-                    $contenido = $contenido."\t - ".$ob['Productosobservacione']['observacion'].PHP_EOL;
+                    if($it['Producto']['Categoria']['tipo'] == 'Comida')
+                    {
+                        $contenido = $contenido."\t - ".$ob['Productosobservacione']['observacion'].PHP_EOL;
+                    }
+                    if($it['Producto']['Categoria']['tipo'] == 'Bebidas')
+                    {
+                        $bebida = $bebida."\t - ".$ob['Productosobservacione']['observacion'].PHP_EOL;
+                    }
+                    
                     $contenido_pedido = $contenido_pedido."\t - ".$ob['Productosobservacione']['observacion'].PHP_EOL;
                 }
                 
-            }
-            
-            
+            }  
         }
         $contenido_pedido = $contenido_pedido."TOTAL____".$total."_Bs".PHP_EOL;
         
         $contenido = $contenido."-------------------------------";
+        $bebida = $bebida."-------------------------------";
         
         
-        
-        $directorio = WWW_ROOT . 'cocina' .DS .$idPedido . '.txt';
-        //debug($directorio);
-        if (file_exists($directorio)) {
-            //debug('Si existe');exit;
-            unlink($directorio);
+        if($swbebidas)
+        {
+            $directorio3 = WWW_ROOT . 'bar' .DS .$idPedido . '.txt';
+            //debug($directorio);
+            if (file_exists($directorio3)) {
+                unlink($directorio3);
+            }
+            $fp3=fopen(WWW_ROOT . 'bar' . DS . $idPedido . '.txt',"x");
+            fwrite($fp3,$bebida);
+            fclose($fp3) ;
+            exec('print /d:\\\\LABWARE1-PC\print '.$directorio3); 
         }
-        $fp=fopen(WWW_ROOT . 'cocina' . DS . $idPedido . '.txt',"x");
-        fwrite($fp,$contenido);
-        fclose($fp) ;
+        
+        if($swcomida)
+        {
+            $directorio = WWW_ROOT . 'cocina' .DS .$idPedido . '.txt';
+            //debug($directorio);exit;
+            if (file_exists($directorio)) {
+                //debug('Si existe');exit;
+                unlink($directorio);
+            }
+            $fp=fopen(WWW_ROOT . 'cocina' . DS . $idPedido . '.txt',"x");
+            fwrite($fp,$contenido);
+            fclose($fp) ;
+            exec('print /d:\\\\LABWARE1-PC\print '.$directorio); 
+        }
         
         
         $directorio2 = WWW_ROOT . 'pedidos' .DS . $idPedido . '.txt';
@@ -1526,6 +1579,10 @@ class PedidosController extends AppController
         $fp2=fopen(WWW_ROOT . 'pedidos' . DS . $idPedido . '.txt',"x");
         fwrite($fp2,$contenido_pedido);
         fclose($fp2) ;
+        exec('print /d:\\\\LABWARE1-PC\print '.$directorio2);   
+        //exec('print /d:\\\\192.168.0.102\\demo '.WWW_ROOT . 'cocina' . DS . $idPedido . '.txt');
+        //exec('print /d:\\\\192.168.0.101\\demo d:\\texto.txt');
+        //debug(WWW_ROOT . 'cocina' . DS . $idPedido . '.txt');exit;
         
         $this->redirect(array('action' => 'nuevopedido', $id_moso));
     }
@@ -1639,6 +1696,11 @@ class PedidosController extends AppController
         $this->Pedido->save($this->request->data);
         $datosMoso = $this->User->find('first',array('recursive' => -1,'conditions' => array('User.id' => $this->request->data['Pedidos']['moso'])));
         $this->set(compact('datosMoso'));
+    }
+    public function imprime()
+    {
+        //exec('print /d:\\\\192.168.0.102\\print d:\\texto.txt');\\LABWARE1-PC\print
+        exec('print /d:\\\\LABWARE1-PC\print d:\\texto.txt');           
     }
 }
 
