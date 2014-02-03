@@ -12,21 +12,24 @@
                 </div>
                 <div class="span10 well well-nice">
                     <fieldset>
-                        <legend>Formulario <small>NUEVO DE REGISTRO DE PORCIONES</small></legend>
-                        <label for="formA04">Inserte el Producto</label>
+                        <legend>Formulario <small>INSERTAR NUEVA CATEGORIA</small></legend>
+                        <label for="formA04">Seleccione el Tipo de Menu:</label>                            
+                        <?php echo $this->Form->select('clase_id',$dclase); ?>
+                        <!-- // form item -->
+                        <label for="formA04">Inserte el Producto:</label>
                         <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->select('producto_id', $dproducto, array('class' => 'span5', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213 CBBA', 'required')); ?>
+                            <?php echo $this->Form->select('producto_id',$dproductos, array('class' => 'span3', 'placeholder' => 'Inserte un Nombre')); ?>
+                        </div>
+                        <label for="formA04">Inserte el Insumo:</label>
+                        <div class="controls controls-row">                                                               
+                            <?php echo $this->Form->select('insumo_id',$dinsumo, array('class' => 'span3', 'placeholder' => 'Inserte un Nombre')); ?>
+                        </div>
+                        <label for="formA04">Inserte la cantidad:</label>
+                        <div class="controls controls-row">                                                               
+                            <?php echo $this->Form->text('cantidad', array('class' => 'span3', 'placeholder' => 'Inserte un Nombre')); ?>
                         </div>
                         
-                        <label for="formA04">Inserte el Insumo</label>
-                        <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->select('insumo_id',$dtipinsumo, array('class' => 'span5', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213 CBBA', 'required')); ?>
-                        </div>
-                        <label for="formA04">Inserte la Cantidad</label>
-                        <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->text('cantidad', array('class' => 'span5', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213 CBBA', 'required')); ?>
-                        </div>
-                        <button class="btn btn-green" type="submit">Guardar Insumo</button>
+                        <button class="btn btn-green" type="submit">Guardar Categoria</button>
                         </form>
                     </fieldset>
                     <!-- // fieldset Input Grid Sizig --> 

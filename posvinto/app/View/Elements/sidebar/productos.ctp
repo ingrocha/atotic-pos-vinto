@@ -12,11 +12,10 @@
 
     <ul id="mainSideMenu" class="nav nav-list nav-side">
         <li class="accordion-group active">
-            <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Almacen </a> </div>
+            <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Productos </a> </div>
             <ul class="accordion-content nav nav-list collapse in" id="accDash">
-                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Productos', 'action'=>'index')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Productos</span></a> </li>
+                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Productos', 'action'=>'index')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Listado de Productos</span></a> </li>
                 <li> <a href="<?php echo $this->Html->url(array('controller'=>'Productos', 'action'=>'nuevo')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Nuevo Producto</span> </a> </li>
-                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Productos', 'action'=>'modificar')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Editar Producto</span> </a> </li>
             </ul>
         </li>
         <!-- // item accordionMenu Dashboard -->

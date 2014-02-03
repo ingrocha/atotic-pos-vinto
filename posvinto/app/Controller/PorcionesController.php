@@ -3,7 +3,7 @@ class PorcionesController extends AppController
 { 
 
     public $helpers = array('Html', 'Form'); 
-    public $uses = array('Porcione','Producto','Insumo'); 
+    public $uses = array('Porcione','Producto','Insumo','Clase'); 
     public $layout = 'vivavinto';
     
     public function index()
@@ -32,11 +32,11 @@ class PorcionesController extends AppController
             }
 
         }
-        $dproducto = $this->Producto->find('list', array('fields'=>'Producto.nombre'));
-        $this->set(compact('dproducto'));
-         
-        $dtipinsumo = $this->Insumo->find('list', array('fields'=>'Insumo.nombre'));
-        $this-> set(compact('dproducto','dtipinsumo'));
+        $dclase = $this->Clase->find('list',array('fields'=>'Clase.nombre'));
+        $dproductos = $this->Producto->find('list',array('fields'=>'Producto.nombre'));
+        $dinsumo= $this->Insumo->find('list',array('fields'=>'Insumo.nombre'));
+        
+        $this-> set(compact('dclase','dproductos','dinsumo'));
     }
 
    

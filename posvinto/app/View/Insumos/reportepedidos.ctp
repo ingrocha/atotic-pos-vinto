@@ -4,11 +4,13 @@
 <!-- // fin sidebar -->
 <?php 
 
-    App::import('Model', 'Unidade');
-    $modeloUnidades = new Unidade();
-    
-    App::import('Model', 'Medida');
-    $modeloMedidas = new Medida();
+    /**
+ * App::import('Model', 'Unidade');
+ *     //$modeloUnidades = new Unidade();
+ *     
+ *     App::import('Model', 'Medida');
+ *     $modeloMedidas = new Medida();
+ */
  ?>
 <!-- // contenido pricipal -->                                 
 <div id="page-content" class="page-content">

@@ -716,7 +716,7 @@ class InsumosController extends AppController
         'fields'=>array('Insumo.nombre', 'Insumo.id','SUM(Bodega.ingreso) AS ingreso', 'SUM(Bodega.salida) AS salida', '(salida * Bodega.preciocompra) AS inversion'),
         'group'=>array('Bodega.insumo_id')
         ));
-        debug($descuentos);exit;
+        //debug($descuentos);exit;
         $this->set(compact('descuentos','dato'));
     }
 

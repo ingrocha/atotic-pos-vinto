@@ -61,10 +61,10 @@
 													<?php echo $this->Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
                                                     
                                                     <?php if ($cli['Cliente']['estado'] == 1):
-                                                            echo $this->Html->image("desabilitar.png", array("title" => "Ocultar",
+                                                            echo $this->Html->image("desabilitar.png", array("title" => "Habilitar",
                                                                             'url' => array('action' => 'baja', $id)));
                                                             else: 
-                                                            echo $this->Html->image("habilitar.png", array("title" => "Mostrar",
+                                                            echo $this->Html->image("habilitar.png", array("title" => "Deshabilitar",
                                                                             'url' => array('action' => 'alta', $id)));
                                                     endif; ?>
                                                     
