@@ -18,7 +18,7 @@ class ProductosController extends AppController
 
     public function index()
     {
-        $productos = $this->Producto->find('all');
+        $productos = $this->Producto->find('all', array('order'=>'Producto.id DESC'));
         //debug($productos);exit;
         $this->set(compact('productos')); //68207984
     }
@@ -381,16 +381,19 @@ class ProductosController extends AppController
             $this->Producto->create();
             if ($this->Producto->save($this->data))
             {
-                $this->Session->setFlash('Producto registrado con exito', 'alerts/bueno');
+                $this->Session->setFlash('Producto registrado con exito'.$this->data['Producto']['nombre'],'alerts/bueno');
                 $this->redirect(array('action' => 'index'), null, true);
             } else
             {
                 $this->Session->setFlash('No se pudo registrar el Producto!', 'alerts/alert');
             }
         }
+        $dcategoria = $this->Categoria->find('list', array('fields'=>'Categoria.nombre'));
+        $dinsumo = $this->Insumo->find('list', array('fields'=>'Insumo.nombre'));
+        $this->set(compact('dcategoria','dinsumo'));
     }
 
-    public function modificar($id = null)
+    public function editar($id = null)
     {
         $this->Producto->id = $id;
         if (!$id)
@@ -405,30 +408,33 @@ class ProductosController extends AppController
         {
             if ($this->Producto->save($this->data))
             {
-                $this->Session->setFlash('Los datos fueron modificados', 'alerts/bueno');
-                $this->redirect(array('action' => 'bebidas'), null, true);
+                $this->Session->setFlash('Los datos fueron modificados','alerts/bueno');
+                $this->redirect(array('action' => 'index'), null, true);
             } else
             {
                 $this->Session->setFlash('no se pudo modificar!!', 'alerts/alert');
             }
         }
-        $dcc = $this->Categoria->find('list', array('conditions' => array('tipo' =>
-                'Bebidas'), 'fields' => 'nombre'));
-        //debug($dcc);
-        $this->set(compact('dcc'));
+        $dcategoria = $this->Categoria->find('list', array('fields'=>'Categoria.nombre'));
+        $dinsumo = $this->Insumo->find('list', array('fields'=>'Insumo.nombre'));
+        $this->set(compact('dcategoria','dinsumo'));
     }
-
-    public function eliminar($id = null)
-    {
-        if (!$id)
-        {
-            $this->Session->setFlash('id Invalida para borrar');
-            $this->redirect(array('action' => 'index'));
+    public function eliminar($id=null){
+        $this->Producto->id=$id;
+        $this->data=$this->Producto->read();
+        if(!$id){
+            $this->Session->setFlash('No existe el Producto a eliminar', 'alerts/alert');
+            $this->redirect(array('action' =>'index'));
         }
-        if ($this->Producto->delete($id))
+        else
         {
-            $this->Session->setFlash('El usuario  ' . $id . ' fue borrado', 'alerts/alert');
-            $this->redirect(array('action' => 'index'));
+            if($this->Producto->delete($id)){
+                $this->Session->setFlash('Se elimino el usuario '.$this->data['Producto']['nombre'],'alerts/bueno');
+                $this->redirect(array('action' =>'index'));
+            }
+            else{
+                $this->Session->setFlash('Error al eliminar');
+            }
         }
     }
 

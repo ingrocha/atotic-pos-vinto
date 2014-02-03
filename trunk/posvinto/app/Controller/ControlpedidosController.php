@@ -605,7 +605,7 @@ class ControlpedidosController extends AppController
             'order' => array('Pedido.id' => 'desc'));
         // similar to findAll(), but fetches paged results
         $data = $this->paginate('Pedido');       
-        
+        //debug($data);exit;
         $this->set(compact('data'));  
     }
     public function pagarcuenta(){

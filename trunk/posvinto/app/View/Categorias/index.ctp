@@ -63,11 +63,12 @@
 									</tr>
 								</thead>
 								<tbody>
+                                <?php $i=1;?>
 									<?php foreach ($categorias as $c): ?>
 										<?php $id=$c['Categoria']['id']; ?>
 											<tr>
 												<td>
-													<?php echo $id ?>
+													<?php echo $i; $i++; ?>
 												</td>
 												<td>
 													<?php echo $c['Categoria'][ 'nombre']; ?>
@@ -80,9 +81,9 @@
 												</td>
 												<td>
 													<?php if($c['Categoria']['estado'] == 1):?>
-                                                        Alta
+                                                        Habilitado
                                                     <?php else: ?>
-                                                        Baja    
+                                                        Deshabilitado    
                                                     <?php endif; ?>
 												</td>
 												<td>

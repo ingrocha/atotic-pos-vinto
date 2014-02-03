@@ -3,7 +3,7 @@ class CategoriasController extends AppController
 { 
 
     public $helpers = array('Html', 'Form'); 
-    public $uses = array('Categoria'); 
+    public $uses = array('Categoria','Clase','Producto','Insumo'); 
     public $components = array('Session');
     public $layout = 'vivavinto';
     
@@ -33,7 +33,12 @@ class CategoriasController extends AppController
                 $this->Session->setFlash('No se pudo registrar la Categoria'); 
             }
             
-        }       
+        } 
+      $dclase = $this->Clase->find('list',array('fields'=>'Clase.nombre'));
+      $dproductos = $this->Producto->find('list',array('fields'=>'Producto.nombre'));
+      $dinsumo= $this->Insumo->find('list',array('fields'=>'Insumo.nombre'));
+      $dtipo = array('Comida' => 'Comida', 'Bebidas' => 'Bebidas');
+      $this->set(compact('dct','dtipo','dproductos','dinsumo','dclase'));    
         
     }
 

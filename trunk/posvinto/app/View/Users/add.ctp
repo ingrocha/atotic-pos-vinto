@@ -35,7 +35,7 @@
                         </div> 
                         <label for="formA04">Password:</label>
                         <div class="controls controls-row">
-                            <?php echo $this->Form->text('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556', 'required')); ?>                                                           
+                            <?php echo $this->Form->password('password', array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556', 'required')); ?>                                                           
                         </div>                       
 
                         <label for="accountAddressState" class="control-label">Perfil <span class="required">*</span> </label>

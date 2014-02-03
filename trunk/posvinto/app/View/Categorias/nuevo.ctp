@@ -13,23 +13,23 @@
                 </div>
                 <div class="span10 well well-nice">
                     <fieldset>
-                        <legend>Formulario <small>NUEVA CATEGORIA</small></legend>
-                        <label for="formA04">Nombre:</label>                            
-                        <?php echo $this->Form->text('nombre', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese el nombre Ej.: Chicharrones', 'required', 'title'=>'Este campo Necesario')); ?>
+                        <legend>Formulario <small>INSERTAR NUEVA CATEGORIA</small></legend>
+                        <label for="formA04">Seleccione el Tipo de Menu:</label>                            
+                        <?php echo $this->Form->select('clase_id',$dclase); ?>
                         <!-- // form item -->
-                        <label for="formA04">Descripci&oacute;n y Estado(Alta o baja):</label>
+                        <label for="formA04">Inserte el Nombre:</label>
                         <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->textarea('descripcion', array('class' => 'span3', 'placeholder' => 'Escriba una descripcion')); ?>
-                            <?php $estados = array('0'=>'Baja', '1'=>'Alta') ?>
-                            <?php echo $this->Form->select('estado', $estados, array('class' => 'span3', 'placeholder' => 'Seleccione estado', 'required')); ?>                                
+                            <?php echo $this->Form->text('nombre', array('class' => 'span3', 'placeholder' => 'Inserte un Nombre')); ?>
                         </div>
-                        <!-- // form item -->
-                        <?php $tipos = array(
-                        'Comida'=>'Comida', 
-                        'Bebidas'=>'Bebida'); ?>
-                        <label for="accountAddressState" class="control-label">Tipo (Comidas o bebidas)<span class="required">*</span></label>
-                        <?php echo $this->Form->select('tipo', $tipos, array('class' => 'span3', 'placeholder' => 'Seleccione tipo', 'required')); ?>                        <!-- // form item -->
-
+                        <label for="formA04">Inserte la Descripcion:</label>
+                        <div class="controls controls-row">                                                               
+                            <?php echo $this->Form->text('descripcion', array('class' => 'span3', 'placeholder' => 'Inserte un Nombre')); ?>
+                        </div>
+                        <label for="formA04">Inserte el Tipo:</label>
+                        <div class="controls controls-row">                                                               
+                            <?php echo $this->Form->select('tipo',$dtipo, array('class' => 'span3', 'placeholder' => 'Inserte un Nombre')); ?>
+                        </div>
+                        
                         <button class="btn btn-green" type="submit">Guardar Categoria</button>
                         </form>
                     </fieldset>
