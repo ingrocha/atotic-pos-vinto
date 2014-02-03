@@ -1540,7 +1540,7 @@ class PedidosController extends AppController
         $contenido = $contenido."-------------------------------";
         $bebida = $bebida."-------------------------------";
         
-        
+        $ip_impresora = 'LABWARE1-PC\print';
         if($swbebidas)
         {
             $directorio3 = WWW_ROOT . 'bar' .DS .$idPedido . '.txt';
@@ -1551,7 +1551,7 @@ class PedidosController extends AppController
             $fp3=fopen(WWW_ROOT . 'bar' . DS . $idPedido . '.txt',"x");
             fwrite($fp3,$bebida);
             fclose($fp3) ;
-            exec('print /d:\\\\LABWARE1-PC\print '.$directorio3); 
+            exec("print /d:\\\\$ip_impresora ".$directorio3); 
         }
         if($swcomida)
         {
@@ -1564,7 +1564,7 @@ class PedidosController extends AppController
             $fp=fopen(WWW_ROOT . 'cocina' . DS . $idPedido . '.txt',"x");
             fwrite($fp,$contenido);
             fclose($fp) ;
-            exec('print /d:\\\\LABWARE1-PC\print '.$directorio); 
+            exec("print /d:\\\\$ip_impresora ".$directorio); 
         }
         $directorio2 = WWW_ROOT . 'pedidos' .DS . $idPedido . '.txt';
         if (file_exists($directorio2)) {
@@ -1573,7 +1573,7 @@ class PedidosController extends AppController
         $fp2=fopen(WWW_ROOT . 'pedidos' . DS . $idPedido . '.txt',"x");
         fwrite($fp2,$contenido_pedido);
         fclose($fp2) ;
-        exec('print /d:\\\\LABWARE1-PC\print '.$directorio2);   
+        exec("print /d:\\\\$ip_impresora ".$directorio2);   
         //exec('print /d:\\\\192.168.0.102\\demo '.WWW_ROOT . 'cocina' . DS . $idPedido . '.txt');
         //exec('print /d:\\\\192.168.0.101\\demo d:\\texto.txt');
         //debug(WWW_ROOT . 'cocina' . DS . $idPedido . '.txt');exit;
