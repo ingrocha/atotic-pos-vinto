@@ -1440,7 +1440,6 @@ class PedidosController extends AppController
     }
     public function confirmarpedido($idPedido = null, $id_moso = null)
     {
-
         //debug($id_moso);exit;
         $total = 0.00;
         $items = $this->Item->find('all', array('recursive' => 2, 'conditions' => array('Item.pedido_id' => $idPedido)));
@@ -1506,7 +1505,6 @@ class PedidosController extends AppController
             
             $contenido_pedido = $contenido_pedido.$it['Producto']['nombre'].'_______'.$it['Item']['precio'].' Bs'.PHP_EOL;
             $total = $total + $it['Item']['precio'];
-            
             $observaciones = $this->Pedidosobservacione->find('all',array('recursive' => 0
             ,'conditions' => array('Pedidosobservacione.item_id' => $it['Item']['id'],
             'Pedidosobservacione.pedido_id' => $idPedido
@@ -1555,7 +1553,6 @@ class PedidosController extends AppController
             fclose($fp3) ;
             exec('print /d:\\\\LABWARE1-PC\print '.$directorio3); 
         }
-        
         if($swcomida)
         {
             $directorio = WWW_ROOT . 'cocina' .DS .$idPedido . '.txt';
@@ -1569,10 +1566,7 @@ class PedidosController extends AppController
             fclose($fp) ;
             exec('print /d:\\\\LABWARE1-PC\print '.$directorio); 
         }
-        
-        
         $directorio2 = WWW_ROOT . 'pedidos' .DS . $idPedido . '.txt';
-
         if (file_exists($directorio2)) {
             unlink($directorio2);
         }
