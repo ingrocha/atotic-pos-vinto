@@ -1,12 +1,12 @@
 <?php
-
+App::import('Vendor', 'CodigoControl', array('file' => 'CodigoControl.php'));
 class ControlpedidosController extends AppController
 {
 
     public $helpers = array('Form', 'Html');
     public $components = array(
         'Session',
-        'Codigocontrol',
+        //'Codigocontrol',
         'Montoliteral',
         'Fechasconvert'
         );
@@ -18,6 +18,7 @@ class ControlpedidosController extends AppController
         'Factura',
         'Sucursal',
         'Descuento',
+        'Mesa',
         'Recibo',
         'Cliente',
         'User');
@@ -30,7 +31,7 @@ class ControlpedidosController extends AppController
         $fecha = date('Y-m-d') . " %";
         $data= $this->Pedido->find('all', array('conditions' => array('Pedido.fecha LIKE' => $fecha),
             'order' => array('Pedido.id' => 'desc')));    
-    
+        //debug($data);exit;
         $this->set(compact('data'));
     }
     public function ajaxnombre($nit=null){
@@ -77,9 +78,15 @@ class ControlpedidosController extends AppController
             $this->Cliente->save($this->request->data);
         }
         
-        $data = array('id'=>$id_pedido, 'estado'=>4,'monto'=>$montoTotal);
+        $data = array('id' => $id_pedido, 'estado'=>4,'monto'=>$montoTotal);
         $this->Pedido->save($data);
-        
+        $mesas = $this->Mesa->find('all', array('conditions' => array('Mesa.pedido_id' =>
+                    $id_pedido)));
+        foreach ($mesas as $m) {
+            $this->Mesa->id = $m['Mesa']['id'];
+            $this->request->data['Mesa']['pedido_id'] = null;
+            $this->Mesa->save($this->request->data['Mesa']);
+        }
         
 
         $pedido = $this->Pedido->find('all', array('recursive' => -1, 'conditions' =>
@@ -119,11 +126,13 @@ class ControlpedidosController extends AppController
                 //$nitcliente = $nitcliente
                 //$autoriza = $pf['Parametrosfactura']['numero_aurorizacion'];
                 //autorizacion, factura, nit, fecha, monto, llave
-                $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
-                $codigo = $this->Codigocontrol->generar();
+                //$this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
+                $nuevocodigo = new CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
+                
+                $codigo = $nuevocodigo->generar();
                 //$this->Factura->id = $nfactura;
                 //$this->request->data[''];
-                //debug($codigo);
+                //debug($codigo);exit;
             }
             //debug($this->data);
             //if($this)
@@ -802,15 +811,28 @@ class ControlpedidosController extends AppController
             $this->request->data['Factura']['fecha'] = $fecha;
             if ($this->Factura->save($this->data))
             {
-                $data = array('id' => $idpedido, 'estado' => 3);
+                $data = array('id' => $idpedido, 'estado' => 3,'monto' => $total);
+                
                 $this->Pedido->save($data);
+                
+                $mesas = $this->Mesa->find('all', array('conditions' => array('Mesa.pedido_id' => $idpedido)));
+                foreach ($mesas as $m) {
+                    $this->Mesa->id = $m['Mesa']['id'];
+                    $this->request->data['Mesa']['pedido_id'] = null;
+                    $this->Mesa->save($this->request->data['Mesa']);
+                }
+                
+                
                 $factura = $this->Factura->find('first', array('order' => array('Factura.id DESC')));
                 $idfactura = $factura['Factura']['id'];
                 $llave = $datosfactura['Parametrosfactura']['llave'];
                 $nueva_fecha = ereg_replace("[-]", "", $fecha);
                 $rtotal = round($total);
                 //echo $autoriza.' - '.$idfactura.' - '.$nitcliente.' - '.$nueva_fecha.' - '.$total_redondeado.' - '.$llave;exit;
-                $this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
+                $nuevocodigo = new CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
+                
+                $codigo = $nuevocodigo->generar();
+                //$this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
                 
                 //autorizacion, factura, nit, fecha, monto, llave
                 /*debug($autoriza);
@@ -819,7 +841,7 @@ class ControlpedidosController extends AppController
                 debug($nueva_fecha);
                 debug($rtotal);
                 debug($llave);*/
-                $codigo = $this->Codigocontrol->generar();
+                //$codigo = $this->Codigocontrol->generar();
                 //debug($codigo);exit;
                 $this->Factura->id = $idfactura;
                 $this->Factura->read();
