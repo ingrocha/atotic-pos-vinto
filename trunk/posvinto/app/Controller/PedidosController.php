@@ -1694,7 +1694,8 @@ class PedidosController extends AppController
     public function imprime()
     {
         //exec('print /d:\\\\192.168.0.102\\print d:\\texto.txt');\\LABWARE1-PC\print
-        exec('print /d:\\\\LABWARE1-PC\print d:\\texto.txt');           
+        $ip_impresora = 'LABWARE1-PC\print';
+        exec("print /d:\\\\$ip_impresora d:\\texto.txt");           
     }
 }
 
