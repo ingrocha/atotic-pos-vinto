@@ -1574,6 +1574,10 @@ class PedidosController extends AppController
         fwrite($fp2,$contenido_pedido);
         fclose($fp2) ;
         exec("print /d:\\\\$ip_impresora ".$directorio2);   
+        $this->Pedido->create();
+        $this->request->data['Pedido']['id'] = $idPedido;
+        $this->request->data['Pedido']['total'] = $total;
+        $this->Pedido->save($this->request->data['Pedido']);
         //exec('print /d:\\\\192.168.0.102\\demo '.WWW_ROOT . 'cocina' . DS . $idPedido . '.txt');
         //exec('print /d:\\\\192.168.0.101\\demo d:\\texto.txt');
         //debug(WWW_ROOT . 'cocina' . DS . $idPedido . '.txt');exit;
