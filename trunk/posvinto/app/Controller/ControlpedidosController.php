@@ -69,15 +69,13 @@ class ControlpedidosController extends AppController
         $pf = $this->Parametrosfactura->find('first', array('order'=>array('Parametrosfactura.id DESC')));
         
         $this->request->data='';
-        
         if(!$existe){
-            $this->request->data['Cliente']['nombre']= $nombre;
-            $this->request->data['Cliente']['nombrenit']=$nombre;
+            $this->request->data['Cliente']['nombre']= $cliente;
+            $this->request->data['Cliente']['nombrenit']=$cliente;
             $this->request->data['Cliente']['nit']=$nit;
             $this->Cliente->create();
             $this->Cliente->save($this->request->data);
         }
-        
         $data = array('id' => $id_pedido, 'estado'=>4,'monto'=>$montoTotal);
         $this->Pedido->save($data);
         $mesas = $this->Mesa->find('all', array('conditions' => array('Mesa.pedido_id' =>

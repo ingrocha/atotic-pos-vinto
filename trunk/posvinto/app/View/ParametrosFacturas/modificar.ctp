@@ -5,7 +5,7 @@
         <div id="page-content" class="page-content">
         <section>            
             <div class="row-fluid"> 
-            	<?php echo $this->Form->create('ParametrosFactura'); ?>
+            	<?php echo $this->Form->create('Parametrosfactura'); ?>
              <div class="page-header">
              <h3><i class="fontello-icon-article-alt opaci35"></i>Editar <small>par&aacute;metros factura</small></h3>
              </div>
