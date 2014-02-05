@@ -3,7 +3,7 @@ class ParametrosfacturasController extends AppController
 {
     public $same ='Parametrosfacturas';
     public $uses =array('Parametrosfactura');
-   public $layout = 'pizza';
+   public $layout = 'vivavinto';
 
     public function beforeFilter()
     {
@@ -22,7 +22,7 @@ class ParametrosfacturasController extends AppController
                 $this->Parametrosfactura->create();
                     if($this->Parametrosfactura->save($this->data))
                         {
-                            $this->Session->setFlash('El Parametro factura fue Registrado con Exito', 'msgbueno');
+                            $this->Session->setFlash('El Parametro factura fue Registrado con Exito', 'alerts/bueno');
                             $this->redirect(array('action'=>'index'));
                         }
                     else
@@ -47,7 +47,7 @@ class ParametrosfacturasController extends AppController
                 {
                     if($this->Parametrosfactura->save($this->data))
                     {
-                        $this->Session->setFlash('Los datos fueron modificados', 'msgbueno');
+                        $this->Session->setFlash('Los datos fueron modificados', 'alerts/bueno');
                         $this->redirect(array('action'=>'index'));
                     }
                     else

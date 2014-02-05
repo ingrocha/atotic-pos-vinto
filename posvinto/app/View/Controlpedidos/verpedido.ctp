@@ -130,7 +130,7 @@
                             </label>
                                 <select id="descuento" name="data[Recibo][descuento]">
                                     <option selected="selected" value="0">Sin descuento</option>
-                                        <?php foreach($descuentos as $descuento): ?>
+                                    <?php foreach($descuentos as $descuento): ?>
                                     <option value="<?php echo $descuento['Descuento']['porcentaje'] ?>">
                                         <?php echo $descuento['Descuento']['observacion'] ?>
                                     </option>
@@ -219,7 +219,6 @@
                             }
                             console.log(cambio);
                             $("#montoCambio").val(cambio);
-                            
                         });
                         
                         
