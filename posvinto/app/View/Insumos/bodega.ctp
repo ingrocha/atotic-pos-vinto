@@ -56,12 +56,12 @@
 
                             </thead>
                             <tbody>
-
+                                <?php $i=1;?>
                                 <?php foreach ($bodega as $b): ?>
                                     <?php $id = $b['Insumo']['id']; ?>
                                     <tr>
                                         <td>                                             
-                                            <?php echo $id; ?>
+                                            <?php echo $i=1;$i++; ?>
                                         </td> 
                                         <td>           
                                             <?php echo $b['Insumo']['nombre']; ?>
