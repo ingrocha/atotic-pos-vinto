@@ -31,7 +31,7 @@
 								<thead>
 									<tr>
 										<th scope="col">
-											Nombre
+											Nro.
 											<span class="column-sorter">
 											</span>
 										</th>
@@ -59,11 +59,12 @@
 									</tr>
 								</thead>
 								<tbody>
+                                    <?php $i=1; ?>
 									<?php foreach ($prod as $p): ?>
 										<?php $id=$p['Producto'][ 'id']; ?>
 											<tr>
 												<td>
-													<?php echo $id ?>
+													<?php echo $i; $i++; ?>
 												</td>
 												<td>
 													<?php echo $p[ 'Producto'][ 'nombre']; ?>
