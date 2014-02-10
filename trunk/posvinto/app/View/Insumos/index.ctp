@@ -90,7 +90,16 @@ $cantidadAlmacen = new Almacen();
 
                                             <?php //echo $this->Html->link($this->Html->image("elim.png"), array('controller' => 'insumos', 'action' => 'eliminar', $idInsumo), array('escape' => false), "Esta seguro de eliminar el insumo?");?>
                                             
-                                            <?php echo $this->Html->image("elim.png", array("title" => "Eliminar Insumo",'url' => array('action' => 'deshabilitar', $idInsumo)));?>            
+                                            <?php //echo $this->Html->image("elim.png", array("title" => "Eliminar Insumo",'url' => array('action' => 'deshabilitar', $idInsumo)));?>            
+                                            
+                                            <?php if ($i['Insumo']['estado'] == 1):
+                                                            echo $this->Html->image("habilitar.png", array("title" => "Habilitar",
+                                                                            'url' => array('action' => 'deshabilitar', $idInsumo)));
+                                                            else: 
+                                                            echo $this->Html->image("desabilitar.png", array("title" => "Deshabilitar",
+                                                                            'url' => array('action' => 'habilitar', $idInsumo)));
+                                                    endif; ?>
+                                                    
                                             <script type="text/javascript">
                                                 $(document).ready(function(){
                                                     
