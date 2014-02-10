@@ -35,7 +35,7 @@ class InsumosController extends AppController
         /*$dinsumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
         array('Almacen.id' => $ids)));*/
        
-        $insumos = $this->Insumo->find('all', array('order' => 'Insumo.id DESC','limit' => 100));
+        $insumos = $this->Insumo->find('all', array('order' => 'Insumo.id DESC','limit' => 300));
         $this->set(compact('insumos'));
         //debug($insumos);exit;
     }
@@ -673,9 +673,19 @@ class InsumosController extends AppController
 
         $this->Insumo->id = $id;
         $this->request->data['Insumo']['estado'] = 0;
-        if ($this->Insumo->save($this->data))
+        if ($this->Insumo->save($this->request->data))
         {
-            $this->Session->setFlash('Se borro el insumo');
+            $this->Session->setFlash('Se deshabilito','alerts/bueno');
+            $this->redirect(array('action' => 'index'));
+        }
+    }
+    public function habilitar($id = null)
+    {
+       $this->Insumo->id = $id;
+        $this->request->data['Insumo']['estado'] = 1;
+        if ($this->Insumo->save($this->request->data))
+        {
+            $this->Session->setFlash('Se Habilito', 'alerts/bueno');
             $this->redirect(array('action' => 'index'));
         }
     }
