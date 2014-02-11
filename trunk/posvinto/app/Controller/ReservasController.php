@@ -152,22 +152,23 @@ class ReservasController extends AppController
      */
     public function delete($id = null)
     {
-        if (!$this->request->is('post'))
-        {
-            throw new MethodNotAllowedException();
-        }
         $this->Reserva->id = $id;
-        if (!$this->Reserva->exists())
+        $this->request->data = $this->Reserva->read();
+        if (!$id)
         {
-            throw new NotFoundException(__('Invalid reserva'));
-        }
-        if ($this->Reserva->delete())
-        {
-            $this->Session->setFlash(__('Reserva deleted'));
+            $this->Session->setFlash('No existe la Reserva a Eliminar');
             $this->redirect(array('action' => 'index'));
+        } else
+        {
+            if ($this->Reserva->delete($id))
+            {
+                $this->Session->setFlash('Se elimino la Reserva ','alerts/bueno');
+                $this->redirect(array('action' => 'index'));
+            } else
+            {
+                $this->Session->setFlash('Error al eliminar');
+            }
         }
-        $this->Session->setFlash(__('Reserva was not deleted'));
-        $this->redirect(array('action' => 'index'));
     }
 
 }
