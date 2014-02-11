@@ -331,11 +331,12 @@
                             </th>
                             </thead>
                             <tbody>
+                                <?php $i=1;?>
                                 <?php foreach ($reservas as $r): ?>
                                     <?php $id = $r['Reserva']['id']; ?>
                                     <tr>
                                         <td>
-                                            <?php echo $id ?>
+                                            <?php echo $i=1;$i++; ?>
                                         </td>
                                         <td>
                                             <?php echo $r['Cliente']['nombre']; ?>
