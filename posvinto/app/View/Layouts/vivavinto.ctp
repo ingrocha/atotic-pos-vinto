@@ -85,11 +85,11 @@ $modeloAmbiente = new Ambiente();
                                         <li><?php echo $this->Html->link('INICIO', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('USUARIOS', array('controller' => 'Users', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('CLIENTES', array('controller' => 'Clientes', 'action' => 'index')) ?></li>
+                                        <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Reservas', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('PEDIDOS', array('controller' => 'controlpedidos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('MENU', array('controller' => 'Productos', 'action' => 'productosmenu')) ?></li>
                                         <li><?php echo $this->Html->link('BODEGA', array('controller' => 'Insumos', 'action' => 'Bodega')) ?></li>
                                         <li><?php echo $this->Html->link('ALMACEN', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
-                                        <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Reservas', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('REPORTES', array('controller' => 'Graficos', 'action' => 'genera')) ?></li>
                                         <li><?php echo $this->Html->link('CONFIGURACIONES', array('controller' => 'Configuraciones', 'action' => 'index')) ?></li>
                                         <!--<li><?php //echo $this->Html->link('MESAS', array('controller' => 'Mesas', 'action' => 'index')) ?></li>-->
