@@ -29,7 +29,7 @@
             <ul class="nav nav-list">
             <li><?php echo $this->Html->image('iconos/edit.png')?>&nbsp;&nbsp;&nbsp;Edita al Usuario</li>
             <li><?php echo $this->Html->image('iconos/elim.png')?>&nbsp;&nbsp;&nbsp;Elimina al Usuario</li>
-            <li><?php echo $this->Html->image('iconos/candado.png')?>&nbsp;&nbsp;&nbsp;Cambia el Password</li>
+            <li><?php echo $this->Html->image('iconos/pass.png')?>&nbsp;&nbsp;&nbsp;Cambia el Password</li>
             </ul>
         </li>
         <!-- // item accordionMenu Dashboard -->
