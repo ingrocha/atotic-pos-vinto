@@ -1699,7 +1699,7 @@ class PedidosController extends AppController
     {
         //exec('print /d:\\\\192.168.0.102\\print d:\\texto.txt');\\LABWARE1-PC\print
         //$ip_impresora = 'LABWARE1-PC\print';
-        exec('print /d:\\\\192.168.106\caja d:\\prueba.txt');
+        exec('print /d:\\192.168.106\caja d:\\prueba.txt');
         //exec("print /d:\\\\$ip_impresora d:\\texto.txt");           
     }
 }
