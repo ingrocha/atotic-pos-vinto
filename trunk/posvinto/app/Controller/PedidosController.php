@@ -1540,31 +1540,32 @@ class PedidosController extends AppController
         $contenido = $contenido."-------------------------------";
         $bebida = $bebida."-------------------------------";
         
-        $ip_impresora = 'LABWARE1-PC\print';
+        $ip_impresoraCaja = '192.168.0.106\\caja';
+        $ip_impresoraCocina = '192.168.0.102\\cocina';
         if($swbebidas)
         {
-            $directorio3 = WWW_ROOT . 'bar' .DS .$idPedido . '.txt';
+            $directorio3 = WWW_ROOT . 'caja' .DS .$idPedido . '.txt';
             //debug($directorio);
             if (file_exists($directorio3)) {
                 unlink($directorio3);
             }
-            $fp3=fopen(WWW_ROOT . 'bar' . DS . $idPedido . '.txt',"x");
+            $fp3=fopen(WWW_ROOT . 'caja' . DS . $idPedido . '.txt',"x");
             fwrite($fp3,$bebida);
             fclose($fp3) ;
-            exec("print /d:\\\\$ip_impresora ".$directorio3); 
+            exec("print /d:\\\\$ip_impresoraCaja ".$directorio3); 
         }
         if($swcomida)
         {
-            $directorio = WWW_ROOT . 'cocina' .DS .$idPedido . '.txt';
+            $directorio = WWW_ROOT . 'caja' .DS .$idPedido . '.txt';
             //debug($directorio);exit;
             if (file_exists($directorio)) {
                 //debug('Si existe');exit;
                 unlink($directorio);
             }
-            $fp=fopen(WWW_ROOT . 'cocina' . DS . $idPedido . '.txt',"x");
+            $fp=fopen(WWW_ROOT . 'caja' . DS . $idPedido . '.txt',"x");
             fwrite($fp,$contenido);
             fclose($fp) ;
-            exec("print /d:\\\\$ip_impresora ".$directorio); 
+            exec("print /d:\\\\$ip_impresoraCocina ".$directorio); 
         }
         $directorio2 = WWW_ROOT . 'pedidos' .DS . $idPedido . '.txt';
         if (file_exists($directorio2)) {
@@ -1573,7 +1574,7 @@ class PedidosController extends AppController
         $fp2=fopen(WWW_ROOT . 'pedidos' . DS . $idPedido . '.txt',"x");
         fwrite($fp2,$contenido_pedido);
         fclose($fp2) ;
-        exec("print /d:\\\\$ip_impresora ".$directorio2);   
+        exec("print /d:\\\\$ip_impresoraCaja ".$directorio2);   
         $this->Pedido->create();
         $this->request->data['Pedido']['id'] = $idPedido;
         $this->request->data['Pedido']['total'] = $total;
@@ -1697,10 +1698,14 @@ class PedidosController extends AppController
     }
     public function imprime()
     {
-        //exec('print /d:\\\\192.168.0.102\\print d:\\texto.txt');\\LABWARE1-PC\print
-        //$ip_impresora = 'LABWARE1-PC\print';
-        exec('print /d:\\\\192.168.106\\caja d:\\prueba.txt');
-        //exec("print /d:\\\\$ip_impresora d:\\texto.txt");           
+        $ip_impresoraCaja = '192.168.0.106\\caja';
+        $ip_impresoraCocina = '192.168.0.102\\cocina';
+        exec("print /d:\\\\$ip_impresoraCaja  d:\\prueba.txt"); 
+        
+       // $ip_impresoraCaja = '192.168.0.102\\cocina';
+       // exec("print /d:\\\\$ip_impresoraCaja d:\\prueba.txt");
+        
+                  
     }
 }
 
