@@ -1475,7 +1475,7 @@ class PedidosController extends AppController
         }
          
         $contenido_pedido = $contenido_pedido.'------------------------------'.PHP_EOL;
-        $contenido_pedido = $contenido_pedido.'--------DETALLE---------'.PHP_EOL;
+        //$contenido_pedido = $contenido_pedido.'--------DETALLE---------'.PHP_EOL;
         
         $contenido = $contenido.'------------------------------'.PHP_EOL;
         $contenido = $contenido.'--------DETALLE---------'.PHP_EOL;
@@ -1489,7 +1489,7 @@ class PedidosController extends AppController
             $this->Item->save($this->request->data['Item']);
             
             
-            $contenido_pedido = $contenido_pedido.$it['Producto']['nombre'].'_______'.$it['Item']['precio'].' Bs'.PHP_EOL;
+            //$contenido_pedido = $contenido_pedido.$it['Producto']['nombre'].'_______'.$it['Item']['precio'].' Bs'.PHP_EOL;
             $total = $total + $it['Item']['precio'];
             $observaciones = $this->Pedidosobservacione->find('all',array('recursive' => 0
             ,'conditions' => array('Pedidosobservacione.item_id' => $it['Item']['id'],
@@ -1516,7 +1516,7 @@ class PedidosController extends AppController
                         $bebida = $bebida."\t - ".$ob['Productosobservacione']['observacion'].PHP_EOL;
                     }
                     
-                    $contenido_pedido = $contenido_pedido."\t - ".$ob['Productosobservacione']['observacion'].PHP_EOL;
+                    //$contenido_pedido = $contenido_pedido."\t - ".$ob['Productosobservacione']['observacion'].PHP_EOL;
                 }
             }  
         }
@@ -1529,13 +1529,13 @@ class PedidosController extends AppController
         $ip_impresoraCocina = '192.168.0.102\\cocina';
         if($swbebidas)
         {
-            $directorio3 = WWW_ROOT . 'caja' .DS .$idPedido . '.txt';
+            $directorio3 = WWW_ROOT . 'var' .DS .$idPedido . '.txt';
             //$directorio3 = explode('', $directorio3);
             //debug($directorio3);exit;
             if (file_exists($directorio3)) {
                 unlink($directorio3);
             }
-            $fp3=fopen(WWW_ROOT . 'caja' . DS . $idPedido . '.txt',"x");
+            $fp3=fopen(WWW_ROOT . 'bar' . DS . $idPedido . '.txt',"x");
             fwrite($fp3,$bebida);
             fclose($fp3) ;
             exec("print /d:\\\\$ip_impresoraCaja ".$directorio3); 
