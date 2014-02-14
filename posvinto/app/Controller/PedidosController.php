@@ -1390,7 +1390,6 @@ class PedidosController extends AppController
     public function guardaobservacion($idProducto = null, $idPedido = null, $idItem = null)
     {
         $this->layout = 'ajax';
-
         $observaciones = $this->Productosobservacione->find('all', array('recursive' =>
                 -1, 'conditions' => array('Productosobservacione.producto_id' => $idProducto)));
         $i = 0;
@@ -1411,7 +1410,6 @@ class PedidosController extends AppController
                     $this->request->data['Pedidosobservacione']['productosobservacione_id'] = $ob['Productosobservacione']['id'];
                     $this->Pedidosobservacione->save($this->request->data['Pedidosobservacione']);
                 }
-
                 //$aux = $aux.', '.$nombre;
             } else {
                 $comprueba = $this->Pedidosobservacione->find('first', array('recursive' => -1,
@@ -1423,20 +1421,8 @@ class PedidosController extends AppController
                 if (!empty($comprueba)) {
                     $this->Pedidosobservacione->delete($comprueba['Pedidosobservacione']['id']);
                 }
-
             }
         }
-        //debug($aux);exit;
-        //$producto = $this->Producto->find('first',array('recursive' => -1,'conditions' => array('Producto.id' => $idProducto)));
-        //$observacion = 'Un '.$producto['Producto']['nombre'].' '.$aux;
-        //$pedido = $this->Pedido->find('first',array('recursive'=>-1,'conditions' => array('Pedido.id' => $idPedido)));
-
-        //$this->Pedido->id = $idPedido;
-        //$this->request->data['Pedido']['observaciones'] = $pedido['Pedido']['observaciones'].' - '.$observacion;
-        //$this->Pedido->save($this->request->data['Pedido']);
-        //debug($producto);exit;
-
-
     }
     public function confirmarpedido($idPedido = null, $id_moso = null)
     {
@@ -1532,7 +1518,6 @@ class PedidosController extends AppController
                     
                     $contenido_pedido = $contenido_pedido."\t - ".$ob['Productosobservacione']['observacion'].PHP_EOL;
                 }
-                
             }  
         }
         $contenido_pedido = $contenido_pedido."TOTAL____".$total."_Bs".PHP_EOL;
@@ -1544,13 +1529,13 @@ class PedidosController extends AppController
         $ip_impresoraCocina = '192.168.0.102\\cocina';
         if($swbebidas)
         {
-            $directorio3 = WWW_ROOT . 'bar' .DS .$idPedido . '.txt';
+            $directorio3 = WWW_ROOT . 'caja' .DS .$idPedido . '.txt';
             //$directorio3 = explode('', $directorio3);
             //debug($directorio3);exit;
             if (file_exists($directorio3)) {
                 unlink($directorio3);
             }
-            $fp3=fopen(WWW_ROOT . 'bar' . DS . $idPedido . '.txt',"x");
+            $fp3=fopen(WWW_ROOT . 'caja' . DS . $idPedido . '.txt',"x");
             fwrite($fp3,$bebida);
             fclose($fp3) ;
             exec("print /d:\\\\$ip_impresoraCaja ".$directorio3); 
@@ -1701,8 +1686,7 @@ class PedidosController extends AppController
     {
         $ip_impresoraCaja = '192.168.0.106\\caja';
         $ip_impresoraCocina = '192.168.0.102\\cocina';
-        exec("print /d:\\\\192.168.0.102\\cocina d:\\xampp\\htdocs\\posvinto\\posvinto\\app\\webroot\\cocina\\prueba.txt"); 
-        //exec("print /d:\\\\$ip_impresoraCaja  d:\\prueba.txt"); 
+        exec("print /d:\\\\$ip_impresoraCaja  d:\\prueba.txt"); 
         
        // $ip_impresoraCaja = '192.168.0.102\\cocina';
        // exec("print /d:\\\\$ip_impresoraCaja d:\\prueba.txt");
