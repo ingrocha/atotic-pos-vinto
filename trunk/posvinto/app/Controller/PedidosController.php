@@ -1701,7 +1701,8 @@ class PedidosController extends AppController
     {
         $ip_impresoraCaja = '192.168.0.106\\caja';
         $ip_impresoraCocina = '192.168.0.102\\cocina';
-        exec("print /d:\\\\$ip_impresoraCaja  d:\\prueba.txt"); 
+        exec("print /d:\\\\192.168.0.102\\cocina d:\\xampp\\htdocs\\posvinto\\posvinto\\app\\webroot\\cocina\\prueba.txt"); 
+        //exec("print /d:\\\\$ip_impresoraCaja  d:\\prueba.txt"); 
         
        // $ip_impresoraCaja = '192.168.0.102\\cocina';
        // exec("print /d:\\\\$ip_impresoraCaja d:\\prueba.txt");
