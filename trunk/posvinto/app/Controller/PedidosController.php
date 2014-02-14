@@ -1520,7 +1520,7 @@ class PedidosController extends AppController
                 }
             }  
         }
-        $contenido_pedido = $contenido_pedido."TOTAL____".$total."_Bs".PHP_EOL;
+        //$contenido_pedido = $contenido_pedido."TOTAL____".$total."_Bs".PHP_EOL;
         
         $contenido = $contenido."-------------------------------";
         $bebida = $bebida."-------------------------------";
@@ -1529,7 +1529,7 @@ class PedidosController extends AppController
         $ip_impresoraCocina = '192.168.0.102\\cocina';
         if($swbebidas)
         {
-            $directorio3 = WWW_ROOT . 'var' .DS .$idPedido . '.txt';
+            $directorio3 = WWW_ROOT . 'bar' .DS .$idPedido . '.txt';
             //$directorio3 = explode('', $directorio3);
             //debug($directorio3);exit;
             if (file_exists($directorio3)) {
