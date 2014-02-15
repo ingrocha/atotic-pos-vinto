@@ -1529,13 +1529,13 @@ class PedidosController extends AppController
         $ip_impresoraCocina = '192.168.0.102\\cocina';
         if($swbebidas)
         {
-            $directorio3 = WWW_ROOT . 'bar' .DS .$idPedido . '.txt';
+            $directorio3 = WWW_ROOT . 'caja' .DS .$idPedido . '.txt';
             //$directorio3 = explode('', $directorio3);
             //debug($directorio3);exit;
             if (file_exists($directorio3)) {
                 unlink($directorio3);
             }
-            $fp3=fopen(WWW_ROOT . 'bar' . DS . $idPedido . '.txt',"x");
+            $fp3=fopen(WWW_ROOT . 'caja' . DS . $idPedido . '.txt',"x");
             fwrite($fp3,$bebida);
             fclose($fp3) ;
             exec("print /d:\\\\$ip_impresoraCaja ".$directorio3); 
@@ -1560,7 +1560,7 @@ class PedidosController extends AppController
         $fp2=fopen(WWW_ROOT . 'pedidos' . DS . $idPedido . '.txt',"x");
         fwrite($fp2,$contenido_pedido);
         fclose($fp2) ;
-        exec("print /d:\\\\$ip_impresoraCaja ".$directorio2);   
+        //exec("print /d:\\\\$ip_impresoraCaja ".$directorio2);   
         $this->Pedido->create();
         $this->request->data['Pedido']['id'] = $idPedido;
         $this->request->data['Pedido']['total'] = $total;
