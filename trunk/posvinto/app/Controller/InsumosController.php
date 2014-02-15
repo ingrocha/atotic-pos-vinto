@@ -35,7 +35,7 @@ class InsumosController extends AppController
         /*$dinsumos = $this->Almacen->find('all', array('recursive' => 2, 'conditions' =>
         array('Almacen.id' => $ids)));*/
        
-        $insumos = $this->Insumo->find('all', array('order' => 'Insumo.id DESC','limit' => 300));
+        $insumos = $this->Insumo->find('all', array('order' => 'Insumo.id DESC','limit' => 350));
         $this->set(compact('insumos'));
         //debug($insumos);exit;
     }

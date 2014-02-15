@@ -1,24 +1,35 @@
 <?php //debug($datos); ?>
 <div id="aImprimir">
 
-    <div style="text-align: center; width: 335px;">
-    <b>CENTRO ECOTURISTICO VIVA VINTO</b><br />
-    Av. Albina Pati&ntilde;o Km. 16 1/2<br />
-    Cochabamba - Bolivia
+    <div style="text-align: center; width: 380px;">
+    <span style="padding: 0 30px 0 2px; text-align: left; font-size: 16px;">
+    <b>OH COCHABAMBA QUERIDA</b></br>
+    <b>RESTAURANTE</b><br />
+    Av.Martin de la Rocha Nro.01531<br />
+    Zona Cala Cala </br>
+    telf: 4411943</br>
+    <b>Cochabamba - Bolivia</b>
+    </span>
     </div>
     <div class="linea">
         ..............................................................
     </div>     
-    <table class="tablafactura">
+    <table style="width: 355px;">
         <tr>
             <td style="font-weight: bold;">NIT</td>
             <td><?php echo $pf['Parametrosfactura']['nit'] ?></td>
-            <td style="font-weight: bold;">#Factura</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Factura:</td>
             <td><?php echo $nfactura; ?></td>
         </tr>
         <tr>
-            <td colspan="2" style="font-weight: bold;">#Autorizaci&oacute;n Nro.</td>
+            <td colspan="2" style="font-weight: bold;">Nro.Autorizaci&oacute;n:</td>
             <td colspan="2"><?php echo $pf['Parametrosfactura']['numero_autorizacion'] ?></td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Fecha:</td>
+            <td><?php echo $fecha; ?></td>
         </tr>
     </table>
     <div class="linea">
@@ -27,12 +38,6 @@
     <?php $fecha = date('Y-m-d'); ?>
     <?php $hora = date('H:m:i'); ?>
     <table class="tablafactura">
-        <tr>
-            <td style="font-weight: bold;">Fecha:</td>
-            <td><?php echo $fecha; ?></td>
-            <td style="font-weight: bold;">Hora:</td>
-            <td><?php echo $hora; ?></td>
-        </tr>
         <tr>
             <td  style="font-weight: bold;">Nombre: </td>
             <td colspan="3"><?php echo $cliente; ?></td>
@@ -47,7 +52,7 @@
     </div>
     <table class="imprimir-factura">
         <tr>
-            <th>Producto</th>
+            <th style="text-align: left;">Producto</th>
             <th>Cant.</th>
             <th>P/U</th>
             <th>P/Total</th>
@@ -57,20 +62,20 @@
                 <td>
                     <?php echo $i['Producto']['nombre']; ?>
                 </td>
-                <td class="cantidad">
+                <td style="text-align: center;">
                     <?php echo $i['Item']['cantidad']; ?>
                 </td>
-                <td>
+                <td style="text-align: center;">
                     <?php echo $i['Producto']['precio']; ?>
                 </td>
-                <td>
+                <td style="text-align: center;">
                     <?php echo $i['Producto']['precio'] * $i['Item']['cantidad'];; ?>
                 </td>
             </tr>
         <?php endforeach; ?>
         <tr>
-            <td colspan="3" style="text-align: right;">Importe total BS.</td>
-            <td><?php echo number_format($montoTotal, 2, '.', ','); ?></td>
+            <td colspan="3" style="text-align: right;">Importe total <strong>Bs.</strong></td>
+            <td><strong><?php echo number_format($montoTotal, 2, '.', ','); ?></strong></td>
         </tr>
         
     </table>
@@ -119,16 +124,20 @@
      
     <table style="width: 355px;">
        <tr>
-          <td colspan="2">SON:&nbsp;
-          <?php echo $totalliteral ?>&nbsp;CON&nbsp;<?php echo $monto[1] ?>/100</td>
+          <td colspan="2"><b>SON:</b>&nbsp;
+          <?php echo $totalliteral ?>&nbsp;con&nbsp;<?php echo $monto[1] ?>/100</td>
        </tr>
         <tr>
             <td style="font-weight: bold;">C&oacute;digo de control:</td>
             <td style="font-weight: bold; text-transform: uppercase;"><?php echo $codigo; ?></td>
         </tr>
         <tr>
-            <td>Fecha l&iacute;mite de emisi&oacute;n:</td>
+            <td><strong>Fecha l&iacute;mite de emisi&oacute;n:</strong></td>
             <td><?php echo $fechalimite ?></td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Hora:</td>
+            <td><?php echo $hora; ?></td>
         </tr>
     </table>
      <div class="linea">
