@@ -2,15 +2,30 @@
 <div id="aImprimir">
 
     <div style="text-align: center; width: 380px;">
-    <b>CENTRO ECOTUR&Iacute;STICO VIVA VINTO</b><br />
+    <span style="padding: 0 30px 0 2px; text-align: left; font-size: 19px;">
+    <b>OH COCHABAMBA QUERIDA</b></br>
+    <b>RESTAURANTE</b><br />
+    Av.Martin de la Rocha Nro.01531<br />
+    Zona Cala Cala </br>
+    telf: 4411943</br>
+    <b>Cochabamba - Bolivia</b>
+    </span>
      <div class="linea">
         ..............................................................
     </div>
-
-   
-    <div style="padding: 0 20px 0 0;">
-    <span style="padding: 0 30px 0 2px; text-align: left; font-size: 20px;"> MOZO: <?php echo $mozo ?></span>
-    &nbsp; MESA: <span style="font-size: 29px;"><?php echo $mesa ?></span></div>
+<div style="text-align: center; width: 380px;">
+    <table style="width: 355px;">
+        <tr>
+            <td style="font-weight: bold;">MOZO:</td>
+            <td><?php echo $mozo ?></td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">MESA:</td>
+            <td><?php echo $mesa ?></td>
+        </tr>
+       
+    </table>
+</div>
     </div>
     
     
@@ -21,40 +36,43 @@
    
     <?php $fecha = date('Y-m-d'); ?>
     <?php $hora = date('H:m:s'); ?>
-    <table class="tablafactura">
+    <table style="width: 355px;">
         <tr>
-            <td style="font-weight: bold;">Fecha:</td>
-            <td><?php echo $fecha; ?></td>
-            <td style="font-weight: bold;">Hora:</td>
-            <td><?php echo $hora; ?></td>
+            <td style="text-align: center;">Fecha:</td>
+            <td style="text-align: center;"><?php echo $fecha; ?></td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">Hora:</td>
+            <td style="text-align: center;"><?php echo $hora; ?></td>
         </tr>
        
     </table>
     <div class="linea">
         ..............................................................
     </div>
+    <span style="padding: 0 30px 0 2px; text-align: left; font-size: 20px;">
     <table class="imprimir-factura">
         <tr>
-            <th>Producto</th>
-            <th>Cant.</th>
-            <th>P/U</th>
-            <th>P/Total</th>
+            <th style="text-align: left; font-size: 18px;">Producto</th>
+            <th style="text-align: left; font-size: 18px;">Cant.</th>
+            <th style="text-align: left; font-size: 18px;">P/U</th>
+            <th style="text-align: left; font-size: 18px;">P/Total</th>
         </tr>
         
         <?php 
         $montoTotal=0;
         foreach ($productos_vector as $i): ?>
             <tr>
-                <td>
+                <td style="font-size: 18px;">
                     <?php echo $i['Producto']['nombre']; ?>
                 </td>
-                <td style="margin-right: 6px; padding-right: 18px; width: 6px; height: 14px; padding-left: 25px;">
+                <td style="text-align: center; font-size: 18px;">
                     <?php echo $i['Producto']['cantidad']; ?>
                 </td>
-                <td>
+                <td style="font-size: 18px;">
                     <?php echo $i['Producto']['precio']; ?>
                 </td>
-                <td>
+                <td style="font-size: 18px;">
                     <?php 
                     $precio = $i['Producto']['precio'] * $i['Producto']['cantidad'];
                     echo number_format($precio, 2, '.', ','); 
@@ -64,11 +82,12 @@
             </tr>
         <?php endforeach; ?>
         <tr>
-            <td colspan="3" style="text-align: right;">Importe total BS.</td>
+            <td colspan="3" style="text-align: right; font-size: 20px;">Importe total BS.</td>
             <td style="font-size: 20px; font-weight: bold;"><?php echo number_format($montoTotal, 2, '.', ','); ?></td>
         </tr>
         
     </table>
+    </span>
    
     <div class="linea">
         ..............................................................
@@ -77,22 +96,32 @@
      <div class="linea">
         ..............................................................
     </div>
-    <div style="width: 355px; font-size: 14px; text-align: center;">
-        "Exija su factura"
+    <div style="width: 355px; font-size: 18px; text-align: center;">
+        <b>"Exija su factura"</b>
     </div>
     <table>
+     <tr></tr>
+     <tr></tr>
+     <tr></tr>
+     <tr></tr>
+     <tr></tr>
      <tr>
-            <td  style="font-weight: bold;">Nombre: </td>
+       
+            <td  style="padding: 0 30px 0 2px; text-align: left; font-size: 20px;">Nombre: </td>
             <td colspan="3">
-            .........................
+            .................................
             </td>
-        </tr>
-        <tr>
-            <td  style="font-weight: bold; text-transform: uppercase;">NIT:</td>
+     </tr>
+     <tr></tr>
+     <tr></tr>
+     <tr></tr>
+     <tr></tr>
+     <tr>
+            <td  style="padding: 0 30px 0 2px; text-align: left; font-size: 20px;">NIT:</td>
             <td colspan="3">
-            .........................
+            .................................
             </td>
-        </tr>
+     </tr>
     </table>
 
 </div>
