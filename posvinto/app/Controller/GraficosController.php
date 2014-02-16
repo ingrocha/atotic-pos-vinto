@@ -55,8 +55,8 @@ class GraficosController extends AppController
         //debug($ventas);
     }
     public function formreporte(){
-       $this->set('mozos', $this->Usuario->find('list', array('conditions' => array('Usuario.perfile_id' =>
-                        2), 'fields' => array('Usuario.nombre'))));
+       $this->set('mozos', $this->User->find('list', array('conditions' => array('User.perfile_id' =>
+                        2), 'fields' => array('User.nombre'))));
     }
     function ventasfechas(){
         if (!empty($this->data)) {

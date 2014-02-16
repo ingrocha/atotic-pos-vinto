@@ -61,14 +61,14 @@ function popitup(url) {
     							<tr class="<?php echo $clase;?>">
 							   	 	<td><?php echo $data['Pedido']['id'];?></td>
                                     <td><h3><?php echo $data['Pedido']['mesa'];?></h3></td>
-    								<td><?php echo $data['Usuario']['nombre'];?></td>
+    								<td><?php echo $data['User']['nombre'];?></td>
     								<td><?php echo $data['Pedido']['total'];?></td>
                                     <?php
                                     $hora = split(' ', $data['Pedido']['fecha']);
                                     ?>
                                     <td><?php echo $hora[1];?></td>
     								<td>
-                                       <a href="http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/<?php echo $data['Pedido']['id']?>/<?php echo $data['Usuario']['nombre']?>" class="ico edit" onclick="return popitup('http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/'+'<?php echo $data['Pedido']['id']?>'+'/'+'<?php echo $data['Usuario']['nombre']?>')">ver cuenta</a>
+                                       <a href="http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/<?php echo $data['Pedido']['id']?>/<?php echo $data['User']['nombre']?>" class="ico edit" onclick="return popitup('http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/'+'<?php echo $data['Pedido']['id']?>'+'/'+'<?php echo $data['User']['nombre']?>')">ver cuenta</a>
                                        <?php //echo $this->Html->link('Facturar',array('controller' => 'controlpedidos', 'action' => 'facturar1', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
                                        <?php //echo $this->Html->link('Recibo',array('controller' => 'controlpedidos', 'action' => 'Recibo', $data['Pedido']['id']), array('class' => 'ico edit')); ?>
                                     </td>

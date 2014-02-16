@@ -6,11 +6,12 @@
 <div style="width: 210px; padding: 5px 10px 5px 10px; font-family: arial; font-size: 12px;" id="areaImprimir">
 	<div style="text-align: center;">
 		<!-- inicio cabecera -->
-		Restaurant Viva Vinto
+		OH COCHABAMBA QUERIDA
 		<br />
-		Av. Albina Pati&ntilde;o Km. 16 1/2
-		<br />
-		Telefono: (591)4261874 Fax 4355030
+		<b>RESTAURANTE</b><br />
+		Av.Martin de la Rocha Nro.01531<br />
+        Zona Cala Cala </br>
+        telf: 4411943</br>
 		<br />
 		Cochabamba - Bolivia<br /> 
         RECIBO

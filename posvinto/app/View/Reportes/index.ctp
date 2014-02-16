@@ -56,7 +56,7 @@ function popitup(url) {
     							<tr class="<?php echo $clase;?>">
 							   	 	<td><h3><?php echo $data['Pedido']['id'];?></h3></td>
     								<td><?php echo $data['Pedido']['mesa'];?></td>
-    								<td><?php echo $data['Usuario']['nombre'];?></td></td>
+    								<td><?php echo $data['User']['nombre'];?></td></td>
                                     <td><?php echo $data['Pedido']['fecha'];?></td></td>
                                     <td><?php echo $data['Pedido']['total'];?></td></td>
 							   	    <td>

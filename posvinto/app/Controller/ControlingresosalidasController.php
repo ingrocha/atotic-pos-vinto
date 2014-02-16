@@ -1,6 +1,6 @@
 <?php
 class ControlingresosalidasController extends AppController{
-    public $uses= array('Asistencia', 'Usuario', 'Retraso', 'Contrato');
+    public $uses= array('Asistencia', 'Usuario', 'Retraso', 'Contrato','User');
     public $helper = array('Html', 'Form', 'Ajax', 'Javascript');
     public $components = array('Manejofechas');
     public $layout = 'vivavinto';
@@ -11,9 +11,9 @@ class ControlingresosalidasController extends AppController{
         $this->set('datos', $data);
     }
     public function formbuscar(){
-        $mozos = $this->Usuario->find('list', array(
-        'conditions'=>array('Usuario.perfile_id'=>2), 
-        'fields'=>array('Usuario.id', 'Usuario.nombre')
+        $mozos = $this->User->find('list', array(
+        'conditions'=>array('User.perfile_id'=>2), 
+        'fields'=>array('User.id', 'User.nombre')
         ));
         $this->set(compact('mozos'));
     }

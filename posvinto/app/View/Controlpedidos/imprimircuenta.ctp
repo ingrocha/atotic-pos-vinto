@@ -1,5 +1,5 @@
 <?php //debug($datos); ?>
-<div id="aImprimir">
+<div style="width: 210px; padding: 5px 10px 5px 10px; font-family: arial; font-size: 12px;" id="areaImprimir">
 
     <div style="text-align: center; width: 380px;">
     <span style="padding: 0 30px 0 2px; text-align: left; font-size: 19px;">
