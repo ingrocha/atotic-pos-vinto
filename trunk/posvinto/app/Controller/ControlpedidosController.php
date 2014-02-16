@@ -424,7 +424,7 @@ class ControlpedidosController extends AppController
             $this->Factura->save($this->data);
             //debug($idfactura);exit;
             $idusuario = $this->Session->read('usuario_id');
-            $usuario = $this->Usuario->find('first', array('Usuario.id' => $idusuario));
+            $usuario = $this->User->find('first', array('User.id' => $idusuario));
             $idsucursal = $usuario['Sucursal']['id'];
             $sucursal = $this->Sucursal->findById($idsucursal);
             $fech = date("Y-m-d H:m:s");
@@ -521,7 +521,7 @@ class ControlpedidosController extends AppController
             $this->request->data['Factura']['codigo_control'] = $codigo;
             $this->Factura->save($this->data);
             $idusuario = $this->Session->read('Auth.User.id');
-            $usuario = $this->User->find('first', array('Usuario.id' => $idusuario));
+            $usuario = $this->User->find('first', array('User.id' => $idusuario));
             $idsucursal = $usuario['Sucursal']['id'];
             $sucursal = $this->Sucursal->findById($idsucursal);
             $fech = date("Y-m-d H:m:s");
@@ -544,10 +544,10 @@ class ControlpedidosController extends AppController
             //debug($this->data);
             $a = 0;
             $condiciones = "SELECT `Pedido`.`id`, `Pedido`.`usuario_id`, `Pedido`.`fecha`,Pedido.fechac, `Pedido`.`mesa`, `Pedido`.`estado`, `Pedido`.`total`, 
-            `Usuario`.`id`, `Usuario`.`nombre`, `Usuario`.`direccion`, `Usuario`.`usuario`, `Usuario`.`pass`, `Usuario`.`codigo`, `Usuario`.`perfile_id` 
+            `User`.`id`, `User`.`nombre`, `User`.`direccion`, `User`.`usuario`, `User`.`pass`, `User`.`codigo`, `User`.`perfile_id` 
             FROM `sisvinto`.`pedidos` AS `Pedido` 
-            LEFT JOIN `sisvinto`.`usuarios` AS `Usuario` 
-            ON (`Pedido`.`usuario_id` = `Usuario`.`id`)
+            LEFT JOIN `sisvinto`.`usuarios` AS `User` 
+            ON (`Pedido`.`usuario_id` = `User`.`id`)
             WHERE 1
             ";
             if (!empty($this->data['Pedido']['fecha']))
@@ -590,8 +590,8 @@ class ControlpedidosController extends AppController
             $this->set(compact('pedidos'));
         } else
         {
-            $this->set('mozos', $this->Usuario->find('list', array('conditions' => array('Usuario.perfile_id' =>
-                            2), 'fields' => array('Usuario.nombre'))));
+            $this->set('mozos', $this->User->find('list', array('conditions' => array('User.perfile_id' =>
+                            2), 'fields' => array('User.nombre'))));
         }
     }
 
@@ -657,7 +657,7 @@ class ControlpedidosController extends AppController
         'conditions'=>array('Pedido.id'=>$idPedido)
         ));
         
-        $mozo = $datosPedido['Usuario']['nombre'];
+        $mozo = $datosPedido['User']['nombre'];
         $mesa = $datosPedido['Pedido']['mesa'];
         $pedido = $this->Item->find('all', array(
         'conditions'=>array('Item.pedido_id'=>$idPedido)

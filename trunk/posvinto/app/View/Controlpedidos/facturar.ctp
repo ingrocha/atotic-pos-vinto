@@ -1,8 +1,7 @@
 <?php //debug($datos); ?>
 <div id="aImprimir">
-
-    <div style="text-align: center; width: 380px;">
-    <span style="padding: 0 30px 0 2px; text-align: left; font-size: 16px;">
+    <div style="text-align: center; width: 329px;">
+    <span style="padding: 0 30px 0 2px; text-align: left; font-size: 17px;">
     <b>OH COCHABAMBA QUERIDA</b></br>
     <b>RESTAURANTE</b><br />
     Av.Martin de la Rocha Nro.01531<br />
@@ -13,7 +12,9 @@
     </div>
     <div class="linea">
         ..............................................................
-    </div>     
+    </div> 
+    <span style="padding: 0 30px 0 2px; text-align: left; font-size: 14px;">     
+       
     <table style="width: 355px;">
         <tr>
             <td style="font-weight: bold;">NIT</td>
@@ -32,6 +33,7 @@
             <td><?php echo $fecha; ?></td>
         </tr>
     </table>
+    </span>
     <div class="linea">
         ..............................................................
     </div> 
@@ -50,8 +52,8 @@
     <div class="linea">
         ..............................................................
     </div>
-    <table class="imprimir-factura">
-        <tr>
+    <span style="padding: 0 30px 0 2px; text-align: left; font-size: 14px;">
+    <table style="text-align: left; width: 327px;">    <tr>
             <th style="text-align: left;">Producto</th>
             <th>Cant.</th>
             <th>P/U</th>
@@ -79,8 +81,10 @@
         </tr>
         
     </table>
-    <table style="text-align: left; width: 335px;">
-		<tr>
+    </span>
+    
+    <span style="padding: 0 30px 0 2px; text-align: left; font-size: 13px;">
+    <table style="text-align: left; width: 327px;">	<tr>
 			<td colspan="4" style="text-align: right;">
 				&nbsp;&nbsp;--------------
 			</td>
@@ -118,11 +122,12 @@
 			</td>
 		</tr>
 	</table>
+    </span>
     <div class="linea">
         ..............................................................
     </div>
      
-    <table style="width: 355px;">
+    <table style="width: 339px;">
        <tr>
           <td colspan="2"><b>SON:</b>&nbsp;
           <?php echo $totalliteral ?>&nbsp;con&nbsp;<?php echo $monto[1] ?>/100</td>
@@ -134,10 +139,6 @@
         <tr>
             <td><strong>Fecha l&iacute;mite de emisi&oacute;n:</strong></td>
             <td><?php echo $fechalimite ?></td>
-        </tr>
-        <tr>
-            <td style="font-weight: bold;">Hora:</td>
-            <td><?php echo $hora; ?></td>
         </tr>
     </table>
      <div class="linea">

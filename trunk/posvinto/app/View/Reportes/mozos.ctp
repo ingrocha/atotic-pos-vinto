@@ -105,12 +105,12 @@ function popitup(url) {
     							<tr class="<?php echo $clase;?>">
 							   	 	<td><h3><?php echo $data['Pedido']['id'];?></h3></td>
     								<td><?php echo $data['Pedido']['mesa'];?></td>
-    								<td><?php echo $data['Usuario']['nombre'];?></td></td>
+    								<td><?php echo $data['User']['nombre'];?></td></td>
                                     <td><?php echo $data['Pedido']['fecha'];?></td></td>
                                     <td><?php echo $data['Pedido']['total'];?></td></td>
     								<td class="oculto">
                                        <!--<a href="#" class="ico del">Borrar</a>-->
-                                       <a href="http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/<?php echo $data['Pedido']['id']?>/<?php echo $data['Usuario']['nombre']?>" class="ico edit" onclick="return popitup('http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/'+'<?php echo $data['Pedido']['id']?>'+'/'+'<?php echo $data['Usuario']['nombre']?>')">ver cuenta</a>
+                                       <a href="http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/<?php echo $data['Pedido']['id']?>/<?php echo $data['User']['nombre']?>" class="ico edit" onclick="return popitup('http://localhost/sistemaVintoCV/posvinto/reportes/detallepedido/'+'<?php echo $data['Pedido']['id']?>'+'/'+'<?php echo $data['User']['nombre']?>')">ver cuenta</a>
                                     </td>
     							</tr>
 							<?php endforeach;?>

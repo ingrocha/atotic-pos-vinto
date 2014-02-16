@@ -8,7 +8,7 @@
         <section>
             <div class="row-fluid">
                 <div class="span6 grider">
-                    <h3><i class="aweso-icon-table"></i> Mesa: <?php echo $pedido['0']['Pedido']['mesa']; ?> <small>Mozo: <?php echo $moso['Usuario']['nombre']; ?></small></h3>                   
+                    <h3><i class="aweso-icon-table"></i> Mesa: <?php echo $pedido['0']['Pedido']['mesa']; ?> <small>Mozo: <?php echo $moso['User']['nombre']; ?></small></h3>                   
                     <table class="table boo-table table-striped table-content table-hover">
                         <colgroup>
                             <col class="col20">
@@ -78,14 +78,14 @@
                         <?php echo $this->Form->create('Controlpedidos', array('action'=>'facturar')); ?>                        
                         <fieldset>                            
                             <label for="formA05">Nit: </label>
-                            <?php echo $this->Form->text('nit', array('id'=>'nit', 'class'=>'input-block-level', 'placeholder'=>'Ingrese el nit')); ?>
+                            <?php echo $this->Form->text('nit', array('id'=>'nit', 'class'=>'input-block-level', 'placeholder'=>'Ingrese el nit','required')); ?>
                             <!--<input id="formA05" class="span6" type="text" placeholder="placeholder">-->                           
                             <!-- // form item -->
 
                             <legend>Detalles para facturar</legend>
                             <label for="formA04">Nombre: </label>
                             <div id="nombre">
-                            <?php echo $this->Form->text('nombre', array('class'=>'input-block-level', 'placeholder'=>'Ingrese el nombre')); ?>
+                            <?php echo $this->Form->text('nombre', array('class'=>'input-block-level', 'placeholder'=>'Ingrese el nombre','required')); ?>
                             </div>
                             
                             <?php echo $this->Form->hidden('monto', array('value'=>$totalCancelar)); ?>
@@ -93,7 +93,7 @@
                             <!--<input id="formA04" class="input-block-level" type="text" placeholder="placeholder">-->
                             <!-- // form item -->                           
                             <label for="formA04">Efectivo: </label>
-                            <?php echo $this->Form->text('efectivo', array('class'=>'input-block-level', 'id'=>'efectivo','placeholder'=>'Monto efectivo')); ?>
+                            <?php echo $this->Form->text('efectivo', array('class'=>'input-block-level', 'id'=>'efectivo','placeholder'=>'Monto efectivo', 'required')); ?>
                             <label for="formA04">Cambio: </label>
                             <?php echo $this->Form->text('cambio', array('class'=>'input-block-level', 'id'=>'cambio','placeholder'=>'Monto efectivo','')); ?>
                             

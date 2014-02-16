@@ -2,7 +2,7 @@
 class ReportesController extends AppController{
     
     public $helpers = array('Html', 'Form'); 
-    public $uses = array('Producto', 'Movimientosinsumo', 'Pedido', 'Item', 'Usuario','Recibo','Bodega');
+    public $uses = array('Producto', 'Movimientosinsumo', 'Pedido', 'Item', 'Usuario','Recibo','Bodega','User');
     public $components = array('Session','Fechasconvert');
     public $layout = 'vivavinto';
     
@@ -39,15 +39,15 @@ class ReportesController extends AppController{
            
            $pedidos = $this->Pedido->find(
            'all', array(
-           'conditions'=>array('Pedido.usuario_id'=>$mozo, 'Pedido.fecha like'=>$fecha), 
+           'conditions'=>array('Pedido.user_id'=>$mozo, 'Pedido.fecha like'=>$fecha), 
            'order'=>array('Pedido.id asc')
            )
            );
            
-           $mozo = $pedidos[0]['Usuario']['nombre'];
+           $mozo = $pedidos[0]['User']['nombre'];
            $this->set(compact('pedidos', 'mozo'));   
         }else{
-            $mozos = $this->Usuario->find('list', array('conditions'=>array('Usuario.perfile_id'=>2), 'fields'=>array('Usuario.nombre')));
+            $mozos = $this->User->find('list', array('conditions'=>array('User.perfile_id'=>2), 'fields'=>array('User.nombre')));
             $this->set(compact('mozos'));
         }
         
@@ -60,7 +60,7 @@ class ReportesController extends AppController{
         $options=array(
         'OR'=>array(
         'Pedido.mesa LIKE' =>'%'.$data.'%',
-        'Usuario.nombre LIKE' =>'%'.$data.'%',
+        'User.nombre LIKE' =>'%'.$data.'%',
         'Pedido.fecha LIKE' =>'%'.$data.'%',
         'Pedido.total LIKE' =>'%'.$data.'%'
         )
@@ -78,7 +78,7 @@ class ReportesController extends AppController{
     // similar to findAll(), but fetches paged results
        $data = $this->paginate('Pedido');
 
-       $mozos = $this->Usuario->find('list', array('conditions'=>array('Usuario.perfile_id'=>2), 'fields'=>array('Usuario.nombre')));
+       $mozos = $this->User->find('list', array('conditions'=>array('User.perfile_id'=>2), 'fields'=>array('Usser.nombre')));
        $this->set(compact('data', 'mozos'));
 
     }
@@ -98,7 +98,7 @@ class ReportesController extends AppController{
                 $options=array( 
                                         'OR'=>array(
                                             'Pedido.mesa LIKE' =>'%'.$data.'%',
-                                            'Usuario.nombre LIKE' =>'%'.$data.'%',
+                                            'User.nombre LIKE' =>'%'.$data.'%',
                                             'Pedido.fecha LIKE' =>'%'.$data.'%',
                                             'Pedido.total LIKE' =>'%'.$data.'%'
                                             )
@@ -109,7 +109,7 @@ class ReportesController extends AppController{
                     $cadena = array(
                    'OR'=>array(
                    'Pedido.mesa LIKE' =>'%'.$data.'%',
-                   'Usuario.nombre LIKE' =>'%'.$data.'%',
+                   'User.nombre LIKE' =>'%'.$data.'%',
                    'Pedido.total LIKE' =>'%'.$data.'%'
                    )
                 );
@@ -122,7 +122,7 @@ class ReportesController extends AppController{
                     $cadena = array_merge($cadena, $cadena2);
                 }
                 if($mozo != null){
-                    $cadena2 = array('Pedido.usuario_id' => $mozo);
+                    $cadena2 = array('Pedido.user_id' => $mozo);
                     $cadena = array_merge($cadena, $cadena2);
                 }
                 if($estado != null){
@@ -134,7 +134,7 @@ class ReportesController extends AppController{
                 $options=array(
         'OR'=>array(
         'Pedido.mesa LIKE' =>'%'.$data.'%',
-        'Usuario.nombre LIKE' =>'%'.$data.'%',
+        'User.nombre LIKE' =>'%'.$data.'%',
         'Pedido.fecha LIKE' =>'%'.$data.'%',
         'Pedido.total LIKE' =>'%'.$data.'%'
         )
@@ -168,7 +168,7 @@ class ReportesController extends AppController{
             // similar to findAll(), but fetches paged results
             $data = $this->paginate('Pedido');
         }
-        $mozos = $this->Usuario->find('list', array('conditions'=>array('Usuario.perfile_id'=>2), 'fields'=>array('Usuario.nombre')));
+        $mozos = $this->User->find('list', array('conditions'=>array('User.perfile_id'=>2), 'fields'=>array('User.nombre')));
         $this->set(compact('data', 'mozos'));
     }
     public function ventas(){

@@ -52,7 +52,7 @@
     							<tr class="<?php echo $clase;?>">
 							   	 	<td><?php echo $data['Pedido']['id'];?></td>
                                     <td><h3><?php echo $data['Pedido']['mesa'];?></h3></td>
-    								<td><?php echo $data['Usuario']['nombre'];?></td>
+    								<td><?php echo $data['User']['nombre'];?></td>
     								<td><?php echo $data['Pedido']['total'];?></td>
                                     <?php
                                     $hora = split(' ', $data['Pedido']['fecha']);
