@@ -37,7 +37,7 @@
                                 </div>                         
     							<tr>							   	 	
                                     <td><h1 class="tituloh1"><?php echo $data['Pedido']['mesa'];?></h1></td>
-    								<td><?php echo $data['Usuario']['nombre'];?></td>
+    								<td><?php echo $data['User']['nombre'];?></td>
     								<td><?php echo $data['Pedido']['total'];?></td>
                                     <?php
                                     $hora = split(' ', $data['Pedido']['fecha']);

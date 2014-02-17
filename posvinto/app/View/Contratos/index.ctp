@@ -70,7 +70,7 @@
 												<?php $id=$c['Contrato']['id']; echo $id; ?>
 											</td>
 											<td>
-												<?php echo $c['Usuario']['nombre']; ?>
+												<?php echo $c['User']['nombre']; ?>
 											</td>
 											<td>
 												<?php echo $c['Contrato']['fechainicio']; ?>

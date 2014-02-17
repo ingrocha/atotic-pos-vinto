@@ -11,7 +11,7 @@
 <?php $id_ped = $p['Pedido']['id'] ;?>
 <tr>
     <td><?php echo $p['Pedido']['id'] ;?></td>
-    <td><?php echo $p['Usuario']['nombre'] ;?></td>
+    <td><?php echo $p['User']['nombre'] ;?></td>
     <td><?php echo $p['Pedido']['fecha'] ;?></td>
     <td><?php echo $p['Pedido']['mesa'] ;?></td>
     <td>

@@ -12,7 +12,7 @@
                     <thead>
                        <tr>
                           <th>Nombre:</th>
-                          <td class="txt"><?php echo $movimiento['0']['Usuario']['nombre'];?></td>
+                          <td class="txt"><?php echo $movimiento['0']['User']['nombre'];?></td>
                           <th>Fechas:</th>
                           <td> del <?php echo  $fecha1;?> al <?php echo $fecha2;?></td>
                        </tr>

@@ -58,10 +58,10 @@
                                 <?php foreach($datos as $c): ?>
 										<tr>
 											<td>
-												<?php echo $c[ 'Usuario'][ 'nombre']; ?>
+												<?php echo $c[ 'User'][ 'nombre']; ?>
 											</td>
 											<td>
-												<?php echo $c[ 'Usuario'][ 'codigo']; ?>
+												<?php echo $c[ 'User'][ 'codigo']; ?>
 											</td>
 											<td>
 												<?php echo $c[ 'Asistencia'][ 'horaingreso']; ?>

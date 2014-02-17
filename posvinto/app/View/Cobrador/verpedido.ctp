@@ -43,7 +43,7 @@
                                 }
                                 ?>
                                 <h1 class="tituloh1">Mesa: <?php echo $pedido['0']['Pedido']['mesa']; ?></h1>
-                                <h1 class="tituloh1">Mozo: <?php echo $moso['Usuario']['nombre']; ?></h1>
+                                <h1 class="tituloh1">Mozo: <?php echo $moso['User']['nombre']; ?></h1>
                                 <table style="width: 300px;" class="tablafactura">
                                     <tr>
                                         <td>                                    

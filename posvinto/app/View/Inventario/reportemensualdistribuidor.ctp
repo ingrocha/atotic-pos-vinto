@@ -27,7 +27,7 @@ $totinv=0;
                         <td><?php echo $fech1; ?> </td>
                         <td>a <?php echo $fech2;?></td>
                         <th class="name">Nombre</th>
-                        <td colspan="5"><?php echo $ventas[0]['Usuario']['nombre']; ?></td>
+                        <td colspan="5"><?php echo $ventas[0]['User']['nombre']; ?></td>
                       </tr>
                       
                   </thead>

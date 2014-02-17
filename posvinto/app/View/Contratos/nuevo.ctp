@@ -20,7 +20,7 @@
                                 <option value="" selected="selected">Seleccione el empleado</option>
                                 
                                 <?php foreach ($empleados as $empleado): ?>                                    
-                                    <option value="<?php echo $empleado['Usuario']['id']; ?>"><?php echo $empleado['Usuario']['nombre']; ?></option>
+                                    <option value="<?php echo $empleado['User']['id']; ?>"><?php echo $empleado['User']['nombre']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

@@ -69,7 +69,7 @@ $totinv = 0;
                         <th class="name">fecha:</th>
                         <td><?php echo $fecha2; ?></td>
                         <th class="name">Nombre</th>
-                        <td colspan="5"><?php echo $datosusuario['Usuario']['nombre']; ?></td>
+                        <td colspan="5"><?php echo $datosusuario['User']['nombre']; ?></td>
                       </tr>
                       
                   </thead>

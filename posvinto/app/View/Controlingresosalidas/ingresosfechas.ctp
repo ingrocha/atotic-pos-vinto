@@ -42,7 +42,7 @@
 											Nombre empleado:
 										</th>
 										<th>
-											<?php echo $sueldoempleado[ 'Usuario'][ 'nombre'] ?>
+											<?php echo $sueldoempleado[ 'User'][ 'nombre'] ?>
 										</th>
 										<th>
 											Sueldo
