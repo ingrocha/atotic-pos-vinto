@@ -639,10 +639,10 @@ class PedidosController extends AppController
             //echo 'no se parecen';
             $mesa = 1;
         }
-
+        $objmesa = $this->Mesa->findByid($idMesa,null,null,null,null,-1);
         $this->request->data['Pedido']['user_id'] = $idMoso;
         $this->request->data['Pedido']['fecha'] = $fecha;
-        $this->request->data['Pedido']['mesa'] = $mesa;
+        $this->request->data['Pedido']['mesa'] = $objmesa['Mesa']['numero'];
         $this->Pedido->create();
         if ($this->Pedido->save($this->request->data)) {
             $ul_pedido = $this->Pedido->getLastInsertID();
@@ -1428,9 +1428,16 @@ class PedidosController extends AppController
     {
         //debug($id_moso);exit;
         $total = 0.00;
-        $items = $this->Item->find('all', array('recursive' => 2, 'conditions' => array('Item.pedido_id' => $idPedido)));
-        $contenido="--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
-        $bebida="--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
+        $items = $this->Item->find('all', array('recursive' => 2, 'conditions' => array('Item.pedido_id' => $idPedido,'Item.estado' => 0)));
+        $pedido = $this->Pedido->findByid($idPedido);
+        //debug($pedido);exit;
+        
+        $contenido="--------- MESA #".$pedido['Pedido']['mesa']." ---------". PHP_EOL;
+        $contenido = $contenido."--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
+        $contenido = $contenido."--------- MOSO: ".$pedido['User']['nombre']." ---------". PHP_EOL;
+        $bebida = $bebida."--------- MESA #".$pedido['Pedido']['mesa']." ---------". PHP_EOL;
+        $bebida = $bebida."--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
+        $bebida = $bebida."--------- MOSO: ".$pedido['User']['nombre']." ---------". PHP_EOL;
         $contenido_pedido="--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
         //debug($items);exit;
         foreach($items as $it)
@@ -1563,7 +1570,9 @@ class PedidosController extends AppController
         //exec("print /d:\\\\$ip_impresoraCaja ".$directorio2);   
         $this->Pedido->create();
         $this->request->data['Pedido']['id'] = $idPedido;
-        $this->request->data['Pedido']['total'] = $total;
+        $this->request->data['Pedido']['mesa'] = $pedido['Pedido']['mesa'];
+        $this->request->data['Pedido']['estado'] = 1;
+        $this->request->data['Pedido']['total'] = $total+$pedido['Pedido']['total'];
         $this->Pedido->save($this->request->data['Pedido']);
         //exec('print /d:\\\\192.168.0.102\\demo '.WWW_ROOT . 'cocina' . DS . $idPedido . '.txt');
         //exec('print /d:\\\\192.168.0.101\\demo d:\\texto.txt');
