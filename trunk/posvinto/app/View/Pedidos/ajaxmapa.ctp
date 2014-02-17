@@ -19,8 +19,8 @@
     }
 <?php endforeach;?>
 .ui-draggable{
-    width: 100px; 
-    height: 100px; 
+    width: 80px; 
+    height: 80px; 
     padding: 0.5em;
    text-align:center  
    
