@@ -68,7 +68,7 @@
 													<?php echo $i; ?>
 												</td>
 												<td>
-													<?php echo $asistencia[ 'Usuario'][ 'nombre'] ?>
+													<?php echo $asistencia[ 'User'][ 'nombre'] ?>
 												</td>
 												<td>
 													<?php echo $asistencia[ 'Asistencia'][ 'horaingreso'] ?>
@@ -136,7 +136,7 @@
 												<?php echo $retraso[ 'Retraso'][ 'id'] ?>
 											</td>
 											<td>
-												<?php echo $asistencia[ 'Usuario'][ 'nombre'] ?>
+												<?php echo $asistencia[ 'User'][ 'nombre'] ?>
 											</td>
 											<td>
 												<?php echo $retraso[ 'Retraso'][ 'fecha'] ?>

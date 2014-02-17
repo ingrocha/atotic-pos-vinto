@@ -21,10 +21,10 @@
                                 <option value="">Seleccione el empleado</option>
                                
                                 <?php foreach ($empleados as $empleado): ?>     
-                                    <?php if($empleado['Usuario']['id'] == $id_usuario):?>
-                                    <option value="<?php echo $empleado['Usuario']['id']; ?>" selected="selected"><?php echo $empleado['Usuario']['nombre']; ?></option>
+                                    <?php if($empleado['User']['id'] == $id_usuario):?>
+                                    <option value="<?php echo $empleado['User']['id']; ?>" selected="selected"><?php echo $empleado['Usuario']['nombre']; ?></option>
                                     <?php else: ?>                               
-                                    <option value="<?php echo $empleado['Usuario']['id']; ?>"><?php echo $empleado['Usuario']['nombre']; ?></option>
+                                    <option value="<?php echo $empleado['User']['id']; ?>"><?php echo $empleado['Usuario']['nombre']; ?></option>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </select>

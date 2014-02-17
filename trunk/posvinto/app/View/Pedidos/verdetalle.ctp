@@ -6,7 +6,7 @@
  */
 ?>
 Pedido: <?php echo $items['Pedido']['id']; ?>&nbsp;&nbsp;&nbsp;Mesa:<?php echo $items['Pedido']['mesa']; ?><br />
-Moso: <?php echo $items['Usuario']['nombre']; ?>
+Moso: <?php echo $items['User']['nombre']; ?>
 Listado de la mesa
 <table>
     <tr>

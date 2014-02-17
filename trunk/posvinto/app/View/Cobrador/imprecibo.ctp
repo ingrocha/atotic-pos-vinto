@@ -30,7 +30,7 @@
                                     <td colspan="4"><div class="tituloh3">Mesa: </div><div class="tituloh3">&nbsp;<div class="tituloh3">&nbsp;<?php echo $moso['Pedido']['mesa']; ?></div></div></td>    
                                 </tr>
                                 <tr>
-                                    <td colspan="4"><div class="tituloh3">Moso: </div><div class="tituloh3">&nbsp;<?php echo $moso['Usuario']['nombre']; ?></div></td>   
+                                    <td colspan="4"><div class="tituloh3">Moso: </div><div class="tituloh3">&nbsp;<?php echo $moso['User']['nombre']; ?></div></td>   
                                 </tr>
                                 <tr class="contenido">
                                     <td><div class="tituloh5">Producto</div></td>
