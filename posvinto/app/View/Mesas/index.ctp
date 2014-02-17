@@ -53,8 +53,8 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
     }
 <?php endforeach;?>
 .ui-draggable{
-    width: 100px; 
-    height: 100px; 
+    width: 80px; 
+    height: 80px; 
     padding: 0.5em;
    background-repeat:no-repeat;
    background-size: cover;
