@@ -232,7 +232,7 @@ class InsumosController extends AppController
             'fields' => array('max(Bodega.id) as id'),
             'recursive' => 1,
             'group' => array('Bodega.insumo_id'),
-            'order' => array('Bodega.id ASC')));
+            'order' => array('Bodega.id DESC')));
 
         $ids = array();
         $i = 0;
@@ -248,7 +248,7 @@ class InsumosController extends AppController
             'conditions' => array('Bodega.id' => $ids),
             'recursive' => 1,
             'group' => array('Bodega.insumo_id'),
-            'order' => array('Bodega.id ASC')));
+            'order' => array('Bodega.id DESC')));
         $this->set(compact('bodega'));
     }
 
@@ -334,7 +334,7 @@ class InsumosController extends AppController
                 $this->Almacen->create();
                 if ($this->Almacen->save($this->data))
                 {
-                    $this->Session->setFlash('Ingreso registrado con exito!');
+                    $this->Session->setFlash('Ingreso registrado con exito!','alerts/bueno');
                     //$this->redirect(array('action' => 'index'));
                 }
 
@@ -342,6 +342,7 @@ class InsumosController extends AppController
                     'conditions' => array('insumo_id' => $id_insumo,'lugare_id'=>$lugar),
                     'order' => 'id DESC',
                     'recursive' => -1));
+                //debug($existe_insumo_bodega);die;
 
                 if ($existe_insumo_bodega)
                 {
