@@ -20,15 +20,15 @@ public function nuevo()
             $this->Session->setFlash('No se pudo registrar la Asistencia'); 
              }
     }
-    $dcu = $this->Usuario->find('list', array('fields'=>'Usuario.nombre')); //consulta de los usuarios por nombre
+    $dcu = $this->User->find('list', array('fields'=>'User.nombre')); //consulta de los usuarios por nombre
     $this->set(compact('dcu'));
 }
 public function entradas() 
   {
-      if(!empty($this->data)){
+      if(!empty($this->request->data)){
           //debug($this->data);exit;
           $codigo=$this->data['Asistencia']['codigo'];
-          $usuario=$this->Usuario->find('first',array('conditions'=>array('Usuario.codigo'=>$codigo)));
+          $usuario=$this->User->find('first',array('conditions'=>array('User.codigo'=>$codigo)));
           //debug($usuario);exit;
           if(empty($usuario)){
               $this->Session->setFlash('no existe usuario');
@@ -36,7 +36,7 @@ public function entradas()
           }
             else{
               $this->data='';
-              $usuario_id=$usuario['Usuario']['id'];
+              $usuario_id=$usuario['User']['id'];
              
               $date=date('Y-m-d');
               $valida=$this->Asistencia->find('all',array('conditions'=>array('Asistencia.usuario_id'=>$usuario_id,'Asistencia.fecha'=>$date)));
@@ -113,14 +113,14 @@ public function salidas()
  {
     if(!empty($this->data)){
             $codigo=$this->data['Asistencia']['codigo'];
-            $usuario=$this->Usuario->find('first',array('conditions'=>array('Usuario.codigo'=>$codigo)));
+            $usuario=$this->User->find('first',array('conditions'=>array('User.codigo'=>$codigo)));
         if(empty($usuario)){
                 $this->Session->setFlash('No Existe el Usuario');    
                 $this->redirect(array('action'=>'index'));            
         }
             else{
                 $this->data='';
-                $usuario_id=$usuario['Usuario']['id'];
+                $usuario_id=$usuario['User']['id'];
                 $date=date('Y-m-d');
               //  $salida=$this->Asistencia->find('all',array('conditions'=>array
                 //    ('Asistencia.horaingreso')));
