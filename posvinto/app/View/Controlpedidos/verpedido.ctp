@@ -72,7 +72,7 @@
                     <a class="btn btn-large btn-turgu" href="<?php echo $this->Html->url(array('action' => 'dividircuenta', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> DIVIDIR CUENTA</a>
                     <div style="height: 10px;">&nbsp;</div> 
                     <h3><i class="aweso-icon-table"></i> Formas de pago</h3>                    
-                    <a class="btn btn-large btn-red" href="#" id="btMuestraFacturar"><i class="fontello-icon-publish"></i> CON FACTURA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+                    <a class="btn btn-large btn-red" href="#" id="btMuestraFacturar"><i class="fontello-icon-publish"></i>FACTURA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
                     <div style="height: 10px;">&nbsp;</div>  
                     <div id="muestraFacturar" style="display: none;">
                         <?php echo $this->Form->create('Controlpedidos', array('action'=>'facturar')); ?>                        
