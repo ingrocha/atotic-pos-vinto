@@ -642,7 +642,10 @@ class PedidosController extends AppController
         $objmesa = $this->Mesa->findByid($idMesa,null,null,null,null,-1);
         $this->request->data['Pedido']['user_id'] = $idMoso;
         $this->request->data['Pedido']['fecha'] = $fecha;
-        $this->request->data['Pedido']['mesa'] = $objmesa['Mesa']['numero'];
+        if(!empty($objmesa))
+        {
+            $this->request->data['Pedido']['mesa'] = $objmesa['Mesa']['numero'];
+        }
         $this->Pedido->create();
         if ($this->Pedido->save($this->request->data)) {
             $ul_pedido = $this->Pedido->getLastInsertID();
