@@ -33,30 +33,18 @@ class MesasController extends AppController
         }
         $this->set(compact('mesas','ambiente'));
     }
-    public function add($idAmbiente = null)
+    public function add()
     {
-        $ultimamesa = $this->Mesa->find('first',array('order' => 'Mesa.id DESC','conditions' => array('Mesa.ambiente_id' => $idAmbiente)));
-        if(!empty($ultimamesa))
+        $idAmbiente = $this->request->data['Mesa']['ambiente_id'];
+        if(!empty($this->request->data))
         {
             $this->Mesa->create();
             $this->request->data['Mesa']['numero'] = $ultimamesa['Mesa']['numero'] +1;
             $this->request->data['Mesa']['posix'] = 80;
             $this->request->data['Mesa']['posiy'] = 160;
-            $this->request->data['Mesa']['ambiente_id'] = $idAmbiente;
             $this->Mesa->save($this->request->data['Mesa']);
             $this->Ambiente->id = $idAmbiente;
             $this->request->data['Ambiente']['mesas'] = $ultimamesa['Mesa']['numero'] +1;
-            $this->Ambiente->save($this->request->data);
-        }
-        else{
-            $this->Mesa->create();
-            $this->request->data['Mesa']['numero'] = 1;
-            $this->request->data['Mesa']['posix'] = 80;
-            $this->request->data['Mesa']['posiy'] = 160;
-            $this->request->data['Mesa']['ambiente_id'] = $idAmbiente;
-            $this->Mesa->save($this->request->data['Mesa']);
-            $this->Ambiente->id = $idAmbiente;
-            $this->request->data['Ambiente']['mesas'] = 1;
             $this->Ambiente->save($this->request->data);
         }
         $this->redirect(array('action' => 'index',$idAmbiente));

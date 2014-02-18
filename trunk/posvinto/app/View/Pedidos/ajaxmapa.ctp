@@ -38,12 +38,12 @@
 <?php if($obj['Mesa']['pedido_id'] == null):?>
 <div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable" onclick=" location = '<?php echo $this->Html->url(array('action' => 'verificamoso',$idMoso,$obj['Mesa']['id']));?>'">
 
-<h1><?php echo $obj['Mesa']['numero'];?></h1>
+<h1><?php echo $obj['Mesa']['nombre'];?></h1>
 </div>
 <?php else:?>
 <div id="draggable<?php echo $obj['Mesa']['id'];?>" class="ui-draggable" >
 <a data-toggle="modal" href="#myModal" onclick="$('#cargaPedidos').load('<?php echo $this->Html->url(array('action' => 'detallemesa',$obj['Mesa']['pedido_id']));?>');" >
-<h1><?php echo $obj['Mesa']['numero'];?></h1>
+<h1><?php echo $obj['Mesa']['nombre'];?></h1>
 </a>
 </div>
 <?php endif;?>

@@ -82,7 +82,7 @@ $("#draggable<?php echo $obj['Mesa']['id'];?>").droppable({
 <div  id="resizable" class="contenidomesas" style="background-image: url(<?php echo $this->Html->webroot('/files/'.$ambiente['Ambiente']['imagen']);?>);width: 1000px; height: 500px; background-size: cover;">
 <?php foreach($mesas as $obj):?>
 <div id="draggable<?php echo $obj['Mesa']['id'];?>" align="center">
-<h1><?php echo $obj['Mesa']['numero'];?></h1>
+<h1><?php echo $obj['Mesa']['nombre'];?></h1>
 
 </div>
 <?php endforeach;?>
@@ -171,7 +171,7 @@ $(document).ready(function(){
 <?php endforeach;?>
 <?php echo $this->Form->submit('Guardar Posicion');?>
 <?php echo $this->Form->end();?>
-<?php echo $this->Html->link('ADICIONAR MESA',array('action' => 'add',$ambiente['Ambiente']['id']),array('class' => 'btn btn-green'));?> 
+<?php echo $this->Html->link('ADICIONAR MESA','#adimesa',array('class' => 'btn btn-green','data-toggle' => 'modal'));?> 
 <?php echo $this->Html->link('CAMIAR IMAGEN','#defaultModal2',array('class' => 'btn btn-info','data-toggle' => 'modal'));?> 
 <?php echo $this->Html->link('ADICIONAR AMBIENTE','#defaultModal',array('class' => 'btn btn-green','data-toggle' => 'modal'));?> 
 <?php //echo $this->Html->link('ADICIONAR AMBIENTE',array('action' => 'addambiente'),array('class' => 'btn btn-green'));?>  
@@ -179,6 +179,24 @@ $(document).ready(function(){
 
 
 
+<div id="adimesa" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 id="myModalLabel"><i class="fontello-icon-popup"></i> ADICIONAR MESA</h4>
+    </div>
+    <?php echo $this->Form->create('Mesa',array('action' => 'add'));?>
+    <div class="modal-body">
+        
+                                    <h4 class="simple-header"> Nombre <small>de la mesa</small> </h4>
+                                    <?php echo $this->Form->text('nombre');?>
+                                    <?php echo $this->Form->hidden('ambiente_id',array('value' => $ambiente['Ambiente']['id']));?>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-red" data-dismiss="modal">Close</button>
+        <button class="btn btn-green"  type="submit">CREAR MESA</button>
+        <?php echo $this->Form->end()?>
+    </div>
+</div>
 <div id="defaultModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
