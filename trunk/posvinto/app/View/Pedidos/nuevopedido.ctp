@@ -112,6 +112,9 @@ $modeloproductosobservaciones = new Productosobservacione();
                 'before' => '$("#contenidomoso").hide(); $("#cargando").show(); $("#cargaPedidos").show();',
                 'complete' => '$("#cargando").hide(); $("#contenidomoso").show(); '
                 ));?>
+                </li>
+                <li>
+                <?php echo $this->Html->link('NUEVO PEDIDO',array('action' => 'verificamoso',$idMoso));?>
                 </li>   
                 <?php endif;?>
                 <li><a href="#about">Mis Datos</a></li>               

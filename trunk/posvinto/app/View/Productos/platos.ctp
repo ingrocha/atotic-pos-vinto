@@ -84,6 +84,9 @@
                     "title" => "Receta",
                     'url' => array('action' => 'receta', $id)
                 ));
+            ?>
+            <?php 
+                echo $this->Html->link('Observaciones',array('action' => 'observaciones',$id));
             ?>    
             <?php 
                 echo $this->Html->image("elim.png", array(

@@ -13,6 +13,7 @@ class ProductosController extends AppController
         'Categoria',
         'Porcione',
         'Insumo',
+        'Productosobservacione',
         'Almacen');
     public $layout = "vivavinto";
 
@@ -583,6 +584,46 @@ class ProductosController extends AppController
         }
         
         $this->set(compact('producto', 'insumos'));
+    }
+    public function observaciones($idPlato = null)
+    {
+        $observaciones = $this->Productosobservacione->findAllByproducto_id($idPlato,null,null,null,null,-1);
+        $plato = $this->Producto->findByid($idPlato,null,null,null,null,-1);
+        $this->set(compact('plato','observaciones','idPlato'));
+    }
+    public function ajaxobservacion($idObservacion = null)
+    {
+        $this->layout = 'ajax';
+        $this->Productosobservacione->id = $idObservacion;
+        $this->request->data = $this->Productosobservacione->read();
+        //debug($this->request->data);exit;
+    }
+    public function guardaobservacion()
+    {
+        if(!empty($this->request->data))
+        {
+            $this->Productosobservacione->create();
+            $this->Productosobservacione->save($this->request->data);
+            $this->Session->setFlash('Se guardo correctamente!!!','alerts/bueno');
+            $this->redirect($this->referer());
+        }
+        else{
+            $this->Session->setFlash('No se guardo!!!','alerts/error');
+            $this->redirect($this->referer());
+        }
+        
+    }
+    public function eliminaobservacion($idObservacion = null)
+    {
+        if($this->Productosobservacione->delete($idObservacion))
+        {
+            $this->Session->setFlash('Se elimino correctamente','alerts/bueno');
+            $this->redirect($this->referer());
+        }
+        else{
+            $this->Session->setFlash('No se pudo eliminar la observacion!!!','alerts/error');
+        }
+        
     }
 
 }
