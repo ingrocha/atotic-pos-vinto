@@ -97,7 +97,7 @@ public function entradas()
                 $this->Retraso->save($this->data);
               }
              
-       $this->Session->setFlash('Hora de Ingreso Guardada...');
+       $this->Session->setFlash('Hora de Ingreso Registrado...');
        $this->redirect(array('action'=>'index'));
            }
             else{
@@ -134,7 +134,7 @@ public function salidas()
                 $id=$salida['Asistencia']['id'];
 
         if(empty($salida)){
-                $this->Session->setFlash('Error,Su ingreso no fue marcado....');
+                $this->Session->setFlash('Error,Su Ingreso no fue marcado....');
                 $this->redirect(array('ation'=>'index'));
         }
         else{
@@ -143,7 +143,7 @@ public function salidas()
                 $this->Asistencia->id=$id;
                     $this->request->data['Asistencia']['horasalida']=date('H:i:s');
                 if($this->Asistencia->save($this->data)){
-                        $this->Session->SetFlash('Hora de Salida Guardada');
+                        $this->Session->SetFlash('Hora de Salida se Registro Exitosamente...!!!');
                         $this->redirect(array('action'=>'index'));
                 }
                 else{
@@ -152,7 +152,7 @@ public function salidas()
                     }
             }
             else{
-                $this->Session->setFlash('Su hora de salida ya fue marcada');
+                $this->Session->setFlash('Su hora de salida ya fue Registrada...!!!');
                     $this->redirect(array('action'=>'index'));
             }
            }
