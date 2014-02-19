@@ -20,7 +20,7 @@
                         <?php echo $this->Form->text('precio'); ?>
                         <tr>
                         <label for="formA04">Categoria:</label>
-                        <?php echo $this->Form->select('categoria', $dcc); ?>                                                            
+                        <?php echo $this->Form->select('categoria_id', $dcc); ?>                                                            
                         </tr>
                         <tr>
                         <label for="formA04">Descripci&oacute;n:</label>

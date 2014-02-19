@@ -49,7 +49,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Bienvenido: <?php echo $datosMoso['User']['nombre']?></a>
+            <a class="navbar-brand" href="#">Bienvenido: <?php echo $datosMoso['User']['nombre']?> --- MESA: <?php echo $mesa?></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -124,7 +124,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                                                 <?php
                                                 $datosProductos = $modeloProducto->find('all', array(
                                                     'recursive' => -1,
-                                                    'conditions' => array('Producto.categoria_id' => $dCat['Categoria']['id'])
+                                                    'conditions' => array('Producto.categoria_id' => $dCat['Categoria']['id'],'Producto.estado' => 1)
                                                 )); 
                                                 ?>
                                                 

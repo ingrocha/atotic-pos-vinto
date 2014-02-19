@@ -14,7 +14,7 @@ $mmesa = new Mesa();
                     <?php 
                     
                     $objmesa = $mmesa->find('first',array('recursive' => -1,'conditions' => array('Mesa.pedido_id' => $m['Pedido']['id'])));
-                    $mesa = $objmesa['Mesa']['numero']; 
+                    $mesa = $objmesa['Mesa']['nombre']; 
                     ?>                    
                     <?php //echo $this->Html->link('');?>
                                     <!--<button class="btn btn-large btn-danger" type="button">Mesa <?php //echo $m['Pedido']['mesa'];        ?></button>-->   
