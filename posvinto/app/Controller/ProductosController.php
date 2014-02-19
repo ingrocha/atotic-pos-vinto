@@ -11,6 +11,7 @@ class ProductosController extends AppController
     public $uses = array(
         'Producto',
         'Categoria',
+        'Clase',
         'Porcione',
         'Insumo',
         'Productosobservacione',
@@ -490,23 +491,47 @@ class ProductosController extends AppController
         //debug($cat);exit;
         $this->set(compact('cat'));
     }
+    public function clasesmenu()
+    {
+        $clases = $this->Clase->find('all', array('recursive' => -1));
+        //debug($cat);exit;
+        $this->set(compact('clases'));
+    }
+    
 
     public function nuevacategoria()
     {
-        if (!empty($this->data))
+        if (!empty($this->request->data))
         {
             $this->Categoria->create();
-            if ($this->Categoria->save($this->data))
+            if ($this->Categoria->save($this->request->data))
             {
                 $this->Session->setFlash(' Categoria registrada!!!', 'alerts/bueno');
                 $this->redirect(array('action' => 'categoriasmenu'), null, true);
             } else
             {
-                $this->Session->setFlash('No se pudo registrar el Producto!', 'alerts/alerta');
+                $this->Session->setFlash('No se pudo registrar la Categoria!', 'alerts/alerta');
             }
         }
         $dct = array('Comida' => 'Comida', 'Bebidas' => 'Bebidas');
         $this->set(compact('dct'));
+    }
+     public function nuevaclase()
+    {
+        if (!empty($this->request->data))
+        {
+            $this->Clase->create();
+            if ($this->Clase->save($this->request->data))
+            {
+                $this->Session->setFlash(' Clase registrada!!!', 'alerts/bueno');
+                $this->redirect(array('action' => 'categoriasmenu'), null, true);
+            } else
+            {
+                $this->Session->setFlash('No se pudo registrar la Clase!', 'alerts/alerta');
+            }
+        }
+        $dclase = $this->Clase->find('list',array('fields'=>'Clase.nombre'));
+        $this->set(compact('dcclase'));
     }
     public function oculta($id = null)
     {

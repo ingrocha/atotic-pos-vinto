@@ -21,9 +21,9 @@ class Asistencia extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Usuario' => array(
-			'className' => 'Usuario',
-			'foreignKey' => 'usuario_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

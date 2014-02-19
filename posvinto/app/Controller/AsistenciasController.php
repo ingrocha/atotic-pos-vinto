@@ -2,7 +2,7 @@
 class AsistenciasController extends AppController
 { 
     public $helpers = array('Html', 'Form','Time'); 
-    public $uses = array('Asistencia','Usuario','ConfMulta','Horario', 'Retraso');
+    public $uses = array('Asistencia','User','ConfMulta','Horario', 'Retraso');
     public $components = array('Session');
     public $layout = 'publico';
     
@@ -36,10 +36,10 @@ public function entradas()
           }
             else{
               $this->data='';
-              $usuario_id=$usuario['User']['id'];
+              $usuario=$usuario['User']['id'];
              
               $date=date('Y-m-d');
-              $valida=$this->Asistencia->find('all',array('conditions'=>array('Asistencia.usuario_id'=>$usuario_id,'Asistencia.fecha'=>$date)));
+              $valida=$this->Asistencia->find('all',array('conditions'=>array('Asistencia.user_id'=>$usuario,'Asistencia.fecha'=>$date)));
           /*start validation*/
           if(!empty($valida)){
               $this->Session->setFlash('ERROR, su Hora de ingreso de Hoy ya fue Registrada....!!!');
@@ -47,7 +47,7 @@ public function entradas()
           }
               else{
               $this->request->data['Asistencia']['fecha']=$date;
-              $this->request->data['Asistencia']['usuario_id']=$usuario_id;
+              $this->request->data['Asistencia']['user_id']=$usuario;
               $this->request->data['Asistencia']['horaingreso']=date('H:i:s');
               $horaingreso = $this->Horario->find('first', array('fields'=>array('Horario.entrada')));
               
@@ -87,7 +87,7 @@ public function entradas()
             if(!empty($multa)){
                 $this->Retraso->create();
                 $this->data = '';
-                $this->request->data['Retraso']['usuario_id']=$usuario_id;
+                $this->request->data['Retraso']['usuario_id']=$usuario;
                 $this->request->data['Retraso']['horas']=$horas_retraso;
                 $this->request->data['Retraso']['minutos']=$minutos_retraso;
                 $this->request->data['Retraso']['descuento']= $multa['ConfMulta']['monto'];
@@ -128,8 +128,8 @@ public function salidas()
                 //$ingreso=$salida['Asistencia']['horaingreso'];
                 //debug($ingreso);exit;
                 $salida=$this->Asistencia->find('first',array('conditions'=>array
-                    ('Asistencia.usuario_id'=>$usuario_id,'Asistencia.fecha'=>$date)));
-                debug($salida);exit;
+                    ('Asistencia.user_id'=>$usuario_id,'Asistencia.fecha'=>$date)));
+                //debug($salida);exit;
                 $id=$salida['Asistencia']['id'];
 
         if(!empty($salida)){
