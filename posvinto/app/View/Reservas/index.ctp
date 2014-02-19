@@ -360,6 +360,10 @@
                                             <?php
                                             echo $this->Html->image("elim.png", array("title" => "Salida Almacen", 'url' => array('action' => 'delete', $id)));
                                             ?>
+                                            <?php
+                                            echo $this->Html->image("edit.png", array("title" => "Ver", 'url' => array('action' => 'ver', $id)));
+                                            ?>
+                                            
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

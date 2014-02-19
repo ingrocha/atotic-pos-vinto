@@ -1,71 +1,33 @@
-<!-- registro insumo -->
-<!-- Container -->
-<?php //echo $this->element('combobusca'); ?>
-<div id="container">
-	<div class="shell">
-		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			Registro nuevo tipo de evento
-		</div>
-		<!-- End Small Nav -->
-		
-		<br />
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-				
-				<!-- Box -->
-				<div class="boxa">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">NUEVO TIPO DE EVENTO</h2>
-						
-					</div>
-					<!-- End Box Head -->	
+<div id="main-content" class="main-content container-fluid">
+    <!-- // sidebar --> 
+    <?php echo $this->element('sidebar/reservas'); ?>               
+    <!-- // fin sidebar -->
+    <!-- // contenido pricipal -->                                 
+    <div id="page-content" class="page-content">
+        <section>            
+            <div class="row-fluid">                
+                <?php echo $this->Form->create('Tipoevento', array('id' => 'formA', 'class' => 'span12')); ?>
+                <div class="page-header">
+                    <h3><i class="fontello-icon-article-alt opaci35"></i>Registro de Nuevo <small>Evento</small></h3>
+                </div>
+                <div class="span10 well well-nice">
+                    <fieldset>
+                        <legend>Formulario <small>NUEVO EVENTO</small></legend>
+                        <label for="formA04">Nombre:</label>                            
+                        <?php echo $this->Form->text('nombre', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese en nombre Ej: Juan Perez', 'required', 'title' => 'Este campo Necesario')); ?>
+                        <!-- // form item -->
 
-					<!-- Table -->
-<div class="table">
-	<?php echo $this->Form->create('Tipoevento'); ?>
-<table>
-<tr>
-	<td>Nombre</td>
-	<td><?php echo $this->Form->text('nombre', array('size'=>30)); ?></td>
-</tr> 
-<tr>
-	<td>Observaciones</td>
-	<td><?php echo $this->Form->textarea('descripcion'); ?></td>
-</tr>
-</table>
-<?php $options = array(
-    'Value' => 'Guardar',
-    'class' => 'button-submit',
-    ) ?>
-<?php echo $this->Form->end($options); ?>
-<div style="clear: both;"></div>
-						
-						
-						<!-- Pagging -->
-					
-						</div>
-						<!-- End Pagging -->
-						
-					</div>
-					<!-- Table -->
-					
-				</div>
-				<!-- End Box -->
-				
-				
-			</div>
-			<!-- End Content -->
-			
-		<?php echo $this->element('menureservas') ?>
-			
-			<div class="cl">&nbsp;</div>			
-		</div>
-		<!-- Main -->
-	</div>
+                        <label for="formA04">Descripcion:</label>                            
+                        <?php echo $this->Form->text('descripcion', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese la direccion Ej: Calle uno', 'title' => 'Este campo Necesario')); ?>
+                        <!-- // form item -->
+                        
+                      
+                        <button class="btn btn-green" type="submit">Guardar Evento</button>
+                        </form>
+                    </fieldset>
+                    <!-- // fieldset Input Grid Sizig --> 
+                </div>
+            </div>
+        </section>
+    </div>  
+</div> 
