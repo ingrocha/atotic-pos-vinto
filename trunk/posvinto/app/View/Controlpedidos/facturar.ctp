@@ -14,7 +14,8 @@
         ..............................................................
     </div> 
     <span style="padding: 0 30px 0 2px; text-align: left; font-size: 14px;">     
-       
+    <?php $fecha = date('Y-m-d'); ?>
+    <?php $hora = date('H:m:s'); ?>   
     <table style="width: 355px;">
         <tr>
             <td style="font-weight: bold;">NIT</td>

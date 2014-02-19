@@ -6,13 +6,16 @@ jQuery(function () {
 	jQuery('#tecladonumerico').keypad();
 });
 </script>
-<h1>Ingrese el Codigo del Mesero</h1>
+<h1>Ingrese el codigo de mesero</h1>
 <?php echo $this->Html->link('Cancelar',array('action' => 'index'),array('class' => 'myButton'));?>
-<?php
-echo $this->Form->create('Asistencia');
-echo $this->Form->input('codigo', array('id' => 'tecladonumerico', 'size' => 5));
-echo $this->Form->end('Enviar');
+<div class="formverificacodigo">
+<?php 
+    echo $this->Form->create('Asistencia');
+    echo $this->Form->input('codigo', array('id' => 'tecladonumerico', 'size' => 5));
+    $options = array('id' => 'button-login', 'Value' => 'Ingresar');
+    echo $this->Form->end($options); 
 ?>
+</div>
 <style>
 
 
