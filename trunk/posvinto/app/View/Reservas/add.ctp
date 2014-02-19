@@ -35,7 +35,7 @@
 
                         <label for="formA04">Cantidad Personas</label>
                         <div class="control-label">
-                            <?php echo $this->Form->text('cantidad_personas', array('class' => 'span3', 'placeholder' => 'sueldo Ej: 2000', 'required')); ?>
+                            <?php echo $this->Form->text('cantidad_personas', array('class' => 'span3', 'placeholder' => 'cantidad Ej: 23', 'required')); ?>
                             <?php echo $this->Form->textarea('observaciones', array('class' => 'span3', 'placeholder' => 'Observaciones aqui')); ?>
                         </div>               
                         <button class="btn btn-green" type="submit">Guardar contrato</button>
