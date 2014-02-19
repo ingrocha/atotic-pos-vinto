@@ -86,13 +86,13 @@
                 ));
             ?>
             <?php 
-                echo $this->Html->link('Observaciones',array('action' => 'observaciones',$id));
-            ?>    
-            <?php 
                 echo $this->Html->image("elim.png", array(
                     "title" => "Eliminar",
                     'url' => array('action' => 'eliminarplato', $id)
                 ));
+            ?>
+            <?php 
+                echo $this->Html->link('Observaciones',array('action' => 'observaciones',$id));
             ?> 
                                                 </td>
 											</tr>

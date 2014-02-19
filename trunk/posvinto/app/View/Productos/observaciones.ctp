@@ -43,8 +43,12 @@
                                                 <?php echo $obs['Productosobservacione']['observacion'];?>
                                             </td>
                                             <td>
-                                            <a href="javascript:" onclick="$('#cargdatos').load('<?php echo $this->Html->url(array('action' => 'ajaxobservacion',$obs['Productosobservacione']['id']));?>');">Editar</a>
-                                            <?php echo $this->Html->link('Eliminar',array('action' => 'eliminaobservacion',$obs['Productosobservacione']['id']));?>
+                                            <a href="javascript:" onclick="$('#cargdatos').load('<?php echo $this->Html->url(array('action' => 'ajaxobservacion',$obs['Productosobservacione']['id']));?>');">EDITAR</a>
+                                            <?php //echo $this->Html->link('Eliminar',array('action' => 'eliminaobservacion',$obs['Productosobservacione']['id']));?>
+                                        
+                                            <?php //echo $this->Html->image("iconos/edit.png", array("title" => "Editar", 'url' => array('action' => 'editar', $clas['Clase']['id']))); ?>
+                                            <?php echo $this->Html->image("iconos/elim.png", array("title" => "Eliminar", 'url' => array('action' => 'eliminaobservacion', $obs['Productosobservacione']['id']))); ?>
+                                        
                                             </td>
                                             
                                         </tr>

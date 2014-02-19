@@ -83,18 +83,31 @@ $modeloAmbiente = new Ambiente();
                                 <?php if($rol == 'Administrador'): ?>
                                     <ul class="nav">
                                         <li><?php echo $this->Html->link('INICIO', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
-                                        <li><?php echo $this->Html->link('USUARIOS', array('controller' => 'Users', 'action' => 'index')) ?></li>
-                                        <li><?php echo $this->Html->link('CLIENTES', array('controller' => 'Clientes', 'action' => 'index')) ?></li>
+                                        <li class="dropdown">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">USUARIOS <b class="caret"></b></a>
+		                                          <ul class="dropdown-menu">
+			                                         <li><a href="<?php echo $this->Form->url(array('controller' => 'Users', 'action' => 'index')) ?>">Usuarios</a></li>
+                                                     <li><a href="<?php echo $this->Form->url(array('controller' => 'Clientes', 'action' => 'index')) ?>">Clientes</a></li>
+                                                  </ul>
+                                        </li>
                                         <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Reservas', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('PEDIDOS', array('controller' => 'controlpedidos', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('MENU', array('controller' => 'Productos', 'action' => 'productosmenu')) ?></li>
-                                        <li><?php echo $this->Html->link('BODEGA', array('controller' => 'Insumos', 'action' => 'Bodega')) ?></li>
-                                        <li><?php echo $this->Html->link('ALMACEN', array('controller' => 'Insumos', 'action' => 'index')) ?></li>
+                                        <li class="dropdown">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">ALMACEN <b class="caret"></b></a>
+		                                          <ul class="dropdown-menu">
+			                                         <li><a href="<?php echo $this->Form->url(array('controller' => 'Insumos', 'action' => 'index')) ?>">Almacen</a></li>
+                                                     <li><a href="<?php echo $this->Form->url(array('controller' => 'Insumos', 'action' => 'Bodega')) ?>">Bodega</a></li>
+                                                     <li><a href="<?php echo $this->Form->url(array('controller' => 'Lugares', 'action' => 'index')) ?>">Tipo Almacen</a></li>
+                                                  </ul>
+                                        </li>
+                                        <li><?php echo $this->Html->link('PLATOS', array('controller' => 'Productos', 'action' => 'platos')) ?></li>
+                                        
                                         <li><?php echo $this->Html->link('REPORTES', array('controller' => 'Graficos', 'action' => 'genera')) ?></li>
                                         <li><?php echo $this->Html->link('CONFIGURACIONES', array('controller' => 'Configuraciones', 'action' => 'index')) ?></li>
                                         <!--<li><?php //echo $this->Html->link('MESAS', array('controller' => 'Mesas', 'action' => 'index')) ?></li>-->
                                         <li class="dropdown"> 
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="fontello-icon-list-1"></span>Ambientes <b class="caret"></b></a>
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">AMBIENTES <b class="caret"></b></a>
                                             <ul class="dropdown-menu">
                                             <?php $ambientes = $modeloAmbiente->find('all');?>
                                             <?php if(!empty($ambientes)):  ?>
