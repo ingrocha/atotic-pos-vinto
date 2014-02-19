@@ -49,6 +49,7 @@ public function entradas()
               $this->request->data['Asistencia']['fecha']=$date;
               $this->request->data['Asistencia']['user_id']=$usuario;
               $this->request->data['Asistencia']['horaingreso']=date('H:i:s');
+              //$this->request->data['Asistencia']['horasalida']=null;
               $horaingreso = $this->Horario->find('first', array('fields'=>array('Horario.entrada')));
               
               $ingreso = $horaingreso['Horario']['entrada'];
@@ -132,20 +133,27 @@ public function salidas()
                 //debug($salida);exit;
                 $id=$salida['Asistencia']['id'];
 
-        if(!empty($salida)){
-                $this->Session->setFlash('Error,Su Hora de Salida ya fue Guardada....');
+        if(empty($salida)){
+                $this->Session->setFlash('Error,Su ingreso no fue marcado....');
                 $this->redirect(array('ation'=>'index'));
         }
         else{
-            $this->Asistencia->id=$id;
-            $this->request->data['Asistencia']['horasalida']=date('H:i:s');
-        if($this->Asistencia->save($this->data)){
-                $this->Session->SetFlash('Hora de Salida Guardada');
-                $this->redirect(array('action'=>'index'));
-        }
-        else{
-            $this->Session->setFlah('No se pudo guardar');
-            $this->redirect(array('action'=>'index'));
+            if($salida['Asistencia']['horasalida'] == null)
+            {
+                $this->Asistencia->id=$id;
+                    $this->request->data['Asistencia']['horasalida']=date('H:i:s');
+                if($this->Asistencia->save($this->data)){
+                        $this->Session->SetFlash('Hora de Salida Guardada');
+                        $this->redirect(array('action'=>'index'));
+                }
+                else{
+                    $this->Session->setFlash('No se pudo guardar');
+                    $this->redirect(array('action'=>'index'));
+                    }
+            }
+            else{
+                $this->Session->setFlash('Su hora de salida ya fue marcada');
+                    $this->redirect(array('action'=>'index'));
             }
            }
         }
