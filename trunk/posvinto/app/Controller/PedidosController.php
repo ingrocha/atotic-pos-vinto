@@ -54,7 +54,7 @@ class PedidosController extends AppController
         if ($anadido == null) {
             $anadido = 0;
         }
-
+        
         $datosClases = $this->Clase->find('all', array('recursive' => -1, 'order' =>
                 'Clase.orden'));
 
@@ -644,7 +644,7 @@ class PedidosController extends AppController
         $this->request->data['Pedido']['fecha'] = $fecha;
         if(!empty($objmesa))
         {
-            $this->request->data['Pedido']['mesa'] = $objmesa['Mesa']['numero'];
+            $this->request->data['Pedido']['mesa'] = $objmesa['Mesa']['nombre'];
         }
         $this->Pedido->create();
         if ($this->Pedido->save($this->request->data)) {
@@ -663,7 +663,7 @@ class PedidosController extends AppController
                 'action' => 'pedidomoso',
                 $id_moso,
                 $ul_pedido,
-                $mesa,
+                $objmesa['Mesa']['nombre'],
                 0));
         }
     }

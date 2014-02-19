@@ -13,6 +13,7 @@ class ProductosController extends AppController
         'Categoria',
         'Clase',
         'Porcione',
+        'Clase',
         'Insumo',
         'Productosobservacione',
         'Almacen');
@@ -463,7 +464,8 @@ class ProductosController extends AppController
             }
         }
         $dct = array('Comida' => 'Comida', 'Bebidas' => 'Bebidas');
-        $this->set(compact('dct'));
+        $clases = $this->Clase->find('list',array('fields' => 'Clase.nombre'));
+        $this->set(compact('dct','clases'));
     }
     public function eliminacategoria($id=null){
         $platos = $this->Producto->find('count', array(
@@ -514,7 +516,8 @@ class ProductosController extends AppController
             }
         }
         $dct = array('Comida' => 'Comida', 'Bebidas' => 'Bebidas');
-        $this->set(compact('dct'));
+        $clases = $this->Clase->find('list',array('fields' => 'Clase.nombre'));
+        $this->set(compact('dct','clases'));
     }
      public function nuevaclase()
     {

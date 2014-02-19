@@ -18,6 +18,8 @@
                         <?php echo $this->Form->text('nombre'); ?>
                         <label for="formA04">Tipo:</label>                            
                         <?php echo $this->Form->select('tipo',$dct); ?>
+                        <label for="formA04">Clase:</label> 
+                        <?php echo $this->Form->select('clase_id',$clases,array('required'));?>
                         <label for="formA04">Descripci&oacute;n:</label>
                         <?php echo $this->Form->text('descripcion'); ?>                                                            
                 
