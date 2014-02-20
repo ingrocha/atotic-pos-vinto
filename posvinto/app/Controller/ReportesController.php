@@ -247,56 +247,31 @@ class ReportesController extends AppController{
         $this->set(compact('movimientos'));
     }
     public function formularioreporteproductos(){
-        
+        $meseros = $this->User->find('list',array('fields' => 'User.nombre','conditions' => array('User.role' => 'Moso')));
+        $this->set(compact('meseros'));
     }
     public function reportepedidos(){
-       $dato = $this->request->data['dato'];
-        $fechas = explode(" - ", $this->request->data['dato']);
-        
-        $fecha1 = $this->Fechasconvert->doInvertir($fechas[0]);
-        $fecha2 = $this->Fechasconvert->doInvertir($fechas[1]);
-        
-        App::uses('CakeTime', 'Utility');
-        //$dia = CakeTime::dayAsSql($fecha1, $fecha2, 'Pedido.created');
-        $dia = CakeTime::daysAsSql("$fecha1", "$fecha2", 'Item.fecha');
-        
-        $pedidos = $this->Item->find('all', array(
-        'conditions'=>array($dia),
-        'fields'=>array('Item.pedido_id','Pedido.mesa', 'SUM(Item.precio) as precio', 'Item.fecha'),
-        'group'=>array('Item.pedido_id'),
-        'order'=>array('Item.pedido_id ASC')
-        ));
-        
-       $dia2 = CakeTime::daysAsSql("$fecha1", "$fecha2", 'Recibo.created');
+        //debug($this->request->data);exit;
+       $fechaini = $this->request->data['Reportes']['fechaini'];
+       $fechafin = $this->request->data['Reportes']['fechafin'];
+       $condiciones['Pedido.created >='] = $fechaini;
+       $condiciones['Pedido.created <='] = $fechafin;
        
-       $descuentos = $this->Recibo->find('all', array(
-        'conditions'=>array($dia2),
-        'fields'=>array('Recibo.pedido_id','Recibo.totaldescuento','Recibo.descuento'),
-        'order'=>array('Recibo.pedido_id ASC')
-        ));
-     
-        if(!empty($descuentos)){
-            $i=0;
-           foreach($descuentos as $descuento){
-                foreach($pedidos as $pedido){
-                    if($pedido['Item']['pedido_id'] == $descuento['Recibo']['pedido_id']){
-                        $pedidos[$i]['Item']['totalcondescuento'] = $descuento['Recibo']['totaldescuento'];
-                        $pedidos[$i]['Item']['descuento'] = $descuento['Recibo']['descuento'] * 100;  
-                    }
-                    $i++;
-                }
-            } 
-        }
-        $i=0;
-        foreach($pedidos as $p){
-            if(!isset($p['Item']['totalcondescuento'])){
-             $pedidos[$i]['Item']['totaldescuento'] = 0;  
-             $pedidos[$i]['Item']['descuento'] = 0; 
-            }
-            $i++;
-        }
-        //debug($pedidos);exit;
-        $this->set(compact('pedidos', 'dato'));
+       $moso = $this->request->data['Reportes']['mesero'];
+       if(!empty($moso))
+       {
+        $condiciones['User.id'] = $moso;
+       }
+       //debug($fechafin);
+       //debug($fechaini);
+       
+       $pedidos = $this->Pedido->find('all',array('recursive' => 0,'conditions' => $condiciones));
+       $this->set(compact('pedidos'));
+       //debug($pedidos);exit;
+    }
+    public function cuentaItem($idPedido = null)
+    {
+        return $this->Item->find('count',array('conditions' => array('Item.pedido_id' => $idPedido)));
     }
      
 }

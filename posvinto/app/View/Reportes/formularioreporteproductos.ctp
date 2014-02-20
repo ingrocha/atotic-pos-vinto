@@ -18,11 +18,11 @@
                             
                                 <fieldset>
                                     <div class="input-append">
-                                        <input id="reportView" type="text" name="dato" value="08-10-2012 - 29-10-2012">
-                                        <button id="reportSelect" class="btn" name="reportSelect">Select a un per&iacute;odo de tiempo <span class="caret"></span></button>
+                                        Desde <?php echo $this->Form->date('fechaini',array('required'));?> hasta <?php echo $this->Form->date('fechafin',array('required'));?> <?php echo $this->Form->select('mesero',$meseros);?>
                                     </div>
+                                    
                                 </fieldset>
-                            <?php echo $this->Form->end(array('Value'=>'Enviar', 'class'=>"btn btn-green")) ?>
+                            <?php echo $this->Form->end(array('Value'=>'Generar reporte', 'class'=>"btn btn-green")) ?>
                 <!-- // datarangepicker -->
                 </div><!-- fin span 7 -->
             </div>
