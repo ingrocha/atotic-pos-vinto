@@ -39,7 +39,7 @@ $item = new Item();
                     <tr id="quita<?php echo $pro['Item']['id'];?>">
                     <td><?php echo $pro['Producto']['nombre'];?> </td>
                     <td>
-                    <?php if($usuario['User']['role'] == 'jefe' || $pro['Item']['estado'] == 0):?>
+                    <?php if($usuario['User']['role'] == 'jefe' || $pro['Item']['estado'] == 0 || $usuario['User']['role'] == 'Administrador'):?>
                     <input type="button" value="Quitar" id="quitab<?php echo $pro['Item']['id'];?>"/>
                     <?php endif;?>
                     </td>
@@ -61,7 +61,7 @@ $item = new Item();
                                             );
                                             //$direccion = $this->Html->url(array('action' => 'ajaxmuestraobservaciones',$idProducto,$idPedido));
                                             
-                                            if($usuario['User']['role'] == 'jefe' || $pro['Item']['estado'] == 0)
+                                            if($usuario['User']['role'] == 'jefe' || $pro['Item']['estado'] == 0 || $usuario['User']['role'] == 'Administrador')
                                             {
                                                 $this->Js->get('#quita'.$pro['Item']['id'])->event(
                                                 'click',

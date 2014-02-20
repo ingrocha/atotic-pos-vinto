@@ -61,6 +61,8 @@
                             </tr>
                         </tfoot>
                     </table>
+                    <br />
+                    <?php echo $this->Html->link('VER PEDIDO',array('controller' => 'Pedidos','action' => 'pedidomoso',$this->Session->read('Auth.User.id'),$moso['Pedido']['id'],$moso['Pedido']['mesa']),array('class' => 'btn btn-primary'));?>
                 </div>
                 <!-- //tabla -->       
 
