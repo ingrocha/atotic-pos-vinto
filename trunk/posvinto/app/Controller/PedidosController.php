@@ -1263,97 +1263,126 @@ class PedidosController extends AppController
     {
         $this->layout = 'ajax';
         //debug($iditem);
-        //debug($idPedido);
+        //debug($idPedido);exit;
         //debug($idProducto);
-        if ($iditem == null) {
-            $insumo = $this->Porcione->find('all', array('recursive' => -1, 'conditions' =>
-                    array('Porcione.producto_id' => $idProducto)));
-            $sw = true;
-            //debug($insumo);exit;
-            foreach ($insumo as $in) {
-                //debug($in['Porcione']['insumo_id']);
-                $movimiento = $this->Bodega->find('first', array('recursive' => -1, 'conditions' =>
-                        array(
-                        'Bodega.insumo_id' => $in['Porcione']['insumo_id'],
-                        'Bodega.total >=' => $in['Porcione']['cantidad'],
-                        'Bodega.fecha' => date("Y-m-d"),
-                        'Bodega.lugare_id' => 1)));
-                //debug($movimiento);
-                if (empty($movimiento)) {
-                    $sw = false;
-                }
-            }
-            //debug($sw);exit;
-            if ($sw) {
-                //$movimiento = $this->Bodega->find('');
-                $Producto = $this->Producto->find('first', array('recursive' => -1, 'conditions' =>
-                        array('Producto.id' => $idProducto)));
-                if (!empty($Producto)) {
-                    $precio = $Producto['Producto']['precio'];
-                } else {
-                    $precio = 0;
-                }
-                $cantidad = 1;
-                $this->Item->create();
-                $this->request->data['Item']['pedido_id'] = $idPedido;
-                $this->request->data['Item']['producto_id'] = $idProducto;
-                $this->request->data['Item']['cantidad'] = $cantidad;
-                $this->request->data['Item']['precio'] = $precio;
-                $this->request->data['Item']['fecha'] = date("Y-m-d H:i:s");
-                $this->request->data['Item']['estado'] = 0;
-                $this->Item->save($this->request->data);
+        if($idProducto != null)
+        {
+            if ($iditem == null) {
+                $insumo = $this->Porcione->find('all', array('recursive' => 2, 'conditions' =>
+                        array('Porcione.producto_id' => $idProducto)));
+                $sw = true;
+                //debug($insumo);exit;
+                
                 foreach ($insumo as $in) {
+                    if(strtoupper($in['Producto']['Categoria']['tipo']) == 'COMIDA')
+                    {
+                        $lugar = 1;
+                    }
+                    if(strtoupper($in['Producto']['Categoria']['tipo']) == 'BEBIDAS')
+                    {
+                        $lugar = 2;
+                    }
+                    //debug($in['Porcione']['insumo_id']);
                     $movimiento = $this->Bodega->find('first', array('recursive' => -1, 'conditions' =>
                             array(
                             'Bodega.insumo_id' => $in['Porcione']['insumo_id'],
                             'Bodega.total >=' => $in['Porcione']['cantidad'],
                             'Bodega.fecha' => date("Y-m-d"),
-                            'Bodega.lugare_id' => 1)));
+                            'Bodega.lugare_id' => $lugar)));
+                    //debug($movimiento);
+                    if (empty($movimiento)) {
+                        $sw = false;
+                    }
+                }
+                //debug($sw);exit;
+                if ($sw) {
+                    //$movimiento = $this->Bodega->find('');
+                    $Producto = $this->Producto->find('first', array('recursive' => -1, 'conditions' =>
+                            array('Producto.id' => $idProducto)));
+                    if (!empty($Producto)) {
+                        $precio = $Producto['Producto']['precio'];
+                    } else {
+                        $precio = 0;
+                    }
+                    $cantidad = 1;
+                    $this->Item->create();
+                    $this->request->data['Item']['pedido_id'] = $idPedido;
+                    $this->request->data['Item']['producto_id'] = $idProducto;
+                    $this->request->data['Item']['cantidad'] = $cantidad;
+                    $this->request->data['Item']['precio'] = $precio;
+                    $this->request->data['Item']['fecha'] = date("Y-m-d H:i:s");
+                    $this->request->data['Item']['estado'] = 0;
+                    $this->Item->save($this->request->data);
+                    foreach ($insumo as $in) {
+                        if(strtoupper($in['Producto']['Categoria']['tipo']) == 'COMIDA')
+                        {
+                            $lugar = 1;
+                        }
+                        if(strtoupper($in['Producto']['Categoria']['tipo']) == 'BEBIDAS')
+                        {
+                            $lugar = 2;
+                        }
+                        $movimiento = $this->Bodega->find('first', array('recursive' => -1, 'conditions' =>
+                                array(
+                                'Bodega.insumo_id' => $in['Porcione']['insumo_id'],
+                                'Bodega.total >=' => $in['Porcione']['cantidad'],
+                                'Bodega.fecha' => date("Y-m-d"),
+                                'Bodega.lugare_id' => $lugar)));
+                        $this->Bodega->id = $movimiento['Bodega']['id'];
+                        $this->request->data['Bodega']['salida'] = $movimiento['Bodega']['salida'] + $in['Porcione']['cantidad'];
+                        $this->request->data['Bodega']['total'] = $movimiento['Bodega']['total'] - $in['Porcione']['cantidad'];
+                        $this->Bodega->save($this->request->data['Bodega']);
+                    }
+                    $sw = 1;
+                } else {
+                    $Producto = $this->Producto->find('first', array('recursive' => -1, 'conditions' =>
+                            array('Producto.id' => $idProducto)));
+                    $mensaje = 'No Hay ' . $Producto['Producto']['nombre'];
+    
+                }
+            } else {
+                $this->Item->delete($iditem);
+                $comprueba = $this->Pedidosobservacione->find('all', array('recursive' => -1,
+                        'conditions' => array(
+                        'Pedidosobservacione.pedido_id' => $idPedido,
+                        'Pedidosobservacione.item_id' => $iditem,
+                        )));
+                if (!empty($comprueba)) {
+                    foreach ($comprueba as $com) {
+                        $this->Pedidosobservacione->delete($com['Pedidosobservacione']['id']);
+                    }
+                }
+                $insumo = $this->Porcione->find('all', array('recursive' => -1, 'conditions' =>
+                        array('Porcione.producto_id' => $idProducto)));
+                foreach ($insumo as $in) {
+                    if(strtoupper($in['Producto']['Categoria']['tipo']) == 'COMIDA')
+                        {
+                            $lugar = 1;
+                        }
+                        if(strtoupper($in['Producto']['Categoria']['tipo']) == 'BEBIDAS')
+                        {
+                            $lugar = 2;
+                        }
+                    //debug($in['Porcione']['insumo_id']);
+                    $movimiento = $this->Bodega->find('first', array(
+                        'recursive' => -1,
+                        'order' => 'Bodega.id DESC',
+                        'conditions' => array(
+                            'Bodega.insumo_id' => $in['Porcione']['insumo_id'],
+                            //'Bodega.total >=' => $in['Porcione']['cantidad'],
+                            'Bodega.fecha' => date("Y-m-d"),
+                            'Bodega.lugare_id' => $lugar)));
+                    //debug($movimiento);
+    
+                    //debug($movimiento['Bodega']['id']);
                     $this->Bodega->id = $movimiento['Bodega']['id'];
-                    $this->request->data['Bodega']['salida'] = $movimiento['Bodega']['salida'] + $in['Porcione']['cantidad'];
-                    $this->request->data['Bodega']['total'] = $movimiento['Bodega']['total'] - $in['Porcione']['cantidad'];
+                    $this->request->data['Bodega']['salida'] = $movimiento['Bodega']['salida'] - $in['Porcione']['cantidad'];
+                    $this->request->data['Bodega']['total'] = $movimiento['Bodega']['total'] + $in['Porcione']['cantidad'];
                     $this->Bodega->save($this->request->data['Bodega']);
                 }
-                $sw = 1;
-            } else {
-                $Producto = $this->Producto->find('first', array('recursive' => -1, 'conditions' =>
-                        array('Producto.id' => $idProducto)));
-                $mensaje = 'No Hay ' . $Producto['Producto']['nombre'];
-
-            }
-        } else {
-            $this->Item->delete($iditem);
-            $comprueba = $this->Pedidosobservacione->find('all', array('recursive' => -1,
-                    'conditions' => array(
-                    'Pedidosobservacione.pedido_id' => $idPedido,
-                    'Pedidosobservacione.item_id' => $iditem,
-                    )));
-            if (!empty($comprueba)) {
-                foreach ($comprueba as $com) {
-                    $this->Pedidosobservacione->delete($com['Pedidosobservacione']['id']);
-                }
-            }
-            $insumo = $this->Porcione->find('all', array('recursive' => -1, 'conditions' =>
-                    array('Porcione.producto_id' => $idProducto)));
-            foreach ($insumo as $in) {
-                //debug($in['Porcione']['insumo_id']);
-                $movimiento = $this->Bodega->find('first', array(
-                    'recursive' => -1,
-                    'order' => 'Bodega.id DESC',
-                    'conditions' => array(
-                        'Bodega.insumo_id' => $in['Porcione']['insumo_id'],
-                        //'Bodega.total >=' => $in['Porcione']['cantidad'],
-                        'Bodega.fecha' => date("Y-m-d"),
-                        'Bodega.lugare_id' => 1)));
-                //debug($movimiento);
-
-                //debug($movimiento['Bodega']['id']);
-                $this->Bodega->id = $movimiento['Bodega']['id'];
-                $this->request->data['Bodega']['salida'] = $movimiento['Bodega']['salida'] - $in['Porcione']['cantidad'];
-                $this->request->data['Bodega']['total'] = $movimiento['Bodega']['total'] + $in['Porcione']['cantidad'];
-                $this->Bodega->save($this->request->data['Bodega']);
             }
         }
+        
 
 
         $productos = $this->Item->find('all', array('recursive' => 0, 'conditions' =>
@@ -1468,21 +1497,25 @@ class PedidosController extends AppController
         //debug($productos_vector);exit;
         $swbebidas = false;
         $swcomida = false;
-        foreach($productos_vector as $prod)
+        if(!empty($productos_vector))
         {
-            $contenido_pedido = $contenido_pedido.$prod['Producto']['cantidad'].' '.$prod['Producto']['nombre'].PHP_EOL;
-            
-            if($prod['Producto']['categoria'] == 'Comida')
+            foreach($productos_vector as $prod)
             {
-                $swcomida = true;
-                $contenido = $contenido.$prod['Producto']['cantidad'].' '.$prod['Producto']['nombre'].PHP_EOL;
-            }
-            if($prod['Producto']['categoria'] == 'Bebidas')
-            {
-                $swbebidas = true;
-                $bebida = $bebida.$prod['Producto']['cantidad'].' '.$prod['Producto']['nombre'].PHP_EOL;
+                $contenido_pedido = $contenido_pedido.$prod['Producto']['cantidad'].' '.$prod['Producto']['nombre'].PHP_EOL;
+                
+                if($prod['Producto']['categoria'] == 'Comida')
+                {
+                    $swcomida = true;
+                    $contenido = $contenido.$prod['Producto']['cantidad'].' '.$prod['Producto']['nombre'].PHP_EOL;
+                }
+                if($prod['Producto']['categoria'] == 'Bebidas')
+                {
+                    $swbebidas = true;
+                    $bebida = $bebida.$prod['Producto']['cantidad'].' '.$prod['Producto']['nombre'].PHP_EOL;
+                }
             }
         }
+        
          
         $contenido_pedido = $contenido_pedido.'------------------------------'.PHP_EOL;
         //$contenido_pedido = $contenido_pedido.'--------DETALLE---------'.PHP_EOL;
@@ -1580,8 +1613,16 @@ class PedidosController extends AppController
         //exec('print /d:\\\\192.168.0.102\\demo '.WWW_ROOT . 'cocina' . DS . $idPedido . '.txt');
         //exec('print /d:\\\\192.168.0.101\\demo d:\\texto.txt');
         //debug(WWW_ROOT . 'cocina' . DS . $idPedido . '.txt');exit;
+        $role = $this->Session->read('Auth.User.role');
+        if($role == 'Administrador')
+        {
+            $this->Session->setFlash('Se envio el pedido y guardo los cambios del pedido!!!','alerts/bueno');
+            $this->redirect(array('controller' => 'Controlpedidos','action' => 'verpedido', $idPedido));
+        }
+        else{
+            $this->redirect(array('action' => 'nuevopedido', $id_moso));
+        }
         
-        $this->redirect(array('action' => 'nuevopedido', $id_moso));
     }
     public function pruebamovimiento()
     {

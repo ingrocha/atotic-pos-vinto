@@ -62,7 +62,15 @@ $modeloproductosobservaciones = new Productosobservacione();
                 'before' => '$("#contenidomoso").hide(); $("#cargando").show(); $("#cargaPedidos").show();',
                 'complete' => '$("#cargando").hide(); $("#contenidomoso").show(); '
                 ));*/
-                echo  $this->Html->link('MIS MESAS',array('controller'=>'Pedidos','action' => 'nuevopedido',$datosMoso['User']['id']));
+                $role = $this->Session->read('Auth.User.role');
+                if($role == 'Administrador')
+                {
+                    echo  $this->Html->link('REGRESAR',array('controller'=>'Controlpedidos','action' => 'verpedido',$pedido));
+                }
+                else{
+                    echo  $this->Html->link('MIS MESAS',array('controller'=>'Pedidos','action' => 'nuevopedido',$datosMoso['User']['id']));
+                }
+                
                 ?>
                 </li>
                 
@@ -181,6 +189,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                 </style>                 
                     <script type='text/javascript'>
                         $(document).ready(function() {
+                            $("#cargaDatos").load("<?php echo $this->Html->url(array('action' => 'ajaxpideproducto',$id_moso,$pedido,null,null));?>");
                             $(".contenido_tab").hide(); //Ocultar capas
                             $("ul.tabs li:first").addClass("activa").show(); //Activar primera pestaña
                             $(".contenido_tab:first").show(); //Mostrar contenido primera pestaña
