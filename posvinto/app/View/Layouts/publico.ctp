@@ -19,21 +19,7 @@
     </head>
     <body>
         <?php define("DIR_WEB", "http://localhost/posvinto/posvinto/"); ?>
-        <div id="container">
-            <div id="header">
-                <h1><a href="#"><?php echo $this->Html->image('logo.jpg') ?></a></h1>
-                <div class="navigation">				
-                    <ul>
-                        <li>
-                            <?php //echo DIR_WEB;  ?>
-                            <?php //echo $this->Html->link("PEDIDOS", array('controller' => 'Pedidos', 'action' => 'listadopedidos')); ?>                        
-                        </li>                    				
-                        <li>
-                            <?php //echo $this->Html->link("ASISTENCIAS", array('controller' => 'Asistencias', 'action' => 'entradas')); ?>
-                        </li>
-                    </ul>
-                </div>
-            </div>		
+        <div id="container">		
             <div id="content">
                 <?php echo $this->Session->flash(); ?>
                 <?php echo $this->fetch('content'); ?>

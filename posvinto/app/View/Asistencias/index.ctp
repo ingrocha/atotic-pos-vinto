@@ -1,12 +1,13 @@
-<h1>Asistencia de personal </h1>
+<h1><?php echo $this->Html->image('logo.jpg') ?></br>Asistencia de personal
+    </h1>
 <h1>Fecha : <?php echo date('Y-m-d');?></h1>
-<div>
+<h1>
 <?php echo $this->Html->link('Entrada',array('action'=>'entradas'),array('class' => 'myButton') ); ?>
-</div>
+</h1>
 <br />
-<div>
+<h1>
   <?php echo $this->Html->link('Salida',array('action'=>'salidas'),array('class' => 'myButton2')); ?>
-</div>
+</h1>
 <style>
 
 .myButton {
