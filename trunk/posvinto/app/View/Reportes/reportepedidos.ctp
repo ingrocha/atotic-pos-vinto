@@ -17,55 +17,41 @@
                         </caption>
                         <thead>
                             <tr>
-                               <th>fecha</th>             
-                                <th scope="col">Mesa<span class="column-sorter"></span></th> 
+                                <th>Nro</th>
+                               <th>fecha</th>  
+                                <th>Mesero</th>           
+                                <th scope="col">Mesa<span class="column-sorter"></span></th>
+                                <th>Platos</th>
                                 <th>Total</th>
-                                <th>Descuento</th>
-                                <th scope="col">Costo</th> 
-                                
                             </tr>
                         </thead>
-                        <?php $costototal=0;?>
+                        <?php $i=0;$total = 0.00;?>
                         <tbody>
                         <?php foreach ($pedidos as $producto): 
-                        $costodescuento += $producto['Item']['totalcondescuento'];
-                        $costototal += $producto['0']['precio'];
+                        $i++
                         ?>                      
                             <tr> 
-                                <td><?php echo $producto['Item']['fecha'];?></td>           
+                                <td><?php echo $i;?></td>
+                                <td><?php echo $producto['Pedido']['fecha'];?></td>
+                                <td><?php echo $producto['User']['nombre'];?></td>           
                                 <td><?php echo $producto['Pedido']['mesa']; ?></td>
-                                <td><?php echo $producto['0']['precio'];?></td>
-                                <td><?php echo $producto['Item']['descuento']?></td>
-                                <td style="text-align: right;">
-                                <?php 
-                                if($producto['Item']['descuento'] == 0):
-                                   echo number_format($producto['0']['precio'],2,'.',',');
-                                else:
-                                   $descuentos += $producto['Item']['totalcondescuento'];
-                                   echo number_format($producto['Item']['totalcondescuento'],2,'.',',');
-                                endif;
+                                <td><?php echo $plato = $this->requestAction(array('action' => 'cuentaItem',$producto['Pedido']['id']));?></td>
+                                <td><?php echo $producto['Pedido']['total'];?></td>
+                                <?php $total = $total + $producto['Pedido']['total'];
+                                        $platos = $platos + $plato;
                                 ?>
-                                </td>
                             </tr>
+                            
                         <?php endforeach; ?>  
-                        <tr>
-                           <td colspan="4">Ganancia Total</td>
-                           <td style="text-align: right;">
-                           <?php echo number_format($costototal,2,'.',',') ?>
-                           </td>
-                        </tr>                         
-                        <tr>
-                           <td colspan="4">Total descuentos</td>
-                           <td style="text-align: right;">
-                           <?php echo number_format($descuentos,2,'.',',') ?>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td colspan="4">Ganancia neta</td>
-                           <td style="text-align: right;">
-                           <?php echo number_format($costodescuento,2,'.',',') ?>
-                           </td>
-                        </tr>
+                            <tr>
+                                <td> </td>
+                                <td></td>
+                                <td></td>
+                                <td><b>TOTALES</b></td>
+                                <td><?php echo $platos;?></td>
+                                
+                                <td><?php echo $total?></td>
+                            </tr>
                         </tbody>
                     </table>
                     <!-- // BOO TABLE - DTB-2 -->
