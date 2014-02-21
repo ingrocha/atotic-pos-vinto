@@ -1,3 +1,7 @@
+<?php echo $this->Form->create('Controlpedidos', array('url' => array('controller' => 'Controlpedidos', 'action' => 'index'))); ?>
+            <?php //echo $this->Form->button('Imprimir', array('id'=>"imprimir")); ?>
+            <?php $opt = array('Value' => 'imprimir', 'class' => "oculto", 'id' => "btnImprimir"); ?>
+            <?php echo $this->Form->end($opt); ?>  
 <?php //debug($datos); ?>
 <div id="aImprimir">
 
@@ -126,8 +130,8 @@
 
 </div>
 <?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' => 'index'))); ?>
-<?php echo $this->Form->button('Imprimir', array('name'=>'btnImprimir', 'id'=>'btnImprimir', 'class'=>'btn')) ?>
-<?php echo $this->Html->link('volver',array('action'=>'verpedido', $idPedido), array('class'=>'btn'));?></td>
+<?php echo $this->Form->button('IMPRIMIR', array('name'=>'btnImprimir', 'id'=>'btnImprimir', 'class'=>'btn')) ?>
+<?php echo $this->Html->link('VOLVER',array('action'=>'verpedido', $idPedido), array('class'=>'btn'));?></td>
 
 <script type="text/javascript">
     jQuery(document).ready(function() {

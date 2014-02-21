@@ -1,17 +1,12 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Asistencia Model
+ * Retraso Model
  *
- * @property Insumo $Insumo
+ * @property User $User
  */
 class Retraso extends AppModel {
-/**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'retrasos';
+
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -20,4 +15,14 @@ class Retraso extends AppModel {
  *
  * @var array
  */
+	public $belongsTo = array(
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 }
+?>
