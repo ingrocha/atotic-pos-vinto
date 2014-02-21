@@ -88,7 +88,7 @@ public function entradas()
             if(!empty($multa)){
                 $this->Retraso->create();
                 $this->data = '';
-                $this->request->data['Retraso']['usuario_id']=$usuario;
+                $this->request->data['Retraso']['user_id']=$usuario;
                 $this->request->data['Retraso']['horas']=$horas_retraso;
                 $this->request->data['Retraso']['minutos']=$minutos_retraso;
                 $this->request->data['Retraso']['descuento']= $multa['ConfMulta']['monto'];

@@ -125,6 +125,7 @@
     </table>
 
 </div>
+<?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' => 'index'))); ?>
 <?php echo $this->Form->button('Imprimir', array('name'=>'btnImprimir', 'id'=>'btnImprimir', 'class'=>'btn')) ?>
 <?php echo $this->Html->link('volver',array('action'=>'verpedido', $idPedido), array('class'=>'btn'));?></td>
 

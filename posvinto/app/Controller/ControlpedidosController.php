@@ -50,7 +50,7 @@ class ControlpedidosController extends AppController
     }
     public function facturar()
     {
-        $this->layout = 'imprimir';
+        $this->layout = 'imprime';
         
         $usuario = $this->Session->read('Auth.user.nombre');
         //debug($this->request->data);exit;
@@ -652,7 +652,7 @@ class ControlpedidosController extends AppController
     }
     public function imprimircuenta($idPedido=null){
         
-        $this->layout = 'imprimir';
+        $this->layout = 'imprime';
         $datosPedido = $this->Pedido->find('first', array(
         'conditions'=>array('Pedido.id'=>$idPedido)
         ));
