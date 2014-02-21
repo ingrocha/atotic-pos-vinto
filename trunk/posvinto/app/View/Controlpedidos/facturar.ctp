@@ -1,8 +1,10 @@
-<?php echo $this->Form->create('Controlpedidos', array('url' => array('controller' => 'Controlpedidos', 'action' => 'index'))); ?>
+<?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' => 'index'))); ?>
+        <td>
             <?php //echo $this->Form->button('Imprimir', array('id'=>"imprimir")); ?>
-            <?php $opt = array('Value' => 'imprimir', 'class' => "oculto", 'id' => "btnImprimir"); ?>
-            <?php echo $this->Form->end($opt); ?>  
-<?php //debug($datos); ?>
+            <?php $opt = array('Value' => 'IMPRIMIR', 'class' => "boton", 'id' => "imprimir"); ?>
+            <?php echo $this->Form->end($opt); ?> 
+            
+        </td>
 <div id="aImprimir">
     <div style="text-align: center; width: 329px;">
     <span style="padding: 0 30px 0 2px; text-align: left; font-size: 17px;">
