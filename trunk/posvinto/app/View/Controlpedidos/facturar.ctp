@@ -1,3 +1,7 @@
+<?php echo $this->Form->create('Controlpedidos', array('url' => array('controller' => 'Controlpedidos', 'action' => 'index'))); ?>
+            <?php //echo $this->Form->button('Imprimir', array('id'=>"imprimir")); ?>
+            <?php $opt = array('Value' => 'imprimir', 'class' => "oculto", 'id' => "btnImprimir"); ?>
+            <?php echo $this->Form->end($opt); ?>  
 <?php //debug($datos); ?>
 <div id="aImprimir">
     <div style="text-align: center; width: 329px;">
@@ -182,8 +186,9 @@
         <?php echo $this->Form->create('Detalle', array('url' => array('controller' => 'controlpedidos', 'action' => 'index'))); ?>
         <td>
             <?php //echo $this->Form->button('Imprimir', array('id'=>"imprimir")); ?>
-            <?php $opt = array('Value' => 'imprimir', 'class' => "boton", 'id' => "imprimir"); ?>
-            <?php echo $this->Form->end($opt); ?>  
+            <?php $opt = array('Value' => 'IMPRIMIR', 'class' => "boton", 'id' => "imprimir"); ?>
+            <?php echo $this->Form->end($opt); ?> 
+            
         </td>
     <?php endif; ?>
     <?php //echo $this->Html->link('volver',array('action'=>'listamateriastomadas', $materias[0]['Materia']['semestre'], $gest1, $gest2), array('class'=>'aboton'));?></td>

@@ -34,7 +34,7 @@
                 <span class="item-icon fontello-icon-monitor"></span> 
                 <i class="chevron fontello-icon-right-open-3"></i> Reportes Pedidos</a> </div>
             <ul class="accordion-content nav nav-list collapse in" id="accDash">
-                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Reportes', 'action'=>'formularioreporteproductos')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Reporte ventas</span></a> </li>
+                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Reportes', 'action'=>'formularioreporteproductos')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Reporte ventas por mesas</span></a> </li>
                 <li> <a href="<?php //echo $this->Html->url(array('controller'=>'Reportes', 'action'=>'general')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Reporte ventas totales</span> </a> </li>
             </ul>
         </li>
