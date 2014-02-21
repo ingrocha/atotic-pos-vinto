@@ -1,6 +1,6 @@
 <?php echo $this->Form->create('Controlpedidos', array('url' => array('controller' => 'Controlpedidos', 'action' => 'index'))); ?>
             <?php //echo $this->Form->button('Imprimir', array('id'=>"imprimir")); ?>
-            <?php $opt = array('Value' => 'imprimir', 'class' => "oculto", 'id' => "btnImprimir"); ?>
+            <?php $opt = array('Value' => 'IMPRIMIR', 'class' => "oculto", 'id' => "btnImprimir"); ?>
             <?php echo $this->Form->end($opt); ?>  
 <?php //debug($datos); ?>
 <div id="aImprimir">
