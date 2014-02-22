@@ -110,7 +110,41 @@ class RetrasosController extends AppController {
     }
     public function guardadescuento()
     {
-        
+        if(!empty($this->request->data))
+        {
+            $this->ConfMulta->create();
+            if($this->ConfMulta->save($this->request->data))
+            {
+                $this->Session->setFlash('Se guardo correctamente!!','alerts/bueno');
+                $this->redirect(array('action' => 'descuentos'));
+            }
+            else{
+                $this->Session->setFlash('No se guardo!','alerts/error');
+                $this->redirect(array('action' => 'descuentos'));
+            }
+        }
+        else{
+            $this->Session->setFlash('No se guardo!','alerts/error');
+            $this->redirect(array('action' => 'descuentos'));
+        }
+    }
+    public function eliminadescuento($idDescuento = null)
+    {
+        if($this->ConfMulta->delete($idDescuento))
+        {
+            $this->Session->setFlash('Se elimino Correctamente!!','alerts/bueno');
+            $this->redirect(array('action' => 'descuentos'));
+        }
+        else{
+            $this->Session->setFlash('No se pudo eliminar!','alerts/error');
+            $this->redirect(array('action' => 'descuentos'));
+        }
+    }
+    public function ajaxdescuento($idDescuento = null)
+    {
+        $this->layout = 'ajax';
+        $this->ConfMulta->id = $idDescuento;
+        $this->request->data = $this->ConfMulta->read();
     }
 }
 ?>
