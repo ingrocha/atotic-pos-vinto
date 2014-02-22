@@ -15,7 +15,7 @@ class RetrasosController extends AppController {
  */
 	public $components = array('Paginator');
     public $layout = 'vivavinto';
-    public $uses = array('Retraso','Asistencia','User');
+    public $uses = array('Retraso','Asistencia','User','ConfMulta');
 
 /**
  * index method
@@ -103,5 +103,14 @@ class RetrasosController extends AppController {
 		$this->Session->setFlash(__('Retraso was not deleted'));
 		return $this->redirect(array('action' => 'index'));
 	}
+    public function descuentos()
+    {
+        $descuentos = $this->ConfMulta->find('all',array('order' => 'ConfMulta.id DESC'));
+        $this->set(compact('descuentos'));
+    }
+    public function guardadescuento()
+    {
+        
+    }
 }
 ?>

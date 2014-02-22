@@ -227,7 +227,7 @@ class InsumosController extends AppController
             'recursive' => 1,
             'group' => array('Bodega.insumo_id'),
             'order' => array('Bodega.id DESC')));
-
+        
         $ids = array();
         $i = 0;
         foreach ($bodega as $insumo)
@@ -522,7 +522,8 @@ class InsumosController extends AppController
                 }
             }
             //debug($this->data);
-        } else
+        } 
+        else
         {
             //debug($this->data);
             $insumo = $this->Insumo->find('first', array('conditions' => array('id' => $id), 'recursive' => -1));
@@ -697,22 +698,14 @@ class InsumosController extends AppController
         $fecha2 = $this->Fechasconvert->doInvertir($fechas[1]);
 
         App::uses('CakeTime', 'Utility');
-        //$dia = CakeTime::dayAsSql($fecha1, $fecha2, 'Pedido.created');
         $dia = CakeTime::daysAsSql("$fecha1", "$fecha2", 'Bodega.fecha');
-
-        /* $pedidos = $this->Bodega->find('all', array(
-          'conditions'=>array($dia),
-          'fields'=>array('SUM(Bodega.cantidad) AS cantidad', 'Pedido.numero','Producto.nombre', 'Producto.precio', 'Item.precio', 'Item.fecha'),
-          'group'=>array('Item.producto_id')
-          )); */
-        //debug($pedidos);exit;
         $descuentos = $this->Bodega->find('all', array(
             'conditions' => array($dia),
             'fields' => array('Insumo.nombre', 'Insumo.id', 'SUM(Bodega.ingreso) AS ingreso', 'SUM(Bodega.salida) AS salida', '(salida * Bodega.preciocompra) AS inversion'),
             'group' => array('Bodega.insumo_id')
         ));
         //debug($descuentos);exit;
-        $this->set(compact('descuentos', 'dato'));
+        $this->set(compact('descuentos', 'dato'));   
     }
 
 }

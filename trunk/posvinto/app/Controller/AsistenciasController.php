@@ -29,6 +29,7 @@ public function entradas()
           //debug($this->data);exit;
           $codigo=$this->data['Asistencia']['codigo'];
           $usuario=$this->User->find('first',array('conditions'=>array('User.codigo'=>$codigo)));
+          $usuario2 = $usuario;
           //debug($usuario);exit;
           if(empty($usuario)){
               $this->Session->setFlash('no existe usuario');
@@ -57,11 +58,11 @@ public function entradas()
               
               $hora=split(':', $ingreso);
               $hora_entrada = $hora[0];
-              $minutos_entrada = $hora[1];
+              $minutos_entrada = $hora[1] + $hora[0]*60;
               
               $hora=split(':', date('H:i:s'));
               $hora_ingreso=$hora[0];
-              $minutos_ingreso=$hora[1];
+              $minutos_ingreso=$hora[1]+$hora[0]*60;
               $horas_retraso =  $hora_ingreso - $hora_entrada;
               $minutos_retraso = $minutos_ingreso - $minutos_entrada;
               
@@ -71,13 +72,8 @@ public function entradas()
               if(($horas_retraso != 0)|| ($minutos_retraso != 0)){
                 $multa =$this->ConfMulta->find('first',array(
                 'conditions'=>array(
-                'or'=>array(
-                'ConfMulta.horas >='=>$horas_retraso,
-                'ConfMulta.minutos <='=>$minutos_retraso,
-                'ConfMulta.minutos >='=>$minutos_retraso
+                'ConfMulta.minutos <'=>$minutos_retraso
                 )
-                ), 
-                'order'=>array('ConfMulta.monto DESC')
                 ));
                 //debug($multa);exit;
               }
@@ -89,10 +85,9 @@ public function entradas()
                 $this->Retraso->create();
                 $this->data = '';
                 $this->request->data['Retraso']['user_id']=$usuario;
-                $this->request->data['Retraso']['horas']=$horas_retraso;
                 $this->request->data['Retraso']['minutos']=$minutos_retraso;
-                $this->request->data['Retraso']['descuento']= $multa['ConfMulta']['monto'];
-                 $this->request->data['Retraso']['fecha']= date('Y-m-d');
+                $this->request->data['Retraso']['descuento']= $multa['ConfMulta']['valor'] * $usuario2['User']['sueldo'];
+                $this->request->data['Retraso']['fecha']= date('Y-m-d');
                 //debug($this->data);exit;
                 $this->Retraso->save($this->data);
               }
