@@ -134,6 +134,7 @@
                                             'url' => array('action' => 'verpedido', $id)
                                         ));
                                         ?>
+                                        <?php echo $this->Html->link('Eliminar',array('action' => 'eliminapedido',$id),array('escape' => false,'confirm' => 'Esta seguro de eliminar??','class' => 'label label-important'));?>
                                      </td>
                                 </tr>    
                             <?php endforeach; ?>                                                                                                                                                                                             

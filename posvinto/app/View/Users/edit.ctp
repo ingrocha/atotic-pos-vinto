@@ -40,7 +40,7 @@
                                 <option value="Almacenes">Almacenes</option>
                                 <option value="Cajero">Cajero</option>                                
                                 <option value="Moso">Moso</option>
-                                <option value="Jefe">Jefe de mosos</option>                                 
+                                <option value="jefe">Jefe de mosos</option>                                 
                             </select>                            
                         </div>
                         <!-- // form item -->    

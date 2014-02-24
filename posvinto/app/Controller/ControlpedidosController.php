@@ -145,6 +145,27 @@ class ControlpedidosController extends AppController
         $total = number_format($atotal, 2, '.', ',');
         $monto = split('\.', $total);
         $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
+        
+        foreach ($items as $pro) {
+            $f = false;
+            if (count($productos_vector) > 0) {
+                for ($i = 0; $i < count($productos_vector); $i++) {
+                    if ($productos_vector[$i]['Producto']['producto_id'] == $pro['Item']['producto_id']) {
+                        //$productos_vector[$i]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                        $productos_vector[$i]['Producto']['cantidad']++;
+                        $f = true;
+                    }
+                }
+            }
+
+            if ($f == false) {
+                $n = count($productos_vector);
+                $productos_vector[$n]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                $productos_vector[$n]['Producto']['cantidad'] = 1;
+                $productos_vector[$n]['Producto']['nombre'] = $pro['Producto']['nombre'];
+                $productos_vector[$n]['Producto']['precio'] = $pro['Producto']['precio'];
+            }
+        }
        
         //debug($atotal);
         //debug($totalliteral);
@@ -153,7 +174,7 @@ class ControlpedidosController extends AppController
         //debug($pf);
         $pedido = $id_pedido;
         
-        $this->set(compact('pedido', 'items', 'pf', 'totalliteral', 'montoTotal','monto', 'efectivo', 'cambio','cliente', 'nitcliente', 'nfactura', 'codigo','fechalimite'));
+        $this->set(compact('pedido', 'items', 'pf', 'totalliteral', 'montoTotal','monto', 'efectivo', 'cambio','cliente', 'nitcliente', 'nfactura', 'codigo','fechalimite','productos_vector'));
     }
 
     public function ajaxpago($id_pedido = null)
@@ -913,6 +934,27 @@ class ControlpedidosController extends AppController
             $this->Session->setFlash('Error no se pudo reasignar la mesa', 'alerts/bueno');
             $this->Session->redirect(array('action'=>'index'));
         }       
+    }
+    public function eliminapedido($idPedido = null)
+    {
+        $items = $this->Item->findAllBypedido_id($idPedido,null,null,null,null,-1);
+        if(!empty($items))
+        {
+            $this->Session->setFlash('No se puede eliminar debe de quitar los Items Asociados!!!!','alerts/error');
+            $this->redirect(array('action' => 'index'));
+        }
+        else{
+            if($this->Pedido->delete($idPedido))
+            {
+                $this->Session->setFlash('Se elimino correctamente!!!','alerts/bueno');
+                $this->redirect(array('action' => 'index'));
+            }
+            else{
+                $this->Session->setFlash('No se pudo eliminar intente nuevamente!!!','alerts/error');
+                $this->redirect(array('action' => 'index'));
+            }
+        }
+
     }
 }
 
