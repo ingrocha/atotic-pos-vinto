@@ -66,21 +66,23 @@
             <th>P/U</th>
             <th>P/Total</th>
         </tr>
-        <?php foreach ($items as $i): ?>
+        <?php foreach ($productos_vector as $i): ?>
+        <?php if($i['Producto']['precio'] != 0):?>
             <tr>
                 <td>
                     <?php echo $i['Producto']['nombre']; ?>
                 </td>
                 <td style="text-align: center;">
-                    <?php echo $i['Item']['cantidad']; ?>
+                    <?php echo $i['Producto']['cantidad']; ?>
                 </td>
                 <td style="text-align: center;">
                     <?php echo $i['Producto']['precio']; ?>
                 </td>
                 <td style="text-align: center;">
-                    <?php echo $i['Producto']['precio'] * $i['Item']['cantidad'];; ?>
+                    <?php echo $i['Producto']['precio'] * $i['Producto']['cantidad'];; ?>
                 </td>
             </tr>
+            <?php endif;?>
         <?php endforeach; ?>
         <tr>
             <td colspan="3" style="text-align: right;">Importe total <strong>Bs.</strong></td>
