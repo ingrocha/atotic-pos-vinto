@@ -5,7 +5,11 @@ class AsistenciasController extends AppController
     public $uses = array('Asistencia','User','ConfMulta','Horario', 'Retraso');
     public $components = array('Session');
     public $layout = 'publico';
-    
+    public function beforeFilter()
+    {
+        //parent::beforeFilter();
+        $this->Auth->allow();
+    }
     public function index() 
     {
     }
@@ -70,7 +74,7 @@ public function entradas()
               //debug($minutos_retraso);
               
               if(($horas_retraso != 0)|| ($minutos_retraso != 0)){
-                $multa =$this->ConfMulta->find('first',array(
+                $multa =$this->ConfMulta->find('first',array('order' => 'ConfMulta.minutos DESC',
                 'conditions'=>array(
                 'ConfMulta.minutos <'=>$minutos_retraso
                 )
