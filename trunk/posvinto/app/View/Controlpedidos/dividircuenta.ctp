@@ -4,7 +4,10 @@
 <section>
 <br />
 <div class="row-fluid">
-
+<script>
+var total = 0.00;
+var vector = new Array();
+</script>
 <div class="span4 grider">
                             <div class="widget widget-simple widget-notes">
                             <?php echo $this->
@@ -90,16 +93,21 @@
                                             </td>
                                             <td><?php echo $p['Producto']['precio']*$p['Producto']['cantidad']?></td>
                                             <td>
+                                            <script>
+                                            var pres = <?php echo $p['Producto']['precio'];?>;
+                                            vector[<?php echo $i;?>] = 0.00;
+                                            </script>
                                             <?php 
                                             $selec = null;
                                                     for($z = 1;$z<=$p['Producto']['cantidad'];$z++)
                                                     {
                                                         $selec[$z] = $z;
-                                                        
                                                     }
                                                     //debug($selec);exit;
-                                                    echo $this->Form->select("$i.Pedido.cantidad",$selec);
+                                                    $funcion = 'calcula('.$i.',this.value,'.$p['Producto']['precio'].')';
+                                                    echo $this->Form->select("$i.Pedido.cantidad",$selec,array('onchange' => $funcion));
                                             ?>
+                                            
                                             </td>
                                         </tr>
                                         <?php endforeach;?>
@@ -109,10 +117,39 @@
                             </div>
                             <?php //echo $this->Form->submit('Continuar',array('class' => 'btn btn-yellow btn-block'));?>
                             <!-- // Table wrapper --> 
+                            <div class="row-fluid">
+                            <div class="span12" id="divtotal">
+                            <h4> TOTAL: 0 Bs.</h4>
+                            </div>
+                            </div>
                         </div>
 </div>
 </section>
 </div>
     
 </div>
-
+<script>
+                                            function calcula(id,valor,precio)
+                                            {
+                                                if(valor != '' && precio != '')
+                                                {
+                                                    valor = parseInt(valor);
+                                                    precio = parseFloat(precio);
+                                                    vector[id] = valor*precio;
+                                                }
+                                                else{
+                                                    vector[id] = 0.00;
+                                                }
+                                                
+                                                total = 0.00;
+                                                var numero = 0;
+                                                numero = parseInt(<?php echo $i;?>);
+                                                for(i=1;i<=numero;i++)
+                                                {
+                                                    total = total + vector[i];
+                                                }
+                                                
+                                                $("#divtotal").html("<h4> TOTAL: "+total+" Bs.</h4>");
+                                                
+                                            }
+                                            </script>

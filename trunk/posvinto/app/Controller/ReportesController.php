@@ -2,7 +2,7 @@
 class ReportesController extends AppController{
     
     public $helpers = array('Html', 'Form'); 
-    public $uses = array('Producto', 'Movimientosinsumo', 'Pedido', 'Item', 'Usuario','Recibo','Bodega','User');
+    public $uses = array('Producto', 'Movimientosinsumo', 'Pedido', 'Item', 'Usuario','Recibo','Bodega','User','Almacen','Insumo','Factura','Retraso','Lugare');
     public $components = array('Session','Fechasconvert');
     public $layout = 'vivavinto';
     
@@ -248,7 +248,10 @@ class ReportesController extends AppController{
     }
     public function formularioreporteproductos(){
         $meseros = $this->User->find('list',array('fields' => 'User.nombre','conditions' => array('User.role' => 'Moso')));
-        $this->set(compact('meseros'));
+        $insumos = $this->Insumo->find('list',array('fields' => 'Insumo.nombre'));
+        $usuarios = $this->User->find('list',array('fields' => 'User.nombre'));
+        $lugares = $this->Lugare->find('list',array('fields' => 'Lugare.nombre'));
+        $this->set(compact('meseros','insumos','usuarios','lugares'));
     }
     public function reportepedidos(){
         //debug($this->request->data);exit;
@@ -273,7 +276,46 @@ class ReportesController extends AppController{
     {
         return $this->Item->find('count',array('conditions' => array('Item.pedido_id' => $idPedido)));
     }
-     
+    public function reporteinventarios()
+    {
+        $fechaini = $this->request->data['Reportes']['fechaini'];
+       $fechafin = $this->request->data['Reportes']['fechafin'];
+       $condiciones['Bodega.fecha >='] = $fechaini;
+       $condiciones['Bodega.fecha <='] = $fechafin;
+       $condiciones['Bodega.ingreso !='] = 0;
+       $condiciones['Bodega.lugare_id'] = $this->request->data['Reportes']['lugar'];
+       $insumo = $this->request->data['Reportes']['insumo'];
+       if(!empty($insumo))
+       {
+        $condiciones['Bodega.insumo_id'] = $insumo;
+       }
+       $insumos = $this->Bodega->find('all',array('conditions' => $condiciones));
+       //debug($insumos);exit;
+       $this->set(compact('insumos'));
+    }
+    public function reportefacturas()
+    {
+        $fechaini = $this->request->data['Reportes']['fechaini'];
+       $fechafin = $this->request->data['Reportes']['fechafin'];
+       $condiciones['Factura.created >='] = $fechaini;
+       $condiciones['Factura.created <='] = $fechafin;
+       $facturas = $this->Factura->find('all',array('conditions' => $condiciones));
+       $this->set(compact('facturas','fechaini','fechafin'));
+    }
+    public function reporteasistencias()
+    {
+        $fechaini = $this->request->data['Reportes']['fechaini'];
+       $fechafin = $this->request->data['Reportes']['fechafin'];
+       $condiciones['Retraso.fecha >='] = $fechaini;
+       $condiciones['Retraso.fecha <='] = $fechafin;
+       if(!empty($this->request->data['Reportes']['usuario']))
+       {
+        $condiciones['Retraso.user_id'] = $this->request->data['Reportes']['usuario'];
+       }
+       $asistencias = $this->Retraso->find('all',array('conditions' => $condiciones));
+       
+       $this->set(compact('asistencias','fechaini','fechafin'));
+    }
 }
 
 ?>
