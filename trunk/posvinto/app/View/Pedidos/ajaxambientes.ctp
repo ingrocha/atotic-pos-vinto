@@ -31,7 +31,6 @@ $('#tab<?php echo $am['Ambiente']['id'];?>').load('<?php echo $this->Html->url("
                                 var activatab = $(this).find("a").attr("href"); //Leer el valor de href para identificar la pestaña activa
                                 //alert(activatab);
                                 $(activatab).fadeIn(); //Visibilidad con efecto fade del contenido activo
-                                
                                 return false;
                             });   
                         });
