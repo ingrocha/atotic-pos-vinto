@@ -26,18 +26,29 @@ var vector = new Array();
                                             <fieldset>
                                             <?php echo $this->
 											Form->hidden("1.Pedido.idpedido", array('value' => $idpedido)); ?>
-                                                <label for="accountTaxVat" class="control-label"> Nombre</label>
-                                                <?php echo $this->
-														Form->text("1.Pedido.nombre", array('size' => 20)); ?>
+                                                
                                                 <label for="accountNotes">Nit:</label>
                                                 <?php echo $this->
-														Form->text("1.Pedido.nit", array('size' => 20)); ?>
+														Form->text("1.Pedido.nit", array('size' => 20,'id' => 'nitcli')); ?>
+                                                <label for="accountTaxVat" class="control-label">Nombre</label>
+                                                <div id="cargatexto">
+                                                <?php echo $this->Form->text("1.Pedido.nombre", array('size' => 20,'id' => 'nombrecli')); ?>
+                                                </div>
                                                 
                                                 <label for="accountNotes">Efectivo:</label>
                                                 <?php echo $this->
 														Form->text("1.Pedido.efectivo", array('size' => 20)); ?>
                                                 
-                                                
+                                                <?php 
+                                                $this->Js->get('#nitcli')->event('focusout',
+                                                $this->Js->request(
+                                                array('action' => 'pidedato'),
+                                                array('async' => true,
+                                                'update' => '#cargatexto',
+                                                'method' => 'post','dataExpression'=>true,
+                                                'data'=> $this->Js->serializeForm(array('isForm' => true,'inline' => true))))
+                                                        );
+                                                ?>
                                             </fieldset>
                                             <!-- // fieldset Input -->
                                             <?php echo $this->Form->submit('Continuar',array('class' => 'btn btn-yellow btn-block'));?>
@@ -122,6 +133,7 @@ var vector = new Array();
                             <h4> TOTAL: 0 Bs.</h4>
                             </div>
                             </div>
+                            
                         </div>
 </div>
 </section>
@@ -153,3 +165,5 @@ var vector = new Array();
                                                 
                                             }
                                             </script>
+
+<?php echo $this->Js->writeBuffer();?>

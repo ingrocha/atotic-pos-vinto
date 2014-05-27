@@ -956,6 +956,14 @@ class ControlpedidosController extends AppController
         }
 
     }
+    public function pidedato()
+    {
+        $this->layout = 'ajax';
+        //debug($this->request->data);exit;
+        $nit = $this->request->data[1]['Pedido']['nit'];
+        $cliente = $this->Cliente->findBynit($nit,null,null,null,null,-1);
+        $this->set(compact('cliente'));
+    }
 }
 
 ?>

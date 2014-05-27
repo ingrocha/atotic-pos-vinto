@@ -66,7 +66,7 @@
                 </div>
                 <!-- //tabla -->       
 
-                <div class="span4 grider">
+                <div class="span4">
                 <?php if($moso['Pedido']['estado'] != 3 && $moso['Pedido']['estado'] != 4): ?>
                     <h3><i class="aweso-icon-table"></i> Impresi&oacute;n cuenta</h3>                                        
                     <a class="btn btn-large btn-orange" href="<?php echo $this->Html->url(array('action'=>'imprimircuenta', $id_pedido)) ?>"><i class="fontello-icon-publish"></i> IMPRIMIR CUENTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
@@ -241,18 +241,3 @@
 
 <!-- Container -->
 <?php echo $this->Html->css('imprimir', 'stylesheet', array('media' => 'print')); ?>
-<div id="container">
-    <div class="shell">
-
-        <!-- Small Nav -->
-        <!--<div class="small-nav">
-            
-        <?php //echo $this->Html->link('Usuarios', array('controller'=>'usuarios', 'action'=>'index'))?>
-            <span>&gt;</span>
-            Lista de Usuarios
-        </div>-->
-        <!-- End Small Nav -->
-
-        
-      
-    </div>
