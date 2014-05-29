@@ -103,7 +103,7 @@ $modeloAmbiente = new Ambiente();
                                         </li>
                                         <li><?php echo $this->Html->link('PLATOS', array('controller' => 'Productos', 'action' => 'platos')) ?></li>
                                         
-                                        <li><?php echo $this->Html->link('REPORTES', array('controller' => 'Graficos', 'action' => 'genera')) ?></li>
+                                        <li><?php echo $this->Html->link('REPORTES', array('controller' => 'Reportes', 'action' => 'formularioreporteproductos')) ?></li>
                                         <li><?php echo $this->Html->link('CONFIGURACIONES', array('controller' => 'Configuraciones', 'action' => 'index')) ?></li>
                                         <!--<li><?php //echo $this->Html->link('MESAS', array('controller' => 'Mesas', 'action' => 'index')) ?></li>-->
                                         <li class="dropdown"> 

@@ -229,7 +229,6 @@ class ReportesController extends AppController{
         $this->set(compact('movimientos'));
     }
     public function estadoinventarioactual(){
-        
         $maxmovimientos = $this->Bodega->find('all', array(
         'fields'=>array('MAX(Bodega.id) as id'),
         'group'=>array('Bodega.insumo_id')
@@ -304,14 +303,17 @@ class ReportesController extends AppController{
     }
     public function reporteasistencias()
     {
-        $fechaini = $this->request->data['Reportes']['fechaini'];
+       $fechaini = $this->request->data['Reportes']['fechaini'];
        $fechafin = $this->request->data['Reportes']['fechafin'];
+       
        $condiciones['Retraso.fecha >='] = $fechaini;
        $condiciones['Retraso.fecha <='] = $fechafin;
+       
        if(!empty($this->request->data['Reportes']['usuario']))
        {
-        $condiciones['Retraso.user_id'] = $this->request->data['Reportes']['usuario'];
+            $condiciones['Retraso.user_id'] = $this->request->data['Reportes']['usuario'];
        }
+       
        $asistencias = $this->Retraso->find('all',array('conditions' => $condiciones));
        
        $this->set(compact('asistencias','fechaini','fechafin'));
