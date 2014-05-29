@@ -29,7 +29,7 @@
             <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Categorias e Insumos </a> </div>
             <ul class="accordion-content nav nav-list collapse in" id="accDash">
             <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'nuevo')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Nuevo Insumo</span></a> </li>
-            <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'categoriasalmacen')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Categorias</span></a> </li>
+            <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'categoriasalmacen')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Listado de Categorias</span></a> </li>
             <li> <a href="<?php echo $this->Html->url(array('controller'=>'Insumos', 'action'=>'nuevacategoria')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Nueva Categoria</span></a> </li>      
             </ul>
         </li>

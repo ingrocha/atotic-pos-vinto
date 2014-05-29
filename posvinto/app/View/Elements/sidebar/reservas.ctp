@@ -23,7 +23,7 @@
             <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i>Tipos reservas</a> </div>
             <ul class="accordion-content nav nav-list collapse in" id="accDash">
                 <li> <a href="<?php echo $this->Html->url(array('controller'=>'Tipoeventos', 'action'=>'index')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Lista de tipos de Evento</span></a> </li>
-                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Tipoeventos', 'action'=>'add')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Nuevo Tipo de Evento<</span> </a> </li>
+                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Tipoeventos', 'action'=>'add')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Nuevo Tipo de Evento</span> </a> </li>
             </ul>
         </li>
         <!-- // item accordionMenu Dashboard -->

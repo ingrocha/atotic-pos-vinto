@@ -39,6 +39,11 @@ class ReservasController extends AppController
         $this->Reserva->recursive = 0;
         $this->set('reservas', $this->paginate());
     }
+    public function listareservas()
+    {
+        $this->Reserva->recursive = 0;
+        $this->set('reservas', $this->paginate());
+    }
      public function ver()
     {
         $this->Reserva->recursive = 0;

@@ -30,7 +30,7 @@
 								</caption>
 								<thead>
 									<tr>
-										<th scope="col">Nro.<span class="column-sorter"></span></th>
+					<th scope="col">Nro.<span class="column-sorter"></span></th>
                                         <th scope="col">Nombre<span class="column-sorter"></span></th>
                                         <th scope="col">Nombre del NIT<span class="column-sorter"></span></th>
                                         <th scope="col">Direccion.<span class="column-sorter"></span></th>
@@ -39,13 +39,12 @@
 									</tr>
 								</thead>
 								<tbody>
-                                    <?php $i=1; ?>
+                                                                        <?php $i=1; ?>
 									<?php foreach ($clientes as $cli): ?>
 										<?php $id=$cli['Cliente'][ 'id']; ?>
 											<tr>
-                                            <td><?php echo $i, $i++; ?></td>
-								                
-												<td>
+                                                                                                <td><?php echo $i; $i++; ?></td>
+								                		<td>
 													<?php echo $cli[ 'Cliente'][ 'nombre']; ?>
 												</td>
 												<td>
@@ -61,10 +60,10 @@
 													<?php echo $this->Html->image("edit.png", array( "title" => "Editar Usuario", 'url' => array('action' => 'modificar', $id) )); ?>
                                                     
                                                     <?php if ($cli['Cliente']['estado'] == 1):
-                                                            echo $this->Html->image("desabilitar.png", array("title" => "Habilitar",
+                                                            echo $this->Html->image("desabilitar.png", array("title" => "Deshabilitar",
                                                                             'url' => array('action' => 'baja', $id)));
                                                             else: 
-                                                            echo $this->Html->image("habilitar.png", array("title" => "Deshabilitar",
+                                                            echo $this->Html->image("habilitar.png", array("title" => "Habilitar",
                                                                             'url' => array('action' => 'alta', $id)));
                                                     endif; ?>
                                                     

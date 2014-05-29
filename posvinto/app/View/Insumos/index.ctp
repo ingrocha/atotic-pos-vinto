@@ -1,4 +1,4 @@
-<?php //uses('model/connection_manager');  ?>
+<?php //uses('model/connection_manager');   ?>
 <?php
 App::import('Model', 'Almacen');
 $cantidadAlmacen = new Almacen();
@@ -34,16 +34,13 @@ $cantidadAlmacen = new Almacen();
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $n=1; ?>
+                                <?php $n = 1; ?>
                                 <?php foreach ($insumos as $i): ?>                        
                                     <?php $idInsumo = $i['Insumo']['id'] ?>                        
                                     <tr>                                    
                                         <td>
-                                            <?php echo $idInsumo; ?>
-                                            <div id="cuadro_<?php echo $idInsumo; ?>"></div>                         
-                                            <div id="cuadro2_<?php echo $idInsumo; ?>"></div>
-                                            <div id="ajax-modal_<?php echo $idInsumo; ?>" class="modal hide fade" tabindex="-1"></div>
-                                        </td>
+                                            <?php echo $n; $n++; ?>
+                                             </td>
                                         <td><?php echo $i['Insumo']['nombre']; ?></td>
                                         <td> <?php echo $i['Tipo']['nombre']; ?></td>  
                                         <td><?php echo $i['Insumo']['observaciones'] ?></td>                              
@@ -53,12 +50,12 @@ $cantidadAlmacen = new Almacen();
                                                 'recursive' => -1,
                                                 'fields' => array('MAX(id) as cod'),
                                                 'conditions' => array('Almacen.insumo_id' => $idInsumo)
-                                                    ));
+                                            ));
                                             $idAlmacenInsumo = $enAlmacen['0']['cod'];
                                             $total = $cantidadAlmacen->find('first', array(
                                                 'recursive' => -1,
                                                 'conditions' => array('Almacen.id' => $idAlmacenInsumo)
-                                                    ));
+                                            ));
                                             //debug($total);
                                             echo $total['Almacen']['total'];
                                             //debug($enAlmacen); 
@@ -89,60 +86,62 @@ $cantidadAlmacen = new Almacen();
                                             </div>  
 
                                             <?php //echo $this->Html->link($this->Html->image("elim.png"), array('controller' => 'insumos', 'action' => 'eliminar', $idInsumo), array('escape' => false), "Esta seguro de eliminar el insumo?");?>
-                                            
+
                                             <?php //echo $this->Html->image("elim.png", array("title" => "Eliminar Insumo",'url' => array('action' => 'deshabilitar', $idInsumo)));?>            
-                                            
-                                            <?php if ($i['Insumo']['estado'] == 1):
-                                                            echo $this->Html->image("habilitar.png", array("title" => "Habilitar",
-                                                                            'url' => array('action' => 'deshabilitar', $idInsumo)));
-                                                            else: 
-                                                            echo $this->Html->image("desabilitar.png", array("title" => "Deshabilitar",
-                                                                            'url' => array('action' => 'habilitar', $idInsumo)));
-                                                    endif; ?>
-                                                    
+
+                                            <?php
+                                            if ($i['Insumo']['estado'] == 1):
+                                                echo $this->Html->image("desabilitar.png", array("title" => "Deshabilitar",
+                                                    'url' => array('action' => 'deshabilitar', $idInsumo)));
+                                            else:
+                                                echo $this->Html->image("habilitar.png", array("title" => "Habilitar",
+                                                    'url' => array('action' => 'habilitar', $idInsumo)));
+                                            endif;
+                                            ?>
+
                                             <script type="text/javascript">
-                                                $(document).ready(function(){
-                                                    
+                                                $(document).ready(function() {
+
                                                     var $modal = $('#ajax-modal_<?php echo $idInsumo; ?>');
-                                                    $('#ajaxModal_<?php echo $idInsumo; ?>').on('click', function () {
+                                                    $('#ajaxModal_<?php echo $idInsumo; ?>').on('click', function() {
                                                         // create the backdrop and wait for next modal to be triggered
                                                         GlobalModalManager.loading();
-                                            	
-                                                        setTimeout(function () {
-                                                            $modal.load("insumos/ingresoalmacen/<?php echo $idInsumo; ?>", '', function () {
+
+                                                        setTimeout(function() {
+                                                            $modal.load("insumos/ingresoalmacen/<?php echo $idInsumo; ?>", '', function() {
                                                                 $modal.modal();
                                                             });
                                                         }, 500);
                                                     });
-                                                                                                                                                    
+
                                                     var $modal2 = $('#ajax-modal_<?php echo $idInsumo; ?>');
-                                                    $('#dialog2_<?php echo $idInsumo; ?>').on('click', function () {
+                                                    $('#dialog2_<?php echo $idInsumo; ?>').on('click', function() {
                                                         // create the backdrop and wait for next modal to be triggered
                                                         GlobalModalManager.loading();
-                                                        setTimeout(function () {
-                                                            $modal2.load("insumos/salidalmacen/<?php echo $idInsumo; ?>", '', function () {
+                                                        setTimeout(function() {
+                                                            $modal2.load("insumos/salidalmacen/<?php echo $idInsumo; ?>", '', function() {
                                                                 $modal2.modal();
                                                             });
                                                         }, 500);
                                                     });
-                                                
+
                                                     /*var dialogOpts = {
-                                                        modal: true
-                                                    };
-                                                    $("#dialog_<?php //echo $idInsumo; ?>").click(function(){
-                                                        $("#cuadro_<?php //echo $idInsumo; ?>").dialog(dialogOpts).load("insumos/ingresoalmacen/<?php //echo $idInsumo; ?>");
-                                                        console.log('Hizo click');
-                                                    });   
-                                
-                                                    $("#dialog2_<?php //echo $idInsumo; ?>").click(function(){
-                                                        $("#cuadro2_<?php //echo $idInsumo; ?>").dialog(dialogOpts).load("insumos/salidalmacen/<?php //echo $idInsumo; ?>");
-                                                        //alert("click");
-                                                    });*/  
-                                                });                                            
+                                                     modal: true
+                                                     };
+                                                     $("#dialog_<?php //echo $idInsumo;  ?>").click(function(){
+                                                     $("#cuadro_<?php //echo $idInsumo;  ?>").dialog(dialogOpts).load("insumos/ingresoalmacen/<?php //echo $idInsumo;  ?>");
+                                                     console.log('Hizo click');
+                                                     });   
+                                                     
+                                                     $("#dialog2_<?php //echo $idInsumo;  ?>").click(function(){
+                                                     $("#cuadro2_<?php //echo $idInsumo;  ?>").dialog(dialogOpts).load("insumos/salidalmacen/<?php //echo $idInsumo;  ?>");
+                                                     //alert("click");
+                                                     });*/
+                                                });
                                             </script>        
                                         </td>                                
                                     </tr>
-                                <?php endforeach; ?>                           
+<?php endforeach; ?>                           
                             </tbody>
                         </table>
                         <!-- // BOO TABLE - DTB-2 -->
@@ -162,5 +161,5 @@ $cantidadAlmacen = new Almacen();
 </div>
 
 <!-- Sidebar -->
-<?php //echo $this->element('menualmacenes') ?>
+<?php //echo $this->element('menualmacenes')  ?>
 <!-- End Sidebar -->

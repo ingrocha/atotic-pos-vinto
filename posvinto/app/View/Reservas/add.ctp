@@ -29,9 +29,14 @@
                         <div class="controls">                                                             
                             <?php echo $this->Form->text('fecha', array('id'=>'datePicker', 'class' => 'span4', 'placeholder' => 'Fecha inicio Ej: 2012-05-30')); ?>                            
                             <?php //echo $this->Form->text('hora', array('class' => 'span4', 'placeholder' => 'Fecha inicio Ej: 2012-05-30')); ?>
-                            <?php echo $this->Form->input('hora', array('type' => 'time', 'interval' => 15, 'timeFormat'=>24)); ?>
+                            <?php //echo $this->Form->input('hora', array('type' => 'time', 'interval' => 15, 'timeFormat'=>24)); ?>
                         </div>
-                        <!-- // form item -->
+                        <label for="formA04">Hora de Reserva:</label>
+                        <div class="controls">                                                             
+                            <?php echo $this->Form->text('fecha', array('id'=>'datePicker', 'class' => 'span4', 'placeholder' => 'Fecha inicio Ej: 2012-05-30')); ?>                            
+                            <?php //echo $this->Form->text('hora', array('class' => 'span4', 'placeholder' => 'Fecha inicio Ej: 2012-05-30')); ?>
+                            <?php echo $this->Form->input('hora', array('type' => 'time', 'interval' => 15, 'timeFormat'=>24)); ?>
+                        </div>form item -->
 
                         <label for="formA04">Cantidad Personas</label>
                         <div class="control-label">

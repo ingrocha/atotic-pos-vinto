@@ -34,6 +34,12 @@
                 <li> <a href="<?php echo $this->Html->url(array('controller'=>'Graficos', 'action'=>'formreporte')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Por Fechas</span> </a> </li>
             </ul>
         </li>
+        <li class="accordion-group active">
+            <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i> Reportes Personal </a> </div>
+            <ul class="accordion-content nav nav-list collapse in" id="accDash">
+                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Reportes', 'action'=>'reporteasistencias')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Listado de Asistencias</span></a> </li>
+            </ul>
+        </li>
         
     </ul>
 

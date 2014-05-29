@@ -88,15 +88,22 @@ class InsumosController extends AppController
         }
     }
 
-    public function descat($id = null)
-    {
-
-        $this->Tipo->id = $id;
-        $this->request->data['Tipo']['estado'] = 0;
-        if ($this->Tipo->save($this->data))
+    public function descat($id=null){
+        $this->Tipo->id=$id;
+        $this->data=$this->Tipo->read();
+        if(!$id){
+            $this->Session->setFlash('No existe la Categoria a eliminar');
+            $this->redirect(array('action' =>'index'));
+        }
+        else
         {
-            $this->Session->setFlash('Se Elimino la Categoria');
-            $this->redirect(array('action' => 'categoriasalmacen'));
+            if($this->Tipo->delete($id)){
+                $this->Session->setFlash('Se elimino la Categoria Exitosamente', 'alerts/bueno');
+                $this->redirect(array('controller'=>'Insumos','action' =>'categoriasalmacen'));
+            }
+            else{
+                $this->Session->setFlash('Error al eliminar');
+            }
         }
     }
 
