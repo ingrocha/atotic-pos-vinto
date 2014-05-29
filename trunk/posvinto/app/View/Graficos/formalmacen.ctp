@@ -147,7 +147,7 @@
                                     "sZeroRecords":    "No se encontraron resultados",
                                     "oPaginate": {
                                         "sFirst":    "Primero",
-                                        "sLast":     "Último",
+                                        "sLast":     "?ltimo",
                                         "sNext":     "Siguiente",
                                         "sPrevious": "Anterior"
                                     },

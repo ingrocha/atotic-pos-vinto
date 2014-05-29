@@ -66,22 +66,24 @@ class TipoeventosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
-		if (!$this->Tipoevento->exists($id)) {
-			throw new NotFoundException(__('Invalid tipoevento'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Tipoevento->save($this->request->data)) {
-				$this->Session->setFlash(__('The tipoevento has been saved'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The tipoevento could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('Tipoevento.' . $this->Tipoevento->primaryKey => $id));
-			$this->request->data = $this->Tipoevento->find('first', $options);
-		}
-	}
+	public function edit($id=null){
+        $this->Tipoevento->id = $id;
+        if (!$id) {
+            $this->Session->setFlash('No existe el Tipo evento en la Base de Datos');
+            $this->redirect(array('action' => 'index'), null, true);
+        }
+        if (empty($this->data)) {
+            $this->data = $this->Tipoevento->read();
+
+        } else {
+            if ($this->Tipoevento->save($this->data)) {
+                $this->Session->setFlash('Los datos fueron modificados Exitosamente','alerts/bueno');
+                $this->redirect(array('action' => 'index'), null, true);
+            } else {
+                $this->Session->setFlash('no se pudo modificar!!');
+            }
+        }      
+    }
 
 /**
  * delete method
