@@ -8,7 +8,6 @@ function popitup(url) {
 <!-- Container -->
 <div id="container">
 	<div class="shell">
-		
 		<!-- Small Nav -->
 		<div class="small-nav">
 			<a href="#">Pedidos</a>
@@ -130,14 +129,12 @@ function popitup(url) {
 							</select>
 						</div>
 						<!-- End Sort -->
-						
 					</div>
 				</div>
 				<!-- End Box -->
 			</div>
 			<!-- End Sidebar -->
             
-			
 			<div class="cl">&nbsp;</div>			
 		
 		<!-- Main -->
