@@ -39,8 +39,11 @@ $cantidadAlmacen = new Almacen();
                                     <?php $idInsumo = $i['Insumo']['id'] ?>                        
                                     <tr>                                    
                                         <td>
-                                            <?php echo $n; $n++; ?>
-                                             </td>
+                                            <?php echo $idInsumo; ?>
+                                            <div id="cuadro_<?php echo $idInsumo; ?>"></div>                         
+                                            <div id="cuadro2_<?php echo $idInsumo; ?>"></div>
+                                            <div id="ajax-modal_<?php echo $idInsumo; ?>" class="modal hide fade" tabindex="-1"></div>
+                                        </td>
                                         <td><?php echo $i['Insumo']['nombre']; ?></td>
                                         <td> <?php echo $i['Tipo']['nombre']; ?></td>  
                                         <td><?php echo $i['Insumo']['observaciones'] ?></td>                              
