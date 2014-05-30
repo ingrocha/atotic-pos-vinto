@@ -15,7 +15,8 @@
         <li class="accordion-group active">
             <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <span class="item-icon fontello-icon-monitor"></span> <i class="chevron fontello-icon-right-open-3"></i>Reservas</a> </div>
             <ul class="accordion-content nav nav-list collapse in" id="accDash">
-                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Reservas', 'action'=>'index')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Lista de Reservas</span></a> </li>
+                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Reservas', 'action'=>'index')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Reservas</span></a> </li>
+                <li> <a href="<?php echo $this->Html->url(array('controller'=>'Reservas', 'action'=>'listareservas')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Listado de Reservas</span></a> </li>
                 <li> <a href="<?php echo $this->Html->url(array('controller'=>'Reservas', 'action'=>'add')); ?>"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Nueva Reserva</span> </a> </li>
             </ul>
         </li>
