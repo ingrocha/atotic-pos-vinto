@@ -76,7 +76,7 @@
 												            <?php 
                 echo $this->Html->image("edit.png", array(
                     "title" => "Editar",
-                    'url' => array('action' => 'modificar', $id)
+                    'url' => array('action' => 'editarplato', $id)
                 ));
             ?>             
             <?php 
@@ -85,12 +85,8 @@
                     'url' => array('action' => 'receta', $id)
                 ));
             ?>
-            <?php 
-                echo $this->Html->image("elim.png", array(
-                    "title" => "Eliminar",
-                    'url' => array('action' => 'eliminarplato', $id)
-                ));
-            ?>
+            <?php echo $this->Html->link($this->Html->image('elim.png'), array('action'=>'eliminarplato',$id), array('escape'=>false, 'confirm'=>'Esta seguro de Eliminar')); ?>                                                                                        
+            <?php //echo $this->Html->image("elim.png", array("title" => "Eliminar",'url' => array('action' => 'eliminarplato', $id)));?>
             <?php 
                 echo $this->Html->link('Observaciones',array('action' => 'observaciones',$id));
             ?> 

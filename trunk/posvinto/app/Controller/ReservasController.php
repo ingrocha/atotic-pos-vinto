@@ -44,14 +44,14 @@ class ReservasController extends AppController
         $this->Reserva->recursive = 0;
         $this->set('reservas', $this->paginate());
     }
-     public function ver()
+     public function ver($idreserva=nulls)
     {
         $reservas = $this->Reserva->find('first', array(
             'recursive' => -1,
-            'order' => 'Reserva.id'));
+            'order' => 'Reserva.id',
+            'conditions'=>array('Reserva.id'=>$idreserva)));
         $this->set(compact('reservas'));
-       // debug($reservas);die;
-        //debug($users);die;
+        //debug($reservas);die;
     }
     /**
      * view method
