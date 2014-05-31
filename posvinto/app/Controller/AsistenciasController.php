@@ -182,8 +182,7 @@ public function entradas($hora1=null,$hora2=null)
           $codigo=$this->data['Asistencia']['codigo'];
           $usuario=$this->User->find('first',array('conditions'=>array('User.codigo'=>$codigo)));
           $usuario2 = $usuario;
-          $separar[1]=explode(':',$hora1); 
-          $separar[2]=explode(':',$hora2); 
+         
           //debug($separar[1]);die;
           //debug($usuario);exit;
           if(empty($usuario)){
@@ -193,10 +192,21 @@ public function entradas($hora1=null,$hora2=null)
             else{
               $this->data='';
               $usuario=$usuario['User']['id'];
-             
+              
+              $separar[1]=explode(':',$hora1); 
+              $separar[2]=explode(':',$hora2); 
+              
+              $total_minutos_trasncurridos[1] = ($separar[1][0]*60)+$separar[1][1]; 
+              $total_minutos_trasncurridos[2] = ($separar[2][0]*60)+$separar[2][1]; 
+              $total_minutos_trasncurridos = $total_minutos_trasncurridos[1]-$total_minutos_trasncurridos[2]; 
+              
+              debug($total_minutos_trasncurridos
+                     \);
               $date=date('Y-m-d');
-              //debug($date);die;
-              $valida=$this->Asistencia->find('all',array('conditions'=>array('Asistencia.user_id'=>$usuario,'Asistencia.fecha'=>$date)));
+              debug($date);
+              $valida=$this->Asistencia->find('all',
+                                        array('conditions'=>
+                                        array('Asistencia.user_id'=>$usuario,'Asistencia.fecha'=>$date)));
           /*start validation*/
           if(!empty($valida)){
               $this->Session->setFlash('ERROR, su Hora de ingreso de Hoy ya fue Registrada....!!!');
@@ -223,9 +233,6 @@ public function entradas($hora1=null,$hora2=null)
               $horas_retraso =  $hora_ingreso - $hora_entrada;
               $minutos_retraso = $minutos_ingreso - $minutos_entrada;
               
-              //debug($horas_retraso);
-              //debug($minutos_retraso);
-              
               if(($horas_retraso != 0)|| ($minutos_retraso != 0)){
                 $multa =$this->ConfMulta->find('first',array('order' => 'ConfMulta.minutos DESC',
                 'conditions'=>array(
@@ -234,9 +241,7 @@ public function entradas($hora1=null,$hora2=null)
                 ));
                 //debug($multa);exit;
               }
-          
-              
-              
+              debug($this->data);die;   
           if($this->Asistencia->save($this->data)){
             if(!empty($multa)){
                 $this->Retraso->create();

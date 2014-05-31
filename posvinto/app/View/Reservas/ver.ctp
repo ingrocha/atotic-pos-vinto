@@ -6,7 +6,7 @@
     <div id="page-content" class="page-content">
         <section>
             <div class="page-header">
-                <h4><i class="fontello-icon-user"></i> Account profile <small>edit or new user</small></h4>
+                <h4><i class="fontello-icon-user"></i> Reserva del Cliente<small>Restaurante Oh Cochabamba Querida.....!!!!</small></h4>
                 </div>
             <div class="widget-content">
                                     <div class="widget-body">
@@ -19,10 +19,16 @@
                                                            <?php echo $this->Html->image("pedido.jpg");?> </label>
                                                         <div class="controls">
                                                             <address>
-                                                            <h2>Michael Berger</h2>
-                                                            <strong>Development manager</strong> at <strong><a href="#">ShopGate Inc.</a></strong><br>
-                                                            <abbr title="Work email">e-mail:</abbr> <a href="mailto:#">michael.berger@shopgate.com</a><br>
-                                                            <abbr title="Work Phone">phone:</abbr> (123) 456-7890
+                                                            <h2>Reserva Especial</h2>
+                                                            <strong>Reservas del Cliente:<p>
+                                                                
+                                                                <a><?php echo $reservas['Reserva']['cliente_id'];?></a></strong><br>
+                                                                <abbr><strong>Tipo Evento:</strong></abbr> <a><?php echo $reservas['Reserva']['tipoevento_id'];?></a><br><p>
+                                                                    <abbr><strong>Cantidad de Personas:</strong></abbr> <a><?php echo $reservas['Reserva']['cantidad_personas'];?></a><p>
+                                                                    <abbr><strong>Fecha de Evento:</strong></abbr> <a><?php echo $reservas['Reserva']['fecha'];?></a><br><p>
+                                                                    <abbr><strong>Hora de Evento:</strong></abbr> <a><?php echo $reservas['Reserva']['tipoevento_id'];?></a><br><p>
+                                                                    <abbr><strong>Observaciones:</strong></abbr> <a><?php echo $reservas['Reserva']['observaciones'];?></a>
+                                                            
                                                             </address>
                                                         </div>
                                                     </div>

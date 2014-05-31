@@ -32,17 +32,19 @@
 
 
     <tr>
-        <th>Nro.</th>
-        <th>Descuento</th>
+        <th>Porcentaje</th>
+        <th>Observacion</th>
         <th>Aciones</th>
     </tr>
 </thead>
 <tbody>
-<?php $i = 1; ?>
+<?php //$i = 1; ?>
 <?php foreach($descuentos as $descuento): ?>
      <?php $id = $descuento['Descuento']['id'] ?>
     <tr>
-       <td><?php echo $i; $i++; ?></td>
+        <td>
+        <?php echo $descuento['Descuento']['porcentaje']; ?>
+        </td>
         <td>
         <?php echo $descuento['Descuento']['observacion']; ?>
         </td>

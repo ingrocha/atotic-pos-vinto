@@ -275,13 +275,19 @@ class ProductosController extends AppController
     }
 
     public function eliminarplato($id = null)
-    {
-        $this->request->data['Producto']['estado'] = 0;
+     {
         $this->Producto->id = $id;
-        if ($this->Producto->save($this->data))
-        {
-            $this->Session->setFlash('Plato eliminado');
-            $this->redirect(array('action' => 'platos'));
+        $this->request->data = $this->Producto->read();
+        if (!$id) {
+            $this->Session->setFlash('No existe el Producto a Eliminar');
+            $this->redirect(array('Controller'=>'Productos','action' => 'plato'));
+        } else {
+            if ($this->Producto->delete($id)) {
+                $this->Session->setFlash('Se elimino el Producto ','alerts/bueno');
+                $this->redirect(array('controller'=>'Productos','action' => 'platos'));
+            } else {
+                $this->Session->setFlash('Error al eliminar','mensajeError');
+            }
         }
     }
 
@@ -368,7 +374,7 @@ class ProductosController extends AppController
             if ($this->Producto->save($this->data))
             {
                 $this->Session->setFlash('Plato registrado con exito');
-                $this->redirect(array('action' => 'productosmenu'), null, true);
+                $this->redirect(array('action' => 'platos'), null, true);
             }
         }
         $dcc = $this->Categoria->find('list', array('conditions' => array('tipo' =>
@@ -396,7 +402,7 @@ class ProductosController extends AppController
         $this->set(compact('dcategoria','dinsumo'));
     }
 
-    public function editar($id = null)
+    public function modificar($id = null)
     {
         $this->Producto->id = $id;
         if (!$id)
@@ -652,6 +658,29 @@ class ProductosController extends AppController
             $this->Session->setFlash('No se pudo eliminar la observacion!!!','alerts/error');
         }
         
+    }
+     public function editarplato($id = null)
+    {
+        $this->Producto->id = $id;
+        if (!$id) {
+            $this->Session->setFlash('No existe el Producto');
+            $this->redirect(array('controller'=>'Productos','action' => 'platos'), null, true);
+        }
+        if (empty($this->request->data)) {
+            $this->request->data = $this->Producto->read();
+        } else {
+            if ($this->Producto->save($this->request->data)) {
+                $this->Session->setFlash('Los datos fueron modificados', 'mensajeBueno');
+                $this->redirect(array('controller'=>'Productos','action' => 'platos'), null, true);
+            } else {
+                $this->Session->setFlash('no se pudo modificar!!','alerts/alert');
+            }
+        }
+        $dcc = $this->Categoria->find('list', array(
+                                            'conditions' => array('tipo' =>'Comida'), 'fields' => 'nombre'));
+        $dcategoria = $this->Categoria->find('list', array('fields'=>'Categoria.nombre'));
+        $dinsumo = $this->Insumo->find('list', array('fields'=>'Insumo.nombre'));
+        $this->set(compact('dcategoria','dinsumo','dcc'));
     }
 
 }

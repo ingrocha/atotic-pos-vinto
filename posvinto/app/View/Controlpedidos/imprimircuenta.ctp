@@ -7,11 +7,7 @@
 
     <div style="text-align: center; width: 380px;">
     <span style="padding: 0 30px 0 2px; text-align: left; font-size: 19px;">
-    <b>OH COCHABAMBA QUERIDA</b></br>
-    <b>RESTAURANTE</b><br />
-    Av.Martin de la Rocha Nro.01531<br />
-    Zona Cala Cala </br>
-    telf: 4411943</br>
+    
     <b>Cochabamba - Bolivia</b>
     </span>
      <div class="linea">

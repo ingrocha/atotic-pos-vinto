@@ -12,11 +12,10 @@
                 <div class="span10 well well-nice">
             <fieldset>
     <legend>Formulario <small>INSERTAR NUEVO DESCUENTO</small></legend>
-	<label for="formA04">Nombre:</label> 
+        <label for="formA04">Porcentaje:</label> 
+	<td><?php echo $this->Form->text('porcentaje',array('placeholder' => 'Ingrese el % Ejem:0.10')); ?></td>
+	<label for="formA04">Observacion:</label> 
 	<td><?php echo $this->Form->text('observacion'); ?></td>
-
-    <label for="formA04">Porcentaje:</label> 
-	<td><?php echo $this->Form->text('porcentaje'); ?></td>
 <p></p>
 <button class="btn btn-green" type="submit">Guardar Descuento</button>
     </form>

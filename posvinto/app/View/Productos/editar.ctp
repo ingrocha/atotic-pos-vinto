@@ -12,33 +12,23 @@
                 </div>
                 <div class="span10 well well-nice">
                     <fieldset>
-                        <legend>Formulario <small>INSERTAR NUEVO PRODUCTO</small></legend>
+                        <legend>Formulario <small>NUEVA PLATO</small></legend>
                         <label for="formA04">Nombre:</label>                            
-                        <?php echo $this->Form->text('nombre', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese en nombre Ej: Juan Perez', 'required', 'title' => 'Este campo Necesario')); ?>
-                        <!-- // form item -->
-
-                        <label for="formA04">Descripcion:</label>                            
-                        <?php echo $this->Form->text('descripcion', array('id' => 'formA04', 'class' => 'input-block-level', 'placeholder' => 'Ingrese la direccion Ej: Calle uno', 'title' => 'Este campo Necesario')); ?>
-                        <!-- // form item -->
-
-                        <!-- // form item -->
-
-                        <label for="formA04">Precio:</label>
-                        <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->text('precio', array('class' => 'span5', 'placeholder' => 'Ingrese en Doc. Identidad Ej 3241213 CBBA', 'required')); ?>
-                        </div>
-                        <!-- // form item --> 
+                        <?php echo $this->Form->text('nombre'); ?>
+                        <label for="formA04">Precio:</label>                            
+                        <?php echo $this->Form->text('precio'); ?>
+                        <tr>
                         <label for="formA04">Categoria:</label>
-                        <div class="controls controls-row">                                                               
-                            <?php echo $this->Form->select('categoria_id',$dcategoria,  array('class' => 'span4', 'placeholder' => 'Ingrese el Usuario. Ej jperez', 'required')); ?>
-                        </div> 
-                        <label for="formA04">Insumo:</label>
-                        <div class="controls controls-row">
-                            <?php echo $this->Form->select('insumo_id',$dinsumo, array('class' => 'span4', 'placeholder' => 'Ingrese el Pass Ej: 123556', 'required')); ?>                                                           
-                        </div>                       
+                        <?php echo $this->Form->select('categoria_id', $dcc); ?>                                                            
+                        </tr>
+                        <tr>
+                        <label for="formA04">Descripci&oacute;n:</label>
+                        <?php echo $this->Form->text('descripcion'); ?>                                                            
+                        </tr>
                         <!-- // form item -->
-
-                        <button class="btn btn-green" type="submit">Editar Producto</button>
+                        <!-- // form item -->
+                        <p></p>
+                        <button class="btn btn-green" type="submit">Guardar Plato</button>
                         </form>
                     </fieldset>
                     <!-- // fieldset Input Grid Sizig --> 
