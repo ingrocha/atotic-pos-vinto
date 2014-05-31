@@ -1522,11 +1522,14 @@ class PedidosController extends AppController
         
         $contenido = $contenido.'------------------------------'.PHP_EOL;
         $contenido = $contenido.'--------DETALLE---------'.PHP_EOL;
+        $contenido = $contenido.'\n\n--------CRT---------'.PHP_EOL;
         
         $bebida = $bebida.'------------------------------'.PHP_EOL;
         $bebida = $bebida.'--------DETALLE---------'.PHP_EOL;
+        $contenido = $contenido.'\n\n--------CRT---------'.PHP_EOL;
         //debug($contenido_pedido);exit;
         foreach ($items as $it) {
+            
             $this->Item->id = $it['Item']['id'];
             $this->request->data['Item']['estado'] = 1;
             $this->Item->save($this->request->data['Item']);
@@ -1596,6 +1599,7 @@ class PedidosController extends AppController
             fclose($fp) ;
             exec("print /d:\\\\$ip_impresoraCocina ".$directorio); 
         }
+        
         $directorio2 = WWW_ROOT . 'pedidos' .DS . $idPedido . '.txt';
         if (file_exists($directorio2)) {
             unlink($directorio2);
@@ -1624,6 +1628,7 @@ class PedidosController extends AppController
         }
         
     }
+    
     public function pruebamovimiento()
     {
         $layout = 'mosos';
