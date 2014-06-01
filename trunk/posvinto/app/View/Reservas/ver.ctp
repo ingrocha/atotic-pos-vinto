@@ -26,7 +26,7 @@
                                                                 <abbr><strong>Tipo Evento:</strong></abbr> <a><?php echo $reservas['Reserva']['tipoevento_id'];?></a><br><p>
                                                                     <abbr><strong>Cantidad de Personas:</strong></abbr> <a><?php echo $reservas['Reserva']['cantidad_personas'];?></a><p>
                                                                     <abbr><strong>Fecha de Evento:</strong></abbr> <a><?php echo $reservas['Reserva']['fecha'];?></a><br><p>
-                                                                    <abbr><strong>Hora de Evento:</strong></abbr> <a><?php echo $reservas['Reserva']['tipoevento_id'];?></a><br><p>
+                                                                    <abbr><strong>Hora de Evento:</strong></abbr> <a><?php echo $this->Form->input('hora', array('type' => 'time', 'interval' => 15, 'timeFormat'=>24)); ?></a><br><p>
                                                                     <abbr><strong>Observaciones:</strong></abbr> <a><?php echo $reservas['Reserva']['observaciones'];?></a>
                                                             
                                                             </address>
