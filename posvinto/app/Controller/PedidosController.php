@@ -1259,12 +1259,14 @@ class PedidosController extends AppController
             $usuario = $this->User->find('first', array('recursive' => -1,'conditions' => array('User.id' => $id_moso)));
         $this->set(compact('datosObs', 'nombreProducto', 'idProducto', 'idPedido','idItem','usuario'));
     }
+    
     public function ajaxpideproducto($id_moso = null, $idPedido = null, $idProducto = null,$iditem = null)
     {
         $this->layout = 'ajax';
         //debug($iditem);
         //debug($idPedido);exit;
         //debug($idProducto);
+        //Quitamos el cambio de fecha
         if($idProducto != null)
         {
             if ($iditem == null) {
@@ -1383,7 +1385,7 @@ class PedidosController extends AppController
             }
         }
         
-
+        //Buscamos todos los productos con idPedido
 
         $productos = $this->Item->find('all', array('recursive' => 0, 'conditions' =>
                 array('Item.pedido_id' => $idPedido)));
@@ -1419,6 +1421,7 @@ class PedidosController extends AppController
         $this->set(compact('Producto', 'cantidad', 'productos', 'idProducto', 'idPedido',
             'mensaje', 'sw', 'productos_vector', 'id_moso','usuario'));
     }
+    
     public function guardaobservacion($idProducto = null, $idPedido = null, $idItem = null)
     {
         $this->layout = 'ajax';
