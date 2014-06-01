@@ -22,7 +22,8 @@ $mmesa = new Mesa();
                     if ($datosMoso['User']['role'] == "Jefe")
                     {
                         echo $this->Ajax->link(
-                            $this->Html->image('mesa.png')."MESA : $mesa", array(
+                            //$this->Html->image('mesa.png')."MESA : $mesa", array(
+                            "<h2>MESA : <b>$mesa</b></h2>", array(
                             'controller' => 'Pedidos',
                             'action' => 'detallemesajefe',
                             $id_pedido, $datosMoso['User']['id']
@@ -35,7 +36,8 @@ $mmesa = new Mesa();
                     } else
                     {
                         echo $this->Ajax->link(
-                            "MESA : $mesa".$this->Html->image('iconos/mesa.png', array('style'=>"padding-top: 10px;")), array(
+                            //"MESA : $mesa".$this->Html->image('iconos/mesa.png', array('style'=>"padding-top: 10px;")), array(
+                            "<h2>MESA : <b>$mesa</b></h2>", array(
                             'controller' => 'Pedidos',
                             'action' => 'detallemesa',
                             $id_pedido,
