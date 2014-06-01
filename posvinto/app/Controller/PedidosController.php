@@ -1289,7 +1289,7 @@ class PedidosController extends AppController
                             array(
                             'Bodega.insumo_id' => $in['Porcione']['insumo_id'],
                             'Bodega.total >=' => $in['Porcione']['cantidad'],
-                            'Bodega.fecha' => date("Y-m-d"),
+                            //'Bodega.fecha' => date("Y-m-d"),
                             'Bodega.lugare_id' => $lugar)));
                     //debug($movimiento);
                     if (empty($movimiento)) {
@@ -1328,7 +1328,7 @@ class PedidosController extends AppController
                                 array(
                                 'Bodega.insumo_id' => $in['Porcione']['insumo_id'],
                                 'Bodega.total >=' => $in['Porcione']['cantidad'],
-                                'Bodega.fecha' => date("Y-m-d"),
+                                //'Bodega.fecha' => date("Y-m-d"),
                                 'Bodega.lugare_id' => $lugar)));
                         $this->Bodega->id = $movimiento['Bodega']['id'];
                         $this->request->data['Bodega']['salida'] = $movimiento['Bodega']['salida'] + $in['Porcione']['cantidad'];
@@ -1372,7 +1372,7 @@ class PedidosController extends AppController
                         'conditions' => array(
                             'Bodega.insumo_id' => $in['Porcione']['insumo_id'],
                             //'Bodega.total >=' => $in['Porcione']['cantidad'],
-                            'Bodega.fecha' => date("Y-m-d"),
+                            //'Bodega.fecha' => date("Y-m-d"),
                             'Bodega.lugare_id' => $lugar)));
                     //debug($movimiento);
     
