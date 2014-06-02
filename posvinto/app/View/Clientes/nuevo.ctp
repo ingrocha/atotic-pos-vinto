@@ -38,6 +38,9 @@
 
                         <button class="btn btn-green" type="submit">Guardar Usuario</button>
                         </form>
+                        <td class="low-padding align-center">
+            <?php echo $this->Html->link('Atras',array('controller'=>'Clientes','action'=>'index'),array('class'=>'btn btn-green'));?>
+            </td>
                     </fieldset>
                     <!-- // fieldset Input Grid Sizig --> 
                 </div>

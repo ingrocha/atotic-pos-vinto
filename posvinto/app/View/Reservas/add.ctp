@@ -46,6 +46,9 @@
                         </div>               
                         <button class="btn btn-green" type="submit">Guardar contrato</button>
                         </form>
+                        <td class="low-padding align-center">
+                            <?php echo $this->Html->link('Atras',array('controller'=>'Reservas','action'=>'index'),array('class'=>'btn btn-green'));?>
+                        </td>
                     </fieldset>
                     <!-- // fieldset Input Grid Sizig --> 
                 </div>

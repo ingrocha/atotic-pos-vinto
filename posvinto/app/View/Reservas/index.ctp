@@ -300,7 +300,7 @@
                             </caption>
                             <thead>
                             <th scope="col">
-                                ID
+                                Nro
                                 <span class="column-sorter">
                                 </span>
                             </th>
@@ -336,7 +336,7 @@
                                     <?php $id = $r['Reserva']['id']; ?>
                                     <tr>
                                         <td>
-                                            <?php echo $i=1;$i++; ?>
+                                            <?php echo $i;$i++; ?>
                                         </td>
                                         <td>
                                             <?php echo $r['Cliente']['nombre']; ?>

@@ -47,7 +47,7 @@ class ReservasController extends AppController
      public function ver($idreserva=nulls)
     {
         $reservas = $this->Reserva->find('first', array(
-            'recursive' => -1,
+            'recursive' => -0,
             'order' => 'Reserva.id',
             'conditions'=>array('Reserva.id'=>$idreserva)));
         $this->set(compact('reservas'));
