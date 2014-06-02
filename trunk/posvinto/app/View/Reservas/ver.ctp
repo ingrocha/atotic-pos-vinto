@@ -22,9 +22,9 @@
                                                             <h2>Reserva Especial</h2>
                                                             <strong>Reservas del Cliente:<p>
                                                                 
-                                                                <a><?php echo $reservas['Reserva']['cliente_id'];?></a></strong><br>
-                                                                <abbr><strong>Tipo Evento:</strong></abbr> <a><?php echo $reservas['Reserva']['tipoevento_id'];?></a><br><p>
-                                                                    <abbr><strong>Cantidad de Personas:</strong></abbr> <a><?php echo $reservas['Reserva']['cantidad_personas'];?></a><p>
+                                                                <a><?php echo $reservas['Cliente']['nombre'];?></a></strong><br>
+                                                                <abbr><strong>Tipo Evento:</strong></abbr> <a><?php echo $reservas['Tipoevento']['nombre'];?></a><br><p>
+                                                                    <abbr><strong>Cantidad de Personas:</strong></abbr> <a><?php echo $reservas['Reserva']['cantidad_personas'];?> Personas</a><p>
                                                                     <abbr><strong>Fecha de Evento:</strong></abbr> <a><?php echo $reservas['Reserva']['fecha'];?></a><br><p>
                                                                     <abbr><strong>Hora de Evento:</strong></abbr> <a><?php echo $this->Form->input('hora', array('type' => 'time', 'interval' => 15, 'timeFormat'=>24)); ?></a><br><p>
                                                                     <abbr><strong>Observaciones:</strong></abbr> <a><?php echo $reservas['Reserva']['observaciones'];?></a>
@@ -36,6 +36,9 @@
                                             </div>
                                             </div>
                                             </div>
+            <td class="low-padding align-center">
+            <?php echo $this->Html->link('Atras',array('controller'=>'Reservas','action'=>'listareservas'),array('class'=>'btn btn-green'));?>
+            </td>
         </section>
     </div>	
     <!-- // fin contenido principal --> 

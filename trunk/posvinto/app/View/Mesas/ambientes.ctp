@@ -16,7 +16,9 @@
 </div>
 
 <?php echo $this->Html->link('ADICIONAR AMBIENTE','#defaultModal',array('class' => 'btn btn-green','data-toggle' => 'modal'));?> 
-
+<td class="low-padding align-center">
+            <?php echo $this->Html->link('Atras',array('controller'=>'Mesas','action'=>'index'),array('class'=>'btn btn-green'));?>
+            </td>
 
 <div id="defaultModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">

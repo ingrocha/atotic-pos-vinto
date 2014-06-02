@@ -43,7 +43,11 @@
 </tr>
 </table>
  <button class="btn btn-green" type="submit">Guardar Plato</button>
+ <td class="low-padding align-center">
+            <?php echo $this->Html->link('Atras',array('controller'=>'Productos','action'=>'productosmenu'),array('class'=>'btn btn-green'));?>
+            </td>
  </form>
+ 
 						
 						
 						<!-- Pagging -->
