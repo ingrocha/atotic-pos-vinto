@@ -60,6 +60,7 @@
         <?php 
         $montoTotal=0;
         foreach ($productos_vector as $i): ?>
+        <?php if($i['Producto']['precio'] != 0):?>
             <tr>
                 <td style="font-size: 18px;">
                     <?php echo $i['Producto']['nombre']; ?>
@@ -78,6 +79,7 @@
                      ?>
                 </td>
             </tr>
+            <?php endif;?>
         <?php endforeach; ?>
         <tr>
             <td colspan="3" style="text-align: right; font-size: 20px;">Importe total BS.</td>
