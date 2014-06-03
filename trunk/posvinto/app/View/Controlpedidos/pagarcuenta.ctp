@@ -18,7 +18,7 @@
 	</div>
     
 	<!-- fin cabecera -->
-	-----------------------------------------------------
+	----------------------------------------------------
 	<div style="text-align: center;">
 		Fecha:
 		<?php echo $recibo['Recibo']['created'] ?>
@@ -39,7 +39,7 @@
 			</td>
 		</tr>
 	</table>
-	----------------------------------------------------
+	---------------------------------------------------
 	<table style="width: 200px; alignment-adjust: central; font-family: arial; font-size: 12px;">
 	   <tr>
           <td>&nbsp;</td>

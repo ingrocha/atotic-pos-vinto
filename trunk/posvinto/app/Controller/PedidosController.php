@@ -1525,11 +1525,11 @@ class PedidosController extends AppController
         
         $contenido = $contenido.'------------------------------'.PHP_EOL;
         $contenido = $contenido.'--------DETALLE---------'.PHP_EOL;
-        $contenido = $contenido.'\n\n--------CRT---------'.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
         
         $bebida = $bebida.'------------------------------'.PHP_EOL;
         $bebida = $bebida.'--------DETALLE---------'.PHP_EOL;
-        $contenido = $contenido.'\n\n--------CRT---------'.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
         //debug($contenido_pedido);exit;
         foreach ($items as $it) {
             
