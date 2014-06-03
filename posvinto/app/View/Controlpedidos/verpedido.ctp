@@ -112,7 +112,7 @@
                     <?php 
                     if($usuario != 6): ?>
                     <div style="height: 10px;">&nbsp;</div>                
-                    <a class="btn btn-large btn-green" href="#" id="bt_pagar"><i class="fontello-icon-publish"></i> CON RECIBO</a>
+                    <a class="btn btn-large btn-green" href="#" id="bt_pagar"><i class="fontello-icon-publish"></i> IR</a>
                     <div style="height: 10px;">&nbsp;</div>
                     <div id="MuestraPagar" style="display: none;">
                     <?php echo $this->Form->create('Controlpedidos', array('action'=>'pagarcuenta')); ?>
