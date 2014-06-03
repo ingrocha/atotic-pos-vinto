@@ -200,8 +200,7 @@ public function entradas($hora1=null,$hora2=null)
               $total_minutos_trasncurridos[2] = ($separar[2][0]*60)+$separar[2][1]; 
               $total_minutos_trasncurridos = $total_minutos_trasncurridos[1]-$total_minutos_trasncurridos[2]; 
               
-              debug($total_minutos_trasncurridos
-                     \);
+              debug($total_minutos_trasncurridos);
               $date=date('Y-m-d');
               debug($date);
               $valida=$this->Asistencia->find('all',
