@@ -266,7 +266,7 @@ class ProductosController extends AppController
             'limit' => 150,
             'order' => array('id' => 'desc'),
             'recursive' => 0,
-            'conditions' => array('Categoria.tipo' => 'Comida'));
+            'conditions' => array('Categoria.tipo' => array('Comida','Bebidas')));
         // similar to findAll(), but fetches paged results
         $platos = $this->paginate('Producto');
         //debug($platos);
