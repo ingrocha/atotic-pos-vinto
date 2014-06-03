@@ -318,6 +318,20 @@ class ReportesController extends AppController{
        
        $this->set(compact('asistencias','fechaini','fechafin'));
     }
+    public function graficos()
+    {
+        
+        $productos = $this->Item->find('all',array(
+        'recursive' => 0
+        ,'group' => array('producto_id')
+        ,'conditions' => array('Item.estado' => 1)
+        ,'fields' => array('Producto.nombre','Producto.id')
+        ));
+        $this->set(compact('productos'));
+        $fecha = date('Y-m-d');
+        //debug($fecha);exit;
+        $insumos = $this->Bodega->find('all',array('recursive' => 0,'conditions' => array('Bodega.fecha' => $fecha)));
+    }
 }
 
 ?>
