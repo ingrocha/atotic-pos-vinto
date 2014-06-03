@@ -1474,6 +1474,9 @@ class PedidosController extends AppController
         $bebida = $bebida."--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
         $bebida = $bebida."--------- MOSO: ".$pedido['User']['nombre']." ---------". PHP_EOL;
         $contenido_pedido="--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
         //debug($items);exit;
         foreach($items as $it)
         {
