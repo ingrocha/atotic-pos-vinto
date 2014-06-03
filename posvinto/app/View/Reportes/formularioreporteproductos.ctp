@@ -9,7 +9,7 @@
             <div class="span12 well well-nice">
             <?php echo $this->Form->create('Reportes', array('action'=>'reportepedidos')); ?>
                 <div class="page-header">
-                    <h3><i class="fontello-icon-article-alt opaci35"></i>Reportes de Ventas</h3>
+                    <h3><i class="fontello-icon-article-alt opaci35"></i>Reportes de Ventas por Moso</h3>
                 </div>
                 
                 <?php echo $this->Form->create('Reportes', array('action'=>'reportepedidos',  'class'=>"form-horizontal well well-nice well-small small-labels")); ?>
@@ -26,6 +26,36 @@
                 <div class="span4">
                 <h5>Usuario</h5>
                 <?php echo $this->Form->select('mesero',$meseros,array('class' => 'span12'));?>
+                </div>
+                </div>
+                </div>
+                <?php echo $this->Form->end(array('Value'=>'Generar reporte', 'class'=>"btn btn-green span12")) ?>
+            </div>              
+                
+            </div>
+        </section>
+        <section>            
+            <div class="row-fluid">  
+            <div class="span12 well well-nice">
+            <?php echo $this->Form->create('Reportes', array('action'=>'reportepedidos')); ?>
+                <div class="page-header">
+                    <h3><i class="fontello-icon-article-alt opaci35"></i>Reportes de Ventas por Usuario</h3>
+                </div>
+                
+                <?php echo $this->Form->create('Reportes', array('action'=>'reportepedidos',  'class'=>"form-horizontal well well-nice well-small small-labels")); ?>
+                <div class="row-fluid">
+                <div class="span12">
+                <div class="span4">
+                <h5>Desde</h5>
+                <?php echo $this->Form->date('fechaini',array('required','class'=>'span12'));?>
+                </div>
+                <div class="span4">
+                <h5>Hasta</h5>
+                <?php echo $this->Form->date('fechafin',array('required','class' => 'span12'));?>
+                </div>
+                <div class="span4">
+                <h5>Usuario</h5>
+                <?php echo $this->Form->select('usuario',$usuarios,array('class' => 'span12'));?>
                 </div>
                 </div>
                 </div>
