@@ -1530,6 +1530,8 @@ class PedidosController extends AppController
         $bebida = $bebida.'------------------------------'.PHP_EOL;
         $bebida = $bebida.'--------DETALLE---------'.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
         //debug($contenido_pedido);exit;
         foreach ($items as $it) {
             
