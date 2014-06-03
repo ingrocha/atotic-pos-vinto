@@ -1537,6 +1537,9 @@ class PedidosController extends AppController
         
         $contenido = $contenido.''.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
         //debug($contenido_pedido);exit;
         foreach ($items as $it) {
             
