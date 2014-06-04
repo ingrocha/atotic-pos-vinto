@@ -1540,11 +1540,6 @@ class PedidosController extends AppController
         $bebida = $bebida.''.PHP_EOL;
         $bebida = $bebida.''.PHP_EOL;
         $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
         
         $contenido = $contenido.''.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
