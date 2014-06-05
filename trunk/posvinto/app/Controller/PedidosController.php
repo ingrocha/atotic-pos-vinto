@@ -1418,8 +1418,9 @@ class PedidosController extends AppController
         $productos_vector[0]['Producto']['cantidad'] = $productos_vector[0]['Producto']['cantidad']+1;*/
         //debug($productos_vector);exit;
         $usuario = $this->User->find('first',array('recursive' => -1,'conditions' => array('User.id' => $id_moso)));
+        $pedido = $this->Pedido->findByid($idPedido,null,null,null,null,-1);
         $this->set(compact('Producto', 'cantidad', 'productos', 'idProducto', 'idPedido',
-            'mensaje', 'sw', 'productos_vector', 'id_moso','usuario'));
+            'mensaje', 'sw', 'productos_vector', 'id_moso','usuario','pedido'));
     }
     
     public function guardaobservacion($idProducto = null, $idPedido = null, $idItem = null)

@@ -9,7 +9,7 @@ $item = new Item();
     }
 </style>
 <div class="table-responsive">
-    <h3>LISTADO DE PEDIDOS</h3>
+    <h3>LISTADO DE PEDIDOS - <b>MESA <?php echo $pedido['Pedido']['mesa']?></b></h3>
     <?php if(!empty($productos_vector)):?>
     <table bordercolor="#8462DF"class="table">
         <thead bgcolor="#8462DF">

@@ -250,7 +250,8 @@ class ReportesController extends AppController{
         $insumos = $this->Insumo->find('list',array('fields' => 'Insumo.nombre'));
         $usuarios = $this->User->find('list',array('fields' => 'User.nombre'));
         $lugares = $this->Lugare->find('list',array('fields' => 'Lugare.nombre'));
-        $this->set(compact('meseros','insumos','usuarios','lugares'));
+        $productos = $this->Producto->find('list',array('fields' => 'Producto.nombre'));
+        $this->set(compact('meseros','insumos','usuarios','lugares','productos'));
     }
     public function reportepedidos(){
         //debug($this->request->data);exit;
@@ -260,7 +261,7 @@ class ReportesController extends AppController{
        $condiciones['Pedido.created <='] = $fechafin;
        
        $moso = $this->request->data['Reportes']['mesero'];
-       if(!empty($moso))
+       if(!empty($moso) || $moso != 0)
        {
         $condiciones['User.id'] = $moso;
        }
@@ -275,6 +276,7 @@ class ReportesController extends AppController{
     {
         return $this->Item->find('count',array('conditions' => array('Item.pedido_id' => $idPedido)));
     }
+    
     public function reporteinventarios()
     {
         $fechaini = $this->request->data['Reportes']['fechaini'];
@@ -315,8 +317,8 @@ class ReportesController extends AppController{
        }
        
        $asistencias = $this->Retraso->find('all',array('conditions' => $condiciones));
-       
        $this->set(compact('asistencias','fechaini','fechafin'));
+       
     }
     public function graficos()
     {
@@ -327,10 +329,58 @@ class ReportesController extends AppController{
         ,'conditions' => array('Item.estado' => 1)
         ,'fields' => array('Producto.nombre','Producto.id')
         ));
-        $this->set(compact('productos'));
+        
         $fecha = date('Y-m-d');
         //debug($fecha);exit;
-        $insumos = $this->Bodega->find('all',array('recursive' => 0,'conditions' => array('Bodega.fecha' => $fecha)));
+        $insumosalmacen = $this->Almacen->find('all',array(
+        'recursive' => -1
+        ,'group' => array('Almacen.insumo_id')
+        ,'conditions' => array('Almacen.total !=' => 0)
+        ,'fields' => array('MAX(Almacen.id) max')
+        
+        ));
+        $vector_insumos = array();
+        $i = 0;
+        foreach($insumosalmacen as $in)
+        {
+            $insumo = $this->Almacen->find('first',array('recursive' => 0
+            ,'conditions' => array('Almacen.id' => $in[0]['max'])
+            ,'fields' => array('Insumo.nombre','Almacen.total')
+            ));
+            $vector_insumos[$i]['nombre'] = $insumo['Insumo']['nombre'];
+            $vector_insumos[$i]['total'] = $insumo['Almacen']['total'];
+            $i++;
+        }
+        debug($vector_insumos);
+        debug($insumosalmacen);exit;
+        $this->set(compact('productos'));
+    }
+    public function reporteproducto()
+    {
+       $fechaini = $this->request->data['Reportes']['fechaini'];
+       $fechafin = $this->request->data['Reportes']['fechafin'];
+       $condiciones['Item.fecha >='] = $fechaini;
+       $condiciones['Item.fecha <='] = $fechafin;
+       $condiciones['Item.estado'] = 1;
+       
+       $producto = $this->request->data['Reportes']['producto'];
+       if(!empty($producto) || $producto != 0)
+       {
+        $condiciones['Item.producto_id'] = $producto;
+       }
+       //debug($fechafin);
+       //debug($fechaini);
+       
+       $productos = $this->Item->find('all',array(
+       'recursive' => 0
+       ,'conditions' => $condiciones
+       ,'group' => array('Item.producto_id','date(Item.fecha)')
+       ,'fields' => array('date(Item.fecha) fecha','SUM(Item.cantidad) cantidad','SUM(Item.precio) precio','Producto.nombre','Item.precio')
+       ));
+       
+       //debug($productos);exit;
+       
+       $this->set(compact('productos','fechaini','fechafin'));
     }
 }
 

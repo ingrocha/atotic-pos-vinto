@@ -194,6 +194,7 @@
                         });
                         $("#montoPago").change(function(){
                              var cambio;
+                             $("#nuevoTotal").val(<?php echo $totalCancelar;?>);
                             if($("#nuevoTotal").val() == "0"){
                                cambio =  $("#montoPago").val() - <?php echo $totalCancelar ?>;    
                             }else{
