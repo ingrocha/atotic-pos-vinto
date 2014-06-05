@@ -119,7 +119,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                 <?php endif;?>
                 <li><a href="#about">Mis Datos</a></li>               
             </ul>
-            <ul class="nav navbar-nav navbar-right">               
+            <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="<?php echo $this->Html->url(array('controller'=>'Pedidos', 'action'=>'validamoso')); ?>">SALIR</a></li>
             </ul>
         </div><!--/.nav-collapse -->

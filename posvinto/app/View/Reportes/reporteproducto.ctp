@@ -1,44 +1,45 @@
 <div id="main-content" class="main-content container-fluid">
 <!-- // sidebar --> 
-    <?php echo $this->element('sidebar/pedidos'); ?>               
+    <?php echo $this->element('sidebar/pedidos'); ?>
 <!-- // fin sidebar -->
 <!-- // contenido pricipal -->                                 
 <div id="page-content" class="page-content">
     <section>
         <div class="page-header">
-            <h3><i class="aweso-icon-table opaci35"></i> Ventas de fecha <?php echo $dato ?></h3>           
+            <h3><i class="aweso-icon-table opaci35"></i> Ventas de fecha <?php echo $fechaini ?> a <?php echo $fechafin?></h3>           
         </div>
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget widget-simple widget-table" id="areaImprimir">
                     <table id="table" class="table table-striped table-bordered  table-hover table-condensed">
                         <caption>
-                            Reporte de ventas de <?php echo $dato ?><span></span>
+                            Reporte de ventas por Producto <span></span>
                         </caption>
                         <thead>
                             <tr>
                                 <th>Nro</th>
                                <th>fecha</th>  
-                                <th>Mesero</th>           
-                                <th scope="col">Mesa<span class="column-sorter"></span></th>
-                                <th># Productos</th>
-                                <th>Total</th>
+                                <th>Producto</th>           
+                                <th scope="col">Cantidad<span class="column-sorter"></span></th>
+                                <th>Prec. U.</th>
+                                <th>P. Total</th>
                             </tr>
                         </thead>
                         <?php $i=0;$total = 0.00;?>
                         <tbody>
-                        <?php foreach ($pedidos as $producto): 
+                        <?php foreach ($productos as $producto): 
                         $i++
                         ?>                      
                             <tr> 
                                 <td><?php echo $i;?></td>
-                                <td><?php echo $producto['Pedido']['fecha'];?></td>
-                                <td><?php echo $producto['User']['nombre'];?></td>           
-                                <td><?php echo $producto['Pedido']['mesa']; ?></td>
-                                <td><?php echo $plato = $this->requestAction(array('action' => 'cuentaItem',$producto['Pedido']['id']));?></td>
-                                <td><?php echo $producto['Pedido']['total'];?></td>
-                                <?php $total = $total + $producto['Pedido']['total'];
-                                        $platos = $platos + $plato;
+                                <td><?php echo $producto[0]['fecha'];?></td>
+                                <td><?php echo $producto['Producto']['nombre'];?></td>           
+                                <td><?php echo $producto[0]['cantidad']; ?></td>
+                                <td><?php echo $producto['Item']['precio'];?></td>
+                                <td><?php echo $producto[0]['precio'];?></td>
+                                <?php 
+                                      $total = $total + $producto[0]['precio'];
+                                      $cantidad = $cantidad + $producto[0]['cantidad'];;
                                 ?>
                             </tr>
                             
@@ -46,10 +47,9 @@
                             <tr>
                                 <td> </td>
                                 <td></td>
-                                <td></td>
                                 <td><b>TOTALES</b></td>
-                                <td><?php echo $platos;?></td>
-                                
+                                <td><?php echo $cantidad;?></td>
+                                <td><?php //echo $platos;?></td>
                                 <td><?php echo $total?></td>
                             </tr>
                         </tbody>

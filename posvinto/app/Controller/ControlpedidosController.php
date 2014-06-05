@@ -938,6 +938,7 @@ class ControlpedidosController extends AppController
     public function eliminapedido($idPedido = null)
     {
         $items = $this->Item->findAllBypedido_id($idPedido,null,null,null,null,-1);
+        
         if(!empty($items))
         {
             $this->Session->setFlash('No se puede eliminar debe de quitar los Items Asociados!!!!','alerts/error');
@@ -946,6 +947,13 @@ class ControlpedidosController extends AppController
         else{
             if($this->Pedido->delete($idPedido))
             {
+                $mesa = $this->Mesa->findBypedido_id($idPedido,null,null,null,null,-1);
+                if(!empty($mesa))
+                {
+                    $this->Mesa->id = $mesa['Mesa']['id'];
+                    $this->request->data['Mesa']['pedido_id'] = null;
+                    $this->Mesa->save($this->request->data['Mesa']);
+                }
                 $this->Session->setFlash('Se elimino correctamente!!!','alerts/bueno');
                 $this->redirect(array('action' => 'index'));
             }
