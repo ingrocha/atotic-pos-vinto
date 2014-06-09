@@ -6,14 +6,14 @@
 <div id="page-content" class="page-content">
     <section>
         <div class="page-header">
-            <h3><i class="aweso-icon-table opaci35"></i> Ventas de fecha <?php echo $dato ?></h3>           
+            <h3><i class="aweso-icon-table opaci35"></i> Ventas de fecha <?php echo $fechaini.' a '.$fechafin?></h3>           
         </div>
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget widget-simple widget-table" id="areaImprimir">
                     <table id="table" class="table table-striped table-bordered  table-hover table-condensed">
                         <caption>
-                            Reporte de ventas de <?php echo $dato ?><span></span>
+                            Reporte de ventas<span></span>
                         </caption>
                         <thead>
                             <tr>
