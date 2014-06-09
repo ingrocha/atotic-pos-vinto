@@ -1274,8 +1274,9 @@ class PedidosController extends AppController
                         array('Porcione.producto_id' => $idProducto)));
                 $sw = true;
                 //debug($insumo);exit;
-                
-                foreach ($insumo as $in) {
+                if(!empty($insumo))
+                {
+                    foreach ($insumo as $in) {
                     if(strtoupper($in['Producto']['Categoria']['tipo']) == 'COMIDA')
                     {
                         $lugar = 1;
@@ -1296,6 +1297,8 @@ class PedidosController extends AppController
                         $sw = false;
                     }
                 }
+                }
+                
                 //debug($sw);exit;
                 if ($sw) {
                     //$movimiento = $this->Bodega->find('');
@@ -1769,6 +1772,7 @@ class PedidosController extends AppController
         
                   
     }
+    
 }
 
 ?>

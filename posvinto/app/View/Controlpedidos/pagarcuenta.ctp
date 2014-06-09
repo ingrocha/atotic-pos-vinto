@@ -97,6 +97,7 @@
 		*******************
 </div>
 </div>
+<?php echo $this->Html->link('REGRESAR',array('action' => 'index'));?>
 <script type="text/javascript">
    $(document).ready(function() {
 

@@ -658,7 +658,7 @@ class ControlpedidosController extends AppController
                $recibo = $this->Recibo->find('first', array(
                'conditions'=>array('Recibo.id'=>$idRecibo)
                ));
-             
+             $this->desocupamesa($idPedido);
               // $usuario = $this->Session->read('Auth.User')
                $this->set(compact('recibo', 'usuario'));
             }else{
@@ -670,6 +670,17 @@ class ControlpedidosController extends AppController
             $this->Session->setFlash(__('Error al registrar el recibo del pedido de la mesa '.$pedido['Pedido']['mesa'].' fue pagado'),'alerts/bueno');
             $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['mesa']),'alerts/bueno');
         }
+    }
+    public function desocupamesa($idPedido = null)
+    {
+        $mesa = $this->Mesa->findBypedido_id($idPedido,null,null,null,null,-1);
+        if(!empty($mesa))
+        {
+            $this->Mesa->id = $mesa['Mesa']['id'];
+            $this->request->data['Mesa']['pedido_id'] = null;
+            $this->Mesa->save($this->request->data['Mesa']);
+        }
+        
     }
     public function imprimircuenta($idPedido=null){
         
@@ -971,6 +982,17 @@ class ControlpedidosController extends AppController
         $nit = $this->request->data[1]['Pedido']['nit'];
         $cliente = $this->Cliente->findBynit($nit,null,null,null,null,-1);
         $this->set(compact('cliente'));
+    }
+    public function terminapedido($idPedido = null)
+    {
+        $this->Pedido->id = $idPedido;
+        $this->request->data['Pedido']['estado'] = 3;
+        $this->Pedido->save($this->request->data['Pedido']);
+        $mesa = $this->Mesa->findBypedido_id($idPedido,null,null,null,null,-1);
+        $this->Mesa->id = $mesa['Mesa']['id'];
+        $this->request->data['Mesa']['pedido_id'] = null;
+        $this->Mesa->save($this->request->data['Mesa']);
+        $this->redirect(array('action' => 'index'));
     }
 }
 

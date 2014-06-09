@@ -269,7 +269,7 @@ class ReportesController extends AppController{
        //debug($fechaini);
        
        $pedidos = $this->Pedido->find('all',array('recursive' => 0,'conditions' => $condiciones));
-       $this->set(compact('pedidos'));
+       $this->set(compact('pedidos','fechaini','fechafin'));
        //debug($pedidos);exit;
     }
     public function cuentaItem($idPedido = null)
@@ -351,9 +351,9 @@ class ReportesController extends AppController{
             $vector_insumos[$i]['total'] = $insumo['Almacen']['total'];
             $i++;
         }
-        debug($vector_insumos);
-        debug($insumosalmacen);exit;
-        $this->set(compact('productos'));
+        /*debug($vector_insumos);
+        debug($insumosalmacen);exit;*/
+        $this->set(compact('productos','vector_insumos'));
     }
     public function reporteproducto()
     {
@@ -379,7 +379,6 @@ class ReportesController extends AppController{
        ));
        
        //debug($productos);exit;
-       
        $this->set(compact('productos','fechaini','fechafin'));
     }
 }
