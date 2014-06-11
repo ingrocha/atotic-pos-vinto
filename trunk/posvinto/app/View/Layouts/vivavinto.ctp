@@ -223,7 +223,7 @@ $modeloAmbiente = new Ambiente();
             <!-- // inject -->            
 
         </div>
-
+        <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
         <!-- Le javascript --> 
         <!-- Placed at the end of the document so the pages load faster -->              
 
@@ -246,7 +246,40 @@ $modeloAmbiente = new Ambiente();
         <?php echo $this->Html->script('application'); ?>        
 
         <!-- Only This Demo Page --> 
-        <?php echo $this->Html->script('demo/demo-jquery.dataTables'); ?>        
+        <?php echo $this->Html->script('demo/demo-jquery.dataTables'); ?>
+        
+        <script>
+
+$.fn.modalmanager.defaults = {
+		backdrop: true,
+		spinner: '<div class="loading-spinner" style="width: 200px; margin-left: -100px;"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div>'
+	}
+
+var $modal = $('#ajax-modal');
+    
+    function cargarmodal(url)
+    {
+        GlobalModalManager.loading();
+	
+			setTimeout(function () {
+					$modal.load(url, '', function () {
+							$modal.modal();
+					});
+			}, 600);
+    }
+	
+	
+	$modal.on('click', '.update', function () {
+			$modal.modal('loading');
+			setTimeout(function () {
+					$modal.modal('loading')
+							.find('.modal-body')
+							.prepend('<div class="alert alert-info fade in">' +
+							'Data updated! <button type="button" class="close" data-dismiss="alert">&times;</button>' +
+							'</div>');
+			}, 1000);
+	});
+</script>        
 
     </body>
 </html>
