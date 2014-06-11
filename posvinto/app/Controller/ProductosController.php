@@ -682,7 +682,160 @@ class ProductosController extends AppController
         $dinsumo = $this->Insumo->find('list', array('fields'=>'Insumo.nombre'));
         $this->set(compact('dcategoria','dinsumo','dcc'));
     }
-
+    public function menu()
+    {
+        $datosClases = $this->Clase->find('all',array(
+        'fields' => array('Clase.id','Clase.nombre','Clase.color','Clase.descripcion','Clase.estado')
+        ,'order' => 'Clase.orden ASC'
+        ));
+        $this->set(compact('datosClases'));
+    }
+    public function adiclase()
+    {
+        //debug($this->request->data);exit;
+        if(!empty($this->request->data))
+        {
+            $clase = $this->Clase->find('first',array('fields' => array('Clase.orden'),'order' => 'Clase.orden DESC'));
+            $this->request->data['Clase']['orden'] =  $clase['Clase']['orden']+1;
+            $this->Clase->create();
+            if($this->Clase->save($this->request->data['Clase']))
+            {
+                $this->Session->setFlash('Se guardo la clase correctamente!!!','alerts/bueno');
+            }
+            else{
+                $this->Session->setFlash('No se guardo la clase!!!','alerts/error');
+            }
+        }
+        $this->redirect(array('action' => 'menu'));
+    }
+    public function eliminaclase($idClase = null)
+    {
+        if($this->Clase->delete($idClase))
+        {
+            $this->Session->setFlash('Se elimino correctamente!!!','alerts/bueno');
+        }
+        else{
+            $this->Session->setFlash('No se pudo eliminar','alerts/error');
+        }
+        $this->redirect(array('action' => 'menu'));
+    }
+    public function ajaxclase($idClase = null)
+    {
+        $this->layout = 'ajax';
+        //debug($idClase);exit;
+        $this->Clase->id = $idClase;
+        $this->request->data = $this->Clase->read();
+    }
+    public function guardaclase()
+    {
+        if(!empty($this->request->data))
+        {
+            $this->Clase->create();
+            if($this->Clase->save($this->request->data['Clase']))
+            {
+                $this->Session->setFlash('Se guardo correctamente!!!','alerts/bueno');
+            }
+            else{
+                $this->Session->setFlash('No se pudo guardar!!','alerts/error');
+            }
+        }
+        $this->redirect(array('action' => 'menu'));
+    }
+    public function guardaordenclase()
+    {
+        debug($_POST);
+        //debug($_POST[1]);exit;
+        $this->layout = 'ajax';
+        $clases = $this->Clase->find('all',array('conditions' => array('Clase.estado' => 1),'fields' => array('Clase.id')));
+        
+        foreach($clases as $cla)
+        {
+            
+                $this->Clase->id = $cla['Clase']['id'];
+                $this->request->data['Clase']['orden'] = $_POST[$cla['Clase']['id']];
+                $this->Clase->save($this->request->data['Clase']);
+            
+        }
+        exit;
+    }
+    public function guardacategoria()
+    {
+        if(!empty($this->request->data))
+        {
+            $this->Categoria->create();
+            if($this->Categoria->save($this->request->data['Categoria']))
+            {
+                $this->Session->setFlash('Se guardo correctamente!!!','alerts/bueno');
+            }
+            else{
+                $this->Session->setFlash('No se pudo guardar!!!','alerts/error');
+            }
+        }
+        $this->redirect(array('action' => 'menu'));
+    }
+    public function eliminacategoria2($idCategoria = null)
+    {
+        if($this->Categoria->delete($idCategoria))
+        {
+            $this->Session->setFlash('Se elimino correctamente!!!','alerts/bueno');
+        }
+        else{
+            $this->Session->setFlash('No se pudo eliminar', 'alerts/error');
+        }
+        $this->redirect(array('action' => 'menu'));
+    }
+    public function ajaxproducto($idCategoria = null,$idProducto = null)
+    {
+        $this->layout = 'ajax';
+        $this->Producto->id = $idProducto;
+        $this->request->data = $this->Producto->read();
+        $this->request->data['Producto']['categoria_id'] = $idCategoria;
+        //debug('Entro aqui');exit;
+    }
+    public function guardaproducto()
+    {
+        if(!empty($this->request->data))
+        {
+            $this->Producto->create();
+            if($this->Producto->save($this->request->data['Producto']))
+            {
+                $this->Session->setFlash('Se guardo correctamente!!','alerts/bueno');
+            }
+            else{
+                $this->Session->setFlash('No se pudo guardar!!','alerts/error');
+            }
+        }
+        $this->redirect(array('action' => 'menu'));
+    }
+    public function ajaxinsumos($idCategoria = null,$idProducto = null)
+    {
+        $this->layout = 'ajax';
+        $producto = $this->Producto->find('first',array('recursive' => -1,'conditions' => array('Producto.id' => $idProducto),'fields' => array('Producto.nombre')));
+        $insumos = $this->Porcione->find('all',array(
+        'recursive' => 0
+        ,'fields' => array('Porcione.id','Insumo.nombre','Porcione.cantidad')
+        ,'conditions' => array('Porcione.producto_id' => $idProducto)
+        ));
+        //debug($insumos);exit;
+        $listinsumos = $this->Insumo->find('list',array('fields' => 'Insumo.nombre'));
+        $this->set(compact('insumos','producto','idCategoria','idProducto','listinsumos'));
+    }
+    public function guardaporcion()
+    {
+        $this->layout = 'ajax';
+        if(!empty($this->request->data['Porcione']['insumo_id']))
+        {
+            $this->Porcione->create();
+            $this->Porcione->save($this->request->data['Porcione']);
+        }
+        exit;
+    }
+    public function ajaxeliminainsumo($idCategoria = null,$idProducto = null,$idPorcion = null)
+    {
+        //debug($idPorcion);exit;
+        $this->Porcione->delete($idPorcion);
+        $this->redirect(array('action' => 'ajaxinsumos',$idCategoria,$idProducto));
+    }
 }
 
 ?>

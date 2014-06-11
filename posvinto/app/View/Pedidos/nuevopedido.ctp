@@ -120,7 +120,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                 <li><a href="#about">Mis Datos</a></li>               
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="<?php echo $this->Html->url(array('controller'=>'Pedidos', 'action'=>'validamoso')); ?>">SALIR</a></li>
+                <li><a class="btn btn-primary btn-large" style="color: white;" href="<?php echo $this->Html->url(array('controller'=>'Pedidos', 'action'=>'validamoso')); ?>">SALIR</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

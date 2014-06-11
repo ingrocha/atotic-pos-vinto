@@ -88,7 +88,7 @@ $modeloproductosobservaciones = new Productosobservacione();
             <?php foreach ($datosClases as $dc): ?>
                 <li>
                     <a href="#tab<?php echo $dc['Clase']['id']; ?>">
-                        <button type="button" id="bt_<?php echo $dc['Clase']['id']; ?>" class="btn btn-lg btn-info" style="text-transform: uppercase; background-color: #<?php echo $dc['Clase']['color']; ?>;">
+                        <button type="button" id="bt_<?php echo $dc['Clase']['id']; ?>" class="btn btn-lg btn-info" style="text-transform: uppercase; background-color: <?php echo $dc['Clase']['color']; ?>;">
                             <?php echo $dc['Clase']['nombre']; ?></button>
                     </a>                        
                 </li>
@@ -103,7 +103,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                     <?php foreach ($datosClases as $dc): ?>
                         <div id="tab<?php echo $dc['Clase']['id']; ?>" class="contenido_tab">
                             <div class="panel panel-primary" style="margin-top: -7px; width: 807px;" >
-                                <div class="panel-heading" style="text-transform: uppercase; background-color: #<?php echo $dc['Clase']['color']; ?>;">
+                                <div class="panel-heading" style="text-transform: uppercase; background-color: <?php echo $dc['Clase']['color']; ?>;">
                                     <h3 class="panel-title"><?php //echo $dc['Clase']['nombre'];        ?></h3>
                                 </div>
                                 <div class="panel-body">                                    
@@ -119,7 +119,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                                         
                                             <?php foreach ($datosCategorias as $dCat): ?>    
                                             
-                                                <button type="button" id="#producto<?php echo $dc['Clase']['id'].$dCat['Categoria']['id']; ?>" class="btn btn-default" style="text-transform: uppercase; background-color: #<?php echo $dc['Clase']['color']; ?>; color: #fff;"><?php echo $dCat['Categoria']['nombre']; ?></button>   
+                                                <button type="button" id="#producto<?php echo $dc['Clase']['id'].$dCat['Categoria']['id']; ?>" class="btn btn-default" style="text-transform: uppercase; background-color: <?php echo $dc['Clase']['color']; ?>; color: #fff;"><?php echo $dCat['Categoria']['nombre']; ?></button>   
                                               
                                             <?php endforeach; ?> 
                                             
@@ -140,7 +140,7 @@ $modeloproductosobservaciones = new Productosobservacione();
                                                 <?php foreach ($datosProductos as $dP): ?>
                                                 <?php //debug($dP); ?>
                                                 
-                                                <button  type="button" style="border: solid #<?php echo $dc['Clase']['color']; ?>; font-size: larger; margin: 2px; width: 185px; height: 80px; text-transform: uppercase;" id="observacion<?php echo $dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id']; ?>">
+                                                <button  type="button" style="border: solid <?php echo $dc['Clase']['color']; ?>; font-size: larger; margin: 2px; width: 185px; height: 80px; text-transform: uppercase;" id="observacion<?php echo $dP['Producto']['id'].$dc['Clase']['id'].$dCat['Categoria']['id']; ?>">
                                                     <div>
                                                         <?php echo $dP['Producto']['nombre']; ?>
                                                     </div>

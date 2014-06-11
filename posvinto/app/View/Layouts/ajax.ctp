@@ -19,3 +19,4 @@
 <?php echo $this->Html->css(array('imprimir'), 'stylesheet', array('media' => 'print')); ?>
 <?php echo $this->Session->flash(); ?>
 <?php echo $this->fetch('content'); ?>
+ <?php echo $this->Js->writeBuffer();?>
