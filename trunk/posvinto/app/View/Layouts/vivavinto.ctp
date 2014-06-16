@@ -249,11 +249,11 @@ $modeloAmbiente = new Ambiente();
         <?php echo $this->Html->script('demo/demo-jquery.dataTables'); ?>
         
         <script>
-
+/*
 $.fn.modalmanager.defaults = {
 		backdrop: true,
 		spinner: '<div class="loading-spinner" style="width: 200px; margin-left: -100px;"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div>'
-	}
+	}*/
 
 var $modal = $('#ajax-modal');
     
@@ -268,7 +268,7 @@ var $modal = $('#ajax-modal');
 			}, 600);
     }
 	
-	
+	/*
 	$modal.on('click', '.update', function () {
 			$modal.modal('loading');
 			setTimeout(function () {
@@ -278,7 +278,7 @@ var $modal = $('#ajax-modal');
 							'Data updated! <button type="button" class="close" data-dismiss="alert">&times;</button>' +
 							'</div>');
 			}, 1000);
-	});
+	});*/
 </script>        
 
     </body>

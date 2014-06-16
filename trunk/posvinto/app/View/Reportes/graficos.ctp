@@ -31,7 +31,7 @@ $modeloitem = new Item();
             <div class="span12 well well-nice">
                 <div class="span12 widget well well-black">
                             <div class="widget-header">
-                                <h4><i class="fontello-icon-chart"></i>Inventario Actual</h4>
+                                <h4><i class="fontello-icon-chart"></i>Inventario Actual de Insumos</h4>
                             </div>
                             <div class="widget-content">
                                 <div class="widget-body">
