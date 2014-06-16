@@ -20,7 +20,6 @@ var vector = new Array();
                                 </div>
                                 <div class="widget-content">
                                     <div class="widget-body">
-                                    
                                         <form id="formNotes" class="form-dark">
                                             <fieldset>
                                             <?php echo $this->
@@ -166,5 +165,6 @@ var vector = new Array();
                                                 $("#divtotal").html("<h4> TOTAL: "+total+" Bs.</h4>");
                                                 
                                             }
-                                            </script>
+                </script>
+                
 <?php echo $this->Js->writeBuffer();?>

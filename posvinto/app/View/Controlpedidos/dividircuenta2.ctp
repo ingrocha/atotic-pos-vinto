@@ -109,7 +109,7 @@
             <?php $i++; ?>
         <?php endforeach; ?>
         <td>
-            <?php $opt = array('Value' => 'imprimir', 'class' => "boton", 'id' => "imprimir"); ?>
+            <?php $opt = array('Value' => 'Imprimir', 'class' => "boton", 'id' => "imprimir"); ?>
             <?php echo $this->Form->end($opt); ?>
         </td>
     <?php else: ?>
@@ -126,15 +126,12 @@
 </table>
 <script type="text/javascript">
     jQuery(document).ready(function() {
-
         jQuery("#imprimir").click(function() {
             // windows.location("http://localhost/posvinto/posvinto/facturas/facturar3");
             printElem({ leaveOpen: true, printMode: 'popup' });
              
             // printElem({ overrideElementCSS: ['http://localhost/unibol/app/webroot/css/printable.css'] });
         });
-
-
     });
     function printElem(options){
         jQuery('#aImprimir').printElement(options);

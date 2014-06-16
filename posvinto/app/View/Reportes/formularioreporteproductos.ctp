@@ -118,7 +118,8 @@
                 </div>
                 <div class="span3">
                 <h5>Insumo</h5>
-                <?php echo $this->Form->select('insumo',$insumos,array('class' => 'span12'));?>
+                <?php $insumos[0] = 'TODOS';?>
+                <?php echo $this->Form->select('insumo',$insumos,array('class' => 'span12', 'value' => 0));?>
                 </div>
                 <div class="span3">
                 <h5>Lugar</h5>

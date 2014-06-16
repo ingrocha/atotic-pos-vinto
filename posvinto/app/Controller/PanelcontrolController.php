@@ -20,7 +20,7 @@ class PanelcontrolController  extends AppController {
     
     public function admin()
     {
-        
+        //debug(date('H:i:s'));exit;
         App::uses('CakeTime', 'Utility');
         $fecha = date("Y-m-d");
         //$fechaTodoElDia = CakeTime::dayAsSql($fecha, null);

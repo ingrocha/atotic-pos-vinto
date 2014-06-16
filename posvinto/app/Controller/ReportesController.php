@@ -257,8 +257,7 @@ class ReportesController extends AppController{
         //debug($this->request->data);exit;
        $fechaini = $this->request->data['Reportes']['fechaini'];
        $fechafin = $this->request->data['Reportes']['fechafin'];
-       $condiciones['Pedido.created >='] = $fechaini;
-       $condiciones['Pedido.created <='] = $fechafin;
+       $condiciones['date(Pedido.created) BETWEEN ? AND ?'] = array($fechaini,$fechafin);
        
        $moso = $this->request->data['Reportes']['mesero'];
        if(!empty($moso) || $moso != 0)
@@ -281,35 +280,36 @@ class ReportesController extends AppController{
     {
         $fechaini = $this->request->data['Reportes']['fechaini'];
        $fechafin = $this->request->data['Reportes']['fechafin'];
-       $condiciones['Bodega.fecha >='] = $fechaini;
-       $condiciones['Bodega.fecha <='] = $fechafin;
+       $condiciones['date(Bodega.fecha) BETWEEN ? AND ?'] = array($fechaini,$fechafin);
        $condiciones['Bodega.ingreso !='] = 0;
        $condiciones['Bodega.lugare_id'] = $this->request->data['Reportes']['lugar'];
+       $lugar = $this->Lugare->find('first',array('recursive' => -1,'conditions' => array('Lugare.id' => $this->request->data['Reportes']['lugar']),'fields' => array('Lugare.nombre')));
        $insumo = $this->request->data['Reportes']['insumo'];
        if(!empty($insumo))
        {
         $condiciones['Bodega.insumo_id'] = $insumo;
+        $da_insumo = $this->Insumo->find('first',array('recursive' => -1,'conditions' => array('Insumo.id' => $insumo),'fields' => array('Insumo.nombre')));
        }
        $insumos = $this->Bodega->find('all',array('conditions' => $condiciones));
        //debug($insumos);exit;
-       $this->set(compact('insumos'));
+       $this->set(compact('insumos','da_insumo','lugar','fechaini','fechafin'));
     }
     public function reportefacturas()
     {
         $fechaini = $this->request->data['Reportes']['fechaini'];
        $fechafin = $this->request->data['Reportes']['fechafin'];
-       $condiciones['Factura.created >='] = $fechaini;
-       $condiciones['Factura.created <='] = $fechafin;
+       $condiciones['date(Factura.created) BETWEEN ? AND ?'] = array($fechaini,$fechafin);
+       
        $facturas = $this->Factura->find('all',array('conditions' => $condiciones));
        $this->set(compact('facturas','fechaini','fechafin'));
     }
     public function reporteasistencias()
     {
+        //debug($this->request->data);exit;
        $fechaini = $this->request->data['Reportes']['fechaini'];
        $fechafin = $this->request->data['Reportes']['fechafin'];
        
-       $condiciones['Retraso.fecha >='] = $fechaini;
-       $condiciones['Retraso.fecha <='] = $fechafin;
+       $condiciones['date(Retraso.fecha) BETWEEN ? AND ?'] = array($fechaini,$fechafin);
        
        if(!empty($this->request->data['Reportes']['usuario']))
        {
@@ -359,8 +359,7 @@ class ReportesController extends AppController{
     {
        $fechaini = $this->request->data['Reportes']['fechaini'];
        $fechafin = $this->request->data['Reportes']['fechafin'];
-       $condiciones['Item.fecha >='] = $fechaini;
-       $condiciones['Item.fecha <='] = $fechafin;
+       $condiciones['date(Item.fecha) BETWEEN ? AND?'] = array($fechaini,$fechafin);
        $condiciones['Item.estado'] = 1;
        
        $producto = $this->request->data['Reportes']['producto'];
@@ -376,6 +375,7 @@ class ReportesController extends AppController{
        ,'conditions' => $condiciones
        ,'group' => array('Item.producto_id','date(Item.fecha)')
        ,'fields' => array('date(Item.fecha) fecha','SUM(Item.cantidad) cantidad','SUM(Item.precio) precio','Producto.nombre','Item.precio')
+       
        ));
        
        //debug($productos);exit;

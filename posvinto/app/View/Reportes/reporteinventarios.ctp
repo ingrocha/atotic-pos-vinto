@@ -6,14 +6,14 @@
 <div id="page-content" class="page-content">
     <section>
         <div class="page-header">
-            <h3><i class="aweso-icon-table opaci35"></i>Reporte de Inventario</h3>           
+            <h3><i class="aweso-icon-table opaci35"></i>Reporte de Inventario <?php if(!empty($da_insumo)){echo ' - '.$da_insumo['Insumo']['nombre'];}?></h3>           
         </div>
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget widget-simple widget-table" id="areaImprimir">
                     <table id="table" class="table table-striped table-bordered  table-hover table-condensed">
                         <caption>
-                             Ingresos a Almacen<span></span>
+                             Ingresos a Almacen <?php echo ' - '.$lugar['Lugare']['nombre'];?> / Entre <?php echo $fechaini.' y '.$fechafin;?>
                         </caption>
                         <thead>
                             <tr>
