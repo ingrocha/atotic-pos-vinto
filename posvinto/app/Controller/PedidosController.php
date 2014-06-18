@@ -1471,7 +1471,7 @@ class PedidosController extends AppController
         $pedido = $this->Pedido->findByid($idPedido);
         //debug($pedido);exit;
         
-        $contenido="--------- MESA #".$pedido['Pedido']['mesa']." ---------". PHP_EOL;
+        //$contenido="--------- MESA #".$pedido['Pedido']['mesa']." ---------". PHP_EOL;
         $contenido = $contenido."--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
         $contenido = $contenido."--------- MOSO: ".$pedido['User']['nombre']." ---------". PHP_EOL;
         $bebida = $bebida."--------- MESA #".$pedido['Pedido']['mesa']." ---------". PHP_EOL;
@@ -1532,9 +1532,7 @@ class PedidosController extends AppController
         
         $contenido = $contenido.'------------------------------'.PHP_EOL;
         $contenido = $contenido.'--------DETALLE---------'.PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
+        
         
         $bebida = $bebida.'------------------------------'.PHP_EOL;
         $bebida = $bebida.'--------DETALLE---------'.PHP_EOL;
@@ -1589,7 +1587,11 @@ class PedidosController extends AppController
         }
         //$contenido_pedido = $contenido_pedido."TOTAL____".$total."_Bs".PHP_EOL;
         
-        $contenido = $contenido."-------------------------------";
+        $contenido = $contenido."-------------------------------".PHP_EOL;
+        $contenido=" MESA #".$pedido['Pedido']['mesa']." ---------/". PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
         $bebida = $bebida."-------------------------------";
         
         $ip_impresoraCaja = '192.168.0.106\\caja';

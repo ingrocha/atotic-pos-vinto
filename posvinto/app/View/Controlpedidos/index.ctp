@@ -24,7 +24,8 @@
                                     <th scope="col">Mesa <span class="column-sorter"></span></th>                          
                                     <th scope="col">Mozo <span class="column-sorter"></span></th>
                                     <th scope="col">Hora <span class="column-sorter"></span></th>
-                                    <th scope="col">Estado <span class="column-sorter"></span></th>                                    
+                                    <th scope="col">Estado <span class="column-sorter"></span></th> 
+                                    <th scope="col">Debe <span class="column-sorter"></span></th>                                    
                                     <th scope="col">Total <span class="column-sorter"></span></th>                                                                     
                                     <th scope="col"><span class="column-sorter"></span></th>                                                                        
                                 </tr>
@@ -36,6 +37,7 @@
                                     <th>Total</th> 
                                     <th>Hora</th>
                                     <th>Estado</th>
+                                    <th></th>
                                     <th>Acciones</th>                               
                                 </tr>                                                               
                             </thead>
@@ -125,6 +127,7 @@
                                             <h4 class="statistic-values">CANCELADO</h4>
                                         </td>
                                     <?php endif; ?> 
+                                    <td><?php echo $this->requestAction(array('action' => 'calcula_debe',$id));?></td>
                                     <td><?php echo $d['Pedido']['total']; ?></td>    
                                     <td>                                       
                                          

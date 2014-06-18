@@ -9,6 +9,7 @@
             <div class="row-fluid">
                 <div class="span6 grider">
                     <h3><i class="aweso-icon-table"></i> Mesa: <?php echo $pedido['0']['Pedido']['mesa']; ?> <small>Mozo: <?php echo $moso['User']['nombre']; ?></small></h3>                   
+                    <?php if(!empty($productos_vector)):?>
                     <table class="table boo-table table-striped table-content table-hover">
                         <colgroup>
                             <col class="col20">
@@ -18,7 +19,7 @@
                             <col class="col15">
                         </colgroup>
                         <caption>
-                            Descripcion del Pedido
+                            Descripcion del Pedido a Cancelar
                         </caption>
                         <thead>
                             <tr id="HeadersRow0">
@@ -37,7 +38,7 @@
                                 $precio = $p['Producto']['precio'];
                                 
                                 ?>
-                                <tr id="DataRow0">
+                                <tr id="DataRow0" class="warning">
                                     <td><?php echo $i; ?></td>
                                     <td class="bold" style="width: 250px;"><b><?php echo $p['Producto']['nombre']; ?></b></td>
                                     <td><b><?php echo round($p['Producto']['cantidad']); ?></b></td>
@@ -61,6 +62,62 @@
                             </tr>
                         </tfoot>
                     </table>
+                    <?php endif;?>
+                    <br />
+                    <?php if(!empty($productos_vector_cancelado)):?>
+                    <table class="table boo-table table-striped table-content table-hover">
+                        <colgroup>
+                            <col class="col20">
+                            <col class="col50">
+                            <col class="col15">
+                            <col class="col15">
+                            <col class="col15">
+                        </colgroup>
+                        <caption>
+                            Descripcion del Pedido Cancelado
+                        </caption>
+                        <thead>
+                            <tr id="HeadersRow0">
+                                <th scope="col">No.</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">P/U</th>
+                                <th scope="col">Costo</th>                                       
+                            </tr>                        
+                        </thead>                       
+                        <tbody>
+                            <?php $totalCancelar2 = 0; ?>
+                            <?php $i = 1; ?>
+                            <?php foreach ($productos_vector_cancelado as $p): ?>
+                                <?php
+                                $precio = $p['Producto']['precio'];
+                                
+                                ?>
+                                <tr id="DataRow0" class="success">
+                                    <td><?php echo $i; ?></td>
+                                    <td class="bold" style="width: 250px;"><b><?php echo $p['Producto']['nombre']; ?></b></td>
+                                    <td><b><?php echo round($p['Producto']['cantidad']); ?></b></td>
+                                    <td><b><?php echo round($p['Producto']['precio']); ?></b></td>
+                                    <td><b>
+                                    <?php 
+                                    echo round($p['Item']['precio']*$p['Producto']['cantidad']);
+                                    $totalCancelar2 += $p['Item']['precio']*$p['Producto']['cantidad']; 
+                                    ?></b></td>                                                                 
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
+                        </tbody>
+                        <tfoot>
+                            <tr class="total" id="HeadersRow0">
+                                <th>Total Pagado</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th class="text-right"><b><?php echo $totalCancelar2; ?></b></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <?php endif;?>
                     <br />
                     <?php echo $this->Html->link('VER PEDIDO',array('controller' => 'Pedidos','action' => 'pedidomoso',$this->Session->read('Auth.User.id'),$moso['Pedido']['id'],$moso['Pedido']['mesa']),array('class' => 'btn btn-primary'));?>
                      <?php echo $this->Html->link('PAGADO',array('action' => 'terminapedido',$moso['Pedido']['id']),array('class' => 'btn btn-inverse'));?>
