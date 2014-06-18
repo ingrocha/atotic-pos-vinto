@@ -76,17 +76,10 @@ class ControlpedidosController extends AppController
             $this->Cliente->create();
             $this->Cliente->save($this->request->data);
         }
-        $data = array('id' => $id_pedido, 'estado'=>4,'monto'=>$montoTotal);
-        $this->Pedido->save($data);
-        $mesas = $this->Mesa->find('all', array('conditions' => array('Mesa.pedido_id' =>
-                    $id_pedido)));
-        foreach ($mesas as $m) {
-            $this->Mesa->id = $m['Mesa']['id'];
-            $this->request->data['Mesa']['pedido_id'] = null;
-            $this->Mesa->save($this->request->data['Mesa']);
-        }
+        /*$data = array('id' => $id_pedido,'monto'=>$montoTotal);
+        $this->Pedido->save($data);*/
         
-
+        
         $pedido = $this->Pedido->find('all', array('recursive' => -1, 'conditions' =>
             array('id' => $id_pedido)));
             
@@ -139,7 +132,7 @@ class ControlpedidosController extends AppController
         
         //debug($this->data);
         $items = $this->Item->find('all', array('recursive' => 1, 'conditions' => array
-                ('Item.pedido_id' => $id_pedido)));
+                ('Item.pedido_id' => $id_pedido,'Item.pagado' => 0)));
 
         $atotal = $montoTotal;
         $total = number_format($atotal, 2, '.', ',');
@@ -147,6 +140,9 @@ class ControlpedidosController extends AppController
         $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
         
         foreach ($items as $pro) {
+            $this->Item->id = $pro['Item']['id'];
+            $this->request->data['Item']['pagado'] = 1;
+            $this->Item->save($this->request->data['Item']);
             $f = false;
             if (count($productos_vector) > 0) {
                 for ($i = 0; $i < count($productos_vector); $i++) {
@@ -166,7 +162,7 @@ class ControlpedidosController extends AppController
                 $productos_vector[$n]['Producto']['precio'] = $pro['Producto']['precio'];
             }
         }
-       
+        $this->marcapagado($id_pedido,4);
         //debug($atotal);
         //debug($totalliteral);
         //debug($pedido);
@@ -176,7 +172,17 @@ class ControlpedidosController extends AppController
         
         $this->set(compact('pedido', 'items', 'pf', 'totalliteral', 'montoTotal','monto', 'efectivo', 'cambio','cliente', 'nitcliente', 'nfactura', 'codigo','fechalimite','productos_vector'));
     }
-
+    public function marcapagado($idPedido = null,$estado = null)
+    {
+        $item = $this->Item->find('first',array('recursive' => -1,'conditions' => array('Item.pedido_id' => $idPedido,'Item.estado' => 1,'Item.pagado' => 0)));
+        if(empty($item))
+        {
+            $this->Pedido->id = $idPedido;
+            $this->request->data['Pedido']['estado'] = $estado;
+            $this->Pedido->save($this->request->data['Pedido']);
+            $this->desocupamesa($idPedido);
+        }
+    }
     public function ajaxpago($id_pedido = null)
     {
         $this->layout = 'ajax';
@@ -225,7 +231,7 @@ class ControlpedidosController extends AppController
         $usuario = $this->Session->read('Auth.User.id');
         
         $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                $id_pedido)));
+                $id_pedido,'Item.pagado' => 0)));
         $totalpagado = 0.00;
         foreach ($pedido as $item)
         {
@@ -235,7 +241,7 @@ class ControlpedidosController extends AppController
             array('Pedido.id' => $id_pedido)));
         //debug($moso);
         $descuentos = $this->Descuento->find('all');
-        //debug($descuentos);exit;
+        //debug($pedido);exit;
         
         
         
@@ -261,8 +267,39 @@ class ControlpedidosController extends AppController
             }
         }
         
-        //debug($productos_vector);exit;
-        $this->set(compact('pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos','usuario','productos_vector'));
+        
+        $pedido_cancelado = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
+                $id_pedido,'Item.pagado' => 1)));
+                //debug($pedido_cancelado);exit;
+        $totalpagado_cancelado = 0.00;
+        foreach ($pedido_cancelado as $item)
+        {
+            $totalpagado_cancelado += $item['Item']['precio'];
+        }
+        foreach ($pedido_cancelado as $pro) {
+            $f = false;
+            if (count($productos_vector_cancelado) > 0) {
+                for ($i = 0; $i < count($productos_vector_cancelado); $i++) {
+                    if ($productos_vector_cancelado[$i]['Producto']['producto_id'] == $pro['Item']['producto_id']) {
+                        //$productos_vector_cancelado[$i]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                        $productos_vector_cancelado[$i]['Producto']['cantidad']++;
+                        $f = true;
+                    }
+                }
+            }
+
+            if ($f == false) {
+                $n = count($productos_vector_cancelado);
+                $productos_vector_cancelado[$n]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                $productos_vector_cancelado[$n]['Producto']['cantidad'] = 1;
+                $productos_vector_cancelado[$n]['Producto']['nombre'] = $pro['Producto']['nombre'];
+                $productos_vector_cancelado[$n]['Producto']['precio'] = $pro['Producto']['precio'];
+                $productos_vector_cancelado[$n]['Item']['precio'] = $pro['Item']['precio'];
+            }
+        }
+        
+        //debug($productos_vector_cancelado);exit;
+        $this->set(compact('productos_vector_cancelado','pedido', 'id_pedido', 'moso', 'totalpagado', 'descuentos','usuario','productos_vector'));
     }
 
     public function imprecibo($id_pedido = null)
@@ -647,7 +684,7 @@ class ControlpedidosController extends AppController
         'conditions'=>array('Pedido.id'=>$idPedido),
         'recursive'=>-1));
        
-        $data = array('id'=>$idPedido, 'estado'=>3);
+        $data = array('id'=>$idPedido);
         
         if($this->Pedido->save($data)){
             
@@ -658,6 +695,9 @@ class ControlpedidosController extends AppController
                $recibo = $this->Recibo->find('first', array(
                'conditions'=>array('Recibo.id'=>$idRecibo)
                ));
+               $this->items_pagados($idPedido);
+               $this->marcapagado($idPedido,3);
+               
              $this->desocupamesa($idPedido);
               // $usuario = $this->Session->read('Auth.User')
                $this->set(compact('recibo', 'usuario'));
@@ -670,6 +710,16 @@ class ControlpedidosController extends AppController
             $this->Session->setFlash(__('Error al registrar el recibo del pedido de la mesa '.$pedido['Pedido']['mesa'].' fue pagado'),'alerts/bueno');
             $this->redirect(array('action' => 'verpedido', $pedido['Pedido']['mesa']),'alerts/bueno');
         }
+    }
+    public function items_pagados($idPedido = null)
+    {
+        $items = $this->Item->find('all',array('recursive' => -1,'conditions' => array('Item.pedido_id' => $idPedido,'Item.pagado' => 0)));
+        foreach($items as $it)
+        {
+            $this->Item->id = $it['Item']['id'];
+            $this->request->data['Item']['pagado'] = 1;
+            $this->Item->save($this->request->data['Item']);
+        } 
     }
     public function desocupamesa($idPedido = null)
     {
@@ -721,8 +771,7 @@ class ControlpedidosController extends AppController
 
     }
     public function dividircuenta($idpedido=null){
-        $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' =>
-                $idpedido)));
+        $pedido = $this->Item->find('all', array('conditions' => array('Item.pedido_id' => $idpedido, 'Item.pagado' => 0)));
         $detalle = array();
         $i2 = 0;
         foreach ($pedido as $p)
@@ -771,6 +820,7 @@ class ControlpedidosController extends AppController
         $this->layout = 'imprimir';
         $idpedido = $this->request->data[1]['Pedido']['idpedido'];
         $facturasw = $this->request->data[1]['Pedido']['factura'];
+        $recibosw = $this->request->data[1]['Pedido']['recibo'];
         $efectivo = $this->request->data[1]['Pedido']['efectivo'];
         $cliente = $this->request->data[1]['Pedido']['nombre'];
         $nitcliente = $this->request->data[1]['Pedido']['nit'];
@@ -798,32 +848,32 @@ class ControlpedidosController extends AppController
             $newdata[$j]['Pedido']['cantidad'] = $d['Pedido']['totalc'] - $d['Pedido']['cantidad'];
             $newdata[$j]['Pedido']['precio'] = $d['Pedido']['preciou'];
             $j++;
-            
-            /*if ($d['Pedido']['chk'] != 0)
-            {
-                $datos[$i]['Pedido']['producto'] = $d['Pedido']['producto'];
-                $datos[$i]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
-                $datos[$i]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
-                $datos[$i]['Pedido']['precio'] = $d['Pedido']['preciou'];
-                $total +=  $d['Pedido']['preciou'];
-                
-            } else
-            {
-                $newdata[$j]['Pedido']['pedido_id'] = $idpedido;
-                $newdata[$j]['Pedido']['producto'] = $d['Pedido']['producto'];
-                $newdata[$j]['Pedido']['producto_id'] = $d['Pedido']['producto_id'];
-                $newdata[$j]['Pedido']['cantidad'] = $d['Pedido']['cantidad'];
-                $newdata[$j]['Pedido']['precio'] = $d['Pedido']['preciou'];
-                $j++;
-            }*/
         }
+         //debug($datos);exit;
+         
          
         $total = number_format($total, 2, '.', ',');
         //DEBUG($total);exit;
+        if($recibosw == 1 && $facturasw != 1)
+        {
+            $cambio = $efectivo - $total;
+            $this->Recibo->create();
+            $this->request->data['Recibo']['pedido_id'] = $idpedido;
+            $this->request->data['Recibo']['nombre'] = $cliente;
+            $this->request->data['Recibo']['total'] = $total;
+            $this->request->data['Recibo']['efectivo'] = $efectivo;
+            $this->request->data['Recibo']['cambio'] = $cambio;
+            if($this->Recibo->save($this->request->data['Recibo']))
+            {
+                $nrorecibo = $this->Recibo->getLastInsertID();
+            }
+            $this->items_pagados($idpedido);
+            $this->marcapagado($idpedido,3);
+            $monto = split('\.', $total);
+            $totalliteral = $this->Montoliteral->getMontoLiteral($monto[0]);
+        }
         if($facturasw == 1)
         {
-            
-            
             $cambio = $efectivo - $total;
             $total = number_format($total, 2, '.', ',');
             $monto = split('\.', $total);
@@ -841,17 +891,6 @@ class ControlpedidosController extends AppController
             $this->request->data['Factura']['fecha'] = $fecha;
             if ($this->Factura->save($this->data))
             {
-                $data = array('id' => $idpedido, 'estado' => 3,'monto' => $total);
-                
-                $this->Pedido->save($data);
-                
-                $mesas = $this->Mesa->find('all', array('conditions' => array('Mesa.pedido_id' => $idpedido)));
-                foreach ($mesas as $m) {
-                    $this->Mesa->id = $m['Mesa']['id'];
-                    $this->request->data['Mesa']['pedido_id'] = null;
-                    $this->Mesa->save($this->request->data['Mesa']);
-                }
-                
                 
                 $factura = $this->Factura->find('first', array('order' => array('Factura.id DESC')));
                 $idfactura = $factura['Factura']['id'];
@@ -862,24 +901,31 @@ class ControlpedidosController extends AppController
                 $nuevocodigo = new CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
                 
                 $codigo = $nuevocodigo->generar();
-                //$this->Codigocontrol->CodigoControl($autoriza, $idfactura, $nitcliente, $nueva_fecha, $rtotal, $llave);
-                
-                //autorizacion, factura, nit, fecha, monto, llave
-                /*debug($autoriza);
-                debug($idfactura);
-                debug($nitcliente);
-                debug($nueva_fecha);
-                debug($rtotal);
-                debug($llave);*/
-                //$codigo = $this->Codigocontrol->generar();
-                //debug($codigo);exit;
+               
                 $this->Factura->id = $idfactura;
                 $this->Factura->read();
                 $this->request->data['Factura']['codigo_control'] = $codigo;
                 $this->Factura->save($this->data);
                 
                 
+                
+                foreach($datos as $da)
+                 {
+                    for($f = 1;$f <= $da['Pedido']['cantidad'];$f++)
+                    {
+                        $item = $this->Item->find('first', array('conditions' => array('Item.pedido_id' => $idpedido, 'Item.pagado' => 0,'Item.producto_id' => $da['Pedido']['producto_id'])));
+                        if(!empty($item))
+                        {
+                            $this->Item->id = $item['Item']['id'];
+                            $this->request->data['Item']['pagado'] = 1;
+                            $this->Item->save($this->request->data['Item']);
+                        }
+                    }
+                 }
+                 $this->marcapagado($idpedido,4);
+                 
             }
+            
         }
         $idusuario = $this->Session->read('Auth.User.id');
         //debug($idusuario);exit;
@@ -891,7 +937,8 @@ class ControlpedidosController extends AppController
             $fecha = $fech2[0];
             $hora = $fech2[1];
               //DEBUG($newdata);exit;
-            $this->set(compact('fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'total','facturasw','cliente','nitcliente','autoriza','idfactura','codigo'));
+              //debug($datos);exit;
+            $this->set(compact('recibosw','nrorecibo','fechalimite','totalliteral','cambio','efectivo','fecha', 'hora', 'datos', 'newdata', 'sucursal', 'monto', 'total','facturasw','cliente','nitcliente','autoriza','idfactura','codigo','nit'));
         
     }
     public function dividircuenta3(){
@@ -993,6 +1040,20 @@ class ControlpedidosController extends AppController
         $this->request->data['Mesa']['pedido_id'] = null;
         $this->Mesa->save($this->request->data['Mesa']);
         $this->redirect(array('action' => 'index'));
+    }
+    public function calcula_debe($idPedido = null)
+    {
+        $total = 0;
+        
+        $items =  $this->Item->find('all',array('conditions' =>array('Item.pedido_id' => $idPedido,'Item.estado' => 1,'Item.pagado' => 0),'fields' => 'SUM(Item.precio) total'));
+        //debug($items[0][0]['total']);exit;
+        if(!empty($items[0][0]['total']))
+        {
+            $total = $items[0][0]['total'];
+        }
+        
+        return $total;
+        
     }
 }
 

@@ -15,7 +15,9 @@ var vector = new Array();
                                 <div class="widget-header">
                                     <h4><i class="fontello-icon-edit"></i> DIVIDIR CUENTA</h4>
                                     <div class="widget-tool">
-                                    <b>FACTURAR</b>
+                                    <b>REC</b>
+                                    <?php echo $this->Form->checkbox("1.Pedido.recibo");?>
+                                    <b>FAC</b>
                                     <?php echo $this->Form->checkbox("1.Pedido.factura");?>
                                     </div>
                                 </div>
