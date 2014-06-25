@@ -1472,15 +1472,14 @@ class PedidosController extends AppController
         //debug($pedido);exit;
         
         //$contenido="--------- MESA #".$pedido['Pedido']['mesa']." ---------". PHP_EOL;
+        $contenido = "".PHP_EOL;
         $contenido = $contenido."--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
         $contenido = $contenido."--------- MOSO: ".$pedido['User']['nombre']." ---------". PHP_EOL;
-        $bebida = $bebida."--------- MESA #".$pedido['Pedido']['mesa']." ---------". PHP_EOL;
+        //$bebida = $bebida."--------- MESA #".$pedido['Pedido']['mesa']." ---------". PHP_EOL;
         $bebida = $bebida."--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
         $bebida = $bebida."--------- MOSO: ".$pedido['User']['nombre']." ---------". PHP_EOL;
         $contenido_pedido="--------- PEDIDO #".$idPedido." ---------". PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
+        
         //debug($items);exit;
         foreach($items as $it)
         {
@@ -1536,15 +1535,7 @@ class PedidosController extends AppController
         
         $bebida = $bebida.'------------------------------'.PHP_EOL;
         $bebida = $bebida.'--------DETALLE---------'.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
         
-        $contenido = $contenido.''.PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
         
         //debug($contenido_pedido);exit;
         foreach ($items as $it) {
@@ -1588,11 +1579,18 @@ class PedidosController extends AppController
         //$contenido_pedido = $contenido_pedido."TOTAL____".$total."_Bs".PHP_EOL;
         
         $contenido = $contenido."-------------------------------".PHP_EOL;
-        $contenido=" MESA #".$pedido['Pedido']['mesa']." ---------/". PHP_EOL;
+        $contenido = $contenido." MESA #".$pedido['Pedido']['mesa']." ---------/ ".date("Y-m-d H:i:s"). PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
-        $bebida = $bebida."-------------------------------";
+        $bebida = $bebida."-------------------------------".PHP_EOL;
+        $bebida = $bebida." MESA #".$pedido['Pedido']['mesa']." ---------/ ".date("Y-m-d H:i:s"). PHP_EOL;
+        $bebida = $bebida.''.PHP_EOL;
+        $bebida = $bebida.''.PHP_EOL;
+        $bebida = $bebida.''.PHP_EOL;
+        $bebida = $bebida.''.PHP_EOL;
+        $bebida = $bebida.''.PHP_EOL;
+        $bebida = $bebida.''.PHP_EOL;
         
         $ip_impresoraCaja = '192.168.0.106\\caja';
         $ip_impresoraCocina = '192.168.0.102\\cocina';
