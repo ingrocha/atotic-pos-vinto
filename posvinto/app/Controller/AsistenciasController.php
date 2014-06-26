@@ -23,7 +23,7 @@ public function nuevo()
     $dcu = $this->User->find('list', array('fields'=>'User.nombre')); //consulta de los usuarios por nombre
     $this->set(compact('dcu'));
 }
-public function entradas_xxx() 
+public function entradas() 
   {
     
       if(!empty($this->request->data)){
@@ -175,7 +175,7 @@ public function salidas()
             return ($HORA_TRANSCURRIDA . ':' . $MINUITOS_TRANSCURRIDOS . ' Horas');
         }
     }
-public function entradas($hora1=null,$hora2=null) 
+public function entradas2222222($hora1=null,$hora2=null) 
   {
      if(!empty($this->request->data)){
           //debug($this->data);exit;
@@ -200,9 +200,9 @@ public function entradas($hora1=null,$hora2=null)
               $total_minutos_trasncurridos[2] = ($separar[2][0]*60)+$separar[2][1]; 
               $total_minutos_trasncurridos = $total_minutos_trasncurridos[1]-$total_minutos_trasncurridos[2]; 
               
-              debug($total_minutos_trasncurridos);
+             // debug($total_minutos_trasncurridos);
               $date=date('Y-m-d');
-              debug($date);
+              //s 	debug($date);
               $valida=$this->Asistencia->find('all',
                                         array('conditions'=>
                                         array('Asistencia.user_id'=>$usuario,'Asistencia.fecha'=>$date)));

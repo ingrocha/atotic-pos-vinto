@@ -1,8 +1,22 @@
+
 <div id="main-content" class="main-content container-fluid">
 <!-- // sidebar --> 
     <?php echo $this->element('sidebar/pedidos'); ?>
 <!-- // fin sidebar -->
-<!-- // contenido pricipal -->                                 
+<!-- // contenido pricipal -->   
+<div class="widget" id="areaImprimir">
+<div class="whead">
+    <?php echo $this->Html->image('vinto/vinto.png') ?> 
+    <FONT FACE="Monotype Corsiva" ><h2  style="color: #A64949">RESTAURANTE VIVA VINTO</h2></FONT>
+        <h4 style="text-align: center">
+            REPORTE DE VENTAS POR PRODUCTO &nbsp;<br/>
+            
+            &nbsp;
+
+        </h4>
+        <div class="clear"></div>
+
+    </div>
 <div id="page-content" class="page-content">
     <section>
         <div class="page-header">
@@ -66,14 +80,21 @@
         <div class="row-fluid">
           <section class="span12 margin-bottom30">
              <ul class="btn-toolbar btn-demo">
-               <li><a class="btn btn-github" href="#" id="Imprimir"><i class="fontello-icon-github"></i> Imprimir</a></li>
+               <li>
+                           <a class="btn btn-github" href="#" id="Imprimir"><i class="fontello-icon-github">
+               </i> Imprimir</a>
+                   <?php echo $this->Html->link('Atras',array('controller'=>'Reportes','action'=>'formularioreporteproductos'),array('class'=>'btn btn-green'));?>
+                        
+          
+               </li>
              </ul>
           </section>
         </div>
     </section>
 </div>	
-<!-- // fin contenido principal --> 
 </div>
+<!-- // fin contenido principal --> 
+</div>  
 <script type="text/javascript">
    $(document).ready(function() {
     
