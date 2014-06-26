@@ -66,7 +66,11 @@
         <div class="row-fluid">
           <section class="span12 margin-bottom30">
              <ul class="btn-toolbar btn-demo">
-               <li><a class="btn btn-github" href="#" id="Imprimir"><i class="fontello-icon-github"></i> Imprimir</a></li>
+               <li><a class="btn btn-github" href="#" id="Imprimir"><i class="fontello-icon-github"></i> Imprimir</a>
+               <?php echo $this->Html->link('Atras',array('controller'=>'Reportes','action'=>'formularioreporteproductos'),array('class'=>'btn btn-green'));?>
+                        
+          
+               </li>
              </ul>
           </section>
         </div>

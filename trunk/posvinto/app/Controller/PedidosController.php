@@ -1533,8 +1533,6 @@ class PedidosController extends AppController
         $contenido = $contenido.'--------DETALLE---------'.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
         
         $bebida = $bebida.'------------------------------'.PHP_EOL;
         $bebida = $bebida.'--------DETALLE---------'.PHP_EOL;
@@ -1583,8 +1581,6 @@ class PedidosController extends AppController
         
         $contenido = $contenido."-------------------------------".PHP_EOL;
         $contenido = $contenido." MESA #".$pedido['Pedido']['mesa']." ---------/ ".date("Y-m-d H:i:s"). PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
-        $contenido = $contenido.''.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
         $bebida = $bebida."-------------------------------".PHP_EOL;
         $bebida = $bebida." MESA #".$pedido['Pedido']['mesa']." ---------/ ".date("Y-m-d H:i:s"). PHP_EOL;
