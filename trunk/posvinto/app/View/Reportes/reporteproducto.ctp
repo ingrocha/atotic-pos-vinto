@@ -24,7 +24,7 @@
         </div>
         <div class="row-fluid">
             <div class="span12">
-                <div class="widget widget-simple widget-table" id="areaImprimir">
+                <div class="widget widget-simple widget-table">
                     <table id="table" class="table table-striped table-bordered  table-hover table-condensed">
                         <caption>
                             Reporte de ventas por Producto <span></span>
@@ -81,7 +81,7 @@
           <section class="span12 margin-bottom30">
              <ul class="btn-toolbar btn-demo">
                <li>
-                           <a class="btn btn-github" href="#" id="Imprimir"><i class="fontello-icon-github">
+                           <a class="btn btn-github" href="#" id="btnImprime"><i class="fontello-icon-github">
                </i> Imprimir</a>
                    <?php echo $this->Html->link('Atras',array('controller'=>'Reportes','action'=>'formularioreporteproductos'),array('class'=>'btn btn-green'));?>
                         
@@ -95,7 +95,7 @@
 </div>
 <!-- // fin contenido principal --> 
 </div>  
-<script type="text/javascript">
+<!--<script type="text/javascript">
    $(document).ready(function() {
     
          $("#Imprimir").click(function() {
@@ -108,4 +108,33 @@
      $('#areaImprimir').printElement(options);
  }
 
- </script>
+ </script>-->
+ <script>
+                $(document).ready(function() {
+                    $("#btnImprime").click(function() {
+                        //printElem({leaveOpen: true, printMode: 'popup'});
+                        printElem({ overrideElementCSS: [
+                            '<?php echo $this->webroot; ?>css/imprime.css',
+                            {href: '<?php echo $this->webroot; ?>css/imprime.css', media: 'print'}]
+                    });
+                        
+                        //['http://www.imprenta.com/css/printable.css'] });
+                    });
+                });
+                function printElem(options) {
+                    $("#areaImprimir").printElement(options);
+                }
+                $(document).ready(function() {
+                   // TableTools.DEFAULTS.aButtons = ["print"];
+                    $('#tablaproductos').dataTable( {
+                        "aaSorting": [[ 1, "asc" ]],
+                        //"sDom": 'T<"clear">lfrtip',
+                        "aLengthMenu": [
+                            [25, 50, 100, 200, -1],
+                            [25, 50, 100, 200, "All"]
+                        ],"iDisplayLength" : -1 ,
+                        "bFilter": false,
+                        "bInfo": false
+                    } );
+                } );
+</script>
