@@ -1533,6 +1533,8 @@ class PedidosController extends AppController
         $contenido = $contenido.'--------DETALLE---------'.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
+        
         
         $bebida = $bebida.'------------------------------'.PHP_EOL;
         $bebida = $bebida.'--------DETALLE---------'.PHP_EOL;
@@ -1542,9 +1544,9 @@ class PedidosController extends AppController
         $bebida = $bebida.''.PHP_EOL;
         $bebida = $bebida.''.PHP_EOL;
         $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
         //debug($contenido_pedido);exit;
+        $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
         foreach ($items as $it) {
             
             $this->Item->id = $it['Item']['id'];
@@ -1592,10 +1594,7 @@ class PedidosController extends AppController
         $bebida = $bebida." MESA #".$pedido['Pedido']['mesa']." ---------/ ".date("Y-m-d H:i:s"). PHP_EOL;
         $bebida = $bebida.''.PHP_EOL;
         $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
-        $bebida = $bebida.''.PHP_EOL;
+        
         
         $ip_impresoraCaja = '192.168.0.106\\caja';
         $ip_impresoraCocina = '192.168.0.102\\cocina';
