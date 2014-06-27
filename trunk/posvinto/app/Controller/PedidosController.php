@@ -1593,7 +1593,8 @@ class PedidosController extends AppController
         $contenido = $contenido.''.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
         $contenido = $contenido.''.PHP_EOL;
-        
+        $contenido = $contenido.''.PHP_EOL;
+        $contenido = $contenido.''.PHP_EOL;
         $bebida = $bebida."-------------------------------".PHP_EOL;
         $bebida = $bebida." MESA #".$pedido['Pedido']['mesa']." ---------/ ".date("Y-m-d H:i:s"). PHP_EOL;
         // NOTA........$bebida = $bebida.''.PHP_EOL;   ------es de es espacio  debajo de numero de mesa y fecha del BAR
