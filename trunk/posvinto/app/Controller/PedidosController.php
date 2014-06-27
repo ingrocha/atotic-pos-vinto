@@ -1532,14 +1532,14 @@ class PedidosController extends AppController
         $contenido = $contenido.'------------------------------'.PHP_EOL;
         $contenido = $contenido.'--------DETALLE---------'.PHP_EOL;
         // NOTA........$contenido = $contenido.''.PHP_EOL;   ------es de es espacio  debajo de la imprecio detalle COCINA
-        $contenido = $contenido.'Espacio 1'.PHP_EOL;
+        //$contenido = $contenido.'Espacio 1'.PHP_EOL;
         
         
         $bebida = $bebida.'------------------------------'.PHP_EOL;
         $bebida = $bebida.'--------DETALLE---------'.PHP_EOL;
         // NOTA........$bebida = $bebida.''.PHP_EOL;   ------es de es espacio  debajo de la imprecio detalle BAR
         
-        $bebida = $bebida.'Espacio 2'.PHP_EOL;
+        //$bebida = $bebida.'Espacio 2'.PHP_EOL;
             
         //debug($contenido_pedido);exit;
         //$contenido = $contenido.''.PHP_EOL;
