@@ -24,8 +24,8 @@
         </div>
         <div class="row-fluid">
             <div class="span12">
-                <div class="widget widget-simple widget-table">
-                    <table id="table" class="table table-striped table-bordered  table-hover table-condensed">
+                <div class="table-wrapper">
+                    <table id="table" class="table boo-table table-content">
                         <caption>
                             Reporte de ventas por Producto <span></span>
                         </caption>
