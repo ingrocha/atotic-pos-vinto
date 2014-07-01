@@ -1598,7 +1598,13 @@ class PedidosController extends AppController
         $bebida = $bebida."-------------------------------".PHP_EOL;
         $bebida = $bebida." MESA #".$pedido['Pedido']['mesa']." ---------/ ".date("Y-m-d H:i:s"). PHP_EOL;
         // NOTA........$bebida = $bebida.''.PHP_EOL;   ------es de es espacio  debajo de numero de mesa y fecha del BAR
-        $bebida = $bebida.'Espacio 4'.PHP_EOL;
+        //$bebida = $bebida.'Espacio 4'.PHP_EOL;
+        $bebida = $bebida.''.PHP_EOL;
+        $bebida = $bebida.''.PHP_EOL;
+        $bebida = $bebida.''.PHP_EOL;
+        
+        
+        
         
         $ip_impresoraCaja = '192.168.0.106\\caja';
         $ip_impresoraCocina = '192.168.0.102\\cocina';
