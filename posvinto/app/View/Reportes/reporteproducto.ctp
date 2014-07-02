@@ -1,96 +1,99 @@
 
 <div id="main-content" class="main-content container-fluid">
-<!-- // sidebar --> 
+    <!-- // sidebar --> 
     <?php echo $this->element('sidebar/pedidos'); ?>
-<!-- // fin sidebar -->
-<!-- // contenido pricipal -->   
-<div class="widget" id="areaImprimir">
-<div class="whead">
-    <?php echo $this->Html->image('vinto/vinto.png') ?> 
-    <FONT FACE="Monotype Corsiva" ><h2  style="color: #A64949">RESTAURANTE VIVA VINTO</h2></FONT>
-        <h4 style="text-align: center">
-            REPORTE DE VENTAS POR PRODUCTO &nbsp;<br/>
-            
-            &nbsp;
+    <!-- // fin sidebar -->
+    <!-- // contenido pricipal -->   
+    <div class="widget" id="areaImprimir">
+        <div class="whead">
+            <?php echo $this->Html->image('vinto/vinto.png') ?> 
+            <FONT FACE="Monotype Corsiva" ><h2  style="color: #A64949">RESTAURANTE VIVA VINTO</h2></FONT>
+            <h4 style="text-align: center">
+                REPORTE DE VENTAS POR PRODUCTO &nbsp;<br/>
 
-        </h4>
-        <div class="clear"></div>
+                &nbsp;
 
-    </div>
-<div id="page-content" class="page-content">
-    <section>
-        <div class="page-header">
-            <h3><i class="aweso-icon-table opaci35"></i> Ventas de fecha <?php echo $fechaini ?> a <?php echo $fechafin?></h3>           
+            </h4>
+            <div class="clear"></div>
+
         </div>
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="table-wrapper">
-                    <table id="table" class="table boo-table table-content">
-                        <caption>
-                            Reporte de ventas por Producto <span></span>
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th>Nro</th>                               
-                                <th>Producto</th>           
-                                <th scope="col">Cantidad<span class="column-sorter"></span></th>
-                                <th>Prec. U.</th>
-                                <th>P. Total</th>
-                            </tr>
-                        </thead>
-                        <?php $i=0;$total = 0.00;?>
-                        <tbody>
-                        <?php foreach ($productos as $producto): 
-                        $i++
-                        ?>                      
-                            <tr> 
-                                <td><?php echo $i;?></td>                                
-                                <td><?php echo $producto['Producto']['nombre'];?></td>           
-                                <td><?php echo $producto[0]['cantidad']; ?></td>
-                                <td><?php echo $producto['Item']['precio'];?></td>
-                                <td><?php echo $producto[0]['precio'];?></td>
-                                <?php 
-                                      $total = $total + $producto[0]['precio'];
-                                      $cantidad = $cantidad + $producto[0]['cantidad'];;
-                                ?>
-                            </tr>
-                            
-                        <?php endforeach; ?>  
-                            <tr>
-                                <td> </td>
-                                <td></td>
-                                <td><h4>TOTALES</h4></td>
-                                <td><h4><?php echo $cantidad;?></h4></td>                                
-                                <td><h4><?php echo $total?></h4></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- // BOO TABLE - DTB-2 -->
+        <div id="page-content" class="page-content">
+            <section>
+                <div class="page-header">
+                    <h3><i class="aweso-icon-table opaci35"></i> Ventas de fecha <?php echo $fechaini ?> a <?php echo $fechafin ?></h3>           
                 </div>
-                <!-- // Widget -->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="table-blue-light">
+                            <table id="table" class="table bg-green-light">
+                                <caption>
+                                    Reporte de ventas por Producto <span></span>
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th>Nro</th>                               
+                                        <th>Producto</th>           
+                                        <th scope="col">Cantidad<span class="column-sorter"></span></th>
+                                        <th>Prec. U.</th>
+                                        <th>P. Total</th>
+                                    </tr>
+                                </thead>
+                                <?php $i = 0;
+                                $total = 0.00; ?>
+                                <tbody>
+                                    <?php
+                                    foreach ($productos as $producto):
+                                        $i++
+                                        ?>                      
+                                        <tr> 
+                                            <td><?php echo $i; ?></td>                                
+                                            <td><?php echo $producto['Producto']['nombre']; ?></td>           
+                                            <td><?php echo $producto[0]['cantidad']; ?></td>
+                                            <td><?php echo $producto['Item']['precio']; ?></td>
+                                            <td><?php echo $producto[0]['precio']; ?></td>
+                                            <?php
+                                            $total = $total + $producto[0]['precio'];
+                                            $cantidad = $cantidad + $producto[0]['cantidad'];
+                                            ;
+                                            ?>
+                                        </tr>
 
-            </div>
-            <!-- // Column -->
+<?php endforeach; ?>  
+                                    <tr>
+                                        <td> </td>
+                                        <td></td>
+                                        <td><h4>TOTALES</h4></td>
+                                        <td><h4><?php echo $cantidad; ?></h4></td>                                
+                                        <td><h4><?php echo $total ?></h4></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- // BOO TABLE - DTB-2 -->
+                        </div>
+                        <!-- // Widget -->
 
-        </div>
-        <!-- // Example row -->
-        <div class="row-fluid">
-          <section class="span12 margin-bottom30">
-             <ul class="btn-toolbar btn-demo">
-               <li>
-                           <a class="btn btn-github" href="#" id="btnImprime"><i class="fontello-icon-github">
-               </i> Imprimir</a>
-                   <?php echo $this->Html->link('Atras',array('controller'=>'Reportes','action'=>'formularioreporteproductos'),array('class'=>'btn btn-green'));?>
-                        
-          
-               </li>
-             </ul>
-          </section>
-        </div>
-    </section>
-</div>	
-</div>
-<!-- // fin contenido principal --> 
+                    </div>
+                    <!-- // Column -->
+
+                </div>
+                <!-- // Example row -->
+            </section>
+        </div>	
+    </div>
+    <!-- // fin contenido principal --> 
+
+                <div class="row-fluid">
+                    <section class="span12 margin-bottom30">
+                        <ul class="btn-toolbar btn-demo">
+                            <li>
+                                <?php //echo $this->Form->create('Detalle', array('url' => array('controller' => 'Reportes', 'action' => 'formularioreporteproductos'))); ?>
+                                <a class="btn btn-github" href="<?php echo $this->Html->url(array('action' => 'formularioreporteproductos')) ?>" id="btnImprime"><i class="fontello-icon-github">
+                                    </i> Imprimir</a>
+                                <?php echo $this->Html->link('Atras', array('controller' => 'Reportes', 'action' => 'formularioreporteproductos'), array('class' => 'btn btn-green')); ?>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
 </div>  
 <!--<script type="text/javascript">
    $(document).ready(function() {
