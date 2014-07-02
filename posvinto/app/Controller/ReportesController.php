@@ -267,7 +267,12 @@ class ReportesController extends AppController{
        //debug($fechafin);
        //debug($fechaini);
        
-       $pedidos = $this->Pedido->find('all',array('recursive' => 0,'conditions' => $condiciones));
+       $pedidos = $this->Pedido->find('all',
+               array(
+                   'recursive' => 0,
+                   'conditions' => $condiciones,
+                   //'group'=>'Pedido.user_id'
+               ));
        $this->set(compact('pedidos','fechaini','fechafin'));
        //debug($pedidos);exit;
     }
@@ -373,9 +378,8 @@ class ReportesController extends AppController{
        $productos = $this->Item->find('all',array(
        'recursive' => 0
        ,'conditions' => $condiciones
-       ,'group' => array('Item.producto_id','date(Item.fecha)')
-       ,'fields' => array('date(Item.fecha) fecha','SUM(Item.cantidad) cantidad','SUM(Item.precio) precio','Producto.nombre','Item.precio')
-       
+       ,'group' => array('Item.producto_id')
+       ,'fields' => array('date(Item.fecha) fecha','SUM(Item.cantidad) cantidad','SUM(Item.precio) precio','Producto.nombre','Item.precio')       
        ));
        
        //debug($productos);exit;
