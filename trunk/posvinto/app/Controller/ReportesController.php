@@ -254,27 +254,23 @@ class ReportesController extends AppController{
         $this->set(compact('meseros','insumos','usuarios','lugares','productos'));
     }
     public function reportepedidos(){
-        //debug($this->request->data);exit;
-       $fechaini = $this->request->data['Reportes']['fechaini'];
-       $fechafin = $this->request->data['Reportes']['fechafin'];
-       $condiciones['date(Pedido.created) BETWEEN ? AND ?'] = array($fechaini,$fechafin);
        
-       $moso = $this->request->data['Reportes']['mesero'];
+       $fechafin = $this->request->data['Reportes']['fechafin'];       
+       $condiciones['Pedido.created =']=$fechafin;
        if(!empty($moso) || $moso != 0)
        {
         $condiciones['User.id'] = $moso;
-       }
-       //debug($fechafin);
-       //debug($fechaini);
+       }       
        
        $pedidos = $this->Pedido->find('all',
                array(
                    'recursive' => 0,
-                   'conditions' => $condiciones,
+                   'conditions' => array(
+                       $condiciones
+                    ),
                    //'group'=>'Pedido.user_id'
                ));
-       $this->set(compact('pedidos','fechaini','fechafin'));
-       //debug($pedidos);exit;
+       $this->set(compact('pedidos','fechaini','fechafin'));       
     }
     public function cuentaItem($idPedido = null)
     {
