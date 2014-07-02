@@ -732,7 +732,7 @@ class ControlpedidosController extends AppController
         }
         
     }
-    public function imprimircuenta($idPedido=null){
+    public function imprimircuenta($idPedido=null, $ruta=null){
         
         $this->layout = 'imprimir';
         $datosPedido = $this->Pedido->find('first', array(
@@ -767,7 +767,7 @@ class ControlpedidosController extends AppController
         }
         
         //debug($productos_vector);exit;
-        $this->set(compact('pedido', 'idPedido', 'mozo', 'mesa','productos_vector'));
+        $this->set(compact('pedido', 'idPedido', 'mozo', 'mesa','productos_vector', 'ruta'));
 
     }
     public function dividircuenta($idpedido=null){

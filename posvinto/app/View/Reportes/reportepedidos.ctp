@@ -45,7 +45,7 @@
                                         $total = $total + $producto['Pedido']['total'];
                                         $platos = $platos + $plato;
                                         ?>
-                                        <td><?php echo $this->Html->link('Detalle', array('controller' => 'controlpedidos', 'action' => 'imprimircuenta', $idProducto)); ?></td>
+                                        <td><?php echo $this->Html->link('Detalle', array('controller' => 'controlpedidos', 'action' => 'imprimircuenta', $idProducto, 'reporte')); ?></td>
                                     </tr>
 
 <?php endforeach; ?>  
