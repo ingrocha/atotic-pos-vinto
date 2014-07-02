@@ -31,8 +31,7 @@
                         </caption>
                         <thead>
                             <tr>
-                                <th>Nro</th>
-                               <th>fecha</th>  
+                                <th>Nro</th>                               
                                 <th>Producto</th>           
                                 <th scope="col">Cantidad<span class="column-sorter"></span></th>
                                 <th>Prec. U.</th>
@@ -45,8 +44,7 @@
                         $i++
                         ?>                      
                             <tr> 
-                                <td><?php echo $i;?></td>
-                                <td><?php echo $producto[0]['fecha'];?></td>
+                                <td><?php echo $i;?></td>                                
                                 <td><?php echo $producto['Producto']['nombre'];?></td>           
                                 <td><?php echo $producto[0]['cantidad']; ?></td>
                                 <td><?php echo $producto['Item']['precio'];?></td>
@@ -61,10 +59,9 @@
                             <tr>
                                 <td> </td>
                                 <td></td>
-                                <td><b>TOTALES</b></td>
-                                <td><?php echo $cantidad;?></td>
-                                <td><?php //echo $platos;?></td>
-                                <td><?php echo $total?></td>
+                                <td><h4>TOTALES</h4></td>
+                                <td><h4><?php echo $cantidad;?></h4></td>                                
+                                <td><h4><?php echo $total?></h4></td>
                             </tr>
                         </tbody>
                     </table>
