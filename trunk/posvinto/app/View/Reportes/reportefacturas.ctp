@@ -33,7 +33,7 @@
 <div id="page-content" class="page-content">
     <section>
         <div class="page-header">
-            <h3><i class="aweso-icon-table opaci35"></i>Reporte de Facturas <?php echo $fechaini?> hasta <?php echo $fechafin;?></h3>           
+            <h3><i class="aweso-icon-table opaci35"></i><p align="center">Reporte de Facturas <?php echo $fechaini?> hasta <?php echo $fechafin;?></p></h3>           
         </div>
         <div class="row-fluid">
             <div class="span12">
@@ -42,16 +42,16 @@
                         <thead>
                             <tr>
                                 <th>Fecha</th>  
-                                <th>Nro.de NIT <br>del Comprador</th>  
-                                <th>Nombre o Razon Social del Comprador</th>
-                                <th>Nro. de Factura</th>
-                                <th>Nro. de Autorizacion</th>
-                                <th>Codigo de Control</th>
-                                <th>Total Factura<br>(A)</th>
-                                <th>Total I.C.E.<br>(B)</th>
-                                <th>Importes Externos<br>(C)</th>
-                                <th>Importe Neto<br>(A-B-C)</th>
-                                <th>Debito Fiscal IVA</th>
+                                <th ><p align="center">Nro.de NIT <br>del Comprador</p></th>  
+                                <th><p align="center">Nombre o Razon Social del Comprador</p></th>
+                                <th><p align="center">Nro. de Factura</p></th>
+                                <th><p align="center">Nro. de Autorizacion</p></th>
+                                <th><p align="center">Codigo de Control</p></th>
+                                <th><p align="center">Total Factura<br>(A)</p></th>
+                                <th><p align="center">Total I.C.E.<br>(B)</p></th>
+                                <th><p align="center">Importes Externos<br>(C)</p></th>
+                                <th><p align="center">Importe Neto<br>(A-B-C)</p></th>
+                                <th><p align="center">Debito Fiscal IVA</p></th>
                             </tr>
                         </thead>
                         <?php $i=0;$total = 0.00;?>
@@ -97,8 +97,8 @@
                 <table id="table" class="table table-striped table-bordered  table-hover table-condensed">
                         <thead>
                             <tr>
-                                <td>4413687 CB.</td>
-                                <td>Alejandro Roberto Guillen Vargas </td>
+                                <td><p align="center">4413687 CB.</p></td>
+                                <td><p align="center">Alejandro Roberto Guillen Vargas </p></td>
                                 <td><strong>TOTALES PARCIALES</strong></td>
                                 <td>,00</td>
                                 <td></td>
@@ -108,8 +108,8 @@
                             </tr>
                             </tr>
                             <tr>
-                                <td><strong>C.I.</strong></td>
-                                <td><strong>Nombre Completo del Responsable</strong></td>
+                                <td><strong><p align="center">Carnet de Identidad</strong></p></td>
+                                <td><strong><p align="center">Nombre Completo del Responsable</strong></p></td>
                                 <td><strong>TOTALES GENERALES</strong></td>
                                 <td>,00</td>
                                 <td></td>

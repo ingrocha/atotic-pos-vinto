@@ -20,9 +20,8 @@
                                                         <div class="controls">
                                                             <address>
                                                             <h2>Reserva Especial</h2>
-                                                            <strong>Reservas del Cliente:<p>
-                                                                
-                                                                <a><?php echo $reservas['Cliente']['nombre'];?></a></strong><br>
+                                                            <strong>Reservas del Cliente:</strong>
+                                                                <a><?php echo $reservas['Cliente']['nombre'];?></a><br>
                                                                 <abbr><strong>Tipo Evento:</strong></abbr> <a><?php echo $reservas['Tipoevento']['nombre'];?></a><br><p>
                                                                     <abbr><strong>Cantidad de Personas:</strong></abbr> <a><?php echo $reservas['Reserva']['cantidad_personas'];?></a><p>
                                                                     <abbr><strong>Fecha y Hora de Evento :</strong></abbr> <a><?php echo $reservas['Reserva']['fecha'];?></a><br><p>
@@ -38,4 +37,7 @@
         </section>
     </div>	
     <!-- // fin contenido principal --> 
+    <td class="low-padding align-center">
+            <?php echo $this->Html->link('Atras',array('controller'=>'reservas','action'=>'listareservas'),array('class'=>'btn btn-green'));?>
+            </td>
 </div>
