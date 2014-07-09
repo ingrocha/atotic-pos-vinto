@@ -30,6 +30,7 @@ $modeloproductosobservaciones = new Productosobservacione();
     
 </style>
 <div id="main-content" class="main-content container-fluid">
+    <?php echo $this->element('sidebar/productosmenu'); ?>
     <div id="page-content" class="page-content">
         <section>
             <div class="page-header">

@@ -1055,6 +1055,45 @@ class ControlpedidosController extends AppController
         return $total;
         
     }
+    public function ajaxvercuenta($idPedido=null){
+        
+        //$this->layout = 'imprimir';
+        $this->layout = 'ajax';
+        $datosPedido = $this->Pedido->find('first', array(
+        'conditions'=>array('Pedido.id'=>$idPedido)
+        ));
+        
+        $mozo = $datosPedido['User']['nombre'];
+        $mesa = $datosPedido['Pedido']['mesa'];
+        $pedido = $this->Item->find('all', array(
+        'conditions'=>array('Item.pedido_id'=>$idPedido)
+        ));
+        
+        foreach ($pedido as $pro) {
+            $f = false;
+            if (count($productos_vector) > 0) {
+                for ($i = 0; $i < count($productos_vector); $i++) {
+                    if ($productos_vector[$i]['Producto']['producto_id'] == $pro['Item']['producto_id']) {
+                        //$productos_vector[$i]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                        $productos_vector[$i]['Producto']['cantidad']++;
+                        $f = true;
+                    }
+                }
+            }
+
+            if ($f == false) {
+                $n = count($productos_vector);
+                $productos_vector[$n]['Producto']['producto_id'] = $pro['Item']['producto_id'];
+                $productos_vector[$n]['Producto']['cantidad'] = 1;
+                $productos_vector[$n]['Producto']['nombre'] = $pro['Producto']['nombre'];
+                $productos_vector[$n]['Producto']['precio'] = $pro['Producto']['precio'];
+            }
+        }
+        
+        //debug($productos_vector);exit;
+        $this->set(compact('pedido', 'idPedido', 'mozo', 'mesa','productos_vector'));
+
+    }
 }
 
 ?>

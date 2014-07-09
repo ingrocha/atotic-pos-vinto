@@ -2,7 +2,20 @@
     <!-- // sidebar --> 
     <?php echo $this->element('sidebar/pedidos'); ?>               
     <!-- // fin sidebar -->
-    <!-- // contenido pricipal -->                                 
+    <!-- // contenido pricipal -->   
+    <div class="widget" id="areaImprimir">
+    <div class="whead">
+            <?php echo $this->Html->image('vinto/vinto.png') ?> 
+            <FONT FACE="Monotype Corsiva" ><h2  style="color: #A64949">RESTAURANTE VIVA VINTO</h2></FONT>
+            <h4 style="text-align: center">
+                REPORTE DE INVENTARIO &nbsp;<br/>
+
+                &nbsp;
+
+            </h4>
+            <div class="clear"></div>
+
+    </div>
     <div id="page-content" class="page-content">
         <section>
             <div class="page-header">
@@ -13,7 +26,7 @@
                     <div class="widget widget-simple widget-table" id="areaImprimir">
                         <table id="table" class="table table-striped table-bordered  table-hover table-condensed">
                             <caption>
-                                Atenciones<span></span>
+                                REPORTE POR ATENCION<span></span>
                             </caption>
                             <thead>
                                 <tr>
@@ -25,18 +38,15 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <?php
-                            $i = 0;
-                            $total = 0.00;
-                            ?>
+                            <?php $i = 0; $total = 0.00; ?>
                             <tbody>
-                                <?php
-                                foreach ($pedidos as $producto):
-                                    $i++
-                                    ?>                      
-                                    <tr> 
-    <?php $idProducto = $producto['Pedido']['id']; ?>
-                                        <td><?php echo $i; ?></td>
+                                <?php foreach ($pedidos as $producto):$i++ ?>                      
+                                <?php $idProducto = $producto['Pedido']['id'] ?>    
+                                <tr>
+                                        <td>
+                                            <?php echo $i; ?>
+                                            
+                                        </td>
                                         <td><?php echo $producto['Pedido']['fecha']; ?></td>
                                         <td><?php echo $producto['User']['nombre']; ?></td>           
                                         <td><?php echo $producto['Pedido']['mesa']; ?></td>
@@ -45,10 +55,15 @@
                                         $total = $total + $producto['Pedido']['total'];
                                         $platos = $platos + $plato;
                                         ?>
-                                        <td><?php echo $this->Html->link('Detalle', array('controller' => 'controlpedidos', 'action' => 'imprimircuenta', $idProducto, 'reporte')); ?></td>
+                                        <td>
+                                            
+                                            <a onclick="cargarmodal('<?php echo $this->Html->url(array('controller'=>'controlpedidos','action' => 'ajaxvercuenta',$producto['Pedido']['id']));?>');" class="btn btn-glyph btn-sky" href="javascript:" >VER</a>
+                                            
+                                            <?php //echo $this->Html->link('Detalle', array('controller' => 'controlpedidos', 'action' => 'imprimircuenta', $idProducto, 'reporte')); ?>
+                                        </td>
                                     </tr>
 
-<?php endforeach; ?>  
+                            <?php endforeach; ?>  
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -71,8 +86,8 @@
             <div class="row-fluid">
                 <section class="span12 margin-bottom30">
                     <ul class="btn-toolbar btn-demo">
-                        <li><a class="btn btn-github" href="#" id="Imprimir"><i class="fontello-icon-github"></i> Imprimir</a>
-<?php echo $this->Html->link('Atras', array('controller' => 'Reportes', 'action' => 'formularioreporteproductos'), array('class' => 'btn btn-green')); ?>
+                        <li><a class="btn btn-github" href="<?php echo $this->Html->url(array('action' => 'formularioreporteproductos')) ?>" id="Imprimir"><i class="fontello-icon-github"></i> Imprimir</a>
+                            <?php echo $this->Html->link('Atras', array('controller' => 'Reportes', 'action' => 'formularioreporteproductos'), array('class' => 'btn btn-green')); ?>
 
 
                         </li>
@@ -80,20 +95,7 @@
                 </section>
             </div>
         </section>
-    </div>	
+    </div>
+    </div>
     <!-- // fin contenido principal --> 
 </div>
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        $("#Imprimir").click(function() {
-            console.log('imprime');
-            //printElem({ leaveOpen: true, printMode: 'popup' });
-            printElem({overrideElementCSS: ['/pizza/css/imprime.css']});
-        });
-    });
-    function printElem(options) {
-        $('#areaImprimir').printElement(options);
-    }
-
-</script>

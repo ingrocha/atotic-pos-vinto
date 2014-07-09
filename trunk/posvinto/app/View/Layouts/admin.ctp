@@ -98,9 +98,9 @@
 <!-- Footer -->
 <div id="footer">
 	<div class="shell">
-		<span class="left">&copy; 2012 - Viva Vinto derechos reservados</span>
+		<span class="left">&copy; 2014 - Viva Vinto derechos reservados</span>
 		<span class="right">			
-            Desarrollado por <a href="http://www.atotic.com" target="_blank" title="Desarrollado por ATOTIC">ATOTIC</a>
+            Desarrollado por <a href="http://www.labware.com.bo" target="_blank" title="Desarrollado por LABWARE">LABWARE</a>
 		</span>
 	</div>
 </div>
