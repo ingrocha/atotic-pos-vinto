@@ -6,59 +6,36 @@
     <div id="page-content" class="page-content">
         <section>
             <div class="page-header">
-                <h3><i class="aweso-icon-table opaci35"></i> Usuarios</h3>
-                <p>Despliega la lista de todas las categorias</p>
-            </div>
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="widget widget-simple widget-table">
-                        <table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
-                            <caption>
-                                Categorias<span></span>
-                            </caption>
-                            <thead>
-                                <tr>  
-                                    <th scope="col">Nro. <span class="column-sorter"></span></th>                                
-                                    <th scope="col">Cliente <span class="column-sorter"></span></th>
-                                    <th scope="col">Tipo de Evento <span class="column-sorter"></span></th>                               
-                                    <th scope="col">Cantidad de Personas <span class="column-sorter"></span></th>                               
-                                    <th scope="col">Fecha <span class="column-sorter"></span></th>  
-                                    <th scope="col">Observaciones <span class="column-sorter"></span></th>                                
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php $i=1;?>
-                                <?php foreach ($reservas as $res): ?>                        
-                                    <tr>                                         
-                                        <td><?php echo $i; $i++; ?></td>
-                                        <td><?php echo $res['Cliente']['nombre']; ?></td>
-                                        <td><?php echo $res['Tipoevento']['nombre']; ?></td>
-                                        <td><?php echo $res['Reserva']['cantidad_personas']; ?></td>                                   
-                                        <td><?php echo $res['Reserva']['fecha']; ?></td>
-                                        <td><?php echo $res['Reserva']['observaciones']; ?></td>
-                                        
-                                    </tr>
-                                <?php endforeach; ?>                           
-                            </tbody>
-                        </table>
-                        <!-- // BOO TABLE - DTB-2 -->
-
-                    </div>
-                    <!-- // Widget -->
-
+                <h4><i class="fontello-icon-user"></i> Reserva del Cliente<small>Restaurante Oh Cochabamba Querida.....!!!!</small></h4>
                 </div>
-                <!-- // Column -->
-
-            </div>
-            <!-- // Example row -->
-
+            <div class="widget-content">
+                                    <div class="widget-body">
+                                        <form id="accounForm" class="form-horizontal" method="" action="#" >
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="control-group no-margin-bootom">
+                                                        <label class="control-label label-left"> 
+                                                           
+                                                           <?php echo $this->Html->image("pedido.jpg");?> </label>
+                                                        <div class="controls">
+                                                            <address>
+                                                            <h2>Reserva Especial</h2>
+                                                            <strong>Reservas del Cliente:<p>
+                                                                
+                                                                <a><?php echo $reservas['Cliente']['nombre'];?></a></strong><br>
+                                                                <abbr><strong>Tipo Evento:</strong></abbr> <a><?php echo $reservas['Tipoevento']['nombre'];?></a><br><p>
+                                                                    <abbr><strong>Cantidad de Personas:</strong></abbr> <a><?php echo $reservas['Reserva']['cantidad_personas'];?></a><p>
+                                                                    <abbr><strong>Fecha y Hora de Evento :</strong></abbr> <a><?php echo $reservas['Reserva']['fecha'];?></a><br><p>
+                                                                    <abbr><strong>Observaciones:</strong></abbr> <a><?php echo $reservas['Reserva']['observaciones'];?></a>
+                                                            
+                                                            </address>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
         </section>
     </div>	
     <!-- // fin contenido principal --> 
 </div>
-<div class="content-gird">
-                    <div style="float: left;">
-                        <input type="button" class="button" value="Atras" onclick="javascript:history.back();" /> 
-                    </div>
-                <div class="clear"> </div>
-            </div>

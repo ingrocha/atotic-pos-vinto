@@ -2,7 +2,7 @@
 class ReportesController extends AppController{
     
     public $helpers = array('Html', 'Form'); 
-    public $uses = array('Producto', 'Movimientosinsumo', 'Pedido', 'Item', 'Usuario','Recibo','Bodega','User','Almacen','Insumo','Factura','Retraso','Lugare');
+    public $uses = array('Producto', 'Movimientosinsumo', 'Pedido', 'Item', 'Usuario','Recibo','Bodega','User','Almacen','Insumo','Factura','Retraso','Lugare','Parametrosfactura');
     public $components = array('Session','Fechasconvert');
     public $layout = 'vivavinto';
     
@@ -297,12 +297,14 @@ class ReportesController extends AppController{
     }
     public function reportefacturas()
     {
-        $fechaini = $this->request->data['Reportes']['fechaini'];
+       $fechaini = $this->request->data['Reportes']['fechaini'];
        $fechafin = $this->request->data['Reportes']['fechafin'];
        $condiciones['date(Factura.created) BETWEEN ? AND ?'] = array($fechaini,$fechafin);
        
        $facturas = $this->Factura->find('all',array('conditions' => $condiciones));
-       $this->set(compact('facturas','fechaini','fechafin'));
+       $codautorizacion = $this->Parametrosfactura->find('all',array('recursive'=>-1));
+       //debug($codautorizacion);die;
+       $this->set(compact('facturas','codautorizacion','fechaini','fechafin'));
     }
     public function reporteasistencias()
     {

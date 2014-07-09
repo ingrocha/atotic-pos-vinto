@@ -26,10 +26,13 @@
 
 <!-- End Container -->
 	<div id="footer">
-		<p class="copyright">
-			Centro Ecoturistico VIVA VINTO Derechos Reservados 2012
-          <span style="float: right;"> Desarrollado por <a href="http://www.atotic.com">ATOTIC&#174;</a></span> 		</p>
+	<div class="shell">
+		<span class="left">&copy; 2014 - Viva Vinto derechos reservados</span>
+		<span class="right">			
+            Desarrollado por <a href="http://www.labware.com.bo" target="_blank" title="Desarrollado por LABWARE">LABWARE</a>
+		</span>
 	</div>
+</div>
 	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

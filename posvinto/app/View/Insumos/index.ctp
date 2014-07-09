@@ -36,7 +36,8 @@ $cantidadAlmacen = new Almacen();
                             <tbody>
                                 <?php $n = 1; ?>
                                 <?php foreach ($insumos as $i): ?>                        
-                                    <?php $idInsumo = $i['Insumo']['id'] ?>                        
+                                    <?php $idInsumo = $i['Insumo']['id'] ?> 
+                                    <?php //debug($idInsumo);?>
                                     <tr>                                    
                                         <td>
                                             <?php echo $idInsumo; ?>

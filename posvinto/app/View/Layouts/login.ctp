@@ -69,13 +69,19 @@
                 </div>
                 <!-- // Example row --> 
             </section>
+            <div id="footer">
+	<div style="text-align: center; color:gray;">
+                <p class="f-left">&copy; 2014 <a href="http://www.vivavinto.com.bo/">Centro Ecoturistico Viva Vinto </a>, Todos Los Derechos Reservados &reg;</p>
+
+                <p class="f-right">Creado por <a href="http://www.labware.com.bo/">LabWare</a></p>
+                </div>
+            </div>
         </div>
         <!-- // page content --> 
         
     </div>
     <!-- // main-content --> 
-    
-</div>
+
 <!-- // main-container  -->
 
 
@@ -92,5 +98,8 @@
             'lib/jquery.cookie',
             'application.js'
         ));
-        ?>   
-</body></html>
+        ?>  
+
+</div>
+</body>
+</html>

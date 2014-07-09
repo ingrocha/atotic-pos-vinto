@@ -76,8 +76,7 @@ $modeloAmbiente = new Ambiente();
                             <div class="container-fluid">
                                 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                                 <a class="brand" href="<?php echo $this->Html->url(array('controller'=>'Panelcontrol', 'action'=>'admin'))?>"><?php echo $this->Html->image('logo-brand.png') ?></a>
-                                <div class="search-global">
-                                    <a class="search-button" href="javascript:void(0);"><i class="fontello-icon-search-5"></i></a> </div>
+                                
                                 <div class="nav-collapse collapse">
                                 <?php $rol = $this->Session->read('Auth.User.role'); ?>
                                 <?php if($rol == 'Administrador'): ?>
@@ -92,7 +91,13 @@ $modeloAmbiente = new Ambiente();
                                         </li>
                                         <li><?php echo $this->Html->link('RESERVAS', array('controller' => 'Reservas', 'action' => 'index')) ?></li>
                                         <li><?php echo $this->Html->link('PEDIDOS', array('controller' => 'controlpedidos', 'action' => 'index')) ?></li>
-                                        <li><?php echo $this->Html->link('MENU', array('controller' => 'Productos', 'action' => 'productosmenu')) ?></li>
+                                        <li class="dropdown">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">MENU<b class="caret"></b></a>
+		                                          <ul class="dropdown-menu">
+			                                         <li><a href="<?php echo $this->Form->url(array('controller' => 'Productos', 'action' => 'productosmenu')) ?>">Menu</a></li>
+                                                                 <li><a href="<?php echo $this->Form->url(array('controller' => 'Productos', 'action' => 'menu')) ?>">Pantalla Menu</a></li>
+                                                          </ul>
+                                        </li>
                                         <li class="dropdown">
                                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">ALMACEN <b class="caret"></b></a>
 		                                          <ul class="dropdown-menu">
@@ -183,7 +188,7 @@ $modeloAmbiente = new Ambiente();
                 <?php echo $this->fetch('content'); ?>
                 
                 <div style="text-align: center; color:gray;">
-                <p class="f-left">&copy; 2013 <a href="http://www.labware.com.bo/">Centro Ecoturistico Viva Vinto </a>, Todos Los Derechos Reservados &reg;</p>
+                <p class="f-left">&copy; 2014 <a href="http://www.vivavinto.com.bo/">Centro Ecoturistico Viva Vinto </a>, Todos Los Derechos Reservados &reg;</p>
 
                 <p class="f-right">Creado por <a href="http://www.labware.com.bo/">LabWare</a></p>
                 </div>
