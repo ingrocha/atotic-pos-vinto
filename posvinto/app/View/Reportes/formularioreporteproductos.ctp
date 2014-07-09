@@ -137,7 +137,7 @@
                 <div class="span12 well well-nice">
                     <?php echo $this->Form->create('Reportes', array('action' => 'reportefacturas')); ?>
                     <div class="page-header">
-                        <h3><i class="fontello-icon-article-alt opaci35"></i>Reportes de Facturas</h3>
+                        <h3><i class="fontello-icon-article-alt opaci35"></i>Libro de Ventas del Restaurante Viva Vinto</h3>
                     </div>
                     <div class="row-fluid">
                         <div class="span12">
